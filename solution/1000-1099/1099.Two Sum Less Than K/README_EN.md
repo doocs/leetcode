@@ -11,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1099. Two Sum Less Than K 🔒](https://leetcode.com/problems/two-sum-less-than-k)
 
 [中文文档](/solution/1000-1099/1099.Two%20Sum%20Less%20Than%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>nums</code> of integers and&nbsp;integer <code>k</code>, return the maximum <code>sum</code> such that there exists <code>i &lt; j</code> with <code>nums[i] + nums[j] = sum</code> and <code>sum &lt; k</code>. If no <code>i</code>, <code>j</code> exist satisfying this equation, return <code>-1</code>.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 2000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
 
@@ -150,6 +158,10 @@ function twoSumLessThanK(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Two Pointers
 
 Similar to Solution 1, we can first sort the array $nums$, and initialize the answer as $-1$.
@@ -234,4 +246,6 @@ func twoSumLessThanK(nums []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

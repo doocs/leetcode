@@ -10,11 +10,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1542. Find Longest Awesome Substring](https://leetcode.com/problems/find-longest-awesome-substring)
 
 [中文文档](/solution/1500-1599/1542.Find%20Longest%20Awesome%20Substring/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code>. An <strong>awesome</strong> substring is a non-empty substring of <code>s</code> such that we can make any number of swaps in order to make it a palindrome.</p>
 
@@ -52,7 +56,11 @@ tags:
 	<li><code>s</code> consists only of digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -154,4 +162,6 @@ func longestAwesome(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

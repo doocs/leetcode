@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2794. Create Object from Two Arrays 🔒](https://leetcode.com/problems/create-object-from-two-arrays)
 
 [中文文档](/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two arrays <code>keysArr</code> and <code>valuesArr</code>, return a new object <code>obj</code>. Each key-value pair in&nbsp;<code>obj</code>&nbsp;should come from&nbsp;<code>keysArr[i]</code>&nbsp;and&nbsp;<code>valuesArr[i]</code>.</p>
 
@@ -50,7 +54,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2794.Cr
 	<li><code>keysArr.length === valuesArr.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -89,4 +97,6 @@ var createObject = function (keysArr, valuesArr) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

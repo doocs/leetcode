@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1445. Apples & Oranges 🔒](https://leetcode.com/problems/apples-oranges)
 
 [中文文档](/solution/1400-1499/1445.Apples%20%26%20Oranges/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Sales</code></p>
 
@@ -68,7 +72,11 @@ Day 2020-05-03, 20 apples and 0 oranges were sold (Difference 20 - 0 = 20).
 Day 2020-05-04, 15 apples and 16 oranges were sold (Difference 15 - 16 = -1).
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Group By + Sum
 
@@ -88,4 +96,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

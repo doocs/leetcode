@@ -10,11 +10,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2028. Find Missing Observations](https://leetcode.com/problems/find-missing-observations)
 
 [中文文档](/solution/2000-2099/2028.Find%20Missing%20Observations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have observations of <code>n + m</code> <strong>6-sided</strong> dice rolls with each face numbered from <code>1</code> to <code>6</code>. <code>n</code> of the observations went missing, and you only have the observations of <code>m</code> rolls. Fortunately, you have also calculated the <strong>average value</strong> of the <code>n + m</code> rolls.</p>
 
@@ -60,7 +64,11 @@ tags:
 	<li><code>1 &lt;= rolls[i], mean &lt;= 6</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Construction
 
@@ -215,4 +223,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

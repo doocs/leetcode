@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2853. Highest Salaries Difference 🔒](https://leetcode.com/problems/highest-salaries-difference)
 
 [中文文档](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code><font face="monospace">Salaries</font></code></p>
 
@@ -62,7 +66,11 @@ Salaries table:
 - The Engineering and Marketing departments have the highest salaries of 102,000 and 53,000, respectively. Resulting in an absolute difference of 49,000.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: GROUP BY Clause
 
@@ -83,4 +91,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

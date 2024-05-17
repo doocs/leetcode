@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1757. Recyclable and Low Fat Products](https://leetcode.com/problems/recyclable-and-low-fat-products)
 
 [中文文档](/solution/1700-1799/1757.Recyclable%20and%20Low%20Fat%20Products/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Products</code></p>
 
@@ -59,7 +63,11 @@ Products table:
 <strong>Explanation:</strong> Only products 1 and 3 are both low fat and recyclable.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Conditional Filtering
 
@@ -86,4 +94,6 @@ WHERE low_fats = 'Y' AND recyclable = 'Y';
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

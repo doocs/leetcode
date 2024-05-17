@@ -9,11 +9,15 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [685. Redundant Connection II](https://leetcode.com/problems/redundant-connection-ii)
 
 [中文文档](/solution/0600-0699/0685.Redundant%20Connection%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In this problem, a rooted tree is a <b>directed</b> graph such that, there is exactly one node (the root) for which all other nodes are descendants of this node, plus every node has exactly one parent, except for the root node which has no parents.</p>
 
@@ -49,7 +53,11 @@ tags:
 	<li><code>u<sub>i</sub> != v<sub>i</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -272,4 +280,6 @@ func findRedundantDirectedConnection(edges [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

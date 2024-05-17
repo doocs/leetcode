@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [43. Multiply Strings](https://leetcode.com/problems/multiply-strings)
 
 [中文文档](/solution/0000-0099/0043.Multiply%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two non-negative integers <code>num1</code> and <code>num2</code> represented as strings, return the product of <code>num1</code> and <code>num2</code>, also represented as a string.</p>
 
@@ -35,7 +39,11 @@ tags:
 	<li>Both <code>num1</code> and <code>num2</code>&nbsp;do not contain any leading zero, except the number <code>0</code> itself.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulating Mathematical Multiplication
 
@@ -296,4 +304,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

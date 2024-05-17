@@ -13,11 +13,15 @@ tags:
     - Doubly-Linked List
 ---
 
+<!-- problem:start -->
+
 # [1472. Design Browser History](https://leetcode.com/problems/design-browser-history)
 
 [中文文档](/solution/1400-1499/1472.Design%20Browser%20History/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a <strong>browser</strong> of one tab where you start on the <code>homepage</code> and you can visit another <code>url</code>, get back in the history number of <code>steps</code> or move forward in the history number of <code>steps</code>.</p>
 
@@ -65,7 +69,11 @@ browserHistory.back(7);                   // You are in &quot;google.com&quot;, 
 	<li>At most <code>5000</code>&nbsp;calls will be made to <code>visit</code>, <code>back</code>, and <code>forward</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -225,4 +233,6 @@ func (this *BrowserHistory) Forward(steps int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

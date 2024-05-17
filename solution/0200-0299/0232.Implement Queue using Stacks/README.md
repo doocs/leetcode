@@ -8,13 +8,15 @@ tags:
     - 队列
 ---
 
+<!-- problem:start -->
+
 # [232. 用栈实现队列](https://leetcode.cn/problems/implement-queue-using-stacks)
 
 [English Version](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你仅使用两个栈实现先入先出队列。队列应当支持一般队列支持的所有操作（<code>push</code>、<code>pop</code>、<code>peek</code>、<code>empty</code>）：</p>
 
@@ -75,7 +77,11 @@ myQueue.empty(); // return false
 	<li>你能否实现每个操作均摊时间复杂度为 <code>O(1)</code> 的队列？换句话说，执行 <code>n</code> 个操作的总时间复杂度为 <code>O(n)</code> ，即使其中一个操作可能花费较长时间。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双栈
 
@@ -369,4 +375,6 @@ impl MyQueue {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

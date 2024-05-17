@@ -8,11 +8,15 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [277. Find the Celebrity 🔒](https://leetcode.com/problems/find-the-celebrity)
 
 [中文文档](/solution/0200-0299/0277.Find%20the%20Celebrity/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Suppose you are at a party with <code>n</code> people labeled from <code>0</code> to <code>n - 1</code> and among them, there may exist one celebrity. The definition of a celebrity is that all the other <code>n - 1</code> people know the celebrity, but the celebrity does not know any of them.</p>
 
@@ -52,7 +56,11 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> If the maximum number of allowed calls to the API <code>knows</code> is <code>3 * n</code>, could you find a solution without exceeding the maximum number of calls?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -153,4 +161,6 @@ func solution(knows func(a int, b int) bool) func(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

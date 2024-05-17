@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1789. Primary Department for Each Employee](https://leetcode.com/problems/primary-department-for-each-employee)
 
 [中文文档](/solution/1700-1799/1789.Primary%20Department%20for%20Each%20Employee/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employee</code></p>
 
@@ -71,7 +75,11 @@ Employee table:
 - The Primary department for employee 4 is 3.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Merging
 
@@ -93,4 +101,6 @@ HAVING COUNT(1) = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

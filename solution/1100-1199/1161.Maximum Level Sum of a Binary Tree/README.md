@@ -11,13 +11,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [1161. 最大层内元素和](https://leetcode.cn/problems/maximum-level-sum-of-a-binary-tree)
 
 [English Version](/solution/1100-1199/1161.Maximum%20Level%20Sum%20of%20a%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二叉树的根节点&nbsp;<code>root</code>。设根节点位于二叉树的第 <code>1</code> 层，而根节点的子节点位于第 <code>2</code> 层，依此类推。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>-10<sup>5</sup>&nbsp;&lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -253,6 +259,10 @@ function maxLevelSum(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：DFS
 
 我们也可以使用 DFS 求解。我们用一个数组 $s$ 来存储每一层的节点和，数组的下标表示层数，数组的值表示节点和。我们使用 DFS 遍历二叉树，将每个节点的值加到对应层数的节点和上。最后，我们返回 $s$ 中的最大值对应的下标即可。
@@ -406,4 +416,6 @@ func maxLevelSum(root *TreeNode) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

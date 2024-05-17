@@ -6,13 +6,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [2235. 两整数相加](https://leetcode.cn/problems/add-two-integers)
 
 [English Version](/solution/2200-2299/2235.Add%20Two%20Integers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你两个整数&nbsp;<code>num1</code> 和 <code>num2</code>，返回这两个整数的和。
 
@@ -42,7 +44,11 @@ tags:
 	<li><code>-100 &lt;= num1, num2 &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用加法运算符
 
@@ -102,6 +108,10 @@ int sum(int num1, int num2) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：位运算（不使用加法运算符）
 
@@ -205,4 +215,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

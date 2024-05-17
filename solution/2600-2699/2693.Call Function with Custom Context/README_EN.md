@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2693. Call Function with Custom Context](https://leetcode.com/problems/call-function-with-custom-context)
 
 [中文文档](/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Enhance all functions to have the&nbsp;<code>callPolyfill</code>&nbsp;method. The method accepts an object&nbsp;<code>obj</code>&nbsp;as it&#39;s first parameter and any number of additional arguments. The&nbsp;<code>obj</code>&nbsp;becomes the&nbsp;<code>this</code>&nbsp;context for the function. The additional arguments are passed to the function (that the <code>callPolyfill</code>&nbsp;method belongs on).</p>
 
@@ -63,7 +67,11 @@ args = [{&quot;item&quot;: &quot;burger&quot;}, 10, 1.1]
 	<li><code>2 &lt;= JSON.stringify(args[0]).length &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -89,4 +97,6 @@ Function.prototype.callPolyfill = function (context, ...args): any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,13 +10,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [2869. 收集元素的最少操作次数](https://leetcode.cn/problems/minimum-operations-to-collect-elements)
 
 [English Version](/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li>输入保证你可以收集到元素&nbsp;<code>1, 2, ..., k</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：逆序遍历
 
@@ -164,4 +170,6 @@ function minOperations(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

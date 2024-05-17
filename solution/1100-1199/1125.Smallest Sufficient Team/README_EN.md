@@ -11,11 +11,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1125. Smallest Sufficient Team](https://leetcode.com/problems/smallest-sufficient-team)
 
 [中文文档](/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In a project, you have a list of required skills <code>req_skills</code>, and a list of people. The <code>i<sup>th</sup></code> person <code>people[i]</code> contains a list of skills that the person has.</p>
 
@@ -54,7 +58,11 @@ tags:
 	<li>It is guaranteed a sufficient team exists.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression Dynamic Programming
 
@@ -274,4 +282,6 @@ function smallestSufficientTeam(req_skills: string[], people: string[][]): numbe
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

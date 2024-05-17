@@ -9,11 +9,15 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [729. My Calendar I](https://leetcode.com/problems/my-calendar-i)
 
 [中文文档](/solution/0700-0799/0729.My%20Calendar%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are implementing a program to use as your calendar. We can add a new event if adding the event will not cause a <strong>double booking</strong>.</p>
 
@@ -52,7 +56,11 @@ myCalendar.book(20, 30); // return True, The event can be booked, as the first e
 	<li>At most <code>1000</code> calls will be made to <code>book</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -239,4 +247,6 @@ impl MyCalendar {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

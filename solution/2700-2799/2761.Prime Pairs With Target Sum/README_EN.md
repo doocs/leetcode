@@ -11,11 +11,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2761. Prime Pairs With Target Sum](https://leetcode.com/problems/prime-pairs-with-target-sum)
 
 [中文文档](/solution/2700-2799/2761.Prime%20Pairs%20With%20Target%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code>. We say that two integers <code>x</code> and <code>y</code> form a prime number pair if:</p>
 
@@ -54,7 +58,11 @@ These pairs are [3,7] and [5,5], and we return them in the sorted order as descr
 	<li><code>1 &lt;= n &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration
 
@@ -179,4 +187,6 @@ function findPrimePairs(n: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

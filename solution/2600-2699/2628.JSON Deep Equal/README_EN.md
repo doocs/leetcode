@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2628.JSON%20Deep%20Equal/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2628. JSON Deep Equal 🔒](https://leetcode.com/problems/json-deep-equal)
 
 [中文文档](/solution/2600-2699/2628.JSON%20Deep%20Equal/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two values&nbsp;<code>o1</code>&nbsp;and <code>o2</code>, return a boolean value indicating whether two values, <code>o1</code> and <code>o2</code>, are <strong>deeply equal</strong>.</p>
 
@@ -71,7 +75,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2628.JS
 	<li><code>maxNestingDepth &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -116,4 +124,6 @@ function areDeeplyEqual(o1: any, o2: any): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

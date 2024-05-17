@@ -8,11 +8,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [568. Maximum Vacation Days 🔒](https://leetcode.com/problems/maximum-vacation-days)
 
 [中文文档](/solution/0500-0599/0568.Maximum%20Vacation%20Days/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>LeetCode wants to give one of its best employees the option to travel among <code>n</code> cities to collect algorithm problems. But all work and no play makes Jack a dull boy, you could take vacations in some particular cities and weeks. Your job is to schedule the traveling to maximize the number of vacation days you could take, but there are certain rules and restrictions you need to follow.</p>
 
@@ -83,7 +87,11 @@ Ans = 7 + 7 + 7 = 21
 	<li><code>0 &lt;= days[i][j] &lt;= 7</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -197,4 +205,6 @@ func maxVacationDays(flights [][]int, days [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

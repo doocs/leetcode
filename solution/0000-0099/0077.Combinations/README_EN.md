@@ -6,11 +6,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [77. Combinations](https://leetcode.com/problems/combinations)
 
 [中文文档](/solution/0000-0099/0077.Combinations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integers <code>n</code> and <code>k</code>, return <em>all possible combinations of</em> <code>k</code> <em>numbers chosen from the range</em> <code>[1, n]</code>.</p>
 
@@ -42,7 +46,11 @@ Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Backtracking (Two Ways)
 
@@ -243,6 +251,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -428,4 +440,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

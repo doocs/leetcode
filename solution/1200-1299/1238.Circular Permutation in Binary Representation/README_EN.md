@@ -10,11 +10,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [1238. Circular Permutation in Binary Representation](https://leetcode.com/problems/circular-permutation-in-binary-representation)
 
 [中文文档](/solution/1200-1299/1238.Circular%20Permutation%20in%20Binary%20Representation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given 2 integers <code>n</code> and <code>start</code>. Your task is return <strong>any</strong> permutation <code>p</code>&nbsp;of <code>(0,1,2.....,2^n -1) </code>such that :</p>
 
@@ -68,7 +72,11 @@ All the adjacent element differ by one bit. Another valid permutation is [3,1,0,
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Code to Gray Code
 
@@ -167,6 +175,10 @@ function circularPermutation(n: number, start: number): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Conversion Optimization
 
 Since $gray(0) = 0$, then $gray(0) \oplus start = start$, and $gray(i)$ is only one binary bit different from $gray(i-1)$, so $gray(i) \oplus start$ is also only one binary bit different from $gray(i-1) \oplus start$.
@@ -219,4 +231,6 @@ func circularPermutation(n int, start int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

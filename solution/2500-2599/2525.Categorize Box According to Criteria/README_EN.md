@@ -8,11 +8,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2525. Categorize Box According to Criteria](https://leetcode.com/problems/categorize-box-according-to-criteria)
 
 [中文文档](/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given four integers <code>length</code>, <code>width</code>, <code>height</code>, and <code>mass</code>, representing the dimensions and mass of a box, respectively, return <em>a string representing the <strong>category</strong> of the box</em>.</p>
 
@@ -65,7 +69,11 @@ Since its neither of the two above categories, we return &quot;Neither&quot;.</p
 	<li><code>1 &lt;= mass &lt;= 10<sup>3</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -163,6 +171,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -295,4 +307,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

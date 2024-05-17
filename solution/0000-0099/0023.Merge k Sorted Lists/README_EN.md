@@ -9,11 +9,15 @@ tags:
     - Merge Sort
 ---
 
+<!-- problem:start -->
+
 # [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists)
 
 [中文文档](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <code>k</code> linked-lists <code>lists</code>, each linked-list is sorted in ascending order.</p>
 
@@ -61,7 +65,11 @@ merging them into one sorted list:
 	<li>The sum of <code>lists[i].length</code> will not exceed <code>10<sup>4</sup></code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min Heap)
 
@@ -410,4 +418,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

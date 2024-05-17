@@ -7,11 +7,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1989. Maximum Number of People That Can Be Caught in Tag 🔒](https://leetcode.com/problems/maximum-number-of-people-that-can-be-caught-in-tag)
 
 [中文文档](/solution/1900-1999/1989.Maximum%20Number%20of%20People%20That%20Can%20Be%20Caught%20in%20Tag/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are playing a game of tag with your friends. In tag, people are divided into two teams: people who are &quot;it&quot;, and people who are not &quot;it&quot;. The people who are &quot;it&quot; want to catch as many people as possible who are not &quot;it&quot;.</p>
 
@@ -59,7 +63,11 @@ There are no people who are not &quot;it&quot; to catch.
 	<li><code>1 &lt;= dist &lt;= team.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -150,4 +158,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

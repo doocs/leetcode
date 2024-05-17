@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2991. Top Three Wineries 🔒](https://leetcode.com/problems/top-three-wineries)
 
 [中文文档](/solution/2900-2999/2991.Top%20Three%20Wineries/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Wineries</code></p>
 
@@ -77,7 +81,11 @@ For the USA
 Output table is ordered by country in ascending order.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping + Window Function + Left Join
 
@@ -126,4 +134,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

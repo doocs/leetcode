@@ -8,11 +8,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [816. Ambiguous Coordinates](https://leetcode.com/problems/ambiguous-coordinates)
 
 [中文文档](/solution/0800-0899/0816.Ambiguous%20Coordinates/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We had some 2-dimensional coordinates, like <code>&quot;(1, 3)&quot;</code> or <code>&quot;(2, 0.5)&quot;</code>. Then, we removed all commas, decimal points, and spaces and ended up with the string s.</p>
 
@@ -58,7 +62,11 @@ tags:
 	<li>The rest of <code>s</code> are digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -204,4 +212,6 @@ function ambiguousCoordinates(s: string): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

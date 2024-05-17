@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [285. Inorder Successor in BST 🔒](https://leetcode.com/problems/inorder-successor-in-bst)
 
 [中文文档](/solution/0200-0299/0285.Inorder%20Successor%20in%20BST/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary search tree and a node <code>p</code> in it, return <em>the in-order successor of that node in the BST</em>. If the given node has no in-order successor in the tree, return <code>null</code>.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li>All Nodes will have unique values.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -216,4 +224,6 @@ var inorderSuccessor = function (root, p) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

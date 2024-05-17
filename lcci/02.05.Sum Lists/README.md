@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.05.Sum%20Lists/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 02.05. 链表求和](https://leetcode.cn/problems/sum-lists-lcci)
 
 [English Version](/lcci/02.05.Sum%20Lists/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定两个用链表表示的整数，每个节点包含一个数位。</p>
 <p>这些数位是反向存放的，也就是个位排在链表首部。</p>
 <p>编写函数对这两个整数求和，并用链表形式返回结果。</p>
@@ -33,7 +36,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.05.Sum%20Lists/REA
 <strong>输出：</strong>9 -&gt; 1 -&gt; 2，即912
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -300,4 +307,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

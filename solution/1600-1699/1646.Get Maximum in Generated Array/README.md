@@ -9,13 +9,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [1646. 获取生成数组中的最大值](https://leetcode.cn/problems/get-maximum-in-generated-array)
 
 [English Version](/solution/1600-1699/1646.Get%20Maximum%20in%20Generated%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> 。按下述规则生成一个长度为 <code>n + 1</code> 的数组 <code>nums</code> ：</p>
 
@@ -71,7 +73,11 @@ tags:
 	<li><code>0 <= n <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -167,4 +173,6 @@ function getMaximumGenerated(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

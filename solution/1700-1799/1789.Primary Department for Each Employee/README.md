@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1789. 员工的直属部门](https://leetcode.cn/problems/primary-department-for-each-employee)
 
 [English Version](/solution/1700-1799/1789.Primary%20Department%20for%20Each%20Employee/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Employee</code></p>
 
@@ -75,7 +77,11 @@ Employee table:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：合并
 
@@ -97,4 +103,6 @@ HAVING COUNT(1) = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

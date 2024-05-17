@@ -12,13 +12,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [1872. 石子游戏 VIII](https://leetcode.cn/problems/stone-game-viii)
 
 [English Version](/solution/1800-1899/1872.Stone%20Game%20VIII/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 玩一个游戏，两人轮流操作， <strong>Alice 先手</strong> 。</p>
 
@@ -76,7 +78,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= stones[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 记忆化搜索
 
@@ -210,6 +216,10 @@ function stoneGameVIII(stones: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：前缀和 + 动态规划
 
 我们也可以使用动态规划的方法来解决这个问题。
@@ -295,4 +305,6 @@ function stoneGameVIII(stones: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

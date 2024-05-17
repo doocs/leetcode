@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [3120. Count the Number of Special Characters I](https://leetcode.com/problems/count-the-number-of-special-characters-i)
 
 [中文文档](/solution/3100-3199/3120.Count%20the%20Number%20of%20Special%20Characters%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>word</code>. A letter is called <strong>special</strong> if it appears <strong>both</strong> in lowercase and uppercase in <code>word</code>.</p>
 
@@ -64,7 +68,11 @@ tags:
 	<li><code>word</code> consists of only lowercase and uppercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -151,4 +159,6 @@ function numberOfSpecialChars(word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

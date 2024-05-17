@@ -9,11 +9,15 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [684. Redundant Connection](https://leetcode.com/problems/redundant-connection)
 
 [中文文档](/solution/0600-0699/0684.Redundant%20Connection/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In this problem, a tree is an <strong>undirected graph</strong> that is connected and has no cycles.</p>
 
@@ -49,7 +53,11 @@ tags:
 	<li>The given graph is connected.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -171,4 +179,6 @@ var findRedundantConnection = function (edges) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

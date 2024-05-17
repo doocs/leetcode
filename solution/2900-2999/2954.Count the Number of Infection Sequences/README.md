@@ -10,13 +10,15 @@ tags:
     - 组合数学
 ---
 
+<!-- problem:start -->
+
 # [2954. 统计感冒序列的数目](https://leetcode.cn/problems/count-the-number-of-infection-sequences)
 
 [English Version](/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;和一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>sick</code>&nbsp;，数组按 <strong>升序</strong>&nbsp;排序。</p>
 
@@ -68,7 +70,11 @@ tags:
 	<li><code>sick</code>&nbsp;按升序排列。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：组合数学 + 乘法逆元 + 快速幂
 
@@ -323,4 +329,6 @@ function numberOfSequence(n: number, sick: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

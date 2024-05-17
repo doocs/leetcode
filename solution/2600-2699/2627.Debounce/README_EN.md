@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2627.Debounce/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2627. Debounce](https://leetcode.com/problems/debounce)
 
 [中文文档](/solution/2600-2699/2627.Debounce/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a function&nbsp;<code>fn</code> and a time in milliseconds&nbsp;<code>t</code>, return&nbsp;a&nbsp;<strong>debounced</strong>&nbsp;version of that function.</p>
 
@@ -92,7 +96,11 @@ The 3rd call is delayed by 150ms and ran at 450ms. The inputs were (5, 6).
 	<li><code>0 &lt;= calls[i].inputs.length &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -124,4 +132,6 @@ function debounce(fn: F, t: number): F {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

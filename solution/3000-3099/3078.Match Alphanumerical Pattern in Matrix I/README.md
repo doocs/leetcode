@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [3078. 矩阵中的字母数字模式匹配 I 🔒](https://leetcode.cn/problems/match-alphanumerical-pattern-in-matrix-i)
 
 [English Version](/solution/3000-3099/3078.Match%20Alphanumerical%20Pattern%20in%20Matrix%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二维整数矩阵&nbsp;<code>board</code>&nbsp;和一个二维字符矩阵&nbsp;<code>pattern</code>。其中&nbsp;<code>0 &lt;= board[r][c] &lt;= 9</code>&nbsp;并且&nbsp;<code>pattern</code>&nbsp;的每个元素是一个数字或一个小写英文字母。</p>
 
@@ -179,7 +181,11 @@ tags:
 	<li><code>pattern[i][j]</code> 表示为一个数字的字符串或一个小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -402,4 +408,6 @@ function findPattern(board: number[][], pattern: string[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

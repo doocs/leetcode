@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1768. Merge Strings Alternately](https://leetcode.com/problems/merge-strings-alternately)
 
 [中文文档](/solution/1700-1799/1768.Merge%20Strings%20Alternately/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>word1</code> and <code>word2</code>. Merge the strings by adding letters in alternating order, starting with <code>word1</code>. If a string is longer than the other, append the additional letters onto the end of the merged string.</p>
 
@@ -87,7 +91,11 @@ merged: a p b q c   d
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Direct Simulation
 
@@ -212,4 +220,6 @@ char* mergeAlternately(char* word1, char* word2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

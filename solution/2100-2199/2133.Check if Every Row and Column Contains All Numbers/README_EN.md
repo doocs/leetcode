@@ -10,11 +10,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2133. Check if Every Row and Column Contains All Numbers](https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers)
 
 [中文文档](/solution/2100-2199/2133.Check%20if%20Every%20Row%20and%20Column%20Contains%20All%20Numbers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An <code>n x n</code> matrix is <strong>valid</strong> if every row and every column contains <strong>all</strong> the integers from <code>1</code> to <code>n</code> (<strong>inclusive</strong>).</p>
 
@@ -48,7 +52,11 @@ Hence, we return false.
 	<li><code>1 &lt;= matrix[i][j] &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -176,4 +184,6 @@ function checkValid(matrix: number[][]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,11 +11,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [1690. Stone Game VII](https://leetcode.com/problems/stone-game-vii)
 
 [中文文档](/solution/1600-1699/1690.Stone%20Game%20VII/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob take turns playing a game, with <strong>Alice starting first</strong>.</p>
 
@@ -55,7 +59,11 @@ The score difference is 18 - 12 = 6.
 	<li><code>1 &lt;= stones[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memorization Search
 
@@ -199,6 +207,10 @@ function stoneGameVII(stones: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can convert the memoization search in Solution 1 into dynamic programming. We define $f[i][j]$ as the score difference between the first and second players when the remaining stones are $stones[i], stones[i + 1], \dots, stones[j]$. Therefore, the answer is $f[0][n - 1]$.
@@ -315,4 +327,6 @@ function stoneGameVII(stones: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle)
 
 [中文文档](/solution/0100-0199/0118.Pascal%27s%20Triangle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>numRows</code>, return the first numRows of <strong>Pascal&#39;s triangle</strong>.</p>
 
@@ -32,7 +36,11 @@ tags:
 	<li><code>1 &lt;= numRows &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -163,4 +171,6 @@ var generate = function (numRows) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

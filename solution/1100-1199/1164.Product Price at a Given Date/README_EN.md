@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1164. Product Price at a Given Date](https://leetcode.com/problems/product-price-at-a-given-date)
 
 [中文文档](/solution/1100-1199/1164.Product%20Price%20at%20a%20Given%20Date/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Products</code></p>
 
@@ -59,7 +63,11 @@ Products table:
 +------------+-------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Subquery + Join
 
@@ -89,6 +97,10 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -123,4 +135,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1223. Dice Roll Simulation](https://leetcode.com/problems/dice-roll-simulation)
 
 [中文文档](/solution/1200-1299/1223.Dice%20Roll%20Simulation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A die simulator generates a random number from <code>1</code> to <code>6</code> for each roll. You introduced a constraint to the generator such that it cannot roll the number <code>i</code> more than <code>rollMax[i]</code> (<strong>1-indexed</strong>) consecutive times.</p>
 
@@ -53,7 +57,11 @@ tags:
 	<li><code>1 &lt;= rollMax[i] &lt;= 15</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -178,6 +186,10 @@ func dieSimulator(n int, rollMax []int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
 
@@ -319,4 +331,6 @@ func dieSimulator(n int, rollMax []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

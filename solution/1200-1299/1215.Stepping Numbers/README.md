@@ -9,13 +9,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [1215. 步进数 🔒](https://leetcode.cn/problems/stepping-numbers)
 
 [English Version](/solution/1200-1299/1215.Stepping%20Numbers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果一个整数上的每一位数字与其相邻位上的数字的绝对差都是 <code>1</code>，那么这个数就是一个「步进数」。</p>
 
@@ -39,7 +41,11 @@ tags:
 	<li><code>0 &lt;= low &lt;= high &lt;= 2 * 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -198,4 +204,6 @@ function countSteppingNumbers(low: number, high: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

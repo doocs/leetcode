@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [740. 删除并获得点数](https://leetcode.cn/problems/delete-and-earn)
 
 [English Version](/solution/0700-0799/0740.Delete%20and%20Earn/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，你可以对它进行一些操作。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>1 <= nums[i] <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -158,4 +164,6 @@ func deleteAndEarn(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

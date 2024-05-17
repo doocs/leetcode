@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1045. 买下所有产品的客户](https://leetcode.cn/problems/customers-who-bought-all-products)
 
 [English Version](/solution/1000-1099/1045.Customers%20Who%20Bought%20All%20Products/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>Customer</code>&nbsp;表：</p>
 
@@ -81,7 +83,11 @@ Product 表：
 购买了所有产品（5 和 6）的客户的 id 是 1 和 3 。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组统计 + 子查询
 
@@ -99,4 +105,6 @@ HAVING COUNT(DISTINCT product_key) = (SELECT COUNT(1) FROM Product);
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

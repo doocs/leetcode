@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.03.Reverse%20Bits/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [05.03. Reverse Bits](https://leetcode.cn/problems/reverse-bits-lcci)
 
 [中文文档](/lcci/05.03.Reverse%20Bits/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have an integer and you can flip exactly one bit from a 0 to a 1. Write code to find the length of the longest sequence of 1s you could create.</p>
 <p><strong>Example 1: </strong></p>
@@ -28,7 +32,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.03.Reverse%20Bits/
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -141,4 +149,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,11 +12,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2707. Extra Characters in a String](https://leetcode.com/problems/extra-characters-in-a-string)
 
 [中文文档](/solution/2700-2799/2707.Extra%20Characters%20in%20a%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> and a dictionary of words <code>dictionary</code>. You have to break <code>s</code> into one or more <strong>non-overlapping</strong> substrings such that each substring is present in <code>dictionary</code>. There may be some <strong>extra characters</strong> in <code>s</code> which are not present in any of the substrings.</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li><code>dictionary</code> contains distinct words</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Dynamic Programming
 
@@ -192,6 +200,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Trie + Dynamic Programming
 
@@ -408,4 +420,6 @@ function minExtraChar(s: string, dictionary: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

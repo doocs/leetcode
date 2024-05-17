@@ -11,11 +11,15 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [2963. Count the Number of Good Partitions](https://leetcode.com/problems/count-the-number-of-good-partitions)
 
 [中文文档](/solution/2900-2999/2963.Count%20the%20Number%20of%20Good%20Partitions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> consisting of <strong>positive</strong> integers.</p>
 
@@ -58,7 +62,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Grouping + Fast Power
 
@@ -206,4 +214,6 @@ function numberOfGoodPartitions(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

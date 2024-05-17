@@ -13,11 +13,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1361. Validate Binary Tree Nodes](https://leetcode.com/problems/validate-binary-tree-nodes)
 
 [中文文档](/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code> binary tree nodes numbered from <code>0</code> to <code>n - 1</code> where node <code>i</code> has two children <code>leftChild[i]</code> and <code>rightChild[i]</code>, return <code>true</code> if and only if <strong>all</strong> the given nodes form <strong>exactly one</strong> valid binary tree.</p>
 
@@ -56,7 +60,11 @@ tags:
 	<li><code>-1 &lt;= leftChild[i], rightChild[i] &lt;= n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find
 
@@ -189,4 +197,6 @@ func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

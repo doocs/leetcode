@@ -10,11 +10,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2509. Cycle Length Queries in a Tree](https://leetcode.com/problems/cycle-length-queries-in-a-tree)
 
 [中文文档](/solution/2500-2599/2509.Cycle%20Length%20Queries%20in%20a%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code>. There is a <strong>complete binary tree</strong> with <code>2<sup>n</sup> - 1</code> nodes. The root of that tree is the node with the value <code>1</code>, and every node with a value <code>val</code> in the range <code>[1, 2<sup>n - 1</sup> - 1]</code> has two children where:</p>
 
@@ -74,7 +78,11 @@ tags:
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -164,4 +172,6 @@ func cycleLengthQueries(n int, queries [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

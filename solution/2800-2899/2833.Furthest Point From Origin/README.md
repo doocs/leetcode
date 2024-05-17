@@ -9,13 +9,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2833. 距离原点最远的点](https://leetcode.cn/problems/furthest-point-from-origin)
 
 [English Version](/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的字符串 <code>moves</code> ，该字符串仅由字符 <code>'L'</code>、<code>'R'</code> 和 <code>'_'</code> 组成。字符串表示你在一条原点为 <code>0</code> 的数轴上的若干次移动。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>moves</code> 仅由字符 <code>'L'</code>、<code>'R'</code> 和 <code>'_'</code> 组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -134,4 +140,6 @@ function furthestDistanceFromOrigin(moves: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 字典树
 ---
 
+<!-- problem:start -->
+
 # [386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers)
 
 [English Version](/solution/0300-0399/0386.Lexicographical%20Numbers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，按字典序返回范围 <code>[1, n]</code> 内所有整数。</p>
 
@@ -43,7 +45,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -171,6 +177,10 @@ var lexicalOrder = function (n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -237,4 +247,6 @@ func lexicalOrder(n int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

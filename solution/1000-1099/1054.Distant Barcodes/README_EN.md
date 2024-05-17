@@ -13,11 +13,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1054. Distant Barcodes](https://leetcode.com/problems/distant-barcodes)
 
 [中文文档](/solution/1000-1099/1054.Distant%20Barcodes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In a warehouse, there is a row of barcodes, where the <code>i<sup>th</sup></code> barcode is <code>barcodes[i]</code>.</p>
 
@@ -39,7 +43,11 @@ tags:
 	<li><code>1 &lt;= barcodes[i] &lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Sorting
 
@@ -160,4 +168,6 @@ function rearrangeBarcodes(barcodes: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

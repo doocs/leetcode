@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2490. Circular Sentence](https://leetcode.com/problems/circular-sentence)
 
 [中文文档](/solution/2400-2499/2490.Circular%20Sentence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>sentence</strong> is a list of words that are separated by a<strong> single</strong> space with no leading or trailing spaces.</p>
 
@@ -74,7 +78,11 @@ The sentence is <strong>not</strong> circular.</pre>
 	<li>There are no leading or trailing spaces.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -192,6 +200,10 @@ var isCircularSentence = function (sentence) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Simulation (Space Optimization)
 
@@ -316,4 +328,6 @@ var isCircularSentence = function (s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

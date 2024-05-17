@@ -9,11 +9,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [514. Freedom Trail](https://leetcode.com/problems/freedom-trail)
 
 [中文文档](/solution/0500-0599/0514.Freedom%20Trail/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In the video game Fallout 4, the quest <strong>&quot;Road to Freedom&quot;</strong> requires players to reach a metal dial called the <strong>&quot;Freedom Trail Ring&quot;</strong> and use the dial to spell a specific keyword to open the door.</p>
 
@@ -57,7 +61,11 @@ So the final output is 4.
 	<li>It is guaranteed that <code>key</code> could always be spelled by rotating <code>ring</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -233,4 +241,6 @@ function findRotateSteps(ring: string, key: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

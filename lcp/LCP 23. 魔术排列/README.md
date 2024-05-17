@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2023.%20%E9%AD%94%E6%9C%AF%E6%8E%92%E5%88%97/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 23. 魔术排列](https://leetcode.cn/problems/er94lq)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 秋日市集上，魔术师邀请小扣与他互动。魔术师的道具为分别写有数字 `1~N` 的 `N` 张卡牌，然后请小扣思考一个 `N` 张卡牌的排列 `target`。
 
@@ -43,6 +45,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2023.%20%E9%AD%94%
 -   `1 <= target.length = N <= 5000`
 -   题目保证 `target` 是 `1~N` 的一个排列。
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

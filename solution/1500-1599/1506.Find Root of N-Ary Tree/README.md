@@ -9,13 +9,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [1506. 找到 N 叉树的根节点 🔒](https://leetcode.cn/problems/find-root-of-n-ary-tree)
 
 [English Version](/solution/1500-1599/1506.Find%20Root%20of%20N-Ary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一棵&nbsp;<a href="https://leetcode.cn/explore/learn/card/n-ary-tree/" target="_blank">N 叉树</a>&nbsp;的所有节点在一个数组&nbsp;&nbsp;<code>Node[] tree</code>&nbsp;中，树中每个节点都有 <strong>唯一的值</strong> 。</p>
 
@@ -81,7 +83,11 @@ findRoot 函数应该返回根 Node(1) ，驱动程序代码将序列化它并�
 	<li>你可以使用 O(1) 额外内存空间且 O(n) 时间复杂度的算法来找到该树的根节点吗？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -249,4 +255,6 @@ function findRoot(tree: Node[]): Node | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

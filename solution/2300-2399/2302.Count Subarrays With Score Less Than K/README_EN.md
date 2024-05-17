@@ -11,11 +11,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2302. Count Subarrays With Score Less Than K](https://leetcode.com/problems/count-subarrays-with-score-less-than-k)
 
 [中文文档](/solution/2300-2399/2302.Count%20Subarrays%20With%20Score%20Less%20Than%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>score</strong> of an array is defined as the <strong>product</strong> of its sum and its length.</p>
 
@@ -63,7 +67,11 @@ Thus, there are 5 subarrays having scores less than 5.
 	<li><code>1 &lt;= k &lt;= 10<sup>15</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Binary Search
 
@@ -171,6 +179,10 @@ func countSubarrays(nums []int, k int64) (ans int64) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Two Pointers
 
 We can use two pointers to maintain a sliding window, so that the sum of the elements in the window is less than $k$. The number of subarrays with the current element as the last element is the length of the window, and we add all window lengths to get the answer.
@@ -242,4 +254,6 @@ func countSubarrays(nums []int, k int64) (ans int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

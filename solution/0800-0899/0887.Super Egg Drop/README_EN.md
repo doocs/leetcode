@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [887. Super Egg Drop](https://leetcode.com/problems/super-egg-drop)
 
 [中文文档](/solution/0800-0899/0887.Super%20Egg%20Drop/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given <code>k</code> identical eggs and you have access to a building with <code>n</code> floors labeled from <code>1</code> to <code>n</code>.</p>
 
@@ -57,7 +61,11 @@ Hence, we need at minimum 2 moves to determine with certainty what the value of 
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -222,6 +230,10 @@ function superEggDrop(k: number, n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -361,4 +373,6 @@ function superEggDrop(k: number, n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

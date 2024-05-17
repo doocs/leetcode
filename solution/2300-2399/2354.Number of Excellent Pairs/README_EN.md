@@ -11,11 +11,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2354. Number of Excellent Pairs](https://leetcode.com/problems/number-of-excellent-pairs)
 
 [中文文档](/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> positive integer array <code>nums</code> and a positive integer <code>k</code>.</p>
 
@@ -61,7 +65,11 @@ So the number of excellent pairs is 5.</pre>
 	<li><code>1 &lt;= k &lt;= 60</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -156,4 +164,6 @@ func countExcellentPairs(nums []int, k int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1917. Leetcodify 好友推荐 🔒](https://leetcode.cn/problems/leetcodify-friends-recommendations)
 
 [English Version](/solution/1900-1999/1917.Leetcodify%20Friends%20Recommendations/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表： <code>Listens</code></p>
 
@@ -109,7 +111,11 @@ Friendship 表：
 类似地，我们可以发现用户 2 和 3 在同一天收听了歌曲 10、11 和 12，且他们不是好友，所以我们给他们互相推荐为好友。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -142,4 +148,6 @@ HAVING COUNT(DISTINCT l1.song_id) >= 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

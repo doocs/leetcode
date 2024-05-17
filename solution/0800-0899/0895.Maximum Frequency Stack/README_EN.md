@@ -9,11 +9,15 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [895. Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack)
 
 [中文文档](/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a stack-like data structure to push elements to the stack and pop the most frequent element from the stack.</p>
 
@@ -62,7 +66,11 @@ freqStack.pop();   // return 4, as 4, 5 and 7 is the most frequent, but 4 is clo
 	<li>It is guaranteed that there will be at least one element in the stack before calling <code>pop</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Priority Queue (Max Heap)
 
@@ -205,6 +213,10 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Double Hash Tables
 
@@ -349,4 +361,6 @@ func (this *FreqStack) Pop() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2056.%20%E4%BF%A1%E7%89%A9%E4%BC%A0%E9%80%81/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 56. 信物传送](https://leetcode.cn/problems/6UEx57)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 欢迎各位勇者来到力扣城，本次试炼主题为「信物传送」。
 
@@ -55,7 +57,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2056.%20%E4%BF%A1%
 -   `0 <= start[0],end[0] < matrix.length`
 -   `0 <= start[1],end[1] < matrix[i].length`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双端队列 BFS(0-1 BFS)
 
@@ -257,4 +263,6 @@ function conveyorBelt(matrix: string[], start: number[], end: number[]): number 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1046. Last Stone Weight](https://leetcode.com/problems/last-stone-weight)
 
 [中文文档](/solution/1000-1099/1046.Last%20Stone%20Weight/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of integers <code>stones</code> where <code>stones[i]</code> is the weight of the <code>i<sup>th</sup></code> stone.</p>
 
@@ -56,7 +60,11 @@ we combine 1 and 1 to get 0 so the array converts to [1] then that&#39;s the val
 	<li><code>1 &lt;= stones[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -185,4 +193,6 @@ var lastStoneWeight = function (stones) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

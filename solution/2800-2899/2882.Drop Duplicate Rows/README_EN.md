@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2882.Drop%20Duplicate%20Rows/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2882. Drop Duplicate Rows](https://leetcode.com/problems/drop-duplicate-rows)
 
 [中文文档](/solution/2800-2899/2882.Drop%20Duplicate%20Rows/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <pre>
 DataFrame customers
@@ -55,7 +59,11 @@ DataFrame customers
 Alic (customer_id = 4) and Finn (customer_id = 5) both use john@example.com, so only the first occurrence of this email is retained.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -71,4 +79,6 @@ def dropDuplicateEmails(customers: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

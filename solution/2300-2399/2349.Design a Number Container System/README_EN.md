@@ -11,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2349. Design a Number Container System](https://leetcode.com/problems/design-a-number-container-system)
 
 [中文文档](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a number container system that can do the following:</p>
 
@@ -62,7 +66,11 @@ nc.find(10); // Number 10 is at the indices 2, 3, and 5. The smallest index that
 	<li>At most <code>10<sup>5</sup></code> calls will be made <strong>in total</strong> to <code>change</code> and <code>find</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -200,4 +208,6 @@ func (this *NumberContainers) Find(number int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

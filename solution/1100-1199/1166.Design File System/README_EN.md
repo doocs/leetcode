@@ -11,11 +11,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1166. Design File System 🔒](https://leetcode.com/problems/design-file-system)
 
 [中文文档](/solution/1100-1199/1166.Design%20File%20System/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are asked to design a file system&nbsp;that allows you to create new paths and associate them with different values.</p>
 
@@ -72,7 +76,11 @@ fileSystem.get(&quot;/c&quot;); // return -1 because this path doesn&#39;t exist
 	<li>At most <code>10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>createPath</code> and <code>get</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Trie
 
@@ -405,4 +413,6 @@ class FileSystem {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2632.Curry/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2632. Curry 🔒](https://leetcode.com/problems/curry)
 
 [中文文档](/solution/2600-2699/2632.Curry/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a function&nbsp;<code>fn</code>,&nbsp;return&nbsp;a&nbsp;<strong>curried</strong>&nbsp;version of that function.</p>
 
@@ -78,7 +82,11 @@ curriedLife() === 42
 	<li>If&nbsp;<code>fn.length === 0</code> then <code>inputs.length === 1</code>&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -103,4 +111,6 @@ function curry(fn: Function): Function {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

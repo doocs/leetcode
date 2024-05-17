@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2633.Convert%20Object%20to%20JSON%20String/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2633. Convert Object to JSON String 🔒](https://leetcode.com/problems/convert-object-to-json-string)
 
 [中文文档](/solution/2600-2699/2633.Convert%20Object%20to%20JSON%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a value, return a valid JSON string of that value. The value can be a string, number, array, object, boolean, or null.&nbsp;The returned string should not include extra spaces. The order of keys should be the same as the order returned by&nbsp;<code>Object.keys()</code>.</p>
 
@@ -60,7 +64,11 @@ Primitive types are valid inputs.</pre>
 	<li>all strings contain only alphanumeric characters</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -91,4 +99,6 @@ function jsonStringify(object: any): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [423. Reconstruct Original Digits from English](https://leetcode.com/problems/reconstruct-original-digits-from-english)
 
 [中文文档](/solution/0400-0499/0423.Reconstruct%20Original%20Digits%20from%20English/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> containing an out-of-order English representation of digits <code>0-9</code>, return <em>the digits in <strong>ascending</strong> order</em>.</p>
 
@@ -33,7 +37,11 @@ tags:
 	<li><code>s</code> is <strong>guaranteed</strong> to be valid.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -152,4 +160,6 @@ func originalDigits(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

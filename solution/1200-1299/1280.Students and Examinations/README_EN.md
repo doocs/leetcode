@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1280. Students and Examinations](https://leetcode.com/problems/students-and-examinations)
 
 [中文文档](/solution/1200-1299/1280.Students%20and%20Examinations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Students</code></p>
 
@@ -126,7 +130,11 @@ Alex did not attend any exams.
 John attended the Math exam 1 time, the Physics exam 1 time, and the Programming exam 1 time.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Joins + Grouping
 
@@ -147,4 +155,6 @@ ORDER BY 1, 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

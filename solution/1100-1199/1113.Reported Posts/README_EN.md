@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1113. Reported Posts 🔒](https://leetcode.com/problems/reported-posts)
 
 [中文文档](/solution/1100-1199/1113.Reported%20Posts/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Actions</code></p>
 
@@ -71,7 +75,11 @@ Actions table:
 <strong>Explanation:</strong> Note that we only care about report reasons with non-zero number of reports.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -87,4 +95,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

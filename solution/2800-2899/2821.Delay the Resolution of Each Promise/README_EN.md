@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2821. Delay the Resolution of Each Promise 🔒](https://leetcode.com/problems/delay-the-resolution-of-each-promise)
 
 [中文文档](/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array&nbsp;<code>functions</code>&nbsp;and a number <code>ms</code>, return a new&nbsp;array of functions.</p>
 
@@ -68,7 +72,11 @@ ms = 30
 	<li><code>1 &lt;= functions.length &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -87,4 +95,6 @@ function delayAll(functions: Function[], ms: number): Function[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

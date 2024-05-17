@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [610. Triangle Judgement](https://leetcode.com/problems/triangle-judgement)
 
 [中文文档](/solution/0600-0699/0610.Triangle%20Judgement/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Triangle</code></p>
 
@@ -55,7 +59,11 @@ Triangle table:
 +----+----+----+----------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: IF Statement + Triangle Inequality
 
@@ -73,4 +81,6 @@ FROM Triangle;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

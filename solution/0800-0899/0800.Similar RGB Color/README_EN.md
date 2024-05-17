@@ -8,11 +8,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [800. Similar RGB Color 🔒](https://leetcode.com/problems/similar-rgb-color)
 
 [中文文档](/solution/0800-0899/0800.Similar%20RGB%20Color/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The red-green-blue color <code>&quot;#AABBCC&quot;</code> can be written as <code>&quot;#ABC&quot;</code> in shorthand.</p>
 
@@ -53,7 +57,11 @@ This is the highest among any shorthand color.
 	<li><code>color[i]</code> is either digit or character in the range <code>[&#39;a&#39;, &#39;f&#39;]</code> for <code>i &gt; 0</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -106,4 +114,6 @@ func similarRGB(color string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

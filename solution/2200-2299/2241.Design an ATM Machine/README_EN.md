@@ -10,11 +10,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2241. Design an ATM Machine](https://leetcode.com/problems/design-an-atm-machine)
 
 [中文文档](/solution/2200-2299/2241.Design%20an%20ATM%20Machine/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an ATM machine that stores banknotes of <code>5</code> denominations: <code>20</code>, <code>50</code>, <code>100</code>, <code>200</code>, and <code>500</code> dollars. Initially the ATM is empty. The user can use the machine to deposit or withdraw any amount of money.</p>
 
@@ -72,7 +76,11 @@ atm.withdraw(550);        // Returns [0,1,0,0,1]. The machine uses 1 $50 banknot
 	<li>Sum of <code>banknotesCount[i]</code> in all deposits doesn&#39;t exceed <code>10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -225,4 +233,6 @@ func (this *ATM) Withdraw(amount int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

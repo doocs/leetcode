@@ -11,11 +11,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1898. Maximum Number of Removable Characters](https://leetcode.com/problems/maximum-number-of-removable-characters)
 
 [中文文档](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>s</code> and <code>p</code> where <code>p</code> is a <strong>subsequence </strong>of <code>s</code>. You are also given a <strong>distinct 0-indexed </strong>integer array <code>removable</code> containing a subset of indices of <code>s</code> (<code>s</code> is also <strong>0-indexed</strong>).</p>
 
@@ -66,7 +70,11 @@ Hence, the maximum k is 2.
 	<li>The elements in <code>removable</code> are <strong>distinct</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -264,4 +272,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

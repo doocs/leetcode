@@ -10,11 +10,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream)
 
 [中文文档](/solution/0200-0299/0295.Find%20Median%20from%20Data%20Stream/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>median</strong> is the middle value in an ordered integer list. If the size of the list is even, there is no middle value, and the median is the mean of the two middle values.</p>
 
@@ -67,7 +71,11 @@ medianFinder.findMedian(); // return 2.0
 	<li>If <code>99%</code> of all integer numbers from the stream are in the range <code>[0, 100]</code>, how would you optimize your solution?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -396,4 +404,6 @@ public class MedianFinder {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

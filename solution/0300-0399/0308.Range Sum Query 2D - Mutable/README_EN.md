@@ -10,11 +10,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [308. Range Sum Query 2D - Mutable 🔒](https://leetcode.com/problems/range-sum-query-2d-mutable)
 
 [中文文档](/solution/0300-0399/0308.Range%20Sum%20Query%202D%20-%20Mutable/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a 2D matrix <code>matrix</code>, handle multiple queries of the following types:</p>
 
@@ -65,7 +69,11 @@ numMatrix.sumRegion(2, 1, 4, 3); // return 10 (i.e. sum of the right red rectang
 	<li>At most <code>5000</code> calls will be made to <code>sumRegion</code> and <code>update</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -335,6 +343,10 @@ func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -608,4 +620,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

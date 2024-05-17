@@ -9,11 +9,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1732. Find the Highest Altitude](https://leetcode.com/problems/find-the-highest-altitude)
 
 [中文文档](/solution/1700-1799/1732.Find%20the%20Highest%20Altitude/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a biker going on a road trip. The road trip consists of <code>n + 1</code> points at different altitudes. The biker starts his trip on point <code>0</code> with altitude equal <code>0</code>.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>-100 &lt;= gain[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum (Difference Array)
 
@@ -177,6 +185,10 @@ int largestAltitude(int* gain, int gainSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -193,4 +205,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

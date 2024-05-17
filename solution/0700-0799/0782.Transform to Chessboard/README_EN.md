@@ -9,11 +9,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [782. Transform to Chessboard](https://leetcode.com/problems/transform-to-chessboard)
 
 [中文文档](/solution/0700-0799/0782.Transform%20to%20Chessboard/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>n x n</code> binary grid <code>board</code>. In each move, you can swap any two rows with each other, or any two columns with each other.</p>
 
@@ -58,7 +62,11 @@ The second move swaps the second and third row.
 	<li><code>board[i][j]</code> is either&nbsp;<code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -280,4 +288,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2625.Flatten%20Deeply%20Nested%20Array/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2625. Flatten Deeply Nested Array](https://leetcode.com/problems/flatten-deeply-nested-array)
 
 [中文文档](/solution/2600-2699/2625.Flatten%20Deeply%20Nested%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a&nbsp;<strong>multi-dimensional</strong> array&nbsp;<code>arr</code>&nbsp;and a depth <code>n</code>, return&nbsp;a&nbsp;<strong>flattened</strong>&nbsp;version of that array.</p>
 
@@ -66,7 +70,11 @@ The maximum depth of any subarray is 1. Thus, all of them are flattened.</pre>
 	<li><code><font face="monospace">0 &lt;= n &lt;= 1000</font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -93,4 +101,6 @@ var flat = function (arr: MultiDimensionalArray, n: number): MultiDimensionalArr
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

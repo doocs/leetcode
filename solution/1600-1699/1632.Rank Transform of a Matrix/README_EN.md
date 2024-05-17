@@ -13,11 +13,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1632. Rank Transform of a Matrix](https://leetcode.com/problems/rank-transform-of-a-matrix)
 
 [中文文档](/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> <code>matrix</code>, return <em>a new matrix </em><code>answer</code><em> where </em><code>answer[row][col]</code><em> is the </em><em><strong>rank</strong> of </em><code>matrix[row][col]</code>.</p>
 
@@ -74,7 +78,11 @@ The rank of matrix[1][1] is 3 because matrix[1][1] &gt; matrix[0][1], matrix[1][
 	<li><code>-10<sup>9</sup> &lt;= matrix[row][col] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -369,4 +377,6 @@ func matrixRankTransform(matrix [][]int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

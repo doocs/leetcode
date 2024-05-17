@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [1629. 按键持续时间最长的键](https://leetcode.cn/problems/slowest-key)
 
 [English Version](/solution/1600-1699/1629.Slowest%20Key/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>LeetCode 设计了一款新式键盘，正在测试其可用性。测试人员将会点击一系列键（总计 <code>n</code> 个），每次一个。</p>
 
@@ -69,7 +71,11 @@ tags:
 	<li><code>keysPressed</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -140,4 +146,6 @@ func slowestKey(releaseTimes []int, keysPressed string) byte {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

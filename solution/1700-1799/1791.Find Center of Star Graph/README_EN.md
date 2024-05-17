@@ -8,11 +8,15 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [1791. Find Center of Star Graph](https://leetcode.com/problems/find-center-of-star-graph)
 
 [中文文档](/solution/1700-1799/1791.Find%20Center%20of%20Star%20Graph/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an undirected <strong>star</strong> graph consisting of <code>n</code> nodes labeled from <code>1</code> to <code>n</code>. A star graph is a graph where there is one <strong>center</strong> node and <strong>exactly</strong> <code>n - 1</code> edges that connect the center node with every other node.</p>
 
@@ -46,7 +50,11 @@ tags:
 	<li>The given <code>edges</code> represent a valid star graph.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Directly Compare the Points of the First Two Edges
 
@@ -129,4 +137,6 @@ var findCenter = function (edges) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

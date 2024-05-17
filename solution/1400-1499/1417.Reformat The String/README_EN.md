@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1417. Reformat The String](https://leetcode.com/problems/reformat-the-string)
 
 [中文文档](/solution/1400-1499/1417.Reformat%20The%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an alphanumeric string <code>s</code>. (<strong>Alphanumeric string</strong> is a string consisting of lowercase English letters and digits).</p>
 
@@ -53,7 +57,11 @@ tags:
 	<li><code>s</code> consists of only lowercase English letters and/or digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -174,4 +182,6 @@ func reformat(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

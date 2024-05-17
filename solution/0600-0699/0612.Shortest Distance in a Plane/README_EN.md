@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [612. Shortest Distance in a Plane 🔒](https://leetcode.com/problems/shortest-distance-in-a-plane)
 
 [中文文档](/solution/0600-0699/0612.Shortest%20Distance%20in%20a%20Plane/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Point2D</code></p>
 
@@ -55,7 +59,11 @@ Point2D table:
 <strong>Explanation:</strong> The shortest distance is 1.00 from point (-1, -1) to (-1, 2).
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -73,4 +81,6 @@ LIMIT 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

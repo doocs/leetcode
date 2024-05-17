@@ -10,11 +10,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [353. Design Snake Game 🔒](https://leetcode.com/problems/design-snake-game)
 
 [中文文档](/solution/0300-0399/0353.Design%20Snake%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a <a href="https://en.wikipedia.org/wiki/Snake_(video_game)" target="_blank">Snake game</a> that is played on a device with screen size <code>height x width</code>. <a href="http://patorjk.com/games/snake/" target="_blank">Play the game online</a> if you are not familiar with the game.</p>
 
@@ -70,7 +74,11 @@ snakeGame.move(&quot;U&quot;); // return -1, game over because snake collides wi
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>move</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -377,4 +385,6 @@ class SnakeGame {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

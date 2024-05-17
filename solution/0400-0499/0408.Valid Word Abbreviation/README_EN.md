@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [408. Valid Word Abbreviation 🔒](https://leetcode.com/problems/valid-word-abbreviation)
 
 [中文文档](/solution/0400-0499/0408.Valid%20Word%20Abbreviation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A string can be <strong>abbreviated</strong> by replacing any number of <strong>non-adjacent</strong>, <strong>non-empty</strong> substrings with their lengths. The lengths <strong>should not</strong> have leading zeros.</p>
 
@@ -65,7 +69,11 @@ tags:
 	<li>All the integers in <code>abbr</code> will fit in a 32-bit integer.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -206,4 +214,6 @@ function validWordAbbreviation(word: string, abbr: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

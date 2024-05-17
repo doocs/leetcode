@@ -10,11 +10,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2488. Count Subarrays With Median K](https://leetcode.com/problems/count-subarrays-with-median-k)
 
 [中文文档](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> of size <code>n</code> consisting of <strong>distinct </strong>integers from <code>1</code> to <code>n</code> and a positive integer <code>k</code>.</p>
 
@@ -60,7 +64,11 @@ tags:
 	<li>The integers in <code>nums</code> are distinct.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal + Counting
 
@@ -219,4 +227,6 @@ function countSubarrays(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

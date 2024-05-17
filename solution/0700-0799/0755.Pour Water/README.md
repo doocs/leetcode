@@ -7,13 +7,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [755. 倒水 🔒](https://leetcode.cn/problems/pour-water)
 
 [English Version](/solution/0700-0799/0755.Pour%20Water/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出一个地形高度图， <code>heights[i]</code> 表示该索引处的高度。每个索引的宽度为 1。在 <code>V</code> 个单位的水落在索引 <code>K</code> 处以后，每个索引位置有多少水？</p>
 
@@ -148,7 +150,11 @@ tags:
 	<li><code>K</code> 的范围 <code>[0, heights.length - 1]</code>。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -259,4 +265,6 @@ func pourWater(heights []int, volume int, k int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

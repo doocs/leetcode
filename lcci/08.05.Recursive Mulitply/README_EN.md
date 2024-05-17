@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.05.Recursive%20Mulitply/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.05. Recursive Mulitply](https://leetcode.cn/problems/recursive-mulitply-lcci)
 
 [中文文档](/lcci/08.05.Recursive%20Mulitply/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a recursive function to multiply two positive integers without using the * operator. You can use addition, subtraction, and bit shifting, but you should minimize the number of those operations.</p>
 <p><strong>Example 1:</strong></p>
@@ -32,7 +36,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.05.Recursive%20Mul
 	<li>The result will not overflow.</li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion + Bit Manipulation
 
@@ -137,4 +145,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

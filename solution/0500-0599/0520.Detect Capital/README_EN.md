@@ -6,11 +6,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [520. Detect Capital](https://leetcode.com/problems/detect-capital)
 
 [中文文档](/solution/0500-0599/0520.Detect%20Capital/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We define the usage of capitals in a word to be right when one of the following cases holds:</p>
 
@@ -38,7 +42,11 @@ tags:
 	<li><code>word</code> consists of lowercase and uppercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Count the Number of Uppercase Letters
 
@@ -105,4 +113,6 @@ function detectCapitalUse(word: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

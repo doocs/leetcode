@@ -4,13 +4,16 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.12.Eight%20Queens/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.12. 八皇后](https://leetcode.cn/problems/eight-queens-lcci)
 
 [English Version](/lcci/08.12.Eight%20Queens/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>设计一种算法，打印 N 皇后在 N &times; N 棋盘上的各种摆法，其中每个皇后都不同行、不同列，也不在对角线上。这里的&ldquo;对角线&rdquo;指的是所有的对角线，不只是平分整个棋盘的那两条对角线。</p>
 
 <p><strong>注意：</strong>本题相对原题做了扩展</p>
@@ -33,7 +36,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.12.Eight%20Queens/
 ]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS(回溯)
 
@@ -297,4 +304,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

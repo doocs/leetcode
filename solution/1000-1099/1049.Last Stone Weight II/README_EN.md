@@ -9,11 +9,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1049. Last Stone Weight II](https://leetcode.com/problems/last-stone-weight-ii)
 
 [中文文档](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of integers <code>stones</code> where <code>stones[i]</code> is the weight of the <code>i<sup>th</sup></code> stone.</p>
 
@@ -56,7 +60,11 @@ we can combine 1 and 1 to get 0, so the array converts to [1], then that&#39;s t
 	<li><code>1 &lt;= stones[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -198,6 +206,10 @@ var lastStoneWeightII = function (stones) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -268,4 +280,6 @@ func lastStoneWeightII(stones []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

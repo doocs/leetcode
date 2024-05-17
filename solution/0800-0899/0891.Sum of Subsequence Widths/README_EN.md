@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [891. Sum of Subsequence Widths](https://leetcode.com/problems/sum-of-subsequence-widths)
 
 [中文文档](/solution/0800-0899/0891.Sum%20of%20Subsequence%20Widths/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>width</strong> of a sequence is the difference between the maximum and minimum elements in the sequence.</p>
 
@@ -46,7 +50,11 @@ The sum of these widths is 6.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -114,4 +122,6 @@ func sumSubseqWidths(nums []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

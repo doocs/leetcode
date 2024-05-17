@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2230. The Users That Are Eligible for Discount 🔒](https://leetcode.com/problems/the-users-that-are-eligible-for-discount)
 
 [中文文档](/solution/2200-2299/2230.The%20Users%20That%20Are%20Eligible%20for%20Discount/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Purchases</code></p>
 
@@ -67,7 +71,11 @@ Out of the three users, only User 3 is eligible for a discount.
 <p>&nbsp;</p>
 <p><strong>Important Note:</strong> This problem is basically the same as <a href="https://leetcode.com/problems/the-number-of-users-that-are-eligible-for-discount/">The Number of Users That Are Eligible for Discount</a>.</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -86,4 +94,6 @@ END;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

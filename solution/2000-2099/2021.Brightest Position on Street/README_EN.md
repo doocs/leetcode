@@ -8,11 +8,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2021. Brightest Position on Street 🔒](https://leetcode.com/problems/brightest-position-on-street)
 
 [中文文档](/solution/2000-2099/2021.Brightest%20Position%20on%20Street/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A perfectly straight street is represented by a number line. The street has street lamp(s) on it and is represented by a 2D integer array <code>lights</code>. Each <code>lights[i] = [position<sub>i</sub>, range<sub>i</sub>]</code> indicates that there is a street lamp at position <code>position<sub>i</sub></code> that lights up the area from <code>[position<sub>i</sub> - range<sub>i</sub>, position<sub>i</sub> + range<sub>i</sub>]</code> (<strong>inclusive</strong>).</p>
 
@@ -72,7 +76,11 @@ Out of all these positions, -1 is the smallest, so return it.
 	<li><code>0 &lt;= range<sub>i</sub> &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Difference Array + Hash Table + Sorting
 
@@ -208,4 +216,6 @@ var brightestPosition = function (lights) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

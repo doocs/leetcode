@@ -13,13 +13,15 @@ tags:
     - 滚动哈希
 ---
 
+<!-- problem:start -->
+
 # [3008. 找出数组中的美丽下标 II](https://leetcode.cn/problems/find-beautiful-indices-in-the-given-array-ii)
 
 [English Version](/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的字符串&nbsp;<code>s</code>&nbsp;、字符串&nbsp;<code>a</code>&nbsp;、字符串&nbsp;<code>b</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -70,7 +72,11 @@ tags:
 	<li><code>s</code>、<code>a</code>、和&nbsp;<code>b</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -386,4 +392,6 @@ func beautifulIndices(s string, a string, b string, k int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

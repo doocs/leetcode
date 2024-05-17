@@ -9,11 +9,15 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [732. My Calendar III](https://leetcode.com/problems/my-calendar-iii)
 
 [中文文档](/solution/0700-0799/0732.My%20Calendar%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <code>k</code>-booking happens when <code>k</code> events have some non-empty intersection (i.e., there is some time that is common to all <code>k</code> events.)</p>
 
@@ -55,7 +59,11 @@ myCalendarThree.book(25, 55); // return 3
 	<li>At most <code>400</code> calls will be made to <code>book</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -451,4 +459,6 @@ func (this *MyCalendarThree) Book(start int, end int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1677. Product's Worth Over Invoices 🔒](https://leetcode.com/problems/products-worth-over-invoices)
 
 [中文文档](/solution/1600-1699/1677.Product%27s%20Worth%20Over%20Invoices/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Product</code></p>
 
@@ -97,7 +101,11 @@ Invoice table:
 - The amount of money refunded for ham is 0 + 3 = 3
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -120,4 +128,6 @@ ORDER BY name;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1069. 产品销售分析 II 🔒](https://leetcode.cn/problems/product-sales-analysis-ii)
 
 [English Version](/solution/1000-1099/1069.Product%20Sales%20Analysis%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>销售表：<code>Sales</code></p>
 
@@ -83,7 +85,11 @@ Product 表：
 | 200          | 15             |
 +--------------+----------------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用 `GROUP BY`
 
@@ -100,4 +106,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

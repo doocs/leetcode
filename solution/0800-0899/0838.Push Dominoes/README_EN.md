@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [838. Push Dominoes](https://leetcode.com/problems/push-dominoes)
 
 [中文文档](/solution/0800-0899/0838.Push%20Dominoes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> dominoes in a line, and we place each domino vertically upright. In the beginning, we simultaneously push some of the dominoes either to the left or to the right.</p>
 
@@ -57,7 +61,11 @@ tags:
 	<li><code>dominoes[i]</code> is either <code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>, or <code>&#39;.&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -266,4 +274,6 @@ function pushDominoes(dominoes: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

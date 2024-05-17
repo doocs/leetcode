@@ -9,11 +9,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1906. Minimum Absolute Difference Queries](https://leetcode.com/problems/minimum-absolute-difference-queries)
 
 [中文文档](/solution/1900-1999/1906.Minimum%20Absolute%20Difference%20Queries/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>minimum absolute difference</strong> of an array <code>a</code> is defined as the <strong>minimum value</strong> of <code>|a[i] - a[j]|</code>, where <code>0 &lt;= i &lt; j &lt; a.length</code> and <code>a[i] != a[j]</code>. If all elements of <code>a</code> are the <strong>same</strong>, the minimum absolute difference is <code>-1</code>.</p>
 
@@ -70,7 +74,11 @@ tags:
 	<li><code>0 &lt;= l<sub>i</sub> &lt; r<sub>i</sub> &lt; nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -244,4 +252,6 @@ function minDifference(nums: number[], queries: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

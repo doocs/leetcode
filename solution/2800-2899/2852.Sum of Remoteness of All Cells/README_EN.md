@@ -10,11 +10,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2852. Sum of Remoteness of All Cells 🔒](https://leetcode.com/problems/sum-of-remoteness-of-all-cells)
 
 [中文文档](/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> matrix <code>grid</code> of order <code>n * n</code>. Each cell in this matrix has a value <code>grid[i][j]</code>, which is either a <strong>positive</strong> integer or <code>-1</code> representing a blocked cell.</p>
 
@@ -70,7 +74,11 @@ Now let&#39;s jump on the bottom-right grid in the above picture and calculate R
 	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>6</sup></code> or <code>grid[i][j] == -1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -272,4 +280,6 @@ function sumRemoteness(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

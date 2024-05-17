@@ -8,11 +8,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [90. Subsets II](https://leetcode.com/problems/subsets-ii)
 
 [中文文档](/solution/0000-0099/0090.Subsets%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> that may contain duplicates, return <em>all possible</em> <span data-keyword="subset"><em>subsets</em></span><em> (the power set)</em>.</p>
 
@@ -34,7 +38,11 @@ tags:
 	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + DFS
 
@@ -208,6 +216,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Binary Enumeration
 
 Similar to Solution 1, we first sort the array $nums$ to facilitate deduplication.
@@ -374,4 +386,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

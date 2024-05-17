@@ -8,11 +8,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [982. Triples with Bitwise AND Equal To Zero](https://leetcode.com/problems/triples-with-bitwise-and-equal-to-zero)
 
 [中文文档](/solution/0900-0999/0982.Triples%20with%20Bitwise%20AND%20Equal%20To%20Zero/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array nums, return <em>the number of <strong>AND triples</strong></em>.</p>
 
@@ -61,7 +65,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt; 2<sup>16</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -168,4 +176,6 @@ function countTriplets(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

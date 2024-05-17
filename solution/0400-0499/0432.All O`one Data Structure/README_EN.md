@@ -9,11 +9,15 @@ tags:
     - Doubly-Linked List
 ---
 
+<!-- problem:start -->
+
 # [432. All O`one Data Structure](https://leetcode.com/problems/all-oone-data-structure)
 
 [中文文档](/solution/0400-0499/0432.All%20O%60one%20Data%20Structure/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a data structure to store the strings&#39; count with the ability to return the strings with minimum and maximum counts.</p>
 
@@ -60,7 +64,11 @@ allOne.getMinKey(); // return &quot;leet&quot;
 	<li>At most <code>5 * 10<sup>4</sup></code>&nbsp;calls will be made to <code>inc</code>, <code>dec</code>, <code>getMaxKey</code>, and <code>getMinKey</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -248,4 +256,6 @@ class Node {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

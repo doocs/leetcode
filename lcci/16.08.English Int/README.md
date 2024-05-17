@@ -4,13 +4,16 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.08.English%20Int/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.08. 整数的英语表示](https://leetcode.cn/problems/english-int-lcci)
 
 [English Version](/lcci/16.08.English%20Int/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定一个整数，打印该整数的英文描述。</p>
 <p><strong>示例 1:</strong></p>
 <pre><strong>输入:</strong> 123
@@ -26,6 +29,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.08.English%20Int/R
 <pre><strong>输入:</strong> 1234567891
 <strong>输出:</strong> &quot;One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety One&quot;</pre>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1037. Valid Boomerang](https://leetcode.com/problems/valid-boomerang)
 
 [中文文档](/solution/1000-1099/1037.Valid%20Boomerang/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a point on the <strong>X-Y</strong> plane, return <code>true</code> <em>if these points are a <strong>boomerang</strong></em>.</p>
 
@@ -37,7 +41,11 @@ tags:
 	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -104,4 +112,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

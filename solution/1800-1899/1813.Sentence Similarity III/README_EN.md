@@ -10,11 +10,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1813. Sentence Similarity III](https://leetcode.com/problems/sentence-similarity-iii)
 
 [中文文档](/solution/1800-1899/1813.Sentence%20Similarity%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A sentence is a list of words that are separated by a single space with no leading or trailing spaces. For example, <code>&quot;Hello World&quot;</code>, <code>&quot;HELLO&quot;</code>, <code>&quot;hello world hello world&quot;</code> are all sentences. Words consist of <strong>only</strong> uppercase and lowercase English letters.</p>
 
@@ -56,7 +60,11 @@ tags:
 	<li>The words in <code>sentence1</code> and <code>sentence2</code> are separated by a single space.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -180,4 +188,6 @@ function areSentencesSimilar(sentence1: string, sentence2: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

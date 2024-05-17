@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.01.Route%20Between%20Nodes/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 04.01. 节点间通路](https://leetcode.cn/problems/route-between-nodes-lcci)
 
 [English Version](/lcci/04.01.Route%20Between%20Nodes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>节点间通路。给定有向图，设计一个算法，找出两个节点之间是否存在一条路径。</p>
 
 <p><strong>示例1:</strong></p>
@@ -33,7 +36,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.01.Route%20Between
 	<li>图中可能存在自环和平行边。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -222,6 +229,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：BFS
 
 与方法一类似，我们先根据给定的图构建一个邻接表 $g$，其中 $g[i]$ 表示节点 $i$ 的所有邻居节点，用一个哈希表或数组 $vis$ 记录访问过的节点，然后从节点 $start$ 开始广度优先搜索，如果搜索到节点 $target$，则返回 `true`，否则返回 `false`。
@@ -367,4 +378,6 @@ function findWhetherExistsPath(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

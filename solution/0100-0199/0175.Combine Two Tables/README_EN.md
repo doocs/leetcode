@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [175. Combine Two Tables](https://leetcode.com/problems/combine-two-tables)
 
 [中文文档](/solution/0100-0199/0175.Combine%20Two%20Tables/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Person</code></p>
 
@@ -82,7 +86,11 @@ There is no address in the address table for the personId = 1 so we return null 
 addressId = 1 contains information about the address of personId = 2.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: LEFT JOIN
 
@@ -110,4 +118,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [39. Combination Sum](https://leetcode.com/problems/combination-sum)
 
 [中文文档](/solution/0000-0099/0039.Combination%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of <strong>distinct</strong> integers <code>candidates</code> and a target integer <code>target</code>, return <em>a list of all <strong>unique combinations</strong> of </em><code>candidates</code><em> where the chosen numbers sum to </em><code>target</code><em>.</em> You may return the combinations in <strong>any order</strong>.</p>
 
@@ -55,7 +59,11 @@ These are the only two combinations.
 	<li><code>1 &lt;= target &lt;= 40</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Pruning + Backtracking
 
@@ -260,6 +268,10 @@ public class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Sorting + Pruning + Backtracking(Another Form)
 
@@ -485,4 +497,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

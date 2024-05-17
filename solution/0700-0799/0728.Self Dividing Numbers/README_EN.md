@@ -6,11 +6,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [728. Self Dividing Numbers](https://leetcode.com/problems/self-dividing-numbers)
 
 [中文文档](/solution/0700-0799/0728.Self%20Dividing%20Numbers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>self-dividing number</strong> is a number that is divisible by every digit it contains.</p>
 
@@ -37,7 +41,11 @@ tags:
 	<li><code>1 &lt;= left &lt;= right &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -148,4 +156,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

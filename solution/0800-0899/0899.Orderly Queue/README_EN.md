@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [899. Orderly Queue](https://leetcode.com/problems/orderly-queue)
 
 [中文文档](/solution/0800-0899/0899.Orderly%20Queue/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> and an integer <code>k</code>. You can choose one of the first <code>k</code> letters of <code>s</code> and append it at the end of the string.</p>
 
@@ -47,7 +51,11 @@ In the second move, we move the 3<sup>rd</sup> character &#39;c&#39; to the end,
 	<li><code>s</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case-by-case Judgment
 
@@ -149,4 +157,6 @@ function orderlyQueue(s: string, k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1253. Reconstruct a 2-Row Binary Matrix](https://leetcode.com/problems/reconstruct-a-2-row-binary-matrix)
 
 [中文文档](/solution/1200-1299/1253.Reconstruct%20a%202-Row%20Binary%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the following details of a matrix with <code>n</code> columns and <code>2</code> rows :</p>
 
@@ -65,7 +69,11 @@ tags:
 	<li><code>0 &lt;= colsum[i] &lt;= 2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -232,4 +240,6 @@ function reconstructMatrix(upper: number, lower: number, colsum: number[]): numb
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

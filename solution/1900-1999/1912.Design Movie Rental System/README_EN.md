@@ -12,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1912. Design Movie Rental System](https://leetcode.com/problems/design-movie-rental-system)
 
 [中文文档](/solution/1900-1999/1912.Design%20Movie%20Rental%20System/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a movie renting company consisting of <code>n</code> shops. You want to implement a renting system that supports searching for, booking, and returning movies. The system should also support generating a report of the currently rented movies.</p>
 
@@ -75,7 +79,11 @@ movieRentingSystem.search(2);  // return [0, 1]. Movies of ID 2 are unrented at 
 	<li>At most <code>10<sup>5</sup></code> calls <strong>in total</strong> will be made to <code>search</code>, <code>rent</code>, <code>drop</code> and <code>report</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -121,4 +129,6 @@ class MovieRentingSystem:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

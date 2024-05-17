@@ -8,13 +8,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [817. 链表组件](https://leetcode.cn/problems/linked-list-components)
 
 [English Version](/solution/0800-0899/0817.Linked%20List%20Components/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定链表头结点&nbsp;<code>head</code>，该链表上的每个结点都有一个 <strong>唯一的整型值</strong> 。同时给定列表&nbsp;<code>nums</code>，该列表是上述链表中整型值的一个子集。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>nums</code> 中所有值 <strong>不同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 链表一次遍历
 
@@ -276,4 +282,6 @@ var numComponents = function (head, nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [880. Decoded String at Index](https://leetcode.com/problems/decoded-string-at-index)
 
 [中文文档](/solution/0800-0899/0880.Decoded%20String%20at%20Index/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an encoded string <code>s</code>. To decode the string to a tape, the encoded string is read one character at a time and the following steps are taken:</p>
 
@@ -62,7 +66,11 @@ The 1<sup>st</sup> letter is &quot;a&quot;.
 	<li>The decoded string is guaranteed to have less than <code>2<sup>63</sup></code> letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Thinking
 
@@ -196,4 +204,6 @@ function decodeAtIndex(s: string, k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

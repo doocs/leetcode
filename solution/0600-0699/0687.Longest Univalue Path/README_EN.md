@@ -8,11 +8,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [687. Longest Univalue Path](https://leetcode.com/problems/longest-univalue-path)
 
 [中文文档](/solution/0600-0699/0687.Longest%20Univalue%20Path/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, return <em>the length of the longest path, where each node in the path has the same value</em>. This path may or may not pass through the root.</p>
 
@@ -44,7 +48,11 @@ tags:
 	<li>The depth of the tree will not exceed <code>1000</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -339,4 +347,6 @@ int longestUnivaluePath(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1355. Activity Participants 🔒](https://leetcode.com/problems/activity-participants)
 
 [中文文档](/solution/1300-1399/1355.Activity%20Participants/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Friends</code></p>
 
@@ -88,7 +92,11 @@ Horse Riding activity is performed by 1 friend, minimum number of participants, 
 Singing is performed by 2 friends (Victor J. and Jade W.)
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -109,4 +117,6 @@ WHERE cnt > (SELECT MIN(cnt) FROM t) AND cnt < (SELECT MAX(cnt) FROM t);
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

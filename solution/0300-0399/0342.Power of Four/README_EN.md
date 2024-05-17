@@ -8,11 +8,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [342. Power of Four](https://leetcode.com/problems/power-of-four)
 
 [中文文档](/solution/0300-0399/0342.Power%20of%20Four/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, return <em><code>true</code> if it is a power of four. Otherwise, return <code>false</code></em>.</p>
 
@@ -39,7 +43,11 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve it without loops/recursion?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -92,4 +100,6 @@ var isPowerOfFour = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

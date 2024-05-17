@@ -14,11 +14,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [3044. Most Frequent Prime](https://leetcode.com/problems/most-frequent-prime)
 
 [中文文档](/solution/3000-3099/3044.Most%20Frequent%20Prime/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <code>m x n</code> <strong>0-indexed </strong>2D<strong> </strong>matrix <code>mat</code>. From every cell, you can create numbers in the following way:</p>
 
@@ -85,7 +89,11 @@ The most frequent prime number among all the created numbers is 97.
 	<li><code>1 &lt;= mat[i][j] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
 
@@ -316,4 +324,6 @@ function mostFrequentPrime(mat: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

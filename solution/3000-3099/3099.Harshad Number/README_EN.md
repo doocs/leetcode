@@ -8,11 +8,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [3099. Harshad Number](https://leetcode.com/problems/harshad-number)
 
 [中文文档](/solution/3000-3099/3099.Harshad%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An integer divisible by the <strong>sum</strong> of its digits is said to be a <strong>Harshad</strong> number. You are given an integer <code>x</code>. Return<em> the sum of the digits </em>of<em> </em><code>x</code><em> </em>if<em> </em><code>x</code><em> </em>is a <strong>Harshad</strong> number, otherwise, return<em> </em><code>-1</code><em>.</em></p>
 
@@ -48,7 +52,11 @@ tags:
 	<li><code>1 &lt;= x &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -118,4 +126,6 @@ function sumOfTheDigitsOfHarshadNumber(x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,11 +11,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1273. Delete Tree Nodes 🔒](https://leetcode.com/problems/delete-tree-nodes)
 
 [中文文档](/solution/1200-1299/1273.Delete%20Tree%20Nodes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A tree rooted at node 0 is given as follows:</p>
 
@@ -57,7 +61,11 @@ tags:
 	<li>The given input is <strong>guaranteed</strong> to represent a <strong>valid tree</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -171,4 +179,6 @@ func deleteTreeNodes(nodes int, parent []int, value []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

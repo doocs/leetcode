@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2665.Counter%20II/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2665. Counter II](https://leetcode.com/problems/counter-ii)
 
 [中文文档](/solution/2600-2699/2665.Counter%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a function&nbsp;<code>createCounter</code>. It should accept an initial integer&nbsp;<code>init</code>. It should return an object with three functions.</p>
 
@@ -56,7 +60,11 @@ counter.reset(); // 0
 	<li><code>calls[i]</code> is one of &quot;increment&quot;, &quot;decrement&quot; and&nbsp;&quot;reset&quot;</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -94,4 +102,6 @@ function createCounter(init: number): ReturnObj {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

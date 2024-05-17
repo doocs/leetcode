@@ -9,11 +9,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [3078. Match Alphanumerical Pattern in Matrix I 🔒](https://leetcode.com/problems/match-alphanumerical-pattern-in-matrix-i)
 
 [中文文档](/solution/3000-3099/3078.Match%20Alphanumerical%20Pattern%20in%20Matrix%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D integer matrix <code>board</code> and a 2D character matrix <code>pattern</code>. Where <code>0 &lt;= board[r][c] &lt;= 9</code> and each element of <code>pattern</code> is either a digit or a lowercase English letter.</p>
 
@@ -175,7 +179,11 @@ tags:
 	<li><code>pattern[i][j]</code> is either a digit represented as a string or a lowercase English letter.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -398,4 +406,6 @@ function findPattern(board: number[][], pattern: string[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2474. Customers With Strictly Increasing Purchases 🔒](https://leetcode.com/problems/customers-with-strictly-increasing-purchases)
 
 [中文文档](/solution/2400-2499/2474.Customers%20With%20Strictly%20Increasing%20Purchases/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Orders</code></p>
 
@@ -86,7 +90,11 @@ Customer 3: The first year is 2017, and the last year is 2018
  We do not include customer 3 in the answer because the total purchases are not strictly increasing.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -115,4 +123,6 @@ HAVING COUNT(DISTINCT rk) = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

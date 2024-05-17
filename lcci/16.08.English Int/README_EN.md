@@ -4,11 +4,15 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.08.English%20Int/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.08. English Int](https://leetcode.cn/problems/english-int-lcci)
 
 [中文文档](/lcci/16.08.English%20Int/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given any integer, print an English phrase that describes the integer (e.g., &quot;One Thousand Two Hundred Thirty Four&quot;).</p>
 <p><strong>Example 1:</strong></p>
@@ -40,6 +44,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.08.English%20Int/R
 
 <strong>Output:</strong> &quot;One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety One&quot;</pre>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

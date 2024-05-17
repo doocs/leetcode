@@ -9,11 +9,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [930. Binary Subarrays With Sum](https://leetcode.com/problems/binary-subarrays-with-sum)
 
 [中文文档](/solution/0900-0999/0930.Binary%20Subarrays%20With%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a binary array <code>nums</code> and an integer <code>goal</code>, return <em>the number of non-empty <strong>subarrays</strong> with a sum</em> <code>goal</code>.</p>
 
@@ -65,7 +69,11 @@ tags:
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -157,6 +165,10 @@ var numSubarraysWithSum = function (nums, goal) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -271,4 +283,6 @@ var numSubarraysWithSum = function (nums, goal) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

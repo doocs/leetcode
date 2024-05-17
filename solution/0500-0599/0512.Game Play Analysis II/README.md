@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [512. 游戏玩法分析 II 🔒](https://leetcode.cn/problems/game-play-analysis-ii)
 
 [English Version](/solution/0500-0599/0512.Game%20Play%20Analysis%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Table:&nbsp;<code>Activity</code></p>
 
@@ -59,7 +61,11 @@ Activity table:
 | 3         | 1         |
 +-----------+-----------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：子查询
 
@@ -84,6 +90,10 @@ WHERE
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：窗口函数
 
@@ -110,4 +120,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

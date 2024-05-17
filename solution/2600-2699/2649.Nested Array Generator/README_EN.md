@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2649.Nested%20Array%20Generator/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2649. Nested Array Generator](https://leetcode.com/problems/nested-array-generator)
 
 [中文文档](/solution/2600-2699/2649.Nested%20Array%20Generator/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a&nbsp;<strong>multi-dimensional array</strong> of integers, return&nbsp;a generator object which&nbsp;yields integers in the same order as&nbsp;<strong>inorder traversal</strong>.</p>
 
@@ -50,7 +54,11 @@ generator.next().done; // true
 <p>&nbsp;</p>
 <strong>Can you solve this without creating a new flattened version of the array?</strong>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -79,4 +87,6 @@ function* inorderTraversal(arr: MultidimensionalArray): Generator<number, void, 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

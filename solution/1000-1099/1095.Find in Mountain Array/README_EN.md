@@ -10,11 +10,15 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [1095. Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array)
 
 [中文文档](/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p><em>(This problem is an <strong>interactive problem</strong>.)</em></p>
 
@@ -66,7 +70,11 @@ tags:
 	<li><code>0 &lt;= mountain_arr.get(index) &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -326,4 +334,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

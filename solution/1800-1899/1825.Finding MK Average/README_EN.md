@@ -12,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1825. Finding MK Average](https://leetcode.com/problems/finding-mk-average)
 
 [中文文档](/solution/1800-1899/1825.Finding%20MK%20Average/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers, <code>m</code> and <code>k</code>, and a stream of integers. You are tasked to implement a data structure that calculates the <strong>MKAverage</strong> for the stream.</p>
 
@@ -73,7 +77,11 @@ obj.calculateMKAverage(); // The last 3 elements are [5,5,5].
 	<li>At most <code>10<sup>5</sup></code> calls will be made to <code>addElement</code> and <code>calculateMKAverage</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Ordered Set + Queue
 
@@ -425,6 +433,10 @@ func (this *MKAverage) CalculateMKAverage() int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -478,4 +490,6 @@ class MKAverage:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

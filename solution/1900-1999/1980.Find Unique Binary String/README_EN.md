@@ -11,11 +11,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [1980. Find Unique Binary String](https://leetcode.com/problems/find-unique-binary-string)
 
 [中文文档](/solution/1900-1999/1980.Find%20Unique%20Binary%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of strings <code>nums</code> containing <code>n</code> <strong>unique</strong> binary strings each of length <code>n</code>, return <em>a binary string of length </em><code>n</code><em> that <strong>does not appear</strong> in </em><code>nums</code><em>. If there are multiple answers, you may return <strong>any</strong> of them</em>.</p>
 
@@ -55,7 +59,11 @@ tags:
 	<li>All the strings of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
 
@@ -169,4 +177,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

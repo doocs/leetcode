@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2895. Minimum Processing Time](https://leetcode.com/problems/minimum-processing-time)
 
 [中文文档](/solution/2800-2899/2895.Minimum%20Processing%20Time/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a certain number of processors, each having 4 cores. The number of tasks to be executed is four times the number of processors. Each task must be assigned to a unique core, and each core can only be used once.</p>
 
@@ -64,7 +68,11 @@ tags:
 	<li><code>tasks.length == 4 * n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -148,4 +156,6 @@ function minProcessingTime(processorTime: number[], tasks: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

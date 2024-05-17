@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1251. 平均售价](https://leetcode.cn/problems/average-selling-price)
 
 [English Version](/solution/1200-1299/1251.Average%20Selling%20Price/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Prices</code></p>
 
@@ -88,7 +90,11 @@ UnitsSold table:
 产品 1 的平均售价 = ((100 * 5)+(15 * 20) )/ 115 = 6.96
 产品 2 的平均售价 = ((200 * 15)+(30 * 30) )/ 230 = 16.96</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：左连接 + 分组统计
 
@@ -110,4 +116,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [997. Find the Town Judge](https://leetcode.com/problems/find-the-town-judge)
 
 [中文文档](/solution/0900-0999/0997.Find%20the%20Town%20Judge/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In a town, there are <code>n</code> people labeled from <code>1</code> to <code>n</code>. There is a rumor that one of these people is secretly the town judge.</p>
 
@@ -62,7 +66,11 @@ tags:
 	<li><code>1 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -192,4 +200,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

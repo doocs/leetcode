@@ -12,11 +12,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1947. Maximum Compatibility Score Sum](https://leetcode.com/problems/maximum-compatibility-score-sum)
 
 [中文文档](/solution/1900-1999/1947.Maximum%20Compatibility%20Score%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a survey that consists of <code>n</code> questions where each question&#39;s answer is either <code>0</code> (no) or <code>1</code> (yes).</p>
 
@@ -64,7 +68,11 @@ The compatibility score sum is 3 + 2 + 3 = 8.
 	<li><code>mentors[j][k]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -208,4 +216,6 @@ func maxCompatibilitySum(students [][]int, mentors [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

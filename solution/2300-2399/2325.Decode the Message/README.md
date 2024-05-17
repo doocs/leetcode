@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [2325. 解密消息](https://leetcode.cn/problems/decode-the-message)
 
 [English Version](/solution/2300-2399/2325.Decode%20the%20Message/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你字符串 <code>key</code> 和 <code>message</code> ，分别表示一个加密密钥和一段加密消息。解密 <code>message</code> 的步骤如下：</p>
 
@@ -68,7 +70,11 @@ tags:
 	<li><code>message</code> 由小写英文字母和 <code>' '</code> 组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表
 
@@ -205,4 +211,6 @@ char* decodeMessage(char* key, char* message) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

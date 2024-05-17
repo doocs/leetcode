@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2045.%20%E8%87%AA%E8%A1%8C%E8%BD%A6%E7%82%AB%E6%8A%80%E8%B5%9B%E5%9C%BA/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 45. 自行车炫技赛场](https://leetcode.cn/problems/kplEvH)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 「力扣挑战赛」中 `N*M` 大小的自行车炫技赛场的场地由一片连绵起伏的上下坡组成，场地的高度值记录于二维数组 `terrain` 中，场地的减速值记录于二维数组 `obstacle` 中。
 
@@ -47,6 +49,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2045.%20%E8%87%AA%
 -   `0 <= position[0] < n`
 -   `0 <= position[1] < m`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

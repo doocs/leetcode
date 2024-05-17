@@ -13,11 +13,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1838. Frequency of the Most Frequent Element](https://leetcode.com/problems/frequency-of-the-most-frequent-element)
 
 [中文文档](/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>frequency</strong> of an element is the number of times it occurs in an array.</p>
 
@@ -61,7 +65,11 @@ Explanation:</strong> Increment the first element three times and the second ele
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Prefix Sum + Binary Search
 
@@ -234,6 +242,10 @@ function maxFrequency(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Two Pointers
 
 We can also use two pointers to maintain a sliding window, where all elements in the window can be changed to the maximum value in the window. The number of operations for the elements in the window is $s$, and $s \leq k$.
@@ -330,4 +342,6 @@ function maxFrequency(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

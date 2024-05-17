@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcs/LCS%2003.%20%E4%B8%BB%E9%A2%98%E7%A9%BA%E9%97%B4/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCS 03. 主题空间](https://leetcode.cn/problems/YesdPw/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 「以扣会友」线下活动所在场地由若干主题空间与走廊组成，场地的地图记作由一维字符串型数组 `grid`，字符串中仅包含 `"0"～"5"` 这 6 个字符。地图上每一个字符代表面积为 1 的区域，其中 `"0"` 表示走廊，其他字符表示主题空间。相同且连续（连续指上、下、左、右四个方向连接）的字符组成同一个主题空间。
 
@@ -37,7 +39,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcs/LCS%2003.%20%E4%B8%BB%
 -   `1 <= grid[i].length <= 500`
 -   `grid[i][j]` 仅可能是 `"0"～"5"`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -268,4 +274,6 @@ var largestArea = function (grid) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2671. Frequency Tracker](https://leetcode.com/problems/frequency-tracker)
 
 [中文文档](/solution/2600-2699/2671.Frequency%20Tracker/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a data structure that keeps track of the values in it and answers some queries regarding their frequencies.</p>
 
@@ -87,7 +91,11 @@ frequencyTracker.hasFrequency(1); // Returns true, because 3 occurs once
 	<li>At most, <code>2 *&nbsp;10<sup>5</sup></code>&nbsp;calls will be made to <code>add</code>, <code>deleteOne</code>, and <code>hasFrequency</code>&nbsp;in <strong>total</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -339,4 +347,6 @@ impl FrequencyTracker {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

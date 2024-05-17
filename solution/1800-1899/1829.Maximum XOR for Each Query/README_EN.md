@@ -10,11 +10,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1829. Maximum XOR for Each Query](https://leetcode.com/problems/maximum-xor-for-each-query)
 
 [中文文档](/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>sorted</strong> array <code>nums</code> of <code>n</code> non-negative integers and an integer <code>maximumBit</code>. You want to perform the following query <code>n</code> <strong>times</strong>:</p>
 
@@ -68,7 +72,11 @@ tags:
 	<li><code>nums</code>​​​ is sorted in <strong>ascending</strong> order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bitwise Operation + Enumeration
 
@@ -247,6 +255,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Enumeration Optimization
 
 Similar to Solution 1, we first preprocess the XOR sum $xs$ of the array `nums`, i.e., $xs=nums[0] \oplus nums[1] \oplus \cdots \oplus nums[n-1]$.
@@ -396,4 +408,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

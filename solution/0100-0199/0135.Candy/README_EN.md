@@ -7,11 +7,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [135. Candy](https://leetcode.com/problems/candy)
 
 [中文文档](/solution/0100-0199/0135.Candy/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> children standing in a line. Each child is assigned a rating value given in the integer array <code>ratings</code>.</p>
 
@@ -51,7 +55,11 @@ The third child gets 1 candy because it satisfies the above two conditions.
 	<li><code>0 &lt;= ratings[i] &lt;= 2 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two traversals
 
@@ -213,6 +221,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -249,4 +261,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

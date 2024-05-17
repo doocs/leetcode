@@ -9,11 +9,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [143. Reorder List](https://leetcode.com/problems/reorder-list)
 
 [中文文档](/solution/0100-0199/0143.Reorder%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the head of a singly linked-list. The list can be represented as:</p>
 
@@ -52,7 +56,11 @@ L<sub>0</sub> &rarr; L<sub>n</sub> &rarr; L<sub>1</sub> &rarr; L<sub>n - 1</sub>
 	<li><code>1 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Fast and Slow Pointers + Reverse List + Merge Lists
 
@@ -380,4 +388,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

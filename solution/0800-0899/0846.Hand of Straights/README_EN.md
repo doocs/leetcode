@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [846. Hand of Straights](https://leetcode.com/problems/hand-of-straights)
 
 [中文文档](/solution/0800-0899/0846.Hand%20of%20Straights/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice has some number of cards and she wants to rearrange the cards into groups so that each group is of size <code>groupSize</code>, and consists of <code>groupSize</code> consecutive cards.</p>
 
@@ -49,7 +53,11 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as 1296: <a href="https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/" target="_blank">https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/</a></p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -145,6 +153,10 @@ func isNStraightHand(hand []int, groupSize int) bool {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -258,4 +270,6 @@ func isNStraightHand(hand []int, groupSize int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

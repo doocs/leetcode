@@ -11,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1086. High Five 🔒](https://leetcode.com/problems/high-five)
 
 [中文文档](/solution/1000-1099/1086.High%20Five/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a list of the scores of different students, <code>items</code>, where <code>items[i] = [ID<sub>i</sub>, score<sub>i</sub>]</code> represents one score from a student with <code>ID<sub>i</sub></code>, calculate each student&#39;s <strong>top five average</strong>.</p>
 
@@ -52,7 +56,11 @@ The student with ID = 2 got scores 93, 97, 77, 100, and 76. Their top five avera
 	<li>For each <code>ID<sub>i</sub></code>, there will be <strong>at least</strong> five scores.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -182,4 +190,6 @@ function highFive(items: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

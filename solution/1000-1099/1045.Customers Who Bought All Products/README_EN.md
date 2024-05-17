@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1045. Customers Who Bought All Products](https://leetcode.com/problems/customers-who-bought-all-products)
 
 [中文文档](/solution/1000-1099/1045.Customers%20Who%20Bought%20All%20Products/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Customer</code></p>
 
@@ -80,7 +84,11 @@ Product table:
 The customers who bought all the products (5 and 6) are customers with IDs 1 and 3.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping and Subquery
 
@@ -98,4 +106,6 @@ HAVING COUNT(DISTINCT product_key) = (SELECT COUNT(1) FROM Product);
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

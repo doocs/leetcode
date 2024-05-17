@@ -9,11 +9,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2560. House Robber IV](https://leetcode.com/problems/house-robber-iv)
 
 [中文文档](/solution/2500-2599/2560.House%20Robber%20IV/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are several consecutive houses along a street, each of which has some money inside. There is also a robber, who wants to steal money from the homes, but he <strong>refuses to steal from adjacent homes</strong>.</p>
 
@@ -56,7 +60,11 @@ Therefore, we return min(5, 9, 9) = 5.
 	<li><code>1 &lt;= k &lt;= (nums.length + 1)/2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search + Greedy
 
@@ -185,4 +193,6 @@ function minCapability(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

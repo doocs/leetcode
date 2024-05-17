@@ -11,11 +11,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [913. Cat and Mouse](https://leetcode.com/problems/cat-and-mouse)
 
 [中文文档](/solution/0900-0999/0913.Cat%20and%20Mouse/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A game on an <strong>undirected</strong> graph is played by two players, Mouse and Cat, who alternate turns.</p>
 
@@ -70,7 +74,11 @@ tags:
 	<li>The mouse and the cat can always move.&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -378,4 +386,6 @@ func catMouseGame(graph [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

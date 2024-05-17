@@ -7,11 +7,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [766. Toeplitz Matrix](https://leetcode.com/problems/toeplitz-matrix)
 
 [中文文档](/solution/0700-0799/0766.Toeplitz%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> <code>matrix</code>, return&nbsp;<em><code>true</code>&nbsp;if the matrix is Toeplitz. Otherwise, return <code>false</code>.</em></p>
 
@@ -56,7 +60,11 @@ The diagonal &quot;[1, 2]&quot; has different elements.
 	<li>What if the <code>matrix</code> is so large that you can only load up a partial row into the memory at once?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -141,4 +149,6 @@ var isToeplitzMatrix = function (matrix) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

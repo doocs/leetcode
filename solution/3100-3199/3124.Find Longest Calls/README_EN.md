@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3124. Find Longest Calls 🔒](https://leetcode.com/problems/find-longest-calls)
 
 [中文文档](/solution/3100-3199/3124.Find%20Longest%20Calls/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Contacts</code></p>
 
@@ -116,7 +120,11 @@ Each row of this table contains information about calls, comprising of contact_i
 <p><b>Note:</b> Output table is sorted by type, duration, and first_name in descending order.</p>
 </div>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Equi-Join + Window Function
 
@@ -175,4 +183,6 @@ def find_longest_calls(contacts: pd.DataFrame, calls: pd.DataFrame) -> pd.DataFr
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2080.%20%E7%94%9F%E7%89%A9%E8%BF%9B%E5%8C%96%E5%BD%95/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 80. 生物进化录](https://leetcode.cn/problems/qoQAMX)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 在永恒之森中，存在着一本生物进化录，以 **一个树形结构** 记载了所有生物的演化过程。经过观察并整理了各节点间的关系，`parents[i]` 表示编号 `i` 节点的父节点编号(根节点的父节点为 `-1`)。
 
@@ -46,6 +48,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2080.%20%E7%94%9F%
 -   `1 <= parents.length <= 10^4`
 -   `-1 <= parents[i] < i` (即父节点编号小于子节点)
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

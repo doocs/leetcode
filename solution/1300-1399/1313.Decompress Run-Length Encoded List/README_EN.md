@@ -8,11 +8,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1313. Decompress Run-Length Encoded List](https://leetcode.com/problems/decompress-run-length-encoded-list)
 
 [中文文档](/solution/1300-1399/1313.Decompress%20Run-Length%20Encoded%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We are given a list <code>nums</code> of integers representing a list compressed with run-length encoding.</p>
 
@@ -47,7 +51,11 @@ At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
 	<li><code><font face="monospace">1 &lt;= nums[i] &lt;= 100</font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -157,4 +165,6 @@ int* decompressRLElist(int* nums, int numsSize, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

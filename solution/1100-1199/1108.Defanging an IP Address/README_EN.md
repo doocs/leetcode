@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1108. Defanging an IP Address](https://leetcode.com/problems/defanging-an-ip-address)
 
 [中文文档](/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a valid (IPv4) IP <code>address</code>, return a defanged version of that IP address.</p>
 
@@ -44,7 +48,11 @@ tags:
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Direct Replacement
 
@@ -96,4 +104,6 @@ function defangIPaddr(address: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

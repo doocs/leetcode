@@ -10,11 +10,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [1087. Brace Expansion 🔒](https://leetcode.com/problems/brace-expansion)
 
 [中文文档](/solution/1000-1099/1087.Brace%20Expansion/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> representing a list of words. Each letter in the word has one or more options.</p>
 
@@ -46,7 +50,11 @@ tags:
 	<li>All characters inside a pair of consecutive opening and ending curly brackets are different.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -136,4 +144,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

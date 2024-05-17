@@ -11,13 +11,15 @@ tags:
     - 组合数学
 ---
 
+<!-- problem:start -->
+
 # [2963. 统计好分割方案的数目](https://leetcode.cn/problems/count-the-number-of-good-partitions)
 
 [English Version](/solution/2900-2999/2963.Count%20the%20Number%20of%20Good%20Partitions/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、由 <strong>正整数</strong> 组成的数组 <code>nums</code>。</p>
 
@@ -62,7 +64,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 分组 + 快速幂
 
@@ -210,4 +216,6 @@ function numberOfGoodPartitions(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

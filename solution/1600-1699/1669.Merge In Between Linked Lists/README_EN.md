@@ -8,11 +8,15 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [1669. Merge In Between Linked Lists](https://leetcode.com/problems/merge-in-between-linked-lists)
 
 [中文文档](/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two linked lists: <code>list1</code> and <code>list2</code> of sizes <code>n</code> and <code>m</code> respectively.</p>
 
@@ -48,7 +52,11 @@ tags:
 	<li><code>1 &lt;= list2.length &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -245,4 +253,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

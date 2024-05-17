@@ -13,11 +13,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2573. Find the String with LCP](https://leetcode.com/problems/find-the-string-with-lcp)
 
 [中文文档](/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We define the <code>lcp</code> matrix of any <strong>0-indexed</strong> string <code>word</code> of <code>n</code> lowercase English letters as an <code>n x n</code> grid such that:</p>
 
@@ -62,7 +66,11 @@ tags:
 	<li><code><font face="monospace">0 &lt;= lcp[i][j] &lt;= n</font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Construction
 
@@ -280,4 +288,6 @@ function findTheString(lcp: number[][]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

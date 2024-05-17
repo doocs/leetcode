@@ -7,11 +7,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [661. Image Smoother](https://leetcode.com/problems/image-smoother)
 
 [中文文档](/solution/0600-0699/0661.Image%20Smoother/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An <strong>image smoother</strong> is a filter of the size <code>3 x 3</code> that can be applied to each cell of an image by rounding down the average of the cell and the eight surrounding cells (i.e., the average of the nine cells in the blue smoother). If one or more of the surrounding cells of a cell is not present, we do not consider it in the average (i.e., the average of the four cells in the red smoother).</p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0661.Image%20Smoother/images/smoother-grid.jpg" style="width: 493px; height: 493px;" />
@@ -50,7 +54,11 @@ For the point (1,1): floor((50+200+200+200+200+100+100+100+100)/9) = floor(138.8
 	<li><code>0 &lt;= img[i][j] &lt;= 255</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -223,4 +231,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

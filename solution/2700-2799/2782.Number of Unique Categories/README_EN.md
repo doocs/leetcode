@@ -8,11 +8,15 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [2782. Number of Unique Categories 🔒](https://leetcode.com/problems/number-of-unique-categories)
 
 [中文文档](/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code> and an object <code>categoryHandler</code> of class <code>CategoryHandler</code>.</p>
 
@@ -58,7 +62,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -233,4 +241,6 @@ function numberOfCategories(n: number, categoryHandler: CategoryHandler): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

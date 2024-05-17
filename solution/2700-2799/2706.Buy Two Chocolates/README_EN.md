@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2706. Buy Two Chocolates](https://leetcode.com/problems/buy-two-chocolates)
 
 [中文文档](/solution/2700-2799/2706.Buy%20Two%20Chocolates/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>prices</code> representing the prices of various chocolates in a store. You are also given a single integer <code>money</code>, which represents your initial amount of money.</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li><code>1 &lt;= money &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -119,6 +127,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: One-pass Traversal
 
@@ -237,4 +249,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

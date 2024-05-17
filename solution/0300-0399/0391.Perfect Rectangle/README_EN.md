@@ -7,11 +7,15 @@ tags:
     - Line Sweep
 ---
 
+<!-- problem:start -->
+
 # [391. Perfect Rectangle](https://leetcode.com/problems/perfect-rectangle)
 
 [中文文档](/solution/0300-0399/0391.Perfect%20Rectangle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>rectangles</code> where <code>rectangles[i] = [x<sub>i</sub>, y<sub>i</sub>, a<sub>i</sub>, b<sub>i</sub>]</code> represents an axis-aligned rectangle. The bottom-left point of the rectangle is <code>(x<sub>i</sub>, y<sub>i</sub>)</code> and the top-right point of it is <code>(a<sub>i</sub>, b<sub>i</sub>)</code>.</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li><code>-10<sup>5</sup> &lt;= x<sub>i</sub>, y<sub>i</sub>, a<sub>i</sub>, b<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -253,4 +261,6 @@ func isRectangleCover(rectangles [][]int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

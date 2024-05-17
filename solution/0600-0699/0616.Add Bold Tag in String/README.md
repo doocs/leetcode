@@ -10,13 +10,15 @@ tags:
     - 字符串匹配
 ---
 
+<!-- problem:start -->
+
 # [616. 给字符串添加加粗标签 🔒](https://leetcode.cn/problems/add-bold-tag-in-string)
 
 [English Version](/solution/0600-0699/0616.Add%20Bold%20Tag%20in%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定字符串 <code>s</code> 和字符串数组 <code>words</code>。</p>
 
@@ -71,7 +73,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树 + 区间合并
 
@@ -368,4 +374,6 @@ func addBoldTag(s string, words []string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,9 +4,13 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.24.Pairs%20With%20Sum/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.24. Pairs With Sum](https://leetcode.cn/problems/pairs-with-sum-lcci)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design an algorithm to find all pairs of integers within an array which sum to a specified value.</p>
 <p><strong>Example 1:</strong></p>
@@ -28,7 +32,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.24.Pairs%20With%20
 	<li><code>nums.length &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -161,4 +169,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

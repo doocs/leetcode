@@ -11,13 +11,15 @@ tags:
     - 字符串匹配
 ---
 
+<!-- problem:start -->
+
 # [2851. 字符串转换](https://leetcode.cn/problems/string-transformation)
 
 [English Version](/solution/2800-2899/2851.String%20Transformation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个长度都为 <code>n</code>&nbsp;的字符串&nbsp;<code>s</code> 和&nbsp;<code>t</code>&nbsp;。你可以对字符串 <code>s</code>&nbsp;执行以下操作：</p>
 
@@ -71,7 +73,11 @@ tags:
 	<li><code>s</code> 和&nbsp;<code>t</code>&nbsp;都只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -349,4 +355,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,11 +12,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [1124. Longest Well-Performing Interval](https://leetcode.com/problems/longest-well-performing-interval)
 
 [中文文档](/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We are given <code>hours</code>, a list of the number of hours worked per day for a given employee.</p>
 
@@ -50,7 +54,11 @@ tags:
 	<li><code>0 &lt;= hours[i] &lt;= 16</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
 
@@ -150,4 +158,6 @@ func longestWPI(hours []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

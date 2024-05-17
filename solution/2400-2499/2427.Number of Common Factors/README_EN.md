@@ -10,11 +10,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2427. Number of Common Factors](https://leetcode.com/problems/number-of-common-factors)
 
 [中文文档](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two positive integers <code>a</code> and <code>b</code>, return <em>the number of <strong>common</strong> factors of </em><code>a</code><em> and </em><code>b</code>.</p>
 
@@ -44,7 +48,11 @@ tags:
 	<li><code>1 &lt;= a, b &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -131,6 +139,10 @@ function gcd(a: number, b: number): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Optimized Enumeration
 
@@ -236,4 +248,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

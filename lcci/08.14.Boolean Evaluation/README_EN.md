@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.14.Boolean%20Evaluation/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.14. Boolean Evaluation](https://leetcode.cn/problems/boolean-evaluation-lcci)
 
 [中文文档](/lcci/08.14.Boolean%20Evaluation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a boolean expression consisting of the symbols <code>0</code> (false), <code>1</code> (true), <code>&amp;</code> (AND), <code>|</code> (OR), and <code>^</code>&nbsp;(XOR), and a desired boolean result value result, implement a function to count the number of ways of parenthesizing the expression such that it evaluates to result.</p>
 
@@ -46,7 +50,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.14.Boolean%20Evalu
 	<li>There are no more than&nbsp;19 operators in <code>s</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -260,4 +268,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

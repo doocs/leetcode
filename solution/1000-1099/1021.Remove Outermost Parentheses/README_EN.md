@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1021. Remove Outermost Parentheses](https://leetcode.com/problems/remove-outermost-parentheses)
 
 [中文文档](/solution/1000-1099/1021.Remove%20Outermost%20Parentheses/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A valid parentheses string is either empty <code>&quot;&quot;</code>, <code>&quot;(&quot; + A + &quot;)&quot;</code>, or <code>A + B</code>, where <code>A</code> and <code>B</code> are valid parentheses strings, and <code>+</code> represents string concatenation.</p>
 
@@ -67,7 +71,11 @@ After removing outer parentheses of each part, this is &quot;&quot; + &quot;&quo
 	<li><code>s</code> is a valid parentheses string.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -197,6 +205,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -281,4 +293,6 @@ func removeOuterParentheses(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

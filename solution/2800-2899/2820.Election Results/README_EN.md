@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2820.Election%20Results/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2820. Election Results 🔒](https://leetcode.com/problems/election-results)
 
 [中文文档](/solution/2800-2899/2820.Election%20Results/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code><font face="monospace">Votes</font></code></p>
 
@@ -63,7 +67,11 @@ Votes table:
 - Collectively, Candidate Ryan and Christine amassed a total of 2.33 votes, while Kathy received a combined total of 1.33 votes.
 Since Ryan and Christine received an equal number of votes, we will display their names in ascending order.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Window Function + Group Statistics
 
@@ -102,4 +110,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

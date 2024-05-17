@@ -11,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1172. Dinner Plate Stacks](https://leetcode.com/problems/dinner-plate-stacks)
 
 [中文文档](/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have an infinite number of stacks arranged in a row and numbered (left to right) from <code>0</code>, each of the stacks has the same maximum capacity.</p>
 
@@ -83,7 +87,11 @@ D.pop()            // Returns -1.  There are still no stacks.
 	<li>At most <code>2 * 10<sup>5</sup></code> calls will be made to <code>push</code>, <code>pop</code>, and <code>popAtStack</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack Array + Ordered Set
 
@@ -876,4 +884,6 @@ class TreeSet<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

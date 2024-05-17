@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [385. Mini Parser](https://leetcode.com/problems/mini-parser)
 
 [中文文档](/solution/0300-0399/0385.Mini%20Parser/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string s represents the serialization of a nested list, implement a parser to deserialize it and return <em>the deserialized</em> <code>NestedInteger</code>.</p>
 
@@ -50,7 +54,11 @@ tags:
 	<li>All the values in the input are in the range <code>[-10<sup>6</sup>, 10<sup>6</sup>]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -349,6 +357,10 @@ function deserialize(s: string): NestedInteger {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Stack
 
@@ -703,4 +715,6 @@ function deserialize(s: string): NestedInteger {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

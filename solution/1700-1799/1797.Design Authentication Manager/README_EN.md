@@ -9,11 +9,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1797. Design Authentication Manager](https://leetcode.com/problems/design-authentication-manager)
 
 [中文文档](/solution/1700-1799/1797.Design%20Authentication%20Manager/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an authentication system that works with authentication tokens. For each session, the user will receive a new authentication token that will expire <code>timeToLive</code> seconds after the <code>currentTime</code>. If the token is renewed, the expiry time will be <b>extended</b> to expire <code>timeToLive</code> seconds after the (potentially different) <code>currentTime</code>.</p>
 
@@ -63,7 +67,11 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // The token with t
 	<li>At most <code>2000</code> calls will be made to all functions combined.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -308,4 +316,6 @@ impl AuthenticationManager {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [14. 最长公共前缀](https://leetcode.cn/problems/longest-common-prefix)
 
 [English Version](/solution/0000-0099/0014.Longest%20Common%20Prefix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
 
@@ -45,7 +47,11 @@ tags:
 	<li><code>strs[i]</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符比较
 
@@ -231,4 +237,6 @@ end
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

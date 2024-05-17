@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [177. 第 N 高的薪水](https://leetcode.cn/problems/nth-highest-salary)
 
 [English Version](/solution/0100-0199/0177.Nth%20Highest%20Salary/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表:&nbsp;<code>Employee</code></p>
 
@@ -74,7 +76,11 @@ n = 2
 | null                   |
 +------------------------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + LIMIT
 
@@ -113,4 +119,6 @@ END
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

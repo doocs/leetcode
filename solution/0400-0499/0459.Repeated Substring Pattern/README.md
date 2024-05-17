@@ -7,13 +7,15 @@ tags:
     - 字符串匹配
 ---
 
+<!-- problem:start -->
+
 # [459. 重复的子字符串](https://leetcode.cn/problems/repeated-substring-pattern)
 
 [English Version](/solution/0400-0499/0459.Repeated%20Substring%20Pattern/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个非空的字符串<meta charset="UTF-8" />&nbsp;<code>s</code>&nbsp;，检查是否可以通过由它的一个子串重复多次构成。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li><code>s</code>&nbsp;由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双倍字符串
 
@@ -111,6 +117,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -140,4 +150,6 @@ function repeatedSubstringPattern(s: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [2403. Minimum Time to Kill All Monsters 🔒](https://leetcode.com/problems/minimum-time-to-kill-all-monsters)
 
 [中文文档](/solution/2400-2499/2403.Minimum%20Time%20to%20Kill%20All%20Monsters/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>power</code> where <code>power[i]</code> is the power of the <code>i<sup>th</sup></code> monster.</p>
 
@@ -78,7 +82,11 @@ It can be proven that 6 is the minimum number of days needed.
 	<li><code>1 &lt;= power[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression + Memorization Search or Dynamic Programming
 
@@ -242,6 +250,10 @@ function bitCount(x) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -349,4 +361,6 @@ function bitCount(x) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

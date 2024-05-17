@@ -11,11 +11,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2540. Minimum Common Value](https://leetcode.com/problems/minimum-common-value)
 
 [中文文档](/solution/2500-2599/2540.Minimum%20Common%20Value/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integer arrays <code>nums1</code> and <code>nums2</code>, sorted in non-decreasing order, return <em>the <strong>minimum integer common</strong> to both arrays</em>. If there is no common integer amongst <code>nums1</code> and <code>nums2</code>, return <code>-1</code>.</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li>Both <code>nums1</code> and <code>nums2</code> are sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -190,6 +198,10 @@ int getCommon(int* nums1, int nums1Size, int* nums2, int nums2Size) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -219,4 +231,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

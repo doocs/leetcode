@@ -12,11 +12,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1048. Longest String Chain](https://leetcode.com/problems/longest-string-chain)
 
 [中文文档](/solution/1000-1099/1048.Longest%20String%20Chain/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <code>words</code> where each word consists of lowercase English letters.</p>
 
@@ -65,7 +69,11 @@ tags:
 	<li><code>words[i]</code> only consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -211,6 +219,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -233,4 +245,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

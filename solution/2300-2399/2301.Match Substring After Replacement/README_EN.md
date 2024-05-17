@@ -11,11 +11,15 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [2301. Match Substring After Replacement](https://leetcode.com/problems/match-substring-after-replacement)
 
 [中文文档](/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>s</code> and <code>sub</code>. You are also given a 2D character array <code>mappings</code> where <code>mappings[i] = [old<sub>i</sub>, new<sub>i</sub>]</code> indicates that you may perform the following operation <strong>any</strong> number of times:</p>
 
@@ -69,7 +73,11 @@ Now sub = &quot;l33tb&quot; is a substring of s, so we return true.
 	<li><code>old<sub>i</sub></code> and <code>new<sub>i</sub></code> are either uppercase or lowercase English letters or digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
 
@@ -173,6 +181,10 @@ func matchReplacement(s string, sub string, mappings [][]byte) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Array + Enumeration
 
 Since the character set only contains uppercase and lowercase English letters and numbers, we can directly use a $128 \times 128$ array $d$ to record the set of characters that each character can be replaced with.
@@ -270,4 +282,6 @@ func matchReplacement(s string, sub string, mappings [][]byte) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

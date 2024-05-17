@@ -11,11 +11,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2603. Collect Coins in a Tree](https://leetcode.com/problems/collect-coins-in-a-tree)
 
 [中文文档](/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There exists an undirected and unrooted tree with <code>n</code> nodes indexed from <code>0</code> to <code>n - 1</code>. You are given an integer <code>n</code> and a 2D integer array edges of length <code>n - 1</code>, where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the tree. You are also given&nbsp;an array <code>coins</code> of size <code>n</code> where <code>coins[i]</code> can be either <code>0</code> or <code>1</code>, where <code>1</code> indicates the presence of a coin in the vertex <code>i</code>.</p>
 
@@ -61,7 +65,11 @@ tags:
 	<li><code>edges</code> represents a valid tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Topological sorting
 
@@ -319,4 +327,6 @@ function collectTheCoins(coins: number[], edges: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

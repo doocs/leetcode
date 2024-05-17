@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.24.Pairs%20With%20Sum/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.24. 数对和](https://leetcode.cn/problems/pairs-with-sum-lcci)
 
 [中文文档](/lcci/16.24.Pairs%20With%20Sum/README.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个算法，找出数组中两数之和为指定值的所有整数对。一个数只能属于一个数对。</p>
 <p><strong>示例 1:</strong></p>
@@ -24,7 +26,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.24.Pairs%20With%20
 	<li><code>nums.length &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -157,4 +163,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [52. N-Queens II](https://leetcode.com/problems/n-queens-ii)
 
 [中文文档](/solution/0000-0099/0052.N-Queens%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>n-queens</strong> puzzle is the problem of placing <code>n</code> queens on an <code>n x n</code> chessboard such that no two queens attack each other.</p>
 
@@ -39,7 +43,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Backtracking
 
@@ -228,4 +236,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

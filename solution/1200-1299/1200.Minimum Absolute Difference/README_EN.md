@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1200. Minimum Absolute Difference](https://leetcode.com/problems/minimum-absolute-difference)
 
 [中文文档](/solution/1200-1299/1200.Minimum%20Absolute%20Difference/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of <strong>distinct</strong> integers <code>arr</code>, find all pairs of elements with the minimum absolute difference of any two elements.</p>
 
@@ -55,7 +59,11 @@ tags:
 	<li><code>-10<sup>6</sup> &lt;= arr[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -155,4 +163,6 @@ function minimumAbsDifference(arr: number[]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

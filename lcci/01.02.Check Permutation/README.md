@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.02.Check%20Permutation/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 01.02. 判定是否互为字符重排](https://leetcode.cn/problems/check-permutation-lcci)
 
 [English Version](/lcci/01.02.Check%20Permutation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定两个字符串 <code>s1</code> 和 <code>s2</code>，请编写一个程序，确定其中一个字符串的字符重新排列后，能否变成另一个字符串。</p>
 
 <p><strong>示例 1：</strong></p>
@@ -32,7 +35,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.02.Check%20Permuta
 	<li><code>0 &lt;= len(s2) &lt;= 100 </code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表
 
@@ -205,6 +212,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：排序
 
 我们也按照字典序对两个字符串进行排序，然后比较两个字符串是否相等。
@@ -271,4 +282,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

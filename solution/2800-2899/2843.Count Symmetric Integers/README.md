@@ -9,13 +9,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [2843. 统计对称整数的数目](https://leetcode.cn/problems/count-symmetric-integers)
 
 [English Version](/solution/2800-2899/2843.Count%20Symmetric%20Integers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数 <code>low</code> 和 <code>high</code> 。</p>
 
@@ -49,7 +51,11 @@ tags:
 	<li><code>1 &lt;= low &lt;= high &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -177,4 +183,6 @@ function countSymmetricIntegers(low: number, high: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

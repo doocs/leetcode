@@ -11,11 +11,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [654. Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree)
 
 [中文文档](/solution/0600-0699/0654.Maximum%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> with no duplicates. A <strong>maximum binary tree</strong> can be built recursively from <code>nums</code> using the following algorithm:</p>
 
@@ -61,7 +65,11 @@ tags:
 	<li>All integers in <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -310,6 +318,10 @@ struct TreeNode* constructMaximumBinaryTree(int* nums, int numsSize) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -645,6 +657,10 @@ func (t *segmentTree) pushup(u int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -774,4 +790,6 @@ func constructMaximumBinaryTree(nums []int) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

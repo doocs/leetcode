@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [771. Jewels and Stones](https://leetcode.com/problems/jewels-and-stones)
 
 [中文文档](/solution/0700-0799/0771.Jewels%20and%20Stones/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You&#39;re given strings <code>jewels</code> representing the types of stones that are jewels, and <code>stones</code> representing the stones you have. Each character in <code>stones</code> is a type of stone you have. You want to know how many of the stones you have are also jewels.</p>
 
@@ -34,7 +38,11 @@ tags:
 	<li>All the characters of&nbsp;<code>jewels</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -144,4 +152,6 @@ int numJewelsInStones(char* jewels, char* stones) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

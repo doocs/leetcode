@@ -10,11 +10,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2558. Take Gifts From the Richest Pile](https://leetcode.com/problems/take-gifts-from-the-richest-pile)
 
 [中文文档](/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>gifts</code> denoting the number of gifts in various piles. Every second, you do the following:</p>
 
@@ -61,7 +65,11 @@ So, the total gifts remaining are 4.
 	<li><code>1 &lt;= k &lt;= 10<sup>3</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Priority Queue (Max Heap)
 
@@ -179,4 +187,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

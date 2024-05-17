@@ -10,11 +10,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2928. Distribute Candies Among Children I](https://leetcode.com/problems/distribute-candies-among-children-i)
 
 [中文文档](/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two positive integers <code>n</code> and <code>limit</code>.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>1 &lt;= limit &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Combinatorial Mathematics + Principle of Inclusion-Exclusion
 
@@ -154,4 +162,6 @@ function distributeCandies(n: number, limit: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

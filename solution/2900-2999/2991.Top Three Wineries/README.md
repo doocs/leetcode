@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2991. 最好的三家酒庄 🔒](https://leetcode.cn/problems/top-three-wineries)
 
 [English Version](/solution/2900-2999/2991.Top%20Three%20Wineries/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Wineries</code></p>
 
@@ -80,7 +82,11 @@ Wineries table:
 输出表按国家首字母升序排列。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组 + 窗口函数 + 左连接
 
@@ -129,4 +135,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

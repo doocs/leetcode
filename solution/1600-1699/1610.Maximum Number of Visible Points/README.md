@@ -12,13 +12,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [1610. 可见点的最大数目](https://leetcode.cn/problems/maximum-number-of-visible-points)
 
 [English Version](/solution/1600-1699/1610.Maximum%20Number%20of%20Visible%20Points/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个点数组 <code>points</code> 和一个表示角度的整数 <code>angle</code> ，你的位置是 <code>location</code> ，其中 <code>location = [pos<sub>x</sub>, pos<sub>y</sub>]</code> 且 <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 都表示 X-Y 平面上的整数坐标。</p>
 
@@ -71,7 +73,11 @@ tags:
 	<li><code>0 <= pos<sub>x</sub>, pos<sub>y</sub>, x<sub>i</sub>, y<sub>i</sub> <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -189,4 +195,6 @@ func visiblePoints(points [][]int, angle int, location []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

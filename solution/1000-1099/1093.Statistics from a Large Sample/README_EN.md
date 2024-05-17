@@ -10,11 +10,15 @@ tags:
     - Probability and Statistics
 ---
 
+<!-- problem:start -->
+
 # [1093. Statistics from a Large Sample](https://leetcode.com/problems/statistics-from-a-large-sample)
 
 [中文文档](/solution/1000-1099/1093.Statistics%20from%20a%20Large%20Sample/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a large sample of integers in the range <code>[0, 255]</code>. Since the sample is so large, it is represented by an array <code>count</code>&nbsp;where <code>count[k]</code> is the <strong>number of times</strong> that <code>k</code> appears in the sample.</p>
 
@@ -70,7 +74,11 @@ The mode is 1 as it appears the most in the sample.
 	<li>The mode of the sample that <code>count</code> represents is <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -238,4 +246,6 @@ function sampleStats(count: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

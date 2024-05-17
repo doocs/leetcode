@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.06.Smallest%20Difference/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.06. 最小差](https://leetcode.cn/problems/smallest-difference-lcci)
 
 [English Version](/lcci/16.06.Smallest%20Difference/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个整数数组<code>a</code>和<code>b</code>，计算具有最小差绝对值的一对数值（每个数组中取一个值），并返回该对数值的差</p>
 <p><strong>示例：</strong></p>
@@ -24,7 +26,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.06.Smallest%20Diff
 <li>正确结果在区间[-2147483648, 2147483647]内</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 二分查找
 
@@ -184,6 +190,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：排序 + 双指针
 
 我们可以对数组 $a$ 和 $b$ 分别进行排序，然后使用双指针的方法，维护两个指针 $i$ 和 $j$，初始时分别指向数组 $a$ 和 $b$ 的起始位置。每一次，我们计算 $a[i]$ 和 $b[j]$ 的差的绝对值，并且更新答案。如果 $a[i]$ 和 $b[j]$ 指向的两个元素中的一个元素比另一个元素要小，则将指向较小元素的指针向前移动一步。当至少有一个指针超出数组范围时，遍历结束。
@@ -294,4 +304,6 @@ function smallestDifference(a: number[], b: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

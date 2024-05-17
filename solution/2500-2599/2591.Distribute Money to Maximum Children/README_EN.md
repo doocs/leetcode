@@ -9,11 +9,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2591. Distribute Money to Maximum Children](https://leetcode.com/problems/distribute-money-to-maximum-children)
 
 [中文文档](/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>money</code> denoting the amount of money (in dollars) that you have and another integer <code>children</code> denoting the number of children that you must distribute the money to.</p>
 
@@ -57,7 +61,11 @@ It can be proven that no distribution exists such that number of children gettin
 	<li><code>2 &lt;= children &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case analysis
 
@@ -176,4 +184,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,9 +4,13 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.05.Sparse%20Array%20Search/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [10.05. Sparse Array Search](https://leetcode.cn/problems/sparse-array-search-lcci)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a sorted array of strings that is interspersed with empty strings, write a method to find the location of a given string.</p>
 
@@ -38,7 +42,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.05.Sparse%20Array%
 	<li><code>1 &lt;= words.length &lt;= 1000000</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -181,4 +189,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

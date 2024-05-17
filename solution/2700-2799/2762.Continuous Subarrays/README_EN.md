@@ -13,11 +13,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2762. Continuous Subarrays](https://leetcode.com/problems/continuous-subarrays)
 
 [中文文档](/solution/2700-2799/2762.Continuous%20Subarrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. A subarray of <code>nums</code> is called <strong>continuous</strong> if:</p>
 
@@ -66,7 +70,11 @@ Total continuous subarrays = 3 + 2 + 1 = 6.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Ordered List + Two Pointers
 
@@ -170,4 +178,6 @@ func continuousSubarrays(nums []int) (ans int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1219. Path with Maximum Gold](https://leetcode.com/problems/path-with-maximum-gold)
 
 [中文文档](/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In a gold mine <code>grid</code> of size <code>m x n</code>, each cell in this mine has an integer representing the amount of gold in that cell, <code>0</code> if it is empty.</p>
 
@@ -66,7 +70,11 @@ Path to get the maximum gold, 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7.
 	<li>There are at most <strong>25 </strong>cells containing gold.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -236,4 +244,6 @@ var getMaximumGold = function (grid) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

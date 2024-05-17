@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [905. Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity)
 
 [中文文档](/solution/0900-0999/0905.Sort%20Array%20By%20Parity/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, move all the even integers at the beginning of the array followed by all the odd integers.</p>
 
@@ -42,7 +46,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -189,4 +197,6 @@ var sortArrayByParity = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

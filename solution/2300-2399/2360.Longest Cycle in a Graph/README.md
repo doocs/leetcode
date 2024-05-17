@@ -10,13 +10,15 @@ tags:
     - 拓扑排序
 ---
 
+<!-- problem:start -->
+
 # [2360. 图中的最长环](https://leetcode.cn/problems/longest-cycle-in-a-graph)
 
 [English Version](/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>n</code>&nbsp;个节点的 <b>有向图</b>&nbsp;，节点编号为&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n - 1</code>&nbsp;，其中每个节点&nbsp;<strong>至多</strong>&nbsp;有一条出边。</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li><code>edges[i] != i</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历出发点
 
@@ -219,4 +225,6 @@ function longestCycle(edges: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

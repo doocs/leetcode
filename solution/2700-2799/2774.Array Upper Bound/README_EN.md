@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2774.Array%20Upper%20Bound/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2774. Array Upper Bound 🔒](https://leetcode.com/problems/array-upper-bound)
 
 [中文文档](/solution/2700-2799/2774.Array%20Upper%20Bound/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write code that enhances all arrays such that you can call the <code>upperBound()</code>&nbsp;method on any array and it will return the last index of a given <code>target</code> number.&nbsp;<code>nums</code>&nbsp;is a sorted ascending array of numbers that may contain duplicates. If the <code>target</code> number is not found in the array, return <code>-1</code>.</p>
 
@@ -48,7 +52,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2774.Ar
 <p>&nbsp;</p>
 <strong>Follow up: </strong>Can you write an algorithm with&nbsp;O(log n)&nbsp;runtime complexity?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -82,6 +90,10 @@ Array.prototype.upperBound = function (target: number) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -104,4 +116,6 @@ Array.prototype.upperBound = function (target: number) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

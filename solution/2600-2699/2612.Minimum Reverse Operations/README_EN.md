@@ -10,11 +10,15 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [2612. Minimum Reverse Operations](https://leetcode.com/problems/minimum-reverse-operations)
 
 [中文文档](/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code> and an integer <code>p</code> in the range <code>[<font face="monospace">0</font>, n - 1]</code>. Representing a <strong>0-indexed</strong> array <code>arr</code>&nbsp;of length <code>n</code> where all positions are set to <code>0</code>&#39;s, except position <code>p</code> which is set to <code>1</code>.</p>
 
@@ -68,7 +72,11 @@ tags:
 	<li>all values in <code>banned</code>&nbsp;are <strong>unique</strong>&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Ordered Set + BFS
 
@@ -906,6 +914,10 @@ class TreeMultiSet<T = number> {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -1563,4 +1575,6 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

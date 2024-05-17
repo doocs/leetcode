@@ -7,11 +7,15 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [796. Rotate String](https://leetcode.com/problems/rotate-string)
 
 [中文文档](/solution/0700-0799/0796.Rotate%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>s</code> and <code>goal</code>, return <code>true</code> <em>if and only if</em> <code>s</code> <em>can become</em> <code>goal</code> <em>after some number of <strong>shifts</strong> on</em> <code>s</code>.</p>
 
@@ -37,7 +41,11 @@ tags:
 	<li><code>s</code> and <code>goal</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -101,4 +109,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

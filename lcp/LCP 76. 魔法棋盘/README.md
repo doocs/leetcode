@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2076.%20%E9%AD%94%E6%B3%95%E6%A3%8B%E7%9B%98/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 76. 魔法棋盘](https://leetcode.cn/problems/1ybDKD)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 在大小为 `n * m` 的棋盘中，有两种不同的棋子：黑色，红色。当两颗颜色不同的棋子同时满足以下两种情况时，将会产生魔法共鸣：
 
@@ -49,6 +51,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2076.%20%E9%AD%94%
 -   `1 <= n*m <= 30`
 -   `chessboard` 中仅包含 `"."、"B"、"R"、"?"`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

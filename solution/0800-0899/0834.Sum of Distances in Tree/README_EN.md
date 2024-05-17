@@ -9,11 +9,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [834. Sum of Distances in Tree](https://leetcode.com/problems/sum-of-distances-in-tree)
 
 [中文文档](/solution/0800-0899/0834.Sum%20of%20Distances%20in%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an undirected connected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code> and <code>n - 1</code> edges.</p>
 
@@ -59,7 +63,11 @@ Hence, answer[0] = 8, and so on.
 	<li>The given input represents a valid tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -250,4 +258,6 @@ function sumOfDistancesInTree(n: number, edges: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

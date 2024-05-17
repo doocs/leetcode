@@ -12,11 +12,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [449. Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst)
 
 [中文文档](/solution/0400-0499/0449.Serialize%20and%20Deserialize%20BST/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Serialization is converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.</p>
 
@@ -41,7 +45,11 @@ tags:
 	<li>The input tree is <strong>guaranteed</strong> to be a binary search tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -308,4 +316,6 @@ func (this *Codec) deserialize(data string) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

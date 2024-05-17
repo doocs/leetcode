@@ -9,11 +9,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [980. Unique Paths III](https://leetcode.com/problems/unique-paths-iii)
 
 [中文文档](/solution/0900-0999/0980.Unique%20Paths%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> integer array <code>grid</code> where <code>grid[i][j]</code> could be:</p>
 
@@ -70,7 +74,11 @@ Note that the starting and ending square can be anywhere in the grid.
 	<li>There is exactly one starting cell and one ending cell.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Backtracking
 
@@ -282,4 +290,6 @@ function uniquePathsIII(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

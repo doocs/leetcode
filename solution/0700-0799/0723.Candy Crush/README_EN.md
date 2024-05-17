@@ -9,11 +9,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [723. Candy Crush 🔒](https://leetcode.com/problems/candy-crush)
 
 [中文文档](/solution/0700-0799/0723.Candy%20Crush/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>This question is about implementing a basic elimination algorithm for Candy Crush.</p>
 
@@ -55,7 +59,11 @@ tags:
 	<li><code>1 &lt;= board[i][j] &lt;= 2000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -247,4 +255,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

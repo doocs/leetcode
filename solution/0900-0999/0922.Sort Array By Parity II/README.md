@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [922. 按奇偶排序数组 II](https://leetcode.cn/problems/sort-array-by-parity-ii)
 
 [English Version](/solution/0900-0999/0922.Sort%20Array%20By%20Parity%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个非负整数数组&nbsp;<code>nums</code>，&nbsp;&nbsp;<code>nums</code> 中一半整数是 <strong>奇数</strong> ，一半整数是 <strong>偶数</strong> 。</p>
 
@@ -54,7 +56,11 @@ tags:
 
 <p><strong>进阶：</strong>可以不使用额外空间解决问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -161,4 +167,6 @@ var sortArrayByParityII = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.07.Permutation%20I/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.07. Permutation I](https://leetcode.cn/problems/permutation-i-lcci)
 
 [中文文档](/lcci/08.07.Permutation%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a method to compute all permutations of a string of unique characters.</p>
 
@@ -39,7 +43,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.07.Permutation%20I
 	<li><code>1 &lt;= S.length &lt;= 9</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS (Backtracking)
 
@@ -254,4 +262,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1446. Consecutive Characters](https://leetcode.com/problems/consecutive-characters)
 
 [中文文档](/solution/1400-1499/1446.Consecutive%20Characters/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>power</strong> of the string is the maximum length of a non-empty substring that contains only one unique character.</p>
 
@@ -43,7 +47,11 @@ tags:
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -127,4 +135,6 @@ function maxPower(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

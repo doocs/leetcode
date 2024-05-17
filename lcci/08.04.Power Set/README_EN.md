@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.04.Power%20Set/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.04. Power Set](https://leetcode.cn/problems/power-set-lcci)
 
 [中文文档](/lcci/08.04.Power%20Set/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a method to return all subsets of a set. The elements in a set are&nbsp;pairwise distinct.</p>
 
@@ -44,7 +48,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.04.Power%20Set/REA
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursive Enumeration
 
@@ -216,6 +224,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary Enumeration
 
 We can rewrite the recursive process in Method 1 into an iterative form, that is, using binary enumeration to enumerate all subsets.
@@ -339,4 +351,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

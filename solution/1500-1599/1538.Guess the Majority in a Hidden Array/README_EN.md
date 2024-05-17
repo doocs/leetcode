@@ -8,11 +8,15 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [1538. Guess the Majority in a Hidden Array 🔒](https://leetcode.com/problems/guess-the-majority-in-a-hidden-array)
 
 [中文文档](/solution/1500-1599/1538.Guess%20the%20Majority%20in%20a%20Hidden%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We have an integer array <code>nums</code>, where all the integers in <code>nums</code> are <strong>0</strong> or <strong>1</strong>. You will not be given direct access to the array, instead, you will have an <strong>API</strong> <code>ArrayReader</code> which have the following functions:</p>
 
@@ -73,7 +77,11 @@ Index 2, 4, 6, 7 is also a correct answer.
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What is the minimum number of calls needed to find the majority element?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -368,4 +376,6 @@ function guessMajority(reader: ArrayReader): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

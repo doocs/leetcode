@@ -7,11 +7,15 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [2927. Distribute Candies Among Children III 🔒](https://leetcode.com/problems/distribute-candies-among-children-iii)
 
 [中文文档](/solution/2900-2999/2927.Distribute%20Candies%20Among%20Children%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two positive integers <code>n</code> and <code>limit</code>.</p>
 
@@ -42,7 +46,11 @@ tags:
 	<li><code>1 &lt;= limit &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Combinatorial Mathematics + Principle of Inclusion-Exclusion
 
@@ -151,4 +159,6 @@ function distributeCandies(n: number, limit: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

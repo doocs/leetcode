@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcs/LCS%2002.%20%E5%AE%8C%E6%88%90%E4%B8%80%E5%8D%8A%E9%A2%98%E7%9B%AE/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCS 02. 完成一半题目](https://leetcode.cn/problems/WqXACV/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 有 `N` 位扣友参加了微软与力扣举办了「以扣会友」线下活动。主办方提供了 `2*N` 道题目，整型数组 `questions` 中每个数字对应了每道题目所涉及的知识点类型。
 若每位扣友选择不同的一题，请返回被选的 `N` 道题目至少包含多少种知识点类型。
@@ -37,7 +39,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcs/LCS%2002.%20%E5%AE%8C%
 -   `2 <= questions.length <= 10^5`
 -   `1 <= questions[i] <= 1000`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 排序
 
@@ -154,4 +160,6 @@ var halfQuestions = function (questions) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

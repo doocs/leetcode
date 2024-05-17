@@ -6,11 +6,15 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [237. Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list)
 
 [中文文档](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a singly-linked list <code>head</code> and we want to delete a node <code>node</code> in it.</p>
 
@@ -62,7 +66,11 @@ tags:
 	<li>The <code>node</code> to be deleted is <strong>in the list</strong> and is <strong>not a tail</strong> node.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Node assignment
 
@@ -212,4 +220,6 @@ void deleteNode(struct ListNode* node) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

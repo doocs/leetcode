@@ -10,11 +10,15 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [1641. Count Sorted Vowel Strings](https://leetcode.com/problems/count-sorted-vowel-strings)
 
 [中文文档](/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, return <em>the number of strings of length </em><code>n</code><em> that consist only of vowels (</em><code>a</code><em>, </em><code>e</code><em>, </em><code>i</code><em>, </em><code>o</code><em>, </em><code>u</code><em>) and are <strong>lexicographically sorted</strong>.</em></p>
 
@@ -53,7 +57,11 @@ Note that &quot;ea&quot; is not a valid string since &#39;e&#39; comes after &#3
 	<li><code>1 &lt;= n &lt;= 50</code>&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -144,6 +152,10 @@ func countVowelStrings(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -212,4 +224,6 @@ func countVowelStrings(n int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

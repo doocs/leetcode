@@ -9,11 +9,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1103. Distribute Candies to People](https://leetcode.com/problems/distribute-candies-to-people)
 
 [中文文档](/solution/1100-1199/1103.Distribute%20Candies%20to%20People/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We distribute some&nbsp;number of <code>candies</code>, to a row of <strong><code>n =&nbsp;num_people</code></strong>&nbsp;people in the following way:</p>
 
@@ -58,7 +62,11 @@ On the fourth turn, ans[0] += 4, and the final array is [5,2,3].
 	<li>1 &lt;= num_people &lt;= 1000</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -131,4 +139,6 @@ function distributeCandies(candies: number, num_people: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

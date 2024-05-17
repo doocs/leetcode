@@ -10,13 +10,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [2938. 区分黑球与白球](https://leetcode.cn/problems/separate-black-and-white-balls)
 
 [English Version](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>桌子上有 <code>n</code> 个球，每个球的颜色不是黑色，就是白色。</p>
 
@@ -65,7 +67,11 @@ tags:
 	<li><code>s[i]</code> 不是 <code>'0'</code>，就是 <code>'1'</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数模拟
 
@@ -154,4 +160,6 @@ function minimumSteps(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

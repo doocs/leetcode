@@ -11,11 +11,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [464. Can I Win](https://leetcode.com/problems/can-i-win)
 
 [中文文档](/solution/0400-0499/0464.Can%20I%20Win/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In the &quot;100 game&quot; two players take turns adding, to a running total, any integer from <code>1</code> to <code>10</code>. The player who first causes the running total to <strong>reach or exceed</strong> 100 wins.</p>
 
@@ -61,7 +65,11 @@ Same with other integers chosen by the first player, the second player will alwa
 	<li><code>0 &lt;= desiredTotal &lt;= 300</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -174,4 +182,6 @@ func canIWin(maxChoosableInteger int, desiredTotal int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

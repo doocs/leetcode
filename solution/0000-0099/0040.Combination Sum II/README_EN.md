@@ -7,11 +7,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [40. Combination Sum II](https://leetcode.com/problems/combination-sum-ii)
 
 [中文文档](/solution/0000-0099/0040.Combination%20Sum%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a collection of candidate numbers (<code>candidates</code>) and a target number (<code>target</code>), find all unique combinations in <code>candidates</code>&nbsp;where the candidate numbers sum to <code>target</code>.</p>
 
@@ -53,7 +57,11 @@ tags:
 	<li><code>1 &lt;= target &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Pruning + Backtracking
 
@@ -312,6 +320,10 @@ public class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Sorting + Pruning + Backtracking(Another Form)
 
@@ -606,4 +618,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

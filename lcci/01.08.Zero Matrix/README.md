@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.08.Zero%20Matrix/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 01.08. 零矩阵](https://leetcode.cn/problems/zero-matrix-lcci)
 
 [English Version](/lcci/01.08.Zero%20Matrix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>编写一种算法，若M × N矩阵中某个元素为0，则将其所在的行与列清零。</p>
 
 <p>&nbsp;</p>
@@ -47,7 +50,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.08.Zero%20Matrix/R
 ]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组标记
 
@@ -288,6 +295,10 @@ class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：原地标记
 
@@ -652,4 +663,6 @@ void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

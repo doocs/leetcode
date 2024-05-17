@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2649.Nested%20Array%20Generator/README.md
 ---
 
+<!-- problem:start -->
+
 # [2649. 嵌套数组生成器](https://leetcode.cn/problems/nested-array-generator)
 
 [English Version](/solution/2600-2699/2649.Nested%20Array%20Generator/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现给定一个整数的 <strong>多维数组</strong> ，请你返回一个生成器对象，按照&nbsp;<strong>中序遍历</strong> 的顺序逐个生成整数。</p>
 
@@ -51,7 +53,11 @@ generator.next().done; // true
 	<li><code>maxNestingDepth &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -80,4 +86,6 @@ function* inorderTraversal(arr: MultidimensionalArray): Generator<number, void, 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

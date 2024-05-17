@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3056. Snaps Analysis 🔒](https://leetcode.com/problems/snaps-analysis)
 
 [中文文档](/solution/3000-3099/3056.Snaps%20Analysis/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Activities</code></p>
 
@@ -100,7 +104,11 @@ For age group 21-25:
 All percentages in output table rounded to the two decimal places.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Equi-Join + Group By Summation
 
@@ -146,4 +154,6 @@ def snap_analysis(activities: pd.DataFrame, age: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

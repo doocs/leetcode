@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [652. 寻找重复的子树](https://leetcode.cn/problems/find-duplicate-subtrees)
 
 [English Version](/solution/0600-0699/0652.Find%20Duplicate%20Subtrees/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵二叉树的根节点 <code>root</code> ，返回所有 <strong>重复的子树 </strong>。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>-200 &lt;= Node.val &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：后序遍历
 
@@ -290,4 +296,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

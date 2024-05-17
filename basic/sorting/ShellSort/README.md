@@ -114,5 +114,3 @@ console.log(shellSort(arr));
 ```
 
 <!-- tabs:end -->
-
-<!-- end -->

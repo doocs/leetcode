@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [618. 学生地理信息报告 🔒](https://leetcode.cn/problems/students-report-by-geography)
 
 [English Version](/solution/0600-0699/0618.Students%20Report%20By%20Geography/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>student</code>&nbsp;</p>
 
@@ -64,7 +66,11 @@ Student table:
 
 <p><strong>进阶：</strong>如果不能确定哪个大洲的学生数最多，你可以写出一个查询去生成上述学生报告吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数 + GROUP BY
 
@@ -94,4 +100,6 @@ GROUP BY rk;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

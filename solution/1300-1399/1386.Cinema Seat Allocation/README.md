@@ -11,13 +11,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [1386. 安排电影院座位](https://leetcode.cn/problems/cinema-seat-allocation)
 
 [English Version](/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1386.Cinema%20Seat%20Allocation/images/cinema_seats_1.png" style="height: 149px; width: 400px;" /></p>
 
@@ -66,7 +68,11 @@ tags:
 	<li>所有&nbsp;<code>reservedSeats[i]</code> 都是互不相同的。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 状态压缩
 
@@ -190,4 +196,6 @@ function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

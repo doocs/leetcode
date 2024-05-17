@@ -10,11 +10,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [943. Find the Shortest Superstring](https://leetcode.com/problems/find-the-shortest-superstring)
 
 [中文文档](/solution/0900-0999/0943.Find%20the%20Shortest%20Superstring/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of strings <code>words</code>, return <em>the smallest string that contains each string in</em> <code>words</code> <em>as a substring</em>. If there are multiple valid strings of the smallest length, return <strong>any of them</strong>.</p>
 
@@ -46,7 +50,11 @@ tags:
 	<li>All the strings of <code>words</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -300,4 +308,6 @@ func shortestSuperstring(words []string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

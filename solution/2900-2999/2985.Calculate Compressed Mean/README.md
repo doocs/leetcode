@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2985. 计算订单平均商品数量 🔒](https://leetcode.cn/problems/calculate-compressed-mean)
 
 [English Version](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Orders</code></p>
 
@@ -62,7 +64,11 @@ Orders table:
  - 因此，每个订单的平均商品数量为 8900 / 3300 = 2.70
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：求和
 
@@ -82,4 +88,6 @@ FROM Orders;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

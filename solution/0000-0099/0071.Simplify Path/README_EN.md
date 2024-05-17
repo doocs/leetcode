@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [71. Simplify Path](https://leetcode.com/problems/simplify-path)
 
 [中文文档](/solution/0000-0099/0071.Simplify%20Path/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an absolute path for a Unix-style file system, which begins with a slash <code>&#39;/&#39;</code>, transform this path into its <strong>simplified canonical path</strong>.</p>
 
@@ -100,7 +104,11 @@ tags:
 	<li><code>path</code> is a valid absolute Unix path.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack
 
@@ -276,6 +284,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -288,4 +300,6 @@ func simplifyPath(path string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

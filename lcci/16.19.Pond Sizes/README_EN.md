@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.19.Pond%20Sizes/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.19. Pond Sizes](https://leetcode.cn/problems/pond-sizes-lcci)
 
 [中文文档](/lcci/16.19.Pond%20Sizes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have an integer matrix representing a plot of land, where the value at that loca&shy;tion represents the height above sea level. A value of zero indicates water. A pond is a region of water connected vertically, horizontally, or diagonally. The size of the pond is the total number of connected water cells. Write a method to compute the sizes of all ponds in the matrix.</p>
 
@@ -41,7 +45,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.19.Pond%20Sizes/RE
 	<li><code>0 &lt; len(land[i]) &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -234,4 +242,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

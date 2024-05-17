@@ -6,11 +6,15 @@ tags:
     - Bit Manipulation
 ---
 
+<!-- problem:start -->
+
 # [476. Number Complement](https://leetcode.com/problems/number-complement)
 
 [中文文档](/solution/0400-0499/0476.Number%20Complement/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>complement</strong> of an integer is the integer you get when you flip all the <code>0</code>&#39;s to <code>1</code>&#39;s and all the <code>1</code>&#39;s to <code>0</code>&#39;s in its binary representation.</p>
 
@@ -47,7 +51,11 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as 1009: <a href="https://leetcode.com/problems/complement-of-base-10-integer/" target="_blank">https://leetcode.com/problems/complement-of-base-10-integer/</a></p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -100,4 +108,6 @@ function findComplement(num: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

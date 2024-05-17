@@ -9,11 +9,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2075. Decode the Slanted Ciphertext](https://leetcode.com/problems/decode-the-slanted-ciphertext)
 
 [中文文档](/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A string <code>originalText</code> is encoded using a <strong>slanted transposition cipher</strong> to a string <code>encodedText</code> with the help of a matrix having a <strong>fixed number of rows</strong> <code>rows</code>.</p>
 
@@ -70,7 +74,11 @@ The blue arrows show how we can find originalText from encodedText.
 	<li>The testcases are generated such that there is <strong>only one</strong> possible <code>originalText</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -163,4 +171,6 @@ function decodeCiphertext(encodedText: string, rows: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

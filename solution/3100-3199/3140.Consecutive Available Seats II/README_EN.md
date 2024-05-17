@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3140. Consecutive Available Seats II 🔒](https://leetcode.com/problems/consecutive-available-seats-ii)
 
 [中文文档](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Cinema</code></p>
 
@@ -75,7 +79,11 @@ Each row of this table indicates whether the i<sup>th</sup> seat is free or not.
 </ul>
 Output table is ordered by first_seat_id in ascending order.</div>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Using Window Function
 
@@ -110,4 +118,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

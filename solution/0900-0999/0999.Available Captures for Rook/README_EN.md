@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [999. Available Captures for Rook](https://leetcode.com/problems/available-captures-for-rook)
 
 [中文文档](/solution/0900-0999/0999.Available%20Captures%20for%20Rook/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>On an <code>8 x 8</code> chessboard, there is <strong>exactly one</strong> white rook <code>&#39;R&#39;</code> and some number of white bishops <code>&#39;B&#39;</code>, black pawns <code>&#39;p&#39;</code>, and empty squares <code>&#39;.&#39;</code>.</p>
 
@@ -55,7 +59,11 @@ tags:
 	<li>There is exactly one cell with <code>board[i][j] == &#39;R&#39;</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -175,4 +183,6 @@ func numRookCaptures(board [][]byte) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [851. Loud and Rich](https://leetcode.com/problems/loud-and-rich)
 
 [中文文档](/solution/0800-0899/0851.Loud%20and%20Rich/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a group of <code>n</code> people labeled from <code>0</code> to <code>n - 1</code> where each person has a different amount of money and a different level of quietness.</p>
 
@@ -58,7 +62,11 @@ The other answers can be filled out with similar reasoning.
 	<li>The observations in <code>richer</code> are all logically consistent.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -215,4 +223,6 @@ function loudAndRich(richer: number[][], quiet: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

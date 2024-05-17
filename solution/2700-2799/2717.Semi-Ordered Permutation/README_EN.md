@@ -9,11 +9,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2717. Semi-Ordered Permutation](https://leetcode.com/problems/semi-ordered-permutation)
 
 [中文文档](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> permutation of <code>n</code> integers <code>nums</code>.</p>
 
@@ -68,7 +72,11 @@ It can be proved that there is no sequence of less than three operations that ma
 	<li><code>nums is a permutation.</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Find the Positions of 1 and n
 
@@ -180,6 +188,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -213,4 +225,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

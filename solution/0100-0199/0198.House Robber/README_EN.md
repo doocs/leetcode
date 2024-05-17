@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [198. House Robber](https://leetcode.com/problems/house-robber)
 
 [中文文档](/solution/0100-0199/0198.House%20Robber/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and <b>it will automatically contact the police if two adjacent houses were broken into on the same night</b>.</p>
 
@@ -44,7 +48,11 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 	<li><code>0 &lt;= nums[i] &lt;= 400</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -129,6 +137,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -193,4 +205,6 @@ function rob(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

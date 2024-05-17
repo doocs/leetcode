@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [761. Special Binary String](https://leetcode.com/problems/special-binary-string)
 
 [中文文档](/solution/0700-0799/0761.Special%20Binary%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p><strong>Special binary strings</strong> are binary strings with the following two properties:</p>
 
@@ -52,7 +56,11 @@ This is the lexicographically largest string possible after some number of swaps
 	<li><code>s</code> is a special binary string.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -143,4 +151,6 @@ func makeLargestSpecial(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

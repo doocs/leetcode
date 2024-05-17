@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2021.%20%E8%BF%BD%E9%80%90%E6%B8%B8%E6%88%8F/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 21. 追逐游戏](https://leetcode.cn/problems/Za25hA)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 秋游中的小力和小扣设计了一个追逐游戏。他们选了秋日市集景区中的 N 个景点，景点编号为 1~N。此外，他们还选择了 N 条小路，满足任意两个景点之间都可以通过小路互相到达，且不存在两条连接景点相同的小路。整个游戏场景可视作一个无向连通图，记作二维数组 `edges`，数组中以 `[a,b]` 形式表示景点 a 与景点 b 之间有一条小路连通。
 
@@ -71,6 +73,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2021.%20%E8%BF%BD%
 
 -   `1 <= startA, startB <= edges.length 且 startA != startB`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

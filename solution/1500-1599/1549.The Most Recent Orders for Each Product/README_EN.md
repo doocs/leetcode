@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1549. The Most Recent Orders for Each Product 🔒](https://leetcode.com/problems/the-most-recent-orders-for-each-product)
 
 [中文文档](/solution/1500-1599/1549.The%20Most%20Recent%20Orders%20for%20Each%20Product/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Customers</code></p>
 
@@ -121,7 +125,11 @@ screen&#39;s most recent order is in 2020-08-29, it was ordered only once this d
 The hard disk was never ordered and we do not include it in the result table.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Equi-Join + Window Function
 
@@ -151,4 +159,6 @@ ORDER BY 1, 2, 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

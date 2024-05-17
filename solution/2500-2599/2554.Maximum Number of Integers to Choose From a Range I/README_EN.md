@@ -12,11 +12,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2554. Maximum Number of Integers to Choose From a Range I](https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-i)
 
 [中文文档](/solution/2500-2599/2554.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>banned</code> and two integers <code>n</code> and <code>maxSum</code>. You are choosing some number of integers following the below rules:</p>
 
@@ -65,7 +69,11 @@ They are from the range [1, 7], all did not appear in banned, and their sum is 2
 	<li><code>1 &lt;= maxSum &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Enumeration
 
@@ -215,6 +223,10 @@ int maxCount(int* banned, int bannedSize, int n, int maxSum) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Greedy + Binary Search
 
 If $n$ is very large, the enumeration in Method One will time out.
@@ -354,4 +366,6 @@ func maxCount(banned []int, n int, maxSum int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

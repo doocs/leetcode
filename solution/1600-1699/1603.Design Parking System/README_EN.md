@@ -10,11 +10,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1603. Design Parking System](https://leetcode.com/problems/design-parking-system)
 
 [中文文档](/solution/1600-1699/1603.Design%20Parking%20System/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a parking system for a parking lot. The parking lot has three kinds of parking spaces: big, medium, and small, with a fixed number of slots for each size.</p>
 
@@ -52,7 +56,11 @@ parkingSystem.addCar(1); // return false because there is no available slot for 
 	<li>At most <code>1000</code> calls will be made to <code>addCar</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -267,4 +275,6 @@ void parkingSystemFree(ParkingSystem* obj) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

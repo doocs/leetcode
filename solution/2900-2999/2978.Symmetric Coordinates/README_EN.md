@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2978. Symmetric Coordinates 🔒](https://leetcode.com/problems/symmetric-coordinates)
 
 [中文文档](/solution/2900-2999/2978.Symmetric%20Coordinates/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <font face="monospace"><code>Coordinates</code></font></p>
 
@@ -63,7 +67,11 @@ Coordinates table:
 The output table is sorted by X and Y in ascending order.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Window Function + Self Join
 
@@ -92,4 +100,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

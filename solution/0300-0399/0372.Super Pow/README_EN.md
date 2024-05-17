@@ -7,11 +7,15 @@ tags:
     - Divide and Conquer
 ---
 
+<!-- problem:start -->
+
 # [372. Super Pow](https://leetcode.com/problems/super-pow)
 
 [中文文档](/solution/0300-0399/0372.Super%20Pow/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Your task is to calculate <code>a<sup>b</sup></code> mod <code>1337</code> where <code>a</code> is a positive integer and <code>b</code> is an extremely large positive integer given in the form of an array.</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li><code>b</code> does not contain leading zeros.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -162,4 +170,6 @@ function superPow(a: number, b: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

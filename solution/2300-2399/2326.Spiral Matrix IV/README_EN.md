@@ -11,11 +11,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2326. Spiral Matrix IV](https://leetcode.com/problems/spiral-matrix-iv)
 
 [中文文档](/solution/2300-2399/2326.Spiral%20Matrix%20IV/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>m</code> and <code>n</code>, which represent the dimensions of a matrix.</p>
 
@@ -53,7 +57,11 @@ The last space in the matrix is set to -1.</pre>
 	<li><code>0 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -247,4 +255,6 @@ function spiralMatrix(m: number, n: number, head: ListNode | null): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

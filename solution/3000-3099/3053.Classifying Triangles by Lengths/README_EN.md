@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3053. Classifying Triangles by Lengths 🔒](https://leetcode.com/problems/classifying-triangles-by-lengths)
 
 [中文文档](/solution/3000-3099/3053.Classifying%20Triangles%20by%20Lengths/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <font face="monospace"><code>Triangles</code></font></p>
 
@@ -68,7 +72,11 @@ Triangles table:
 - Values in the third row from an Scalene triangle, because A != B != C.
 - Values in the fourth row cannot form a triangle, because the combined value of sides A and B is not larger than that of side C.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Using CASE WHEN Statement
 
@@ -101,4 +109,6 @@ FROM Triangles;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

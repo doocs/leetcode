@@ -11,11 +11,15 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [710. Random Pick with Blacklist](https://leetcode.com/problems/random-pick-with-blacklist)
 
 [中文文档](/solution/0700-0799/0710.Random%20Pick%20with%20Blacklist/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code> and an array of <strong>unique</strong> integers <code>blacklist</code>. Design an algorithm to pick a random integer in the range <code>[0, n - 1]</code> that is <strong>not</strong> in <code>blacklist</code>. Any integer that is in the mentioned range and not in <code>blacklist</code> should be <strong>equally likely</strong> to be returned.</p>
 
@@ -61,7 +65,11 @@ solution.pick(); // return 4
 	<li>At most <code>2 * 10<sup>4</sup></code> calls will be made to <code>pick</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -201,4 +209,6 @@ func (this *Solution) Pick() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

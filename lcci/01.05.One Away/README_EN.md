@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.05.One%20Away/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [01.05. One Away](https://leetcode.cn/problems/one-away-lcci)
 
 [中文文档](/lcci/01.05.One%20Away/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are three types of edits that can be performed on strings: insert a character, remove a character, or replace a character. Given two strings, write a function to check if they are one edit (or zero edits) away.</p>
 
@@ -40,7 +44,11 @@ second = &quot;pal&quot;
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case Discussion + Two Pointers
 
@@ -281,4 +289,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

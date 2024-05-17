@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2175. The Change in Global Rankings 🔒](https://leetcode.com/problems/the-change-in-global-rankings)
 
 [中文文档](/solution/2100-2199/2175.The%20Change%20in%20Global%20Rankings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>TeamPoints</code></p>
 
@@ -116,7 +120,11 @@ Algeria gained 399 points and their rank increased by one.
 New Zealand did not gain or lose points and their rank did not change.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -143,4 +151,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

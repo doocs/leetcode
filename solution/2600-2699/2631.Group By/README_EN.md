@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2631.Group%20By/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2631. Group By](https://leetcode.com/problems/group-by)
 
 [中文文档](/solution/2600-2699/2631.Group%20By/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write code that enhances all arrays such that you can call the&nbsp;<code>array.groupBy(fn)</code>&nbsp;method on any array and it will return a <strong>grouped</strong>&nbsp;version of the array.</p>
 
@@ -94,7 +98,11 @@ The selector function splits the array by whether each number is greater than 5.
 	<li><code>fn</code> returns a string</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -126,4 +134,6 @@ Array.prototype.groupBy = function (fn) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

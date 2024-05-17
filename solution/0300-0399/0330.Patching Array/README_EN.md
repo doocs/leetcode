@@ -7,11 +7,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [330. Patching Array](https://leetcode.com/problems/patching-array)
 
 [中文文档](/solution/0300-0399/0330.Patching%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a sorted integer array <code>nums</code> and an integer <code>n</code>, add/patch elements to the array such that any number in the range <code>[1, n]</code> inclusive can be formed by the sum of some elements in the array.</p>
 
@@ -55,7 +59,11 @@ Explanation: The two patches can be [2, 4].
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -166,4 +174,6 @@ function minPatches(nums: number[], n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

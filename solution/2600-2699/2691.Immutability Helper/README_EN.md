@@ -4,11 +4,15 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2691.Immutability%20Helper/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2691. Immutability Helper 🔒](https://leetcode.com/problems/immutability-helper)
 
 [中文文档](/solution/2600-2699/2691.Immutability%20Helper/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Creating clones of immutable objects with minor alterations can be a tedious process. Write a class&nbsp;<code>ImmutableHelper</code>&nbsp;that serves as a tool to help with this requirement. The constructor accepts an immutable object&nbsp;<code>obj</code>&nbsp;which will be a JSON object or array.</p>
 
@@ -107,6 +111,22 @@ mutators = [
 	<li><code><font face="monospace">total calls to produce() &lt; 10<sup>5</sup></font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```ts
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

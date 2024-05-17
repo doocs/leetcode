@@ -10,11 +10,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2032. Two Out of Three](https://leetcode.com/problems/two-out-of-three)
 
 [中文文档](/solution/2000-2099/2032.Two%20Out%20of%20Three/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 Given three integer arrays <code>nums1</code>, <code>nums2</code>, and <code>nums3</code>, return <em>a <strong>distinct</strong> array containing all the values that are present in <strong>at least two</strong> out of the three arrays. You may return the values in <strong>any</strong> order</em>.
 
@@ -56,7 +60,11 @@ Given three integer arrays <code>nums1</code>, <code>nums2</code>, and <code>num
 	<li><code>1 &lt;= nums1[i], nums2[j], nums3[k] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array + Enumeration
 
@@ -195,4 +203,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

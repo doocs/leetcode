@@ -13,11 +13,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1267. Count Servers that Communicate](https://leetcode.com/problems/count-servers-that-communicate)
 
 [中文文档](/solution/1200-1299/1267.Count%20Servers%20that%20Communicate/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a map of a server center, represented as a <code>m * n</code> integer matrix&nbsp;<code>grid</code>, where 1 means that on that cell there is a server and 0 means that it is no server. Two servers are said to communicate if they are on the same row or on the same column.<br />
 <br />
@@ -64,7 +68,11 @@ Return the number of servers&nbsp;that communicate with any other server.</p>
 	<li><code>grid[i][j] == 0 or 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -197,4 +205,6 @@ function countServers(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

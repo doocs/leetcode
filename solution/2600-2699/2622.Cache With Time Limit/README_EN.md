@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2622.Cache%20With%20Time%20Limit/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2622. Cache With Time Limit](https://leetcode.com/problems/cache-with-time-limit)
 
 [中文文档](/solution/2600-2699/2622.Cache%20With%20Time%20Limit/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a class that allows getting and setting&nbsp;key-value pairs, however a&nbsp;<strong>time until expiration</strong>&nbsp;is associated with each key.</p>
 
@@ -71,7 +75,11 @@ At t=250, count() returns 0 because the cache is empty.
 	<li>First action is always &quot;TimeLimitedCache&quot; and must be executed immediately, with a 0-millisecond delay</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -125,4 +133,6 @@ class TimeLimitedCache {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

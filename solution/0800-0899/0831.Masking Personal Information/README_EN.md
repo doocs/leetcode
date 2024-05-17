@@ -6,11 +6,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [831. Masking Personal Information](https://leetcode.com/problems/masking-personal-information)
 
 [中文文档](/solution/0800-0899/0831.Masking%20Personal%20Information/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a personal information string <code>s</code>, representing either an <strong>email address</strong> or a <strong>phone number</strong>. Return <em>the <strong>masked</strong> personal information using the below rules</em>.</p>
 
@@ -106,7 +110,11 @@ Thus, the resulting masked number is &quot;***-***-7890&quot;.
 	</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -222,4 +230,6 @@ function maskPII(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

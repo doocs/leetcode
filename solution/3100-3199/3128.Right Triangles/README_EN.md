@@ -12,11 +12,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [3128. Right Triangles](https://leetcode.com/problems/right-triangles)
 
 [中文文档](/solution/3100-3199/3128.Right%20Triangles/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D boolean matrix <code>grid</code>.</p>
 
@@ -183,7 +187,11 @@ tags:
 	<li><code>0 &lt;= grid[i][j] &lt;= 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
 
@@ -311,4 +319,6 @@ function numberOfRightTriangles(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

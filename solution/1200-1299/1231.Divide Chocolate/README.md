@@ -9,13 +9,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [1231. 分享巧克力 🔒](https://leetcode.cn/problems/divide-chocolate)
 
 [English Version](/solution/1200-1299/1231.Divide%20Chocolate/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一大块巧克力，它由一些甜度不完全相同的小块组成。我们用数组&nbsp;<code>sweetness</code>&nbsp;来表示每一小块的甜度。</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li><code>1 &lt;= sweetness[i] &lt;= 10^5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找 + 贪心
 
@@ -213,4 +219,6 @@ function maximizeSweetness(sweetness: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

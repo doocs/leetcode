@@ -8,11 +8,15 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [817. Linked List Components](https://leetcode.com/problems/linked-list-components)
 
 [中文文档](/solution/0800-0899/0817.Linked%20List%20Components/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>head</code> of a linked list containing unique integer values and an integer array <code>nums</code> that is a subset of the linked list values.</p>
 
@@ -48,7 +52,11 @@ tags:
 	<li>All the values of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -264,4 +272,6 @@ var numComponents = function (head, nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

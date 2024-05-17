@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2288. Apply Discount to Prices](https://leetcode.com/problems/apply-discount-to-prices)
 
 [中文文档](/solution/2200-2299/2288.Apply%20Discount%20to%20Prices/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>sentence</strong> is a string of single-space separated words where each word can contain digits, lowercase letters, and the dollar sign <code>&#39;$&#39;</code>. A word represents a <strong>price</strong> if it is a sequence of digits preceded by a dollar sign.</p>
 
@@ -62,7 +66,11 @@ Each of them is replaced by &quot;$0.00&quot;.
 	<li><code>0 &lt;= discount &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -171,4 +179,6 @@ function discountPrices(sentence: string, discount: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

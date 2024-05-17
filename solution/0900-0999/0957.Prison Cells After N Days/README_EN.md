@@ -9,11 +9,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [957. Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days)
 
 [中文文档](/solution/0900-0999/0957.Prison%20Cells%20After%20N%20Days/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>8</code> prison cells in a row and each cell is either occupied or vacant.</p>
 
@@ -63,6 +67,34 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

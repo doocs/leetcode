@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [826. Most Profit Assigning Work](https://leetcode.com/problems/most-profit-assigning-work)
 
 [中文文档](/solution/0800-0899/0826.Most%20Profit%20Assigning%20Work/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code> jobs and <code>m</code> workers. You are given three arrays: <code>difficulty</code>, <code>profit</code>, and <code>worker</code> where:</p>
 
@@ -58,7 +62,11 @@ tags:
 	<li><code>1 &lt;= difficulty[i], profit[i], worker[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -152,4 +160,6 @@ func maxProfitAssignment(difficulty []int, profit []int, worker []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

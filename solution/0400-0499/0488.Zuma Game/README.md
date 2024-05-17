@@ -10,13 +10,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [488. 祖玛游戏](https://leetcode.cn/problems/zuma-game)
 
 [English Version](/solution/0400-0499/0488.Zuma%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你正在参与祖玛游戏的一个变种。</p>
 
@@ -94,7 +96,11 @@ tags:
 	<li>桌面上一开始的球中，不会有三个及三个以上颜色相同且连着的球</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -296,4 +302,6 @@ record Zuma(long board, long hand) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

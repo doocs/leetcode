@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1107. New Users Daily Count 🔒](https://leetcode.com/problems/new-users-daily-count)
 
 [中文文档](/solution/1100-1199/1107.New%20Users%20Daily%20Count/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Traffic</code></p>
 
@@ -71,7 +75,11 @@ Note that we only care about dates with non zero user count.
 The user with id 5 first logged in on 2019-03-01 so he&#39;s not counted on 2019-06-21.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -95,4 +103,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

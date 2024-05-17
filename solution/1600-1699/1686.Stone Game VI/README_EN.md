@@ -13,11 +13,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1686. Stone Game VI](https://leetcode.com/problems/stone-game-vi)
 
 [中文文档](/solution/1600-1699/1686.Stone%20Game%20VI/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob take turns playing a game, with Alice starting first.</p>
 
@@ -77,7 +81,11 @@ Bob wins.
 	<li><code>1 &lt;= aliceValues[i], bobValues[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -208,4 +216,6 @@ function stoneGameVI(aliceValues: number[], bobValues: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

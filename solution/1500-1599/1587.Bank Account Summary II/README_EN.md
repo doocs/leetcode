@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1587. Bank Account Summary II](https://leetcode.com/problems/bank-account-summary-ii)
 
 [中文文档](/solution/1500-1599/1587.Bank%20Account%20Summary%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Users</code></p>
 
@@ -90,7 +94,11 @@ Bob&#39;s balance is 1000.
 Charlie&#39;s balance is (6000 + 6000 - 4000) = 8000.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Equi-Join + Group By + Sum
 
@@ -112,4 +120,6 @@ HAVING balance > 10000;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

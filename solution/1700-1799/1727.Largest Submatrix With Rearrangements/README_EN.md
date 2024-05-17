@@ -11,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1727. Largest Submatrix With Rearrangements](https://leetcode.com/problems/largest-submatrix-with-rearrangements)
 
 [中文文档](/solution/1700-1799/1727.Largest%20Submatrix%20With%20Rearrangements/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a binary matrix <code>matrix</code> of size <code>m x n</code>, and you are allowed to rearrange the <strong>columns</strong> of the <code>matrix</code> in any order.</p>
 
@@ -58,7 +62,11 @@ The largest submatrix of 1s, in bold, has an area of 3.
 	<li><code>matrix[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Sorting
 
@@ -199,4 +207,6 @@ function largestSubmatrix(matrix: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

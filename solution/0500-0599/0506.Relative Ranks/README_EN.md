@@ -8,11 +8,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [506. Relative Ranks](https://leetcode.com/problems/relative-ranks)
 
 [中文文档](/solution/0500-0599/0506.Relative%20Ranks/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>score</code> of size <code>n</code>, where <code>score[i]</code> is the score of the <code>i<sup>th</sup></code> athlete in a competition. All the scores are guaranteed to be <strong>unique</strong>.</p>
 
@@ -54,7 +58,11 @@ tags:
 	<li>All the values in <code>score</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -136,4 +144,6 @@ func findRelativeRanks(score []int) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Data Stream
 ---
 
+<!-- problem:start -->
+
 # [362. Design Hit Counter 🔒](https://leetcode.com/problems/design-hit-counter)
 
 [中文文档](/solution/0300-0399/0362.Design%20Hit%20Counter/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a hit counter which counts the number of hits received in the past <code>5</code> minutes (i.e., the past <code>300</code> seconds).</p>
 
@@ -61,7 +65,11 @@ hitCounter.getHits(301); // get hits at timestamp 301, return 3.
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What if the number of hits per second could be huge? Does your design scale?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -172,4 +180,6 @@ impl HitCounter {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

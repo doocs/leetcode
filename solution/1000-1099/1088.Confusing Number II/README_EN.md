@@ -9,11 +9,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [1088. Confusing Number II 🔒](https://leetcode.com/problems/confusing-number-ii)
 
 [中文文档](/solution/1000-1099/1088.Confusing%20Number%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>confusing number</strong> is a number that when rotated <code>180</code> degrees becomes a different number with <strong>each digit valid</strong>.</p>
 
@@ -62,7 +66,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -226,4 +234,6 @@ function confusingNumberII(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

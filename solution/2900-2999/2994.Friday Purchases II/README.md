@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2994. 发生在周五的交易 II 🔒](https://leetcode.cn/problems/friday-purchases-ii)
 
 [English Version](/solution/2900-2999/2994.Friday%20Purchases%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Purchases</code></p>
 
@@ -71,7 +73,11 @@ Purchases table:
 - 在 2023 年 11 月的第四周的周五（即 2023-11-24），当天发生了两笔交易，分别为 $12,000 和 $9,692，总计 $21,692。
 输出表按照 week_of_month 按升序排序。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归 + 左连接 + 日期函数
 
@@ -102,4 +108,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

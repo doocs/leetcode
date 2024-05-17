@@ -10,11 +10,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [805. Split Array With Same Average](https://leetcode.com/problems/split-array-with-same-average)
 
 [中文文档](/solution/0800-0899/0805.Split%20Array%20With%20Same%20Average/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>.</p>
 
@@ -48,7 +52,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -190,4 +198,6 @@ func splitArraySameAverage(nums []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

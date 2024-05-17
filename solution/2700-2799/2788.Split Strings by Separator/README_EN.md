@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2788. Split Strings by Separator](https://leetcode.com/problems/split-strings-by-separator)
 
 [中文文档](/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of strings <code>words</code> and a character <code>separator</code>, <strong>split</strong> each string in <code>words</code> by <code>separator</code>.</p>
 
@@ -71,7 +75,11 @@ Hence, the resulting array is [&quot;easy&quot;,&quot;problem&quot;].
 	<li><code>separator</code> is a character from the string <code>&quot;.,|$#@&quot;</code> (excluding the quotes)</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -145,4 +153,6 @@ function splitWordsBySeparator(words: string[], separator: string): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -13,13 +13,15 @@ tags:
     - 归并排序
 ---
 
+<!-- problem:start -->
+
 # [912. 排序数组](https://leetcode.cn/problems/sort-an-array)
 
 [English Version](/solution/0900-0999/0912.Sort%20an%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>，请你将该数组升序排列。</p>
 
@@ -51,7 +53,11 @@ tags:
 	<li><code>-5 * 10<sup>4</sup> &lt;= nums[i] &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：快速排序
 
@@ -235,6 +241,10 @@ var sortArray = function (nums) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：归并排序
 
@@ -459,6 +469,10 @@ var sortArray = function (nums) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
@@ -504,4 +518,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,13 +10,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [2327. 知道秘密的人数](https://leetcode.cn/problems/number-of-people-aware-of-a-secret)
 
 [English Version](/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在第 <code>1</code>&nbsp;天，有一个人发现了一个秘密。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>1 &lt;= delay &lt; forget &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
@@ -200,4 +206,6 @@ function peopleAwareOfSecret(n: number, delay: number, forget: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

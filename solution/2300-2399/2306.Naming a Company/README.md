@@ -12,13 +12,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [2306. 公司命名](https://leetcode.cn/problems/naming-a-company)
 
 [English Version](/solution/2300-2399/2306.Naming%20a%20Company/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>ideas</code> 表示在公司命名过程中使用的名字列表。公司命名流程如下：</p>
 
@@ -70,7 +72,11 @@ tags:
 	<li><code>ideas</code> 中的所有字符串 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举计数
 
@@ -238,4 +244,6 @@ function distinctNames(ideas: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

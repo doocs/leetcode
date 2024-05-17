@@ -7,11 +7,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1426. Counting Elements 🔒](https://leetcode.com/problems/counting-elements)
 
 [中文文档](/solution/1400-1499/1426.Counting%20Elements/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>arr</code>, count how many elements <code>x</code> there are, such that <code>x + 1</code> is also in <code>arr</code>. If there are duplicates in <code>arr</code>, count them separately.</p>
 
@@ -40,7 +44,11 @@ tags:
 	<li><code>0 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -186,4 +194,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

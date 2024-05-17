@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1280. 学生们参加各科测试的次数](https://leetcode.cn/problems/students-and-examinations)
 
 [English Version](/solution/1200-1299/1280.Students%20and%20Examinations/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>学生表: <code>Students</code></p>
 
@@ -127,7 +129,11 @@ Alex 啥测试都没参加；
 John  参加了数学、物理、编程测试各 1 次。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两次连接 + 分组统计
 
@@ -148,4 +154,6 @@ ORDER BY 1, 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

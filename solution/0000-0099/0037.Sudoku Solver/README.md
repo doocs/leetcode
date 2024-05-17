@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [37. 解数独](https://leetcode.cn/problems/sudoku-solver)
 
 [English Version](/solution/0000-0099/0037.Sudoku%20Solver/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个程序，通过填充空格来解决数独问题。</p>
 
@@ -58,7 +60,11 @@ tags:
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：回溯
 
@@ -445,4 +451,6 @@ function isValid($board, $row, $col, $num) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

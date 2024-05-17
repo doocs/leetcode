@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1173. Immediate Food Delivery I 🔒](https://leetcode.com/problems/immediate-food-delivery-i)
 
 [中文文档](/solution/1100-1199/1173.Immediate%20Food%20Delivery%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Delivery</code></p>
 
@@ -60,7 +64,11 @@ Delivery table:
 <strong>Explanation:</strong> The orders with delivery id 2 and 3 are immediate while the others are scheduled.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sum
 
@@ -77,4 +85,6 @@ FROM Delivery;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

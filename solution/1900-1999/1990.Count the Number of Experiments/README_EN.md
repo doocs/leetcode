@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1990. Count the Number of Experiments 🔒](https://leetcode.com/problems/count-the-number-of-experiments)
 
 [中文文档](/solution/1900-1999/1990.Count%20the%20Number%20of%20Experiments/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Experiments</code></p>
 
@@ -72,7 +76,11 @@ On the platform &quot;IOS&quot;, we had one &quot;Sports&quot; experiment and on
 On the platform &quot;Web&quot;, we had two &quot;Reading&quot; experiments and one &quot;Programming&quot; experiment.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -110,4 +118,6 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

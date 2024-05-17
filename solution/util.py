@@ -454,14 +454,6 @@ def refresh(result):
         with open(path_cn, "w", encoding="utf-8") as f1:
             f1.write(cn_content)
 
-        old_content = re.search(
-            "## Description(.*?)## Solutions", en_content, re.S
-        ).group(1)
-        if question.get("content_en"):
-            en_content = en_content.replace(
-                old_content, "\n\n" + question["content_en"] + "\n\n"
-            ).replace("\n\n    <ul>", "\n    <ul>")
-
         for url in pattern.findall(en_content) or []:
             image_name = (
                 os.path.basename(url).replace(".PNG", ".png").replace(".JPG", ".jpg")

@@ -12,13 +12,15 @@ tags:
     - 归并排序
 ---
 
+<!-- problem:start -->
+
 # [3109. Find the Index of Permutation 🔒](https://leetcode.cn/problems/find-the-index-of-permutation)
 
 [English Version](/solution/3100-3199/3109.Find%20the%20Index%20of%20Permutation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Given an array <code>perm</code> of length <code>n</code> which is a permutation of <code>[1, 2, ..., n]</code>, return the index of <code>perm</code> in the <span data-keyword="lexicographically-sorted-array">lexicographically sorted</span> array of all of the permutations of <code>[1, 2, ..., n]</code>.</p>
 
@@ -65,7 +67,11 @@ And <code>[3,1,2]</code> is at index 4.</p>
 	<li><code>perm</code> is a permutation of <code>[1, 2, ..., n]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：树状数组
 
@@ -301,4 +307,6 @@ function getPermutationIndex(perm: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

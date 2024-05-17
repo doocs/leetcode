@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1412. Find the Quiet Students in All Exams 🔒](https://leetcode.com/problems/find-the-quiet-students-in-all-exams)
 
 [中文文档](/solution/1400-1499/1412.Find%20the%20Quiet%20Students%20in%20All%20Exams/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Student</code></p>
 
@@ -95,7 +99,11 @@ Since student 5 is not taking any exam, he is excluded from the result.
 So, we only return the information of Student 2.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Using RANK() Window Function + Group By
 
@@ -132,4 +140,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,13 +11,15 @@ tags:
     - 迭代器
 ---
 
+<!-- problem:start -->
+
 # [1286. 字母组合迭代器](https://leetcode.cn/problems/iterator-for-combination)
 
 [English Version](/solution/1200-1299/1286.Iterator%20for%20Combination/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你设计一个迭代器类&nbsp;<code>CombinationIterator</code>&nbsp;，包括以下内容：</p>
 
@@ -58,7 +60,11 @@ iterator.hasNext(); // 返回 false
 	<li>题目保证每次调用函数&nbsp;<code>next</code>&nbsp;时都存在下一个字母组合。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS 回溯
 
@@ -243,6 +249,10 @@ func (this *CombinationIterator) HasNext() bool {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：二进制编码
 
@@ -435,4 +445,6 @@ func (this *CombinationIterator) HasNext() bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

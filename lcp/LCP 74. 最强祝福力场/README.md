@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2074.%20%E6%9C%80%E5%BC%BA%E7%A5%9D%E7%A6%8F%E5%8A%9B%E5%9C%BA/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 74. 最强祝福力场](https://leetcode.cn/problems/xepqZ5)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 小扣在探索丛林的过程中，无意间发现了传说中“落寞的黄金之都”。而在这片建筑废墟的地带中，小扣使用探测仪监测到了存在某种带有「祝福」效果的力场。
 经过不断的勘测记录，小扣将所有力场的分布都记录了下来。`forceField[i] = [x,y,side]` 表示第 `i` 片力场将覆盖以坐标 `(x,y)` 为中心，边长为 `side` 的正方形区域。
@@ -46,6 +48,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2074.%20%E6%9C%80%
 -   `0 <= forceField[i][0], forceField[i][1] <= 10^9`
 -   `1 <= forceField[i][2] <= 10^9`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [216. Combination Sum III](https://leetcode.com/problems/combination-sum-iii)
 
 [中文文档](/solution/0200-0299/0216.Combination%20Sum%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Find all valid combinations of <code>k</code> numbers that sum up to <code>n</code> such that the following conditions are true:</p>
 
@@ -61,7 +65,11 @@ Using 4 different numbers in the range [1,9], the smallest sum we can get is 1+2
 	<li><code>1 &lt;= n &lt;= 60</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Pruning + Backtracking (Two Approaches)
 
@@ -449,6 +457,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary Enumeration
 
 We can use a binary integer of length $9$ to represent the selection of numbers $1$ to $9$, where the $i$-th bit of the binary integer represents whether the number $i + 1$ is selected. If the $i$-th bit is $1$, it means that the number $i + 1$ is selected, otherwise, it means that the number $i + 1$ is not selected.
@@ -613,4 +625,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

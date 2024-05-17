@@ -9,13 +9,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [351. 安卓系统手势解锁 🔒](https://leetcode.cn/problems/android-unlock-patterns)
 
 [English Version](/solution/0300-0399/0351.Android%20Unlock%20Patterns/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们都知道安卓有个手势解锁的界面，是一个&nbsp;<code>3 x 3</code><strong> </strong>的点所绘制出来的网格。用户可以设置一个 “解锁模式” ，通过连接特定序列中的点，形成一系列彼此连接的线段，每个线段的端点都是序列中两个连续的点。如果满足以下两个条件，则 <code>k</code> 点序列是有效的解锁模式：</p>
 
@@ -68,7 +70,11 @@ tags:
 	<li><code>1 &lt;= m, n &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -286,4 +292,6 @@ function numberOfPatterns(m: number, n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

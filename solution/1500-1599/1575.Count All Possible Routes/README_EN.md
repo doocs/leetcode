@@ -10,11 +10,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1575. Count All Possible Routes](https://leetcode.com/problems/count-all-possible-routes)
 
 [中文文档](/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <strong>distinct</strong> positive integers locations where <code>locations[i]</code> represents the position of city <code>i</code>. You are also given integers <code>start</code>, <code>finish</code> and <code>fuel</code> representing the starting city, ending city, and the initial amount of fuel you have, respectively.</p>
 
@@ -69,7 +73,11 @@ tags:
 	<li><code>1 &lt;= fuel &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization
 
@@ -237,6 +245,10 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can also convert the memoization of solution 1 into dynamic programming.
@@ -373,4 +385,6 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,13 +10,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [1256. 加密数字 🔒](https://leetcode.cn/problems/encode-number)
 
 [English Version](/solution/1200-1299/1256.Encode%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个非负整数 <code>num</code> ，返回它的「加密字符串」。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>0 &lt;= num &lt;= 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -103,4 +109,6 @@ function encode(num: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

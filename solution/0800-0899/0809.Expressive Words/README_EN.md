@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [809. Expressive Words](https://leetcode.com/problems/expressive-words)
 
 [中文文档](/solution/0800-0899/0809.Expressive%20Words/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Sometimes people repeat letters to represent extra feeling. For example:</p>
 
@@ -58,7 +62,11 @@ We can&#39;t extend &quot;helo&quot; to get &quot;heeellooo&quot; because the gr
 	<li><code>s</code> and <code>words[i]</code> consist of lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -203,4 +211,6 @@ func expressiveWords(s string, words []string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

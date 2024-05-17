@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [2490. 回环句](https://leetcode.cn/problems/circular-sentence)
 
 [English Version](/solution/2400-2499/2490.Circular%20Sentence/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>句子</strong> 是由单个空格分隔的一组单词，且不含前导或尾随空格。</p>
 
@@ -78,7 +80,11 @@ tags:
 	<li>不含任何前导或尾随空格</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -196,6 +202,10 @@ var isCircularSentence = function (sentence) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：模拟（空间优化）
 
@@ -320,4 +330,6 @@ var isCircularSentence = function (s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

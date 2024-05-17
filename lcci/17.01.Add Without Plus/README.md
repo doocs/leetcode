@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.01.Add%20Without%20Plus/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.01. 不用加号的加法](https://leetcode.cn/problems/add-without-plus-lcci)
 
 [English Version](/lcci/17.01.Add%20Without%20Plus/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个函数把两个数字相加。不得使用 + 或者其他算术运算符。</p>
 
@@ -28,7 +30,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.01.Add%20Without%2
 	<li>结果不会溢出 32 位整数</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -71,4 +77,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

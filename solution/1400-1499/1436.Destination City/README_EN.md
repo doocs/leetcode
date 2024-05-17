@@ -10,11 +10,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1436. Destination City](https://leetcode.com/problems/destination-city)
 
 [中文文档](/solution/1400-1499/1436.Destination%20City/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the array <code>paths</code>, where <code>paths[i] = [cityA<sub>i</sub>, cityB<sub>i</sub>]</code> means there exists a direct path going from <code>cityA<sub>i</sub></code> to <code>cityB<sub>i</sub></code>. <em>Return the destination city, that is, the city without any path outgoing to another city.</em></p>
 
@@ -60,7 +64,11 @@ Clearly the destination city is &quot;A&quot;.
 	<li>All strings consist of lowercase and uppercase English letters and the space character.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -192,4 +200,6 @@ char* destCity(char*** paths, int pathsSize, int* pathsColSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

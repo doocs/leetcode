@@ -11,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1169. Invalid Transactions](https://leetcode.com/problems/invalid-transactions)
 
 [中文文档](/solution/1100-1199/1169.Invalid%20Transactions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A transaction is possibly invalid if:</p>
 
@@ -61,7 +65,11 @@ tags:
 	<li>Each <code>{amount}</code> consist of digits, and represent an integer between <code>0</code> and <code>2000</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
 
@@ -222,4 +230,6 @@ type tuple struct {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

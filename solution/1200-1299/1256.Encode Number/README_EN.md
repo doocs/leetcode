@@ -10,11 +10,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1256. Encode Number 🔒](https://leetcode.com/problems/encode-number)
 
 [中文文档](/solution/1200-1299/1256.Encode%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a non-negative integer <code>num</code>, Return its <em>encoding</em> string.</p>
 
@@ -54,7 +58,11 @@ tags:
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -111,4 +119,6 @@ function encode(num: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

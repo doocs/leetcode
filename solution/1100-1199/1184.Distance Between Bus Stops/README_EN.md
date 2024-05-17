@@ -8,11 +8,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1184. Distance Between Bus Stops](https://leetcode.com/problems/distance-between-bus-stops)
 
 [中文文档](/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A bus&nbsp;has <code>n</code> stops numbered from <code>0</code> to <code>n - 1</code> that form&nbsp;a circle. We know the distance between all pairs of neighboring stops where <code>distance[i]</code> is the distance between the stops number&nbsp;<code>i</code> and <code>(i + 1) % n</code>.</p>
 
@@ -82,7 +86,11 @@ tags:
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -183,4 +191,6 @@ var distanceBetweenBusStops = function (distance, start, destination) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

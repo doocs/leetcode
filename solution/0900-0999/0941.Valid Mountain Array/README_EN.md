@@ -6,11 +6,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [941. Valid Mountain Array](https://leetcode.com/problems/valid-mountain-array)
 
 [中文文档](/solution/0900-0999/0941.Valid%20Mountain%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>arr</code>, return <em><code>true</code> if and only if it is a valid mountain array</em>.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -146,4 +154,6 @@ function validMountainArray(arr: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

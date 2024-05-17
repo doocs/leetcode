@@ -11,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1065. 字符串的索引对 🔒](https://leetcode.cn/problems/index-pairs-of-a-string)
 
 [English Version](/solution/1000-1099/1065.Index%20Pairs%20of%20a%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出&nbsp;<strong>字符串 </strong><code>text</code> 和&nbsp;<strong>字符串列表</strong> <code>words</code>, 返回所有的索引对 <code>[i, j]</code> 使得在索引对范围内的子字符串 <code>text[i]...text[j]</code>（包括&nbsp;<code>i</code>&nbsp;和&nbsp;<code>j</code>）属于字符串列表 <code>words</code>。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li>按序返回索引对 <code>[i,j]</code>（即，按照索引对的第一个索引进行排序，当第一个索引对相同时按照第二个索引对排序）。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -200,6 +206,10 @@ func indexPairs(text string, words []string) [][]int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：前缀树
 
 相似题目：
@@ -246,4 +256,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

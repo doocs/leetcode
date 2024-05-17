@@ -12,13 +12,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [2456. 最流行的视频创作者](https://leetcode.cn/problems/most-popular-video-creator)
 
 [English Version](/solution/2400-2499/2456.Most%20Popular%20Video%20Creator/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串数组 <code>creators</code> 和 <code>ids</code> ，和一个整数数组 <code>views</code> ，所有数组的长度都是 <code>n</code> 。平台上第 <code>i</code> 个视频者是&nbsp;<code>creator[i]</code> ，视频分配的 id 是 <code>ids[i]</code> ，且播放量为 <code>views[i]</code> 。</p>
 
@@ -69,7 +71,11 @@ id 为 "b" 和 "c" 的视频都满足播放量最高的条件。
 	<li><code>0 &lt;= views[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -208,4 +214,6 @@ function mostPopularCreator(creators: string[], ids: string[], views: number[]):
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

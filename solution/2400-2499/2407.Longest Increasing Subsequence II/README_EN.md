@@ -14,11 +14,15 @@ tags:
     - Monotonic Queue
 ---
 
+<!-- problem:start -->
+
 # [2407. Longest Increasing Subsequence II](https://leetcode.com/problems/longest-increasing-subsequence-ii)
 
 [中文文档](/solution/2400-2499/2407.Longest%20Increasing%20Subsequence%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>
 
@@ -73,7 +77,11 @@ The subsequence has a length of 1, so we return 1.
 	<li><code>1 &lt;= nums[i], k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Segment Tree
 
@@ -385,4 +393,6 @@ func (t *segmentTree) pushup(u int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

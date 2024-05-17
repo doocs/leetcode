@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1459. Rectangles Area 🔒](https://leetcode.com/problems/rectangles-area)
 
 [中文文档](/solution/1400-1499/1459.Rectangles%20Area/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Points</code></p>
 
@@ -66,7 +70,11 @@ The rectangle formed by p1 = 1 and p2 = 2 has an area equal to |2-4| * |7-8| = 2
 Note that the rectangle formed by p1 = 1 and p2 = 3 is invalid because the area is 0.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -87,4 +95,6 @@ ORDER BY area DESC, p1, p2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1767. Find the Subtasks That Did Not Execute 🔒](https://leetcode.com/problems/find-the-subtasks-that-did-not-execute)
 
 [中文文档](/solution/1700-1799/1767.Find%20the%20Subtasks%20That%20Did%20Not%20Execute/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Tasks</code></p>
 
@@ -87,7 +91,11 @@ Task 2 was divided into 2 subtasks (1, 2). No subtask was executed successfully,
 Task 3 was divided into 4 subtasks (1, 2, 3, 4). All of the subtasks were executed successfully.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursive Table Generation + Left Join
 
@@ -120,4 +128,6 @@ WHERE Executed.subtask_id IS NULL;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

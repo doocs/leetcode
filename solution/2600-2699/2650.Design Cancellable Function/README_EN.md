@@ -4,11 +4,15 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2650.Design%20Cancellable%20Function/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2650. Design Cancellable Function](https://leetcode.com/problems/design-cancellable-function)
 
 [中文文档](/solution/2600-2699/2650.Design%20Cancellable%20Function/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Sometimes you have a long running task, and you may wish to cancel it before it completes. To help with this goal, write a function&nbsp;<code>cancellable</code> that accepts a generator object and returns an array of two values: a <strong>cancel function</strong> and a <strong>promise</strong>.</p>
 
@@ -146,7 +150,11 @@ The first yielded promise immediately rejects. This error is caught. Because the
 	<li><code>generatorFunction</code> returns a generator object</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -189,4 +197,6 @@ function cancellable<T>(generator: Generator<Promise<any>, T, unknown>): [() => 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Design
 ---
 
+<!-- problem:start -->
+
 # [155. Min Stack](https://leetcode.com/problems/min-stack)
 
 [中文文档](/solution/0100-0199/0155.Min%20Stack/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
 
@@ -58,7 +62,11 @@ minStack.getMin(); // return -2
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>push</code>, <code>pop</code>, <code>top</code>, and <code>getMin</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -382,4 +390,6 @@ public class MinStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

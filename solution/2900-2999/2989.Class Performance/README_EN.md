@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2989. Class Performance 🔒](https://leetcode.com/problems/class-performance)
 
 [中文文档](/solution/2900-2999/2989.Class%20Performance/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Scores</code></p>
 
@@ -66,7 +70,11 @@ Scores table:
 student_id 321 has the highest score of 230, while student_id 896 has the lowest score of 119. Therefore, the difference between them is 111.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Maximum and Minimum
 
@@ -85,4 +93,6 @@ FROM Scores;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

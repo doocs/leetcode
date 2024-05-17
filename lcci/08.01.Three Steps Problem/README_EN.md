@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.01.Three%20Steps%20Problem/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.01. Three Steps Problem](https://leetcode.cn/problems/three-steps-problem-lcci)
 
 [中文文档](/lcci/08.01.Three%20Steps%20Problem/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A child is running up a staircase with n steps and can hop either 1 step, 2 steps, or 3 steps at a time. Implement a method to count how many possible ways the child can run up the stairs.&nbsp;The result may be large, so return it modulo 1000000007.</p>
 
@@ -36,7 +40,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.01.Three%20Steps%2
 
 1. `1 <= n <= 1000000`
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -170,6 +178,10 @@ class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Matrix Quick Power to Accelerate Recursion
 
@@ -436,4 +448,6 @@ function pow(a, n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

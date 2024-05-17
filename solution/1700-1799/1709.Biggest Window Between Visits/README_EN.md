@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1709. Biggest Window Between Visits 🔒](https://leetcode.com/problems/biggest-window-between-visits)
 
 [中文文档](/solution/1700-1799/1709.Biggest%20Window%20Between%20Visits/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>UserVisits</code></p>
 
@@ -72,7 +76,11 @@ Making the biggest window the one with 65 days.
 For the third user, the only window in question is between dates 2020-11-11 and 2021-1-1 with a total of 51 days.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Window Function
 
@@ -103,4 +111,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

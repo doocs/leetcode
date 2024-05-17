@@ -8,13 +8,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted)
 
 [English Version](/solution/0100-0199/0167.Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>1</strong> 开始的整数数组&nbsp;<code>numbers</code> ，该数组已按<strong><em> </em>非递减顺序排列&nbsp; </strong>，请你从数组中找出满足相加之和等于目标数&nbsp;<code>target</code> 的两个数。如果设这两个数分别是 <code>numbers[index<sub>1</sub>]</code> 和 <code>numbers[index<sub>2</sub>]</code> ，则 <code>1 &lt;= index<sub>1</sub> &lt; index<sub>2</sub> &lt;= numbers.length</code> 。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><strong>仅存在一个有效答案</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -206,6 +212,10 @@ var twoSum = function (numbers, target) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：双指针
 
 我们定义两个指针 $i$ 和 $j$，分别指向数组的第一个元素和最后一个元素。每次计算 $numbers[i] + numbers[j]$，如果和等于目标值，那么返回 $[i + 1, j + 1]$ 即可。如果和小于目标值，那么将 $i$ 右移一位，如果和大于目标值，那么将 $j$ 左移一位。
@@ -320,4 +330,6 @@ var twoSum = function (numbers, target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1824. Minimum Sideway Jumps](https://leetcode.com/problems/minimum-sideway-jumps)
 
 [中文文档](/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a <strong>3 lane road</strong> of length <code>n</code> that consists of <code>n + 1</code> <strong>points</strong> labeled from <code>0</code> to <code>n</code>. A frog <strong>starts</strong> at point <code>0</code> in the <strong>second </strong>lane<strong> </strong>and wants to jump to point <code>n</code>. However, there could be obstacles along the way.</p>
 
@@ -70,7 +74,11 @@ Note that the frog can jump over obstacles only when making side jumps (as shown
 	<li><code>obstacles[0] == obstacles[n] == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -197,4 +205,6 @@ function minSideJumps(obstacles: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

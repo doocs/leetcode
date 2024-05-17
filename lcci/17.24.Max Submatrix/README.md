@@ -4,13 +4,16 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.24.Max%20Submatrix/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.24. 最大子矩阵](https://leetcode.cn/problems/max-submatrix-lcci)
 
 [English Version](/lcci/17.24.Max%20Submatrix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定一个正整数和负整数组成的 N &times; M&nbsp;矩阵，编写代码找出元素总和最大的子矩阵。</p>
 
 <p>返回一个数组 <code>[r1, c1, r2, c2]</code>，其中 <code>r1</code>, <code>c1</code> 分别代表子矩阵左上角的行号和列号，<code>r2</code>, <code>c2</code> 分别代表右下角的行号和列号。若有多个满足条件的子矩阵，返回任意一个均可。</p>
@@ -33,7 +36,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.24.Max%20Submatrix
 	<li><code>1 &lt;= matrix.length, matrix[0].length &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -195,23 +202,23 @@ class Solution {
     func getMaxMatrix(_ matrix: [[Int]]) -> [Int] {
         let m = matrix.count, n = matrix[0].count
         var s = Array(repeating: Array(repeating: 0, count: n), count: m + 1)
-        
+
         for i in 0..<m {
             for j in 0..<n {
                 s[i + 1][j] = s[i][j] + matrix[i][j]
             }
         }
-        
+
         var mx = matrix[0][0]
         var ans = [0, 0, 0, 0]
-        
+
         for i1 in 0..<m {
             for i2 in i1..<m {
                 var nums = [Int](repeating: 0, count: n)
                 for j in 0..<n {
                     nums[j] = s[i2 + 1][j] - s[i1][j]
                 }
-                
+
                 var start = 0
                 var f = nums[0]
                 for j in 1..<n {
@@ -235,4 +242,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

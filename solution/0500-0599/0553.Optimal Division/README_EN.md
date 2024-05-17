@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [553. Optimal Division](https://leetcode.com/problems/optimal-division)
 
 [中文文档](/solution/0500-0599/0553.Optimal%20Division/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>. The adjacent integers in <code>nums</code> will perform the float division.</p>
 
@@ -60,7 +64,11 @@ It can be shown that after trying all possibilities, we cannot get an expression
 	<li>There is only one optimal division for the given input.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -169,4 +177,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

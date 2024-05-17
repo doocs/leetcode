@@ -11,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1235. 规划兼职工作](https://leetcode.cn/problems/maximum-profit-in-job-scheduling)
 
 [English Version](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你打算利用空闲时间来做兼职工作赚些零花钱。</p>
 
@@ -71,7 +73,11 @@ tags:
 	<li><code>1 &lt;=&nbsp;profit[i] &lt;= 10^4</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索 + 二分查找
 
@@ -243,6 +249,10 @@ function jobScheduling(startTime: number[], endTime: number[], profit: number[])
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划 + 二分查找
 
 我们还可以将方法一中的记忆化搜索改为动态规划。
@@ -381,4 +391,6 @@ function jobScheduling(startTime: number[], endTime: number[], profit: number[])
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

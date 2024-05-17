@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1285. 找到连续区间的开始和结束数字 🔒](https://leetcode.cn/problems/find-the-start-and-end-number-of-continuous-ranges)
 
 [English Version](/solution/1200-1299/1285.Find%20the%20Start%20and%20End%20Number%20of%20Continuous%20Ranges/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Logs</code></p>
 
@@ -67,7 +69,11 @@ Logs 表：
 9 不在表中。
 10 在表中。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组 + 窗口函数
 
@@ -102,6 +108,10 @@ GROUP BY pid;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -122,4 +132,6 @@ GROUP BY pid;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

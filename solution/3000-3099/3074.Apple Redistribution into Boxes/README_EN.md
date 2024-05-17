@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3074. Apple Redistribution into Boxes](https://leetcode.com/problems/apple-redistribution-into-boxes)
 
 [中文文档](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>apple</code> of size <code>n</code> and an array <code>capacity</code> of size <code>m</code>.</p>
 
@@ -52,7 +56,11 @@ It is possible to distribute the apples as the total capacity is greater than or
 	<li>The input is generated such that it&#39;s possible to redistribute packs of apples into boxes.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -138,4 +146,6 @@ function minimumBoxes(apple: number[], capacity: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

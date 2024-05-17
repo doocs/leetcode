@@ -6,11 +6,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [228. Summary Ranges](https://leetcode.com/problems/summary-ranges)
 
 [中文文档](/solution/0200-0299/0228.Summary%20Ranges/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>sorted unique</strong> integer array <code>nums</code>.</p>
 
@@ -59,7 +63,11 @@ tags:
 	<li><code>nums</code> is sorted in ascending order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -228,4 +236,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

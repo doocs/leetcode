@@ -9,11 +9,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [1215. Stepping Numbers 🔒](https://leetcode.com/problems/stepping-numbers)
 
 [中文文档](/solution/1200-1299/1215.Stepping%20Numbers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>stepping number</strong> is an integer such that all of its adjacent digits have an absolute difference of exactly <code>1</code>.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>0 &lt;= low &lt;= high &lt;= 2 * 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -204,4 +212,6 @@ function countSteppingNumbers(low: number, high: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

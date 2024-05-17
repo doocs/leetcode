@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1934. 确认率](https://leetcode.cn/problems/confirmation-rate)
 
 [English Version](/solution/1900-1999/1934.Confirmation%20Rate/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Signups</code></p>
 
@@ -95,7 +97,11 @@ Confirmations 表:
 用户 7 提出了 3 个请求，所有请求都得到了确认。确认率为 1。
 用户 2 做了 2 个请求，其中一个被确认，另一个超时。确认率为 1 / 2 = 0.5。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：左连接 + 分组统计
 
@@ -116,4 +122,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

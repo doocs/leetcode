@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [161. 相隔为 1 的编辑距离 🔒](https://leetcode.cn/problems/one-edit-distance)
 
 [English Version](/solution/0100-0199/0161.One%20Edit%20Distance/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串 <code>s</code> 和&nbsp;<code>t</code> ，如果它们的编辑距离为 <code>1</code> ，则返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
 
@@ -51,7 +53,11 @@ tags:
 	<li><code>s</code> 和&nbsp;<code>t</code>&nbsp;由小写字母，大写字母和数字组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分情况讨论
 
@@ -166,4 +172,6 @@ function isOneEditDistance(s: string, t: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

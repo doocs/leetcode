@@ -9,11 +9,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1744. Can You Eat Your Favorite Candy on Your Favorite Day](https://leetcode.com/problems/can-you-eat-your-favorite-candy-on-your-favorite-day)
 
 [中文文档](/solution/1700-1799/1744.Can%20You%20Eat%20Your%20Favorite%20Candy%20on%20Your%20Favorite%20Day/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>(0-indexed)</strong> array of positive integers <code>candiesCount</code> where <code>candiesCount[i]</code> represents the number of candies of the&nbsp;<code>i<sup>th</sup></code>&nbsp;type you have. You are also given a 2D array <code>queries</code> where <code>queries[i] = [favoriteType<sub>i</sub>, favoriteDay<sub>i</sub>, dailyCap<sub>i</sub>]</code>.</p>
 
@@ -63,7 +67,11 @@ tags:
 	<li><code>1 &lt;= dailyCap<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -138,4 +146,6 @@ func canEat(candiesCount []int, queries [][]int) (ans []bool) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [841. Keys and Rooms](https://leetcode.com/problems/keys-and-rooms)
 
 [中文文档](/solution/0800-0899/0841.Keys%20and%20Rooms/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> rooms labeled from <code>0</code> to <code>n - 1</code>&nbsp;and all the rooms are locked except for room <code>0</code>. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.</p>
 
@@ -54,7 +58,11 @@ Since we were able to visit every room, we return true.
 	<li>All the values of <code>rooms[i]</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Depth-First Search (DFS)
 
@@ -191,4 +199,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1097. Game Play Analysis V 🔒](https://leetcode.com/problems/game-play-analysis-v)
 
 [中文文档](/solution/1000-1099/1097.Game%20Play%20Analysis%20V/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Activity</code></p>
 
@@ -67,7 +71,11 @@ Player 1 and 3 installed the game on 2016-03-01 but only player 1 logged back in
 Player 2 installed the game on 2017-06-25 but didn&#39;t log back in on 2017-06-26 so the day 1 retention of 2017-06-25 is 0 / 1 = 0.00
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -96,4 +104,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

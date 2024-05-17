@@ -10,11 +10,15 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [1359. Count All Valid Pickup and Delivery Options](https://leetcode.com/problems/count-all-valid-pickup-and-delivery-options)
 
 [中文文档](/solution/1300-1399/1359.Count%20All%20Valid%20Pickup%20and%20Delivery%20Options/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given <code>n</code> orders, each order consists of a pickup and a delivery service.</p>
 
@@ -55,7 +59,11 @@ This is an invalid order (P1,D2,P2,D1) because Pickup 2 is after of Delivery 2.
 	<li><code>1 &lt;= n &lt;= 500</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -140,4 +148,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

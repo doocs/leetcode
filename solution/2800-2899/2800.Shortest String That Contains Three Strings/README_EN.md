@@ -10,11 +10,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2800. Shortest String That Contains Three Strings](https://leetcode.com/problems/shortest-string-that-contains-three-strings)
 
 [中文文档](/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 Given three strings <code>a</code>, <code>b</code>, and <code>c</code>, your task is to find a string that has the<strong> minimum</strong> length and contains all three strings as <strong>substrings</strong>.
 
@@ -53,7 +57,11 @@ Given three strings <code>a</code>, <code>b</code>, and <code>c</code>, your tas
 	<li><code>a</code>, <code>b</code>, <code>c</code> consist only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -266,4 +274,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1264. Page Recommendations 🔒](https://leetcode.com/problems/page-recommendations)
 
 [中文文档](/solution/1200-1299/1264.Page%20Recommendations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Friendship</code></p>
 
@@ -96,7 +100,11 @@ Page 77 is suggested from both user 2 and user 3.
 Page 88 is not suggested because user 1 already likes it.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union + Equi-Join + Subquery
 
@@ -121,6 +129,10 @@ WHERE page_id NOT IN (SELECT page_id FROM Likes WHERE user_id = 1);
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -140,4 +152,6 @@ WHERE
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

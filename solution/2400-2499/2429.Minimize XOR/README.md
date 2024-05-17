@@ -9,13 +9,15 @@ tags:
     - 位运算
 ---
 
+<!-- problem:start -->
+
 # [2429. 最小异或](https://leetcode.cn/problems/minimize-xor)
 
 [English Version](/solution/2400-2499/2429.Minimize%20XOR/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数 <code>num1</code> 和 <code>num2</code> ，找出满足下述条件的正整数 <code>x</code> ：</p>
 
@@ -60,7 +62,11 @@ num1 和 num2 的二进制表示分别是 0001 和 1100 。
 	<li><code>1 &lt;= num1, num2 &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 位运算
 
@@ -177,6 +183,10 @@ function minimizeXor(num1: number, num2: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -267,4 +277,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

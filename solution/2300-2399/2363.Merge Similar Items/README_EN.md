@@ -11,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2363. Merge Similar Items](https://leetcode.com/problems/merge-similar-items)
 
 [中文文档](/solution/2300-2399/2363.Merge%20Similar%20Items/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two 2D integer arrays, <code>items1</code> and <code>items2</code>, representing two sets of items. Each array <code>items</code> has the following properties:</p>
 
@@ -75,7 +79,11 @@ Therefore, we return [[1,7],[2,4],[7,1]].
 	<li>Each <code>value<sub>i</sub></code> in <code>items2</code> is <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -228,4 +236,6 @@ int** mergeSimilarItems(int** items1, int items1Size, int* items1ColSize, int** 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

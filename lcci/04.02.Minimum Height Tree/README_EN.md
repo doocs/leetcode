@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.02.Minimum%20Height%20Tree/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [04.02. Minimum Height Tree](https://leetcode.cn/problems/minimum-height-tree-lcci)
 
 [中文文档](/lcci/04.02.Minimum%20Height%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a sorted (increasing order) array with unique integer elements, write an algo&shy;rithm to create a binary search tree with minimal height.</p>
 
@@ -36,7 +40,11 @@ One possible answer is: [0,-3,9,-10,null,5]，which represents the following tre
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -278,4 +286,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

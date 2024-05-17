@@ -9,11 +9,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [3101. Count Alternating Subarrays](https://leetcode.com/problems/count-alternating-subarrays)
 
 [中文文档](/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <span data-keyword="binary-array">binary array</span> <code>nums</code>.</p>
 
@@ -54,7 +58,11 @@ tags:
 	<li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -138,4 +146,6 @@ function countAlternatingSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

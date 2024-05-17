@@ -10,13 +10,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1244. 力扣排行榜 🔒](https://leetcode.cn/problems/design-a-leaderboard)
 
 [English Version](/solution/1200-1299/1244.Design%20A%20Leaderboard/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>新一轮的「力扣杯」编程大赛即将启动，为了动态显示参赛者的得分数据，需要设计一个排行榜 Leaderboard。</p>
 
@@ -73,7 +75,11 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 	<li>最多进行 <code>1000</code> 次函数调用</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 有序列表
 
@@ -275,4 +281,6 @@ impl Leaderboard {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [603. Consecutive Available Seats 🔒](https://leetcode.com/problems/consecutive-available-seats)
 
 [中文文档](/solution/0600-0699/0603.Consecutive%20Available%20Seats/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Cinema</code></p>
 
@@ -60,7 +64,11 @@ Cinema table:
 +---------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Self-Join
 
@@ -78,6 +86,10 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Window Function
 
@@ -101,6 +113,10 @@ WHERE a = 2 OR b = 2;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 3
 
@@ -126,4 +142,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

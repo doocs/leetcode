@@ -8,11 +8,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [773. Sliding Puzzle](https://leetcode.com/problems/sliding-puzzle)
 
 [中文文档](/solution/0700-0799/0773.Sliding%20Puzzle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>On an <code>2 x 3</code> board, there are five tiles labeled from <code>1</code> to <code>5</code>, and an empty square represented by <code>0</code>. A <strong>move</strong> consists of choosing <code>0</code> and a 4-directionally adjacent number and swapping it.</p>
 
@@ -62,7 +66,11 @@ After move 5: [[1,2,3],[4,5,0]]
 	<li>Each value <code>board[i][j]</code> is <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -282,6 +290,10 @@ public:
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -488,4 +500,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

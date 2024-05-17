@@ -13,11 +13,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2296. Design a Text Editor](https://leetcode.com/problems/design-a-text-editor)
 
 [中文文档](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a text editor with a cursor that can do the following:</p>
 
@@ -87,7 +91,11 @@ textEditor.cursorRight(6); // return &quot;practi&quot;
 <p>&nbsp;</p>
 <p><strong>Follow-up:</strong> Could you find a solution with time complexity of <code>O(k)</code> per call?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -277,4 +285,6 @@ func (this *TextEditor) CursorRight(k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

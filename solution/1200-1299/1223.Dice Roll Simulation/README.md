@@ -9,13 +9,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1223. 掷骰子模拟](https://leetcode.cn/problems/dice-roll-simulation)
 
 [English Version](/solution/1200-1299/1223.Dice%20Roll%20Simulation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个骰子模拟器会每次投掷的时候生成一个 1 到 6 的随机数。</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li><code>1 &lt;= rollMax[i] &lt;= 15</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -181,6 +187,10 @@ func dieSimulator(n int, rollMax []int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：动态规划
 
@@ -322,4 +332,6 @@ func dieSimulator(n int, rollMax []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

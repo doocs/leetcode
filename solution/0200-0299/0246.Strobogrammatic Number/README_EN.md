@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [246. Strobogrammatic Number 🔒](https://leetcode.com/problems/strobogrammatic-number)
 
 [中文文档](/solution/0200-0299/0246.Strobogrammatic%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>num</code> which represents an integer, return <code>true</code> <em>if</em> <code>num</code> <em>is a <strong>strobogrammatic number</strong></em>.</p>
 
@@ -49,7 +53,11 @@ tags:
 	<li><code>num</code> does not contain any leading zeros except for zero itself.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers Simulation
 
@@ -120,4 +128,6 @@ func isStrobogrammatic(num string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

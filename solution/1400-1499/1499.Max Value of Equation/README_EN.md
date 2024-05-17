@@ -12,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1499. Max Value of Equation](https://leetcode.com/problems/max-value-of-equation)
 
 [中文文档](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>points</code> containing the coordinates of points on a 2D plane, sorted by the x-values, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> such that <code>x<sub>i</sub> &lt; x<sub>j</sub></code> for all <code>1 &lt;= i &lt; j &lt;= points.length</code>. You are also given an integer <code>k</code>.</p>
 
@@ -54,7 +58,11 @@ No other pairs satisfy the condition, so we return the max of 4 and 1.
 	<li><code>x<sub>i</sub></code> form a strictly increasing sequence.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -231,6 +239,10 @@ class Heap<T = number> {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -341,4 +353,6 @@ function findMaxValueOfEquation(points: number[][], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

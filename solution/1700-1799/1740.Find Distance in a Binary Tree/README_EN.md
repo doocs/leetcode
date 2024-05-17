@@ -10,11 +10,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1740. Find Distance in a Binary Tree 🔒](https://leetcode.com/problems/find-distance-in-a-binary-tree)
 
 [中文文档](/solution/1700-1799/1740.Find%20Distance%20in%20a%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the root of a binary tree and two integers <code>p</code> and <code>q</code>, return <em>the <strong>distance</strong> between the nodes of value </em><code>p</code><em> and value </em><code>q</code><em> in the tree</em>.</p>
 
@@ -52,7 +56,11 @@ tags:
 	<li><code>p</code> and <code>q</code> are values in the tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -230,4 +238,6 @@ func findDistance(root *TreeNode, p int, q int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 02.02. 返回倒数第 k 个节点](https://leetcode.cn/problems/kth-node-from-end-of-list-lcci)
 
 [English Version](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>实现一种算法，找出单向链表中倒数第 k 个节点。返回该节点的值。</p>
 
 <p><strong>注意：</strong>本题相对原题稍作改动</p>
@@ -24,7 +27,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.02.Kth%20Node%20Fr
 
 <p>给定的 <em>k</em>&nbsp;保证是有效的。</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：快慢指针
 
@@ -245,4 +252,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

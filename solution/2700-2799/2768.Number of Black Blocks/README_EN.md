@@ -10,11 +10,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2768. Number of Black Blocks](https://leetcode.com/problems/number-of-black-blocks)
 
 [中文文档](/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>m</code> and <code>n</code> representing the dimensions of a&nbsp;<strong>0-indexed</strong>&nbsp;<code>m x n</code> grid.</p>
 
@@ -62,7 +66,11 @@ Therefore, we return [0,2,2,0,0].
 	<li>It is guaranteed that <code>coordinates</code> contains pairwise distinct coordinates.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -195,4 +203,6 @@ function countBlackBlocks(m: number, n: number, coordinates: number[][]): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

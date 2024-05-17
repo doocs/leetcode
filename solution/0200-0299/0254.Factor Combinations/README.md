@@ -6,13 +6,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [254. 因子的组合 🔒](https://leetcode.cn/problems/factor-combinations)
 
 [English Version](/solution/0200-0299/0254.Factor%20Combinations/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>整数可以被看作是其因子的乘积。</p>
 
@@ -65,7 +67,11 @@ tags:
 ]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：回溯
 
@@ -174,4 +180,6 @@ func getFactors(n int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

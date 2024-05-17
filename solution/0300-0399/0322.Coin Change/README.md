@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [322. 零钱兑换](https://leetcode.cn/problems/coin-change)
 
 [English Version](/solution/0300-0399/0322.Coin%20Change/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>coins</code> ，表示不同面额的硬币；以及一个整数 <code>amount</code> ，表示总金额。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>0 &lt;= amount &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划(完全背包)
 
@@ -349,4 +355,6 @@ var coinChange = function (coins, amount) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

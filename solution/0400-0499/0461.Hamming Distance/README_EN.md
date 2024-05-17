@@ -6,11 +6,15 @@ tags:
     - Bit Manipulation
 ---
 
+<!-- problem:start -->
+
 # [461. Hamming Distance](https://leetcode.com/problems/hamming-distance)
 
 [中文文档](/solution/0400-0499/0461.Hamming%20Distance/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <a href="https://en.wikipedia.org/wiki/Hamming_distance" target="_blank">Hamming distance</a> between two integers is the number of positions at which the corresponding bits are different.</p>
 
@@ -43,7 +47,11 @@ The above arrows point to positions where the corresponding bits are different.
 	<li><code>0 &lt;=&nbsp;x, y &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -109,4 +117,6 @@ var hammingDistance = function (x, y) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

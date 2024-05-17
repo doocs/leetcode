@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2622.Cache%20With%20Time%20Limit/README.md
 ---
 
+<!-- problem:start -->
+
 # [2622. 有时间限制的缓存](https://leetcode.cn/problems/cache-with-time-limit)
 
 [English Version](/solution/2600-2699/2622.Cache%20With%20Time%20Limit/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个类，它允许获取和设置键-值对，并且每个键都有一个&nbsp;<strong>过期时间</strong>&nbsp;。</p>
 
@@ -75,7 +77,11 @@ timeDelays = [0, 0, 40, 50, 120, 200, 250]
 	<li>第一个操作始终是 "TimeLimitedCache" 而且一定会以 0 毫秒的延迟立即执行</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -135,4 +141,6 @@ class TimeLimitedCache {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

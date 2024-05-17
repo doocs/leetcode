@@ -8,11 +8,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1185. Day of the Week](https://leetcode.com/problems/day-of-the-week)
 
 [中文文档](/solution/1100-1199/1185.Day%20of%20the%20Week/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a date, return the corresponding day of the week for that date.</p>
 
@@ -49,7 +53,11 @@ tags:
 	<li>The given dates are valid dates between the years <code>1971</code> and <code>2100</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Zeller's Congruence
 
@@ -149,6 +157,10 @@ function dayOfTheWeek(d: number, m: number, y: number): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -191,4 +203,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

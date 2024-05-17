@@ -9,11 +9,15 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [802. Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states)
 
 [中文文档](/solution/0800-0899/0802.Find%20Eventual%20Safe%20States/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a directed graph of <code>n</code> nodes with each node labeled from <code>0</code> to <code>n - 1</code>. The graph is represented by a <strong>0-indexed</strong> 2D integer array <code>graph</code> where <code>graph[i]</code> is an integer array of nodes adjacent to node <code>i</code>, meaning there is an edge from node <code>i</code> to each node in <code>graph[i]</code>.</p>
 
@@ -53,7 +57,11 @@ Only node 4 is a terminal node, and every path starting at node 4 leads to node 
 	<li>The number of edges in the graph will be in the range <code>[1, 4 * 10<sup>4</sup>]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -215,6 +223,10 @@ var eventualSafeNodes = function (graph) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -357,4 +369,6 @@ var eventualSafeNodes = function (graph) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [375. Guess Number Higher or Lower II](https://leetcode.com/problems/guess-number-higher-or-lower-ii)
 
 [中文文档](/solution/0300-0399/0375.Guess%20Number%20Higher%20or%20Lower%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We are playing the Guessing Game. The game will work as follows:</p>
 
@@ -78,7 +82,11 @@ The worst case is that you pay $1.
 	<li><code>1 &lt;= n &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -159,4 +167,6 @@ func getMoneyAmount(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

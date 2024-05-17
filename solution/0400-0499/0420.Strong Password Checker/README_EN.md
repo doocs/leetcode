@@ -8,11 +8,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [420. Strong Password Checker](https://leetcode.com/problems/strong-password-checker)
 
 [中文文档](/solution/0400-0499/0420.Strong%20Password%20Checker/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A password is considered strong if the below conditions are all met:</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li><code>password</code> consists of letters, digits, dot&nbsp;<code>&#39;.&#39;</code> or exclamation mark <code>&#39;!&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -280,4 +288,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

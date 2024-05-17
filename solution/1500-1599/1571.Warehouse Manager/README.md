@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1571. 仓库经理 🔒](https://leetcode.cn/problems/warehouse-manager)
 
 [English Version](/solution/1500-1599/1571.Warehouse%20Manager/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表:&nbsp;<code>Warehouse</code></p>
 
@@ -100,7 +102,11 @@ Id为4的商品(LC-T-Shirt)的存货量为 4x10x20 = 800
 仓库LCHouse3: 1个单位的LC-T-Shirt.
           总存货量为: 1*800 = 800 立方英尺.</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：等值连接 + 分组求和
 
@@ -121,4 +127,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

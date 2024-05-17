@@ -9,11 +9,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1064. Fixed Point 🔒](https://leetcode.com/problems/fixed-point)
 
 [中文文档](/solution/1000-1099/1064.Fixed%20Point/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of distinct integers <code>arr</code>, where <code>arr</code> is sorted in <strong>ascending order</strong>, return the smallest index <code>i</code> that satisfies <code>arr[i] == i</code>. If there is no such index, return <code>-1</code>.</p>
 
@@ -50,7 +54,11 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> The <code>O(n)</code> solution is very straightforward. Can we do better?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -140,4 +148,6 @@ function fixedPoint(arr: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

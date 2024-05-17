@@ -7,11 +7,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [713. Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k)
 
 [中文文档](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than </em><code>k</code>.</p>
 
@@ -42,7 +46,11 @@ Note that [10, 5, 2] is not included as the product of 100 is not strictly less 
 	<li><code>0 &lt;= k &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -168,4 +176,6 @@ var numSubarrayProductLessThanK = function (nums, k) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

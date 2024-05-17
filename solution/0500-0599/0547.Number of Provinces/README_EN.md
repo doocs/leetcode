@@ -9,11 +9,15 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces)
 
 [中文文档](/solution/0500-0599/0547.Number%20of%20Provinces/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> cities. Some of them are connected, while some are not. If city <code>a</code> is connected directly with city <code>b</code>, and city <code>b</code> is connected directly with city <code>c</code>, then city <code>a</code> is connected indirectly with city <code>c</code>.</p>
 
@@ -50,7 +54,11 @@ tags:
 	<li><code>isConnected[i][j] == isConnected[j][i]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -208,6 +216,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -359,4 +371,6 @@ function findCircleNum(isConnected: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

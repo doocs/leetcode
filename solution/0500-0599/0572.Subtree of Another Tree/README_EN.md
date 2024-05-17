@@ -10,11 +10,15 @@ tags:
     - Hash Function
 ---
 
+<!-- problem:start -->
+
 # [572. Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree)
 
 [中文文档](/solution/0500-0599/0572.Subtree%20of%20Another%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the roots of two binary trees <code>root</code> and <code>subRoot</code>, return <code>true</code> if there is a subtree of <code>root</code> with the same structure and node values of<code> subRoot</code> and <code>false</code> otherwise.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= subRoot.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -295,4 +303,6 @@ var isSubtree = function (root, subRoot) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

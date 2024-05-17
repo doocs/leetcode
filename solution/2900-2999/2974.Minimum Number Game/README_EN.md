@@ -11,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2974. Minimum Number Game](https://leetcode.com/problems/minimum-number-game)
 
 [中文文档](/solution/2900-2999/2974.Minimum%20Number%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of <strong>even</strong> length and there is also an empty array <code>arr</code>. Alice and Bob decided to play a game where in every round Alice and Bob will do one move. The rules of the game are as follows:</p>
 
@@ -54,7 +58,11 @@ At the begining of round two, nums = [5,4]. Now, first Alice removes 4 and then 
 	<li><code>nums.length % 2 == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation + Priority Queue (Min Heap)
 
@@ -189,6 +197,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Swapping
 
 We can sort the array $nums$, and then swap the positions of every two adjacent elements in sequence to get the answer array.
@@ -269,4 +281,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

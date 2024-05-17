@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3054. Binary Tree Nodes 🔒](https://leetcode.com/problems/binary-tree-nodes)
 
 [中文文档](/solution/3000-3099/3054.Binary%20Tree%20Nodes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <font face="monospace"><code>Tree</code></font></p>
 
@@ -72,7 +76,11 @@ Tree table:
 - Nodes 2, 4, and 7 are inner nodes as they serve as parents to some of the nodes in the structure.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Left Join
 
@@ -95,4 +103,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

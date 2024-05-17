@@ -8,13 +8,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [2806. 取整购买后的账户余额](https://leetcode.cn/problems/account-balance-after-rounded-purchase)
 
 [English Version](/solution/2800-2899/2806.Account%20Balance%20After%20Rounded%20Purchase/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一开始，你的银行账户里有&nbsp;<code>100</code>&nbsp;块钱。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li><code>0 &lt;= purchaseAmount &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 模拟
 
@@ -144,4 +150,6 @@ function accountBalanceAfterPurchase(purchaseAmount: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

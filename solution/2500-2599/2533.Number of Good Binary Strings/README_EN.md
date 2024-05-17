@@ -6,11 +6,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2533. Number of Good Binary Strings 🔒](https://leetcode.com/problems/number-of-good-binary-strings)
 
 [中文文档](/solution/2500-2599/2533.Number%20of%20Good%20Binary%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given four integers <code>minLength</code>, <code>maxLength</code>, <code>oneGroup</code> and <code>zeroGroup</code>.</p>
 
@@ -61,7 +65,11 @@ It can be proven that there is only 1 good string satisfying all conditions.
 	<li><code>1 &lt;= oneGroup, zeroGroup &lt;= maxLength</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -190,4 +198,6 @@ function goodBinaryStrings(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [3030. Find the Grid of Region Average](https://leetcode.com/problems/find-the-grid-of-region-average)
 
 [中文文档](/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> grid <code>image</code> which represents a grayscale image, where <code>image[i][j]</code> represents a pixel with intensity in the range<code>[0..255]</code>. You are also given a <strong>non-negative</strong> integer <code>threshold</code>.</p>
 
@@ -62,7 +66,11 @@ Please note that the rounded-down values are used when calculating the average o
 	<li><code>0 &lt;= threshold &lt;= 255</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -321,4 +329,6 @@ function resultGrid(image: number[][], threshold: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

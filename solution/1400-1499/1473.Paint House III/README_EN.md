@@ -9,11 +9,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1473. Paint House III](https://leetcode.com/problems/paint-house-iii)
 
 [中文文档](/solution/1400-1499/1473.Paint%20House%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a row of <code>m</code> houses in a small city, each house must be painted with one of the <code>n</code> colors (labeled from <code>1</code> to <code>n</code>), some houses that have been painted last summer should not be painted again.</p>
 
@@ -74,7 +78,11 @@ Cost of paint the first and last house (10 + 1) = 11.
 	<li><code>1 &lt;= cost[i][j] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -324,4 +332,6 @@ function minCost(houses: number[], cost: number[][], m: number, n: number, targe
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

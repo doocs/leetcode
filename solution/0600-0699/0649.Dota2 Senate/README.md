@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [649. Dota2 参议院](https://leetcode.cn/problems/dota2-senate)
 
 [English Version](/solution/0600-0699/0649.Dota2%20Senate/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Dota2 的世界里有两个阵营：<code>Radiant</code>（天辉）和&nbsp;<code>Dire</code>（夜魇）</p>
 
@@ -66,7 +68,11 @@ tags:
 	<li><code>senate[i]</code> 为 <code>'R'</code> 或 <code>'D'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：队列 + 模拟
 
@@ -247,4 +253,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

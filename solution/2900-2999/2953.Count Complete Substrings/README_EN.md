@@ -10,11 +10,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2953. Count Complete Substrings](https://leetcode.com/problems/count-complete-substrings)
 
 [中文文档](/solution/2900-2999/2953.Count%20Complete%20Substrings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>word</code> and an integer <code>k</code>.</p>
 
@@ -55,7 +59,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= word.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumerate Character Types + Sliding Window
 
@@ -329,4 +337,6 @@ function countCompleteSubstrings(word: string, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

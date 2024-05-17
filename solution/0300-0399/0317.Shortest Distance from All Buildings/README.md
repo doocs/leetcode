@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [317. 离建筑物最近的距离 🔒](https://leetcode.cn/problems/shortest-distance-from-all-buildings)
 
 [English Version](/solution/0300-0399/0317.Shortest%20Distance%20from%20All%20Buildings/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>m × n</code> 的网格，值为 <code>0</code> 、 <code>1</code> 或 <code>2</code> ，其中:</p>
 
@@ -72,7 +74,11 @@ tags:
 	<li><code>grid</code>&nbsp;中 <strong>至少</strong>&nbsp;有 <strong>一幢</strong> 建筑</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -274,4 +280,6 @@ func shortestDistance(grid [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

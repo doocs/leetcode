@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1794. Count Pairs of Equal Substrings With Minimum Difference 🔒](https://leetcode.com/problems/count-pairs-of-equal-substrings-with-minimum-difference)
 
 [中文文档](/solution/1700-1799/1794.Count%20Pairs%20of%20Equal%20Substrings%20With%20Minimum%20Difference/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>firstString</code> and <code>secondString</code> that are <strong>0-indexed</strong> and consist only of lowercase English letters. Count the number of index quadruples <code>(i,j,a,b)</code> that satisfy the following conditions:</p>
 
@@ -50,7 +54,11 @@ tags:
 	<li>Both strings consist only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Hash Table
 
@@ -177,4 +185,6 @@ function countQuadruples(firstString: string, secondString: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

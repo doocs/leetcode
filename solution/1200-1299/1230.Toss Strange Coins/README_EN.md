@@ -11,11 +11,15 @@ tags:
     - Probability and Statistics
 ---
 
+<!-- problem:start -->
+
 # [1230. Toss Strange Coins 🔒](https://leetcode.com/problems/toss-strange-coins)
 
 [中文文档](/solution/1200-1299/1230.Toss%20Strange%20Coins/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have some coins.&nbsp; The <code>i</code>-th&nbsp;coin has a probability&nbsp;<code>prob[i]</code> of facing heads when tossed.</p>
 
@@ -39,7 +43,11 @@ tags:
 	<li>Answers will be accepted as correct if they are within <code>10^-5</code> of the correct answer.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -155,6 +163,10 @@ function probabilityOfHeads(prob: number[], target: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -244,4 +256,6 @@ function probabilityOfHeads(prob: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

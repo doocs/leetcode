@@ -7,11 +7,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [697. Degree of an Array](https://leetcode.com/problems/degree-of-an-array)
 
 [中文文档](/solution/0600-0699/0697.Degree%20of%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a non-empty array of non-negative integers <code>nums</code>, the <b>degree</b> of this array is defined as the maximum frequency of any one of its elements.</p>
 
@@ -48,7 +52,11 @@ So [2,2,3,1,4,2] is the shortest subarray, therefore returning 6.
 	<li><code>nums[i]</code> will be an integer between 0 and 49,999.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -164,6 +172,10 @@ func findShortestSubArray(nums []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -226,4 +238,6 @@ func getMaxDegreeElem(maxDegree int, numsMap map[int]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

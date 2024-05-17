@@ -4,11 +4,15 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3141.Maximum%20Hamming%20Distances/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [3141. Maximum Hamming Distances 🔒](https://leetcode.com/problems/maximum-hamming-distances)
 
 [中文文档](/solution/3100-3199/3141.Maximum%20Hamming%20Distances/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>nums</code> and an integer <code>m</code>, with each element <code>nums[i]</code> satisfying <code>0 &lt;= nums[i] &lt; 2<sup>m</sup></code>, return an array <code>answer</code>. The <code>answer</code> array should be of the same length as <code>nums</code>, where each element <code>answer[i]</code> represents the <em>maximum</em> <strong>Hamming distance </strong>between <code>nums[i]</code> and any other element <code>nums[j]</code> in the array.</p>
 
@@ -66,7 +70,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3141.Ma
 	<li><code>0 &lt;= nums[i] &lt; 2<sup>m</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Thinking + BFS
 
@@ -231,4 +239,6 @@ function maxHammingDistances(nums: number[], m: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

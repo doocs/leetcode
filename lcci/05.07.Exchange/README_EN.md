@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.07.Exchange/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [05.07. Exchange](https://leetcode.cn/problems/exchange-lcci)
 
 [中文文档](/lcci/05.07.Exchange/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a program to swap odd and even bits in an integer with as few instructions as possible (e.g., bit 0 and bit 1 are swapped, bit 2 and bit 3 are swapped, and so on).</p>
 
@@ -39,7 +43,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.07.Exchange/README
 	<li>The result integer fits into 32-bit integer.</li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -107,4 +115,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1112. Highest Grade For Each Student 🔒](https://leetcode.com/problems/highest-grade-for-each-student)
 
 [中文文档](/solution/1100-1199/1112.Highest%20Grade%20For%20Each%20Student/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Enrollments</code></p>
 
@@ -61,7 +65,11 @@ Enrollments table:
 +------------+-----------+-------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: RANK() OVER() Window Function
 
@@ -89,6 +97,10 @@ ORDER BY student_id;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Subquery
 
 We can first query the highest grade of each student, and then query the minimum course number corresponding to the highest grade of each student.
@@ -111,4 +123,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,13 +10,15 @@ tags:
     - 博弈
 ---
 
+<!-- problem:start -->
+
 # [1510. 石子游戏 IV](https://leetcode.cn/problems/stone-game-iv)
 
 [English Version](/solution/1500-1599/1510.Stone%20Game%20IV/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 两个人轮流玩一个游戏，Alice 先手。</p>
 
@@ -75,7 +77,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10^5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -211,6 +217,10 @@ function winnerSquareGame(n: number): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们也可以使用动态规划求解本题。
@@ -315,4 +325,6 @@ function winnerSquareGame(n: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

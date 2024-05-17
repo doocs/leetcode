@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2268. Minimum Number of Keypresses 🔒](https://leetcode.com/problems/minimum-number-of-keypresses)
 
 [中文文档](/solution/2200-2299/2268.Minimum%20Number%20of%20Keypresses/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a keypad with <code>9</code> buttons, numbered from <code>1</code> to <code>9</code>, each mapped to lowercase English letters. You can choose which characters each button is matched to as long as:</p>
 
@@ -66,7 +70,11 @@ A total of 15 button presses are needed, so return 15.
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -143,4 +151,6 @@ func minimumKeypresses(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

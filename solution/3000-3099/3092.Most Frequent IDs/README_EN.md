@@ -11,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [3092. Most Frequent IDs](https://leetcode.com/problems/most-frequent-ids)
 
 [中文文档](/solution/3000-3099/3092.Most%20Frequent%20IDs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The problem involves tracking the frequency of IDs in a collection that changes over time. You have two integer arrays, <code>nums</code> and <code>freq</code>, of equal length <code>n</code>. Each element in <code>nums</code> represents an ID, and the corresponding element in <code>freq</code> indicates how many times that ID should be added to or removed from the collection at each step.</p>
 
@@ -67,7 +71,11 @@ After step 2, we have 1 ID with the value of 3. So <code>ans[2] = 1</code>.</p>
 	<li>The input is generated<!-- notionvc: a136b55a-f319-4fa6-9247-11be9f3b1db8 --> such that the occurrences of an ID will not be negative in any step.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Priority Queue (Max Heap)
 
@@ -185,4 +193,6 @@ func (h *hp) Pop() any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

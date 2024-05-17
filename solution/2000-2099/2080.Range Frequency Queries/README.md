@@ -12,13 +12,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [2080. 区间内查询数字的频率](https://leetcode.cn/problems/range-frequency-queries)
 
 [English Version](/solution/2000-2099/2080.Range%20Frequency%20Queries/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你设计一个数据结构，它能求出给定子数组内一个给定值的 <strong>频率</strong>&nbsp;。</p>
 
@@ -60,7 +62,11 @@ rangeFreqQuery.query(0, 11, 33); // 返回 2 。33 在整个子数组中出现 2
 	<li>调用&nbsp;<code>query</code>&nbsp;不超过&nbsp;<code>10<sup>5</sup></code>&nbsp;次。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -226,4 +232,6 @@ class RangeFreqQuery {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1518. Water Bottles](https://leetcode.com/problems/water-bottles)
 
 [中文文档](/solution/1500-1599/1518.Water%20Bottles/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>numBottles</code> water bottles that are initially full of water. You can exchange <code>numExchange</code> empty water bottles from the market with one full water bottle.</p>
 
@@ -48,7 +52,11 @@ Number of water bottles you can drink: 15 + 3 + 1 = 19.
 	<li><code>2 &lt;= numExchange &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -144,4 +152,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

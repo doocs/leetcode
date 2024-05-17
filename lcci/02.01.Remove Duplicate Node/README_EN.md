@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.01.Remove%20Duplicate%20Node/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [02.01. Remove Duplicate Node](https://leetcode.cn/problems/remove-duplicate-node-lcci)
 
 [中文文档](/lcci/02.01.Remove%20Duplicate%20Node/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write code to remove duplicates from an unsorted linked list.</p>
 
@@ -43,7 +47,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.01.Remove%20Duplic
 
 <p>How would you solve this problem if a temporary buffer is not allowed?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -283,4 +291,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

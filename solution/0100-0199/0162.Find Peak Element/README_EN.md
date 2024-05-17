@@ -7,11 +7,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [162. Find Peak Element](https://leetcode.com/problems/find-peak-element)
 
 [中文文档](/solution/0100-0199/0162.Find%20Peak%20Element/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A peak element is an element that is strictly greater than its neighbors.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>nums[i] != nums[i + 1]</code> for all valid <code>i</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -139,4 +147,6 @@ function findPeakElement(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

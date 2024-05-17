@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [577. Employee Bonus](https://leetcode.com/problems/employee-bonus)
 
 [中文文档](/solution/0500-0599/0577.Employee%20Bonus/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employee</code></p>
 
@@ -82,7 +86,11 @@ Bonus table:
 +------+-------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Left Join
 
@@ -101,4 +109,6 @@ WHERE IFNULL(bonus, 0) < 1000;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

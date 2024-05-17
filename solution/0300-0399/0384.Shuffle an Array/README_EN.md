@@ -8,11 +8,15 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [384. Shuffle an Array](https://leetcode.com/problems/shuffle-an-array)
 
 [中文文档](/solution/0300-0399/0384.Shuffle%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, design an algorithm to randomly shuffle the array. All permutations of the array should be <strong>equally likely</strong> as a result of the shuffling.</p>
 
@@ -54,7 +58,11 @@ solution.shuffle();    // Returns the random shuffling of array [1,2,3]. Example
 	<li>At most <code>10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>reset</code> and <code>shuffle</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -295,4 +303,6 @@ Solution.prototype.shuffle = function () {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

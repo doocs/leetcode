@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [368. Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset)
 
 [中文文档](/solution/0300-0399/0368.Largest%20Divisible%20Subset/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a set of <strong>distinct</strong> positive integers <code>nums</code>, return the largest subset <code>answer</code> such that every pair <code>(answer[i], answer[j])</code> of elements in this subset satisfies:</p>
 
@@ -49,7 +53,11 @@ tags:
 	<li>All the integers in <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -175,4 +183,6 @@ func largestDivisibleSubset(nums []int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

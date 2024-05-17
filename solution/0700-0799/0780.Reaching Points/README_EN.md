@@ -6,11 +6,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [780. Reaching Points](https://leetcode.com/problems/reaching-points)
 
 [中文文档](/solution/0700-0799/0780.Reaching%20Points/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given four integers <code>sx</code>, <code>sy</code>, <code>tx</code>, and <code>ty</code>, return <code>true</code><em> if it is possible to convert the point </em><code>(sx, sy)</code><em> to the point </em><code>(tx, ty)</code> <em>through some operations</em><em>, or </em><code>false</code><em> otherwise</em>.</p>
 
@@ -50,7 +54,11 @@ One series of moves that transforms the starting point to the target is:
 	<li><code>1 &lt;= sx, sy, tx, ty &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -139,4 +147,6 @@ func reachingPoints(sx int, sy int, tx int, ty int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

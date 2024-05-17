@@ -10,11 +10,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1370. Increasing Decreasing String](https://leetcode.com/problems/increasing-decreasing-string)
 
 [中文文档](/solution/1300-1399/1370.Increasing%20Decreasing%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code>. Reorder the string using the following algorithm:</p>
 
@@ -61,7 +65,11 @@ After steps 4, 5 and 6 of the second iteration, result = &quot;abccbaabccba&quot
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Simulation
 
@@ -225,4 +233,6 @@ var sortString = function (s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

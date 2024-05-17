@@ -9,11 +9,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1231. Divide Chocolate 🔒](https://leetcode.com/problems/divide-chocolate)
 
 [中文文档](/solution/1200-1299/1231.Divide%20Chocolate/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have one chocolate bar that consists of some chunks. Each chunk has its own sweetness given by the array&nbsp;<code>sweetness</code>.</p>
 
@@ -56,7 +60,11 @@ tags:
 	<li><code>1 &lt;= sweetness[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search + Greedy
 
@@ -212,4 +220,6 @@ function maximizeSweetness(sweetness: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

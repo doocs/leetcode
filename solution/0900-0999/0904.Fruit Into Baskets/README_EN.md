@@ -8,11 +8,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [904. Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets)
 
 [中文文档](/solution/0900-0999/0904.Fruit%20Into%20Baskets/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array <code>fruits</code> where <code>fruits[i]</code> is the <strong>type</strong> of fruit the <code>i<sup>th</sup></code> tree produces.</p>
 
@@ -61,7 +65,11 @@ If we had started at the first tree, we would only pick from trees [1,2].
 	<li><code>0 &lt;= fruits[i] &lt; fruits.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sliding Window
 
@@ -220,6 +228,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sliding Window Optimization
 
 In Solution 1, we find that the window size sometimes increases and sometimes decreases, which requires us to update the answer each time.
@@ -351,4 +363,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

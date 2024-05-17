@@ -10,11 +10,15 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [528. Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight)
 
 [中文文档](/solution/0500-0599/0528.Random%20Pick%20with%20Weight/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of positive integers <code>w</code> where <code>w[i]</code> describes the <strong>weight</strong> of the <code>i<sup>th</sup></code> index.</p>
 
@@ -76,7 +80,11 @@ and so on.
 	<li><code>pickIndex</code> will be called at most <code>10<sup>4</sup></code> times.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -291,4 +299,6 @@ Solution.prototype.pickIndex = function () {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

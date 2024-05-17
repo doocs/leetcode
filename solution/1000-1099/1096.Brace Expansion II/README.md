@@ -11,13 +11,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [1096. 花括号展开 II](https://leetcode.cn/problems/brace-expansion-ii)
 
 [English Version](/solution/1000-1099/1096.Brace%20Expansion%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果你熟悉 Shell 编程，那么一定了解过花括号展开，它可以用来生成任意字符串。</p>
 
@@ -81,7 +83,11 @@ tags:
 	<li>给出的表达式&nbsp;<code>expression</code>&nbsp;用以表示一组基于题目描述中语法构造的字符串</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -218,4 +224,6 @@ function braceExpansionII(expression: string): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

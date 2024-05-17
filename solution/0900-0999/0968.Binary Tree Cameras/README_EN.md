@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [968. Binary Tree Cameras](https://leetcode.com/problems/binary-tree-cameras)
 
 [中文文档](/solution/0900-0999/0968.Binary%20Tree%20Cameras/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>root</code> of a binary tree. We install cameras on the tree nodes where each camera at a node can monitor its parent, itself, and its immediate children.</p>
 
@@ -44,7 +48,11 @@ tags:
 	<li><code>Node.val == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -207,4 +215,6 @@ function minCameraCover(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

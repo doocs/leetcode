@@ -7,11 +7,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [319. Bulb Switcher](https://leetcode.com/problems/bulb-switcher)
 
 [中文文档](/solution/0300-0399/0319.Bulb%20Switcher/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> bulbs that are initially off. You first turn on all the bulbs, then&nbsp;you turn off every second bulb.</p>
 
@@ -52,7 +56,11 @@ So you should return 1 because there is only one bulb is on.</pre>
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -109,4 +117,6 @@ function bulbSwitch(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1168. Optimize Water Distribution in a Village 🔒](https://leetcode.com/problems/optimize-water-distribution-in-a-village)
 
 [中文文档](/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> houses in a village. We want to supply water for all the houses by building wells and laying pipes.</p>
 
@@ -68,7 +72,11 @@ Note that we can connect houses 1 and 2 with cost 1 or with cost 2 but we will a
 	<li><code>house1<sub>j</sub> != house2<sub>j</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Kruskal's Algorithm (Minimum Spanning Tree)
 
@@ -308,6 +316,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -588,4 +600,6 @@ function minCostToSupplyWater(n: number, wells: number[], pipes: number[][]): nu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

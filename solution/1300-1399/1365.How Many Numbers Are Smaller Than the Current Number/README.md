@@ -11,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1365. 有多少小于当前数字的数字](https://leetcode.cn/problems/how-many-numbers-are-smaller-than-the-current-number)
 
 [English Version](/solution/1300-1399/1365.How%20Many%20Numbers%20Are%20Smaller%20Than%20the%20Current%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组&nbsp;<code>nums</code>，对于其中每个元素&nbsp;<code>nums[i]</code>，请你统计数组中比它小的所有数字的数目。</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 二分查找
 
@@ -156,6 +162,10 @@ function smallerNumbersThanCurrent(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：计数排序 + 前缀和
 
 我们注意到数组 $nums$ 中的元素的范围是 $[0, 100]$，因此我们可以使用计数排序的方法，先统计数组 $nums$ 中每个元素的个数。然后对计数数组进行前缀和计算，最后遍历数组 $nums$，对于每个元素 $x$，我们直接将计数数组中下标为 $x$ 的元素的值加入答案数组即可。
@@ -250,4 +260,6 @@ function smallerNumbersThanCurrent(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2676.Throttle/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2676. Throttle 🔒](https://leetcode.com/problems/throttle)
 
 [中文文档](/solution/2600-2699/2676.Throttle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a function <code>fn</code> and&nbsp;a time in milliseconds <code>t</code>, return&nbsp;a <strong>throttled</strong> version of that function.</p>
 
@@ -82,7 +86,11 @@ The 5th is called at 300ms, but it is after 260ms, so it should be called immedi
 	<li><code>0 &lt;= calls[i].inputs[j], calls[i].inputs.length &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -118,4 +126,6 @@ const throttle = (fn: F, t: number): F => {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

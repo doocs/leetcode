@@ -7,11 +7,15 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [707. Design Linked List](https://leetcode.com/problems/design-linked-list)
 
 [中文文档](/solution/0700-0799/0707.Design%20Linked%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design your implementation of the linked list. You can choose to use a singly or doubly linked list.<br />
 A node in a singly linked list should have two attributes: <code>val</code> and <code>next</code>. <code>val</code> is the value of the current node, and <code>next</code> is a pointer/reference to the next node.<br />
@@ -57,7 +61,11 @@ myLinkedList.get(1);              // return 3
 	<li>At most <code>2000</code> calls will be made to <code>get</code>, <code>addAtHead</code>, <code>addAtTail</code>, <code>addAtIndex</code> and <code>deleteAtIndex</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -515,6 +523,10 @@ impl MyLinkedList {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -910,4 +922,6 @@ class MyLinkedList {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

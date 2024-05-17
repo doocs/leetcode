@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README.md
 ---
 
+<!-- problem:start -->
+
 # [2794. 从两个数组中创建对象 🔒](https://leetcode.cn/problems/create-object-from-two-arrays)
 
 [English Version](/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个数组 <code>keysArr </code>和 <code>valuesArr</code>，返回一个新的对象 <code>obj</code>。<code>obj</code> 中的每个键值对都来自 <code>keysArr[i]</code> 和 <code>valuesArr[i]</code>。</p>
 
@@ -54,7 +56,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2794.Cr
 	<li><code>keysArr.length === valuesArr.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -93,4 +99,6 @@ var createObject = function (keysArr, valuesArr) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

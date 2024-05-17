@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [72. Edit Distance](https://leetcode.com/problems/edit-distance)
 
 [中文文档](/solution/0000-0099/0072.Edit%20Distance/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>word1</code> and <code>word2</code>, return <em>the minimum number of operations required to convert <code>word1</code> to <code>word2</code></em>.</p>
 
@@ -56,7 +60,11 @@ exection -&gt; execution (insert &#39;u&#39;)
 	<li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -227,4 +235,6 @@ var minDistance = function (word1, word2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [3136. Valid Word](https://leetcode.com/problems/valid-word)
 
 [中文文档](/solution/3100-3199/3136.Valid%20Word/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A word is considered <strong>valid</strong> if:</p>
 
@@ -79,7 +83,11 @@ tags:
 	<li><code>word</code> consists of English uppercase and lowercase letters, digits, <code>&#39;@&#39;</code>, <code>&#39;#&#39;</code>, and <code>&#39;$&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -219,4 +227,6 @@ function isValid(word: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

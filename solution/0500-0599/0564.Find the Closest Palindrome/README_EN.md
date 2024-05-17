@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [564. Find the Closest Palindrome](https://leetcode.com/problems/find-the-closest-palindrome)
 
 [中文文档](/solution/0500-0599/0564.Find%20the%20Closest%20Palindrome/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>n</code> representing an integer, return <em>the closest integer (not including itself), which is a palindrome</em>. If there is a tie, return <em><strong>the smaller one</strong></em>.</p>
 
@@ -43,7 +47,11 @@ tags:
 	<li><code>n</code> is representing an integer in the range <code>[1, 10<sup>18</sup> - 1]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -173,4 +181,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

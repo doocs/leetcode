@@ -10,11 +10,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1405. Longest Happy String](https://leetcode.com/problems/longest-happy-string)
 
 [中文文档](/solution/1400-1499/1405.Longest%20Happy%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A string <code>s</code> is called <strong>happy</strong> if it satisfies the following conditions:</p>
 
@@ -55,7 +59,11 @@ tags:
 	<li><code>a + b + c &gt; 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue
 
@@ -264,4 +272,6 @@ function longestDiverseString(a: number, b: number, c: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

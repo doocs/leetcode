@@ -11,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1679. K 和数对的最大数目](https://leetcode.cn/problems/max-number-of-k-sum-pairs)
 
 [English Version](/solution/1600-1699/1679.Max%20Number%20of%20K-Sum%20Pairs/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> 。</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li><code>1 <= k <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -200,6 +206,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：哈希表
 
 我们使用哈希表 $cnt$ 记录当前剩余整数及其出现的次数。
@@ -306,4 +316,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

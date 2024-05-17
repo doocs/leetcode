@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2126. Destroying Asteroids](https://leetcode.com/problems/destroying-asteroids)
 
 [中文文档](/solution/2100-2199/2126.Destroying%20Asteroids/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>mass</code>, which represents the original mass of a planet. You are further given an integer array <code>asteroids</code>, where <code>asteroids[i]</code> is the mass of the <code>i<sup>th</sup></code> asteroid.</p>
 
@@ -56,7 +60,11 @@ This is less than 23, so a collision would not destroy the last asteroid.</pre>
 	<li><code>1 &lt;= asteroids[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -120,4 +128,6 @@ func asteroidsDestroyed(mass int, asteroids []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

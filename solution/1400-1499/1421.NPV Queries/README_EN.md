@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1421. NPV Queries 🔒](https://leetcode.com/problems/npv-queries)
 
 [中文文档](/solution/1400-1499/1421.NPV%20Queries/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>NPV</code></p>
 
@@ -96,7 +100,11 @@ The npv value of (7, 2018) is not present in the NPV table, we consider it 0.
 The npv values of all other queries can be found in the NPV table.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -112,4 +120,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

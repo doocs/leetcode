@@ -6,11 +6,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [717. 1-bit and 2-bit Characters](https://leetcode.com/problems/1-bit-and-2-bit-characters)
 
 [中文文档](/solution/0700-0799/0717.1-bit%20and%202-bit%20Characters/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We have two special characters:</p>
 
@@ -48,7 +52,11 @@ So the last character is not one-bit character.
 	<li><code>bits[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -113,4 +121,6 @@ var isOneBitCharacter = function (bits) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

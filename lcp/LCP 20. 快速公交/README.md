@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2020.%20%E5%BF%AB%E9%80%9F%E5%85%AC%E4%BA%A4/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 20. 快速公交](https://leetcode.cn/problems/meChtZ)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 小扣打算去秋日市集，由于游客较多，小扣的移动速度受到了人流影响：
 
@@ -81,6 +83,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2020.%20%E5%BF%AB%
 
 -   `1 <= inc, dec, cost[i] <= 10^6`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [2400. Number of Ways to Reach a Position After Exactly k Steps](https://leetcode.com/problems/number-of-ways-to-reach-a-position-after-exactly-k-steps)
 
 [中文文档](/solution/2400-2499/2400.Number%20of%20Ways%20to%20Reach%20a%20Position%20After%20Exactly%20k%20Steps/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>positive</strong> integers <code>startPos</code> and <code>endPos</code>. Initially, you are standing at position <code>startPos</code> on an <strong>infinite</strong> number line. With one step, you can move either one position to the left, or one position to the right.</p>
 
@@ -51,7 +55,11 @@ It can be proven that no other way is possible, so we return 3.</pre>
 	<li><code>1 &lt;= startPos, endPos, k &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memorization Search
 
@@ -201,4 +209,6 @@ function numberOfWays(startPos: number, endPos: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

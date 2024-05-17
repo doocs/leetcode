@@ -9,11 +9,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [133. Clone Graph](https://leetcode.com/problems/clone-graph)
 
 [中文文档](/solution/0100-0199/0133.Clone%20Graph/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a reference of a node in a <strong><a href="https://en.wikipedia.org/wiki/Connectivity_(graph_theory)#Connected_graph" target="_blank">connected</a></strong> undirected graph.</p>
 
@@ -78,7 +82,11 @@ class Node {
 	<li>The Graph is connected and all nodes can be visited starting from the given node.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -296,4 +304,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

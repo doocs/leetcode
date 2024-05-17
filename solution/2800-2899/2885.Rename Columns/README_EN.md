@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2885.Rename%20Columns/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2885. Rename Columns](https://leetcode.com/problems/rename-columns)
 
 [中文文档](/solution/2800-2899/2885.Rename%20Columns/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <pre>
 DataFrame <code>students</code>
@@ -59,7 +63,11 @@ DataFrame <code>students</code>
 <strong>Explanation:</strong> 
 The column names are changed accordingly.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -84,4 +92,6 @@ def renameColumns(students: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

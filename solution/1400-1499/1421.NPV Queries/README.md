@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1421. 净现值查询 🔒](https://leetcode.cn/problems/npv-queries)
 
 [English Version](/solution/1400-1499/1421.NPV%20Queries/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>NPV</code></p>
 
@@ -100,7 +102,11 @@ Queries 表:
 所有其它查询的净现值都能在 NPV 表中找到.
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -116,4 +122,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.06.Successor/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 04.06. 后继者](https://leetcode.cn/problems/successor-lcci)
 
 [English Version](/lcci/04.06.Successor/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>设计一个算法，找出二叉搜索树中指定节点的&ldquo;下一个&rdquo;节点（也即中序后继）。</p>
 
 <p>如果指定节点没有对应的&ldquo;下一个&rdquo;节点，则返回<code>null</code>。</p>
@@ -39,7 +42,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.06.Successor/READM
 </code>
 <strong>输出:</strong> null</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分搜索
 
@@ -242,4 +249,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

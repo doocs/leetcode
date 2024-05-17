@@ -14,11 +14,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2708. Maximum Strength of a Group](https://leetcode.com/problems/maximum-strength-of-a-group)
 
 [中文文档](/solution/2700-2799/2708.Maximum%20Strength%20of%20a%20Group/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> representing the score of students in an exam. The teacher would like to form one <strong>non-empty</strong> group of students with maximal <strong>strength</strong>, where the strength of a group of students of indices <code>i<sub>0</sub></code>, <code>i<sub>1</sub></code>, <code>i<sub>2</sub></code>, ... , <code>i<sub>k</sub></code> is defined as <code>nums[i<sub>0</sub>] * nums[i<sub>1</sub>] * nums[i<sub>2</sub>] * ... * nums[i<sub>k</sub>​]</code>.</p>
 
@@ -49,7 +53,11 @@ tags:
 	<li><code>-9 &lt;= nums[i] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
 
@@ -147,6 +155,10 @@ function maxStrength(nums: number[]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Sorting + Greedy
 
@@ -289,4 +301,6 @@ function maxStrength(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

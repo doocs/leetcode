@@ -8,11 +8,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [335. Self Crossing](https://leetcode.com/problems/self-crossing)
 
 [中文文档](/solution/0300-0399/0335.Self%20Crossing/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of integers <code>distance</code>.</p>
 
@@ -53,7 +57,11 @@ tags:
 	<li><code>1 &lt;=&nbsp;distance[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -152,4 +160,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

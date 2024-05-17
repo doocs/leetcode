@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [603. 连续空余座位 🔒](https://leetcode.cn/problems/consecutive-available-seats)
 
 [English Version](/solution/0600-0699/0603.Consecutive%20Available%20Seats/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表:&nbsp;<code>Cinema</code></p>
 
@@ -62,7 +64,11 @@ Cinema 表:
 | 5       |
 +---------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：自连接
 
@@ -80,6 +86,10 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：窗口函数
 
@@ -103,6 +113,10 @@ WHERE a = 2 OR b = 2;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法三
 
@@ -128,4 +142,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

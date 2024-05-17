@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [185. Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries)
 
 [中文文档](/solution/0100-0199/0185.Department%20Top%20Three%20Salaries/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employee</code></p>
 
@@ -100,7 +104,11 @@ In the Sales department:
 - There is no third-highest salary as there are only two employees
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -149,6 +157,10 @@ WHERE
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -174,4 +186,6 @@ WHERE rk <= 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

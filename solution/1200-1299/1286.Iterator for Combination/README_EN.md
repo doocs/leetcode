@@ -11,11 +11,15 @@ tags:
     - Iterator
 ---
 
+<!-- problem:start -->
+
 # [1286. Iterator for Combination](https://leetcode.com/problems/iterator-for-combination)
 
 [中文文档](/solution/1200-1299/1286.Iterator%20for%20Combination/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design the <code>CombinationIterator</code> class:</p>
 
@@ -55,7 +59,11 @@ itr.hasNext(); // return False
 	<li>It is guaranteed that all calls of the function <code>next</code> are valid.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -239,6 +247,10 @@ func (this *CombinationIterator) HasNext() bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -412,4 +424,6 @@ func (this *CombinationIterator) HasNext() bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

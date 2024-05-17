@@ -10,11 +10,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2420. Find All Good Indices](https://leetcode.com/problems/find-all-good-indices)
 
 [中文文档](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code> and a positive integer <code>k</code>.</p>
 
@@ -56,7 +60,11 @@ Note that the index 4 is not good because [4,1] is not non-decreasing.</pre>
 	<li><code>1 &lt;= k &lt;= n / 2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -173,4 +181,6 @@ func goodIndices(nums []int, k int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

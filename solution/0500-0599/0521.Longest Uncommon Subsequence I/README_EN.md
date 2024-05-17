@@ -6,11 +6,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [521. Longest Uncommon Subsequence I](https://leetcode.com/problems/longest-uncommon-subsequence-i)
 
 [中文文档](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>a</code> and <code>b</code>, return <em>the length of the <strong>longest uncommon subsequence</strong> between </em><code>a</code> <em>and</em> <code>b</code>. <em>If no such uncommon subsequence exists, return</em> <code>-1</code><em>.</em></p>
 
@@ -50,7 +54,11 @@ Note that &quot;cdc&quot; is also a longest uncommon subsequence.
 	<li><code>a</code> and <code>b</code> consist of lower-case English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -110,4 +118,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

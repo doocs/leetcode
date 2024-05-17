@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [879. Profitable Schemes](https://leetcode.com/problems/profitable-schemes)
 
 [中文文档](/solution/0800-0899/0879.Profitable%20Schemes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a group of <code>n</code> members, and a list of various crimes they could commit. The <code>i<sup>th</sup></code> crime generates a <code>profit[i]</code> and requires <code>group[i]</code> members to participate in it. If a member participates in one crime, that member can&#39;t participate in another crime.</p>
 
@@ -48,7 +52,11 @@ There are 7 possible schemes: (0), (1), (2), (0,1), (0,2), (1,2), and (0,1,2).</
 	<li><code>0 &lt;= profit[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: recursion with memoization
 
@@ -187,6 +195,10 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We define $f[i][j][k]$ to be the number of schemes to make a profit of at least $k$ with $i$ jobs and $j$ workers. Initially, we have $f[0][j][0] = 1$, which means that there is only one scheme to make a profit of $0$ without any jobs.
@@ -302,4 +314,6 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

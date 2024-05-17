@@ -10,11 +10,15 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [2276. Count Integers in Intervals](https://leetcode.com/problems/count-integers-in-intervals)
 
 [中文文档](/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <strong>empty</strong> set of intervals, implement a data structure that can:</p>
 
@@ -67,7 +71,11 @@ countIntervals.count();    // return 8
 	<li>At least <strong>one</strong> call will be made to <code>count</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -514,6 +522,10 @@ class CountIntervals {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -603,4 +615,6 @@ class CountIntervals:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

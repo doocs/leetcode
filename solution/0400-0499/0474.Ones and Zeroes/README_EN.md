@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [474. Ones and Zeroes](https://leetcode.com/problems/ones-and-zeroes)
 
 [中文文档](/solution/0400-0499/0474.Ones%20and%20Zeroes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of binary strings <code>strs</code> and two integers <code>m</code> and <code>n</code>.</p>
 
@@ -49,7 +53,11 @@ Other valid but smaller subsets include {&quot;0001&quot;, &quot;1&quot;} and {&
 	<li><code>1 &lt;= m, n &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -187,6 +195,10 @@ function findMaxForm(strs: string[], m: number, n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -299,4 +311,6 @@ function findMaxForm(strs: string[], m: number, n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

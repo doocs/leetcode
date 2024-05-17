@@ -11,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2551. Put Marbles in Bags](https://leetcode.com/problems/put-marbles-in-bags)
 
 [中文文档](/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>k</code> bags. You are given a <strong>0-indexed</strong> integer array <code>weights</code> where <code>weights[i]</code> is the weight of the <code>i<sup>th</sup></code> marble. You are also given the integer <code>k.</code></p>
 
@@ -60,7 +64,11 @@ Since both the maximal and minimal score are the same, we return 0.
 	<li><code>1 &lt;= weights[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Problem Transformation + Sorting
 
@@ -151,4 +159,6 @@ function putMarbles(weights: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -13,11 +13,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1268. Search Suggestions System](https://leetcode.com/problems/search-suggestions-system)
 
 [中文文档](/solution/1200-1299/1268.Search%20Suggestions%20System/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of strings <code>products</code> and a string <code>searchWord</code>.</p>
 
@@ -57,7 +61,11 @@ After typing mou, mous and mouse the system suggests [&quot;mouse&quot;,&quot;mo
 	<li><code>searchWord</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Trie
 
@@ -286,4 +294,6 @@ func suggestedProducts(products []string, searchWord string) (ans [][]string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

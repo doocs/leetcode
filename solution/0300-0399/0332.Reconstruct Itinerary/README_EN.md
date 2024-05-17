@@ -8,11 +8,15 @@ tags:
     - Eulerian Circuit
 ---
 
+<!-- problem:start -->
+
 # [332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary)
 
 [中文文档](/solution/0300-0399/0332.Reconstruct%20Itinerary/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a list of airline <code>tickets</code> where <code>tickets[i] = [from<sub>i</sub>, to<sub>i</sub>]</code> represent the departure and the arrival airports of one flight. Reconstruct the itinerary in order and return it.</p>
 
@@ -52,7 +56,11 @@ tags:
 	<li><code>from<sub>i</sub> != to<sub>i</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -150,4 +158,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

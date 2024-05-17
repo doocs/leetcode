@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2051. The Category of Each Member in the Store 🔒](https://leetcode.com/problems/the-category-of-each-member-in-the-store)
 
 [中文文档](/solution/2000-2099/2051.The%20Category%20of%20Each%20Member%20in%20the%20Store/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Members</code></p>
 
@@ -130,7 +134,11 @@ Purchases table:
 - User Bob with id = 11 visited the store three times and purchased one time. The conversion rate = (100 * 1) / 3 = 33.33. He gets a Silver category.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -156,4 +164,6 @@ GROUP BY member_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

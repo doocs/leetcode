@@ -7,11 +7,15 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [459. Repeated Substring Pattern](https://leetcode.com/problems/repeated-substring-pattern)
 
 [中文文档](/solution/0400-0499/0459.Repeated%20Substring%20Pattern/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, check if it can be constructed by taking a substring of it and appending multiple copies of the substring together.</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -99,6 +107,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -128,4 +140,6 @@ function repeatedSubstringPattern(s: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

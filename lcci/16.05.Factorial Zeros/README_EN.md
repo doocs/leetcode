@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.05.Factorial%20Zeros/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.05. Factorial Zeros](https://leetcode.cn/problems/factorial-zeros-lcci)
 
 [中文文档](/lcci/16.05.Factorial%20Zeros/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write an algorithm which computes the number of trailing zeros in n factorial.</p>
 <p><strong>Example 1:</strong></p>
@@ -31,7 +35,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.05.Factorial%20Zer
 
 <p><b>Note:&nbsp;</b>Your solution should be in logarithmic time complexity.</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -123,4 +131,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

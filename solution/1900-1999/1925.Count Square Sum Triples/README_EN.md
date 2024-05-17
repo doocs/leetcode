@@ -9,11 +9,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [1925. Count Square Sum Triples](https://leetcode.com/problems/count-square-sum-triples)
 
 [中文文档](/solution/1900-1999/1925.Count%20Square%20Sum%20Triples/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>square triple</strong> <code>(a,b,c)</code> is a triple where <code>a</code>, <code>b</code>, and <code>c</code> are <strong>integers</strong> and <code>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></code>.</p>
 
@@ -43,7 +47,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 250</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -117,4 +125,6 @@ func countTriples(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

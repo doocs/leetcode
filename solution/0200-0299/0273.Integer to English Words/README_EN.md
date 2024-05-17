@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [273. Integer to English Words](https://leetcode.com/problems/integer-to-english-words)
 
 [中文文档](/solution/0200-0299/0273.Integer%20to%20English%20Words/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Convert a non-negative integer <code>num</code> to its English words representation.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>0 &lt;= num &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -282,6 +290,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -327,4 +339,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

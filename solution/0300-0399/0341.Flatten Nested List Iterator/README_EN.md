@@ -11,11 +11,15 @@ tags:
     - Iterator
 ---
 
+<!-- problem:start -->
+
 # [341. Flatten Nested List Iterator](https://leetcode.com/problems/flatten-nested-list-iterator)
 
 [中文文档](/solution/0300-0399/0341.Flatten%20Nested%20List%20Iterator/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a nested list of integers <code>nestedList</code>. Each element is either an integer or a list whose elements may also be integers or other lists. Implement an iterator to flatten it.</p>
 
@@ -64,7 +68,11 @@ return res
 	<li>The values of the integers in the nested list is in the range <code>[-10<sup>6</sup>, 10<sup>6</sup>]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -423,6 +431,10 @@ impl NestedIterator {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -487,4 +499,6 @@ func (this *NestedIterator) HasNext() bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

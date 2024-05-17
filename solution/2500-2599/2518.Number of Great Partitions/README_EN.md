@@ -9,11 +9,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2518. Number of Great Partitions](https://leetcode.com/problems/number-of-great-partitions)
 
 [中文文档](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> consisting of <strong>positive</strong> integers and an integer <code>k</code>.</p>
 
@@ -57,7 +61,11 @@ The great partitions will be ([6], [6]) and ([6], [6]).
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -183,4 +191,6 @@ func countPartitions(nums []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

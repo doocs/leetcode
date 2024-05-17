@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.08.First%20Common%20Ancestor/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [04.08. First Common Ancestor](https://leetcode.cn/problems/first-common-ancestor-lcci)
 
 [中文文档](/lcci/04.08.First%20Common%20Ancestor/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design an algorithm and write code to find the first common ancestor of two nodes in a binary tree. Avoid storing additional nodes in a data structure. NOTE: This is not necessarily a binary search tree.</p>
 
@@ -59,7 +63,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.08.First%20Common%
 	<li>p, q are different node and both can be found in the given tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -141,4 +149,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

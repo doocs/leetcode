@@ -7,11 +7,15 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [686. Repeated String Match](https://leetcode.com/problems/repeated-string-match)
 
 [中文文档](/solution/0600-0699/0686.Repeated%20String%20Match/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>a</code> and <code>b</code>, return <em>the minimum number of times you should repeat string </em><code>a</code><em> so that string</em> <code>b</code> <em>is a substring of it</em>. If it is impossible for <code>b</code>​​​​​​ to be a substring of <code>a</code> after repeating it, return <code>-1</code>.</p>
 
@@ -41,7 +45,11 @@ tags:
 	<li><code>a</code> and <code>b</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -134,4 +142,6 @@ function repeatedStringMatch(a: string, b: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

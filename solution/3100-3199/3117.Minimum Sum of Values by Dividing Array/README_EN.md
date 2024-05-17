@@ -13,11 +13,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [3117. Minimum Sum of Values by Dividing Array](https://leetcode.com/problems/minimum-sum-of-values-by-dividing-array)
 
 [中文文档](/solution/3100-3199/3117.Minimum%20Sum%20of%20Values%20by%20Dividing%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two arrays <code>nums</code> and <code>andValues</code> of length <code>n</code> and <code>m</code> respectively.</p>
 
@@ -91,7 +95,11 @@ tags:
 	<li><code>0 &lt;= andValues[j] &lt; 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -289,4 +297,6 @@ function minimumValueSum(nums: number[], andValues: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

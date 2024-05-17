@@ -12,11 +12,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [1923. Longest Common Subpath](https://leetcode.com/problems/longest-common-subpath)
 
 [中文文档](/solution/1900-1999/1923.Longest%20Common%20Subpath/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a country of <code>n</code> cities numbered from <code>0</code> to <code>n - 1</code>. In this country, there is a road connecting <b>every pair</b> of cities.</p>
 
@@ -65,7 +69,11 @@ tags:
 	<li>The same city is not listed multiple times consecutively in <code>paths[i]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -170,4 +178,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

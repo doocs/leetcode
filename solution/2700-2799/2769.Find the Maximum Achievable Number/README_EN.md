@@ -8,11 +8,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2769. Find the Maximum Achievable Number](https://leetcode.com/problems/find-the-maximum-achievable-number)
 
 [中文文档](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers, <code>num</code> and <code>t</code>.</p>
 
@@ -54,7 +58,11 @@ It can be proven that there is no achievable number larger than 7.
 	<li><code>1 &lt;= num, t&nbsp;&lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -101,4 +109,6 @@ function theMaximumAchievableX(num: number, t: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

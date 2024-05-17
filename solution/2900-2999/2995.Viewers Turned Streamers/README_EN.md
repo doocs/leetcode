@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2995. Viewers Turned Streamers 🔒](https://leetcode.com/problems/viewers-turned-streamers)
 
 [中文文档](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Sessions</code></p>
 
@@ -66,7 +70,11 @@ Sessions table:
 Output table is ordered by sessions count and user_id in descending order.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Window Function + Equi-Join
 
@@ -98,4 +106,6 @@ ORDER BY 2 DESC, 1 DESC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

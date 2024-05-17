@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [249. Group Shifted Strings 🔒](https://leetcode.com/problems/group-shifted-strings)
 
 [中文文档](/solution/0200-0299/0249.Group%20Shifted%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We can shift a string by shifting each of its letters to its successive letter.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>strings[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -145,4 +153,6 @@ func groupStrings(strings []string) [][]string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

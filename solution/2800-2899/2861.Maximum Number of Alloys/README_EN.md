@@ -9,11 +9,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2861. Maximum Number of Alloys](https://leetcode.com/problems/maximum-number-of-alloys)
 
 [中文文档](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are the owner of a company that creates alloys using various types of metals. There are <code>n</code> different types of metals available, and you have access to <code>k</code> machines that can be used to create alloys. Each machine requires a specific amount of each metal type to create an alloy.</p>
 
@@ -82,7 +86,11 @@ It can be proven that we can create at most 2 alloys.
 	<li><code>1 &lt;= cost[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -262,4 +270,6 @@ function maxNumberOfAlloys(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

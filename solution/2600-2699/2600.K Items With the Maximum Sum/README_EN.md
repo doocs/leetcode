@@ -9,11 +9,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2600. K Items With the Maximum Sum](https://leetcode.com/problems/k-items-with-the-maximum-sum)
 
 [中文文档](/solution/2600-2699/2600.K%20Items%20With%20the%20Maximum%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a bag that consists of items, each item&nbsp;has a number <code>1</code>, <code>0</code>, or <code>-1</code> written on it.</p>
 
@@ -56,7 +60,11 @@ It can be proven that 3 is the maximum possible sum.
 	<li><code>0 &lt;= k &lt;= numOnes + numZeros + numNegOnes</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -169,4 +177,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

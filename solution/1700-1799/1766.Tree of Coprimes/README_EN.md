@@ -12,11 +12,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [1766. Tree of Coprimes](https://leetcode.com/problems/tree-of-coprimes)
 
 [中文文档](/solution/1700-1799/1766.Tree%20of%20Coprimes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a tree (i.e.,&nbsp;a connected, undirected graph that has no cycles) consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> and exactly <code>n - 1</code> edges. Each node has a value associated with it, and the <strong>root</strong> of the tree is node <code>0</code>.</p>
 
@@ -67,7 +71,11 @@ tags:
 	<li><code>u<sub>j</sub> != v<sub>j</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration + Stack + Backtracking
 
@@ -266,4 +274,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.04.Closed%20Number/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [05.04. Closed Number](https://leetcode.cn/problems/closed-number-lcci)
 
 [中文文档](/lcci/05.04.Closed%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a positive integer, print the next smallest and the next largest number that have the same number of 1 bits in their binary representation.</p>
 <p><strong>Example1:</strong></p>
@@ -33,7 +37,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.04.Closed%20Number
 	<li>If there is no next smallest or next largest number, output -1.</li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -260,4 +268,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [641. Design Circular Deque](https://leetcode.com/problems/design-circular-deque)
 
 [中文文档](/solution/0600-0699/0641.Design%20Circular%20Deque/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design your implementation of the circular double-ended queue (deque).</p>
 
@@ -63,7 +67,11 @@ myCircularDeque.getFront();     // return 4
 	<li>At most <code>2000</code> calls will be made to <code>insertFront</code>, <code>insertLast</code>, <code>deleteFront</code>, <code>deleteLast</code>, <code>getFront</code>, <code>getRear</code>, <code>isEmpty</code>, <code>isFull</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -551,4 +559,6 @@ class MyCircularDeque {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

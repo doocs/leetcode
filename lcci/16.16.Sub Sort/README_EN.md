@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.16.Sub%20Sort/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.16. Sub Sort](https://leetcode.cn/problems/sub-sort-lcci)
 
 [中文文档](/lcci/16.15.Master%20Mind/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers, write a method to find indices m and n such that if you sorted&nbsp;elements m through n, the entire array would be sorted. Minimize <code>n - m</code> (that is, find the smallest such sequence).</p>
 <p>Return <code>[m,n]</code>. If there are no such m and n (e.g. the array is already sorted), return [-1, -1].</p>
@@ -25,7 +29,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.16.Sub%20Sort/READ
 	<li><code>0 &lt;= len(array) &lt;= 1000000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Passes
 
@@ -185,4 +193,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

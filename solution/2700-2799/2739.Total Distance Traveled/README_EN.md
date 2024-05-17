@@ -9,11 +9,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2739. Total Distance Traveled](https://leetcode.com/problems/total-distance-traveled)
 
 [中文文档](/solution/2700-2799/2739.Total%20Distance%20Traveled/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A truck has two fuel tanks. You are given two integers, <code>mainTank</code> representing the fuel present in the main tank in liters and <code>additionalTank</code> representing the fuel present in the additional tank in liters.</p>
 
@@ -53,7 +57,11 @@ Total distance traveled is 10km.
 	<li><code>1 &lt;= mainTank, additionalTank &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -171,4 +179,6 @@ var distanceTraveled = function (mainTank, additionalTank) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

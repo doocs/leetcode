@@ -9,11 +9,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1018. Binary Prefix Divisible By 5](https://leetcode.com/problems/binary-prefix-divisible-by-5)
 
 [中文文档](/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a binary array <code>nums</code> (<strong>0-indexed</strong>).</p>
 
@@ -50,7 +54,11 @@ Only the first number is divisible by 5, so answer[0] is true.
 	<li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -121,4 +129,6 @@ function prefixesDivBy5(nums: number[]): boolean[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

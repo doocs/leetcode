@@ -9,11 +9,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [1415. The k-th Lexicographical String of All Happy Strings of Length n](https://leetcode.com/problems/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n)
 
 [中文文档](/solution/1400-1499/1415.The%20k-th%20Lexicographical%20String%20of%20All%20Happy%20Strings%20of%20Length%20n/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>happy string</strong> is a string that:</p>
 
@@ -61,7 +65,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -134,4 +142,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

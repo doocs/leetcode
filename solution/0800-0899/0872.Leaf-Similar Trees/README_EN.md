@@ -8,11 +8,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [872. Leaf-Similar Trees](https://leetcode.com/problems/leaf-similar-trees)
 
 [中文文档](/solution/0800-0899/0872.Leaf-Similar%20Trees/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Consider all the leaves of a binary tree, from&nbsp;left to right order, the values of those&nbsp;leaves form a <strong>leaf value sequence</strong><em>.</em></p>
 
@@ -47,7 +51,11 @@ tags:
 	<li>Both of the given trees will have values in the range <code>[0, 200]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -242,4 +250,6 @@ var leafSimilar = function (root1, root2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3124. 查找最长的电话 🔒](https://leetcode.cn/problems/find-longest-calls)
 
 [English Version](/solution/3100-3199/3124.Find%20Longest%20Calls/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Contacts</code></p>
 
@@ -119,7 +121,11 @@ id 是 Calls 表的外键（引用列）。
 <p><b>注意：</b>输出表以&nbsp;type，duration&nbsp;和 first_name 降序排序。</p>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：等值连接 + 窗口函数
 
@@ -178,4 +184,6 @@ def find_longest_calls(contacts: pd.DataFrame, calls: pd.DataFrame) -> pd.DataFr
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2494. Merge Overlapping Events in the Same Hall 🔒](https://leetcode.com/problems/merge-overlapping-events-in-the-same-hall)
 
 [中文文档](/solution/2400-2499/2494.Merge%20Overlapping%20Events%20in%20the%20Same%20Hall/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>HallEvents</code></p>
 
@@ -69,7 +73,11 @@ Hall 3:
 - The hall has only one event, so we return it. Note that we only consider the events of each hall separately.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -118,4 +126,6 @@ GROUP BY hall_id, gid;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

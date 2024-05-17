@@ -12,13 +12,15 @@ tags:
     - 双向链表
 ---
 
+<!-- problem:start -->
+
 # [426. 将二叉搜索树转化为排序的双向链表 🔒](https://leetcode.cn/problems/convert-binary-search-tree-to-sorted-doubly-linked-list)
 
 [English Version](/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>将一个 <strong>二叉搜索树</strong> 就地转化为一个 <strong>已排序的双向循环链表</strong> 。</p>
 
@@ -73,7 +75,11 @@ tags:
 	<li><code>0 <= Number of Nodes <= 2000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -301,4 +307,6 @@ var treeToDoublyList = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [952. Largest Component Size by Common Factor](https://leetcode.com/problems/largest-component-size-by-common-factor)
 
 [中文文档](/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array of unique positive integers <code>nums</code>. Consider the following graph:</p>
 
@@ -56,7 +60,11 @@ tags:
 	<li>All the values of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -237,4 +245,6 @@ func largestComponentSize(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

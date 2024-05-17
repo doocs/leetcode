@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2028.%20%E9%87%87%E8%B4%AD%E6%96%B9%E6%A1%88/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 28. 采购方案](https://leetcode.cn/problems/4xy4Wx)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 小力将 N 个零件的报价存于数组 `nums`。小力预算为 `target`，假定小力仅购买两个零件，要求购买零件的花费不超过预算，请问他有多少种采购方案。
 
@@ -38,7 +40,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2028.%20%E9%87%87%
 -   `2 <= nums.length <= 10^5`
 -   `1 <= nums[i], target <= 10^5`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -111,4 +117,6 @@ func purchasePlans(nums []int, target int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

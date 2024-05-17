@@ -7,11 +7,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [31. Next Permutation](https://leetcode.com/problems/next-permutation)
 
 [中文文档](/solution/0000-0099/0031.Next%20Permutation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>permutation</strong> of an array of integers is an arrangement of its members into a sequence or linear order.</p>
 
@@ -61,7 +65,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two traversals
 
@@ -271,4 +279,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

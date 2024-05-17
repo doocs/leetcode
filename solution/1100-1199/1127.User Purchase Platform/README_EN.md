@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1127. User Purchase Platform 🔒](https://leetcode.com/problems/user-purchase-platform)
 
 [中文文档](/solution/1100-1199/1127.User%20Purchase%20Platform/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Spending</code></p>
 
@@ -68,7 +72,11 @@ On 2019-07-01, user 1 purchased using <strong>both</strong> desktop and mobile, 
 On 2019-07-02, user 2 purchased using mobile <strong>only</strong>, user 3 purchased using desktop <strong>only</strong> and no one purchased using <strong>both</strong> platforms.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -105,4 +113,6 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

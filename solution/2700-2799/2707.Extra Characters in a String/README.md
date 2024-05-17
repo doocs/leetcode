@@ -12,13 +12,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [2707. 字符串中的额外字符](https://leetcode.cn/problems/extra-characters-in-a-string)
 
 [English Version](/solution/2700-2799/2707.Extra%20Characters%20in%20a%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的字符串&nbsp;<code>s</code>&nbsp;和一个单词字典&nbsp;<code>dictionary</code>&nbsp;。你需要将&nbsp;<code>s</code>&nbsp;分割成若干个 <strong>互不重叠</strong>&nbsp;的子字符串，每个子字符串都在&nbsp;<code>dictionary</code>&nbsp;中出现过。<code>s</code>&nbsp;中可能会有一些&nbsp;<strong>额外的字符</strong>&nbsp;不在任何子字符串中。</p>
 
@@ -52,7 +54,11 @@ tags:
 	<li><code>dictionary</code>&nbsp;中的单词互不相同。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 动态规划
 
@@ -193,6 +199,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：字典树 + 动态规划
 
@@ -409,4 +419,6 @@ function minExtraChar(s: string, dictionary: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

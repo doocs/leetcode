@@ -9,11 +9,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1688. Count of Matches in Tournament](https://leetcode.com/problems/count-of-matches-in-tournament)
 
 [中文文档](/solution/1600-1699/1688.Count%20of%20Matches%20in%20Tournament/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code>, the number of teams in a tournament that has strange rules:</p>
 
@@ -57,7 +61,11 @@ Total number of matches = 7 + 3 + 2 + 1 = 13.
 	<li><code>1 &lt;= n &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Quick Thinking
 
@@ -114,4 +122,6 @@ var numberOfMatches = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

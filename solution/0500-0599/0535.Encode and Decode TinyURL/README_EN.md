@@ -9,11 +9,15 @@ tags:
     - Hash Function
 ---
 
+<!-- problem:start -->
+
 # [535. Encode and Decode TinyURL](https://leetcode.com/problems/encode-and-decode-tinyurl)
 
 [中文文档](/solution/0500-0599/0535.Encode%20and%20Decode%20TinyURL/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <blockquote>Note: This is a companion problem to the <a href="https://leetcode.com/discuss/interview-question/system-design/" target="_blank">System Design</a> problem: <a href="https://leetcode.com/discuss/interview-question/124658/Design-a-URL-Shortener-(-TinyURL-)-System/" target="_blank">Design TinyURL</a>.</blockquote>
 
@@ -50,7 +54,11 @@ string ans = obj.decode(tiny); // returns the original url after decoding it.
 	<li><code>url</code> is guranteed to be a valid URL.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -167,4 +175,6 @@ func (this *Codec) decode(shortUrl string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

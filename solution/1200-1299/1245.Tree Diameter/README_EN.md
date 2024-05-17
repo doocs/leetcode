@@ -12,11 +12,15 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [1245. Tree Diameter 🔒](https://leetcode.com/problems/tree-diameter)
 
 [中文文档](/solution/1200-1299/1245.Tree%20Diameter/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>diameter</strong> of a tree is <strong>the number of edges</strong> in the longest path in that tree.</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two DFS
 
@@ -214,4 +222,6 @@ func treeDiameter(edges [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

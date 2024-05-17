@@ -11,13 +11,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [1201. 丑数 III](https://leetcode.cn/problems/ugly-number-iii)
 
 [English Version](/solution/1200-1299/1201.Ugly%20Number%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>丑数是可以被&nbsp;<code>a</code>&nbsp;<strong>或</strong>&nbsp;<code>b</code>&nbsp;<strong>或</strong> <code>c</code>&nbsp;整除的 <strong>正整数</strong> 。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li>本题结果在&nbsp;<code>[1,&nbsp;2 * 10<sup>9</sup>]</code>&nbsp;的范围内</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找 + 容斥原理
 
@@ -229,4 +235,6 @@ function lcm(a: bigint, b: bigint): bigint {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1244. Design A Leaderboard 🔒](https://leetcode.com/problems/design-a-leaderboard)
 
 [中文文档](/solution/1200-1299/1244.Design%20A%20Leaderboard/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a Leaderboard class, which has 3 functions:</p>
 
@@ -60,7 +64,11 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 	<li>There will be at most <code>1000</code>&nbsp;function calls.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Ordered List
 
@@ -262,4 +270,6 @@ impl Leaderboard {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

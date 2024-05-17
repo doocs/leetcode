@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [91. Decode Ways](https://leetcode.com/problems/decode-ways)
 
 [中文文档](/solution/0000-0099/0091.Decode%20Ways/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A message containing letters from <code>A-Z</code> can be <strong>encoded</strong> into numbers using the following mapping:</p>
 
@@ -68,7 +72,11 @@ tags:
 	<li><code>s</code> contains only digits and may contain leading zero(s).</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -297,4 +305,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

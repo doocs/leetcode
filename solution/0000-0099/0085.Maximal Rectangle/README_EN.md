@@ -10,11 +10,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle)
 
 [中文文档](/solution/0000-0099/0085.Maximal%20Rectangle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>rows x cols</code>&nbsp;binary <code>matrix</code> filled with <code>0</code>&#39;s and <code>1</code>&#39;s, find the largest rectangle containing only <code>1</code>&#39;s and return <em>its area</em>.</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li><code>matrix[i][j]</code> is <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
 
@@ -353,4 +361,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

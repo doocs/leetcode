@@ -9,11 +9,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2569. Handling Sum Queries After Update](https://leetcode.com/problems/handling-sum-queries-after-update)
 
 [中文文档](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> arrays <code>nums1</code> and <code>nums2</code> and a 2D array <code>queries</code> of queries. There are three types of queries:</p>
 
@@ -56,7 +60,11 @@ tags:
 	<li><code>0 &lt;= nums2[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Segment Tree
 
@@ -495,4 +503,6 @@ func handleQuery(nums1 []int, nums2 []int, queries [][]int) (ans []int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Hash Function
 ---
 
+<!-- problem:start -->
+
 # [694. Number of Distinct Islands 🔒](https://leetcode.com/problems/number-of-distinct-islands)
 
 [中文文档](/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> binary matrix <code>grid</code>. An island is a group of <code>1</code>&#39;s (representing land) connected <strong>4-directionally</strong> (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -217,4 +225,6 @@ function numDistinctIslands(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

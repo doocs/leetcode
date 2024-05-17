@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3060. 时间范围内的用户活动 🔒](https://leetcode.cn/problems/user-activities-within-time-bounds)
 
 [English Version](/solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Sessions</code></p>
 
@@ -73,7 +75,11 @@ Sessions 表:
 输出表根据 user_id 升序排列。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数 + 时间函数
 
@@ -118,4 +124,6 @@ def user_activities(sessions: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

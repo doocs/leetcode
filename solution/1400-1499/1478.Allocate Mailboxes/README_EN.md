@@ -11,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1478. Allocate Mailboxes](https://leetcode.com/problems/allocate-mailboxes)
 
 [中文文档](/solution/1400-1499/1478.Allocate%20Mailboxes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the array <code>houses</code> where <code>houses[i]</code> is the location of the <code>i<sup>th</sup></code> house along a street and an integer <code>k</code>, allocate <code>k</code> mailboxes in the street.</p>
 
@@ -51,7 +55,11 @@ Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + 
 	<li>All the integers of <code>houses</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -165,4 +173,6 @@ func minDistance(houses []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [1397. Find All Good Strings](https://leetcode.com/problems/find-all-good-strings)
 
 [中文文档](/solution/1300-1399/1397.Find%20All%20Good%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the strings <code>s1</code> and <code>s2</code> of size <code>n</code> and the string <code>evil</code>, return <em>the number of <strong>good</strong> strings</em>.</p>
 
@@ -56,6 +60,34 @@ tags:
 	<li>All strings consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

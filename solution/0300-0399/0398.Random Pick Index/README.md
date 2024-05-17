@@ -9,13 +9,15 @@ tags:
     - 随机化
 ---
 
+<!-- problem:start -->
+
 # [398. 随机数索引](https://leetcode.cn/problems/random-pick-index)
 
 [English Version](/solution/0300-0399/0398.Random%20Pick%20Index/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个可能含有 <strong>重复元素</strong> 的整数数组&nbsp;<code>nums</code> ，请你随机输出给定的目标数字&nbsp;<code>target</code> 的索引。你可以假设给定的数字一定存在于数组中。</p>
 
@@ -63,7 +65,11 @@ solution.pick(3); // 随机返回索引 2, 3 或者 4 之一。每个索引的�
 
 <div class="fullscreen-btn-layer__2kn7">&nbsp;</div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -182,4 +188,6 @@ func (this *Solution) Pick(target int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

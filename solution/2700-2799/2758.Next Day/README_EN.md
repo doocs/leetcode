@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2758.Next%20Day/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2758. Next Day 🔒](https://leetcode.com/problems/next-day)
 
 [中文文档](/solution/2700-2799/2758.Next%20Day/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write code that enhances all date objects such that you can call the <code>date.nextDay()</code>&nbsp;method on any date object and it will return&nbsp;the next day in the format <em>YYYY-MM-DD</em> as a string.</p>
 
@@ -38,7 +42,11 @@ date.nextDay(); // &quot;2014-06-21&quot;
 	<li><code>new Date(date)</code> is a valid date object</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -65,4 +73,6 @@ Date.prototype.nextDay = function () {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

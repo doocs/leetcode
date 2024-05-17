@@ -13,11 +13,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1261. Find Elements in a Contaminated Binary Tree](https://leetcode.com/problems/find-elements-in-a-contaminated-binary-tree)
 
 [中文文档](/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a binary tree with the following rules:</p>
 
@@ -91,7 +95,11 @@ findElements.find(5); // return True
 	<li><code>0 &lt;= target &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS + Hash Table
 
@@ -318,4 +326,6 @@ class FindElements {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

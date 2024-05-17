@@ -11,11 +11,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [1307. Verbal Arithmetic Puzzle](https://leetcode.com/problems/verbal-arithmetic-puzzle)
 
 [中文文档](/solution/1300-1399/1307.Verbal%20Arithmetic%20Puzzle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an equation, represented by <code>words</code> on the left side and the <code>result</code> on the right side.</p>
 
@@ -66,6 +70,34 @@ Note that two different characters cannot map to the same digit.
 	<li>The number of different characters used in the expression is at most <code>10</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

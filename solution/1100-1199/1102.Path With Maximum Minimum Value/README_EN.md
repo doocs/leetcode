@@ -14,11 +14,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1102. Path With Maximum Minimum Value 🔒](https://leetcode.com/problems/path-with-maximum-minimum-value)
 
 [中文文档](/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> integer matrix <code>grid</code>, return <em>the maximum <strong>score</strong> of a path starting at </em><code>(0, 0)</code><em> and ending at </em><code>(m - 1, n - 1)</code> moving in the 4 cardinal directions.</p>
 
@@ -61,7 +65,11 @@ tags:
 	<li><code>0 &lt;= grid[i][j] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Union-Find
 
@@ -340,6 +348,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -658,4 +670,6 @@ function maximumMinimumPath(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

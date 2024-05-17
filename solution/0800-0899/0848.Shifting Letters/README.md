@@ -8,13 +8,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [848. 字母移位](https://leetcode.cn/problems/shifting-letters)
 
 [English Version](/solution/0800-0899/0848.Shifting%20Letters/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个由小写字母组成的字符串 <code>s</code>，和一个长度相同的整数数组 <code>shifts</code>。</p>
 
@@ -61,7 +63,11 @@ tags:
 </ul>
 <span style="display:block"><span style="height:0px"><span style="position:absolute">​​​​​​</span></span></span>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：后缀和
 
@@ -152,4 +158,6 @@ func shiftingLetters(s string, shifts []int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

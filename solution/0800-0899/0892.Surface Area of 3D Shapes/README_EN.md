@@ -9,11 +9,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [892. Surface Area of 3D Shapes](https://leetcode.com/problems/surface-area-of-3d-shapes)
 
 [中文文档](/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>n x n</code> <code>grid</code> where you have placed some <code>1 x 1 x 1</code> cubes. Each value <code>v = grid[i][j]</code> represents a tower of <code>v</code> cubes placed on top of cell <code>(i, j)</code>.</p>
 
@@ -54,7 +58,11 @@ tags:
 	<li><code>0 &lt;= grid[i][j] &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -140,4 +148,6 @@ func surfaceArea(grid [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

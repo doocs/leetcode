@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3052. Maximize Items 🔒](https://leetcode.com/problems/maximize-items)
 
 [中文文档](/solution/3000-3099/3052.Maximize%20Items/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <font face="monospace"><code>Inventory</code></font></p>
 
@@ -74,7 +78,11 @@ Inventory table:
 - In the not_prime category, there are a total of 4 items with a combined square footage of 128.50. After deducting the storage used by prime-eligible items (500,000 - 499,680 = 320), there is room for 2 combinations of non-prime items, accommodating a total of 8 non-prime items within the available 320 square footage.
 Output table is ordered by item count in descending order.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Join Query + Union All
 
@@ -111,4 +119,6 @@ WHERE item_type = 'not_prime';
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

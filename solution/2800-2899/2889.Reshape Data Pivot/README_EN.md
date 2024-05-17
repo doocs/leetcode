@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2889.Reshape%20Data%20Pivot/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2889. Reshape Data Pivot](https://leetcode.com/problems/reshape-data-pivot)
 
 [中文文档](/solution/2800-2899/2889.Reshape%20Data%20Pivot/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <pre>
 DataFrame <code>weather</code>
@@ -56,7 +60,11 @@ DataFrame <code>weather</code>
 <strong>Explanation:
 </strong>The table is pivoted, each column represents a city, and each row represents a specific month.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -72,4 +80,6 @@ def pivotTable(weather: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

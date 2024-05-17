@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2802. Find The K-th Lucky Number 🔒](https://leetcode.com/problems/find-the-k-th-lucky-number)
 
 [中文文档](/solution/2800-2899/2802.Find%20The%20K-th%20Lucky%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We know that <code>4</code> and <code>7</code> are <strong>lucky</strong> digits. Also, a number is called <strong>lucky</strong>&nbsp;if it contains <strong>only</strong> lucky digits.</p>
 
@@ -50,7 +54,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -170,4 +178,6 @@ function kthLuckyNumber(k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

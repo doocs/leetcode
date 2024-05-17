@@ -9,11 +9,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1033. Moving Stones Until Consecutive](https://leetcode.com/problems/moving-stones-until-consecutive)
 
 [中文文档](/solution/1000-1099/1033.Moving%20Stones%20Until%20Consecutive/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are three stones in different positions on the X-axis. You are given three integers <code>a</code>, <code>b</code>, and <code>c</code>, the positions of the stones.</p>
 
@@ -61,7 +65,11 @@ tags:
 	<li><code>a</code>, <code>b</code>, and <code>c</code> have different values.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -146,4 +154,6 @@ function numMovesStones(a: number, b: number, c: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

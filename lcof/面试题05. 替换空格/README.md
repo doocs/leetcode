@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9805.%20%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 05. 替换空格](https://leetcode.cn/problems/ti-huan-kong-ge-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>请实现一个函数，把字符串 <code>s</code> 中的每个空格替换成&quot;%20&quot;。</p>
 
@@ -23,7 +27,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p><code>0 &lt;= s 的长度 &lt;= 10000</code></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符串内置方法
 
@@ -123,6 +131,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：遍历替换
 
 我们直接遍历字符串，遇到空格就替换成 `%20` 即可。
@@ -220,6 +232,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法三
 
 <!-- tabs:start -->
@@ -240,4 +256,6 @@ var replaceSpace = function (s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2773. Height of Special Binary Tree 🔒](https://leetcode.com/problems/height-of-special-binary-tree)
 
 [中文文档](/solution/2700-2799/2773.Height%20of%20Special%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <code>root</code>, which is the root of a <strong>special</strong> binary tree with <code>n</code> nodes. The nodes of the special binary tree are numbered from <code>1</code> to <code>n</code>. Suppose the tree has <code>k</code> leaves in the following order: <code>b<sub>1 </sub>&lt;<sub> </sub>b<sub>2 </sub>&lt; ... &lt; b<sub>k</sub></code>.</p>
 
@@ -69,7 +73,11 @@ tags:
 	<li>The input is generated such that each <code>node.val</code> is unique.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -229,4 +237,6 @@ function heightOfTree(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

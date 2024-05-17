@@ -10,13 +10,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [2498. 青蛙过河 II](https://leetcode.cn/problems/frog-jump-ii)
 
 [English Version](/solution/2400-2499/2498.Frog%20Jump%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>stones</code>&nbsp;，数组中的元素&nbsp;<strong>严格递增</strong>&nbsp;，表示一条河中石头的位置。</p>
 
@@ -70,7 +72,11 @@ tags:
 	<li><code>stones</code>&nbsp;中的元素严格递增。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯
 
@@ -124,4 +130,6 @@ func maxJump(stones []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

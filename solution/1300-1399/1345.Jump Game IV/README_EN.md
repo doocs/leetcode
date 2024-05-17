@@ -10,11 +10,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1345. Jump Game IV](https://leetcode.com/problems/jump-game-iv)
 
 [中文文档](/solution/1300-1399/1345.Jump%20Game%20IV/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of&nbsp;integers <code>arr</code>, you are initially positioned at the first index of the array.</p>
 
@@ -63,7 +67,11 @@ tags:
 	<li><code>-10<sup>8</sup> &lt;= arr[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -217,4 +225,6 @@ func minJumps(arr []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

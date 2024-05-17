@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1645. Hopper Company Queries II 🔒](https://leetcode.com/problems/hopper-company-queries-ii)
 
 [中文文档](/solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Drivers</code></p>
 
@@ -155,7 +159,11 @@ By the end of November --&gt; six active drivers (10, 8, 5, 7, 4, 1) and two acc
 By the end of December --&gt; six active drivers (10, 8, 5, 7, 4, 1) and one accepted ride by driver (4). The percentage is (1 / 6) * 100 = 16.67%.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -203,4 +211,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

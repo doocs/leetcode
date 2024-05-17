@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1194. Tournament Winners 🔒](https://leetcode.com/problems/tournament-winners)
 
 [中文文档](/solution/1100-1199/1194.Tournament%20Winners/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Players</code></p>
 
@@ -92,7 +96,11 @@ Matches table:
 +-----------+------------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -134,4 +142,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

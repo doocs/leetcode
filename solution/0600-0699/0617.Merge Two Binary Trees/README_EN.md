@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [617. Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees)
 
 [中文文档](/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two binary trees <code>root1</code> and <code>root2</code>.</p>
 
@@ -46,7 +50,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -253,4 +261,6 @@ var mergeTrees = function (root1, root2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -14,13 +14,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [3044. 出现频率最高的质数](https://leetcode.cn/problems/most-frequent-prime)
 
 [English Version](/solution/3000-3099/3044.Most%20Frequent%20Prime/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> 、下标从 <strong>0</strong> 开始的二维矩阵 <code>mat</code> 。在每个单元格，你可以按以下方式生成数字：</p>
 
@@ -89,7 +91,11 @@ tags:
 	<li><code>1 &lt;= mat[i][j] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -320,4 +326,6 @@ function mostFrequentPrime(mat: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

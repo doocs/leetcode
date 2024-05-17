@@ -12,11 +12,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2641. Cousins in Binary Tree II](https://leetcode.com/problems/cousins-in-binary-tree-ii)
 
 [中文文档](/solution/2600-2699/2641.Cousins%20in%20Binary%20Tree%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, replace the value of each node in the tree with the <strong>sum of all its cousins&#39; values</strong>.</p>
 
@@ -60,7 +64,11 @@ tags:
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two DFS Traversals
 
@@ -313,6 +321,10 @@ function replaceValueInTree(root: TreeNode | null): TreeNode | null {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Breadth-First Search (BFS)
 
 First, we update the root node's value to $0$, and use a queue $q$ to store all nodes at each level, initially enqueueing the root node.
@@ -548,4 +560,6 @@ function replaceValueInTree(root: TreeNode | null): TreeNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

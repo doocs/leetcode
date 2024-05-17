@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [610. 判断三角形](https://leetcode.cn/problems/triangle-judgement)
 
 [English Version](/solution/0600-0699/0610.Triangle%20Judgement/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表:&nbsp;<code>Triangle</code></p>
 
@@ -57,7 +59,11 @@ Triangle 表:
 | 10 | 20 | 15 | Yes      |
 +----+----+----+----------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：IF 语句 + 三角形判断条件
 
@@ -75,4 +81,6 @@ FROM Triangle;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

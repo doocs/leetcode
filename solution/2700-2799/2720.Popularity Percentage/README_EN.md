@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2720. Popularity Percentage 🔒](https://leetcode.com/problems/popularity-percentage)
 
 [中文文档](/solution/2700-2799/2720.Popularity%20Percentage/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Friends</code></p>
 
@@ -78,7 +82,11 @@ There are total 9 users on the platform.
 user1 is sorted in ascending order.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -105,4 +113,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

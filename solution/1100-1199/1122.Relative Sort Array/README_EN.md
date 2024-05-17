@@ -11,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1122. Relative Sort Array](https://leetcode.com/problems/relative-sort-array)
 
 [中文文档](/solution/1100-1199/1122.Relative%20Sort%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two arrays <code>arr1</code> and <code>arr2</code>, the elements of <code>arr2</code> are distinct, and all elements in <code>arr2</code> are also in <code>arr1</code>.</p>
 
@@ -46,7 +50,11 @@ tags:
 	<li>Each&nbsp;<code>arr2[i]</code> is in <code>arr1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Custom Sorting
 
@@ -147,4 +155,6 @@ function relativeSortArray(arr1: number[], arr2: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

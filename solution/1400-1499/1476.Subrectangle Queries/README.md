@@ -10,13 +10,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [1476. 子矩形查询](https://leetcode.cn/problems/subrectangle-queries)
 
 [English Version](/solution/1400-1499/1476.Subrectangle%20Queries/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你实现一个类&nbsp;<code>SubrectangleQueries</code>&nbsp;，它的构造函数的参数是一个 <code>rows x cols</code>&nbsp;的矩形（这里用整数矩阵表示），并支持以下两种操作：</p>
 
@@ -100,7 +102,11 @@ subrectangleQueries.getValue(2, 2); // 返回 20
 	<li><code>0 &lt;= col &lt; cols</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -266,4 +272,6 @@ class SubrectangleQueries {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

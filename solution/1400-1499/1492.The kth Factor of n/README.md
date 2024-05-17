@@ -9,13 +9,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [1492. n 的第 k 个因子](https://leetcode.cn/problems/the-kth-factor-of-n)
 
 [English Version](/solution/1400-1499/1492.The%20kth%20Factor%20of%20n/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数&nbsp;<code>n</code> 和&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -63,7 +65,11 @@ tags:
 
 <p>你可以设计时间复杂度小于 O(n) 的算法来解决此问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -137,6 +143,10 @@ function kthFactor(n: number, k: number): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：枚举优化
 
@@ -262,4 +272,6 @@ function kthFactor(n: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [2396. Strictly Palindromic Number](https://leetcode.com/problems/strictly-palindromic-number)
 
 [中文文档](/solution/2300-2399/2396.Strictly%20Palindromic%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An integer <code>n</code> is <strong>strictly palindromic</strong> if, for <strong>every</strong> base <code>b</code> between <code>2</code> and <code>n - 2</code> (<strong>inclusive</strong>), the string representation of the integer <code>n</code> in base <code>b</code> is <strong>palindromic</strong>.</p>
 
@@ -51,7 +55,11 @@ Therefore, we return false.
 	<li><code>4 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Quick Thinking
 
@@ -116,4 +124,6 @@ bool isStrictlyPalindromic(int n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

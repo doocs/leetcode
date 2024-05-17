@@ -10,11 +10,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1609. Even Odd Tree](https://leetcode.com/problems/even-odd-tree)
 
 [中文文档](/solution/1600-1699/1609.Even%20Odd%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A binary tree is named <strong>Even-Odd</strong> if it meets the following conditions:</p>
 
@@ -68,7 +72,11 @@ Node values in level 2 must be in strictly increasing order, so the tree is not 
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -237,6 +245,10 @@ func isEvenOddTree(root *TreeNode) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: DFS
 
 DFS performs a pre-order traversal of the binary tree, and similarly judges whether it meets the conditions based on the parity of the layer where the node is located. During the traversal, a hash table is used to record the node value that was most recently visited at each layer.
@@ -389,4 +401,6 @@ func isEvenOddTree(root *TreeNode) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

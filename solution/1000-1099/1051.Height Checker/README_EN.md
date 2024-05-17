@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1051. Height Checker](https://leetcode.com/problems/height-checker)
 
 [中文文档](/solution/1000-1099/1051.Height%20Checker/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A school is trying to take an annual photo of all the students. The students are asked to stand in a single file line in <strong>non-decreasing order</strong> by height. Let this ordering be represented by the integer array <code>expected</code> where <code>expected[i]</code> is the expected height of the <code>i<sup>th</sup></code> student in line.</p>
 
@@ -64,7 +68,11 @@ All indices match.
 	<li><code>1 &lt;= heights[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -122,6 +130,10 @@ func heightChecker(heights []int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -204,4 +216,6 @@ func heightChecker(heights []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

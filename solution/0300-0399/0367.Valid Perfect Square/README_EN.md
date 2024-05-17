@@ -7,11 +7,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [367. Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square)
 
 [中文文档](/solution/0300-0399/0367.Valid%20Perfect%20Square/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a positive integer num, return <code>true</code> <em>if</em> <code>num</code> <em>is a perfect square or</em> <code>false</code> <em>otherwise</em>.</p>
 
@@ -43,7 +47,11 @@ tags:
 	<li><code>1 &lt;= num &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary search
 
@@ -155,6 +163,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Math trick
 
 This is a math problem：
@@ -238,4 +250,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

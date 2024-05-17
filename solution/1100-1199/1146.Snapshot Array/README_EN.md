@@ -11,11 +11,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1146. Snapshot Array](https://leetcode.com/problems/snapshot-array)
 
 [中文文档](/solution/1100-1199/1146.Snapshot%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement a SnapshotArray that supports the following interface:</p>
 
@@ -51,7 +55,11 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5</
 	<li>At most <code>5 * 10<sup>4</sup></code> calls will be made to <code>set</code>, <code>snap</code>, and <code>get</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array + Binary Search
 
@@ -247,4 +255,6 @@ class SnapshotArray {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [529. 扫雷游戏](https://leetcode.cn/problems/minesweeper)
 
 [English Version](/solution/0500-0599/0529.Minesweeper/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>让我们一起来玩扫雷游戏！</p>
 
@@ -71,7 +73,11 @@ tags:
 	<li><code>board[click<sub>r</sub>][click<sub>c</sub>]</code> 为 <code>'M'</code> 或 <code>'E'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -270,4 +276,6 @@ function updateBoard(board: string[][], click: number[]): string[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

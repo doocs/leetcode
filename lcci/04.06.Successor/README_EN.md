@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.06.Successor/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [04.06. Successor](https://leetcode.cn/problems/successor-lcci)
 
 [中文文档](/lcci/04.06.Successor/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write an algorithm to find the &quot;next&quot; node (i.e., in-order successor) of a given node in a binary search tree.</p>
 
@@ -58,7 +62,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.06.Successor/READM
 
 <strong>Output:</strong> null</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -261,4 +269,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

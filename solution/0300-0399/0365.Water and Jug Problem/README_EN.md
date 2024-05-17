@@ -8,11 +8,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [365. Water and Jug Problem](https://leetcode.com/problems/water-and-jug-problem)
 
 [中文文档](/solution/0300-0399/0365.Water%20and%20Jug%20Problem/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two jugs with capacities <code>x</code> liters and <code>y</code> liters. You have an infinite water supply. Return whether the total amount of water in both jugs may reach <code>target</code> using the following operations:</p>
 
@@ -72,7 +76,11 @@ tags:
 	<li><code>1 &lt;= x, y, target&nbsp;&lt;= 10<sup>3</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -207,4 +215,6 @@ func canMeasureWater(x int, y int, z int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

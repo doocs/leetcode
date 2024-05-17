@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [1469. 寻找所有的独生节点 🔒](https://leetcode.cn/problems/find-all-the-lonely-nodes)
 
 [English Version](/solution/1400-1499/1469.Find%20All%20The%20Lonely%20Nodes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>二叉树中，如果一个节点是其父节点的唯一子节点，则称这样的节点为 &ldquo;<strong>独生节点</strong>&rdquo; 。二叉树的根节点不会是独生节点，因为它没有父节点。</p>
 
@@ -79,7 +81,11 @@ tags:
 	<li>每个节点的值的取值范围是&nbsp;<code>[1, 10^6]</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -215,4 +221,6 @@ func getLonelyNodes(root *TreeNode) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

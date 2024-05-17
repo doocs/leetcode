@@ -11,11 +11,15 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [1237. Find Positive Integer Solution for a Given Equation](https://leetcode.com/problems/find-positive-integer-solution-for-a-given-equation)
 
 [中文文档](/solution/1200-1299/1237.Find%20Positive%20Integer%20Solution%20for%20a%20Given%20Equation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a callable function <code>f(x, y)</code> <strong>with a hidden formula</strong> and a value <code>z</code>, reverse engineer the formula and return <em>all positive integer pairs </em><code>x</code><em> and </em><code>y</code><em> where </em><code>f(x,y) == z</code>. You may return the pairs in any order.</p>
 
@@ -80,7 +84,11 @@ x=5, y=1 -&gt; f(5, 1) = 5 * 1 = 5.
 	<li>It is also guaranteed that <code>f(x, y)</code> will fit in 32 bit signed integer if <code>1 &lt;= x, y &lt;= 1000</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + Binary Search
 
@@ -237,6 +245,10 @@ function findSolution(customfunction: CustomFunction, z: number): number[][] {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Two Pointers
 
@@ -401,4 +413,6 @@ function findSolution(customfunction: CustomFunction, z: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

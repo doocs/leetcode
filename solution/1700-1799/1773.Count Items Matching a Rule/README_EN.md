@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1773. Count Items Matching a Rule](https://leetcode.com/problems/count-items-matching-a-rule)
 
 [中文文档](/solution/1700-1799/1773.Count%20Items%20Matching%20a%20Rule/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>items</code>, where each <code>items[i] = [type<sub>i</sub>, color<sub>i</sub>, name<sub>i</sub>]</code> describes the type, color, and name of the <code>i<sup>th</sup></code> item. You are also given a rule represented by two strings, <code>ruleKey</code> and <code>ruleValue</code>.</p>
 
@@ -53,7 +57,11 @@ tags:
 	<li>All strings consist only of lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -138,4 +146,6 @@ int countMatches(char*** items, int itemsSize, int* itemsColSize, char* ruleKey,
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

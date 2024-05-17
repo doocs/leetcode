@@ -11,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2285. Maximum Total Importance of Roads](https://leetcode.com/problems/maximum-total-importance-of-roads)
 
 [中文文档](/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code> denoting the number of cities in a country. The cities are numbered from <code>0</code> to <code>n - 1</code>.</p>
 
@@ -67,7 +71,11 @@ It can be shown that we cannot obtain a greater total importance than 20.
 	<li>There are no duplicate roads.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -137,4 +145,6 @@ func maximumImportance(n int, roads [][]int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

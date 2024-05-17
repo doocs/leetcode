@@ -9,11 +9,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1176. Diet Plan Performance 🔒](https://leetcode.com/problems/diet-plan-performance)
 
 [中文文档](/solution/1100-1199/1176.Diet%20Plan%20Performance/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A dieter consumes&nbsp;<code>calories[i]</code>&nbsp;calories on the <code>i</code>-th day.&nbsp;</p>
 
@@ -69,7 +73,11 @@ calories[2] + calories[3] &lt; lower so 1 point is lost.
 	<li><code>0 &lt;= lower &lt;= upper</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum
 
@@ -183,6 +191,10 @@ function dietPlanPerformance(calories: number[], k: number, lower: number, upper
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Sliding Window
 
@@ -311,4 +323,6 @@ function dietPlanPerformance(calories: number[], k: number, lower: number, upper
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1193. Monthly Transactions I](https://leetcode.com/problems/monthly-transactions-i)
 
 [中文文档](/solution/1100-1199/1193.Monthly%20Transactions%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Transactions</code></p>
 
@@ -61,7 +65,11 @@ Transactions table:
 +----------+---------+-------------+----------------+--------------------+-----------------------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping and Aggregation
 
@@ -84,4 +92,6 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

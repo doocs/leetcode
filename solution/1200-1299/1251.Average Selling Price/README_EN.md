@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1251. Average Selling Price](https://leetcode.com/problems/average-selling-price)
 
 [中文文档](/solution/1200-1299/1251.Average%20Selling%20Price/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Prices</code></p>
 
@@ -88,7 +92,11 @@ Average selling price for product 1 = ((100 * 5) + (15 * 20)) / 115 = 6.96
 Average selling price for product 2 = ((200 * 15) + (30 * 30)) / 230 = 16.96
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Left Join + Grouping
 
@@ -110,4 +118,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

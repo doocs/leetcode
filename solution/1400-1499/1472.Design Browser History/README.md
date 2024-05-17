@@ -13,13 +13,15 @@ tags:
     - 双向链表
 ---
 
+<!-- problem:start -->
+
 # [1472. 设计浏览器历史记录](https://leetcode.cn/problems/design-browser-history)
 
 [English Version](/solution/1400-1499/1472.Design%20Browser%20History/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一个只支持单个标签页的 <strong>浏览器</strong>&nbsp;，最开始你浏览的网页是&nbsp;<code>homepage</code>&nbsp;，你可以访问其他的网站&nbsp;<code>url</code>&nbsp;，也可以在浏览历史中后退&nbsp;<code>steps</code>&nbsp;步或前进&nbsp;<code>steps</code>&nbsp;步。</p>
 
@@ -68,7 +70,11 @@ browserHistory.back(7);                   // 你原本在浏览 &quot;google.com
 	<li>最多调用&nbsp;<code>5000</code>&nbsp;次&nbsp;<code>visit</code>，&nbsp;<code>back</code>&nbsp;和&nbsp;<code>forward</code>&nbsp;函数。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈
 
@@ -230,4 +236,6 @@ func (this *BrowserHistory) Forward(steps int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

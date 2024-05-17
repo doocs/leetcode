@@ -12,11 +12,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1349. Maximum Students Taking Exam](https://leetcode.com/problems/maximum-students-taking-exam)
 
 [中文文档](/solution/1300-1399/1349.Maximum%20Students%20Taking%20Exam/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>m&nbsp;* n</code>&nbsp;matrix <code>seats</code>&nbsp;&nbsp;that represent seats distributions&nbsp;in a classroom.&nbsp;If a seat&nbsp;is&nbsp;broken, it is denoted by <code>&#39;#&#39;</code> character otherwise it is denoted by a <code>&#39;.&#39;</code> character.</p>
 
@@ -71,7 +75,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 8</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression + Memoization Search
 
@@ -295,4 +303,6 @@ function maxStudents(seats: string[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

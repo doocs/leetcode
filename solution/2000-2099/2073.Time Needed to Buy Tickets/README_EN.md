@@ -10,11 +10,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2073. Time Needed to Buy Tickets](https://leetcode.com/problems/time-needed-to-buy-tickets)
 
 [中文文档](/solution/2000-2099/2073.Time%20Needed%20to%20Buy%20Tickets/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> people in a line queuing to buy tickets, where the <code>0<sup>th</sup></code> person is at the <strong>front</strong> of the line and the <code>(n - 1)<sup>th</sup></code> person is at the <strong>back</strong> of the line.</p>
 
@@ -57,7 +61,11 @@ The person at&nbsp;position 0 has successfully bought 5 tickets and it took 4 + 
 	<li><code>0 &lt;= k &lt; n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -150,4 +158,6 @@ function timeRequiredToBuy(tickets: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

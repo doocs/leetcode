@@ -8,11 +8,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [292. Nim Game](https://leetcode.com/problems/nim-game)
 
 [中文文档](/solution/0200-0299/0292.Nim%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are playing the following Nim Game with your friend:</p>
 
@@ -59,7 +63,11 @@ In all outcomes, your friend wins.
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Finding the Pattern
 
@@ -123,4 +131,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

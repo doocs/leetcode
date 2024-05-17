@@ -9,13 +9,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [3009. 折线图上的最大交点数量 🔒](https://leetcode.cn/problems/maximum-number-of-intersections-on-the-chart)
 
 [English Version](/solution/3000-3099/3009.Maximum%20Number%20of%20Intersections%20on%20the%20Chart/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一条由 <code>n</code> 个点连接而成的折线图。给定一个 <strong>下标从 1 开始&nbsp;</strong>的整数数组 <code>y</code>，第&nbsp;<code>k</code>&nbsp;个点的坐标是 <code>(k, y[k])</code>。图中没有水平线，即没有两个相邻的点有相同的 y 坐标。</p>
 
@@ -51,7 +53,11 @@ tags:
 	<li>对于范围&nbsp;<code>[1, n - 1]</code> 内的所有&nbsp;<code>i</code>，都有 <code>y[i] != y[i + 1]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -96,4 +102,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

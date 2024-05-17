@@ -10,11 +10,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [465. Optimal Account Balancing 🔒](https://leetcode.com/problems/optimal-account-balancing)
 
 [中文文档](/solution/0400-0499/0465.Optimal%20Account%20Balancing/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of transactions <code>transactions</code> where <code>transactions[i] = [from<sub>i</sub>, to<sub>i</sub>, amount<sub>i</sub>]</code> indicates that the person with <code>ID = from<sub>i</sub></code> gave <code>amount<sub>i</sub> $</code> to the person with <code>ID = to<sub>i</sub></code>.</p>
 
@@ -56,7 +60,11 @@ Therefore, person #1 only need to give person #0 $4, and all debt is settled.
 	<li><code>1 &lt;= amount<sub>i</sub> &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -236,4 +244,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

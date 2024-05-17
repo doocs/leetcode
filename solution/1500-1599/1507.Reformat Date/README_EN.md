@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1507. Reformat Date](https://leetcode.com/problems/reformat-date)
 
 [中文文档](/solution/1500-1599/1507.Reformat%20Date/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>date</code> string in the form&nbsp;<code>Day Month Year</code>, where:</p>
 
@@ -59,7 +63,11 @@ tags:
 	<li>The given dates are guaranteed to be valid, so no error handling is necessary.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -159,4 +167,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

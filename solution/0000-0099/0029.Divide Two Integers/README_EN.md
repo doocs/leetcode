@@ -7,11 +7,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [29. Divide Two Integers](https://leetcode.com/problems/divide-two-integers)
 
 [中文文档](/solution/0000-0099/0029.Divide%20Two%20Integers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integers <code>dividend</code> and <code>divisor</code>, divide two integers <strong>without</strong> using multiplication, division, and mod operator.</p>
 
@@ -46,7 +50,11 @@ tags:
 	<li><code>divisor != 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation + Fast Power
 
@@ -272,4 +280,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

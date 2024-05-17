@@ -9,11 +9,15 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [382. Linked List Random Node](https://leetcode.com/problems/linked-list-random-node)
 
 [中文文档](/solution/0300-0399/0382.Linked%20List%20Random%20Node/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a singly linked list, return a random node&#39;s value from the linked list. Each node must have the <strong>same probability</strong> of being chosen.</p>
 
@@ -62,7 +66,11 @@ solution.getRandom(); // return 3
 	<li>Could you solve this efficiently without using extra space?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -208,4 +216,6 @@ func (this *Solution) GetRandom() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

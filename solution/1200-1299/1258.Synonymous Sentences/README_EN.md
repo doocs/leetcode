@@ -12,11 +12,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [1258. Synonymous Sentences 🔒](https://leetcode.com/problems/synonymous-sentences)
 
 [中文文档](/solution/1200-1299/1258.Synonymous%20Sentences/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a list of equivalent string pairs <code>synonyms</code> where <code>synonyms[i] = [s<sub>i</sub>, t<sub>i</sub>]</code> indicates that <code>s<sub>i</sub></code> and <code>t<sub>i</sub></code> are equivalent strings. You are also given a sentence <code>text</code>.</p>
 
@@ -50,7 +54,11 @@ tags:
 	<li>The words of <code>text</code> are separated by single spaces.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find + DFS
 
@@ -402,4 +410,6 @@ func generateSentences(synonyms [][]string, text string) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

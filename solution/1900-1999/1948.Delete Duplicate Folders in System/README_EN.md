@@ -12,11 +12,15 @@ tags:
     - Hash Function
 ---
 
+<!-- problem:start -->
+
 # [1948. Delete Duplicate Folders in System](https://leetcode.com/problems/delete-duplicate-folders-in-system)
 
 [中文文档](/solution/1900-1999/1948.Delete%20Duplicate%20Folders%20in%20System/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Due to a bug, there are many duplicate folders in a file system. You are given a 2D array <code>paths</code>, where <code>paths[i]</code> is an array representing an absolute path to the <code>i<sup>th</sup></code> folder in the file system.</p>
 
@@ -91,6 +95,34 @@ Note that the returned array can be in a different order as the order does not m
 	<li>For any folder not at the root level, its parent folder will also be in the input.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

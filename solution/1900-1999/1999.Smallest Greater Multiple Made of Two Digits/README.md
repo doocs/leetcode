@@ -7,13 +7,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [1999. 最小的仅由两个数组成的倍数 🔒](https://leetcode.cn/problems/smallest-greater-multiple-made-of-two-digits)
 
 [English Version](/solution/1900-1999/1999.Smallest%20Greater%20Multiple%20Made%20of%20Two%20Digits/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你三个整数, <code>k</code>, <code>digit1</code>和&nbsp;<code>digit2</code>, 你想要找到满足以下条件的 <strong>最小 </strong>整数：</p>
 
@@ -62,7 +64,11 @@ tags:
 	<li><code>0 &lt;= digit2 &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -178,4 +184,6 @@ func findInteger(k int, digit1 int, digit2 int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

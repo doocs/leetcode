@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1328. Break a Palindrome](https://leetcode.com/problems/break-a-palindrome)
 
 [中文文档](/solution/1300-1399/1328.Break%20a%20Palindrome/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a palindromic string of lowercase English letters <code>palindrome</code>, replace <strong>exactly one</strong> character with any lowercase English letter so that the resulting string is <strong>not</strong> a palindrome and that it is the <strong>lexicographically smallest</strong> one possible.</p>
 
@@ -47,7 +51,11 @@ Of all the ways, &quot;aaccba&quot; is the lexicographically smallest.
 	<li><code>palindrome</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -156,4 +164,6 @@ function breakPalindrome(palindrome: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

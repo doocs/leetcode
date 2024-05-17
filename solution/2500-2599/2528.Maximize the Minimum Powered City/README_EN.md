@@ -13,11 +13,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2528. Maximize the Minimum Powered City](https://leetcode.com/problems/maximize-the-minimum-powered-city)
 
 [中文文档](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>stations</code> of length <code>n</code>, where <code>stations[i]</code> represents the number of power stations in the <code>i<sup>th</sup></code> city.</p>
 
@@ -73,7 +77,11 @@ It can be proved that we cannot make the minimum power of a city greater than 4.
 	<li><code>0 &lt;= k&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -323,4 +331,6 @@ function maxPower(stations: number[], r: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

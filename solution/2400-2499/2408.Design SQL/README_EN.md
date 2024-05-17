@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2408. Design SQL 🔒](https://leetcode.com/problems/design-sql)
 
 [中文文档](/solution/2400-2499/2408.Design%20SQL/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given <code>n</code> tables represented with two arrays <code>names</code> and <code>columns</code>, where <code>names[i]</code> is the name of the <code>i<sup>th</sup></code> table and <code>columns[i]</code> is the number of columns of the <code>i<sup>th</sup></code> table.</p>
 
@@ -70,7 +74,11 @@ sql.selectCell(&quot;two&quot;, 2, 2); // return &quot;fifth&quot;, finds the va
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>selectCell</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -191,4 +199,6 @@ func (this *SQL) SelectCell(name string, rowId int, columnId int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

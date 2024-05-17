@@ -6,11 +6,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [58. Length of Last Word](https://leetcode.com/problems/length-of-last-word)
 
 [中文文档](/solution/0000-0099/0058.Length%20of%20Last%20Word/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> consisting of words and spaces, return <em>the length of the <strong>last</strong> word in the string.</em></p>
 
@@ -50,7 +54,11 @@ tags:
 	<li>There will be at least one word in <code>s</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Traversal + Two Pointers
 
@@ -204,4 +212,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

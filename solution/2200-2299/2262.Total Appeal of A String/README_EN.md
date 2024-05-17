@@ -10,11 +10,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2262. Total Appeal of A String](https://leetcode.com/problems/total-appeal-of-a-string)
 
 [中文文档](/solution/2200-2299/2262.Total%20Appeal%20of%20A%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <b>appeal</b> of a string is the number of <strong>distinct</strong> characters found in the string.</p>
 
@@ -62,7 +66,11 @@ The total sum is 4 + 6 + 6 + 4 = 20.
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -164,4 +172,6 @@ function appealSum(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

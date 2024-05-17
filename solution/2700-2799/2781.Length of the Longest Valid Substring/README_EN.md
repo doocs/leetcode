@@ -11,11 +11,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2781. Length of the Longest Valid Substring](https://leetcode.com/problems/length-of-the-longest-valid-substring)
 
 [中文文档](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>word</code> and an array of strings <code>forbidden</code>.</p>
 
@@ -54,7 +58,11 @@ It can be shown that all other substrings contain either &quot;de&quot;, &quot;l
 	<li><code>forbidden[i]</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -153,4 +161,6 @@ function longestValidSubstring(word: string, forbidden: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

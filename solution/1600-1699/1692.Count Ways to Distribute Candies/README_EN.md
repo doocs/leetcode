@@ -6,11 +6,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1692. Count Ways to Distribute Candies 🔒](https://leetcode.com/problems/count-ways-to-distribute-candies)
 
 [中文文档](/solution/1600-1699/1692.Count%20Ways%20to%20Distribute%20Candies/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> <strong>unique</strong> candies (labeled <code>1</code> through <code>n</code>) and <code>k</code> bags. You are asked to distribute <strong>all</strong> the candies into the bags such that every bag has <strong>at least</strong> one candy.</p>
 
@@ -64,7 +68,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -163,4 +171,6 @@ function waysToDistribute(n: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

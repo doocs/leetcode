@@ -8,13 +8,15 @@ tags:
     - 队列
 ---
 
+<!-- problem:start -->
+
 # [225. 用队列实现栈](https://leetcode.cn/problems/implement-stack-using-queues)
 
 [English Version](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你仅使用两个队列实现一个后入先出（LIFO）的栈，并支持普通栈的全部四种操作（<code>push</code>、<code>top</code>、<code>pop</code> 和 <code>empty</code>）。</p>
 
@@ -70,7 +72,11 @@ myStack.empty(); // 返回 False
 
 <p><strong>进阶：</strong>你能否仅用一个队列来实现栈。</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两个队列
 
@@ -337,4 +343,6 @@ impl MyStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2990. Loan Types 🔒](https://leetcode.com/problems/loan-types)
 
 [中文文档](/solution/2900-2999/2990.Loan%20Types/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Loans</code></p>
 
@@ -64,7 +68,11 @@ Loans table:
 Output table is ordered by user_id in ascending order.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping and Summation
 
@@ -83,4 +91,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

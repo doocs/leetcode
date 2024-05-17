@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.21.Sum%20Swap/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.21. Sum Swap](https://leetcode.cn/problems/sum-swap-lcci)
 
 [中文文档](/lcci/16.21.Sum%20Swap/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two arrays of integers, find a pair of values (one value from each array) that you can swap to give the two arrays the same sum.</p>
 
@@ -38,7 +42,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.21.Sum%20Swap/READ
 	<li><code>1 &lt;= array1.length, array2.length &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -193,4 +201,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

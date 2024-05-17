@@ -7,11 +7,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [866. Prime Palindrome](https://leetcode.com/problems/prime-palindrome)
 
 [中文文档](/solution/0800-0899/0866.Prime%20Palindrome/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer n, return <em>the smallest <strong>prime palindrome</strong> greater than or equal to </em><code>n</code>.</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -184,4 +192,6 @@ func primePalindrome(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

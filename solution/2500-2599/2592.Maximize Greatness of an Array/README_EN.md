@@ -11,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2592. Maximize Greatness of an Array](https://leetcode.com/problems/maximize-greatness-of-an-array)
 
 [中文文档](/solution/2500-2599/2592.Maximize%20Greatness%20of%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 0-indexed integer array <code>nums</code>. You are allowed to permute <code>nums</code> into a new array <code>perm</code> of your choosing.</p>
 
@@ -49,7 +53,11 @@ At indices = 0, 1, and 2, perm[i] &gt; nums[i]. Hence, we return 3.
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -130,4 +138,6 @@ function maximizeGreatness(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

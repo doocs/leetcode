@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2346. Compute the Rank as a Percentage 🔒](https://leetcode.com/problems/compute-the-rank-as-a-percentage)
 
 [中文文档](/solution/2300-2399/2346.Compute%20the%20Rank%20as%20a%20Percentage/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Students</code></p>
 
@@ -69,7 +73,11 @@ For Department 2:
  - Student 8: percentage = (1 - 1) * 100 / (2 - 1) = 0.0
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -97,4 +105,6 @@ FROM Students;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1067. Digit Count in Range 🔒](https://leetcode.com/problems/digit-count-in-range)
 
 [中文文档](/solution/1000-1099/1067.Digit%20Count%20in%20Range/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a single-digit integer <code>d</code> and two integers <code>low</code> and <code>high</code>, return <em>the number of times that </em><code>d</code><em> occurs as a digit in all integers in the inclusive range </em><code>[low, high]</code>.</p>
 
@@ -43,7 +47,11 @@ Note that the digit d = 1 occurs twice in the number 11.
 	<li><code>1 &lt;= low &lt;= high &lt;= 2 * 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -226,4 +234,6 @@ func digitsCount(d int, low int, high int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

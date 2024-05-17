@@ -8,11 +8,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2689. Extract Kth Character From The Rope Tree 🔒](https://leetcode.com/problems/extract-kth-character-from-the-rope-tree)
 
 [中文文档](/solution/2600-2699/2689.Extract%20Kth%20Character%20From%20The%20Rope%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>root</code> of a binary tree and an integer <code>k</code>. Besides the left and right children, every node of this tree has two other properties, a <strong>string</strong> <code>node.val</code> containing only lowercase English letters (possibly empty) and a non-negative integer <code>node.len</code>. There are two types of nodes in this tree:</p>
 
@@ -79,7 +83,11 @@ You can see that S[root] = &quot;ropetree&quot;. So S[root][7], which represents
 	<li><code>1 &lt;= k &lt;= S[root].length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -210,4 +218,6 @@ func getKthCharacter(root *RopeTreeNode, k int) byte {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

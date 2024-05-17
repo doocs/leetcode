@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1082. Sales Analysis I 🔒](https://leetcode.com/problems/sales-analysis-i)
 
 [中文文档](/solution/1000-1099/1082.Sales%20Analysis%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Product</code></p>
 
@@ -84,7 +88,11 @@ Sales table:
 <strong>Explanation:</strong> Both sellers with id 1 and 3 sold products with the most total price of 2800.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -104,6 +112,10 @@ HAVING
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -127,4 +139,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

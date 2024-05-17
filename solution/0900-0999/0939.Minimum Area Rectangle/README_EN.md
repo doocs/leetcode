@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [939. Minimum Area Rectangle](https://leetcode.com/problems/minimum-area-rectangle)
 
 [中文文档](/solution/0900-0999/0939.Minimum%20Area%20Rectangle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of points in the <strong>X-Y</strong> plane <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li>All the given points are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -171,4 +179,6 @@ func minAreaRect(points [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

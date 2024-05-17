@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [652. Find Duplicate Subtrees](https://leetcode.com/problems/find-duplicate-subtrees)
 
 [中文文档](/solution/0600-0699/0652.Find%20Duplicate%20Subtrees/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code>&nbsp;of a binary tree, return all <strong>duplicate subtrees</strong>.</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li><code>-200 &lt;= Node.val &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -281,4 +289,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

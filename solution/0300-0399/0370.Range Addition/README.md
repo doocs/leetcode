@@ -7,13 +7,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [370. 区间加法 🔒](https://leetcode.cn/problems/range-addition)
 
 [English Version](/solution/0300-0399/0370.Range%20Addition/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假设你有一个长度为&nbsp;<em><strong>n</strong></em>&nbsp;的数组，初始情况下所有的数字均为&nbsp;<strong>0</strong>，你将会被给出&nbsp;<em><strong>k</strong></em>​​​​​​<em>​</em> 个更新的操作。</p>
 
@@ -42,7 +44,11 @@ tags:
 [-2,0,3,5,3]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
@@ -139,6 +145,10 @@ var getModifiedArray = function (length, updates) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：树状数组 + 差分思想
 
@@ -328,4 +338,6 @@ func getModifiedArray(length int, updates [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

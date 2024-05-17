@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2922. Market Analysis III 🔒](https://leetcode.com/problems/market-analysis-iii)
 
 [中文文档](/solution/2900-2999/2922.Market%20Analysis%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Users</code></p>
 
@@ -104,7 +108,11 @@ Items table:
 - The user with seller_id 3 has sold two items, but only one of them is not marked as a favorite. We will include just that non-favorite item in our count.
 Since seller_ids 2 and 3 have the same count of one item each, they both will be displayed in the output.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Equijoin + Grouping + Subquery
 
@@ -132,4 +140,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

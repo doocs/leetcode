@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [922. Sort Array By Parity II](https://leetcode.com/problems/sort-array-by-parity-ii)
 
 [中文文档](/solution/0900-0999/0922.Sort%20Array%20By%20Parity%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>nums</code>, half of the integers in <code>nums</code> are <strong>odd</strong>, and the other half are <strong>even</strong>.</p>
 
@@ -49,7 +53,11 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Follow Up:</strong> Could you solve it in-place?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -156,4 +164,6 @@ var sortArrayByParityII = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

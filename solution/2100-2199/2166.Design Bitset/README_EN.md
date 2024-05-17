@@ -11,11 +11,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2166. Design Bitset](https://leetcode.com/problems/design-bitset)
 
 [中文文档](/solution/2100-2199/2166.Design%20Bitset/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>Bitset</strong> is a data structure that compactly stores bits.</p>
 
@@ -67,7 +71,11 @@ bs.toString(); // return &quot;01010&quot;, which is the composition of bitset.
 	<li>At most <code>5</code> calls will be made to <code>toString</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -307,4 +315,6 @@ func (this *Bitset) ToString() string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

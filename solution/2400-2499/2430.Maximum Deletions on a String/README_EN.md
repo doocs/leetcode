@@ -12,11 +12,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [2430. Maximum Deletions on a String](https://leetcode.com/problems/maximum-deletions-on-a-string)
 
 [中文文档](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> consisting of only lowercase English letters. In one operation, you can:</p>
 
@@ -71,7 +75,11 @@ We used 4 operations so return 4. It can be proven that 4 is the maximum number 
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -241,6 +249,10 @@ function deleteString(s: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can change the memoization search in Solution 1 to dynamic programming. Define $f[i]$ to represent the maximum number of operations needed to delete all characters from $s[i..]$. Initially, $f[i]=1$, and the answer is $f[0]$.
@@ -367,4 +379,6 @@ function deleteString(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

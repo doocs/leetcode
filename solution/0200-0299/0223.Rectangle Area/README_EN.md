@@ -7,11 +7,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [223. Rectangle Area](https://leetcode.com/problems/rectangle-area)
 
 [中文文档](/solution/0200-0299/0223.Rectangle%20Area/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the coordinates of two <strong>rectilinear</strong> rectangles in a 2D plane, return <em>the total area covered by the two rectangles</em>.</p>
 
@@ -44,7 +48,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= by1 &lt;= by2 &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Calculate Overlapping Area
 
@@ -142,4 +150,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

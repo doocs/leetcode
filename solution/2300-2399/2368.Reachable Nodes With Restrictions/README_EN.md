@@ -14,11 +14,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2368. Reachable Nodes With Restrictions](https://leetcode.com/problems/reachable-nodes-with-restrictions)
 
 [中文文档](/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an undirected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code> and <code>n - 1</code> edges.</p>
 
@@ -62,7 +66,11 @@ We have that [0,5,6] are the only nodes that can be reached from node 0 without 
 	<li>All the values of <code>restricted</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -208,6 +216,10 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: BFS
 
@@ -360,4 +372,6 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2004. The Number of Seniors and Juniors to Join the Company 🔒](https://leetcode.com/problems/the-number-of-seniors-and-juniors-to-join-the-company)
 
 [中文文档](/solution/2000-2099/2004.The%20Number%20of%20Seniors%20and%20Juniors%20to%20Join%20the%20Company/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Candidates</code></p>
 
@@ -97,7 +101,11 @@ We cannot hire any seniors with the current budget as we need at least $80000 to
 We can hire all three juniors with the remaining budget.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -141,4 +149,6 @@ WHERE cur <= 70000;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

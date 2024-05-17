@@ -10,11 +10,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [749. Contain Virus](https://leetcode.com/problems/contain-virus)
 
 [中文文档](/solution/0700-0799/0749.Contain%20Virus/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A virus is spreading rapidly, and your task is to quarantine the infected area by installing walls.</p>
 
@@ -65,7 +69,11 @@ Notice that walls are only built on the shared boundary of two different cells.
 	<li>There is always a contiguous viral region throughout the described process that will <strong>infect strictly more uncontaminated squares</strong> in the next round.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -384,4 +392,6 @@ func containVirus(isInfected [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

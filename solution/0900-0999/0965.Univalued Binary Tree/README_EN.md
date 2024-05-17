@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [965. Univalued Binary Tree](https://leetcode.com/problems/univalued-binary-tree)
 
 [中文文档](/solution/0900-0999/0965.Univalued%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A binary tree is <strong>uni-valued</strong> if every node in the tree has the same value.</p>
 
@@ -42,7 +46,11 @@ tags:
 	<li><code>0 &lt;= Node.val &lt; 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -206,4 +214,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

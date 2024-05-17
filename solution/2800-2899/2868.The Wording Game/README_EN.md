@@ -10,11 +10,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [2868. The Wording Game 🔒](https://leetcode.com/problems/the-wording-game)
 
 [中文文档](/solution/2800-2899/2868.The%20Wording%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob each have a <strong>lexicographically sorted</strong> array of strings named <code>a</code> and <code>b</code> respectively.</p>
 
@@ -79,7 +83,11 @@ So Alice wins, and the game ends.
 	<li>The sum of the lengths of all the words in <code>a</code> and <code>b</code> combined does not exceed <code>10<sup>6</sup></code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -239,4 +247,6 @@ function canAliceWin(a: string[], b: string[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

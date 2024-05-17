@@ -9,11 +9,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [427. Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree)
 
 [中文文档](/solution/0400-0499/0427.Construct%20Quad%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>n * n</code> matrix <code>grid</code> of <code>0&#39;s</code> and <code>1&#39;s</code> only. We want to represent <code>grid</code> with a Quad-Tree.</p>
 
@@ -87,7 +91,11 @@ Explanation is shown in the photo below:
 	<li><code>n == 2<sup>x</sup></code> where <code>0 &lt;= x &lt;= 6</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -312,4 +320,6 @@ func construct(grid [][]int) *Node {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

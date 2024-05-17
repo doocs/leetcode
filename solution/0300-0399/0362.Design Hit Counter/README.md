@@ -10,13 +10,15 @@ tags:
     - 数据流
 ---
 
+<!-- problem:start -->
+
 # [362. 敲击计数器 🔒](https://leetcode.cn/problems/design-hit-counter)
 
 [English Version](/solution/0300-0399/0362.Design%20Hit%20Counter/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个敲击计数器，使它可以统计在过去 <code>5</code> 分钟内被敲击次数。（即过去 <code>300</code> 秒）</p>
 
@@ -66,7 +68,11 @@ counter.getHits(301); // 在时刻 301 统计过去 5 分钟内的敲击次数�
 
 <p><strong>进阶:</strong>&nbsp;如果每秒的敲击次数是一个很大的数字，你的计数器可以应对吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -177,4 +183,6 @@ impl HitCounter {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

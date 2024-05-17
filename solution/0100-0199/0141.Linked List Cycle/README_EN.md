@@ -8,11 +8,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle)
 
 [中文文档](/solution/0100-0199/0141.Linked%20List%20Cycle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given <code>head</code>, the head of a linked list, determine if the linked list has a cycle in it.</p>
 
@@ -57,7 +61,11 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you solve it using <code>O(1)</code> (i.e. constant) memory?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -181,6 +189,10 @@ function hasCycle(head: ListNode | null): boolean {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Fast and Slow Pointers
 
@@ -368,4 +380,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

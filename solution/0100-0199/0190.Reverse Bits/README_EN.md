@@ -7,11 +7,15 @@ tags:
     - Divide and Conquer
 ---
 
+<!-- problem:start -->
+
 # [190. Reverse Bits](https://leetcode.com/problems/reverse-bits)
 
 [中文文档](/solution/0100-0199/0190.Reverse%20Bits/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Reverse bits of a given 32 bits unsigned integer.</p>
 
@@ -49,7 +53,11 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> If this function is called many times, how would you optimize it?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -139,4 +147,6 @@ var reverseBits = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -14,11 +14,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2424. Longest Uploaded Prefix](https://leetcode.com/problems/longest-uploaded-prefix)
 
 [中文文档](/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a stream of <code>n</code> videos, each represented by a <strong>distinct</strong> number from <code>1</code> to <code>n</code> that you need to &quot;upload&quot; to a server. You need to implement a data structure that calculates the length of the <strong>longest uploaded prefix</strong> at various points in the upload process.</p>
 
@@ -64,7 +68,11 @@ server.longest();                    // The prefix [1,2,3] is the longest upload
 	<li>At least one call will be made to <code>longest</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -186,4 +194,6 @@ func (this *LUPrefix) Longest() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

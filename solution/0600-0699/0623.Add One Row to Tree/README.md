@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [623. 在二叉树中增加一行](https://leetcode.cn/problems/add-one-row-to-tree)
 
 [English Version](/solution/0600-0699/0623.Add%20One%20Row%20to%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二叉树的根&nbsp;<code>root</code>&nbsp;和两个整数 <code>val</code> 和&nbsp;<code>depth</code>&nbsp;，在给定的深度&nbsp;<code>depth</code>&nbsp;处添加一个值为 <code>val</code> 的节点行。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li><code>1 &lt;= depth &lt;= the depth of tree + 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -249,6 +255,10 @@ function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode 
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：BFS
 
@@ -439,4 +449,6 @@ function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

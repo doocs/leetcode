@@ -8,11 +8,15 @@ tags:
     - Iterator
 ---
 
+<!-- problem:start -->
+
 # [284. Peeking Iterator](https://leetcode.com/problems/peeking-iterator)
 
 [中文文档](/solution/0200-0299/0284.Peeking%20Iterator/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design an iterator that supports the <code>peek</code> operation on an existing iterator in addition to the <code>hasNext</code> and the <code>next</code> operations.</p>
 
@@ -59,7 +63,11 @@ peekingIterator.hasNext(); // return False
 <p>&nbsp;</p>
 <strong>Follow up:</strong> How would you extend your design to be generic and work with all types, not just integer?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -282,4 +290,6 @@ func (this *PeekingIterator) peek() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

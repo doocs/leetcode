@@ -7,13 +7,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [906. 超级回文数](https://leetcode.cn/problems/super-palindromes)
 
 [English Version](/solution/0900-0999/0906.Super%20Palindromes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果一个正整数自身是回文数，而且它也是一个回文数的平方，那么我们称这个数为超级回文数。</p>
 
@@ -42,7 +44,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理 + 枚举
 
@@ -237,4 +243,6 @@ function superpalindromesInRange(left: string, right: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

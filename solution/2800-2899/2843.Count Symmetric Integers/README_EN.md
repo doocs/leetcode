@@ -9,11 +9,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2843. Count Symmetric Integers](https://leetcode.com/problems/count-symmetric-integers)
 
 [中文文档](/solution/2800-2899/2843.Count%20Symmetric%20Integers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two positive integers <code>low</code> and <code>high</code>.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>1 &lt;= low &lt;= high &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -173,4 +181,6 @@ function countSymmetricIntegers(low: number, high: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

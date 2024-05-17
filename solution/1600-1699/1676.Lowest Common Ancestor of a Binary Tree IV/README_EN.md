@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1676. Lowest Common Ancestor of a Binary Tree IV 🔒](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv)
 
 [中文文档](/solution/1600-1699/1676.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20IV/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree and an array of <code>TreeNode</code> objects <code>nodes</code>, return <em>the lowest common ancestor (LCA) of <strong>all the nodes</strong> in </em><code>nodes</code>. All the nodes will exist in the tree, and all values of the tree&#39;s nodes are <strong>unique</strong>.</p>
 
@@ -56,7 +60,11 @@ tags:
 	<li>All <code>nodes[i]</code> are distinct.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -188,4 +196,6 @@ var lowestCommonAncestor = function (root, nodes) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

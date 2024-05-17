@@ -8,13 +8,15 @@ tags:
     - 博弈
 ---
 
+<!-- problem:start -->
+
 # [292. Nim 游戏](https://leetcode.cn/problems/nim-game)
 
 [English Version](/solution/0200-0299/0292.Nim%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你和你的朋友，两个人一起玩&nbsp;<a href="https://baike.baidu.com/item/Nim游戏/6737105" target="_blank">Nim 游戏</a>：</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：找规律
 
@@ -127,4 +133,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

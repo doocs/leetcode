@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1682. Longest Palindromic Subsequence II 🔒](https://leetcode.com/problems/longest-palindromic-subsequence-ii)
 
 [中文文档](/solution/1600-1699/1682.Longest%20Palindromic%20Subsequence%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A subsequence of a string <code>s</code> is considered a <strong>good palindromic subsequence</strong> if:</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memorization Search
 
@@ -181,4 +189,6 @@ func longestPalindromeSubseq(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

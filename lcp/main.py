@@ -98,7 +98,7 @@ template = """
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+
 
 {}
 
@@ -126,7 +126,7 @@ template = """
 
 <!-- tabs:end -->
 
-<!-- end -->
+
 """
 
 for question in questions:

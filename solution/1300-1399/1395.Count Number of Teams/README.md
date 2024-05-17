@@ -10,13 +10,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1395. 统计作战单位数](https://leetcode.cn/problems/count-number-of-teams)
 
 [English Version](/solution/1300-1399/1395.Count%20Number%20of%20Teams/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p> <code>n</code> 名士兵站成一排。每个士兵都有一个 <strong>独一无二</strong> 的评分 <code>rating</code> 。</p>
 
@@ -65,7 +67,11 @@ tags:
 	<li><code>rating</code> 中的元素都是唯一的</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举中间元素
 
@@ -185,6 +191,10 @@ function numTeams(rating: number[]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：树状数组
 
@@ -495,4 +505,6 @@ function numTeams(rating: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

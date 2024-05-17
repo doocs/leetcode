@@ -11,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2418. Sort the People](https://leetcode.com/problems/sort-the-people)
 
 [中文文档](/solution/2400-2499/2418.Sort%20the%20People/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of strings <code>names</code>, and an array <code>heights</code> that consists of <strong>distinct</strong> positive integers. Both arrays are of length <code>n</code>.</p>
 
@@ -52,7 +56,11 @@ tags:
 	<li>All the values of <code>heights</code> are distinct.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -153,6 +161,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -227,4 +239,6 @@ function sortPeople(names: string[], heights: number[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

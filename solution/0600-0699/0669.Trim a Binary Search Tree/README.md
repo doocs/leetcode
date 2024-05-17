@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [669. 修剪二叉搜索树](https://leetcode.cn/problems/trim-a-binary-search-tree)
 
 [English Version](/solution/0600-0699/0669.Trim%20a%20Binary%20Search%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你二叉搜索树的根节点 <code>root</code> ，同时给定最小边界<code>low</code> 和最大边界 <code>high</code>。通过修剪二叉搜索树，使得所有节点的值在<code>[low, high]</code>中。修剪树 <strong>不应该</strong>&nbsp;改变保留在树中的元素的相对结构 (即，如果没有被移除，原有的父代子代关系都应当保留)。 可以证明，存在&nbsp;<strong>唯一的答案</strong>&nbsp;。</p>
 
@@ -49,7 +51,11 @@ tags:
 	<li><code>0 &lt;= low &lt;= high &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -314,6 +320,10 @@ struct TreeNode* trimBST(struct TreeNode* root, int low, int high) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：迭代
 
 我们先循环判断 `root`，若 `root.val` 不在 `[low, high]` 之间，那么直接将 `root` 置为对应的左孩子或右孩子，循环直至 `root` 为空或者 `root.val` 在 `[low, high]` 之间。
@@ -533,4 +543,6 @@ var trimBST = function (root, low, high) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

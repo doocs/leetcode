@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1540. Can Convert String in K Moves](https://leetcode.com/problems/can-convert-string-in-k-moves)
 
 [中文文档](/solution/1500-1599/1540.Can%20Convert%20String%20in%20K%20Moves/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings&nbsp;<code>s</code>&nbsp;and&nbsp;<code>t</code>, your goal is to convert&nbsp;<code>s</code>&nbsp;into&nbsp;<code>t</code>&nbsp;in&nbsp;<code>k</code><strong>&nbsp;</strong>moves or less.</p>
 
@@ -64,7 +68,11 @@ tags:
 	<li><code>s</code>, <code>t</code> contain&nbsp;only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -149,4 +157,6 @@ func canConvertString(s string, t string, k int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

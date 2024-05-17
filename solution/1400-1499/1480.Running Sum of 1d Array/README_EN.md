@@ -9,11 +9,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1480. Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array)
 
 [中文文档](/solution/1400-1499/1480.Running%20Sum%20of%201d%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>nums</code>. We define a running sum of an array as&nbsp;<code>runningSum[i] = sum(nums[0]&hellip;nums[i])</code>.</p>
 
@@ -49,7 +53,11 @@ tags:
 	<li><code>-10^6&nbsp;&lt;= nums[i] &lt;=&nbsp;10^6</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum
 
@@ -132,4 +140,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

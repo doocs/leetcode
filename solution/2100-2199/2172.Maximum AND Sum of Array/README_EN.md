@@ -11,11 +11,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [2172. Maximum AND Sum of Array](https://leetcode.com/problems/maximum-and-sum-of-array)
 
 [中文文档](/solution/2100-2199/2172.Maximum%20AND%20Sum%20of%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> of length <code>n</code> and an integer <code>numSlots</code> such that <code>2 * numSlots &gt;= n</code>. There are <code>numSlots</code> slots numbered from <code>1</code> to <code>numSlots</code>.</p>
 
@@ -57,7 +61,11 @@ Note that slots 2, 5, 6, and 8 are empty which is permitted.
 	<li><code>1 &lt;= nums[i] &lt;= 15</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -172,4 +180,6 @@ function maximumANDSum(nums: number[], numSlots: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

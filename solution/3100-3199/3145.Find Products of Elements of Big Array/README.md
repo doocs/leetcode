@@ -4,13 +4,15 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README.md
 ---
 
+<!-- problem:start -->
+
 # [3145. 大数组元素的乘积](https://leetcode.cn/problems/find-products-of-elements-of-big-array)
 
 [English Version](/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个整数 <code>x</code>&nbsp;的 <strong>强数组</strong>&nbsp;指的是满足和为 <code>x</code> 的二的幂的最短有序数组。比方说，11 的强数组为&nbsp;<code>[1, 2, 8]</code>&nbsp;。</p>
 
@@ -63,7 +65,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3145.Fi
 	<li><code>1 &lt;= queries[i][2] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -87,4 +93,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3145.Fi
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

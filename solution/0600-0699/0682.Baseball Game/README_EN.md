@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [682. Baseball Game](https://leetcode.com/problems/baseball-game)
 
 [中文文档](/solution/0600-0699/0682.Baseball%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are keeping the scores for a baseball game with strange rules. At the beginning of the game, you start with an empty record.</p>
 
@@ -100,7 +104,11 @@ Since the record is empty, the total sum is 0.
 	<li>For operations <code>&quot;C&quot;</code> and <code>&quot;D&quot;</code>, there will always be at least one previous score on the record.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -240,4 +248,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

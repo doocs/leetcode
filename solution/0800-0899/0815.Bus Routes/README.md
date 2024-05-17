@@ -8,13 +8,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [815. 公交路线](https://leetcode.cn/problems/bus-routes)
 
 [English Version](/solution/0800-0899/0815.Bus%20Routes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组 <code>routes</code> ，表示一系列公交线路，其中每个 <code>routes[i]</code> 表示一条公交线路，第 <code>i</code> 辆公交车将会在上面循环行驶。</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li><code>0 <= source, target < 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：建图 + BFS
 
@@ -336,4 +342,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

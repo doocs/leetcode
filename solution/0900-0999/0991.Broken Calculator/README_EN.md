@@ -7,11 +7,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [991. Broken Calculator](https://leetcode.com/problems/broken-calculator)
 
 [中文文档](/solution/0900-0999/0991.Broken%20Calculator/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a broken calculator that has the integer <code>startValue</code> on its display initially. In one operation, you can:</p>
 
@@ -54,7 +58,11 @@ tags:
 	<li><code>1 &lt;= startValue, target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -128,4 +136,6 @@ func brokenCalc(startValue int, target int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -13,11 +13,15 @@ tags:
     - Merge Sort
 ---
 
+<!-- problem:start -->
+
 # [912. Sort an Array](https://leetcode.com/problems/sort-an-array)
 
 [中文文档](/solution/0900-0999/0912.Sort%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>nums</code>, sort the array in ascending order and return it.</p>
 
@@ -48,7 +52,11 @@ tags:
 	<li><code>-5 * 10<sup>4</sup> &lt;= nums[i] &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -228,6 +236,10 @@ var sortArray = function (nums) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -448,6 +460,10 @@ var sortArray = function (nums) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -493,4 +509,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

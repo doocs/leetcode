@@ -10,13 +10,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [745. 前缀和后缀搜索](https://leetcode.cn/problems/prefix-and-suffix-search)
 
 [English Version](/solution/0700-0799/0745.Prefix%20and%20Suffix%20Search/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个包含一些单词的特殊词典，并能够通过前缀和后缀来检索单词。</p>
 
@@ -54,7 +56,11 @@ wordFilter.f("a", "e"); // 返回 0 ，因为下标为 0 的单词：前缀 pref
 	<li>最多对函数 <code>f</code> 执行 <code>10<sup>4</sup></code> 次调用</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力哈希
 
@@ -181,6 +187,10 @@ func (this *WordFilter) F(pref string, suff string) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：双前缀树
 
@@ -398,4 +408,6 @@ func reverse(w string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

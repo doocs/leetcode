@@ -9,11 +9,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1109. Corporate Flight Bookings](https://leetcode.com/problems/corporate-flight-bookings)
 
 [中文文档](/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> flights that are labeled from <code>1</code> to <code>n</code>.</p>
 
@@ -61,7 +65,11 @@ Hence, answer = [10,25]
 	<li><code>1 &lt;= seats<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Difference Array
 
@@ -185,6 +193,10 @@ var corpFlightBookings = function (bookings, n) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Binary Indexed Tree + Difference Idea
 
@@ -365,4 +377,6 @@ func corpFlightBookings(bookings [][]int, n int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

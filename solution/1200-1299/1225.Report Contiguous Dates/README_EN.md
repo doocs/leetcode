@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1225. Report Contiguous Dates 🔒](https://leetcode.com/problems/report-contiguous-dates)
 
 [中文文档](/solution/1200-1299/1225.Report%20Contiguous%20Dates/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Failed</code></p>
 
@@ -90,7 +94,11 @@ From 2019-01-04 to 2019-01-05 all tasks failed and the system state was &quot;fa
 From 2019-01-06 to 2019-01-06 all tasks succeeded and the system state was &quot;succeeded&quot;.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union + Window Function + Group By
 
@@ -133,4 +141,6 @@ ORDER BY 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

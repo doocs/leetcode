@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1270. All People Report to the Given Manager 🔒](https://leetcode.com/problems/all-people-report-to-the-given-manager)
 
 [中文文档](/solution/1200-1299/1270.All%20People%20Report%20to%20the%20Given%20Manager/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employees</code></p>
 
@@ -72,7 +76,11 @@ The employee with employee_id 7 reports their work indirectly to the head of the
 The employees with employee_id 3, 8, and 9 do not report their work to the head of the company directly or indirectly. 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Joins
 
@@ -94,4 +102,6 @@ WHERE e1.employee_id != 1 AND e3.manager_id = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

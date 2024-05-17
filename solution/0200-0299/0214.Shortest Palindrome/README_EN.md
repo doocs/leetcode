@@ -9,11 +9,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [214. Shortest Palindrome](https://leetcode.com/problems/shortest-palindrome)
 
 [中文文档](/solution/0200-0299/0214.Shortest%20Palindrome/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code>. You can convert <code>s</code> to a <span data-keyword="palindrome-string">palindrome</span> by adding characters in front of it.</p>
 
@@ -35,7 +39,11 @@ tags:
 	<li><code>s</code> consists of lowercase English letters only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -205,4 +213,6 @@ public partial class Solution
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

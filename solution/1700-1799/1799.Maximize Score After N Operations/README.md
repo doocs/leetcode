@@ -14,13 +14,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [1799. N 次操作后的最大分数和](https://leetcode.cn/problems/maximize-score-after-n-operations)
 
 [English Version](/solution/1700-1799/1799.Maximize%20Score%20After%20N%20Operations/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你 <code>nums</code> ，它是一个大小为 <code>2 * n</code> 的正整数数组。你必须对这个数组执行 <code>n</code> 次操作。</p>
 
@@ -72,7 +74,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩 + 动态规划
 
@@ -258,4 +264,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

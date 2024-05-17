@@ -6,11 +6,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [254. Factor Combinations 🔒](https://leetcode.com/problems/factor-combinations)
 
 [中文文档](/solution/0200-0299/0254.Factor%20Combinations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Numbers can be regarded as the product of their factors.</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -154,4 +162,6 @@ func getFactors(n int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

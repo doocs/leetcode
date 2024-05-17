@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1340. Jump Game V](https://leetcode.com/problems/jump-game-v)
 
 [中文文档](/solution/1300-1399/1340.Jump%20Game%20V/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of&nbsp;integers <code>arr</code> and an integer <code>d</code>. In one step you can jump from index <code>i</code> to index:</p>
 
@@ -65,7 +69,11 @@ Similarly You cannot jump from index 3 to index 2 or index 1.
 	<li><code>1 &lt;= d &lt;= arr.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -201,6 +209,10 @@ func maxJumps(arr []int, d int) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -312,4 +324,6 @@ func maxJumps(arr []int, d int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

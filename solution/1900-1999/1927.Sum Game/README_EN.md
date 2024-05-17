@@ -11,11 +11,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [1927. Sum Game](https://leetcode.com/problems/sum-game)
 
 [中文文档](/solution/1900-1999/1927.Sum%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob take turns playing a game, with <strong>Alice</strong><strong>&nbsp;starting first</strong>.</p>
 
@@ -76,7 +80,11 @@ Bob wins because 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7.
 	<li><code>num</code> consists of only digits and <code>&#39;?&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -190,4 +198,6 @@ function sumGame(num: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

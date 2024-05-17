@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1212. 查询球队积分 🔒](https://leetcode.cn/problems/team-scores-in-football-tournament)
 
 [English Version](/solution/1200-1299/1212.Team%20Scores%20in%20Football%20Tournament/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Teams</code></p>
 
@@ -99,7 +101,11 @@ Teams </code>table:
 | 40         | Chicago FC   | 0             |
 +------------+--------------+---------------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：左连接 + 分组 + CASE 表达式
 
@@ -139,4 +145,6 @@ ORDER BY 3 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

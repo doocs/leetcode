@@ -10,11 +10,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2719. Count of Integers](https://leetcode.com/problems/count-of-integers)
 
 [中文文档](/solution/2700-2799/2719.Count%20of%20Integers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two numeric strings <code>num1</code> and <code>num2</code> and two integers <code>max_sum</code> and <code>min_sum</code>. We denote an integer <code>x</code> to be <em>good</em> if:</p>
 
@@ -52,7 +56,11 @@ tags:
 	<li><code>1 &lt;= min_sum &lt;= max_sum &lt;= 400</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Digit DP
 
@@ -265,4 +273,6 @@ function count(num1: string, num2: string, min_sum: number, max_sum: number): nu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

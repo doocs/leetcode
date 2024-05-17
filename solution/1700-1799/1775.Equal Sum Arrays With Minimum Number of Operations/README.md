@@ -11,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [1775. 通过最少操作次数使数组的和相等](https://leetcode.cn/problems/equal-sum-arrays-with-minimum-number-of-operations)
 
 [English Version](/solution/1700-1799/1775.Equal%20Sum%20Arrays%20With%20Minimum%20Number%20of%20Operations/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个长度可能不等的整数数组 <code>nums1</code> 和 <code>nums2</code> 。两个数组中的所有值都在 <code>1</code> 到 <code>6</code> 之间（包含 <code>1</code> 和 <code>6</code>）。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 6</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -194,6 +200,10 @@ func sum(nums []int) (s int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：贪心 + 计数排序
 
 方法一中，我们需要创建数组 `arr` 并进行排序，时空复杂度较高。由于数组 `arr` 中元素的范围为 $[0,..5]$，因此我们创建一个长度为 $6$ 的数组 `cnt`，用于统计数组 `arr` 中每个元素的数量，也即每个最大变化量的元素的数量。
@@ -320,4 +330,6 @@ func sum(nums []int) (s int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

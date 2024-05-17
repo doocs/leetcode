@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.01.Remove%20Duplicate%20Node/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 02.01. 移除重复节点](https://leetcode.cn/problems/remove-duplicate-node-lcci)
 
 [English Version](/lcci/02.01.Remove%20Duplicate%20Node/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>编写代码，移除未排序链表中的重复节点。保留最开始出现的节点。</p>
 
 <p> <strong>示例1:</strong></p>
@@ -38,7 +41,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.01.Remove%20Duplic
 
 <p>如果不得使用临时缓冲区，该怎么解决？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -278,4 +285,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

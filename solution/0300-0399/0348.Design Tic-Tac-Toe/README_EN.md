@@ -10,11 +10,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [348. Design Tic-Tac-Toe 🔒](https://leetcode.com/problems/design-tic-tac-toe)
 
 [中文文档](/solution/0300-0399/0348.Design%20Tic-Tac-Toe/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Assume the following rules are for the tic-tac-toe game on an <code>n x n</code> board between two players:</p>
 
@@ -100,7 +104,11 @@ ticTacToe.move(2, 1, 1); // return 1&nbsp;(player 1 wins)
 <p>&nbsp;</p>
 <p><strong>Follow-up:</strong> Could you do better than <code>O(n<sup>2</sup>)</code> per <code>move()</code> operation?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -195,4 +203,6 @@ class TicTacToe {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1204. Last Person to Fit in the Bus](https://leetcode.com/problems/last-person-to-fit-in-the-bus)
 
 [中文文档](/solution/1200-1299/1204.Last%20Person%20to%20Fit%20in%20the%20Bus/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Queue</code></p>
 
@@ -73,7 +77,11 @@ Queue table:
 +------+----+-----------+--------+--------------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -93,6 +101,10 @@ LIMIT 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -116,4 +128,6 @@ LIMIT 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

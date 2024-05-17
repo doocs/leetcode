@@ -9,11 +9,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1073. Adding Two Negabinary Numbers](https://leetcode.com/problems/adding-two-negabinary-numbers)
 
 [中文文档](/solution/1000-1099/1073.Adding%20Two%20Negabinary%20Numbers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two numbers <code>arr1</code> and <code>arr2</code> in base <strong>-2</strong>, return the result of adding them together.</p>
 
@@ -53,7 +57,11 @@ tags:
 	<li><code>arr1</code> and <code>arr2</code> have no leading zeros</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -227,4 +235,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,13 +9,15 @@ tags:
     - 有序集合
 ---
 
+<!-- problem:start -->
+
 # [731. 我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii)
 
 [English Version](/solution/0700-0799/0731.My%20Calendar%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实现一个 <code>MyCalendar</code> 类来存放你的日程安排。如果要添加的时间内不会导致三重预订时，则可以存储这个新的日程安排。</p>
 
@@ -55,7 +57,11 @@ MyCalendar.book(25, 55); // returns true
 	<li>调用函数&nbsp;<code>MyCalendar.book(start, end)</code>时，&nbsp;<code>start</code> 和&nbsp;<code>end</code> 的取值范围为&nbsp;<code>[0, 10^9]</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分
 
@@ -192,6 +198,10 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：线段树
 
@@ -611,4 +621,6 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

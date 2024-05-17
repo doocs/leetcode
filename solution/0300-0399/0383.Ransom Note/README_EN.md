@@ -8,11 +8,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [383. Ransom Note](https://leetcode.com/problems/ransom-note)
 
 [中文文档](/solution/0300-0399/0383.Ransom%20Note/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>ransomNote</code> and <code>magazine</code>, return <code>true</code><em> if </em><code>ransomNote</code><em> can be constructed by using the letters from </em><code>magazine</code><em> and </em><code>false</code><em> otherwise</em>.</p>
 
@@ -37,7 +41,11 @@ tags:
 	<li><code>ransomNote</code> and <code>magazine</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -169,4 +177,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

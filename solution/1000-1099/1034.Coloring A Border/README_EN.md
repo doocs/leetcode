@@ -11,11 +11,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1034. Coloring A Border](https://leetcode.com/problems/coloring-a-border)
 
 [中文文档](/solution/1000-1099/1034.Coloring%20A%20Border/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code>, and three integers <code>row</code>, <code>col</code>, and <code>color</code>. Each value in the grid represents the color of the grid square at that location.</p>
 
@@ -52,7 +56,11 @@ tags:
 	<li><code>0 &lt;= col &lt; n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -216,4 +224,6 @@ function colorBorder(grid: number[][], row: number, col: number, color: number):
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

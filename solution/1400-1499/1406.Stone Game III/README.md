@@ -11,13 +11,15 @@ tags:
     - 博弈
 ---
 
+<!-- problem:start -->
+
 # [1406. 石子游戏 III](https://leetcode.cn/problems/stone-game-iii)
 
 [English Version](/solution/1400-1499/1406.Stone%20Game%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 继续他们的石子游戏。几堆石子 <strong>排成一行</strong> ，每堆石子都对应一个得分，由数组 <code>stoneValue</code> 给出。</p>
 
@@ -68,7 +70,11 @@ tags:
 	<li><code>-1000&nbsp;&lt;= stoneValue[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -241,4 +247,6 @@ function stoneGameIII(stoneValue: number[]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

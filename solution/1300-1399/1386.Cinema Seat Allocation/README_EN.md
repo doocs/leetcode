@@ -11,11 +11,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1386. Cinema Seat Allocation](https://leetcode.com/problems/cinema-seat-allocation)
 
 [中文文档](/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1386.Cinema%20Seat%20Allocation/images/cinema_seats_1.png" style="width: 400px; height: 149px;" /></p>
 
@@ -62,7 +66,11 @@ tags:
 	<li>All <code>reservedSeats[i]</code> are distinct.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Bit Manipulation
 
@@ -186,4 +194,6 @@ function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

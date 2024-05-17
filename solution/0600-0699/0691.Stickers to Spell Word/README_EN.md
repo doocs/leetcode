@@ -11,11 +11,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [691. Stickers to Spell Word](https://leetcode.com/problems/stickers-to-spell-word)
 
 [中文文档](/solution/0600-0699/0691.Stickers%20to%20Spell%20Word/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We are given <code>n</code> different types of <code>stickers</code>. Each sticker has a lowercase English word on it.</p>
 
@@ -57,7 +61,11 @@ We cannot form the target &quot;basicbasic&quot; from cutting letters from the g
 	<li><code>stickers[i]</code> and <code>target</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -253,4 +261,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

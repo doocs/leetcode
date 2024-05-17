@@ -6,11 +6,15 @@ tags:
     - Shell
 ---
 
+<!-- problem:start -->
+
 # [195. Tenth Line](https://leetcode.com/problems/tenth-line)
 
 [中文文档](/solution/0100-0199/0195.Tenth%20Line/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a text file&nbsp;<code>file.txt</code>, print&nbsp;just the 10th line of the&nbsp;file.</p>
 
@@ -56,7 +60,11 @@ Line 10
 
 2. There&#39;s at least three different solutions. Try to explore all possibilities.</div>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: sed
 
@@ -69,4 +77,6 @@ sed -n 10p file.txt
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

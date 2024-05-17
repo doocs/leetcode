@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2677.Chunk%20Array/README.md
 ---
 
+<!-- problem:start -->
+
 # [2677. 分块数组](https://leetcode.cn/problems/chunk-array)
 
 [English Version](/solution/2600-2699/2677.Chunk%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数组&nbsp;<code>arr</code>&nbsp;和一个块大小&nbsp;<code>size</code>&nbsp;，返回一个 <strong>分块</strong>&nbsp;的数组。</p>
 
@@ -63,7 +65,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2677.Ch
 	<li><code>1 &lt;= size &lt;= arr.length + 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -96,4 +102,6 @@ var chunk = function (arr, size) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

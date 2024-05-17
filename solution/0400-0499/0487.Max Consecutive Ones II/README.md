@@ -8,13 +8,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [487. 最大连续 1 的个数 II 🔒](https://leetcode.cn/problems/max-consecutive-ones-ii)
 
 [English Version](/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二进制数组 <code>nums</code> ，如果最多可以翻转一个 <code>0</code> ，则返回数组中连续 <code>1</code> 的最大个数。</p>
 
@@ -49,7 +51,11 @@ tags:
 
 <p><strong>进阶：</strong>如果输入的数字是作为<strong> 无限流 </strong>逐个输入如何处理？换句话说，内存不能存储下所有从流中输入的数字。您可以有效地解决吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理 + 枚举
 
@@ -192,6 +198,10 @@ func findMaxConsecutiveOnes(nums []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：滑动窗口
 
 找出最大的窗口，使得窗口内的 $0$ 的个数不超过 $1$ 个。
@@ -295,6 +305,10 @@ func findMaxConsecutiveOnes(nums []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
@@ -373,4 +387,6 @@ func findMaxConsecutiveOnes(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1501. Countries You Can Safely Invest In 🔒](https://leetcode.com/problems/countries-you-can-safely-invest-in)
 
 [中文文档](/solution/1500-1599/1501.Countries%20You%20Can%20Safely%20Invest%20In/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table <code>Person</code>:</p>
 
@@ -123,7 +127,11 @@ Global call duration average = (2 * (33 + 4 + 59 + 102 + 330 + 5 + 13 + 3 + 1 + 
 Since Peru is the only country where the average call duration is greater than the global average, it is the only recommended country.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Equi-Join + Group By + Subquery
 
@@ -148,6 +156,10 @@ WHERE duration > (SELECT AVG(duration) FROM Calls);
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -170,4 +182,6 @@ WHERE duration > (SELECT AVG(duration) FROM Calls);
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

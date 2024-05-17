@@ -11,13 +11,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1388. 3n 块披萨](https://leetcode.cn/problems/pizza-with-3n-slices)
 
 [English Version](/solution/1300-1399/1388.Pizza%20With%203n%20Slices/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个披萨，它由 3n 块不同大小的部分组成，现在你和你的朋友们需要按照如下规则来分披萨：</p>
 
@@ -64,7 +66,11 @@ tags:
 	<li><code>1 &lt;= slices[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -214,4 +220,6 @@ function maxSizeSlices(slices: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2104. Sum of Subarray Ranges](https://leetcode.com/problems/sum-of-subarray-ranges)
 
 [中文文档](/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>. The <strong>range</strong> of a subarray of <code>nums</code> is the difference between the largest and smallest element in the subarray.</p>
 
@@ -71,7 +75,11 @@ So the sum of all ranges is 0 + 0 + 0 + 2 + 0 + 2 = 4.
 <p>&nbsp;</p>
 <p><strong>Follow-up:</strong> Could you find a solution with <code>O(n)</code> time complexity?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -180,6 +188,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -341,4 +353,6 @@ func subArrayRanges(nums []int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

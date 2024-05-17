@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1904. The Number of Full Rounds You Have Played](https://leetcode.com/problems/the-number-of-full-rounds-you-have-played)
 
 [中文文档](/solution/1900-1999/1904.The%20Number%20of%20Full%20Rounds%20You%20Have%20Played/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are participating in an online chess tournament. There is a chess round that starts every <code>15</code> minutes. The first round of the day starts at <code>00:00</code>, and after every <code>15</code> minutes, a new round starts.</p>
 
@@ -64,7 +68,11 @@ You did not play the full round from 10:00 to 10:15 because you logged out at 10
 	<li><code>loginTime</code> and <code>logoutTime</code> are not equal.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Convert to Minutes
 
@@ -156,4 +164,6 @@ function numberOfRounds(startTime: string, finishTime: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

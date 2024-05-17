@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcs/LCS%2001.%20%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCS 01. 下载插件](https://leetcode.cn/problems/Ju9Xwi/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 小扣打算给自己的 **VS code** 安装使用插件，初始状态下带宽每分钟可以完成 `1` 个插件的下载。假定每分钟选择以下两种策略之一:
 
@@ -46,7 +48,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcs/LCS%2001.%20%E4%B8%8B%
 
 -   `1 <= n <= 10^5`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -127,4 +133,6 @@ var leastMinutes = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

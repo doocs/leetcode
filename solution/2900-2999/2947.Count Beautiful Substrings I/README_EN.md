@@ -13,11 +13,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2947. Count Beautiful Substrings I](https://leetcode.com/problems/count-beautiful-substrings-i)
 
 [中文文档](/solution/2900-2999/2947.Count%20Beautiful%20Substrings%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> and a positive integer <code>k</code>.</p>
 
@@ -81,7 +85,11 @@ It can be shown that there are only 3 beautiful substrings in the given string.
 	<li><code>s</code> consists of only English lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -198,4 +206,6 @@ function beautifulSubstrings(s: string, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

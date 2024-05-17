@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1055. Shortest Way to Form String 🔒](https://leetcode.com/problems/shortest-way-to-form-string)
 
 [中文文档](/solution/1000-1099/1055.Shortest%20Way%20to%20Form%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>subsequence</strong> of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., <code>&quot;ace&quot;</code> is a subsequence of <code>&quot;<u>a</u>b<u>c</u>d<u>e</u>&quot;</code> while <code>&quot;aec&quot;</code> is not).</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li><code>source</code> and <code>target</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -158,4 +166,6 @@ func shortestWay(source string, target string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2175. 世界排名的变化 🔒](https://leetcode.cn/problems/the-change-in-global-rankings)
 
 [English Version](/solution/2100-2199/2175.The%20Change%20in%20Global%20Rankings/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>TeamPoints</code></p>
 
@@ -119,7 +121,11 @@ Algeria 获得399分，排名上升了1名。
 New Zealand 没有获得或丢失分数，他们的排名也没有发生变化。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数
 
@@ -148,4 +154,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

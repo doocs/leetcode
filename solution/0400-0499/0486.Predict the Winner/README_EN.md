@@ -10,11 +10,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [486. Predict the Winner](https://leetcode.com/problems/predict-the-winner)
 
 [中文文档](/solution/0400-0499/0486.Predict%20the%20Winner/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>. Two players are playing a game with this array: player 1 and player 2.</p>
 
@@ -51,7 +55,11 @@ Finally, player 1 has more score (234) than player 2 (12), so you need to return
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -183,6 +191,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -273,4 +285,6 @@ function PredictTheWinner(nums: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

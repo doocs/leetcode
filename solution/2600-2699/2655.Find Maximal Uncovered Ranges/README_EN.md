@@ -7,11 +7,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2655. Find Maximal Uncovered Ranges 🔒](https://leetcode.com/problems/find-maximal-uncovered-ranges)
 
 [中文文档](/solution/2600-2699/2655.Find%20Maximal%20Uncovered%20Ranges/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given&nbsp;an integer <code>n</code>&nbsp;which is the length of a <strong>0-indexed</strong> array <code>nums</code>, and a <strong>0-indexed</strong> 2D-array <code>ranges</code>, which is a list of sub-ranges of <code>nums</code>&nbsp;(sub-ranges may <strong>overlap</strong>).</p>
 
@@ -69,7 +73,11 @@ tags:
 	<li><code>ranges[i][0] &lt;=&nbsp;ranges[i][1]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -156,4 +164,6 @@ func findMaximalUncoveredRanges(n int, ranges [][]int) (ans [][]int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

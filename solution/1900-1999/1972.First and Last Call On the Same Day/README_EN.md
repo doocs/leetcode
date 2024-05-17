@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1972. First and Last Call On the Same Day 🔒](https://leetcode.com/problems/first-and-last-call-on-the-same-day)
 
 [中文文档](/solution/1900-1999/1972.First%20and%20Last%20Call%20On%20the%20Same%20Day/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Calls</code></p>
 
@@ -65,7 +69,11 @@ Similarly, user 4 on 2021-08-24 had their first and last call with user 8. User 
 On 2021-08-11, user 1 and 5 had a call. This call was the only call for both of them on this day. Since this call is the first and last call of the day for both of them, they should both be included in the answer.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -115,4 +123,6 @@ where
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

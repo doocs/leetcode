@@ -12,11 +12,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2552. Count Increasing Quadruplets](https://leetcode.com/problems/count-increasing-quadruplets)
 
 [中文文档](/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code> containing all numbers from <code>1</code> to <code>n</code>, return <em>the number of increasing quadruplets</em>.</p>
 
@@ -56,7 +60,11 @@ There are no other quadruplets, so we return 2.
 	<li>All the integers of <code>nums</code> are <strong>unique</strong>. <code>nums</code> is a permutation.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + Preprocessing
 
@@ -236,4 +244,6 @@ func countQuadruplets(nums []int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

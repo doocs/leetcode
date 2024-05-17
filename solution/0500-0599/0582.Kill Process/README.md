@@ -10,13 +10,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [582. 杀掉进程 🔒](https://leetcode.cn/problems/kill-process)
 
 [English Version](/solution/0500-0599/0582.Kill%20Process/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>系统中存在 <code>n</code>&nbsp;个进程，形成一个有根树结构。给你两个整数数组&nbsp;<code>pid</code> 和 <code>ppid</code> ，其中 <code>pid[i]</code> 是第 <code>i</code> 个进程的 ID ，<code>ppid[i]</code> 是第 <code>i</code> 个进程的父进程 ID 。</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li>题目数据保证 <code>kill</code> 在 <code>pid</code> 中</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -197,4 +203,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

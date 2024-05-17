@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2362. Generate the Invoice 🔒](https://leetcode.com/problems/generate-the-invoice)
 
 [中文文档](/solution/2300-2399/2362.Generate%20the%20Invoice/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Products</code></p>
 
@@ -87,7 +91,11 @@ Invoice 4: price = (10 * 100) = $1000
 The highest price is $1000, and the invoices with the highest prices are 2 and 4. We return the details of the one with the smallest ID, which is invoice 2.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -117,4 +125,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

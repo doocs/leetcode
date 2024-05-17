@@ -10,11 +10,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [3139. Minimum Cost to Equalize Array](https://leetcode.com/problems/minimum-cost-to-equalize-array)
 
 [中文文档](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> and two integers <code>cost1</code> and <code>cost2</code>. You are allowed to perform <strong>either</strong> of the following operations <strong>any</strong> number of times:</p>
 
@@ -101,7 +105,11 @@ tags:
 	<li><code>1 &lt;= cost2 &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -125,4 +133,6 @@ tags:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

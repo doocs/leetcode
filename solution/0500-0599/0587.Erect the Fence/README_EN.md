@@ -8,11 +8,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [587. Erect the Fence](https://leetcode.com/problems/erect-the-fence)
 
 [中文文档](/solution/0500-0599/0587.Erect%20the%20Fence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>trees</code> where <code>trees[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents the location of a tree in the garden.</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li>All the given positions are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -201,4 +209,6 @@ func outerTrees(trees [][]int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

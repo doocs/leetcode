@@ -11,11 +11,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1600. Throne Inheritance](https://leetcode.com/problems/throne-inheritance)
 
 [中文文档](/solution/1600-1699/1600.Throne%20Inheritance/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A kingdom consists of a king, his children, his grandchildren, and so on. Every once in a while, someone in the family dies or a child is born.</p>
 
@@ -86,7 +90,11 @@ t.getInheritanceOrder(); // return [&quot;king&quot;, &quot;andy&quot;, &quot;ma
 	<li>At most <code>10</code> calls will be made to <code>getInheritanceOrder</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preorder Traversal of a Multi-branch Tree
 
@@ -363,4 +371,6 @@ public class ThroneInheritance {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

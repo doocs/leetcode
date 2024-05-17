@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [601. 体育馆的人流量](https://leetcode.cn/problems/human-traffic-of-stadium)
 
 [English Version](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 表：<code>Stadium</code>
 
@@ -70,7 +72,11 @@ id</strong> 为 5、6、7、8 的四行 id 连续，并且每行都有 &gt;= 100
 请注意，即使第 7 行和第 8 行的 visit_date 不是连续的，输出也应当包含第 8 行，因为我们只需要考虑 id 连续的记录。
 不输出 id 为 2 和 3 的行，因为至少需要三条 id 连续的记录。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -95,4 +101,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

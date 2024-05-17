@@ -9,11 +9,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [3100. Water Bottles II](https://leetcode.com/problems/water-bottles-ii)
 
 [中文文档](/solution/3100-3199/3100.Water%20Bottles%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>numBottles</code> and <code>numExchange</code>.</p>
 
@@ -53,7 +57,11 @@ tags:
 	<li><code>1 &lt;= numExchange &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -139,4 +147,6 @@ function maxBottlesDrunk(numBottles: number, numExchange: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

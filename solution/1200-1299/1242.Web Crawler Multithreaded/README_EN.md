@@ -8,11 +8,15 @@ tags:
     - Concurrency
 ---
 
+<!-- problem:start -->
+
 # [1242. Web Crawler Multithreaded 🔒](https://leetcode.com/problems/web-crawler-multithreaded)
 
 [中文文档](/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a URL <code>startUrl</code> and an interface <code>HtmlParser</code>, implement <strong>a Multi-threaded web crawler</strong> to crawl all links that are under the <strong>same hostname</strong> as <code>startUrl</code>.</p>
 
@@ -106,6 +110,34 @@ startUrl = &quot;http://news.google.com&quot;
 	<li>How do you know when the crawler is done?</li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

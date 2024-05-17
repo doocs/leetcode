@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3126. Server Utilization Time 🔒](https://leetcode.cn/problems/server-utilization-time)
 
 [English Version](/solution/3100-3199/3126.Server%20Utilization%20Time/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Table: <code>Servers</code></p>
 
@@ -112,7 +114,11 @@ Each row of this table contains server_id, status_time, and session_status.
 </ul>
 The accumulated runtime for all servers totals approximately 44.46 hours, equivalent to one full day plus some additional hours. However, since we consider only full days, the final output is rounded to 1 full day.</div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用窗口函数
 
@@ -140,4 +146,6 @@ WHERE session_status = 'start';
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

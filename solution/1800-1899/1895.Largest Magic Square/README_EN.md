@@ -10,11 +10,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1895. Largest Magic Square](https://leetcode.com/problems/largest-magic-square)
 
 [中文文档](/solution/1800-1899/1895.Largest%20Magic%20Square/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <code>k x k</code> <strong>magic square</strong> is a <code>k x k</code> grid filled with integers such that every row sum, every column sum, and both diagonal sums are <strong>all equal</strong>. The integers in the magic square <strong>do not have to be distinct</strong>. Every <code>1 x 1</code> grid is trivially a <strong>magic square</strong>.</p>
 
@@ -50,7 +54,11 @@ Every row sum, column sum, and diagonal sum of this magic square is equal to 12.
 	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -345,4 +353,6 @@ function valid(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

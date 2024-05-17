@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2026. Low-Quality Problems 🔒](https://leetcode.com/problems/low-quality-problems)
 
 [中文文档](/solution/2000-2099/2026.Low-Quality%20Problems/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Problems</code></p>
 
@@ -68,7 +72,11 @@ Problems table:
 - Problem 13: (2050 / (2050 + 4164)) * 100 = 32.99002%
 Problems 7, 10, 11, and 13 are low-quality problems because their like percentages are less than 60%.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -84,4 +92,6 @@ ORDER BY problem_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

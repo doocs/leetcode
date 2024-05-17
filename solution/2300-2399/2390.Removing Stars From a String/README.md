@@ -10,13 +10,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [2390. 从字符串中移除星号](https://leetcode.cn/problems/removing-stars-from-a-string)
 
 [English Version](/solution/2300-2399/2390.Removing%20Stars%20From%20a%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个包含若干星号 <code>*</code> 的字符串 <code>s</code> 。</p>
 
@@ -67,7 +69,11 @@ tags:
 	<li><code>s</code> 可以执行上述操作</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈模拟
 
@@ -190,4 +196,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1694. Reformat Phone Number](https://leetcode.com/problems/reformat-phone-number)
 
 [中文文档](/solution/1600-1699/1694.Reformat%20Phone%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a phone number as a string <code>number</code>. <code>number</code> consists of digits, spaces <code>&#39; &#39;</code>, and/or dashes <code>&#39;-&#39;</code>.</p>
 
@@ -72,7 +76,11 @@ Joining the blocks gives &quot;123-456-78&quot;.
 	<li>There are at least <strong>two</strong> digits in <code>number</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simple Simulation
 
@@ -211,4 +219,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

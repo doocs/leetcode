@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2663. Lexicographically Smallest Beautiful String](https://leetcode.com/problems/lexicographically-smallest-beautiful-string)
 
 [中文文档](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A string is <strong>beautiful</strong> if:</p>
 
@@ -59,7 +63,11 @@ It can be proven that there is no string that is lexicographically larger than t
 	<li><code>s</code> is a beautiful string.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -219,4 +227,6 @@ function smallestBeautifulString(s: string, k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

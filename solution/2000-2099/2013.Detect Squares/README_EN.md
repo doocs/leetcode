@@ -11,11 +11,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2013. Detect Squares](https://leetcode.com/problems/detect-squares)
 
 [中文文档](/solution/2000-2099/2013.Detect%20Squares/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a stream of points on the X-Y plane. Design an algorithm that:</p>
 
@@ -68,7 +72,11 @@ detectSquares.count([11, 10]); // return 2. You can choose:
 	<li>At most <code>3000</code> calls <strong>in total</strong> will be made to <code>add</code> and <code>count</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -233,4 +241,6 @@ func (this *DetectSquares) Count(point []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

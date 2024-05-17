@@ -12,11 +12,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2008. Maximum Earnings From Taxi](https://leetcode.com/problems/maximum-earnings-from-taxi)
 
 [中文文档](/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> points on a road you are driving your taxi on. The <code>n</code> points on the road are labeled from <code>1</code> to <code>n</code> in the direction you are going, and you want to drive from point <code>1</code> to point <code>n</code> to make money by picking up passengers. You cannot change the direction of the taxi.</p>
 
@@ -59,7 +63,11 @@ We earn 9 + 5 + 6 = 20 dollars in total.</pre>
 	<li><code>1 &lt;= tip<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search + Binary Search
 
@@ -218,6 +226,10 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming + Binary Search
 
 We can change the memoization search in Solution 1 to dynamic programming.
@@ -344,4 +356,6 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

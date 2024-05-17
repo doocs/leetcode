@@ -11,13 +11,15 @@ tags:
     - 拓扑排序
 ---
 
+<!-- problem:start -->
+
 # [1203. 项目管理](https://leetcode.cn/problems/sort-items-by-groups-respecting-dependencies)
 
 [English Version](/solution/1200-1299/1203.Sort%20Items%20by%20Groups%20Respecting%20Dependencies/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有 <code>n</code> 个项目，每个项目或者不属于任何小组，或者属于 <code>m</code> 个小组之一。<code>group[i]</code> 表示第 <code>i</code> 个项目所属的小组，如果第 <code>i</code> 个项目不属于任何小组，则 <code>group[i]</code> 等于 <code>-1</code>。项目和小组都是从零开始编号的。可能存在小组不负责任何项目，即没有任何项目属于这个小组。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>beforeItems[i]</code> 不含重复元素</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拓扑排序
 
@@ -400,4 +406,6 @@ function sortItems(n: number, m: number, group: number[], beforeItems: number[][
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

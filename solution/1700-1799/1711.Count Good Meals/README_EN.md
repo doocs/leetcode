@@ -9,11 +9,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1711. Count Good Meals](https://leetcode.com/problems/count-good-meals)
 
 [中文文档](/solution/1700-1799/1711.Count%20Good%20Meals/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>good meal</strong> is a meal that contains <strong>exactly two different food items</strong> with a sum of deliciousness equal to a power of two.</p>
 
@@ -48,7 +52,11 @@ Their respective sums are 4, 8, 8, and 16, all of which are powers of 2.
 	<li><code>0 &lt;= deliciousness[i] &lt;= 2<sup>20</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration of Powers of Two
 
@@ -143,6 +151,10 @@ func countPairs(deliciousness []int) (ans int) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -239,4 +251,6 @@ func countPairs(deliciousness []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

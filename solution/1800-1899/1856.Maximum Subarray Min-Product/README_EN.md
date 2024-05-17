@@ -11,11 +11,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [1856. Maximum Subarray Min-Product](https://leetcode.com/problems/maximum-subarray-min-product)
 
 [中文文档](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>min-product</strong> of an array is equal to the <strong>minimum value</strong> in the array <strong>multiplied by</strong> the array&#39;s <strong>sum</strong>.</p>
 
@@ -65,7 +69,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack + Prefix Sum
 
@@ -275,4 +283,6 @@ function maxSumMinProduct(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Breadth-First Search
 ---
 
+<!-- problem:start -->
+
 # [1197. Minimum Knight Moves 🔒](https://leetcode.com/problems/minimum-knight-moves)
 
 [中文文档](/solution/1100-1199/1197.Minimum%20Knight%20Moves/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In an <strong>infinite</strong> chess board with coordinates from <code>-infinity</code> to <code>+infinity</code>, you have a <strong>knight</strong> at square <code>[0, 0]</code>.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>0 &lt;= |x| + |y| &lt;= 300</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -250,6 +258,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -532,4 +544,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

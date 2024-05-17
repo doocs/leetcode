@@ -8,13 +8,15 @@ tags:
     - 交互
 ---
 
+<!-- problem:start -->
+
 # [1533. 找到最大整数的索引 🔒](https://leetcode.cn/problems/find-the-index-of-the-large-integer)
 
 [English Version](/solution/1500-1599/1533.Find%20the%20Index%20of%20the%20Large%20Integer/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们有这样一个整数数组&nbsp;<code>arr</code>&nbsp;，除了一个最大的整数外，其他所有整数都相等。你不能直接访问该数组，你需要通过&nbsp;<strong>API</strong> <code>ArrayReader</code>&nbsp;来间接访问，这个 API&nbsp;有以下成员函数：</p>
 
@@ -79,7 +81,11 @@ reader.compareSub(4, 4, 5, 5) // 返回 1。因此，可以确定 arr[4] 是数�
 	<li>如果有一个数比其他数大，另一个数比其他数小呢？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -230,4 +236,6 @@ func getIndex(reader *ArrayReader) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [2698. Find the Punishment Number of an Integer](https://leetcode.com/problems/find-the-punishment-number-of-an-integer)
 
 [中文文档](/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a positive integer <code>n</code>, return <em>the <strong>punishment number</strong></em> of <code>n</code>.</p>
 
@@ -57,7 +61,11 @@ Hence, the punishment number of 37 is 1 + 81 + 100 + 1296 = 1478
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + DFS
 
@@ -225,4 +233,6 @@ function punishmentNumber(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

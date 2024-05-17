@@ -11,11 +11,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [2156. Find Substring With Given Hash Value](https://leetcode.com/problems/find-substring-with-given-hash-value)
 
 [中文文档](/solution/2100-2199/2156.Find%20Substring%20With%20Given%20Hash%20Value/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The hash of a <strong>0-indexed</strong> string <code>s</code> of length <code>k</code>, given integers <code>p</code> and <code>m</code>, is computed using the following function:</p>
 
@@ -63,7 +67,11 @@ Note that &quot;bxz&quot; also has a hash of 32 but it appears later than &quot;
 	<li>The test cases are generated such that an answer always <strong>exists</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window + Reverse Traversal
 
@@ -244,4 +252,6 @@ var subStrHash = function (s, power, modulo, k, hashValue) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

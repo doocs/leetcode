@@ -4,11 +4,15 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.21.Volume%20of%20Histogram/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.21. Volume of Histogram](https://leetcode.cn/problems/volume-of-histogram-lcci)
 
 [中文文档](/lcci/17.21.Volume%20of%20Histogram/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Imagine a histogram (bar graph). Design an algorithm to compute the volume of water it could hold if someone poured water across the top. You can assume that each histogram bar has width 1.</p>
 
@@ -24,7 +28,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.21.Volume%20of%20H
 
 <strong>Output:</strong> 6</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -190,4 +198,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

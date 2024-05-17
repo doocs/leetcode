@@ -6,11 +6,15 @@ tags:
     - Concurrency
 ---
 
+<!-- problem:start -->
+
 # [1115. Print FooBar Alternately](https://leetcode.com/problems/print-foobar-alternately)
 
 [中文文档](/solution/1100-1199/1115.Print%20FooBar%20Alternately/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Suppose you are given the following code:</p>
 
@@ -64,7 +68,11 @@ class FooBar {
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Multithreading + Semaphore
 
@@ -172,4 +180,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

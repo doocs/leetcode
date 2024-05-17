@@ -11,11 +11,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1871. Jump Game VII](https://leetcode.com/problems/jump-game-vii)
 
 [中文文档](/solution/1800-1899/1871.Jump%20Game%20VII/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> binary string <code>s</code> and two integers <code>minJump</code> and <code>maxJump</code>. In the beginning, you are standing at index <code>0</code>, which is equal to <code>&#39;0&#39;</code>. You can move from index <code>i</code> to index <code>j</code> if the following conditions are fulfilled:</p>
 
@@ -54,7 +58,11 @@ In the second step, move from index 3 to index 5.
 	<li><code>1 &lt;= minJump &lt;= maxJump &lt; s.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Dynamic Programming
 
@@ -193,4 +201,6 @@ var canReach = function (s, minJump, maxJump) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

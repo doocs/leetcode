@@ -10,11 +10,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1424. Diagonal Traverse II](https://leetcode.com/problems/diagonal-traverse-ii)
 
 [中文文档](/solution/1400-1499/1424.Diagonal%20Traverse%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a 2D integer array <code>nums</code>, return <em>all elements of </em><code>nums</code><em> in diagonal order as shown in the below images</em>.</p>
 
@@ -43,7 +47,11 @@ tags:
 	<li><code>1 &lt;= nums[i][j] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -142,4 +150,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

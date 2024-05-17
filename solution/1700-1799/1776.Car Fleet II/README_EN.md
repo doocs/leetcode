@@ -12,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1776. Car Fleet II](https://leetcode.com/problems/car-fleet-ii)
 
 [中文文档](/solution/1700-1799/1776.Car%20Fleet%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> cars traveling at different speeds in the same direction along a one-lane road. You are given an array <code>cars</code> of length <code>n</code>, where <code>cars[i] = [position<sub>i</sub>, speed<sub>i</sub>]</code> represents:</p>
 
@@ -54,7 +58,11 @@ tags:
 	<li><code>position<sub>i</sub> &lt; position<sub>i+1</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -159,4 +167,6 @@ func getCollisionTimes(cars [][]int) []float64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

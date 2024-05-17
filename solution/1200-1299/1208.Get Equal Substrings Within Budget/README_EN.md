@@ -11,11 +11,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1208. Get Equal Substrings Within Budget](https://leetcode.com/problems/get-equal-substrings-within-budget)
 
 [中文文档](/solution/1200-1299/1208.Get%20Equal%20Substrings%20Within%20Budget/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>s</code> and <code>t</code> of the same length and an integer <code>maxCost</code>.</p>
 
@@ -59,7 +63,11 @@ That costs 3, so the maximum length is 3.
 	<li><code>s</code> and <code>t</code> consist of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Binary Search
 
@@ -205,6 +213,10 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Two Pointers
 
 We can maintain two pointers $j$ and $i$, initially $i = j = 0$; maintain a variable $sum$, representing the sum of the absolute differences of ASCII values in the index interval $[i,..j]$. In each step, we move $i$ to the right by one position, then update $sum = sum + |s[i] - t[i]|$. If $sum \gt maxCost$, then we move the pointer $j$ to the right in a loop, and continuously reduce the value of $sum$ during the moving process until $sum \leq maxCost$. Then we update the answer, i.e., $ans = \max(ans, i - j + 1)$.
@@ -293,4 +305,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

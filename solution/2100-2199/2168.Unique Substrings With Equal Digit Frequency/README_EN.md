@@ -10,11 +10,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [2168. Unique Substrings With Equal Digit Frequency 🔒](https://leetcode.com/problems/unique-substrings-with-equal-digit-frequency)
 
 [中文文档](/solution/2100-2199/2168.Unique%20Substrings%20With%20Equal%20Digit%20Frequency/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 Given a digit string <code>s</code>, return <em>the number of <strong>unique substrings </strong>of </em><code>s</code><em> where every digit appears the same number of times.</em>
 
@@ -44,7 +48,11 @@ Note that although the substring &quot;12&quot; appears twice, it is only counte
 	<li><code>s</code> consists of digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -151,4 +159,6 @@ func equalDigitFrequency(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

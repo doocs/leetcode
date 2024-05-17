@@ -9,11 +9,15 @@ tags:
     - Data Stream
 ---
 
+<!-- problem:start -->
+
 # [346. Moving Average from Data Stream 🔒](https://leetcode.com/problems/moving-average-from-data-stream)
 
 [中文文档](/solution/0300-0399/0346.Moving%20Average%20from%20Data%20Stream/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.</p>
 
@@ -51,7 +55,11 @@ movingAverage.next(5); // return 6.0 = (10 + 3 + 5) / 3
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>next</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -159,6 +167,10 @@ func (this *MovingAverage) Next(val int) float64 {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -271,4 +283,6 @@ func (this *MovingAverage) Next(val int) float64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

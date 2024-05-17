@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [956. Tallest Billboard](https://leetcode.com/problems/tallest-billboard)
 
 [中文文档](/solution/0900-0999/0956.Tallest%20Billboard/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are installing a billboard and want it to have the largest height. The billboard will have two steel supports, one on each side. Each steel support must be an equal height.</p>
 
@@ -53,7 +57,11 @@ tags:
 	<li><code>sum(rods[i]) &lt;= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -191,6 +199,10 @@ function tallestBillboard(rods: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -317,4 +329,6 @@ func tallestBillboard(rods []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

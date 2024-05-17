@@ -9,11 +9,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [840. Magic Squares In Grid](https://leetcode.com/problems/magic-squares-in-grid)
 
 [中文文档](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <code>3 x 3</code> magic square is a <code>3 x 3</code> grid filled with distinct numbers <strong>from </strong><code>1</code><strong> to </strong><code>9</code> such that each row, column, and both diagonals all have the same sum.</p>
 
@@ -50,7 +54,11 @@ In total, there is only one magic square inside the given grid.
 	<li><code>0 &lt;= grid[i][j] &lt;= 15</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -292,4 +300,6 @@ function numMagicSquaresInside(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

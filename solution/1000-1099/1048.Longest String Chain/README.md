@@ -12,13 +12,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1048. 最长字符串链](https://leetcode.cn/problems/longest-string-chain)
 
 [English Version](/solution/1000-1099/1048.Longest%20String%20Chain/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出一个单词数组&nbsp;<code>words</code>&nbsp;，其中每个单词都由小写英文字母组成。</p>
 
@@ -68,7 +70,11 @@ tags:
 	<li><code>words[i]</code>&nbsp;仅由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -214,6 +220,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -236,4 +246,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

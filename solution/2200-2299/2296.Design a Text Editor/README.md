@@ -13,13 +13,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [2296. 设计一个文本编辑器](https://leetcode.cn/problems/design-a-text-editor)
 
 [English Version](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你设计一个带光标的文本编辑器，它可以实现以下功能：</p>
 
@@ -92,7 +94,11 @@ textEditor.cursorRight(6); // 返回 "practi"
 
 <p><strong>进阶：</strong>你能设计并实现一个每次调用时间复杂度为 <code>O(k)</code> 的解决方案吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：左右栈
 
@@ -289,4 +295,6 @@ func (this *TextEditor) CursorRight(k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

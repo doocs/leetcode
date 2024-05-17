@@ -6,11 +6,15 @@ tags:
     - Shell
 ---
 
+<!-- problem:start -->
+
 # [194. Transpose File](https://leetcode.com/problems/transpose-file)
 
 [中文文档](/solution/0100-0199/0194.Transpose%20File/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a text file <code>file.txt</code>, transpose its content.</p>
 
@@ -33,7 +37,11 @@ name alice ryan
 age 21 30
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: awk
 
@@ -60,4 +68,6 @@ awk '
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2105. Watering Plants II](https://leetcode.com/problems/watering-plants-ii)
 
 [中文文档](/solution/2100-2199/2105.Watering%20Plants%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob want to water <code>n</code> plants in their garden. The plants are arranged in a row and are labeled from <code>0</code> to <code>n - 1</code> from left to right where the <code>i<sup>th</sup></code> plant is located at <code>x = i</code>.</p>
 
@@ -77,7 +81,11 @@ So, the total number of times they have to refill is 0.
 	<li><code>max(plants[i]) &lt;= capacityA, capacityB &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers + Simulation
 
@@ -240,4 +248,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

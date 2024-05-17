@@ -10,11 +10,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1622. Fancy Sequence](https://leetcode.com/problems/fancy-sequence)
 
 [中文文档](/solution/1600-1699/1622.Fancy%20Sequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write an API that generates fancy sequences using the <code>append</code>, <code>addAll</code>, and <code>multAll</code> operations.</p>
 
@@ -62,7 +66,11 @@ fancy.getIndex(2); // return 20
 	<li>At most <code>10<sup>5</sup></code> calls total will be made to <code>append</code>, <code>addAll</code>, <code>multAll</code>, and <code>getIndex</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -482,4 +490,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

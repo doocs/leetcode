@@ -8,11 +8,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [301. Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses)
 
 [中文文档](/solution/0300-0399/0301.Remove%20Invalid%20Parentheses/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> that contains parentheses and letters, remove the minimum number of invalid parentheses to make the input string valid.</p>
 
@@ -49,7 +53,11 @@ tags:
 	<li>There will be at most <code>20</code> parentheses in <code>s</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -231,4 +239,6 @@ func removeInvalidParentheses(s string) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

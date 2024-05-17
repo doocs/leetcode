@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [574. Winning Candidate 🔒](https://leetcode.com/problems/winning-candidate)
 
 [中文文档](/solution/0500-0599/0574.Winning%20Candidate/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Candidate</code></p>
 
@@ -85,7 +89,11 @@ Candidate B has 2 votes. Candidates C, D, and E have 1 vote each.
 The winner is candidate B.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -109,6 +117,10 @@ FROM
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -126,4 +138,6 @@ LIMIT 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

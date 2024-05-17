@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1831. Maximum Transaction Each Day 🔒](https://leetcode.com/problems/maximum-transaction-each-day)
 
 [中文文档](/solution/1800-1899/1831.Maximum%20Transaction%20Each%20Day/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Transactions</code></p>
 
@@ -68,7 +72,11 @@ We order the result table by transaction_id after collecting these IDs.
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it without using the <code>MAX()</code> function?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Window Function
 
@@ -96,4 +104,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

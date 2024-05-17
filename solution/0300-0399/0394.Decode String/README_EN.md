@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [394. Decode String](https://leetcode.com/problems/decode-string)
 
 [中文文档](/solution/0300-0399/0394.Decode%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an encoded string, return its decoded string.</p>
 
@@ -54,7 +58,11 @@ tags:
 	<li>All the integers in <code>s</code> are in the range <code>[1, 300]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -136,4 +144,6 @@ function decodeString(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

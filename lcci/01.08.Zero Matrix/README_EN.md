@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.08.Zero%20Matrix/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [01.08. Zero Matrix](https://leetcode.cn/problems/zero-matrix-lcci)
 
 [中文文档](/lcci/01.08.Zero%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.</p>
 
@@ -74,7 +78,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.08.Zero%20Matrix/R
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array Marking
 
@@ -315,6 +323,10 @@ class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: In-place Marking
 
@@ -679,4 +691,6 @@ void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

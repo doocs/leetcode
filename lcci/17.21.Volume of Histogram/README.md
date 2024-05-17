@@ -4,13 +4,16 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.21.Volume%20of%20Histogram/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.21. 直方图的水量](https://leetcode.cn/problems/volume-of-histogram-lcci)
 
 [English Version](/lcci/17.21.Volume%20of%20Histogram/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定一个直方图(也称柱状图)，假设有人从上面源源不断地倒水，最后直方图能存多少水量?直方图的宽度为 1。</p>
 
 ![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcci/17.21.Volume%20of%20Histogram/images/rainwatertrap.png)
@@ -22,7 +25,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.21.Volume%20of%20H
 <pre><strong>输入:</strong> [0,1,0,2,1,0,1,3,2,1,2,1]
 <strong>输出:</strong> 6</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -196,4 +203,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

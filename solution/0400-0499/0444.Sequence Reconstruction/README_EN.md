@@ -8,11 +8,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [444. Sequence Reconstruction 🔒](https://leetcode.com/problems/sequence-reconstruction)
 
 [中文文档](/solution/0400-0499/0444.Sequence%20Reconstruction/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> of length <code>n</code> where <code>nums</code> is a permutation of the integers in the range <code>[1, n]</code>. You are also given a 2D integer array <code>sequences</code> where <code>sequences[i]</code> is a subsequence of <code>nums</code>.</p>
 
@@ -76,7 +80,11 @@ Since nums is the only shortest supersequence, we return true.
 	<li><code>sequences[i]</code> is a subsequence of <code>nums</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Topological Sorting
 
@@ -238,4 +246,6 @@ function sequenceReconstruction(nums: number[], sequences: number[][]): boolean 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

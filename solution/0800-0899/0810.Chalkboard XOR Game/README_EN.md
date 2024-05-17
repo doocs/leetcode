@@ -10,11 +10,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [810. Chalkboard XOR Game](https://leetcode.com/problems/chalkboard-xor-game)
 
 [中文文档](/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of integers <code>nums</code> represents the numbers written on a chalkboard.</p>
 
@@ -58,7 +62,11 @@ If Alice erases 2 first, now nums become [1, 1]. The bitwise XOR of all the elem
 	<li><code>0 &lt;= nums[i] &lt; 2<sup>16</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -105,4 +113,6 @@ func xorGame(nums []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

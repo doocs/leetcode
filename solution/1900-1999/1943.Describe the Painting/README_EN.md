@@ -11,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1943. Describe the Painting](https://leetcode.com/problems/describe-the-painting)
 
 [中文文档](/solution/1900-1999/1943.Describe%20the%20Painting/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a long and thin painting that can be represented by a number line. The painting was painted with multiple overlapping segments where each segment was painted with a <strong>unique</strong> color. You are given a 2D integer array <code>segments</code>, where <code>segments[i] = [start<sub>i</sub>, end<sub>i</sub>, color<sub>i</sub>]</code> represents the <strong>half-closed segment</strong> <code>[start<sub>i</sub>, end<sub>i</sub>)</code> with <code>color<sub>i</sub></code> as the color.</p>
 
@@ -89,7 +93,11 @@ Note that returning a single segment [1,7) is incorrect because the mixed color 
 	<li>Each <code>color<sub>i</sub></code> is distinct.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -167,4 +175,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

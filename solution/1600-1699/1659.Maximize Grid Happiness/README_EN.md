@@ -11,11 +11,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1659. Maximize Grid Happiness](https://leetcode.com/problems/maximize-grid-happiness)
 
 [中文文档](/solution/1600-1699/1659.Maximize%20Grid%20Happiness/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given four integers, <code>m</code>, <code>n</code>, <code>introvertsCount</code>, and <code>extrovertsCount</code>. You have an <code>m x n</code> grid, and there are two types of people: introverts and extroverts. There are <code>introvertsCount</code> introverts and <code>extrovertsCount</code> extroverts.</p>
 
@@ -74,7 +78,11 @@ The grid happiness is 90 + 80 + 90 = 260.
 	<li><code>0 &lt;= introvertsCount, extrovertsCount &lt;= min(m * n, 6)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Ternary State Compression + Memoization
 
@@ -435,6 +443,10 @@ function getMaxGridHappiness(
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Contour Line Memorized Search
 
 We can consider searching each grid cell, each time searching a position $(i, j)$, we denote $pos = i \times n + j$. Then its left and upper adjacent grids will affect their happiness contribution.
@@ -674,4 +686,6 @@ function getMaxGridHappiness(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

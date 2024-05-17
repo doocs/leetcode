@@ -10,11 +10,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1476. Subrectangle Queries](https://leetcode.com/problems/subrectangle-queries)
 
 [中文文档](/solution/1400-1499/1476.Subrectangle%20Queries/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement the class <code>SubrectangleQueries</code>&nbsp;which receives a <code>rows x cols</code> rectangle as a matrix of integers in the constructor and supports two methods:</p>
 
@@ -98,7 +102,11 @@ subrectangleQueries.getValue(2, 2); // return 20
 	<li><code>0 &lt;= col &lt; cols</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -264,4 +272,6 @@ class SubrectangleQueries {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1463. Cherry Pickup II](https://leetcode.com/problems/cherry-pickup-ii)
 
 [中文文档](/solution/1400-1499/1463.Cherry%20Pickup%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <code>rows x cols</code> matrix <code>grid</code> representing a field of cherries where <code>grid[i][j]</code> represents the number of cherries that you can collect from the <code>(i, j)</code> cell.</p>
 
@@ -68,7 +72,11 @@ Total of cherries: 17 + 11 = 28.
 	<li><code>0 &lt;= grid[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -240,6 +248,10 @@ function cherryPickup(grid: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming (Space Optimization)
 
 Notice that the calculation of $f[i][j_1][j_2]$ is only related to $f[i-1][y_1][y_2]$. Therefore, we can use a rolling array to optimize the space complexity. After optimizing the space complexity, the time complexity is $O(n^2)$.
@@ -405,4 +417,6 @@ function cherryPickup(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

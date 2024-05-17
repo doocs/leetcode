@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2740. Find the Value of the Partition](https://leetcode.com/problems/find-the-value-of-the-partition)
 
 [中文文档](/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>positive</strong> integer array <code>nums</code>.</p>
 
@@ -64,7 +68,11 @@ It can be proven that 9 is the minimum value out of all partitions.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -121,4 +129,6 @@ func findValueOfPartition(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

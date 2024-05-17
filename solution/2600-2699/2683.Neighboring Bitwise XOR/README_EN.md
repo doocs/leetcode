@@ -9,11 +9,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2683. Neighboring Bitwise XOR](https://leetcode.com/problems/neighboring-bitwise-xor)
 
 [中文文档](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>0-indexed</strong> array <code>derived</code> with length <code>n</code> is derived by computing the <strong>bitwise XOR</strong>&nbsp;(&oplus;) of adjacent values in a <strong>binary array</strong> <code>original</code> of length <code>n</code>.</p>
 
@@ -71,7 +75,11 @@ derived[1] = original[1] &oplus; original[0] = 1
 	<li>The values in <code>derived</code>&nbsp;are either <strong>0&#39;s</strong> or <strong>1&#39;s</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -130,6 +138,10 @@ function doesValidArrayExist(derived: number[]): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -142,4 +154,6 @@ function doesValidArrayExist(derived: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

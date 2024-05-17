@@ -6,11 +6,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [38. Count and Say](https://leetcode.com/problems/count-and-say)
 
 [中文文档](/solution/0000-0099/0038.Count%20and%20Say/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>count-and-say</strong> sequence is a sequence of digit strings defined by the recursive formula:</p>
 
@@ -63,7 +67,11 @@ countAndSay(4) = RLE of &quot;21&quot; = &quot;1211&quot;
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve it iteratively?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -306,4 +314,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

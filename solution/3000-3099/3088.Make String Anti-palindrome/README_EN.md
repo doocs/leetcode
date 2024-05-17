@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3088. Make String Anti-palindrome 🔒](https://leetcode.com/problems/make-string-anti-palindrome)
 
 [中文文档](/solution/3000-3099/3088.Make%20String%20Anti-palindrome/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We call a string <code>s</code> of <strong>even</strong> length <code>n</code> an <strong>anti-palindrome</strong> if for each index <code>0 &lt;= i &lt; n</code>, <code>s[i] != s[n - i - 1]</code>.</p>
 
@@ -68,7 +72,11 @@ tags:
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -192,4 +200,6 @@ function makeAntiPalindrome(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

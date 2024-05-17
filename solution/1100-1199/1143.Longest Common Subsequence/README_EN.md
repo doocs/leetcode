@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence)
 
 [中文文档](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>text1</code> and <code>text2</code>, return <em>the length of their longest <strong>common subsequence</strong>. </em>If there is no <strong>common subsequence</strong>, return <code>0</code>.</p>
 
@@ -56,7 +60,11 @@ tags:
 	<li><code>text1</code> and <code>text2</code> consist of only lowercase English characters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -252,4 +260,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

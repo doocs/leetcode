@@ -8,11 +8,15 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [920. Number of Music Playlists](https://leetcode.com/problems/number-of-music-playlists)
 
 [中文文档](/solution/0900-0999/0920.Number%20of%20Music%20Playlists/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Your music player contains <code>n</code> different songs. You want to listen to <code>goal</code> songs (not necessarily different) during your trip. To avoid boredom, you will create a playlist so that:</p>
 
@@ -54,7 +58,11 @@ tags:
 	<li><code>0 &lt;= k &lt; n &lt;= goal &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -209,6 +217,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -317,4 +329,6 @@ function numMusicPlaylists(n: number, goal: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

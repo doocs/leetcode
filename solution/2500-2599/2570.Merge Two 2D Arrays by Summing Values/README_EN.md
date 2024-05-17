@@ -10,11 +10,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [2570. Merge Two 2D Arrays by Summing Values](https://leetcode.com/problems/merge-two-2d-arrays-by-summing-values)
 
 [中文文档](/solution/2500-2599/2570.Merge%20Two%202D%20Arrays%20by%20Summing%20Values/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>2D</strong> integer arrays <code>nums1</code> and <code>nums2.</code></p>
 
@@ -66,7 +70,11 @@ tags:
 	<li>Both arrays are in&nbsp;strictly ascending order by id.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
 
@@ -203,4 +211,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

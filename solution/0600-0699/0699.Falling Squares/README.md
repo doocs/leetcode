@@ -8,13 +8,15 @@ tags:
     - 有序集合
 ---
 
+<!-- problem:start -->
+
 # [699. 掉落的方块](https://leetcode.cn/problems/falling-squares)
 
 [English Version](/solution/0600-0699/0699.Falling%20Squares/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在二维平面上的 x 轴上，放置着一些方块。</p>
 
@@ -62,7 +64,11 @@ tags:
 	<li><code>1 &lt;= sideLength<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：线段树
 
@@ -462,4 +468,6 @@ func fallingSquares(positions [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [620. 有趣的电影](https://leetcode.cn/problems/not-boring-movies)
 
 [English Version](/solution/0600-0699/0620.Not%20Boring%20Movies/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>cinema</code></p>
 
@@ -64,7 +66,11 @@ id 是该表的主键(具有唯一值的列)。
 我们有三部电影，它们的 id 是奇数:1、3 和 5。id = 3 的电影是 boring 的，所以我们不把它包括在答案中。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：条件筛选 + 排序
 
@@ -82,4 +88,6 @@ ORDER BY 4 DESC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

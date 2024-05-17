@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [734. Sentence Similarity 🔒](https://leetcode.com/problems/sentence-similarity)
 
 [中文文档](/solution/0700-0799/0734.Sentence%20Similarity/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We can represent a sentence as an array of words, for example, the sentence <code>&quot;I am happy with leetcode&quot;</code> can be represented as <code>arr = [&quot;I&quot;,&quot;am&quot;,happy&quot;,&quot;with&quot;,&quot;leetcode&quot;]</code>.</p>
 
@@ -68,7 +72,11 @@ tags:
 	<li>All the pairs <code>(x<sub>i</sub>,<sub> </sub>y<sub>i</sub>)</code> are <strong>distinct</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -147,4 +155,6 @@ func areSentencesSimilar(sentence1 []string, sentence2 []string, similarPairs []
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

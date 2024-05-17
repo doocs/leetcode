@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [182. Duplicate Emails](https://leetcode.com/problems/duplicate-emails)
 
 [中文文档](/solution/0100-0199/0182.Duplicate%20Emails/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Person</code></p>
 
@@ -55,7 +59,11 @@ Person table:
 <strong>Explanation:</strong> a@b.com is repeated two times.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Group By + Having
 
@@ -85,6 +93,10 @@ HAVING COUNT(1) > 1;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Self-Join
 
 We can use a self-join to join the `Person` table with itself, and then filter out the records where the `id` is different but the `email` is the same.
@@ -101,4 +113,6 @@ WHERE p1.id != p2.id AND p1.email = p2.email;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

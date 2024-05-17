@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1565. Unique Orders and Customers Per Month 🔒](https://leetcode.com/problems/unique-orders-and-customers-per-month)
 
 [中文文档](/solution/1500-1599/1565.Unique%20Orders%20and%20Customers%20Per%20Month/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Orders</code></p>
 
@@ -72,7 +76,11 @@ In December 2020 we have two orders from 1 customer both with invoices &gt; $20.
 In January 2021 we have two orders from 2 different customers, but only one of them with invoice &gt; $20.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -91,4 +99,6 @@ GROUP BY month;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

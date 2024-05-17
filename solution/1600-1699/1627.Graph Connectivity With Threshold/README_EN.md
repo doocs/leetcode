@@ -11,11 +11,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [1627. Graph Connectivity With Threshold](https://leetcode.com/problems/graph-connectivity-with-threshold)
 
 [中文文档](/solution/1600-1699/1627.Graph%20Connectivity%20With%20Threshold/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We have <code>n</code> cities labeled from <code>1</code> to <code>n</code>. Two different cities with labels <code>x</code> and <code>y</code> are directly connected by a bidirectional road if and only if <code>x</code> and <code>y</code> share a common divisor <strong>strictly greater</strong> than some <code>threshold</code>. More formally, cities with labels <code>x</code> and <code>y</code> have a road between them if there exists an integer <code>z</code> such that all of the following are true:</p>
 
@@ -79,7 +83,11 @@ Please notice that there can be multiple queries for the same pair of nodes [x, 
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find
 
@@ -330,4 +338,6 @@ function areConnected(n: number, threshold: number, queries: number[][]): boolea
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

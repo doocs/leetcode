@@ -10,11 +10,15 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [380. Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1)
 
 [中文文档](/solution/0300-0399/0380.Insert%20Delete%20GetRandom%20O%281%29/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement the <code>RandomizedSet</code> class:</p>
 
@@ -57,7 +61,11 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 	<li>There will be <strong>at least one</strong> element in the data structure when <code>getRandom</code> is called.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Dynamic List
 
@@ -368,4 +376,6 @@ public class RandomizedSet {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

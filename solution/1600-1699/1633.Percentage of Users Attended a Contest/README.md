@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1633. 各赛事的用户注册率](https://leetcode.cn/problems/percentage-of-users-attended-a-contest)
 
 [English Version](/solution/1600-1699/1633.Percentage%20of%20Users%20Attended%20a%20Contest/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>用户表：&nbsp;<code>Users</code></p>
 
@@ -95,7 +97,11 @@ Users</code> 表：
 Alice 和 Alex 注册了 215 赛事，注册率为 ((2/3) * 100) = 66.67%
 Bob 注册了 207 赛事，注册率为 ((1/3) * 100) = 33.33%</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组统计 + 子查询
 
@@ -115,4 +121,6 @@ ORDER BY 2 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

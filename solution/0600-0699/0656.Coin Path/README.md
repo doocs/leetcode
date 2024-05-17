@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [656. 成本最小路径 🔒](https://leetcode.cn/problems/coin-path)
 
 [English Version](/solution/0600-0699/0656.Coin%20Path/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>coins</code>（下标从 <strong>1</strong> 开始）长度为 <code>n</code>，以及一个整数 <code>maxJump</code>。你可以跳到数组 <code>coins</code> 的任意下标 <code>i</code>（满足 <code>coins[i] != -1</code>），访问下标 <code>i</code> 时需要支付 <code>coins[i]</code>。此外，如果你当前位于下标 <code>i</code>，你只能跳到下标 <code>i + k</code>（满足 <code>i + k &lt;= n</code>），其中 <code>k</code> 是范围 <code>[1, maxJump]</code> 内的一个值。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>1 &lt;= maxJump &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划（逆向）
 
@@ -223,4 +229,6 @@ function cheapestJump(coins: number[], maxJump: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

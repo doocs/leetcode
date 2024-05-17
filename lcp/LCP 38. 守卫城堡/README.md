@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2038.%20%E5%AE%88%E5%8D%AB%E5%9F%8E%E5%A0%A1/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 38. 守卫城堡](https://leetcode.cn/problems/7rLGCR)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 城堡守卫游戏的胜利条件为使恶魔无法从出生点到达城堡。游戏地图可视作 `2*N` 的方格图，记作字符串数组 `grid`，其中：
 
@@ -67,6 +69,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2038.%20%E5%AE%88%
 -   `2 <= grid[0].length == grid[1].length <= 10^4`
 -   `grid[i][j]` 仅包含字符 `"."`、`"#"`、`"C"`、`"P"`、`"S"`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

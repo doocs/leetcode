@@ -11,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1187. Make Array Strictly Increasing](https://leetcode.com/problems/make-array-strictly-increasing)
 
 [中文文档](/solution/1100-1199/1187.Make%20Array%20Strictly%20Increasing/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integer arrays&nbsp;<code>arr1</code> and <code>arr2</code>, return the minimum number of operations (possibly zero) needed&nbsp;to make <code>arr1</code> strictly increasing.</p>
 
@@ -57,7 +61,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -304,4 +312,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

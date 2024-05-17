@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1229. Meeting Scheduler 🔒](https://leetcode.com/problems/meeting-scheduler)
 
 [中文文档](/solution/1200-1299/1229.Meeting%20Scheduler/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the availability time slots arrays <code>slots1</code> and <code>slots2</code> of two people and a meeting duration <code>duration</code>, return the <strong>earliest time slot</strong> that works for both of them and is of duration <code>duration</code>.</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li><code>1 &lt;= duration &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Two Pointers
 
@@ -202,4 +210,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

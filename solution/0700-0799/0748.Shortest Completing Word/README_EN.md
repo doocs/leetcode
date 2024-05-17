@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [748. Shortest Completing Word](https://leetcode.com/problems/shortest-completing-word)
 
 [中文文档](/solution/0700-0799/0748.Shortest%20Completing%20Word/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>licensePlate</code> and an array of strings <code>words</code>, find the <strong>shortest completing</strong> word in <code>words</code>.</p>
 
@@ -55,7 +59,11 @@ Since &quot;steps&quot; is the only word containing all the letters, that is the
 	<li><code>words[i]</code> consists of lower case English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -251,4 +259,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [2685. Count the Number of Complete Components](https://leetcode.com/problems/count-the-number-of-complete-components)
 
 [中文文档](/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code>. There is an <strong>undirected</strong> graph with <code>n</code> vertices, numbered from <code>0</code> to <code>n - 1</code>. You are given a 2D integer array <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> denotes that there exists an <strong>undirected</strong> edge connecting vertices <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code>.</p>
 
@@ -57,7 +61,11 @@ tags:
 	<li>There are no repeated edges.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -204,4 +212,6 @@ func countCompleteComponents(n int, edges [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

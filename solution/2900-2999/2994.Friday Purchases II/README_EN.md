@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2994. Friday Purchases II 🔒](https://leetcode.com/problems/friday-purchases-ii)
 
 [中文文档](/solution/2900-2999/2994.Friday%20Purchases%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Purchases</code></p>
 
@@ -67,7 +71,11 @@ Purchases table:
 - In the fourth week of November 2023, two transactions took place on Friday, 2023-11-24, amounting to $12,000 and $9,692 respectively, summing up to a total of $21,692.
 Output table is ordered by week_of_month in ascending order.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion + Left Join + Date Functions
 
@@ -98,4 +106,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

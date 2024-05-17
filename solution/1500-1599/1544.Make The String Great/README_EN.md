@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1544. Make The String Great](https://leetcode.com/problems/make-the-string-great)
 
 [中文文档](/solution/1500-1599/1544.Make%20The%20String%20Great/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> of lower and upper case English letters.</p>
 
@@ -64,7 +68,11 @@ tags:
 	<li><code>s</code> contains only lower and upper case English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -138,4 +146,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

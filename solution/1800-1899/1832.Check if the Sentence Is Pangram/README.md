@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [1832. 判断句子是否为全字母句](https://leetcode.cn/problems/check-if-the-sentence-is-pangram)
 
 [English Version](/solution/1800-1899/1832.Check%20if%20the%20Sentence%20Is%20Pangram/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>全字母句</strong> 指包含英语字母表中每个字母至少一次的句子。</p>
 
@@ -49,7 +51,11 @@ tags:
 	<li><code>sentence</code> 由小写英语字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表
 
@@ -149,6 +155,10 @@ bool checkIfPangram(char* sentence) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：位运算
 
 我们也可以用一个整数 $mask$ 记录出现过的字母，其中 $mask$ 的第 $i$ 位表示第 $i$ 个字母是否出现过。
@@ -235,4 +245,6 @@ bool checkIfPangram(char* sentence) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

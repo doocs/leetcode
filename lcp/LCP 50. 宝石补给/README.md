@@ -4,11 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2050.%20%E5%AE%9D%E7%9F%B3%E8%A1%A5%E7%BB%99/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 50. 宝石补给](https://leetcode.cn/problems/WHnhjV)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 欢迎各位勇者来到力扣新手村，在开始试炼之前，请各位勇者先进行「宝石补给」。
 
@@ -59,7 +61,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2050.%20%E5%AE%9D%
 -   `operations[i].length == 2`
 -   `0 <= operations[i][0], operations[i][1] < gem.length`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -140,4 +146,6 @@ function giveGem(gem: number[], operations: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

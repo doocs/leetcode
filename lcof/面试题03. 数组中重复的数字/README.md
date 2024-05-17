@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9803.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 03. 数组中重复的数字](https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>找出数组中重复的数字。</p>
 
@@ -26,7 +30,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p><code>2 &lt;= n &lt;= 100000</code></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -173,6 +181,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：哈希表
 
 我们可以使用哈希表来解决这个问题，遍历数组 `nums`，对于遍历到的每个元素，判断哈希表中是否存在该元素，如果哈希表中存在该元素，即找到了一个重复的数字，返回该数字即可；如果哈希表中不存在该元素，将该元素加入哈希表中。继续遍历，直到找到一个重复的数字。
@@ -232,6 +244,10 @@ func findRepeatNumber(nums []int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法三：原地交换
 
@@ -303,4 +319,6 @@ func findRepeatNumber(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

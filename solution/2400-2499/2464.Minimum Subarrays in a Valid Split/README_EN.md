@@ -9,11 +9,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2464. Minimum Subarrays in a Valid Split 🔒](https://leetcode.com/problems/minimum-subarrays-in-a-valid-split)
 
 [中文文档](/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>.</p>
 
@@ -72,7 +76,11 @@ It can be proved that 2 is the minimum number of subarrays that we can obtain in
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -203,4 +211,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

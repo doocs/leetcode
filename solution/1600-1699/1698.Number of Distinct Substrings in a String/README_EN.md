@@ -10,11 +10,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [1698. Number of Distinct Substrings in a String 🔒](https://leetcode.com/problems/number-of-distinct-substrings-in-a-string)
 
 [中文文档](/solution/1600-1699/1698.Number%20of%20Distinct%20Substrings%20in%20a%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, return <em>the number of <strong>distinct</strong> substrings of</em>&nbsp;<code>s</code>.</p>
 
@@ -47,7 +51,11 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Can you solve this problem in <code>O(n)</code> time complexity?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Brute Force Enumeration
 
@@ -110,6 +118,10 @@ func countDistinct(s string) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: String Hashing
 
@@ -216,4 +228,6 @@ func countDistinct(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

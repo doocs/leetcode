@@ -6,11 +6,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [688. Knight Probability in Chessboard](https://leetcode.com/problems/knight-probability-in-chessboard)
 
 [中文文档](/solution/0600-0699/0688.Knight%20Probability%20in%20Chessboard/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>On an <code>n x n</code> chessboard, a knight starts at the cell <code>(row, column)</code> and attempts to make exactly <code>k</code> moves. The rows and columns are <strong>0-indexed</strong>, so the top-left cell is <code>(0, 0)</code>, and the bottom-right cell is <code>(n - 1, n - 1)</code>.</p>
 
@@ -49,7 +53,11 @@ The total probability the knight stays on the board is 0.0625.
 	<li><code>0 &lt;= row, column &lt;= n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -257,4 +265,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

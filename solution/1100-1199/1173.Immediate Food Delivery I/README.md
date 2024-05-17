@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1173. 即时食物配送 I 🔒](https://leetcode.cn/problems/immediate-food-delivery-i)
 
 [English Version](/solution/1100-1199/1173.Immediate%20Food%20Delivery%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>配送表: <code>Delivery</code></p>
 
@@ -62,7 +64,11 @@ Delivery 表:
 +----------------------+
 <strong>解释：</strong>2 和 3 号订单为即时订单，其他的为计划订单。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：求和
 
@@ -79,4 +85,6 @@ FROM Delivery;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

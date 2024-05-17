@@ -10,13 +10,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [2396. 严格回文的数字](https://leetcode.cn/problems/strictly-palindromic-number)
 
 [English Version](/solution/2300-2399/2396.Strictly%20Palindromic%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果一个整数 <code>n</code>&nbsp;在 <code>b</code>&nbsp;进制下（<code>b</code>&nbsp;为 <code>2</code>&nbsp;到 <code>n - 2</code>&nbsp;之间的所有整数）对应的字符串&nbsp;<strong>全部</strong>&nbsp;都是 <strong>回文的</strong>&nbsp;，那么我们称这个数&nbsp;<code>n</code>&nbsp;是 <strong>严格回文</strong>&nbsp;的。</p>
 
@@ -52,7 +54,11 @@ tags:
 	<li><code>4 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯
 
@@ -117,4 +123,6 @@ bool isStrictlyPalindromic(int n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

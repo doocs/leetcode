@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [936. Stamping The Sequence](https://leetcode.com/problems/stamping-the-sequence)
 
 [中文文档](/solution/0900-0999/0936.Stamping%20The%20Sequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>stamp</code> and <code>target</code>. Initially, there is a string <code>s</code> of length <code>target.length</code> with all <code>s[i] == &#39;?&#39;</code>.</p>
 
@@ -66,7 +70,11 @@ tags:
 	<li><code>stamp</code> and <code>target</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Thinking + Topological Sorting
 
@@ -371,4 +379,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

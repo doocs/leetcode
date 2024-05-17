@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [511. 游戏玩法分析 I](https://leetcode.cn/problems/game-play-analysis-i)
 
 [English Version](/solution/0500-0599/0511.Game%20Play%20Analysis%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>活动表&nbsp;<code>Activity</code>：</p>
 
@@ -58,7 +60,11 @@ Result 表：
 +-----------+-------------+
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组求最小值
 
@@ -87,4 +93,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

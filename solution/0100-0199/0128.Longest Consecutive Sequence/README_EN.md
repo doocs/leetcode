@@ -8,11 +8,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [128. Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence)
 
 [中文文档](/solution/0100-0199/0128.Longest%20Consecutive%20Sequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an unsorted array of integers <code>nums</code>, return <em>the length of the longest consecutive elements sequence.</em></p>
 
@@ -42,7 +46,11 @@ tags:
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -234,6 +242,10 @@ var longestConsecutive = function (nums) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Hash Table
 
 We use a hash table to store all elements in the array, and then traverse each element $x$ in the array. If the predecessor $x-1$ of the current element is not in the hash table, then we start with the current element and continuously try to match $x+1, x+2, x+3, \dots$, until no match is found. The length of the match at this time is the longest consecutive sequence length starting with $x$, and we update the answer accordingly.
@@ -357,4 +369,6 @@ var longestConsecutive = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

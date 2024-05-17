@@ -11,11 +11,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1915. Number of Wonderful Substrings](https://leetcode.com/problems/number-of-wonderful-substrings)
 
 [中文文档](/solution/1900-1999/1915.Number%20of%20Wonderful%20Substrings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>wonderful</strong> string is a string where <strong>at most one</strong> letter appears an <strong>odd</strong> number of times.</p>
 
@@ -109,7 +113,11 @@ tags:
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -227,4 +235,6 @@ var wonderfulSubstrings = function (word) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

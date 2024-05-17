@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [649. Dota2 Senate](https://leetcode.com/problems/dota2-senate)
 
 [中文文档](/solution/0600-0699/0649.Dota2%20Senate/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In the world of Dota2, there are two parties: the Radiant and the Dire.</p>
 
@@ -62,7 +66,11 @@ And in round 2, the third senator can just announce the victory since he is the 
 	<li><code>senate[i]</code> is either <code>&#39;R&#39;</code> or <code>&#39;D&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -234,4 +242,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

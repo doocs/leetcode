@@ -10,13 +10,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [2992. 自整除排列的数量 🔒](https://leetcode.cn/problems/number-of-self-divisible-permutations)
 
 [English Version](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数 <code>n</code>，返回 <strong>下标从 1 开始</strong> 的数组 <code>nums = [1, 2, ..., n]</code>的 <strong>可能的排列组合数量</strong>，使其满足 <strong>自整除</strong> 条件。</p>
 
@@ -70,7 +72,11 @@ nums = [2,1]：这是自整除的，因为 gcd(nums[1], 1) == 1 并且 gcd(nums[
 	<li><code>1 &lt;= n &lt;= 12</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩 + 记忆化搜索
 
@@ -225,6 +231,10 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：状态压缩 + 动态规划
 
 我们可以将方法一中的记忆化搜索改写为动态规划的形式，定义 $f[mask]$ 表示当前排列的状态为 $mask$，且满足题目要求的排列的数量。初始时 $f[0]=1$，其余值均为 $0$。
@@ -331,4 +341,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

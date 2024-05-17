@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2637.Promise%20Time%20Limit/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2637. Promise Time Limit](https://leetcode.com/problems/promise-time-limit)
 
 [中文文档](/solution/2600-2699/2637.Promise%20Time%20Limit/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an&nbsp;asynchronous function&nbsp;<code>fn</code>&nbsp;and a time <code>t</code>&nbsp;in milliseconds, return&nbsp;a new&nbsp;<strong>time limited</strong>&nbsp;version of the input function. <code>fn</code> takes arguments provided to the&nbsp;<strong>time limited&nbsp;</strong>function.</p>
 
@@ -98,7 +102,11 @@ The function immediately throws an error.</pre>
 	<li><code>fn</code> returns a promise</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -124,4 +132,6 @@ function timeLimit(fn: Fn, t: number): Fn {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

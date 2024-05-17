@@ -14,11 +14,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2659. Make Array Empty](https://leetcode.com/problems/make-array-empty)
 
 [中文文档](/solution/2600-2699/2659.Make%20Array%20Empty/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> containing <strong>distinct</strong> numbers, and you can perform the following operations <strong>until the array is empty</strong>:</p>
 
@@ -145,7 +149,11 @@ tags:
 	<li>All values in <code>nums</code> are <strong>distinct</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting + Fenwick Tree
 
@@ -377,6 +385,10 @@ function countOperationsToEmptyArray(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -417,4 +429,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

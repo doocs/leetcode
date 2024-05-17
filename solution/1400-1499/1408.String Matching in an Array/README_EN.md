@@ -10,11 +10,15 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [1408. String Matching in an Array](https://leetcode.com/problems/string-matching-in-an-array)
 
 [中文文档](/solution/1400-1499/1408.String%20Matching%20in%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of string <code>words</code>, return <em>all strings in </em><code>words</code><em> that is a <strong>substring</strong> of another word</em>. You can return the answer in <strong>any order</strong>.</p>
 
@@ -56,7 +60,11 @@ tags:
 	<li>All the strings of <code>words</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Brute Force Enumeration
 
@@ -164,4 +172,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

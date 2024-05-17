@@ -10,11 +10,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1002. Find Common Characters](https://leetcode.com/problems/find-common-characters)
 
 [中文文档](/solution/1000-1099/1002.Find%20Common%20Characters/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string array <code>words</code>, return <em>an array of all characters that show up in all strings within the </em><code>words</code><em> (including duplicates)</em>. You may return the answer in <strong>any order</strong>.</p>
 
@@ -35,7 +39,11 @@ tags:
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -155,4 +163,6 @@ function commonChars(words: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

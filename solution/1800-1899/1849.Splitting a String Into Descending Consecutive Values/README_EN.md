@@ -9,11 +9,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [1849. Splitting a String Into Descending Consecutive Values](https://leetcode.com/problems/splitting-a-string-into-descending-consecutive-values)
 
 [中文文档](/solution/1800-1899/1849.Splitting%20a%20String%20Into%20Descending%20Consecutive%20Values/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> that consists of only digits.</p>
 
@@ -62,7 +66,11 @@ The values are in descending order with adjacent values differing by 1.
 	<li><code>s</code> only consists of digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS (Depth-First Search)
 
@@ -163,4 +171,6 @@ func splitString(s string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

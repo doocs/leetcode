@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1468. Calculate Salaries 🔒](https://leetcode.com/problems/calculate-salaries)
 
 [中文文档](/solution/1400-1499/1468.Calculate%20Salaries/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table <code>Salaries</code>:</p>
 
@@ -86,7 +90,11 @@ The salary after taxes = salary - (taxes percentage / 100) * salary
 For example, Salary for Morninngcat (3, 15) after taxes = 7777 - 7777 * (24 / 100) = 7777 - 1866.48 = 5910.52, which is rounded to 5911.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -118,4 +126,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

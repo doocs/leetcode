@@ -7,13 +7,15 @@ tags:
     - 分治
 ---
 
+<!-- problem:start -->
+
 # [372. 超级次方](https://leetcode.cn/problems/super-pow)
 
 [English Version](/solution/0300-0399/0372.Super%20Pow/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你的任务是计算 <code>a<sup>b</sup></code> 对 <code>1337</code> 取模，<code>a</code> 是一个正整数，<code>b</code> 是一个非常大的正整数且会以数组形式给出。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>b</code> 不含前导 0</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：快速幂
 
@@ -181,4 +187,6 @@ function superPow(a: number, b: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

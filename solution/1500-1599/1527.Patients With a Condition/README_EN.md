@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1527. Patients With a Condition](https://leetcode.com/problems/patients-with-a-condition)
 
 [中文文档](/solution/1500-1599/1527.Patients%20With%20a%20Condition/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Patients</code></p>
 
@@ -60,7 +64,11 @@ Patients table:
 <strong>Explanation:</strong> Bob and George both have a condition that starts with DIAB1.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -77,4 +85,6 @@ WHERE conditions LIKE 'DIAB1%' OR conditions LIKE '% DIAB1%';
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1734. Decode XORed Permutation](https://leetcode.com/problems/decode-xored-permutation)
 
 [中文文档](/solution/1700-1799/1734.Decode%20XORed%20Permutation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an integer array <code>perm</code> that is a permutation of the first <code>n</code> positive integers, where <code>n</code> is always <strong>odd</strong>.</p>
 
@@ -46,7 +50,11 @@ tags:
 	<li><code>encoded.length == n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bitwise Operation
 
@@ -136,4 +144,6 @@ func decode(encoded []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

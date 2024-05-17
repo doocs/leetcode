@@ -4,11 +4,15 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2793.Status%20of%20Flight%20Tickets/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2793. Status of Flight Tickets 🔒](https://leetcode.com/problems/status-of-flight-tickets)
 
 [中文文档](/solution/2700-2799/2793.Status%20of%20Flight%20Tickets/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code><font face="monospace">Flights</font></code></p>
 
@@ -89,7 +93,11 @@ Passengers table:
 - Flight 3 has a capacity of 1 passenger. Passenger 107 booked earlier and secured the only available seat, confirming their booking. Passenger 106, who booked after Passenger 107, is on the waitlist.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -117,4 +125,6 @@ ORDER BY passenger_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

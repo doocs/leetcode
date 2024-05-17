@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2142. The Number of Passengers in Each Bus I 🔒](https://leetcode.com/problems/the-number-of-passengers-in-each-bus-i)
 
 [中文文档](/solution/2100-2199/2142.The%20Number%20of%20Passengers%20in%20Each%20Bus%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Buses</code></p>
 
@@ -93,7 +97,11 @@ Passengers table:
 - Bus 3 arrives at time 7 and collects passengers 12, 13, and 14.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -115,4 +123,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

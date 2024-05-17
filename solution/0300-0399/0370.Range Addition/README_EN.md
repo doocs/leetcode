@@ -7,11 +7,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [370. Range Addition 🔒](https://leetcode.com/problems/range-addition)
 
 [中文文档](/solution/0300-0399/0370.Range%20Addition/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>length</code> and an array <code>updates</code> where <code>updates[i] = [startIdx<sub>i</sub>, endIdx<sub>i</sub>, inc<sub>i</sub>]</code>.</p>
 
@@ -44,7 +48,11 @@ tags:
 	<li><code>-1000 &lt;= inc<sub>i</sub> &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -135,6 +143,10 @@ var getModifiedArray = function (length, updates) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -315,4 +327,6 @@ func getModifiedArray(length int, updates [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

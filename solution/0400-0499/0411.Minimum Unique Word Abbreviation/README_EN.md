@@ -8,11 +8,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [411. Minimum Unique Word Abbreviation 🔒](https://leetcode.com/problems/minimum-unique-word-abbreviation)
 
 [中文文档](/solution/0400-0499/0411.Minimum%20Unique%20Word%20Abbreviation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A string can be <strong>abbreviated</strong> by replacing any number of <strong>non-adjacent</strong> substrings with their lengths. For example, a string such as <code>&quot;substitution&quot;</code> could be abbreviated as (but not limited to):</p>
 
@@ -67,6 +71,34 @@ Since none of them are abbreviations of words in the dictionary, returning any o
 	<li><code>dictionary</code> does not contain <code>target</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

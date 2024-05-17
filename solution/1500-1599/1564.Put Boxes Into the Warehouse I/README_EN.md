@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1564. Put Boxes Into the Warehouse I 🔒](https://leetcode.com/problems/put-boxes-into-the-warehouse-i)
 
 [中文文档](/solution/1500-1599/1564.Put%20Boxes%20Into%20the%20Warehouse%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two arrays of positive integers, <code>boxes</code> and <code>warehouse</code>, representing the heights of some boxes of unit width and the heights of <code>n</code> rooms in a warehouse respectively. The warehouse&#39;s rooms are labelled from <code>0</code> to <code>n - 1</code> from left to right where <code>warehouse[i]</code> (0-indexed) is the height of the <code>i<sup>th</sup></code> room.</p>
 
@@ -69,7 +73,11 @@ Swapping the orange and green boxes is also valid, or swapping one of them with 
 	<li><code>1 &lt;= boxes[i], warehouse[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -196,4 +204,6 @@ function maxBoxesInWarehouse(boxes: number[], warehouse: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

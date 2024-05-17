@@ -9,11 +9,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1246. Palindrome Removal 🔒](https://leetcode.com/problems/palindrome-removal)
 
 [中文文档](/solution/1200-1299/1246.Palindrome%20Removal/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>arr</code>.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>1 &lt;= arr[i] &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming (Interval DP)
 
@@ -167,4 +175,6 @@ func minimumMoves(arr []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [443. String Compression](https://leetcode.com/problems/string-compression)
 
 [中文文档](/solution/0400-0499/0443.String%20Compression/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of characters <code>chars</code>, compress it using the following algorithm:</p>
 
@@ -60,7 +64,11 @@ tags:
 	<li><code>chars[i]</code> is a lowercase English letter, uppercase English letter, digit, or symbol.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -179,4 +187,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

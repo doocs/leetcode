@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2988. Manager of the Largest Department 🔒](https://leetcode.com/problems/manager-of-the-largest-department)
 
 [中文文档](/solution/2900-2999/2988.Manager%20of%20the%20Largest%20Department/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employees</code></p>
 
@@ -67,7 +71,11 @@ Output table is ordered by dep_id in ascending order.
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping + Equi-Join + Subquery
 
@@ -93,4 +101,6 @@ ORDER BY 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

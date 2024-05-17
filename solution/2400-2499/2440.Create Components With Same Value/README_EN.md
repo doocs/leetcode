@@ -12,11 +12,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2440. Create Components With Same Value](https://leetcode.com/problems/create-components-with-same-value)
 
 [中文文档](/solution/2400-2499/2440.Create%20Components%20With%20Same%20Value/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an undirected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>.</p>
 
@@ -56,7 +60,11 @@ tags:
 	<li><code>edges</code> represents a valid tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration of Connected Blocks
 
@@ -252,4 +260,6 @@ func componentValue(nums []int, edges [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

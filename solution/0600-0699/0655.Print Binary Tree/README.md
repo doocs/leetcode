@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [655. 输出二叉树](https://leetcode.cn/problems/print-binary-tree)
 
 [English Version](/solution/0600-0699/0655.Print%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵二叉树的根节点 <code>root</code> ，请你构造一个下标从 <strong>0</strong> 开始、大小为 <code>m x n</code> 的字符串矩阵 <code>res</code> ，用以表示树的 <strong>格式化布局</strong> 。构造此格式化布局矩阵需要遵循以下规则：</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li>树的深度在范围 <code>[1, 10]</code> 内</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两次 DFS
 
@@ -330,6 +336,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：两次 BFS
 
 方法一中，我们是通过 `DFS` 来求二叉树的高度，我们也可以改成 `BFS` 的方式，逐层往下扩展，那么扩展的层数就是二叉树的高度。
@@ -567,4 +577,6 @@ type tuple struct {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

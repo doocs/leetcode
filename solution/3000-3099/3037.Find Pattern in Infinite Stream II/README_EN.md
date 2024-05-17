@@ -10,11 +10,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [3037. Find Pattern in Infinite Stream II 🔒](https://leetcode.com/problems/find-pattern-in-infinite-stream-ii)
 
 [中文文档](/solution/3000-3099/3037.Find%20Pattern%20in%20Infinite%20Stream%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a binary array <code>pattern</code> and an object <code>stream</code> of class <code>InfiniteStream</code> representing a <strong>0-indexed</strong> infinite stream of bits.</p>
 
@@ -61,7 +65,11 @@ tags:
 	<li>The input is generated such that the pattern&#39;s start index exists in the first <code>10<sup>5</sup></code> bits of the stream.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -85,4 +93,6 @@ tags:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

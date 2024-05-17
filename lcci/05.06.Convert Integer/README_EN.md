@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.06.Convert%20Integer/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [05.06. Convert Integer](https://leetcode.cn/problems/convert-integer-lcci)
 
 [中文文档](/lcci/05.06.Convert%20Integer/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a function to determine the number of bits you would need to flip to convert integer A to integer B.</p>
 
@@ -50,7 +54,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.06.Convert%20Integ
 	<li><code>-2147483648 &lt;= A, B &lt;= 2147483647</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -124,4 +132,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

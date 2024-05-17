@@ -7,11 +7,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2237. Count Positions on Street With Required Brightness 🔒](https://leetcode.com/problems/count-positions-on-street-with-required-brightness)
 
 [中文文档](/solution/2200-2299/2237.Count%20Positions%20on%20Street%20With%20Required%20Brightness/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code>. A perfectly straight street is represented by a number line ranging from <code>0</code> to <code>n - 1</code>. You are given a 2D integer array <code>lights</code> representing the street lamp(s) on the street. Each <code>lights[i] = [position<sub>i</sub>, range<sub>i</sub>]</code> indicates that there is a street lamp at position <code>position<sub>i</sub></code> that lights up the area from <code>[max(0, position<sub>i</sub> - range<sub>i</sub>), min(n - 1, position<sub>i</sub> + range<sub>i</sub>)]</code> (<strong>inclusive</strong>).</p>
 
@@ -63,7 +67,11 @@ Positions 0, 1, 2, and 4 meet the requirement so we return 4.
 	<li><code>0 &lt;= requirement[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -146,4 +154,6 @@ func meetRequirement(n int, lights [][]int, requirement []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

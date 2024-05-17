@@ -10,11 +10,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2653. Sliding Subarray Beauty](https://leetcode.com/problems/sliding-subarray-beauty)
 
 [中文文档](/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> containing <code>n</code> integers, find the <strong>beauty</strong> of each subarray of size <code>k</code>.</p>
 
@@ -73,7 +77,11 @@ For <code>[0, -3]</code>, the 1<sup>st</sup> smallest negative integer is -3.</p
 	<li><code>-50&nbsp;&lt;= nums[i] &lt;= 50&nbsp;</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -241,6 +249,10 @@ function getSubarrayBeauty(nums: number[], k: number, x: number): number[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Double Priority Queue (Min-Max Heap) + Delayed Deletion
 
@@ -644,4 +656,6 @@ func getSubarrayBeauty(nums []int, k int, x int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

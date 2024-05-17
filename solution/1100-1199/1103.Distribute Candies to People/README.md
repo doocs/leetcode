@@ -9,13 +9,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [1103. 分糖果 II](https://leetcode.cn/problems/distribute-candies-to-people)
 
 [English Version](/solution/1100-1199/1103.Distribute%20Candies%20to%20People/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>排排坐，分糖果。</p>
 
@@ -62,7 +64,11 @@ tags:
 	<li><code>1 &lt;= num_people &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -135,4 +141,6 @@ function distributeCandies(candies: number, num_people: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

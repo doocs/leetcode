@@ -8,11 +8,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [644. Maximum Average Subarray II 🔒](https://leetcode.com/problems/maximum-average-subarray-ii)
 
 [中文文档](/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> consisting of <code>n</code> elements, and an integer <code>k</code>.</p>
 
@@ -48,7 +52,11 @@ Note that we do not consider the subarrays of length &lt; 4.
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -271,4 +279,6 @@ function findMaxAverage(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

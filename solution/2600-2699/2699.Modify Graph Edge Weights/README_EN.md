@@ -10,11 +10,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2699. Modify Graph Edge Weights](https://leetcode.com/problems/modify-graph-edge-weights)
 
 [中文文档](/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <strong>undirected weighted</strong> <strong>connected</strong> graph containing <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>, and an integer array <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>, w<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> with weight <code>w<sub>i</sub></code>.</p>
 
@@ -73,7 +77,11 @@ tags:
 	<li>The graph is connected, and there are no self-loops or repeated edges</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Shortest Path (Dijkstra's Algorithm)
 
@@ -389,4 +397,6 @@ function modifiedGraphEdges(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

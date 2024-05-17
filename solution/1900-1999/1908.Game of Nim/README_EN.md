@@ -11,11 +11,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [1908. Game of Nim 🔒](https://leetcode.com/problems/game-of-nim)
 
 [中文文档](/solution/1900-1999/1908.Game%20of%20Nim/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob take turns playing a game with <strong>Alice starting first</strong>.</p>
 
@@ -71,7 +75,11 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Follow-up:</strong> Could you find a linear time solution? Although the linear time solution may be beyond the scope of an interview, it could be interesting to know.</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -256,4 +264,6 @@ function nimGame(piles: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [503. Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii)
 
 [中文文档](/solution/0500-0599/0503.Next%20Greater%20Element%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a circular integer array <code>nums</code> (i.e., the next element of <code>nums[nums.length - 1]</code> is <code>nums[0]</code>), return <em>the <strong>next greater number</strong> for every element in</em> <code>nums</code>.</p>
 
@@ -44,7 +48,11 @@ The second 1&#39;s next greater number needs to search circularly, which is also
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -158,6 +166,10 @@ var nextGreaterElements = function (nums) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -265,4 +277,6 @@ var nextGreaterElements = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

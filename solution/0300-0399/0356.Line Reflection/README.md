@@ -8,13 +8,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [356. 直线镜像 🔒](https://leetcode.cn/problems/line-reflection)
 
 [English Version](/solution/0300-0399/0356.Line%20Reflection/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一个二维平面空间中，给你 n&nbsp;个点的坐标。问，是否能找出一条平行于 y<strong>&nbsp;</strong>轴的直线，让这些点关于这条直线成镜像排布？</p>
 
@@ -51,7 +53,11 @@ tags:
 
 <p><strong>进阶：</strong>你能找到比 O(<em>n</em><sup>2</sup>) 更优的解法吗?</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -143,4 +149,6 @@ func isReflected(points [][]int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

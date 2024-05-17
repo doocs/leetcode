@@ -9,11 +9,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [355. Design Twitter](https://leetcode.com/problems/design-twitter)
 
 [中文文档](/solution/0300-0399/0355.Design%20Twitter/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a simplified version of Twitter where users can post tweets, follow/unfollow another user, and is able to see the <code>10</code> most recent tweets in the user&#39;s news feed.</p>
 
@@ -58,7 +62,11 @@ twitter.getNewsFeed(1);  // User 1&#39;s news feed should return a list with 1 t
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>postTweet</code>, <code>getNewsFeed</code>, <code>follow</code>, and <code>unfollow</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -187,4 +195,6 @@ class Twitter {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

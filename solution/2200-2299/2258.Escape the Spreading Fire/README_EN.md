@@ -11,11 +11,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2258. Escape the Spreading Fire](https://leetcode.com/problems/escape-the-spreading-fire)
 
 [中文文档](/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>grid</code> of size <code>m x n</code> which represents a field. Each cell has one of three values:</p>
 
@@ -75,7 +79,11 @@ Thus, 10<sup>9</sup> is returned.
 	<li><code>grid[0][0] == grid[m - 1][n - 1] == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search + BFS
 
@@ -492,4 +500,6 @@ function maximumMinutes(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,11 +11,15 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [2063. Vowels of All Substrings](https://leetcode.com/problems/vowels-of-all-substrings)
 
 [中文文档](/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>word</code>, return <em>the <strong>sum of the number of vowels</strong> (</em><code>&#39;a&#39;</code>, <code>&#39;e&#39;</code><em>,</em> <code>&#39;i&#39;</code><em>,</em> <code>&#39;o&#39;</code><em>, and</em> <code>&#39;u&#39;</code><em>)</em> <em>in every substring of </em><code>word</code>.</p>
 
@@ -65,7 +69,11 @@ Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3.
 	<li><code>word</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -135,4 +143,6 @@ function countVowels(word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

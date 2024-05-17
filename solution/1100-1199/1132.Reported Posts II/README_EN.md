@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1132. Reported Posts II 🔒](https://leetcode.com/problems/reported-posts-ii)
 
 [中文文档](/solution/1100-1199/1132.Reported%20Posts%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Actions</code></p>
 
@@ -93,7 +97,11 @@ The other days had no spam reports so the average is (50 + 100) / 2 = 75%
 Note that the output is only one number and that we do not care about the remove dates.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -117,4 +125,6 @@ FROM T;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

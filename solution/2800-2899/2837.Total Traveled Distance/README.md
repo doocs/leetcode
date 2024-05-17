@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2837. 总旅行距离 🔒](https://leetcode.cn/problems/total-traveled-distance)
 
 [English Version](/solution/2800-2899/2837.Total%20Traveled%20Distance/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code><font face="monospace">Users</font></code></p>
 
@@ -93,7 +95,11 @@ Rides table:
 -  User id 为 10 的用户没有完成任何旅行，因此总旅行距离为 0。
 按升序排序的 <code>user_id</code> 返回结果表</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：左连接 + 分组求和
 
@@ -113,4 +119,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

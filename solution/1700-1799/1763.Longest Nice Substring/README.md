@@ -12,13 +12,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [1763. 最长的美好子字符串](https://leetcode.cn/problems/longest-nice-substring)
 
 [English Version](/solution/1700-1799/1763.Longest%20Nice%20Substring/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>当一个字符串 <code>s</code> 包含的每一种字母的大写和小写形式 <strong>同时</strong> 出现在 <code>s</code> 中，就称这个字符串 <code>s</code> 是 <strong>美好</strong> 字符串。比方说，<code>"abABB"</code> 是美好字符串，因为 <code>'A'</code> 和 <code>'a'</code> 同时出现了，且 <code>'B'</code> 和 <code>'b'</code> 也同时出现了。然而，<code>"abA"</code> 不是美好字符串因为 <code>'b'</code> 出现了，而 <code>'B'</code> 没有出现。</p>
 
@@ -66,7 +68,11 @@ tags:
 	<li><code>s</code> 只包含大写和小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 哈希表
 
@@ -207,6 +213,10 @@ function longestNiceSubstring(s: string): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：枚举 + 位运算
 
 与方法一类似，我们可以直接枚举所有子串的起点位置 $i$，找到以该位置所在的字符为首字符的所有子串，用两个整数 $lower$ 和 $upper$ 分别记录子串中小写字母和大写字母的出现情况。
@@ -312,4 +322,6 @@ func longestNiceSubstring(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

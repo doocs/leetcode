@@ -11,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1181. Before and After Puzzle 🔒](https://leetcode.com/problems/before-and-after-puzzle)
 
 [中文文档](/solution/1100-1199/1181.Before%20and%20After%20Puzzle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a list of <code>phrases</code>, generate a list of&nbsp;Before and After puzzles.</p>
 
@@ -69,7 +73,11 @@ tags:
 	<li><code>1 &lt;= phrases[i].length &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
 
@@ -200,4 +208,6 @@ function beforeAndAfterPuzzles(phrases: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

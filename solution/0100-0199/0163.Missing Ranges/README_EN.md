@@ -6,11 +6,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [163. Missing Ranges 🔒](https://leetcode.com/problems/missing-ranges)
 
 [中文文档](/solution/0100-0199/0163.Missing%20Ranges/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an inclusive range <code>[lower, upper]</code> and a <strong>sorted unique</strong> integer array <code>nums</code>, where all elements are within the inclusive range.</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li>All the values of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -174,4 +182,6 @@ function findMissingRanges(nums: number[], lower: number, upper: number): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

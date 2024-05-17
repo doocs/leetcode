@@ -10,11 +10,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2555. Maximize Win From Two Segments](https://leetcode.com/problems/maximize-win-from-two-segments)
 
 [中文文档](/solution/2500-2599/2555.Maximize%20Win%20From%20Two%20Segments/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are some prizes on the <strong>X-axis</strong>. You are given an integer array <code>prizePositions</code> that is <strong>sorted in non-decreasing order</strong>, where <code>prizePositions[i]</code> is the position of the <code>i<sup>th</sup></code> prize. There could be different prizes at the same position on the line. You are also given an integer <code>k</code>.</p>
 
@@ -62,7 +66,11 @@ tags:
 .spoilerbutton[value="Hide Message"] + .spoiler {padding:5px;}
 </style>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Binary Search
 
@@ -180,4 +188,6 @@ function maximizeWin(prizePositions: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [888. Fair Candy Swap](https://leetcode.com/problems/fair-candy-swap)
 
 [中文文档](/solution/0800-0899/0888.Fair%20Candy%20Swap/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob have a different total number of candies. You are given two integer arrays <code>aliceSizes</code> and <code>bobSizes</code> where <code>aliceSizes[i]</code> is the number of candies of the <code>i<sup>th</sup></code> box of candy that Alice has and <code>bobSizes[j]</code> is the number of candies of the <code>j<sup>th</sup></code> box of candy that Bob has.</p>
 
@@ -53,7 +57,11 @@ tags:
 	<li>There will be at least one valid answer for the given input.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -131,4 +139,6 @@ function fairCandySwap(aliceSizes: number[], bobSizes: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

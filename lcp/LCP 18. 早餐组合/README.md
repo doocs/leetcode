@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2018.%20%E6%97%A9%E9%A4%90%E7%BB%84%E5%90%88/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 18. 早餐组合](https://leetcode.cn/problems/2vYnGI)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 小扣在秋日市集选择了一家早餐摊位，一维整型数组 `staple` 中记录了每种主食的价格，一维整型数组 `drinks` 中记录了每种饮料的价格。小扣的计划选择一份主食和一款饮料，且花费不超过 `x` 元。请返回小扣共有多少种购买方案。
 
@@ -75,7 +77,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2018.%20%E6%97%A9%
 
 -   `1 <= x <= 2*10^5`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -175,4 +181,6 @@ func breakfastNumber(staple []int, drinks []int, x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

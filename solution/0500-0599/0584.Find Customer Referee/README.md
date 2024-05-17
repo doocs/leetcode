@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [584. 寻找用户推荐人](https://leetcode.cn/problems/find-customer-referee)
 
 [English Version](/solution/0500-0599/0584.Find%20Customer%20Referee/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表:&nbsp;<code>Customer</code></p>
 
@@ -60,7 +62,11 @@ Customer 表:
 | Zack |
 +------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：条件过滤
 
@@ -77,4 +83,6 @@ WHERE IFNULL(referee_id, 0) != 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

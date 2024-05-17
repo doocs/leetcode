@@ -8,11 +8,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2067. Number of Equal Count Substrings 🔒](https://leetcode.com/problems/number-of-equal-count-substrings)
 
 [中文文档](/solution/2000-2099/2067.Number%20of%20Equal%20Count%20Substrings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> consisting of only lowercase English letters, and an integer <code>count</code>. A <strong>substring</strong> of <code>s</code> is said to be an <strong>equal count substring</strong> if, for each <strong>unique</strong> letter in the substring, it appears exactly <code>count</code> times in the substring.</p>
 
@@ -63,7 +67,11 @@ Therefore, no substrings in s are equal count substrings, so return 0</pre>
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + Sliding Window
 
@@ -242,4 +250,6 @@ var equalCountSubstrings = function (s, count) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

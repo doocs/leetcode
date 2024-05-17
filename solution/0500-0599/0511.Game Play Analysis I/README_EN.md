@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [511. Game Play Analysis I](https://leetcode.com/problems/game-play-analysis-i)
 
 [中文文档](/solution/0500-0599/0511.Game%20Play%20Analysis%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Activity</code></p>
 
@@ -61,7 +65,11 @@ Activity table:
 +-----------+-------------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Group By + Min Function
 
@@ -90,4 +98,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

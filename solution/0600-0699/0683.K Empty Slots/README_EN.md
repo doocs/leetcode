@@ -9,11 +9,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [683. K Empty Slots 🔒](https://leetcode.com/problems/k-empty-slots)
 
 [中文文档](/solution/0600-0699/0683.K%20Empty%20Slots/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code> bulbs in a row numbered from <code>1</code> to <code>n</code>. Initially, all the bulbs are turned off. We turn on <strong>exactly one</strong> bulb every day until all bulbs are on after <code>n</code> days.</p>
 
@@ -51,7 +55,11 @@ We return 2 because on the second day, there were two on bulbs with one off bulb
 	<li><code>0 &lt;= k &lt;= 2 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
 
@@ -288,4 +296,6 @@ function kEmptySlots(bulbs: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

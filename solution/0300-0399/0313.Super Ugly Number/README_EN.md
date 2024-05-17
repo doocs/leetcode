@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [313. Super Ugly Number](https://leetcode.com/problems/super-ugly-number)
 
 [中文文档](/solution/0300-0399/0313.Super%20Ugly%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>super ugly number</strong> is a positive integer whose prime factors are in the array <code>primes</code>.</p>
 
@@ -48,7 +52,11 @@ tags:
 	<li>All the values of <code>primes</code> are <strong>unique</strong> and sorted in <strong>ascending order</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min Heap)
 
@@ -158,6 +166,10 @@ func (h *hp) Pop() any {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -197,4 +209,6 @@ func nthSuperUglyNumber(n int, primes []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

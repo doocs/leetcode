@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1532. The Most Recent Three Orders 🔒](https://leetcode.com/problems/the-most-recent-three-orders)
 
 [中文文档](/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Customers</code></p>
 
@@ -106,7 +110,11 @@ We sort the result table by customer_name in ascending order, by customer_id in 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you write a general solution for the most recent <code>n</code> orders?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Equi-Join + Window Function
 
@@ -136,4 +144,6 @@ ORDER BY 1, 2, 4 DESC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

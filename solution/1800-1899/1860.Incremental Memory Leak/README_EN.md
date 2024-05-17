@@ -9,11 +9,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1860. Incremental Memory Leak](https://leetcode.com/problems/incremental-memory-leak)
 
 [中文文档](/solution/1800-1899/1860.Incremental%20Memory%20Leak/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>memory1</code> and <code>memory2</code> representing the available memory in bits on two memory sticks. There is currently a faulty program running that consumes an increasing amount of memory every second.</p>
 
@@ -54,7 +58,11 @@ tags:
 	<li><code>0 &lt;= memory1, memory2 &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -165,4 +173,6 @@ var memLeak = function (memory1, memory2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

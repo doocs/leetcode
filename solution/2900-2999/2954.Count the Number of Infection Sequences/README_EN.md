@@ -10,11 +10,15 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [2954. Count the Number of Infection Sequences](https://leetcode.com/problems/count-the-number-of-infection-sequences)
 
 [中文文档](/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code> and a <strong>0-indexed</strong><strong> </strong>integer array <code>sick</code> which is <strong>sorted</strong> in <strong>increasing</strong> order.</p>
 
@@ -64,7 +68,11 @@ Finally, the child at position 2 gets infected because it is adjacent to childre
 	<li><code>sick</code> is sorted in increasing order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Combinatorial Mathematics + Multiplicative Inverse + Fast Power
 
@@ -319,4 +327,6 @@ function numberOfSequence(n: number, sick: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

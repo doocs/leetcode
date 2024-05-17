@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [751. IP 到 CIDR 🔒](https://leetcode.cn/problems/ip-to-cidr)
 
 [English Version](/solution/0700-0799/0751.IP%20to%20CIDR/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>IP地址</strong> 是一个格式化的 32位 无符号整数，每组 8位 被打印为一个十进制数字和，点字符&nbsp;<code>'.'</code>&nbsp;起到了分组的作用。</p>
 
@@ -74,6 +76,34 @@ CIDR区块“255.0.0.16/32”包含最后一个地址。
 	<li>每个隐含地址&nbsp;<code>ip + x</code>&nbsp;(&nbsp;<code>x &lt; n</code>) 都是有效的 IPv4 地址</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+### 方法一
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.07.Permutation%20I/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.07. 无重复字符串的排列组合](https://leetcode.cn/problems/permutation-i-lcci)
 
 [English Version](/lcci/08.07.Permutation%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>无重复字符串的排列组合。编写一种方法，计算某字符串的所有排列组合，字符串每个字符均不相同。</p>
 
 <p> <strong>示例1:</strong></p>
@@ -34,7 +37,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.07.Permutation%20I
 <li>字符串长度在[1, 9]之间。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS（回溯）
 
@@ -249,4 +256,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

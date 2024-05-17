@@ -7,11 +7,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1708. Largest Subarray Length K 🔒](https://leetcode.com/problems/largest-subarray-length-k)
 
 [中文文档](/solution/1700-1799/1708.Largest%20Subarray%20Length%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An array <code>A</code> is larger than some array <code>B</code> if for the first index <code>i</code> where <code>A[i] != B[i]</code>, <code>A[i] &gt; B[i]</code>.</p>
 
@@ -62,7 +66,11 @@ Of these, [4,5,2,3] is the largest.</pre>
 <p>&nbsp;</p>
 <strong>Follow up:</strong> What if the integers in <code>nums</code> are not distinct?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -143,4 +151,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

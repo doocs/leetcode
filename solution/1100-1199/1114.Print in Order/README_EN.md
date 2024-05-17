@@ -6,11 +6,15 @@ tags:
     - Concurrency
 ---
 
+<!-- problem:start -->
+
 # [1114. Print in Order](https://leetcode.com/problems/print-in-order)
 
 [中文文档](/solution/1100-1199/1114.Print%20in%20Order/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Suppose we have a class:</p>
 
@@ -52,7 +56,11 @@ public class Foo {
 	<li><code>nums</code> is a permutation of <code>[1, 2, 3]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Multithreading + Lock or Semaphore
 
@@ -153,6 +161,10 @@ public:
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -225,4 +237,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

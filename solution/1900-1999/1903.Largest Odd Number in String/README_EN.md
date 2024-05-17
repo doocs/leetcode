@@ -10,11 +10,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1903. Largest Odd Number in String](https://leetcode.com/problems/largest-odd-number-in-string)
 
 [中文文档](/solution/1900-1999/1903.Largest%20Odd%20Number%20in%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>num</code>, representing a large integer. Return <em>the <strong>largest-valued odd</strong> integer (as a string) that is a <strong>non-empty substring</strong> of </em><code>num</code><em>, or an empty string </em><code>&quot;&quot;</code><em> if no odd integer exists</em>.</p>
 
@@ -53,7 +57,11 @@ tags:
 	<li><code>num</code> only consists of digits and does not contain any leading zeros.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Traversal
 
@@ -141,4 +149,6 @@ var largestOddNumber = function (num) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

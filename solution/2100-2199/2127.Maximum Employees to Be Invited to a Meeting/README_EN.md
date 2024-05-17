@@ -10,11 +10,15 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [2127. Maximum Employees to Be Invited to a Meeting](https://leetcode.com/problems/maximum-employees-to-be-invited-to-a-meeting)
 
 [中文文档](/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A company is organizing a meeting and has a list of <code>n</code> employees, waiting to be invited. They have arranged for a large <strong>circular</strong> table, capable of seating <strong>any number</strong> of employees.</p>
 
@@ -71,7 +75,11 @@ The maximum number of employees that can be invited to the meeting is 4.
 	<li><code>favorite[i] != i</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Maximum Cycle in Graph + Longest Chain
 
@@ -371,4 +379,6 @@ function topologicalSort(fa: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

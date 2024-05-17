@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2666.Allow%20One%20Function%20Call/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2666. Allow One Function Call](https://leetcode.com/problems/allow-one-function-call)
 
 [中文文档](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a function <code>fn</code>, return a new function that is identical to the original function except that it ensures&nbsp;<code>fn</code>&nbsp;is&nbsp;called at most once.</p>
 
@@ -51,7 +55,11 @@ onceFn(4, 6, 8); // undefined, fn was not called
 	<li><code>2 &lt;= JSON.stringify(calls).length &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -81,4 +89,6 @@ function once<T extends (...args: any[]) => any>(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

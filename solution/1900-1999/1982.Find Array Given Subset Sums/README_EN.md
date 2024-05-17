@@ -9,11 +9,15 @@ tags:
     - Divide and Conquer
 ---
 
+<!-- problem:start -->
+
 # [1982. Find Array Given Subset Sums](https://leetcode.com/problems/find-array-given-subset-sums)
 
 [中文文档](/solution/1900-1999/1982.Find%20Array%20Given%20Subset%20Sums/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code> representing the length of an unknown array that you are trying to recover. You are also given an array <code>sums</code> containing the values of all <code>2<sup>n</sup></code> <strong>subset sums</strong> of the unknown array (in no particular order).</p>
 
@@ -66,7 +70,11 @@ Note that any permutation of [1,2,-3] and also any permutation of [-1,-2,3] will
 	<li><code>-10<sup>4</sup> &lt;= sums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -259,6 +267,10 @@ func recoverArray(n int, sums []int) []int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -398,4 +410,6 @@ func recoverArray(n int, sums []int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

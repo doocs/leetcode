@@ -9,11 +9,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [126. Word Ladder II](https://leetcode.com/problems/word-ladder-ii)
 
 [中文文档](/solution/0100-0199/0126.Word%20Ladder%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>transformation sequence</strong> from word <code>beginWord</code> to word <code>endWord</code> using a dictionary <code>wordList</code> is a sequence of words <code>beginWord -&gt; s<sub>1</sub> -&gt; s<sub>2</sub> -&gt; ... -&gt; s<sub>k</sub></code> such that:</p>
 
@@ -58,7 +62,11 @@ tags:
 	<li>The <strong>sum</strong> of all shortest transformation sequences does not exceed <code>10<sup>5</sup></code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -258,4 +266,6 @@ func findLadders(beginWord string, endWord string, wordList []string) [][]string
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

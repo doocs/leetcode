@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.09.Bracket/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.09. 括号](https://leetcode.cn/problems/bracket-lcci)
 
 [English Version](/lcci/08.09.Bracket/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>括号。设计一种算法，打印n对括号的所有合法的（例如，开闭一一对应）组合。</p>
 
 <p>说明：解集不能包含重复的子集。</p>
@@ -27,7 +30,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.09.Bracket/README.
 ]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS + 剪枝
 
@@ -223,4 +230,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

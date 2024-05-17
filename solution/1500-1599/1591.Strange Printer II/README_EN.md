@@ -11,11 +11,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1591. Strange Printer II](https://leetcode.com/problems/strange-printer-ii)
 
 [中文文档](/solution/1500-1599/1591.Strange%20Printer%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a strange printer with the following two special requirements:</p>
 
@@ -61,6 +65,34 @@ tags:
 	<li><code>1 &lt;= targetGrid[row][col] &lt;= 60</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -13,13 +13,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [2818. 操作使得分最大](https://leetcode.cn/problems/apply-operations-to-maximize-score)
 
 [English Version](/solution/2800-2899/2818.Apply%20Operations%20to%20Maximize%20Score/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;的正整数数组&nbsp;<code>nums</code>&nbsp;和一个整数 <code>k</code>&nbsp;。</p>
 
@@ -73,7 +75,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= min(n * (n + 1) / 2, 10<sup>9</sup>)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈 + 排序贪心
 
@@ -458,4 +464,6 @@ function qpow(a: bigint, n: number, mod: number): bigint {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

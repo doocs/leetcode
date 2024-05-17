@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [664. Strange Printer](https://leetcode.com/problems/strange-printer)
 
 [中文文档](/solution/0600-0699/0664.Strange%20Printer/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a strange printer with the following two special properties:</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -184,4 +192,6 @@ function strangePrinter(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

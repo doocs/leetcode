@@ -9,11 +9,15 @@ tags:
     - Probability and Statistics
 ---
 
+<!-- problem:start -->
+
 # [837. New 21 Game](https://leetcode.com/problems/new-21-game)
 
 [中文文档](/solution/0800-0899/0837.New%2021%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice plays the following game, loosely based on the card game <strong>&quot;21&quot;</strong>.</p>
 
@@ -58,7 +62,11 @@ In 6 out of 10 possibilities, she is at or below 6 points.
 	<li><code>1 &lt;= maxPts &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -173,6 +181,10 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -265,4 +277,6 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

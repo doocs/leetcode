@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3118. Friday Purchase III 🔒](https://leetcode.cn/problems/friday-purchase-iii)
 
 [English Version](/solution/3100-3199/3118.Friday%20Purchase%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Table: <code>Purchases</code></p>
 
@@ -118,7 +120,11 @@ Each row of this table indicates the user_id, membership type.
 <p><strong>Note:</strong> The output table is ordered by week_of_month and membership in ascending order.</p>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归 + 连接
 
@@ -161,4 +167,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

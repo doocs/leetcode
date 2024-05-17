@@ -7,11 +7,15 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists)
 
 [中文文档](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the heads of two sorted linked lists <code>list1</code> and <code>list2</code>.</p>
 
@@ -50,7 +54,11 @@ tags:
 	<li>Both <code>list1</code> and <code>list2</code> are sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -326,6 +334,10 @@ end
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Iteration
 
@@ -606,4 +618,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

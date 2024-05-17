@@ -12,13 +12,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [1066. 校园自行车分配 II 🔒](https://leetcode.cn/problems/campus-bikes-ii)
 
 [English Version](/solution/1000-1099/1066.Campus%20Bikes%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在由 2D 网格表示的校园里有&nbsp;<code>n</code>&nbsp;位工人（<code>worker</code>）和 <code>m</code>&nbsp;辆自行车（<code>bike</code>），<code>n &lt;= m</code>。所有工人和自行车的位置都用网格上的 2D 坐标表示。</p>
 
@@ -73,7 +75,11 @@ tags:
 	<li>所有的工人和自行车的位置都是 <strong>不同</strong>&nbsp;的。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩动态规划
 
@@ -215,4 +221,6 @@ function assignBikes(workers: number[][], bikes: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

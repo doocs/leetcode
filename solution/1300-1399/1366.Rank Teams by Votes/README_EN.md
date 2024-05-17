@@ -12,11 +12,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1366. Rank Teams by Votes](https://leetcode.com/problems/rank-teams-by-votes)
 
 [中文文档](/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In a special ranking system, each voter gives a rank from highest to lowest to all teams participating in the competition.</p>
 
@@ -68,7 +72,11 @@ X is the winner due to the tie-breaking rule. X has the same votes as W for the 
 	<li>All the characters that occur in <code>votes[0]</code> <strong>also occur</strong> in <code>votes[j]</code> where <code>1 &lt;= j &lt; votes.length</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Custom Sorting
 
@@ -174,4 +182,6 @@ func rankTeams(votes []string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

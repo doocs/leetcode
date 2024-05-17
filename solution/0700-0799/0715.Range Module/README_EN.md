@@ -8,11 +8,15 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [715. Range Module](https://leetcode.com/problems/range-module)
 
 [中文文档](/solution/0700-0799/0715.Range%20Module/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A Range Module is a module that tracks ranges of numbers. Design a data structure to track the ranges represented as <strong>half-open intervals</strong> and query about them.</p>
 
@@ -54,7 +58,11 @@ rangeModule.queryRange(16, 17); // return True, (The number 16 in [16, 17) is st
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>addRange</code>, <code>queryRange</code>, and <code>removeRange</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Segment Tree
 
@@ -634,4 +642,6 @@ class RangeModule {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

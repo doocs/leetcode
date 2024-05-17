@@ -10,13 +10,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [2259. 移除指定数字得到的最大结果](https://leetcode.cn/problems/remove-digit-from-number-to-maximize-result)
 
 [English Version](/solution/2200-2299/2259.Remove%20Digit%20From%20Number%20to%20Maximize%20Result/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个表示某个正整数的字符串 <code>number</code> 和一个字符 <code>digit</code> 。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li><code>digit</code> 在 <code>number</code> 中出现至少一次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -171,6 +177,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：贪心
 
 我们可以枚举字符串 $number$ 的所有位置 $i$，如果 $number[i] = digit$，记录 $digit$ 最后一次出现的位置 $last$，并且如果 $i + 1 \lt n$ 且 $number[i] \lt number[i + 1]$，那么我们可以直接返回 $number[0:i] + number[i+1:]$，即为移除 $number[i]$ 后的结果。这是因为如果 $number[i] < number[i + 1]$，那么移除 $number[i]$ 后，结果一定会更大。
@@ -251,4 +261,6 @@ func removeDigit(number string, digit byte) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

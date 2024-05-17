@@ -12,11 +12,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1178. Number of Valid Words for Each Puzzle](https://leetcode.com/problems/number-of-valid-words-for-each-puzzle)
 
 [中文文档](/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 With respect to a given <code>puzzle</code> string, a <code>word</code> is <em>valid</em> if both the following conditions are satisfied:
 
@@ -64,7 +68,11 @@ There are no valid words for &quot;gaswxyz&quot; cause none of the words in the 
 	<li>Each <code>puzzles[i] </code>does not contain repeated characters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression + Hash Table + Subset Enumeration
 
@@ -225,4 +233,6 @@ function findNumOfValidWords(words: string[], puzzles: string[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

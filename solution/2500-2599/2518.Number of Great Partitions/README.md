@@ -9,13 +9,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [2518. 好分区的数目](https://leetcode.cn/problems/number-of-great-partitions)
 
 [English Version](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数数组 <code>nums</code> 和一个整数 <code>k</code> 。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：逆向思维 + 动态规划
 
@@ -206,4 +212,6 @@ func countPartitions(nums []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

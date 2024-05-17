@@ -9,11 +9,15 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [398. Random Pick Index](https://leetcode.com/problems/random-pick-index)
 
 [中文文档](/solution/0300-0399/0398.Random%20Pick%20Index/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> with possible <strong>duplicates</strong>, randomly output the index of a given <code>target</code> number. You can assume that the given target number must exist in the array.</p>
 
@@ -51,7 +55,11 @@ solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each ind
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>pick</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -170,4 +178,6 @@ func (this *Solution) Pick(target int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

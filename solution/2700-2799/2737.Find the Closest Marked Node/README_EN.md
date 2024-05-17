@@ -9,11 +9,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2737. Find the Closest Marked Node 🔒](https://leetcode.com/problems/find-the-closest-marked-node)
 
 [中文文档](/solution/2700-2799/2737.Find%20the%20Closest%20Marked%20Node/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer <code>n</code> which is the number of nodes of a <strong>0-indexed directed weighted</strong> graph and a <strong>0-indexed</strong> <strong>2D array</strong> <code>edges</code> where <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>, w<sub>i</sub>]</code> indicates that there is an edge from node <code>u<sub>i</sub></code> to node <code>v<sub>i</sub></code> with weight <code>w<sub>i</sub></code>.</p>
 
@@ -73,7 +77,11 @@ So the answer is 3.
 	<li>The graph is generated such that it has no&nbsp;<strong>self-loops</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dijkstra's Algorithm
 
@@ -256,4 +264,6 @@ function minimumDistance(n: number, edges: number[][], s: number, marked: number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

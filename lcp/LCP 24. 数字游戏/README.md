@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2024.%20%E6%95%B0%E5%AD%97%E6%B8%B8%E6%88%8F/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 24. 数字游戏](https://leetcode.cn/problems/5TxKeK)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 小扣在秋日市集入口处发现了一个数字游戏。主办方共有 `N` 个计数器，计数器编号为 `0 ~ N-1`。每个计数器上分别显示了一个数字，小扣按计数器编号升序将所显示的数字记于数组 `nums`。每个计数器上有两个按钮，分别可以实现将显示数字加一或减一。小扣每一次操作可以选择一个计数器，按下加一或减一按钮。
 
@@ -58,7 +60,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2024.%20%E6%95%B0%
 -   `1 <= nums.length <= 10^5`
 -   `1 <= nums[i] <= 10^3`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（大小根堆）
 
@@ -295,4 +301,6 @@ func (h *hp) Pop() any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

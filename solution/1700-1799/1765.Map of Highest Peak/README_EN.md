@@ -10,11 +10,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1765. Map of Highest Peak](https://leetcode.com/problems/map-of-highest-peak)
 
 [中文文档](/solution/1700-1799/1765.Map%20of%20Highest%20Peak/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer matrix <code>isWater</code> of size <code>m x n</code> that represents a map of <strong>land</strong> and <strong>water</strong> cells.</p>
 
@@ -69,7 +73,11 @@ Any height assignment that has a maximum height of 2 while still meeting the rul
 	<li>There is at least <strong>one</strong> water cell.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -279,6 +287,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -409,4 +421,6 @@ func highestPeak(isWater [][]int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

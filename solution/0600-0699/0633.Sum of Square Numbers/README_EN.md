@@ -8,11 +8,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [633. Sum of Square Numbers](https://leetcode.com/problems/sum-of-square-numbers)
 
 [中文文档](/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a non-negative integer <code>c</code>, decide whether there&#39;re two integers <code>a</code> and <code>b</code> such that <code>a<sup>2</sup> + b<sup>2</sup> = c</code>.</p>
 
@@ -39,7 +43,11 @@ tags:
 	<li><code>0 &lt;= c &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics + Two Pointers
 
@@ -169,4 +177,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

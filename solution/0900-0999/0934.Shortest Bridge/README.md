@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [934. 最短的桥](https://leetcode.cn/problems/shortest-bridge)
 
 [English Version](/solution/0900-0999/0934.Shortest%20Bridge/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>n x n</code> 的二元矩阵 <code>grid</code> ，其中 <code>1</code> 表示陆地，<code>0</code> 表示水域。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>grid</code> 中恰有两个岛</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS + BFS
 
@@ -260,4 +266,6 @@ func shortestBridge(grid [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1440. Evaluate Boolean Expression 🔒](https://leetcode.com/problems/evaluate-boolean-expression)
 
 [中文文档](/solution/1400-1499/1440.Evaluate%20Boolean%20Expression/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table <code>Variables</code>:</p>
 
@@ -89,7 +93,11 @@ Expressions table:
 As shown, you need to find the value of each boolean expression in the table using the variables table.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Equi-Join + CASE Expression
 
@@ -119,4 +127,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

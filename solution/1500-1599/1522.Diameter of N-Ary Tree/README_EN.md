@@ -7,11 +7,15 @@ tags:
     - Depth-First Search
 ---
 
+<!-- problem:start -->
+
 # [1522. Diameter of N-Ary Tree 🔒](https://leetcode.com/problems/diameter-of-n-ary-tree)
 
 [中文文档](/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>root</code> of an <code>N-ary tree</code>, you need to compute the length of the diameter of the tree.</p>
 
@@ -55,7 +59,11 @@ tags:
 	<li>The total number of nodes is between <code>[1, 10<sup>4</sup>]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -232,6 +240,10 @@ func diameter(root *Node) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -468,4 +480,6 @@ func diameter(root *Node) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

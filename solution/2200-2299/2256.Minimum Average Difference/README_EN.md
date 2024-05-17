@@ -9,11 +9,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2256. Minimum Average Difference](https://leetcode.com/problems/minimum-average-difference)
 
 [中文文档](/solution/2200-2299/2256.Minimum%20Average%20Difference/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code>.</p>
 
@@ -63,7 +67,11 @@ The average difference of index 0 is: |0 / 1 - 0| = |0 - 0| = 0.
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traverse
 
@@ -200,4 +208,6 @@ function minimumAverageDifference(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

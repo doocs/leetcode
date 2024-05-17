@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [618. Students Report By Geography 🔒](https://leetcode.com/problems/students-report-by-geography)
 
 [中文文档](/solution/0600-0699/0618.Students%20Report%20By%20Geography/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Student</code></p>
 
@@ -61,7 +65,11 @@ Student table:
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> If it is unknown which continent has the most students, could you write a solution to generate the student report?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -89,4 +97,6 @@ GROUP BY rk;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

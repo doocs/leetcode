@@ -4,13 +4,15 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README.md
 ---
 
+<!-- problem:start -->
+
 # [2675. 将对象数组转换为矩阵 🔒](https://leetcode.cn/problems/array-of-objects-to-matrix)
 
 [English Version](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个函数，将对象数组&nbsp;<code>arr</code>&nbsp;转换为矩阵&nbsp;<code>m</code>&nbsp;。</p>
 
@@ -141,7 +143,11 @@ arr = [
 	<li><code>unique keys &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -190,4 +196,6 @@ function jsonToMatrix(arr: any[]): (string | number | boolean | null)[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

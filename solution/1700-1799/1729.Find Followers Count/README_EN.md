@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1729. Find Followers Count](https://leetcode.com/problems/find-followers-count)
 
 [中文文档](/solution/1700-1799/1729.Find%20Followers%20Count/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Followers</code></p>
 
@@ -60,7 +64,11 @@ The followers of 1 are {0}
 The followers of 2 are {0,1}
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping and Aggregation
 
@@ -78,4 +86,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

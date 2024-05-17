@@ -10,11 +10,15 @@ tags:
     - Monotonic Queue
 ---
 
+<!-- problem:start -->
+
 # [918. Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray)
 
 [中文文档](/solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>circular integer array</strong> <code>nums</code> of length <code>n</code>, return <em>the maximum possible sum of a non-empty <strong>subarray</strong> of </em><code>nums</code>.</p>
 
@@ -56,7 +60,11 @@ tags:
 	<li><code>-3 * 10<sup>4</sup> &lt;= nums[i] &lt;= 3 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -147,6 +155,10 @@ function maxSubarraySumCircular(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -236,4 +248,6 @@ function maxSubarraySumCircular(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

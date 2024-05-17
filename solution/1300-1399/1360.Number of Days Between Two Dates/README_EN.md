@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1360. Number of Days Between Two Dates](https://leetcode.com/problems/number-of-days-between-two-dates)
 
 [中文文档](/solution/1300-1399/1360.Number%20of%20Days%20Between%20Two%20Dates/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a program to count the number of days between two dates.</p>
 
@@ -34,7 +38,11 @@ tags:
 	<li>The given dates are valid&nbsp;dates between the years <code>1971</code> and <code>2100</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -226,4 +234,6 @@ function calcDays(date: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

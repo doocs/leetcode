@@ -8,11 +8,15 @@ tags:
     - Probability and Statistics
 ---
 
+<!-- problem:start -->
+
 # [808. Soup Servings](https://leetcode.com/problems/soup-servings)
 
 [中文文档](/solution/0800-0899/0808.Soup%20Servings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are two types of soup: <strong>type A</strong> and <strong>type B</strong>. Initially, we have <code>n</code> ml of each type of soup. There are four kinds of operations:</p>
 
@@ -55,7 +59,11 @@ So the total probability of A becoming empty first plus half the probability tha
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -184,4 +192,6 @@ function soupServings(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

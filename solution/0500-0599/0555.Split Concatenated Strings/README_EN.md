@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [555. Split Concatenated Strings 🔒](https://leetcode.com/problems/split-concatenated-strings)
 
 [中文文档](/solution/0500-0599/0555.Split%20Concatenated%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of strings <code>strs</code>. You could concatenate these strings together into a loop, where for each string, you could choose to reverse it or not. Among all the possible loops</p>
 
@@ -54,7 +58,11 @@ The answer string came from the fourth looped one, where you could cut from the 
 	<li><code>strs[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -201,4 +209,6 @@ func reverse(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

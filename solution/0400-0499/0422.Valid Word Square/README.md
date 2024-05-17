@@ -7,13 +7,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [422. 有效的单词方块 🔒](https://leetcode.cn/problems/valid-word-square)
 
 [English Version](/solution/0400-0499/0422.Valid%20Word%20Square/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>words</code>，如果它能形成一个有效的<strong> 单词方块 </strong>，则返回 <code>true</code> <em>。</em></p>
 
@@ -67,7 +69,11 @@ tags:
 	<li><code>words[i]</code> 仅由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历检查
 
@@ -161,6 +167,10 @@ function validWordSquare(words: string[]): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -178,4 +188,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

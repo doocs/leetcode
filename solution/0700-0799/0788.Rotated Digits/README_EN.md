@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [788. Rotated Digits](https://leetcode.com/problems/rotated-digits)
 
 [中文文档](/solution/0700-0799/0788.Rotated%20Digits/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An integer <code>x</code> is a <strong>good</strong> if after rotating each digit individually by 180 degrees, we get a valid number that is different from <code>x</code>. Each digit must be rotated - we cannot choose to leave it alone.</p>
 
@@ -57,7 +61,11 @@ Note that 1 and 10 are not good numbers, since they remain unchanged after rotat
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -170,6 +178,10 @@ func rotatedDigits(n int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -330,4 +342,6 @@ func rotatedDigits(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

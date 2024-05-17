@@ -10,11 +10,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [2005. Subtree Removal Game with Fibonacci Tree 🔒](https://leetcode.com/problems/subtree-removal-game-with-fibonacci-tree)
 
 [中文文档](/solution/2000-2099/2005.Subtree%20Removal%20Game%20with%20Fibonacci%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>Fibonacci</strong> tree is a binary tree created using the order function <code>order(n)</code>:</p>
 
@@ -75,6 +79,34 @@ Return true because Alice wins.
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

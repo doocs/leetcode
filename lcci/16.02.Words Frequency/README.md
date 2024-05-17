@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.02.Words%20Frequency/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.02. 单词频率](https://leetcode.cn/problems/words-frequency-lcci)
 
 [English Version](/lcci/16.02.Words%20Frequency/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个方法，找出任意指定单词在一本书中的出现频率。</p>
 <p>你的实现应该支持如下操作：</p>
@@ -34,7 +36,11 @@ wordsFrequency.get("pen"); //返回1
 <li><code>get</code>函数的调用次数不会超过100000</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -227,4 +233,6 @@ class WordsFrequency {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

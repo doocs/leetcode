@@ -13,11 +13,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2818. Apply Operations to Maximize Score](https://leetcode.com/problems/apply-operations-to-maximize-score)
 
 [中文文档](/solution/2800-2899/2818.Apply%20Operations%20to%20Maximize%20Score/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> of <code>n</code> positive integers and an integer <code>k</code>.</p>
 
@@ -69,7 +73,11 @@ It can be proven that 4788 is the highest score one can obtain.
 	<li><code>1 &lt;= k &lt;= min(n * (n + 1) / 2, 10<sup>9</sup>)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack + Greedy
 
@@ -454,4 +462,6 @@ function qpow(a: bigint, n: number, mod: number): bigint {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

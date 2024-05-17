@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.25.LRU%20Cache/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.25. LRU Cache](https://leetcode.cn/problems/lru-cache-lcci)
 
 [中文文档](/lcci/16.25.LRU%20Cache/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design and build a &quot;least recently used&quot; cache, which evicts the least recently used item. The cache should map from keys to values (allowing you to insert and retrieve a value associ&shy;ated with a particular key) and be initialized with a max size. When it is full, it should evict the least recently used item.</p>
 
@@ -46,7 +50,11 @@ cache.get(4);       // returns 4
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Doubly Linked List
 
@@ -710,4 +718,6 @@ class LRUCache {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

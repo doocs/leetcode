@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [980. 不同路径 III](https://leetcode.cn/problems/unique-paths-iii)
 
 [English Version](/solution/0900-0999/0980.Unique%20Paths%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在二维网格 <code>grid</code> 上，有 4 种类型的方格：</p>
 
@@ -67,7 +69,11 @@ tags:
 	<li><code>1 &lt;= grid.length * grid[0].length &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：回溯
 
@@ -279,4 +285,6 @@ function uniquePathsIII(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

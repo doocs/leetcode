@@ -8,13 +8,15 @@ tags:
     - 广度优先搜索
 ---
 
+<!-- problem:start -->
+
 # [1197. 进击的骑士 🔒](https://leetcode.cn/problems/minimum-knight-moves)
 
 [English Version](/solution/1100-1199/1197.Minimum%20Knight%20Moves/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个坐标可以从 <code>-infinity</code>&nbsp;延伸到&nbsp;<code>+infinity</code>&nbsp;的 <strong>无限大的</strong>&nbsp;棋盘上，你的 <strong>骑士&nbsp;</strong>驻扎在坐标为&nbsp;<code>[0, 0]</code>&nbsp;的方格里。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li><code>0 &lt;= |x| + |y| &lt;= 300</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -258,6 +264,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二
 
@@ -540,4 +550,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

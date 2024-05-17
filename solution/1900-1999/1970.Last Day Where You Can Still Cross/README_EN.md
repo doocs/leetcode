@@ -13,11 +13,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1970. Last Day Where You Can Still Cross](https://leetcode.com/problems/last-day-where-you-can-still-cross)
 
 [中文文档](/solution/1900-1999/1970.Last%20Day%20Where%20You%20Can%20Still%20Cross/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a <strong>1-based</strong> binary matrix where <code>0</code> represents land and <code>1</code> represents water. You are given integers <code>row</code> and <code>col</code> representing the number of rows and columns in the matrix, respectively.</p>
 
@@ -67,7 +71,11 @@ The last day where it is possible to cross from top to bottom is on day 3.
 	<li>All the values of <code>cells</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -247,4 +255,6 @@ func find(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

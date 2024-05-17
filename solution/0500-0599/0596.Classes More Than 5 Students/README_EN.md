@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [596. Classes More Than 5 Students](https://leetcode.com/problems/classes-more-than-5-students)
 
 [中文文档](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Courses</code></p>
 
@@ -65,7 +69,11 @@ Courses table:
 - Computer has 1 student, so we do not include it.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping and Aggregation
 
@@ -83,4 +91,6 @@ HAVING COUNT(1) >= 5;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

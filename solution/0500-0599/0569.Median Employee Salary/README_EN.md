@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [569. Median Employee Salary 🔒](https://leetcode.com/problems/median-employee-salary)
 
 [中文文档](/solution/0500-0599/0569.Median%20Employee%20Salary/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employee</code></p>
 
@@ -109,7 +113,11 @@ For company C, the rows sorted are as follows:
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it without using any built-in or window functions?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -138,4 +146,6 @@ WHERE rk >= n / 2 AND rk <= n / 2 + 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

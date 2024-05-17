@@ -9,11 +9,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [819. Most Common Word](https://leetcode.com/problems/most-common-word)
 
 [中文文档](/solution/0800-0899/0819.Most%20Common%20Word/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>paragraph</code> and a string array of the banned words <code>banned</code>, return <em>the most frequent word that is not banned</em>. It is <strong>guaranteed</strong> there is <strong>at least one word</strong> that is not banned, and that the answer is <strong>unique</strong>.</p>
 
@@ -51,7 +55,11 @@ and that &quot;hit&quot; isn&#39;t the answer even though it occurs more because
 	<li><code>banned[i]</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -200,4 +208,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

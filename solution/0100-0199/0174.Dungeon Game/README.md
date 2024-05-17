@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [174. 地下城游戏](https://leetcode.cn/problems/dungeon-game)
 
 [English Version](/solution/0100-0199/0174.Dungeon%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <style type="text/css">table.dungeon, .dungeon th, .dungeon td {
   border:3px solid black;
@@ -65,7 +67,11 @@ tags:
 	<li><code>-1000 &lt;= dungeon[i][j] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -172,4 +178,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

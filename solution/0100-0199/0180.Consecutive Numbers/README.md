@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [180. 连续出现的数字](https://leetcode.cn/problems/consecutive-numbers)
 
 [English Version](/solution/0100-0199/0180.Consecutive%20Numbers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Logs</code></p>
 
@@ -61,7 +63,11 @@ Result 表：
 +-----------------+
 <strong>解释：</strong>1 是唯一连续出现至少三次的数字。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两次连接
 
@@ -98,6 +104,10 @@ FROM
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：窗口函数
 
 我们可以使用窗口函数 `LAG` 和 `LEAD` 来获取上一行的 `num` 和下一行的 `num`，记录在字段 $a$ 和 $b$ 中。最后，我们只需要筛选出 $a =num$ 并且 $b = num$ 的行，这些行就是至少连续出现三次的数字。注意，我们需要使用 `DISTINCT` 关键字来对结果去重。
@@ -122,6 +132,10 @@ WHERE a = num AND b = num;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法三
 
@@ -148,4 +162,6 @@ HAVING COUNT(1) >= 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

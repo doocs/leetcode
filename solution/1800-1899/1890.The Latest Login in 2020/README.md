@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1890. 2020 年最后一次登录](https://leetcode.cn/problems/the-latest-login-in-2020)
 
 [English Version](/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Logins</code></p>
 
@@ -69,7 +71,11 @@ Logins 表:
 2号用户登录了2次，但是在2020年仅有一次，所以结果集应包含此次登录。
 14号用户在2020年没有登录，所以结果集不应包含。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组求最大值
 
@@ -87,4 +93,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

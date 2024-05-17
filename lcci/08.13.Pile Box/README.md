@@ -4,13 +4,15 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.13.Pile%20Box/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.13. 堆箱子](https://leetcode.cn/problems/pile-box-lcci)
 
 [English Version](/lcci/08.13.Pile%20Box/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>堆箱子。给你一堆n个箱子，箱子宽 wi、高hi、深di。箱子不能翻转，将箱子堆起来时，下面箱子的宽度、高度和深度必须大于上面的箱子。实现一种方法，搭出最高的一堆箱子。箱堆的高度为每个箱子高度的总和。</p>
 <p>输入使用数组<code>[wi, di, hi]</code>表示每个箱子。</p>
@@ -27,7 +29,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.13.Pile%20Box/READ
 	<li>箱子的数目不大于3000个。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 动态规划
 
@@ -170,4 +176,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

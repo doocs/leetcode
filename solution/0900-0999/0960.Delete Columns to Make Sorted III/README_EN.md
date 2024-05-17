@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [960. Delete Columns to Make Sorted III](https://leetcode.com/problems/delete-columns-to-make-sorted-iii)
 
 [中文文档](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <code>n</code> strings <code>strs</code>, all of the same length.</p>
 
@@ -62,7 +66,11 @@ Note that strs[0] &gt; strs[1] - the array strs is not necessarily in lexicograp
 	<li>&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -165,4 +173,6 @@ func minDeletionSize(strs []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [760. Find Anagram Mappings 🔒](https://leetcode.com/problems/find-anagram-mappings)
 
 [中文文档](/solution/0700-0799/0760.Find%20Anagram%20Mappings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code> where <code>nums2</code> is <strong>an anagram</strong> of <code>nums1</code>. Both arrays may contain duplicates.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>nums2</code> is an anagram of <code>nums1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -80,4 +88,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

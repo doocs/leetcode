@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs)
 
 [中文文档](/solution/0000-0099/0070.Climbing%20Stairs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are climbing a staircase. It takes <code>n</code> steps to reach the top.</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 45</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -177,6 +185,10 @@ class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Matrix Quick Power to Accelerate Recursion
 
@@ -435,6 +447,10 @@ function pow(a, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -458,4 +474,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

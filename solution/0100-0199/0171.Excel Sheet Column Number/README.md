@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [171. Excel 表列序号](https://leetcode.cn/problems/excel-sheet-column-number)
 
 [English Version](/solution/0100-0199/0171.Excel%20Sheet%20Column%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>columnTitle</code> ，表示 Excel 表格中的列名称。返回 <em>该列名称对应的列序号</em>&nbsp;。</p>
 
@@ -61,7 +63,11 @@ AB -&gt; 28
 	<li><code>columnTitle</code> 在范围 <code>["A", "FXSHRXW"]</code> 内</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：进制转换
 
@@ -140,4 +146,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

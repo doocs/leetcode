@@ -10,11 +10,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2451. Odd String Difference](https://leetcode.com/problems/odd-string-difference)
 
 [中文文档](/solution/2400-2499/2451.Odd%20String%20Difference/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of equal-length strings <code>words</code>. Assume that the length of each string is <code>n</code>.</p>
 
@@ -59,7 +63,11 @@ The odd array out is [1, 1], so we return the corresponding string, &quot;abc&qu
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table Simulation
 
@@ -197,6 +205,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -238,4 +250,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

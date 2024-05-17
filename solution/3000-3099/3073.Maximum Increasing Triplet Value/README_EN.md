@@ -7,11 +7,15 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [3073. Maximum Increasing Triplet Value 🔒](https://leetcode.com/problems/maximum-increasing-triplet-value)
 
 [中文文档](/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>nums</code>, return <em>the <strong>maximum value</strong> of a triplet</em> <code>(i, j, k)</code> <em>such that</em> <code>i &lt; j &lt; k</code> <em>and</em> <code>nums[i] &lt; nums[j] &lt; nums[k]</code>.</p>
 
@@ -57,7 +61,11 @@ tags:
 	<li>The input is generated such that at least one triplet meets the given condition.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Suffix Maximum + Ordered Set
 
@@ -681,4 +689,6 @@ class TreeSet<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

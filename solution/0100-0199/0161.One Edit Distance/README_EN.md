@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [161. One Edit Distance 🔒](https://leetcode.com/problems/one-edit-distance)
 
 [中文文档](/solution/0100-0199/0161.One%20Edit%20Distance/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> if they are both one edit distance apart, otherwise return <code>false</code>.</p>
 
@@ -48,7 +52,11 @@ tags:
 	<li><code>s</code> and <code>t</code> consist of lowercase letters, uppercase letters, and digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Discuss Different Cases
 
@@ -163,4 +171,6 @@ function isOneEditDistance(s: string, t: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [52. N 皇后 II](https://leetcode.cn/problems/n-queens-ii)
 
 [English Version](/solution/0000-0099/0052.N-Queens%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>n&nbsp;皇后问题</strong> 研究的是如何将 <code>n</code>&nbsp;个皇后放置在 <code>n × n</code> 的棋盘上，并且使皇后彼此之间不能相互攻击。</p>
 
@@ -47,7 +49,11 @@ tags:
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：回溯
 
@@ -236,4 +242,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -13,11 +13,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2421. Number of Good Paths](https://leetcode.com/problems/number-of-good-paths)
 
 [中文文档](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a tree (i.e. a connected, undirected graph with no cycles) consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> and exactly <code>n - 1</code> edges.</p>
 
@@ -77,7 +81,11 @@ There are 2 additional good paths: 0 -&gt; 1 and 2 -&gt; 3.
 	<li><code>edges</code> represents a valid tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Union Find
 
@@ -269,4 +277,6 @@ func numberOfGoodPaths(vals []int, edges [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

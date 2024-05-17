@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [518. Coin Change II](https://leetcode.com/problems/coin-change-ii)
 
 [中文文档](/solution/0500-0599/0518.Coin%20Change%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>coins</code> representing coins of different denominations and an integer <code>amount</code> representing a total amount of money.</p>
 
@@ -59,7 +63,11 @@ tags:
 	<li><code>0 &lt;= amount &lt;= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming (Complete Knapsack)
 
@@ -263,4 +271,6 @@ function change(amount: number, coins: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

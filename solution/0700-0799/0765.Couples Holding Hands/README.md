@@ -10,13 +10,15 @@ tags:
     - 图
 ---
 
+<!-- problem:start -->
+
 # [765. 情侣牵手](https://leetcode.cn/problems/couples-holding-hands)
 
 [English Version](/solution/0700-0799/0765.Couples%20Holding%20Hands/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>n</code> 对情侣坐在连续排列的 <code>2n</code>&nbsp;个座位上，想要牵到对方的手。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>row</code>&nbsp;中所有元素均<strong>无重复</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：并查集
 
@@ -234,4 +240,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

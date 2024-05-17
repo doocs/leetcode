@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2036. Maximum Alternating Subarray Sum 🔒](https://leetcode.com/problems/maximum-alternating-subarray-sum)
 
 [中文文档](/solution/2000-2099/2036.Maximum%20Alternating%20Subarray%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>subarray</strong> of a <strong>0-indexed</strong> integer array is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p>
 
@@ -60,7 +64,11 @@ The alternating subarray sum is 1.
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -141,4 +149,6 @@ function maximumAlternatingSubarraySum(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1772. Sort Features by Popularity 🔒](https://leetcode.com/problems/sort-features-by-popularity)
 
 [中文文档](/solution/1700-1799/1772.Sort%20Features%20by%20Popularity/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string array <code>features</code> where <code>features[i]</code> is a single word that represents the name of a feature of the latest product you are working on. You have made a survey where users have reported which features they like. You are given a string array <code>responses</code>, where each <code>responses[i]</code> is a string containing space-separated words.</p>
 
@@ -52,7 +56,11 @@ tags:
 	<li><code>responses[i]</code> has no leading or trailing spaces.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Custom Sorting
 
@@ -180,4 +188,6 @@ function sortFeatures(features: string[], responses: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

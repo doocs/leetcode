@@ -10,13 +10,15 @@ tags:
     - 数据流
 ---
 
+<!-- problem:start -->
+
 # [170. 两数之和 III - 数据结构设计 🔒](https://leetcode.cn/problems/two-sum-iii-data-structure-design)
 
 [English Version](/solution/0100-0199/0170.Two%20Sum%20III%20-%20Data%20structure%20design/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个接收整数流的数据结构，该数据结构支持检查是否存在两数之和等于特定值。</p>
 
@@ -57,7 +59,11 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
 	<li>最多调用 <code>10<sup>4</sup></code> 次 <code>add</code> 和 <code>find</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -223,4 +229,6 @@ class TwoSum {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

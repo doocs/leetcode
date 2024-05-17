@@ -6,11 +6,15 @@ tags:
     - Concurrency
 ---
 
+<!-- problem:start -->
+
 # [1188. Design Bounded Blocking Queue 🔒](https://leetcode.com/problems/design-bounded-blocking-queue)
 
 [中文文档](/solution/1100-1199/1188.Design%20Bounded%20Blocking%20Queue/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement a thread-safe bounded blocking queue that has the following methods:</p>
 
@@ -96,7 +100,11 @@ Since the number of threads for producer/consumer is greater than 1, we do not k
 	<li>At most <code>40</code> calls will be made to <code>enque</code>, <code>deque</code>, and <code>size</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -193,4 +201,6 @@ private:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

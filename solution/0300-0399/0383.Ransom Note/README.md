@@ -8,13 +8,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [383. 赎金信](https://leetcode.cn/problems/ransom-note)
 
 [English Version](/solution/0300-0399/0383.Ransom%20Note/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串：<code>ransomNote</code> 和 <code>magazine</code> ，判断 <code>ransomNote</code> 能不能由 <code>magazine</code> 里面的字符构成。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>ransomNote</code> 和 <code>magazine</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表或数组
 
@@ -186,4 +192,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

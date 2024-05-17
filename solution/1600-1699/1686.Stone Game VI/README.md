@@ -13,13 +13,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1686. 石子游戏 VI](https://leetcode.cn/problems/stone-game-vi)
 
 [English Version](/solution/1600-1699/1686.Stone%20Game%20VI/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 轮流玩一个游戏，Alice 先手。</p>
 
@@ -81,7 +83,11 @@ Bob 会获胜。
 	<li><code>1 <= aliceValues[i], bobValues[i] <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -212,4 +218,6 @@ function stoneGameVI(aliceValues: number[], bobValues: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

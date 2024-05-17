@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.05.Sort%20of%20Stacks/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 03.05. 栈排序](https://leetcode.cn/problems/sort-of-stacks-lcci)
 
 [English Version](/lcci/03.05.Sort%20of%20Stacks/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>栈排序。 编写程序，对栈进行排序使最小元素位于栈顶。最多只能使用一个其他的临时栈存放数据，但不得将元素复制到别的数据结构（如数组）中。该栈支持如下操作：<code>push</code>、<code>pop</code>、<code>peek</code> 和 <code>isEmpty</code>。当栈为空时，<code>peek</code>&nbsp;返回 -1。</p>
 
 <p><strong>示例1:</strong></p>
@@ -37,7 +40,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.05.Sort%20of%20Sta
 	<li>栈中的元素数目在[0, 5000]范围内。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈 + 辅助栈
 
@@ -365,4 +372,6 @@ class SortedStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

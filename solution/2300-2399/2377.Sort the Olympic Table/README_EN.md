@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2377. Sort the Olympic Table 🔒](https://leetcode.com/problems/sort-the-olympic-table)
 
 [中文文档](/solution/2300-2399/2377.Sort%20the%20Olympic%20Table/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Olympic</code></p>
 
@@ -72,7 +76,11 @@ The tie between China and USA is broken by their lexicographical names. Since &q
 Israel comes before Egypt because it has more bronze medals.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -87,4 +95,6 @@ ORDER BY 2 DESC, 3 DESC, 4 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

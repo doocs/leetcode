@@ -11,13 +11,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [1208. 尽可能使字符串相等](https://leetcode.cn/problems/get-equal-substrings-within-budget)
 
 [English Version](/solution/1200-1299/1208.Get%20Equal%20Substrings%20Within%20Budget/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个长度相同的字符串，<code>s</code> 和 <code>t</code>。</p>
 
@@ -64,7 +66,11 @@ tags:
 	<li><code>s</code> 和 <code>t</code> 都只含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 二分查找
 
@@ -210,6 +216,10 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：双指针
 
 我们可以维护两个指针 $j$ 和 $i$，初始时 $i = j = 0$；维护一个变量 $sum$，表示下标区间 $[i,..j]$ 之间的 ASCII 码值的差的绝对值之和。在每一步中，我们将 $i$ 向右移动一位，然后更新 $sum = sum + |s[i] - t[i]|$。如果 $sum \gt maxCost$，那么我们就循环将指针 $j$ 向右移动，并且在移动过程中不断减少 $sum$ 的值，直到 $sum \leq maxCost$。然后我们更新答案，即 $ans = \max(ans, i - j + 1)$。
@@ -298,4 +308,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

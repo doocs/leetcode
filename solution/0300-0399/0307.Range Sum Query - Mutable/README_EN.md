@@ -9,11 +9,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [307. Range Sum Query - Mutable](https://leetcode.com/problems/range-sum-query-mutable)
 
 [中文文档](/solution/0300-0399/0307.Range%20Sum%20Query%20-%20Mutable/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, handle multiple queries of the following types:</p>
 
@@ -59,7 +63,11 @@ numArray.sumRange(0, 2); // return 1 + 2 + 5 = 8
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>update</code> and <code>sumRange</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -385,6 +393,10 @@ public class NumArray {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -920,4 +932,6 @@ public class NumArray {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

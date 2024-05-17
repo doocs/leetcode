@@ -12,11 +12,15 @@ tags:
     - Data Stream
 ---
 
+<!-- problem:start -->
+
 # [2526. Find Consecutive Integers from a Data Stream](https://leetcode.com/problems/find-consecutive-integers-from-a-data-stream)
 
 [中文文档](/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>For a stream of integers, implement a data structure that checks if the last <code>k</code> integers parsed in the stream are <strong>equal</strong> to <code>value</code>.</p>
 
@@ -56,7 +60,11 @@ dataStream.consec(3); // The last k integers parsed in the stream are [4,4,3].
 	<li>At most <code>10<sup>5</sup></code> calls will be made to <code>consec</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -179,4 +187,6 @@ class DataStream {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

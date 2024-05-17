@@ -10,11 +10,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1363. Largest Multiple of Three](https://leetcode.com/problems/largest-multiple-of-three)
 
 [中文文档](/solution/1300-1399/1363.Largest%20Multiple%20of%20Three/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of digits <code>digits</code>, return <em>the largest multiple of <strong>three</strong> that can be formed by concatenating some of the given digits in <strong>any order</strong></em>. If there is no answer return an empty string.</p>
 
@@ -50,7 +54,11 @@ tags:
 	<li><code>0 &lt;= digits[i] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Dynamic Programming + Backtracking
 
@@ -234,4 +242,6 @@ function largestMultipleOfThree(digits: number[]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

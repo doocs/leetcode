@@ -9,11 +9,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [672. Bulb Switcher II](https://leetcode.com/problems/bulb-switcher-ii)
 
 [中文文档](/solution/0600-0699/0672.Bulb%20Switcher%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a room with <code>n</code> bulbs labeled from <code>1</code> to <code>n</code> that all are turned on initially, and <strong>four buttons</strong> on the wall. Each of the four buttons has a different functionality where:</p>
 
@@ -70,7 +74,11 @@ tags:
 	<li><code>0 &lt;= presses &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -172,4 +180,6 @@ func flipLights(n int, presses int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

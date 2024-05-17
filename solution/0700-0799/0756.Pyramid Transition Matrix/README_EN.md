@@ -8,11 +8,15 @@ tags:
     - Breadth-First Search
 ---
 
+<!-- problem:start -->
+
 # [756. Pyramid Transition Matrix](https://leetcode.com/problems/pyramid-transition-matrix)
 
 [中文文档](/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are stacking blocks to form a pyramid. Each block has a color, which is represented by a single letter. Each row of blocks contains <strong>one less block</strong> than the row beneath it and is centered on top.</p>
 
@@ -57,7 +61,11 @@ Starting from the bottom (level 4), there are multiple ways to build level 3, bu
 	<li>All the values of <code>allowed</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -212,4 +220,6 @@ func pyramidTransition(bottom string, allowed []string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

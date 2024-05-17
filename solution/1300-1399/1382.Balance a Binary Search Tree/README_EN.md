@@ -13,11 +13,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1382. Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree)
 
 [中文文档](/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary search tree, return <em>a <strong>balanced</strong> binary search tree with the same node values</em>. If there is more than one answer, return <strong>any of them</strong>.</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: In-order Traversal + Construct Balanced Binary Search Tree
 
@@ -255,4 +263,6 @@ function balanceBST(root: TreeNode | null): TreeNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

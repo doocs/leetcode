@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20059.%20%E6%95%B0%E6%8D%AE%E6%B5%81%E7%9A%84%E7%AC%AC%20K%20%E5%A4%A7%E6%95%B0%E5%80%BC/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 059. 数据流的第 K 大数值](https://leetcode.cn/problems/jBjn9C)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个找到数据流中第 <code>k</code> 大元素的类（class）。注意是排序后的第 <code>k</code> 大元素，不是第 <code>k</code> 个不同的元素。</p>
 
@@ -55,7 +57,11 @@ kthLargest.add(4);   // return 8
 
 <p><meta charset="UTF-8" />注意：本题与主站 703&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/kth-largest-element-in-a-stream/">https://leetcode.cn/problems/kth-largest-element-in-a-stream/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -213,4 +219,6 @@ func (h *IntHeap) Top() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

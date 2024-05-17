@@ -10,11 +10,15 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [2360. Longest Cycle in a Graph](https://leetcode.com/problems/longest-cycle-in-a-graph)
 
 [中文文档](/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>directed</strong> graph of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>, where each node has <strong>at most one</strong> outgoing edge.</p>
 
@@ -52,7 +56,11 @@ The length of this cycle is 3, so 3 is returned.
 	<li><code>edges[i] != i</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traverse Starting Points
 
@@ -211,4 +219,6 @@ function longestCycle(edges: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

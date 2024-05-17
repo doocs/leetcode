@@ -9,13 +9,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [2272. 最大波动的子字符串](https://leetcode.cn/problems/substring-with-largest-variance)
 
 [English Version](/solution/2200-2299/2272.Substring%20With%20Largest%20Variance/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>字符串的 <strong>波动</strong>&nbsp;定义为子字符串中出现次数 <strong>最多</strong>&nbsp;的字符次数与出现次数 <strong>最少</strong>&nbsp;的字符次数之差。</p>
 
@@ -57,7 +59,11 @@ s 中没有字母出现超过 1 次，所以 s 中每个子字符串的波动值
 	<li><code>s</code>&nbsp; 只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 动态规划
 
@@ -178,4 +184,6 @@ func largestVariance(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

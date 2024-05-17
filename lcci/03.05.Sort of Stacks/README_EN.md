@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.05.Sort%20of%20Stacks/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [03.05. Sort of Stacks](https://leetcode.cn/problems/sort-of-stacks-lcci)
 
 [中文文档](/lcci/03.05.Sort%20of%20Stacks/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a program to sort a stack such that the smallest items are on the top. You can use an additional temporary stack, but you may not copy the elements into any other data structure (such as an array). The stack supports the following operations: <code>push</code>, <code>pop</code>, <code>peek</code>, and <code>isEmpty</code>. When the stack is empty, <code>peek</code> should return -1.</p>
 
@@ -50,7 +54,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.05.Sort%20of%20Sta
 	<li>The total number of elements in the stack is within the range [0, 5000].</li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack + Auxiliary Stack
 
@@ -378,4 +386,6 @@ class SortedStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

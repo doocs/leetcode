@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1469. Find All The Lonely Nodes 🔒](https://leetcode.com/problems/find-all-the-lonely-nodes)
 
 [中文文档](/solution/1400-1499/1469.Find%20All%20The%20Lonely%20Nodes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In a binary tree, a <strong>lonely</strong> node is a node that is the only child of its parent node. The root of the tree is not lonely because it does not have a parent node.</p>
 
@@ -57,7 +61,11 @@ All other nodes are lonely.
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -189,4 +197,6 @@ func getLonelyNodes(root *TreeNode) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

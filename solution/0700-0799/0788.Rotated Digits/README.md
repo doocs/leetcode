@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [788. 旋转数字](https://leetcode.cn/problems/rotated-digits)
 
 [English Version](/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们称一个数 X 为好数, 如果它的每位数字逐个地被旋转 180 度后，我们仍可以得到一个有效的，且和 X 不同的数。要求每位数字都要被旋转。</p>
 
@@ -40,7 +42,11 @@ tags:
 	<li>N&nbsp;的取值范围是&nbsp;<code>[1, 10000]</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：直接枚举
 
@@ -167,6 +173,10 @@ func rotatedDigits(n int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：数位 DP
 
@@ -365,4 +375,6 @@ func rotatedDigits(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

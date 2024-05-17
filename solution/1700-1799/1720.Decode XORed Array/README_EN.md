@@ -9,11 +9,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1720. Decode XORed Array](https://leetcode.com/problems/decode-xored-array)
 
 [中文文档](/solution/1700-1799/1720.Decode%20XORed%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a <strong>hidden</strong> integer array <code>arr</code> that consists of <code>n</code> non-negative integers.</p>
 
@@ -49,7 +53,11 @@ tags:
 	<li><code>0 &lt;= first &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -102,4 +110,6 @@ func decode(encoded []int, first int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

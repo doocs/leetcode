@@ -11,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1383. Maximum Performance of a Team](https://leetcode.com/problems/maximum-performance-of-a-team)
 
 [中文文档](/solution/1300-1399/1383.Maximum%20Performance%20of%20a%20Team/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>n</code> and <code>k</code> and two integer arrays <code>speed</code> and <code>efficiency</code> both of length <code>n</code>. There are <code>n</code> engineers numbered from <code>1</code> to <code>n</code>. <code>speed[i]</code> and <code>efficiency[i]</code> represent the speed and efficiency of the <code>i<sup>th</sup></code> engineer respectively.</p>
 
@@ -62,7 +66,11 @@ We have the maximum performance of the team by selecting engineer 2 (with speed=
 	<li><code>1 &lt;= efficiency[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -174,4 +182,6 @@ func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

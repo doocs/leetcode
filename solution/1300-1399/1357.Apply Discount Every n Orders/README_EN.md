@@ -10,11 +10,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1357. Apply Discount Every n Orders](https://leetcode.com/problems/apply-discount-every-n-orders)
 
 [中文文档](/solution/1300-1399/1357.Apply%20Discount%20Every%20n%20Orders/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a supermarket that is frequented by many customers. The products sold at the supermarket are represented as two parallel integer arrays <code>products</code> and <code>prices</code>, where the <code>i<sup>th</sup></code> product has an ID of <code>products[i]</code> and a price of <code>prices[i]</code>.</p>
 
@@ -75,7 +79,11 @@ cashier.getBill([2,3,5],[5,3,2]);                    // return 2500.0.  7<sup>th
 	<li>Answers within <code>10<sup>-5</sup></code> of the actual value will be accepted.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
 
@@ -215,4 +223,6 @@ func (this *Cashier) GetBill(product []int, amount []int) (ans float64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

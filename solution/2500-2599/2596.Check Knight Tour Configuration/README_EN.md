@@ -12,11 +12,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2596. Check Knight Tour Configuration](https://leetcode.com/problems/check-knight-tour-configuration)
 
 [中文文档](/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a knight on an <code>n x n</code> chessboard. In a valid configuration, the knight starts <strong>at the top-left cell</strong> of the board and visits every cell on the board <strong>exactly once</strong>.</p>
 
@@ -53,7 +57,11 @@ tags:
 	<li>All integers in <code>grid</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -201,4 +209,6 @@ function checkValidGrid(grid: number[][]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

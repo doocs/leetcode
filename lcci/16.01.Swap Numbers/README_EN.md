@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.01.Swap%20Numbers/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.01. Swap Numbers](https://leetcode.cn/problems/swap-numbers-lcci)
 
 [中文文档](/lcci/16.01.Swap%20Numbers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a function to swap a number in place (that is, without temporary vari&shy; ables).</p>
 
@@ -28,7 +32,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.01.Swap%20Numbers/
 	<li><code>numbers.length == 2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bitwise Operation
 
@@ -116,4 +124,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

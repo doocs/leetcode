@@ -10,11 +10,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [745. Prefix and Suffix Search](https://leetcode.com/problems/prefix-and-suffix-search)
 
 [中文文档](/solution/0700-0799/0745.Prefix%20and%20Suffix%20Search/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a special dictionary that searches the words in it by a prefix and a suffix.</p>
 
@@ -50,7 +54,11 @@ wordFilter.f(&quot;a&quot;, &quot;e&quot;); // return 0, because the word at ind
 	<li>At most <code>10<sup>4</sup></code> calls will be made to the function <code>f</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -175,6 +183,10 @@ func (this *WordFilter) F(pref string, suff string) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -392,4 +404,6 @@ func reverse(w string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

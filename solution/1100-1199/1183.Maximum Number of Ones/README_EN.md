@@ -9,11 +9,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1183. Maximum Number of Ones 🔒](https://leetcode.com/problems/maximum-number-of-ones)
 
 [中文文档](/solution/1100-1199/1183.Maximum%20Number%20of%20Ones/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Consider a matrix <code>M</code> with dimensions <code>width * height</code>, such that every cell has value <code>0</code>&nbsp;or <code>1</code>, and any <strong>square</strong>&nbsp;sub-matrix of <code>M</code> of size <code>sideLength * sideLength</code>&nbsp;has at most <code>maxOnes</code>&nbsp;ones.</p>
 
@@ -53,7 +57,11 @@ The best solution that has 4 ones is:
 	<li><code>0 &lt;= maxOnes &lt;= sideLength * sideLength</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Count Equivalent Positions
 
@@ -166,4 +174,6 @@ var maximumNumberOfOnes = function (width, height, sideLength, maxOnes) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

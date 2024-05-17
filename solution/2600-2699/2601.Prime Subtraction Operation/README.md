@@ -12,13 +12,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [2601. 质数减法运算](https://leetcode.cn/problems/prime-subtraction-operation)
 
 [English Version](/solution/2600-2699/2601.Prime%20Subtraction%20Operation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> ，数组长度为 <code>n</code> 。</p>
 
@@ -68,7 +70,11 @@ tags:
 	<li><code>nums.length == n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理质数 + 二分查找
 
@@ -256,4 +262,6 @@ function primeSubOperation(nums: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [741. Cherry Pickup](https://leetcode.com/problems/cherry-pickup)
 
 [中文文档](/solution/0700-0799/0741.Cherry%20Pickup/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>n x n</code> <code>grid</code> representing a field of cherries, each cell is one of three possible integers.</p>
 
@@ -62,7 +66,11 @@ The total number of cherries picked up is 5, and this is the maximum possible.
 	<li><code>grid[n - 1][n - 1] != -1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -291,4 +299,6 @@ var cherryPickup = function (grid) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

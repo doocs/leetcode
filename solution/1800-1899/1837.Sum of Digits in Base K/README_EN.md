@@ -8,11 +8,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1837. Sum of Digits in Base K](https://leetcode.com/problems/sum-of-digits-in-base-k)
 
 [中文文档](/solution/1800-1899/1837.Sum%20of%20Digits%20in%20Base%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code> (in base <code>10</code>) and a base <code>k</code>, return <em>the <strong>sum</strong> of the digits of </em><code>n</code><em> <strong>after</strong> converting </em><code>n</code><em> from base </em><code>10</code><em> to base </em><code>k</code>.</p>
 
@@ -43,7 +47,11 @@ tags:
 	<li><code>2 &lt;= k &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -153,4 +161,6 @@ int sumBase(int n, int k) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

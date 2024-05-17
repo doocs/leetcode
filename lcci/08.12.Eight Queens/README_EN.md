@@ -4,11 +4,15 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.12.Eight%20Queens/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.12. Eight Queens](https://leetcode.cn/problems/eight-queens-lcci)
 
 [中文文档](/lcci/08.12.Eight%20Queens/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write an algorithm to print all ways of arranging n queens on an n x n&nbsp;chess board so that none of them share the same row, column, or diagonal. In this case, &quot;diagonal&quot; means all diagonals, not just the two that bisect the board.</p>
 
@@ -48,7 +52,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.12.Eight%20Queens/
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS (Backtracking)
 
@@ -312,4 +320,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

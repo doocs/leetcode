@@ -7,11 +7,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [927. Three Equal Parts](https://leetcode.com/problems/three-equal-parts)
 
 [中文文档](/solution/0900-0999/0927.Three%20Equal%20Parts/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>arr</code> which consists of only zeros and ones, divide the array into <strong>three non-empty parts</strong> such that all of these parts represent the same binary value.</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li><code>arr[i]</code> is <code>0</code> or <code>1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Three Pointers
 
@@ -237,4 +245,6 @@ var threeEqualParts = function (arr) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

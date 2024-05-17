@@ -7,11 +7,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [93. Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses)
 
 [中文文档](/solution/0000-0099/0093.Restore%20IP%20Addresses/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>valid IP address</strong> consists of exactly four integers separated by single dots. Each integer is between <code>0</code> and <code>255</code> (<strong>inclusive</strong>) and cannot have leading zeros.</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li><code>s</code> consists of digits only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -258,4 +266,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

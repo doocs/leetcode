@@ -7,11 +7,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [283. Move Zeroes](https://leetcode.com/problems/move-zeroes)
 
 [中文文档](/solution/0200-0299/0283.Move%20Zeroes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, move all <code>0</code>&#39;s to the end of it while maintaining the relative order of the non-zero elements.</p>
 
@@ -36,7 +40,11 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you minimize the total number of operations done?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -168,4 +176,6 @@ void moveZeroes(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

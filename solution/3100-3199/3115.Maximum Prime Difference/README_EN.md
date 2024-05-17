@@ -10,11 +10,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [3115. Maximum Prime Difference](https://leetcode.com/problems/maximum-prime-difference)
 
 [中文文档](/solution/3100-3199/3115.Maximum%20Prime%20Difference/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>.</p>
 
@@ -50,7 +54,11 @@ tags:
 	<li>The input is generated such that the number of prime numbers in the <code>nums</code> is at least one.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal
 
@@ -187,4 +195,6 @@ function maximumPrimeDifference(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

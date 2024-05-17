@@ -7,11 +7,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [878. Nth Magical Number](https://leetcode.com/problems/nth-magical-number)
 
 [中文文档](/solution/0800-0899/0878.Nth%20Magical%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A positive integer is <em>magical</em> if it is divisible by either <code>a</code> or <code>b</code>.</p>
 
@@ -40,7 +44,11 @@ tags:
 	<li><code>2 &lt;= a, b &lt;= 4 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -119,4 +127,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

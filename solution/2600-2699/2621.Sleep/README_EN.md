@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2621.Sleep/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2621. Sleep](https://leetcode.com/problems/sleep)
 
 [中文文档](/solution/2600-2699/2621.Sleep/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given&nbsp;a positive integer <code>millis</code>, write an asynchronous function that sleeps for <code>millis</code>&nbsp;milliseconds. It can resolve any value.</p>
 
@@ -40,7 +44,11 @@ sleep(100).then(() =&gt; {
 	<li><code>1 &lt;= millis &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -59,4 +67,6 @@ async function sleep(millis: number): Promise<void> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2939. Maximum Xor Product](https://leetcode.com/problems/maximum-xor-product)
 
 [中文文档](/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given three integers <code>a</code>, <code>b</code>, and <code>n</code>, return <em>the <strong>maximum value</strong> of</em> <code>(a XOR x) * (b XOR x)</code> <em>where</em> <code>0 &lt;= x &lt; 2<sup>n</sup></code>.</p>
 
@@ -57,7 +61,11 @@ It can be shown that 12 is the maximum value of (a XOR x) * (b XOR x) for all 0 
 	<li><code>0 &lt;= n &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Bitwise Operation
 
@@ -189,4 +197,6 @@ function maximumXorProduct(a: number, b: number, n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

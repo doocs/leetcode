@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3060. User Activities within Time Bounds 🔒](https://leetcode.com/problems/user-activities-within-time-bounds)
 
 [中文文档](/solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Sessions</code></p>
 
@@ -70,7 +74,11 @@ Sessions table:
 Output table is ordered by user_id in increasing order.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Window Function + Time Function
 
@@ -115,4 +123,6 @@ def user_activities(sessions: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

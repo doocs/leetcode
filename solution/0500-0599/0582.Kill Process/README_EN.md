@@ -10,11 +10,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [582. Kill Process 🔒](https://leetcode.com/problems/kill-process)
 
 [中文文档](/solution/0500-0599/0582.Kill%20Process/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code> processes forming a rooted tree structure. You are given two integer arrays <code>pid</code> and <code>ppid</code>, where <code>pid[i]</code> is the ID of the <code>i<sup>th</sup></code> process and <code>ppid[i]</code> is the ID of the <code>i<sup>th</sup></code> process&#39;s parent process.</p>
 
@@ -54,7 +58,11 @@ tags:
 	<li><code>kill</code> is <strong>guaranteed</strong> to be in <code>pid</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -194,4 +202,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

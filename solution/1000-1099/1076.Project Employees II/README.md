@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1076. 项目员工 II 🔒](https://leetcode.cn/problems/project-employees-ii)
 
 [English Version](/solution/1000-1099/1076.Project%20Employees%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Project</code></p>
 
@@ -83,7 +85,11 @@ Employee table:
 <strong>解释：</strong>
 第一个项目有3名员工，第二个项目有2名员工。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -103,6 +109,10 @@ HAVING
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二
 
@@ -125,4 +135,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

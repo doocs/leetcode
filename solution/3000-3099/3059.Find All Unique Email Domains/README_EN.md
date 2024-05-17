@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3059. Find All Unique Email Domains 🔒](https://leetcode.com/problems/find-all-unique-email-domains)
 
 [中文文档](/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Emails</code></p>
 
@@ -59,7 +63,11 @@ Emails table:
 Output table is ordered by email_domains in ascending order.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Using `SUBSTRING_INDEX` Function + Grouping Statistics
 
@@ -93,4 +101,6 @@ def find_unique_email_domains(emails: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2004.%20%E8%A6%86%E7%9B%96/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 04. 覆盖](https://leetcode.cn/problems/broken-board-dominoes)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一块棋盘，棋盘上有一些格子已经坏掉了。你还有无穷块大小为<code>1 * 2</code>的多米诺骨牌，你想把这些骨牌<strong>不重叠</strong>地覆盖在<strong>完好</strong>的格子上，请找出你最多能在棋盘上放多少块骨牌？这些骨牌可以横着或者竖着放。</p>
 
@@ -48,6 +50,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2004.%20%E8%A6%86%
 	<li><code>0 &lt;= b &lt;= n * m</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

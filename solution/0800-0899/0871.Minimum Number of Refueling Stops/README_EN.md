@@ -9,11 +9,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [871. Minimum Number of Refueling Stops](https://leetcode.com/problems/minimum-number-of-refueling-stops)
 
 [中文文档](/solution/0800-0899/0871.Minimum%20Number%20of%20Refueling%20Stops/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A car travels from a starting position to a destination which is <code>target</code> miles east of the starting position.</p>
 
@@ -64,7 +68,11 @@ We made 2 refueling stops along the way, so we return 2.
 	<li><code>1 &lt;= fuel<sub>i</sub> &lt; 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -179,4 +187,6 @@ func (h *hp) pop() int   { return heap.Pop(h).(int) }
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

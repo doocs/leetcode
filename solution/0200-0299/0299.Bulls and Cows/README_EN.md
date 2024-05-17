@@ -8,11 +8,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows)
 
 [中文文档](/solution/0200-0299/0299.Bulls%20and%20Cows/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are playing the <strong><a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" target="_blank">Bulls and Cows</a></strong> game with your friend.</p>
 
@@ -59,7 +63,11 @@ Note that only one of the two unmatched 1s is counted as a cow since the non-bul
 	<li><code>secret</code> and <code>guess</code> consist of digits only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -210,4 +218,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [578. Get Highest Answer Rate Question 🔒](https://leetcode.com/problems/get-highest-answer-rate-question)
 
 [中文文档](/solution/0500-0599/0578.Get%20Highest%20Answer%20Rate%20Question/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>SurveyLog</code></p>
 
@@ -65,7 +69,11 @@ Question 285 was showed 1 time and answered 1 time. The answer rate of question 
 Question 369 was showed 1 time and was not answered. The answer rate of question 369 is 0.0
 Question 285 has the highest answer rate.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -81,6 +89,10 @@ LIMIT 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -104,4 +116,6 @@ LIMIT 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

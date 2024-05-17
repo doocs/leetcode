@@ -9,13 +9,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [2523. 范围内最接近的两个质数](https://leetcode.cn/problems/closest-prime-numbers-in-range)
 
 [English Version](/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数&nbsp;<code>left</code> 和&nbsp;<code>right</code>&nbsp;，请你找到两个整数&nbsp;<code>num1</code> 和&nbsp;<code>num2</code>&nbsp;，它们满足：</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li><code>1 &lt;= left &lt;= right &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：线性筛
 
@@ -225,4 +231,6 @@ func closestPrimes(left int, right int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [471. Encode String with Shortest Length 🔒](https://leetcode.com/problems/encode-string-with-shortest-length)
 
 [中文文档](/solution/0400-0499/0471.Encode%20String%20with%20Shortest%20Length/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, encode the string such that its encoded length is the shortest.</p>
 
@@ -52,7 +56,11 @@ tags:
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -233,4 +241,6 @@ function encode(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

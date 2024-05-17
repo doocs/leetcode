@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2648.Generate%20Fibonacci%20Sequence/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2648. Generate Fibonacci Sequence](https://leetcode.com/problems/generate-fibonacci-sequence)
 
 [中文文档](/solution/2600-2699/2648.Generate%20Fibonacci%20Sequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a generator function that returns a generator object which yields the&nbsp;<strong>fibonacci sequence</strong>.</p>
 
@@ -46,7 +50,11 @@ gen.next().value; // 3
 	<li><code>0 &lt;= callCount &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -71,4 +79,6 @@ function* fibGenerator(): Generator<number, any, number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

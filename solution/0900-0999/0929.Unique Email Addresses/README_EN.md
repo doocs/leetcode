@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [929. Unique Email Addresses](https://leetcode.com/problems/unique-email-addresses)
 
 [中文文档](/solution/0900-0999/0929.Unique%20Email%20Addresses/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Every <strong>valid email</strong> consists of a <strong>local name</strong> and a <strong>domain name</strong>, separated by the <code>&#39;@&#39;</code> sign. Besides lowercase letters, the email may contain one or more <code>&#39;.&#39;</code> or <code>&#39;+&#39;</code>.</p>
 
@@ -65,7 +69,11 @@ tags:
 	<li>Domain names end with the <code>&quot;.com&quot;</code> suffix.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -218,4 +226,6 @@ const numUniqueEmails = function (emails) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

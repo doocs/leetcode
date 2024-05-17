@@ -9,13 +9,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1046. 最后一块石头的重量](https://leetcode.cn/problems/last-stone-weight)
 
 [English Version](/solution/1000-1099/1046.Last%20Stone%20Weight/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一堆石头，每块石头的重量都是正整数。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>1 <= stones[i] <= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（大根堆）
 
@@ -185,4 +191,6 @@ var lastStoneWeight = function (stones) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

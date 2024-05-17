@@ -9,11 +9,15 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [261. Graph Valid Tree 🔒](https://leetcode.com/problems/graph-valid-tree)
 
 [中文文档](/solution/0200-0299/0261.Graph%20Valid%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a graph of <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. You are given an integer n and a list of <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an undirected edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the graph.</p>
 
@@ -46,7 +50,11 @@ tags:
 	<li>There are no self-loops or repeated edges.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find
 
@@ -181,6 +189,10 @@ var validTree = function (n, edges) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: DFS
 
@@ -329,6 +341,6 @@ var validTree = function (n, edges) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
 
-<!-- end -->
+<!-- problem:end -->

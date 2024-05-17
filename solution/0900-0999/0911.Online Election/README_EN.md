@@ -9,11 +9,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [911. Online Election](https://leetcode.com/problems/online-election)
 
 [中文文档](/solution/0900-0999/0911.Online%20Election/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integer arrays <code>persons</code> and <code>times</code>. In an election, the <code>i<sup>th</sup></code> vote was cast for <code>persons[i]</code> at time <code>times[i]</code>.</p>
 
@@ -60,7 +64,11 @@ topVotedCandidate.q(8); // return 1
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>q</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -251,4 +259,6 @@ class TopVotedCandidate {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

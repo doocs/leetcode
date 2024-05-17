@@ -10,11 +10,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1222. Queens That Can Attack the King](https://leetcode.com/problems/queens-that-can-attack-the-king)
 
 [中文文档](/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>On a <strong>0-indexed</strong> <code>8 x 8</code> chessboard, there can be multiple black queens and one white king.</p>
 
@@ -49,7 +53,11 @@ tags:
 	<li>All the given positions are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Direct Search
 
@@ -195,4 +203,6 @@ function queensAttacktheKing(queens: number[][], king: number[]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

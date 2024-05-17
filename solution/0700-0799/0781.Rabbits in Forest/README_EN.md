@@ -9,11 +9,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [781. Rabbits in Forest](https://leetcode.com/problems/rabbits-in-forest)
 
 [中文文档](/solution/0700-0799/0781.Rabbits%20in%20Forest/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a forest with an unknown number of rabbits. We asked n rabbits <strong>&quot;How many rabbits have the same color as you?&quot;</strong> and collected the answers in an integer array <code>answers</code> where <code>answers[i]</code> is the answer of the <code>i<sup>th</sup></code> rabbit.</p>
 
@@ -48,7 +52,11 @@ The smallest possible number of rabbits in the forest is therefore 5: 3 that ans
 	<li><code>0 &lt;= answers[i] &lt; 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -80,4 +88,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

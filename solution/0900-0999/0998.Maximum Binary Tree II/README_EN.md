@@ -7,11 +7,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [998. Maximum Binary Tree II](https://leetcode.com/problems/maximum-binary-tree-ii)
 
 [中文文档](/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>maximum tree</strong> is a tree where every node has a value greater than any other value in its subtree.</p>
 
@@ -68,7 +72,11 @@ tags:
 	<li><code>1 &lt;= val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -259,6 +267,10 @@ struct TreeNode* insertIntoMaxTree(struct TreeNode* root, int val) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Iteration
 
 Search the right subtree, find the node where $curr.val \gt val \gt curr.right.val$, then create a new node $node$, point $node.left$ to $curr.right$, and then point $curr.right$ to $node$.
@@ -406,4 +418,6 @@ function insertIntoMaxTree(root: TreeNode | null, val: number): TreeNode | null 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

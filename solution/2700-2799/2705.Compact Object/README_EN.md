@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2705.Compact%20Object/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2705. Compact Object](https://leetcode.com/problems/compact-object)
 
 [中文文档](/solution/2700-2799/2705.Compact%20Object/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an object or array&nbsp;<code>obj</code>, return a <strong>compact object</strong>.</p>
 
@@ -48,7 +52,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2705.Co
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -99,4 +107,6 @@ var compactObject = function (obj) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

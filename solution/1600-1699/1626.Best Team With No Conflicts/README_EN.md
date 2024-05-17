@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1626. Best Team With No Conflicts](https://leetcode.com/problems/best-team-with-no-conflicts)
 
 [中文文档](/solution/1600-1699/1626.Best%20Team%20With%20No%20Conflicts/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are the manager of a basketball team. For the upcoming tournament, you want to choose the team with the highest overall score. The score of the team is the <strong>sum</strong> of scores of all the players in the team.</p>
 
@@ -57,7 +61,11 @@ tags:
 	<li><code>1 &lt;= ages[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -192,6 +200,10 @@ var bestTeamScore = function (scores, ages) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -369,4 +381,6 @@ func bestTeamScore(scores []int, ages []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

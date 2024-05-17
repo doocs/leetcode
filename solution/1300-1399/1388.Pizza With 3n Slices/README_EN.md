@@ -11,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1388. Pizza With 3n Slices](https://leetcode.com/problems/pizza-with-3n-slices)
 
 [中文文档](/solution/1300-1399/1388.Pizza%20With%203n%20Slices/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a pizza with <code>3n</code> slices of varying size, you and your friends will take slices of pizza as follows:</p>
 
@@ -54,7 +58,11 @@ tags:
 	<li><code>1 &lt;= slices[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -204,4 +212,6 @@ function maxSizeSlices(slices: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

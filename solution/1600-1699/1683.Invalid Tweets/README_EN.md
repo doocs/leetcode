@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1683. Invalid Tweets](https://leetcode.com/problems/invalid-tweets)
 
 [中文文档](/solution/1600-1699/1683.Invalid%20Tweets/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Tweets</code></p>
 
@@ -56,7 +60,11 @@ Tweet 1 has length = 14. It is a valid tweet.
 Tweet 2 has length = 32. It is an invalid tweet.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Using `CHAR_LENGTH` Function
 
@@ -78,4 +86,6 @@ WHERE CHAR_LENGTH(content) > 15;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

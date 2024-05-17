@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [115. Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences)
 
 [中文文档](/solution/0100-0199/0115.Distinct%20Subsequences/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings s and t, return <i>the number of distinct</i> <b><i>subsequences</i></b><i> of </i>s<i> which equals </i>t.</p>
 
@@ -51,7 +55,11 @@ As shown below, there are 5 ways you can generate &quot;bag&quot; from s.
 	<li><code>s</code> and <code>t</code> consist of English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -213,6 +221,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -304,4 +316,6 @@ function numDistinct(s: string, t: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

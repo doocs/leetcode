@@ -7,11 +7,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [643. Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i)
 
 [中文文档](/solution/0600-0699/0643.Maximum%20Average%20Subarray%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> consisting of <code>n</code> elements, and an integer <code>k</code>.</p>
 
@@ -42,7 +46,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -164,4 +172,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

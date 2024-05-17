@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1165. Single-Row Keyboard 🔒](https://leetcode.com/problems/single-row-keyboard)
 
 [中文文档](/solution/1100-1199/1165.Single-Row%20Keyboard/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a special keyboard with <strong>all keys in a single row</strong>.</p>
 
@@ -48,7 +52,11 @@ Total time = 2 + 1 + 1 = 4.
 	<li><code>word[i]</code> is an English lowercase letter.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -152,4 +160,6 @@ function calculateTime(keyboard: string, word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

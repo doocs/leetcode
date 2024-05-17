@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1833. Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars)
 
 [中文文档](/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>It is a sweltering summer day, and a boy wants to buy some ice cream bars.</p>
 
@@ -61,7 +65,11 @@ tags:
 	<li><code>1 &lt;= coins &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -163,4 +171,6 @@ var maxIceCream = function (costs, coins) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

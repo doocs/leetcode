@@ -10,11 +10,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2746. Decremental String Concatenation](https://leetcode.com/problems/decremental-string-concatenation)
 
 [中文文档](/solution/2700-2799/2746.Decremental%20String%20Concatenation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>words</code> containing <code>n</code> strings.</p>
 
@@ -78,7 +82,11 @@ It can be shown that the minimum possible length of str<sub>2</sub> is 6.
 	<li>Each character in <code>words[i]</code> is an English lowercase letter</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -230,4 +238,6 @@ function minimizeConcatenatedLength(words: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

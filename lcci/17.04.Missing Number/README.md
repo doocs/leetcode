@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.04.Missing%20Number/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.04. 消失的数字](https://leetcode.cn/problems/missing-number-lcci)
 
 [English Version](/lcci/17.04.Missing%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>数组<code>nums</code>包含从<code>0</code>到<code>n</code>的所有整数，但其中缺了一个。请编写代码找出那个缺失的整数。你有办法在O(n)时间内完成吗？</p>
 
 <p><strong>注意：</strong>本题相对书上原题稍作改动</p>
@@ -28,7 +31,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.04.Missing%20Numbe
 <strong>输出：</strong>8
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -141,6 +148,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：求和
 
 我们可以先求出 $0$ 到 $n$ 的和，然后遍历数组 $nums$，将数组中的元素依次减去，最后剩下的值即为缺失的数字。
@@ -237,6 +248,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法三：位运算
 
 我们可以使用异或运算，将 $0$ 到 $n$ 的所有数与数组 $nums$ 中的数进行异或运算，最后剩下的值即为缺失的数字。
@@ -317,4 +332,6 @@ var missingNumber = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

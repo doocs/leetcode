@@ -9,11 +9,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [425. Word Squares 🔒](https://leetcode.com/problems/word-squares)
 
 [中文文档](/solution/0400-0499/0425.Word%20Squares/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of <strong>unique</strong> strings <code>words</code>, return <em>all the </em><strong><a href="https://en.wikipedia.org/wiki/Word_square" target="_blank">word squares</a></strong><em> you can build from </em><code>words</code>. The same word from <code>words</code> can be used <strong>multiple times</strong>. You can return the answer in <strong>any order</strong>.</p>
 
@@ -53,7 +57,11 @@ The output consists of two word squares. The order of output does not matter (ju
 	<li>All <code>words[i]</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -244,4 +252,6 @@ func wordSquares(words []string) [][]string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

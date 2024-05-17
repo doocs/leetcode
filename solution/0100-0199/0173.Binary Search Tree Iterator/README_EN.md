@@ -11,11 +11,15 @@ tags:
     - Iterator
 ---
 
+<!-- problem:start -->
+
 # [173. Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator)
 
 [中文文档](/solution/0100-0199/0173.Binary%20Search%20Tree%20Iterator/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement the <code>BSTIterator</code> class that represents an iterator over the <strong><a href="https://en.wikipedia.org/wiki/Tree_traversal#In-order_(LNR)" target="_blank">in-order traversal</a></strong> of a binary search tree (BST):</p>
 
@@ -69,7 +73,11 @@ bSTIterator.hasNext(); // return False
 	<li>Could you implement <code>next()</code> and <code>hasNext()</code> to run in average <code>O(1)</code> time and use&nbsp;<code>O(h)</code> memory, where <code>h</code> is the height of the tree?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -412,6 +420,10 @@ BSTIterator.prototype.hasNext = function () {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -662,4 +674,6 @@ impl BSTIterator {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

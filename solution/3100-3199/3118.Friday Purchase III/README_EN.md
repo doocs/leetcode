@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3118. Friday Purchase III 🔒](https://leetcode.com/problems/friday-purchase-iii)
 
 [中文文档](/solution/3100-3199/3118.Friday%20Purchase%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Purchases</code></p>
 
@@ -116,7 +120,11 @@ Each row of this table indicates the user_id, membership type.
 <p><strong>Note:</strong> The output table is ordered by week_of_month and membership in ascending order.</p>
 </div>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion + Join
 
@@ -159,4 +167,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

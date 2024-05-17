@@ -9,11 +9,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2810. Faulty Keyboard](https://leetcode.com/problems/faulty-keyboard)
 
 [中文文档](/solution/2800-2899/2810.Faulty%20Keyboard/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Your laptop keyboard is faulty, and whenever you type a character <code>&#39;i&#39;</code> on it, it reverses the string that you have written. Typing other characters works as expected.</p>
 
@@ -62,7 +66,11 @@ Therefore, we return &quot;ponter&quot;.</pre>
 	<li><code>s[0] != &#39;i&#39;</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -169,4 +177,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

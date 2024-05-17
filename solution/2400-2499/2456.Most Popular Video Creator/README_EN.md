@@ -12,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2456. Most Popular Video Creator](https://leetcode.com/problems/most-popular-video-creator)
 
 [中文文档](/solution/2400-2499/2456.Most%20Popular%20Video%20Creator/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two string arrays <code>creators</code> and <code>ids</code>, and an integer array <code>views</code>, all of length <code>n</code>. The <code>i<sup>th</sup></code> video on a platform was created by <code>creator[i]</code>, has an id of <code>ids[i]</code>, and has <code>views[i]</code> views.</p>
 
@@ -65,7 +69,11 @@ Since &quot;b&quot; is lexicographically smaller than &quot;c&quot;, it is inclu
 	<li><code>0 &lt;= views[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -204,4 +212,6 @@ function mostPopularCreator(creators: string[], ids: string[], views: number[]):
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

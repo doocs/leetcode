@@ -9,11 +9,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1243. Array Transformation 🔒](https://leetcode.com/problems/array-transformation)
 
 [中文文档](/solution/1200-1299/1243.Array%20Transformation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an initial array <code>arr</code>, every day you produce a new array using the array of the previous day.</p>
 
@@ -57,7 +61,11 @@ No more operations can be done to this array.
 	<li><code>1 &lt;= arr[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -159,4 +167,6 @@ func transformArray(arr []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

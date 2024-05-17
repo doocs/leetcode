@@ -6,13 +6,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [830. 较大分组的位置](https://leetcode.cn/problems/positions-of-large-groups)
 
 [English Version](/solution/0800-0899/0830.Positions%20of%20Large%20Groups/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一个由小写字母构成的字符串 <code>s</code> 中，包含由一些连续的相同字符所构成的分组。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>s</code> 仅含小写英文字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -151,4 +157,6 @@ func largeGroupPositions(s string) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

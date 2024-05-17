@@ -11,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1402. Reducing Dishes](https://leetcode.com/problems/reducing-dishes)
 
 [中文文档](/solution/1400-1499/1402.Reducing%20Dishes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A chef has collected data on the <code>satisfaction</code> level of his <code>n</code> dishes. Chef can cook any dish in 1 unit of time.</p>
 
@@ -59,7 +63,11 @@ Each dish is prepared in one unit of time.</pre>
 	<li><code>-1000 &lt;= satisfaction[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -155,4 +163,6 @@ function maxSatisfaction(satisfaction: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

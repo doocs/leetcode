@@ -11,11 +11,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1079. Letter Tile Possibilities](https://leetcode.com/problems/letter-tile-possibilities)
 
 [中文文档](/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code>&nbsp;&nbsp;<code>tiles</code>, where each tile has one letter <code>tiles[i]</code> printed on it.</p>
 
@@ -52,7 +56,11 @@ tags:
 	<li><code>tiles</code> consists of uppercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -171,4 +179,6 @@ function numTilePossibilities(tiles: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

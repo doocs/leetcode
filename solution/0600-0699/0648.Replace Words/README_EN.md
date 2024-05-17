@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [648. Replace Words](https://leetcode.com/problems/replace-words)
 
 [中文文档](/solution/0600-0699/0648.Replace%20Words/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In English, we have a concept called <strong>root</strong>, which can be followed by some other word to form another longer word - let&#39;s call this word <strong>successor</strong>. For example, when the <strong>root</strong> <code>&quot;help&quot;</code> is followed by the <strong>successor</strong> word <code>&quot;ful&quot;</code>, we can form a new word <code>&quot;helpful&quot;</code>.</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li><code>sentence</code> does not have leading or trailing spaces.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -286,6 +294,10 @@ function replaceWords(dictionary: string[], sentence: string): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -341,4 +353,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

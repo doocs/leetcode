@@ -8,11 +8,15 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [1533. Find the Index of the Large Integer 🔒](https://leetcode.com/problems/find-the-index-of-the-large-integer)
 
 [中文文档](/solution/1500-1599/1533.Find%20the%20Index%20of%20the%20Large%20Integer/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We have an integer array <code>arr</code>, where all the integers in <code>arr</code> are equal except for one integer which is <strong>larger</strong> than the rest of the integers. You will not be given direct access to the array, instead, you will have an <strong>API</strong> <code>ArrayReader</code> which have the following functions:</p>
 
@@ -71,7 +75,11 @@ Notice that we made only 3 calls, so the answer is valid.
 	<li>What if there is one number that is bigger than other numbers and one number that is smaller than other numbers?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -222,4 +230,6 @@ func getIndex(reader *ArrayReader) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

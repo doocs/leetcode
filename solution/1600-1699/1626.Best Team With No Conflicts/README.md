@@ -10,13 +10,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1626. 无矛盾的最佳球队](https://leetcode.cn/problems/best-team-with-no-conflicts)
 
 [English Version](/solution/1600-1699/1626.Best%20Team%20With%20No%20Conflicts/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假设你是球队的经理。对于即将到来的锦标赛，你想组合一支总体得分最高的球队。球队的得分是球队中所有球员的分数 <strong>总和</strong> 。</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li><code>1 &lt;= ages[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 动态规划
 
@@ -204,6 +210,10 @@ var bestTeamScore = function (scores, ages) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：排序 + 树状数组
 
@@ -389,4 +399,6 @@ func bestTeamScore(scores []int, ages []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

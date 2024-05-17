@@ -9,11 +9,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver)
 
 [中文文档](/solution/0000-0099/0037.Sudoku%20Solver/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>
 
@@ -48,7 +52,11 @@ tags:
 	<li>It is <strong>guaranteed</strong> that the input board has only one solution.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Backtracking
 
@@ -435,4 +443,6 @@ function isValid($board, $row, $col, $num) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [815. Bus Routes](https://leetcode.com/problems/bus-routes)
 
 [中文文档](/solution/0800-0899/0815.Bus%20Routes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>routes</code> representing bus routes where <code>routes[i]</code> is a bus route that the <code>i<sup>th</sup></code> bus repeats forever.</p>
 
@@ -54,7 +58,11 @@ tags:
 	<li><code>0 &lt;= source, target &lt; 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -324,4 +332,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
