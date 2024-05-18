@@ -175,6 +175,8 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
