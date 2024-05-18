@@ -253,6 +253,8 @@ impl Solution {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
