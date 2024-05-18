@@ -24,11 +24,9 @@ tags:
 
 <p><strong>子字符串</strong> 是字符串中的由连续字符组成的一个序列。</p>
 
-<p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被视作不同的子串。</p>
-
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>s = "abc"
@@ -36,7 +34,7 @@ tags:
 <strong>解释：</strong>三个回文子串: "a", "b", "c"
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>s = "aaa"

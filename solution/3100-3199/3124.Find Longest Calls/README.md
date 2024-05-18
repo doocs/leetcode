@@ -42,7 +42,7 @@ id 是 Calls 表的外键（引用列）。
 | duration    | int  |
 +-------------+------+
 (contact_id, type, duration) 是这张表的主键（有不同值的列）。
-类型是 ('incoming', 'outgoing') 的 ENUM (category)。
+type 字段是 ('incoming', 'outgoing') 的 ENUM (category)。
 这张表的每一行包含有 calls, 包括 contact_id，type 和以秒为单位的 duration 的信息。
 </pre>
 

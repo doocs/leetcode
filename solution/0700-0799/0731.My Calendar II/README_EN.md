@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0731.My
 tags:
     - Design
     - Segment Tree
+    - Array
     - Binary Search
     - Ordered Set
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

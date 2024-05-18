@@ -7,6 +7,7 @@ tags:
     - Segment Tree
     - Binary Search
     - Ordered Set
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

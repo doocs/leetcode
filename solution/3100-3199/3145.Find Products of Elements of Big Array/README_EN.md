@@ -2,6 +2,10 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Binary Search
 ---
 
 <!-- problem:start -->

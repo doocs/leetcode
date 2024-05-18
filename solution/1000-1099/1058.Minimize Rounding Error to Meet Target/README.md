@@ -26,7 +26,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>prices = ["0.700","2.800","4.900"], target = 8
@@ -35,7 +35,7 @@ tags:
 使用 Floor，Ceil 和 Ceil 操作得到 (0.7 - 0) + (3 - 2.8) + (5 - 4.9) = 0.7 + 0.2 + 0.1 = 1.0 。
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>prices = ["1.500","2.500","3.500"], target = 10
@@ -43,7 +43,7 @@ tags:
 <strong>解释：</strong>
 达到目标是不可能的。</pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
 <strong>输入：</strong>prices = ["1.500","2.500","3.500"], target = 9

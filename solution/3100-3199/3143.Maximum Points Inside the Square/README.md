@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 二分查找
+    - 排序
 ---
 
 <!-- problem:start -->

@@ -28,7 +28,7 @@ tags:
 	<li>工资组中的每名工人至少应当得到他们的最低期望工资。</li>
 </ol>
 
-<p>给定整数 <code>k</code> ，返回 <em>组成满足上述条件的付费群体所需的最小金额&nbsp;</em>。在实际答案的&nbsp;<code>10<sup>-5</sup></code>&nbsp;以内的答案将被接受。。</p>
+<p>给定整数 <code>k</code> ，返回 <em>组成满足上述条件的付费群体所需的最小金额&nbsp;</em>。与实际答案误差相差在&nbsp;<code>10<sup>-5</sup></code>&nbsp;以内的答案将被接受。</p>
 
 <p>&nbsp;</p>
 

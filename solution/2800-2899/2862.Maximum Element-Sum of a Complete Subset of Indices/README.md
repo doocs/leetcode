@@ -31,7 +31,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [8,7,3,5,7,2,4,9]
 <strong>输出：</strong>16
-<strong>解释：</strong>我们选择了下标 1 和 4 的元素，并且 1 * 4 是一个完全平方数。
+<strong>解释：</strong>我们选择了下标 2 和 8 的元素，并且 2 * 8 是一个完全平方数。
 </pre>
 
 <p><strong>示例 2：</strong></p>

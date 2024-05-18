@@ -4,6 +4,7 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0479.Largest%20Palindrome%20Product/README.md
 tags:
     - 数学
+    - 枚举
 ---
 
 <!-- problem:start -->
@@ -20,19 +21,19 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1:</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<b>输入：</b>n = 2
-<b>输出：</b>987
+<strong>输入：</strong>n = 2
+<strong>输出：</strong>987
 <strong>解释：</strong>99 x 91 = 9009, 9009 % 1337 = 987
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong> n = 1
-<strong>输出：</strong> 9
+<strong>输入：</strong>n = 1
+<strong>输出：</strong>9
 </pre>
 
 <p>&nbsp;</p>

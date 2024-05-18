@@ -18,29 +18,31 @@ tags:
 
 <p>Table: <code>Purchases</code></p>
 
-<pre>+-------------+----------+
+<pre>
++-------------+----------+
 | Column Name | Type     |
 +-------------+----------+
 | user_id     | int      |
 | time_stamp  | datetime |
 | amount      | int      |
 +-------------+----------+
-(user_id，time _ stamp)是此表的主键。
-每一行都包含有关购买时间和用户user _ ID 以及购买的数量的信息。
+(user_id, time_stamp)是此表的主键（不同值的列的组合）。
+每一行都包含有关购买时间和用户 ID user_id 以及购买的数量的信息。
 </pre>
 
-<p>如果用户在包含时间间隔[ startDate，endDate ]内购买了至少最少数量的商品，则有资格享受折扣。</p>
+<p>如果用户在包含时间间隔 <code>[startDate，endDate]</code> 内购买了至少&nbsp;<code>minAmount</code>&nbsp;数量的商品，则有资格享受折扣。要将日期转换为时间，两个日期都应视为一天的 <strong>开始</strong>（例如，<code>endDate = 2022-03-05</code>&nbsp;应该被认为是 <code>2022-03-05 00:00:00</code>）。</p>
 
-<p>编写一个 SQL 查询来报告符合折扣条件的用户的 id。</p>
+<p>编写一个解决方案来查询符合折扣条件的用户的 ID。</p>
 
-<p>返回符合条件的用户 ，按照id 排序的结果表。</p>
+<p>返回结果表，以&nbsp;<code>user_id</code>&nbsp;排序。</p>
 
 <p>查询结果格式如下例所示。</p>
 
-<p><strong>示例 1:</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong> 
-Purchases table:
+<pre>
+<strong>输入：</strong>
+Purchases 表：
 +---------+---------------------+--------+
 | user_id | time_stamp          | amount |
 +---------+---------------------+--------+
@@ -50,20 +52,20 @@ Purchases table:
 | 3       | 2022-03-30 09:43:42 | 626    |
 +---------+---------------------+--------+
 startDate = 2022-03-08, endDate = 2022-03-20, minAmount = 1000
-<strong>输出:</strong> 
+<strong>输出：</strong>
 +---------+
 | user_id |
 +---------+
 | 3       |
 +---------+
-说明:
-在三个用户中，只有用户3有资格享受折扣。
-- 用户1有一次至少购买了 minAmount的数量 ，但不是在时间间隔内。
-- 用户2在时间间隔内有一次购买，但少于 minAmount 数量。
-- 用户3是唯一满足这两个条件的用户。
-
-重要提示: 这个问题基本上与有资格享受折扣的用户数量相同。
+<strong>解释：</strong>
+在三个用户中，只有用户 3 有资格享受折扣。
+- 用户 1 有一次至少购买了 minAmount 的数量，但不在时间间隔内。
+- 用户 2 在时间间隔内有一次购买，但少于 minAmount 数量。
+- 用户 3 是唯一满足这两个条件的用户。
 </pre>
+
+<strong>重要提示：</strong>这个问题基本上与 <a href="https://leetcode.cn/problems/the-number-of-users-that-are-eligible-for-discount/description/">有资格享受折扣的用户数量</a> 相同。
 
 <!-- description:end -->
 

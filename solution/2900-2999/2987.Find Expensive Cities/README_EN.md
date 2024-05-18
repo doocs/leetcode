@@ -66,7 +66,7 @@ Listings table:
 +------------+
 <strong>Explanation</strong>
 The national average home price is $6,122,059.45. Among the cities listed:
-- Chicago has an average price of $7,043,706.75
+- Chicago has an average price of $7,048,706.75
 - Los Angeles has an average price of $6,277,754.5
 - San Francisco has an average price of $3,900,513.33
 - New York has an average price of $4,422,739

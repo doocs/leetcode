@@ -19,7 +19,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给出两个整数向量&nbsp;<code>v1</code>&nbsp;和&nbsp;<code>v2</code>，请你实现一个迭代器，交替返回它们中间的元素。</p>
+<p>给出两个整数向量&nbsp;<code>v1</code>&nbsp;和&nbsp;<code>v2</code>，请你实现一个迭代器，交替返回它们的元素。</p>
 
 <p>实现&nbsp;<code>ZigzagIterator</code>&nbsp;类：</p>
 

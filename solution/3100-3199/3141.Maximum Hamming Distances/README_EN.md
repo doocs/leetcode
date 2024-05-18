@@ -2,6 +2,10 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3141.Maximum%20Hamming%20Distances/README_EN.md
+tags:
+    - Bit Manipulation
+    - Breadth-First Search
+    - Array
 ---
 
 <!-- problem:start -->

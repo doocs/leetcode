@@ -7,6 +7,7 @@ tags:
     - 线段树
     - 二分查找
     - 有序集合
+    - 前缀和
 ---
 
 <!-- problem:start -->
@@ -21,16 +22,16 @@ tags:
 
 <p>当 <code>k</code> 个日程安排有一些时间上的交叉时（例如 <code>k</code> 个日程安排都在同一时间内），就会产生 <code>k</code> 次预订。</p>
 
-<p>给你一些日程安排 <code>[start, end)</code> ，请你在每个日程安排添加后，返回一个整数 <code>k</code> ，表示所有先前日程安排会产生的最大 <code>k</code> 次预订。</p>
+<p>给你一些日程安排 <code>[startTime, endTime)</code> ，请你在每个日程安排添加后，返回一个整数 <code>k</code> ，表示所有先前日程安排会产生的最大 <code>k</code> 次预订。</p>
 
 <p>实现一个 <code>MyCalendarThree</code> 类来存放你的日程安排，你可以一直添加新的日程安排。</p>
 
 <ul>
 	<li><code>MyCalendarThree()</code> 初始化对象。</li>
-	<li><code>int book(int start, int end)</code> 返回一个整数 <code>k</code> ，表示日历中存在的 <code>k</code> 次预订的最大值。</li>
+	<li><code>int book(int startTime, int endTime)</code> 返回一个整数 <code>k</code> ，表示日历中存在的 <code>k</code> 次预订的最大值。</li>
 </ul>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例：</strong></p>
 
@@ -51,13 +52,13 @@ myCalendarThree.book(5, 10); // 返回 3
 myCalendarThree.book(25, 55); // 返回 3
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 <= start < end <= 10<sup>9</sup></code></li>
-	<li>每个测试用例，调用 <code>book</code> 函数最多不超过 <code>400</code>次</li>
+	<li><code>0 &lt;= startTime &lt; endTime &lt;= 10<sup>9</sup></code></li>
+	<li>每个测试用例，调用 <code>book</code>&nbsp;函数最多不超过&nbsp;<code>400</code>次</li>
 </ul>
 
 <!-- description:end -->

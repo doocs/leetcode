@@ -12,7 +12,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3135. Equalize Strings by Adding or Removing Characters at Ends 🔒](https://leetcode.cn/problems/equalize-strings-by-adding-or-removing-characters-at-ends)
+# [3135. 通过添加或删除结尾字符来同化字符串 🔒](https://leetcode.cn/problems/equalize-strings-by-adding-or-removing-characters-at-ends)
 
 [English Version](/solution/3100-3199/3135.Equalize%20Strings%20by%20Adding%20or%20Removing%20Characters%20at%20Ends/README_EN.md)
 
@@ -20,86 +20,88 @@ tags:
 
 <!-- description:start -->
 
-<p>Given two strings <code>initial</code> and <code>target</code>, your task is to modify <code>initial</code> by performing a series of operations to make it equal to <code>target</code>.</p>
+<p>给定两个字符串&nbsp;<code>initial</code> 和&nbsp;<code>target</code>，你的任务是通过一系列操作改变&nbsp;<code>initial</code>&nbsp;以使它与&nbsp;<code>target</code>&nbsp;相同。</p>
 
-<p>In one operation, you can add or remove <strong>one character</strong> only at the <em>beginning</em> or the <em>end</em> of the string <code>initial</code>.</p>
+<p>在一次操作中，您只能在&nbsp;<code>initial</code> 字符串开头或结尾添加或删除一个字符。</p>
 
-<p>Return the <strong>minimum</strong> number of operations required to <em>transform</em> <code>initial</code> into <code>target</code>.</p>
+<p>返回将&nbsp;<code>initial</code>&nbsp;变为&nbsp;<code>target</code>&nbsp;所需的<strong>最小</strong>&nbsp;操作次数。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">initial = &quot;abcde&quot;, target = &quot;cdef&quot;</span></p>
+<p><strong>输入：</strong><span class="example-io">initial = "abcde", target = "cdef"</span></p>
 
-<p><strong>Output:</strong> 3</p>
+<p><strong>输出：</strong>3</p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>Remove <code>&#39;a&#39;</code> and <code>&#39;b&#39;</code> from the beginning of <code>initial</code>, then add <code>&#39;f&#39;</code> to the end.</p>
+<p>从&nbsp;<code>initial</code>&nbsp;的开头删除 <code>'a'</code>&nbsp;和&nbsp;<code>'b'</code>&nbsp;并添加&nbsp;<code>'f'</code>&nbsp;到结尾。</p>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">initial = &quot;axxy&quot;, target = &quot;yabx&quot;</span></p>
+<p><strong>输入：</strong><span class="example-io">initial = "axxy", target = "yabx"</span></p>
 
-<p><strong>Output:</strong> 6</p>
+<p><strong>输出：</strong>6</p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <table border="1">
 	<tbody>
 		<tr>
-			<th>Operation</th>
-			<th>Resulting String</th>
+			<th>操作</th>
+			<th>结果字符串</th>
 		</tr>
 		<tr>
-			<td>Add <code>&#39;y&#39;</code> to the beginning</td>
-			<td><code>&quot;yaxxy&quot;</code></td>
+			<td>将&nbsp;<code>'y'</code>&nbsp;添加到开头</td>
+			<td><code>"yaxxy"</code></td>
 		</tr>
 		<tr>
-			<td>Remove from end</td>
-			<td><code>&quot;yaxx&quot;</code></td>
+			<td>从结尾删除</td>
+			<td><code>"yaxx"</code></td>
 		</tr>
 		<tr>
-			<td>Remove from end</td>
-			<td><code>&quot;yax&quot;</code></td>
+			<td>从结尾删除</td>
+			<td><code>"yax"</code></td>
 		</tr>
 		<tr>
-			<td>Remove from end</td>
-			<td><code>&quot;ya&quot;</code></td>
+			<td>从结尾删除</td>
+			<td><code>"ya"</code></td>
 		</tr>
 		<tr>
-			<td>Add <code>&#39;b&#39;</code> to the end</td>
-			<td><code>&quot;yab&quot;</code></td>
+			<td>将&nbsp;<code>'b'</code>&nbsp;添加到结尾</td>
+			<td><code>"yab"</code></td>
 		</tr>
 		<tr>
-			<td>Add <code>&#39;x&#39;</code> to the end</td>
-			<td><code>&quot;yabx&quot;</code></td>
+			<td>将&nbsp;<code>'x'</code> 添加到结尾</td>
+			<td><code>"yabx"</code></td>
 		</tr>
 	</tbody>
 </table>
 </div>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">initial = &quot;xyz&quot;, target = &quot;xyz&quot;</span></p>
+<p><strong>输入：</strong><span class="example-io">initial = "xyz", target = "xyz"</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">0</span></p>
+<p><strong>输出：</strong><span class="example-io">0</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>No operations are needed as the strings are already equal.</p>
+<p>不需要任何操作，因为字符串已经相等。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= initial.length, target.length &lt;= 1000</code></li>
-	<li><code>initial</code> and <code>target</code> consist only of lowercase English letters.</li>
+	<li><code>initial</code> 和&nbsp;<code>target</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
 <!-- description:end -->

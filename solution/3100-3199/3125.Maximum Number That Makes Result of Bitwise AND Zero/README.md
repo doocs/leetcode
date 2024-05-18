@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-给定一个整数&nbsp;<code>n</code>，返回&nbsp;<strong>最大的</strong>&nbsp;整数&nbsp;<code>x</code> 使得&nbsp;<code>x &lt;= n</code>，并且所有在范围 <code>[x, n]</code>&nbsp;内的数组的按位&nbsp;<code>AND</code>&nbsp;为 0。
+给定一个整数&nbsp;<code>n</code>，返回&nbsp;<strong>最大的</strong>&nbsp;整数&nbsp;<code>x</code> 使得&nbsp;<code>x &lt;= n</code>，并且所有在范围 <code>[x, n]</code>&nbsp;内的数字的按位&nbsp;<code>AND</code>&nbsp;为 0。
 
 <p>&nbsp;</p>
 
