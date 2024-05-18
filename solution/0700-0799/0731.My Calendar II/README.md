@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0731.My
 tags:
     - 设计
     - 线段树
+    - 数组
     - 二分查找
     - 有序集合
+    - 前缀和
 ---
 
 <!-- problem:start -->
@@ -31,9 +33,10 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong class="example">示例：</strong></p>
 
-<pre>MyCalendar();
+<pre>
+MyCalendar();
 MyCalendar.book(10, 20); // returns true
 MyCalendar.book(50, 60); // returns true
 MyCalendar.book(10, 40); // returns true

@@ -25,13 +25,13 @@ tags:
 | id          | int     |
 | score       | decimal |
 +-------------+---------+
-在 SQL 中，id 是该表的主键。
+id 是该表的主键（有不同值的列）。
 该表的每一行都包含了一场比赛的分数。Score 是一个有两位小数点的浮点值。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>查询并对分数进行排序。排名按以下规则计算:</p>
+<p>编写一个解决方案来查询分数的排名。排名按以下规则计算:</p>
 
 <ul>
 	<li>分数应按从高到低排列。</li>
@@ -45,7 +45,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1:</strong></p>
+<p><strong class="example">示例 1:</strong></p>
 
 <pre>
 <strong>输入:</strong> 

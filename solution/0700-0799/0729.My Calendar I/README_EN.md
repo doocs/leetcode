@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0729.My
 tags:
     - Design
     - Segment Tree
+    - Array
     - Binary Search
     - Ordered Set
 ---

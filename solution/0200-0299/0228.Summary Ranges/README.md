@@ -29,7 +29,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>nums = [0,1,2,4,5,7]
@@ -40,7 +40,7 @@ tags:
 [7,7] --&gt; "7"
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>nums = [0,2,3,4,6,8,9]

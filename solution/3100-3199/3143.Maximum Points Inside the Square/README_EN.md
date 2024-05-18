@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Binary Search
+    - Sorting
 ---
 
 <!-- problem:start -->

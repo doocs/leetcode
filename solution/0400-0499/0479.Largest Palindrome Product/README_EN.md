@@ -4,6 +4,7 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0479.Largest%20Palindrome%20Product/README_EN.md
 tags:
     - Math
+    - Enumeration
 ---
 
 <!-- problem:start -->

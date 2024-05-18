@@ -20,9 +20,9 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个二叉树（具有根结点&nbsp;<code>root</code>），&nbsp;一个目标结点&nbsp;<code>target</code>&nbsp;，和一个整数值 <code>k</code> 。</p>
+<p>给定一个二叉树（具有根结点&nbsp;<code>root</code>），&nbsp;一个目标结点&nbsp;<code>target</code>&nbsp;，和一个整数值 <code>k</code>&nbsp;，返回到目标结点 <code>target</code> 距离为 <code>k</code> 的所有结点的值的数组。</p>
 
-<p>返回到目标结点 <code>target</code> 距离为 <code>k</code> 的所有结点的值的列表。 答案可以以 <strong>任何顺序</strong> 返回。</p>
+<p>答案可以以 <strong>任何顺序</strong> 返回。</p>
 
 <p>&nbsp;</p>
 

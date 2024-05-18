@@ -27,7 +27,10 @@ tags:
 +-------------+---------+
 主键为 (project_id, employee_id)。
 employee_id 是员工表 <code>Employee 表的外键。</code>
+这张表的每一行表示 employee_id 的员工正在 project_id 的项目上工作。
 </pre>
+
+<p>&nbsp;</p>
 
 <p>员工表&nbsp;<code>Employee</code>：</p>
 
@@ -39,16 +42,23 @@ employee_id 是员工表 <code>Employee 表的外键。</code>
 | name             | varchar |
 | experience_years | int     |
 +------------------+---------+
-主键是 employee_id。
-</pre>
+主键是 employee_id。数据保证 experience_years 非空。
+这张表的每一行包含一个员工的信息。</pre>
 
 <p>&nbsp;</p>
 
 <p>请写一个 SQL&nbsp;语句，查询每一个项目中员工的&nbsp;<strong>平均&nbsp;</strong>工作年限，<strong>精确到小数点后两位</strong>。</p>
 
-<p>查询结果的格式如下：</p>
+<p>以 <strong>任意</strong> 顺序返回结果表。</p>
+
+<p>查询结果的格式如下。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
+<strong>输入：</strong>
 Project 表：
 +-------------+-------------+
 | project_id  | employee_id |
@@ -70,14 +80,14 @@ Employee 表：
 | 4           | Doe    | 2                |
 +-------------+--------+------------------+
 
-Result 表：
+<strong>输出：</strong>
 +-------------+---------------+
 | project_id  | average_years |
 +-------------+---------------+
 | 1           | 2.00          |
 | 2           | 2.50          |
 +-------------+---------------+
-第一个项目中，员工的平均工作年限是 (3 + 2 + 1) / 3 = 2.00；第二个项目中，员工的平均工作年限是 (3 + 2) / 2 = 2.50
+<strong>解释：</strong>第一个项目中，员工的平均工作年限是 (3 + 2 + 1) / 3 = 2.00；第二个项目中，员工的平均工作年限是 (3 + 2) / 2 = 2.50
 </pre>
 
 <!-- description:end -->

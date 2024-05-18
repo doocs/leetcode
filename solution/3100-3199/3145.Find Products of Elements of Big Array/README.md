@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README.md
+tags:
+    - 位运算
+    - 数组
+    - 二分查找
 ---
 
 <!-- problem:start -->

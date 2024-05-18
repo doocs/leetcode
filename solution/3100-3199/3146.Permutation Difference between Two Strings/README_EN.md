@@ -2,6 +2,9 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README_EN.md
+tags:
+    - Hash Table
+    - String
 ---
 
 <!-- problem:start -->

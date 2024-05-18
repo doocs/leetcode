@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README.md
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 状态压缩
 ---
 
 <!-- problem:start -->

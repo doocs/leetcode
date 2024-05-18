@@ -35,7 +35,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>senate = "RD"
@@ -46,7 +46,7 @@ tags:
 第 2 轮时，第一个参议员可以宣布胜利，因为他是唯一一个有投票权的人</code>。
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>senate = "RDD"

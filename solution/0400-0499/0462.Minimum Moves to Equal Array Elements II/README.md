@@ -22,19 +22,21 @@ tags:
 
 <p>在一次操作中，你可以使数组中的一个元素加 <code>1</code> 或者减 <code>1</code> 。</p>
 
+<p>测试用例经过设计以使答案在&nbsp;<strong>32 位</strong>&nbsp;整数范围内。</p>
+
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>nums = [1,2,3]
 <strong>输出：</strong>2
 <strong>解释：</strong>
 只需要两次操作（每次操作指南使一个元素加 1 或减 1）：
-[<strong><em>1</em></strong>,2,3]  =&gt;  [2,2,<strong><em>3</em></strong>]  =&gt;  [2,2,2]
+[<u>1</u>,2,3]  =&gt;  [2,2,<u>3</u>]  =&gt;  [2,2,2]
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>nums = [1,10,2,9]
