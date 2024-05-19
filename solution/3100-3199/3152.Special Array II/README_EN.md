@@ -61,6 +61,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3152.Sp
 
 <!-- description:end -->
 
+## Solutions
+
+<!-- solution:start -->
+
 ### Solution 1: Record the Leftmost Special Array Position for Each Position
 
 We can define an array $d$ to record the leftmost special array position for each position, initially $d[i] = i$. Then we traverse the array $nums$ from left to right. If $nums[i]$ and $nums[i - 1]$ have different parities, then $d[i] = d[i - 1]$.
@@ -68,10 +72,6 @@ We can define an array $d$ to record the leftmost special array position for eac
 Finally, we traverse each query and check whether $d[to] <= from$ holds.
 
 The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
-
-<!-- solution:start -->
-
-### Solution 1
 
 <!-- tabs:start -->
 
