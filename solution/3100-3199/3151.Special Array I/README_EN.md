@@ -69,32 +69,77 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3151.Sp
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Pass
+
+We traverse the array from left to right. For each pair of adjacent elements, if their parity is the same, then the array is not a special array, return `false`; otherwise, the array is a special array, return `true`.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)`.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def isArraySpecial(self, nums: List[int]) -> bool:
+        return all(a % 2 != b % 2 for a, b in pairwise(nums))
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean isArraySpecial(int[] nums) {
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] % 2 == nums[i - 1] % 2) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool isArraySpecial(vector<int>& nums) {
+        for (int i = 1; i < nums.size(); ++i) {
+            if (nums[i] % 2 == nums[i - 1] % 2) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func isArraySpecial(nums []int) bool {
+	for i, x := range nums[1:] {
+		if x%2 == nums[i]%2 {
+			return false
+		}
+	}
+	return true
+}
+```
 
+#### TypeScript
+
+```ts
+function isArraySpecial(nums: number[]): boolean {
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i] % 2 === nums[i - 1] % 2) {
+            return false;
+        }
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->

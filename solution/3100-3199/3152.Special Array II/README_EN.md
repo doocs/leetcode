@@ -61,7 +61,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3152.Sp
 
 <!-- description:end -->
 
-## Solutions
+### Solution 1: Record the Leftmost Special Array Position for Each Position
+
+We can define an array $d$ to record the leftmost special array position for each position, initially $d[i] = i$. Then we traverse the array $nums$ from left to right. If $nums[i]$ and $nums[i - 1]$ have different parities, then $d[i] = d[i - 1]$.
+
+Finally, we traverse each query and check whether $d[to] <= from$ holds.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- solution:start -->
 
@@ -72,25 +78,97 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3152.Sp
 #### Python3
 
 ```python
-
+class Solution:
+    def isArraySpecial(self, nums: List[int], queries: List[List[int]]) -> List[bool]:
+        n = len(nums)
+        d = list(range(n))
+        for i in range(1, n):
+            if nums[i] % 2 != nums[i - 1] % 2:
+                d[i] = d[i - 1]
+        return [d[t] <= f for f, t in queries]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean[] isArraySpecial(int[] nums, int[][] queries) {
+        int n = nums.length;
+        int[] d = new int[n];
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] % 2 != nums[i - 1] % 2) {
+                d[i] = d[i - 1];
+            } else {
+                d[i] = i;
+            }
+        }
+        int m = queries.length;
+        boolean[] ans = new boolean[m];
+        for (int i = 0; i < m; ++i) {
+            ans[i] = d[queries[i][1]] <= queries[i][0];
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<bool> isArraySpecial(vector<int>& nums, vector<vector<int>>& queries) {
+        int n = nums.size();
+        vector<int> d(n);
+        iota(d.begin(), d.end(), 0);
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] % 2 != nums[i - 1] % 2) {
+                d[i] = d[i - 1];
+            }
+        }
+        vector<bool> ans;
+        for (auto& q : queries) {
+            ans.push_back(d[q[1]] <= q[0]);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func isArraySpecial(nums []int, queries [][]int) (ans []bool) {
+	n := len(nums)
+	d := make([]int, n)
+	for i := range d {
+		d[i] = i
+	}
+	for i := 1; i < len(nums); i++ {
+		if nums[i]%2 != nums[i-1]%2 {
+			d[i] = d[i-1]
+		}
+	}
+	for _, q := range queries {
+		ans = append(ans, d[q[1]] <= q[0])
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function isArraySpecial(nums: number[], queries: number[][]): boolean[] {
+    const n = nums.length;
+    const d: number[] = Array.from({ length: n }, (_, i) => i);
+    for (let i = 1; i < n; ++i) {
+        if (nums[i] % 2 !== nums[i - 1] % 2) {
+            d[i] = d[i - 1];
+        }
+    }
+    return queries.map(([from, to]) => d[to] <= from);
+}
 ```
 
 <!-- tabs:end -->

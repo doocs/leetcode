@@ -64,32 +64,127 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3153.Su
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：计数
+
+我们先获取数组中数字的位数 $m$，然后对于每一位，我们统计数组 $\textit{nums}$ 中每个数字在该位上的出现次数，记为 $\textit{cnt}$。那么在该位上，所有数对的数位不同之和为：
+
+$$
+\sum_{v \in \textit{cnt}} v \times (n - v)
+$$
+
+其中 $n$ 是数组的长度。我们将所有位的数位不同之和相加，再除以 $2$ 即可得到答案。
+
+时间复杂度 $O(n \times m)$，空间复杂度 $O(C)$，其中 $n$ 和 $m$ 分别是数组的长度和数字的位数；而 $C$ 是常数，本题中 $C = 10$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def sumDigitDifferences(self, nums: List[int]) -> int:
+        n = len(nums)
+        m = int(log10(nums[0])) + 1
+        ans = 0
+        for _ in range(m):
+            cnt = Counter()
+            for i, x in enumerate(nums):
+                nums[i], y = divmod(x, 10)
+                cnt[y] += 1
+            ans += sum(v * (n - v) for v in cnt.values()) // 2
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long sumDigitDifferences(int[] nums) {
+        int n = nums.length;
+        int m = (int) Math.floor(Math.log10(nums[0])) + 1;
+        int[] cnt = new int[10];
+        long ans = 0;
+        for (int k = 0; k < m; ++k) {
+            Arrays.fill(cnt, 0);
+            for (int i = 0; i < n; ++i) {
+                ++cnt[nums[i] % 10];
+                nums[i] /= 10;
+            }
+            for (int i = 0; i < 10; ++i) {
+                ans += 1L * cnt[i] * (n - cnt[i]);
+            }
+        }
+        return ans / 2;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long sumDigitDifferences(vector<int>& nums) {
+        int n = nums.size();
+        int m = floor(log10(nums[0])) + 1;
+        int cnt[10];
+        long long ans = 0;
+        for (int k = 0; k < m; ++k) {
+            memset(cnt, 0, sizeof(cnt));
+            for (int i = 0; i < n; ++i) {
+                ++cnt[nums[i] % 10];
+                nums[i] /= 10;
+            }
+            for (int i = 0; i < 10; ++i) {
+                ans += 1LL * (cnt[i] * (n - cnt[i]));
+            }
+        }
+        return ans / 2;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func sumDigitDifferences(nums []int) (ans int64) {
+	n := len(nums)
+	m := int(math.Floor(math.Log10(float64(nums[0])))) + 1
+	for k := 0; k < m; k++ {
+		cnt := [10]int{}
+		for i, x := range nums {
+			cnt[x%10]++
+			nums[i] /= 10
+		}
+		for _, v := range cnt {
+			ans += int64(v) * int64(n-v)
+		}
+	}
+	ans /= 2
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function sumDigitDifferences(nums: number[]): number {
+    const n = nums.length;
+    const m = Math.floor(Math.log10(nums[0])) + 1;
+    let ans: bigint = BigInt(0);
+    for (let k = 0; k < m; ++k) {
+        const cnt: number[] = Array(10).fill(0);
+        for (let i = 0; i < n; ++i) {
+            ++cnt[nums[i] % 10];
+            nums[i] = Math.floor(nums[i] / 10);
+        }
+        for (let i = 0; i < 10; ++i) {
+            ans += BigInt(cnt[i]) * BigInt(n - cnt[i]);
+        }
+    }
+    ans /= BigInt(2);
+    return Number(ans);
+}
 ```
 
 <!-- tabs:end -->

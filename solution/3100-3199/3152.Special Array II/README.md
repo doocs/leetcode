@@ -67,32 +67,110 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3152.Sp
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：记录每个位置的最左特殊数组位置
+
+我们可以定义一个数组 $d$ 来记录每个位置的最左特殊数组位置，初始时 $d[i] = i$。然后我们从左到右遍历数组 $nums$，如果 $nums[i]$ 和 $nums[i - 1]$ 的奇偶性不同，那么 $d[i] = d[i - 1]$。
+
+最后我们遍历每个查询，判断 $d[to] <= from$ 是否成立即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def isArraySpecial(self, nums: List[int], queries: List[List[int]]) -> List[bool]:
+        n = len(nums)
+        d = list(range(n))
+        for i in range(1, n):
+            if nums[i] % 2 != nums[i - 1] % 2:
+                d[i] = d[i - 1]
+        return [d[t] <= f for f, t in queries]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean[] isArraySpecial(int[] nums, int[][] queries) {
+        int n = nums.length;
+        int[] d = new int[n];
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] % 2 != nums[i - 1] % 2) {
+                d[i] = d[i - 1];
+            } else {
+                d[i] = i;
+            }
+        }
+        int m = queries.length;
+        boolean[] ans = new boolean[m];
+        for (int i = 0; i < m; ++i) {
+            ans[i] = d[queries[i][1]] <= queries[i][0];
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<bool> isArraySpecial(vector<int>& nums, vector<vector<int>>& queries) {
+        int n = nums.size();
+        vector<int> d(n);
+        iota(d.begin(), d.end(), 0);
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] % 2 != nums[i - 1] % 2) {
+                d[i] = d[i - 1];
+            }
+        }
+        vector<bool> ans;
+        for (auto& q : queries) {
+            ans.push_back(d[q[1]] <= q[0]);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func isArraySpecial(nums []int, queries [][]int) (ans []bool) {
+	n := len(nums)
+	d := make([]int, n)
+	for i := range d {
+		d[i] = i
+	}
+	for i := 1; i < len(nums); i++ {
+		if nums[i]%2 != nums[i-1]%2 {
+			d[i] = d[i-1]
+		}
+	}
+	for _, q := range queries {
+		ans = append(ans, d[q[1]] <= q[0])
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function isArraySpecial(nums: number[], queries: number[][]): boolean[] {
+    const n = nums.length;
+    const d: number[] = Array.from({ length: n }, (_, i) => i);
+    for (let i = 1; i < n; ++i) {
+        if (nums[i] % 2 !== nums[i - 1] % 2) {
+            d[i] = d[i - 1];
+        }
+    }
+    return queries.map(([from, to]) => d[to] <= from);
+}
 ```
 
 <!-- tabs:end -->
