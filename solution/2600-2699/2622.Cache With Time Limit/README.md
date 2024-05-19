@@ -97,39 +97,32 @@ timeDelays = [0, 0, 40, 50, 120, 200, 250]
 
 ```ts
 class TimeLimitedCache {
-    private cache: Map<number, [value: number, expire: number]> = new Map();
-
-    constructor() {}
+    #cache: Map<number, [value: number, expire: number]> = new Map();
 
     set(key: number, value: number, duration: number): boolean {
-        this.removeExpire();
-        const ans = this.cache.has(key);
-        this.cache.set(key, [value, this.now() + duration]);
-        return ans;
+        const isExist = this.#cache.has(key);
+
+        if (!this.#isExpired(key)) {
+            this.#cache.set(key, [value, Date.now() + duration]);
+        }
+
+        return isExist;
     }
 
     get(key: number): number {
-        this.removeExpire();
-        return this.cache.get(key)?.[0] ?? -1;
+        if (this.#isExpired(key)) return -1;
+        const res = this.#cache.get(key)?.[0] ?? -1;
+        return res;
     }
 
     count(): number {
-        this.removeExpire();
-        return this.cache.size;
+        const xs = Array.from(this.#cache).filter(([key]) => !this.#isExpired(key));
+        return xs.length;
     }
 
-    private now(): number {
-        return new Date().getTime();
-    }
-
-    private removeExpire(): void {
-        const now = this.now();
-        for (const [key, [, expire]] of this.cache) {
-            if (expire <= now) {
-                this.cache.delete(key);
-            }
-        }
-    }
+    #isExpired = (key: number) =>
+        this.#cache.has(key) &&
+        (this.#cache.get(key)?.[1] ?? Number.NEGATIVE_INFINITY) < Date.now();
 }
 
 /**
