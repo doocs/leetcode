@@ -91,12 +91,6 @@ timeDelays = [0, 0, 40, 50, 120, 200, 250]
 
 时间复杂度为 $O(1)$，空间复杂度为 $O(n)$。其中 $n$ 为哈希表 $cache$ 的大小。
 
-## Solutions
-
-### Solution 1
-
-#### TypeScript
-
 <!-- tabs:start -->
 
 #### TypeScript
