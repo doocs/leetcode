@@ -1,13 +1,37 @@
+:root {
+    --example-block-bg: #f5f5f5;
+    --pre-bg: #f5f5f5;
+}
+
+[data-md-color-scheme="default"] {
+    --example-block-bg: #f5f5f5;
+    --pre-bg: #f5f5f5;
+}
+
+[data-md-color-scheme="slate"] {
+    --example-block-bg: #272a35; /* dark theme background */
+    --pre-bg: #272a35; /* dark theme background */
+}
+
 .md-typeset h1 {
     margin: 0;
 }
 .md-typeset h2 {
     margin: 0.5em 0 0;
 }
+.md-typeset .example-block {
+    overflow-x: auto;
+    padding: 0 .2941176471em;
+    background-color: var(--example-block-bg);
+    border-radius: .1rem;
+}
+.md-typeset .example-block p {
+    margin: 0;
+}
 .md-content__inner>pre {
     margin: 0;
     overflow-x: auto;
     padding: 0 .2941176471em;
-    background-color: #f5f5f5;
+    background-color: var(--pre-bg);
     border-radius: .1rem;
 }
