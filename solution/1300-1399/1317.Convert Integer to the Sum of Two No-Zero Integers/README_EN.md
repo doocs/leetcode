@@ -62,7 +62,11 @@ Note that there are other valid answers as [8, 3] that can be accepted.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Direct Enumeration
+
+Starting from $1$, we enumerate $a$, then $b = n - a$. For each $a$ and $b$, we convert them to strings and concatenate them, then check if they contain the character '0'. If they do not contain '0', we have found the answer and return $[a, b]$.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the integer given in the problem. The space complexity is $O(\log n)$.
 
 <!-- tabs:start -->
 
@@ -121,13 +125,30 @@ func getNoZeroIntegers(n int) []int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function getNoZeroIntegers(n: number): number[] {
+    for (let a = 1; ; ++a) {
+        const b = n - a;
+        if (!`${a}${b}`.includes('0')) {
+            return [a, b];
+        }
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Direct Enumeration (Alternative Approach)
+
+In Solution 1, we converted $a$ and $b$ into strings and concatenated them, then checked if they contained the character '0'. Here, we can use a function $f(x)$ to check whether $x$ contains the character '0', and then directly enumerate $a$, checking whether both $a$ and $b = n - a$ do not contain the character '0'. If they do not, we have found the answer and return $[a, b]$.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the integer given in the problem. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -215,6 +236,27 @@ func getNoZeroIntegers(n int) []int {
 			return []int{a, b}
 		}
 	}
+}
+```
+
+#### TypeScript
+
+```ts
+function getNoZeroIntegers(n: number): number[] {
+    const f = (x: number): boolean => {
+        for (; x; x = (x / 10) | 0) {
+            if (x % 10 === 0) {
+                return false;
+            }
+        }
+        return true;
+    };
+    for (let a = 1; ; ++a) {
+        const b = n - a;
+        if (f(a) && f(b)) {
+            return [a, b];
+        }
+    }
 }
 ```
 

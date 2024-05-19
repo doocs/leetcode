@@ -111,8 +111,7 @@ It can be shown that 9 is the maximum achievable sum of values.
 ```cpp
 class Solution {
 public:
-    long long maximumValueSum(vector<int>& nums, int k,
-                              vector<vector<int>>& edges) {
+    long long maximumValueSum(vector<int>& nums, int k, vector<vector<int>>& edges) {
         long long totalSum = 0;
         int count = 0;
         int positiveMin = INT_MAX;
