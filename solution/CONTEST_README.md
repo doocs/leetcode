@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 398 场周赛(2024-05-19 10:30, 90 分钟) 参赛人数 3605
+
+- [3151. 特殊数组 I](/solution/3100-3199/3151.Special%20Array%20I/README.md)
+- [3152. 特殊数组 II](/solution/3100-3199/3152.Special%20Array%20II/README.md)
+- [3153. 所有数对中数位不同之和](/solution/3100-3199/3153.Sum%20of%20Digit%20Differences%20of%20All%20Pairs/README.md)
+- [3154. 到达第 K 级台阶的方案数](/solution/3100-3199/3154.Find%20Number%20of%20Ways%20to%20Reach%20the%20K-th%20Stair/README.md)
+
 #### 第 397 场周赛(2024-05-12 10:30, 90 分钟) 参赛人数 3365
 
 - [3146. 两个字符串的排列差](/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README.md)
