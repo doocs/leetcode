@@ -3163,6 +3163,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3152  |  [Special Array II](/solution/3100-3199/3152.Special%20Array%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 398  |
 |  3153  |  [Sum of Digit Differences of All Pairs](/solution/3100-3199/3153.Sum%20of%20Digit%20Differences%20of%20All%20Pairs/README_EN.md)  |    |  Medium  |  Weekly Contest 398  |
 |  3154  |  [Find Number of Ways to Reach the K-th Stair](/solution/3100-3199/3154.Find%20Number%20of%20Ways%20to%20Reach%20the%20K-th%20Stair/README_EN.md)  |    |  Hard  |  Weekly Contest 398  |
+|  3155  |  [Maximum Number of Upgradable Servers](/solution/3100-3199/3155.Maximum%20Number%20of%20Upgradable%20Servers/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
