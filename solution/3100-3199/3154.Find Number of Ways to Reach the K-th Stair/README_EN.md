@@ -105,32 +105,166 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3154.Fi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoization Search
+
+We design a function `dfs(i, j, jump)`, which represents the number of ways to reach the $k$th step when currently at the $i$th step, having performed $j$ operation 1's and `jump` operation 2's. The answer is `dfs(1, 0, 0)`.
+
+The calculation process of the function `dfs(i, j, jump)` is as follows:
+
+-   If $i > k + 1$, since we cannot go down twice in a row, we cannot reach the $k$th step again, so return $0$;
+-   If $i = k$, it means that we have reached the $k$th step. The answer is initialized to $1$, and then continue to calculate;
+-   If $i > 0$ and $j = 0$, it means that we can go down, recursively calculate `dfs(i - 1, 1, jump)`;
+-   Recursively calculate `dfs(i + 2^{jump}, 0, jump + 1)`, and add it to the answer.
+
+To avoid repeated calculations, we use memoization search to save the calculated states.
+
+The time complexity is $O(\log^2 k)$, and the space complexity is $O(\log^2 k)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def waysToReachStair(self, k: int) -> int:
+        @cache
+        def dfs(i: int, j: int, jump: int) -> int:
+            if i > k + 1:
+                return 0
+            ans = int(i == k)
+            if i > 0 and j == 0:
+                ans += dfs(i - 1, 1, jump)
+            ans += dfs(i + (1 << jump), 0, jump + 1)
+            return ans
 
+        return dfs(1, 0, 0)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private Map<Long, Integer> f = new HashMap<>();
+    private int k;
 
+    public int waysToReachStair(int k) {
+        this.k = k;
+        return dfs(1, 0, 0);
+    }
+
+    private int dfs(int i, int j, int jump) {
+        if (i > k + 1) {
+            return 0;
+        }
+        long key = ((long) i << 32) | jump << 1 | j;
+        if (f.containsKey(key)) {
+            return f.get(key);
+        }
+        int ans = i == k ? 1 : 0;
+        if (i > 0 && j == 0) {
+            ans += dfs(i - 1, 1, jump);
+        }
+        ans += dfs(i + (1 << jump), 0, jump + 1);
+        f.put(key, ans);
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int waysToReachStair(int k) {
+        this->k = k;
+        return dfs(1, 0, 0);
+    }
 
+private:
+    unordered_map<long long, int> f;
+    int k;
+
+    int dfs(int i, int j, int jump) {
+        if (i > k + 1) {
+            return 0;
+        }
+        long long key = ((long long) i << 32) | jump << 1 | j;
+        if (f.contains(key)) {
+            return f[key];
+        }
+        int ans = i == k ? 1 : 0;
+        if (i > 0 && j == 0) {
+            ans += dfs(i - 1, 1, jump);
+        }
+        ans += dfs(i + (1 << jump), 0, jump + 1);
+        f[key] = ans;
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func waysToReachStair(k int) int {
+	f := map[int]int{}
+	var dfs func(i, j, jump int) int
+	dfs = func(i, j, jump int) int {
+		if i > k+1 {
+			return 0
+		}
+		key := (i << 32) | jump<<1 | j
+		if v, has := f[key]; has {
+			return v
+		}
+		ans := 0
+		if i == k {
+			ans++
+		}
+		if i > 0 && j == 0 {
+			ans += dfs(i-1, 1, jump)
+		}
+		ans += dfs(i+(1<<jump), 0, jump+1)
+		f[key] = ans
+		return ans
+	}
+	return dfs(1, 0, 0)
+}
+```
 
+#### TypeScript
+
+```ts
+function waysToReachStair(k: number): number {
+    const f: Map<bigint, number> = new Map();
+
+    const dfs = (i: number, j: number, jump: number): number => {
+        if (i > k + 1) {
+            return 0;
+        }
+
+        const key: bigint = (BigInt(i) << BigInt(32)) | BigInt(jump << 1) | BigInt(j);
+        if (f.has(key)) {
+            return f.get(key)!;
+        }
+
+        let ans: number = 0;
+        if (i === k) {
+            ans++;
+        }
+
+        if (i > 0 && j === 0) {
+            ans += dfs(i - 1, 1, jump);
+        }
+
+        ans += dfs(i + (1 << jump), 0, jump + 1);
+        f.set(key, ans);
+        return ans;
+    };
+
+    return dfs(1, 0, 0);
+}
 ```
 
 <!-- tabs:end -->
