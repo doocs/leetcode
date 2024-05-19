@@ -81,9 +81,7 @@ At t=250, count() returns 0 because the cache is empty.
 
 <!-- solution:start -->
 
-### Solution 1
-
-#### TypeScript
+### Solution 1: Hash Table
 
 <!-- tabs:start -->
 
