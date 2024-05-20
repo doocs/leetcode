@@ -72,7 +72,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Offline Query + BFS + Priority Queue (Min Heap)
+
+According to the problem description, each query is independent, the order of the queries does not affect the result, and we are required to start from the top left corner each time, counting the number of cells that can be accessed and whose value is less than the current query value.
+
+Therefore, we can first sort the `queries` array, and then process each query in ascending order.
+
+We use a priority queue (min heap) to maintain the smallest cell value that we have currently accessed, and use an array or hash table `vis` to record whether the current cell has been visited. Initially, we add the data $(grid[0][0], 0, 0)$ of the top left cell as a tuple to the priority queue, and set `vis[0][0]` to `True`.
+
+For each query `queries[i]`, we judge whether the minimum value of the current priority queue is less than `queries[i]`. If it is, we pop the current minimum value, increment the counter `cnt`, and add the four cells above, below, left, and right of the current cell to the priority queue, noting to check whether they have been visited. Repeat the above operation until the minimum value of the current priority queue is greater than or equal to `queries[i]`, at which point `cnt` is the answer to the current query.
+
+The time complexity is $O(k \times \log k + m \times n \log(m \times n))$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, and $k$ is the number of queries. We need to sort the `queries` array, which has a time complexity of $O(k \times \log k)$. Each cell in the matrix will be visited at most once, and the time complexity of each enqueue and dequeue operation is $O(\log(m \times n))$. Therefore, the total time complexity is $O(k \times \log k + m \times n \log(m \times n))$.
 
 <!-- tabs:start -->
 
@@ -230,53 +240,6 @@ func (h hp) Less(i, j int) bool { return h[i].v < h[j].v }
 func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def maxPoints(self, grid: List[List[int]], queries: List[int]) -> List[int]:
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
-        def union(a, b):
-            pa, pb = find(a), find(b)
-            if pa == pb:
-                return
-            p[pa] = pb
-            size[pb] += size[pa]
-
-        m, n = len(grid), len(grid[0])
-        arr = sorted((grid[i][j], i, j) for i in range(m) for j in range(n))
-        k = len(queries)
-        ans = [0] * k
-        p = list(range(m * n))
-        size = [1] * len(p)
-        j = 0
-        for i, v in sorted(enumerate(queries), key=lambda x: x[1]):
-            while j < len(arr) and arr[j][0] < v:
-                _, a, b = arr[j]
-                for x, y in pairwise((-1, 0, 1, 0, -1)):
-                    c, d = a + x, b + y
-                    if 0 <= c < m and 0 <= d < n and grid[c][d] < v:
-                        union(a * n + b, c * n + d)
-                j += 1
-            if grid[0][0] < v:
-                ans[i] = size[find(0)]
-        return ans
 ```
 
 <!-- tabs:end -->

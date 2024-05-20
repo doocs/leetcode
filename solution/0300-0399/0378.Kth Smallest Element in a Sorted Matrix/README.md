@@ -27,7 +27,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>matrix = [[1,5,9],[10,11,13],[12,13,15]], k = 8
@@ -35,7 +35,7 @@ tags:
 <strong>解释：</strong>矩阵中的元素为 [1,5,9,10,11,12,13,<strong>13</strong>,15]，第 8 小元素是 13
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>matrix = [[-5]], k = 1

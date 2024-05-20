@@ -20,11 +20,11 @@ tags:
 
 <p>这是一个<strong>交互问题</strong>。</p>
 
-<p>您有一个<strong>升序</strong>整数数组，其<strong>长度未知</strong>。您没有访问数组的权限，但是可以使用&nbsp;<code>ArrayReader&nbsp;</code>接口访问它。你可以调用&nbsp;<code>ArrayReader.get(i)</code>:</p>
+<p>您有一个<strong>升序</strong>整数数组，其<strong>长度未知</strong>。您没有访问数组的权限，但是可以使用&nbsp;<code>ArrayReader</code>&nbsp;接口访问它。你可以调用&nbsp;<code>ArrayReader.get(i)</code>:</p>
 
 <ul>
 	<li>
-	<p>返回数组第<code>i<sup>th</sup></code>个索引(<strong>0-indexed</strong>)处的值(即<code>secret[i]</code>)，或者</p>
+	<p>返回数组第<code>i<sup>th</sup></code>个索引(<strong>0-indexed</strong>)处的值(即&nbsp;<code>secret[i]</code>)，或者</p>
 	</li>
 	<li>
 	<p>如果&nbsp;<code>i</code>&nbsp; 超出了数组的边界，则返回&nbsp;<code>2<sup>31</sup>&nbsp;- 1</code></p>
