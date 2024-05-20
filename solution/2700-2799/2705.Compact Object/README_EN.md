@@ -58,7 +58,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2705.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursion
+
+If `obj` is not an object or is null, the function will return it as is, because there's no need to check for keys in non-object values.
+
+If `obj` is an array, it will use `obj.filter(Boolean)` to filter out falsy values (like `null`, `undefined`, `false`, 0, ""), then use `map(compactObject)` to recursively call `compactObject` on each element. This ensures that nested arrays are also compacted.
+
+If `obj` is an object, it will create a new empty object `compactedObj`. It will iterate over all keys of `obj`, and for each key, it will recursively call `compactObject` on the corresponding value, then store the result in the value variable. If the value is truthy (i.e., not falsy), it will assign it to the compacted object with the corresponding key.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
@@ -68,44 +76,43 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2705.Co
 type Obj = Record<any, any>;
 
 function compactObject(obj: Obj): Obj {
+    if (!obj || typeof obj !== 'object') {
+        return obj;
+    }
     if (Array.isArray(obj)) {
-        const temp = [];
-        for (const item of obj) {
-            if (item) {
-                if (typeof item === 'object') temp.push(compactObject(item));
-                else temp.push(item);
-            }
+        return obj.map(compactObject).filter(Boolean);
+    }
+    return Object.entries(obj).reduce((acc, [key, value]) => {
+        const compactedValue = compactObject(value);
+        if (compactedValue) {
+            acc[key] = compactedValue;
         }
-        return temp;
-    }
-    for (const [key, value] of Object.entries(obj)) {
-        if (!value) delete obj[key];
-        else if (typeof value === 'object') obj[key] = compactObject(value);
-    }
-    return obj;
+        return acc;
+    }, {} as Obj);
 }
 ```
 
 #### JavaScript
 
 ```js
+/**
+ * @param {Object|Array} obj
+ * @return {Object|Array}
+ */
 var compactObject = function (obj) {
-    if (obj === null || typeof obj !== 'object') {
+    if (!obj || typeof obj !== 'object') {
         return obj;
     }
-
     if (Array.isArray(obj)) {
-        return obj.filter(Boolean).map(compactObject);
+        return obj.map(compactObject).filter(Boolean);
     }
-
-    const result = {};
-    for (const key in obj) {
-        const value = compactObject(obj[key]);
-        if (Boolean(value)) {
-            result[key] = value;
+    return Object.entries(obj).reduce((acc, [key, value]) => {
+        const compactedValue = compactObject(value);
+        if (compactedValue) {
+            acc[key] = compactedValue;
         }
-    }
-    return result;
+        return acc;
+    }, {});
 };
 ```
 
