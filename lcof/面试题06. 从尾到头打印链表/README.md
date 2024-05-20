@@ -423,7 +423,7 @@ class Solution {
             stack.append(node.val)
             current = node.next
         }
-        
+
         return stack.reversed()
     }
 }
