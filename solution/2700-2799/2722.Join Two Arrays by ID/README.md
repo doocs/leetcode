@@ -109,17 +109,24 @@ arr2 = [
 #### TypeScript
 
 ```ts
-function join(arr1: any[], arr2: any[]): any[] {
-    const d = new Map(arr1.map(x => [x.id, x]));
+function join(arr1: ArrayType[], arr2: ArrayType[]): ArrayType[] {
+    const r = (acc: Obj, x: ArrayType): Obj => ((acc[x.id] = x), acc);
+    const d = arr1.reduce(r, {});
+
     arr2.forEach(x => {
-        if (d.has(x.id)) {
-            d.set(x.id, { ...d.get(x.id), ...x });
+        if (d[x.id]) {
+            Object.assign(d[x.id], x);
         } else {
-            d.set(x.id, x);
+            d[x.id] = x;
         }
     });
-    return [...d.values()].sort((a, b) => a.id - b.id);
+    return Object.values(d);
 }
+
+type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };
+type ArrayType = { id: number } & Record<string, JSONValue>;
+
+type Obj = Record<number, ArrayType>;
 ```
 
 <!-- tabs:end -->
