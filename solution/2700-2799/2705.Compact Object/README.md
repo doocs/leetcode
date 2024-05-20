@@ -78,44 +78,43 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2705.Co
 type Obj = Record<any, any>;
 
 function compactObject(obj: Obj): Obj {
+    if (!obj || typeof obj !== 'object') {
+        return obj;
+    }
     if (Array.isArray(obj)) {
-        const temp = [];
-        for (const item of obj) {
-            if (item) {
-                if (typeof item === 'object') temp.push(compactObject(item));
-                else temp.push(item);
-            }
+        return obj.map(compactObject).filter(Boolean);
+    }
+    return Object.entries(obj).reduce((acc, [key, value]) => {
+        const compactedValue = compactObject(value);
+        if (compactedValue) {
+            acc[key] = compactedValue;
         }
-        return temp;
-    }
-    for (const [key, value] of Object.entries(obj)) {
-        if (!value) delete obj[key];
-        else if (typeof value === 'object') obj[key] = compactObject(value);
-    }
-    return obj;
+        return acc;
+    }, {} as Obj);
 }
 ```
 
 #### JavaScript
 
 ```js
+/**
+ * @param {Object|Array} obj
+ * @return {Object|Array}
+ */
 var compactObject = function (obj) {
-    if (obj === null || typeof obj !== 'object') {
+    if (!obj || typeof obj !== 'object') {
         return obj;
     }
-
     if (Array.isArray(obj)) {
-        return obj.filter(Boolean).map(compactObject);
+        return obj.map(compactObject).filter(Boolean);
     }
-
-    const result = {};
-    for (const key in obj) {
-        const value = compactObject(obj[key]);
-        if (Boolean(value)) {
-            result[key] = value;
+    return Object.entries(obj).reduce((acc, [key, value]) => {
+        const compactedValue = compactObject(value);
+        if (compactedValue) {
+            acc[key] = compactedValue;
         }
-    }
-    return result;
+        return acc;
+    }, {});
 };
 ```
 
