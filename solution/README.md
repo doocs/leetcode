@@ -3165,6 +3165,7 @@
 |  3152  |  [特殊数组 II](/solution/3100-3199/3152.Special%20Array%20II/README.md)  |    |  中等  |  第 398 场周赛  |
 |  3153  |  [所有数对中数位不同之和](/solution/3100-3199/3153.Sum%20of%20Digit%20Differences%20of%20All%20Pairs/README.md)  |    |  中等  |  第 398 场周赛  |
 |  3154  |  [到达第 K 级台阶的方案数](/solution/3100-3199/3154.Find%20Number%20of%20Ways%20to%20Reach%20the%20K-th%20Stair/README.md)  |    |  困难  |  第 398 场周赛  |
+|  3155  |  [Maximum Number of Upgradable Servers](/solution/3100-3199/3155.Maximum%20Number%20of%20Upgradable%20Servers/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

@@ -83,7 +83,7 @@ n = 2
 
 我们可以使用递归的方法，将多维数组扁平化。
 
-在函数中，我们首先判断 $n$ 是否小于等于 $0$，如果是，直接返回原数组。否则，我们遍历数组的每个元素 $x$，如果 $x$ 是数组，我们递归调用函数，将 $x$ 作为参数，$n - 1$ 作为深度，将返回值添加到结果数组中；否则，将 $x$ 添加到结果数组中。最后返回结果数组。
+在函数中，我们首先判断 $n$ 是否小于等于 $0$，如果是，直接返回原数组。否则，我们遍历数组的每个元素 $x$，如果 $x$ 是数组，我们递归调用函数，参数为 $(x, n - 1)$，将返回值添加到结果数组中；否则，将 $x$ 添加到结果数组中。最后返回结果数组。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的元素个数。
 
@@ -95,12 +95,12 @@ n = 2
 type MultiDimensionalArray = (number | MultiDimensionalArray)[];
 
 var flat = function (arr: MultiDimensionalArray, n: number): MultiDimensionalArray {
-    if (n <= 0) {
+    if (!n) {
         return arr;
     }
     const ans: MultiDimensionalArray = [];
     for (const x of arr) {
-        if (Array.isArray(x)) {
+        if (Array.isArray(x) && n) {
             ans.push(...flat(x, n - 1));
         } else {
             ans.push(x);

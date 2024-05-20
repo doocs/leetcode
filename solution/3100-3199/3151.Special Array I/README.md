@@ -71,32 +71,77 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3151.Sp
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：一次遍历
+
+我们从左到右遍历数组，对于每一对相邻元素，如果它们的奇偶性相同，那么数组就不是特殊数组，返回 `false`；否则，数组是特殊数组，返回 `true`。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def isArraySpecial(self, nums: List[int]) -> bool:
+        return all(a % 2 != b % 2 for a, b in pairwise(nums))
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean isArraySpecial(int[] nums) {
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] % 2 == nums[i - 1] % 2) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool isArraySpecial(vector<int>& nums) {
+        for (int i = 1; i < nums.size(); ++i) {
+            if (nums[i] % 2 == nums[i - 1] % 2) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func isArraySpecial(nums []int) bool {
+	for i, x := range nums[1:] {
+		if x%2 == nums[i]%2 {
+			return false
+		}
+	}
+	return true
+}
+```
 
+#### TypeScript
+
+```ts
+function isArraySpecial(nums: number[]): boolean {
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i] % 2 === nums[i - 1] % 2) {
+            return false;
+        }
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->

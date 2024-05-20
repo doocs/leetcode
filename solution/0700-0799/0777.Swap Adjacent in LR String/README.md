@@ -17,16 +17,16 @@ tags:
 
 <!-- description:start -->
 
-<p>在一个由 <code>&#39;L&#39;</code> , <code>&#39;R&#39;</code> 和 <code>&#39;X&#39;</code> 三个字符组成的字符串（例如<code>&quot;RXXLRXRXL&quot;</code>）中进行移动操作。一次移动操作指用一个<code>&quot;LX&quot;</code>替换一个<code>&quot;XL&quot;</code>，或者用一个<code>&quot;XR&quot;</code>替换一个<code>&quot;RX&quot;</code>。现给定起始字符串<code>start</code>和结束字符串<code>end</code>，请编写代码，当且仅当存在一系列移动操作使得<code>start</code>可以转换成<code>end</code>时， 返回<code>True</code>。</p>
+<p>在一个由 <code>'L'</code> , <code>'R'</code> 和 <code>'X'</code> 三个字符组成的字符串（例如<code>"RXXLRXRXL"</code>）中进行移动操作。一次移动操作指用一个&nbsp;<code>"LX"</code>&nbsp;替换一个&nbsp;<code>"XL"</code>，或者用一个&nbsp;<code>"XR"</code>&nbsp;替换一个&nbsp;<code>"RX"</code>。现给定起始字符串&nbsp;<code>start</code>&nbsp;和结束字符串&nbsp;<code>end</code>，请编写代码，当且仅当存在一系列移动操作使得&nbsp;<code>start</code>&nbsp;可以转换成&nbsp;<code>end</code>&nbsp;时， 返回&nbsp;<code>True</code>。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 :</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre><strong>输入:</strong> start = &quot;RXXLRXRXL&quot;, end = &quot;XRLXXRRLX&quot;
-<strong>输出:</strong> True
-<strong>解释:</strong>
-我们可以通过以下几步将start转换成end:
+<pre>
+<strong>输入：</strong>start = "RXXLRXRXL", end = "XRLXXRRLX"
+<strong>输出：</strong>true
+<strong>解释：</strong>通过以下步骤我们可以将 start 转化为 end：
 RXXLRXRXL -&gt;
 XRXLRXRXL -&gt;
 XRLXRXRXL -&gt;
@@ -34,13 +34,21 @@ XRLXXRRXL -&gt;
 XRLXXRRLX
 </pre>
 
+<p><strong class="example">示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>start = "X", end = "L"
+<strong>输出：</strong>false
+</pre>
+
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= len(start) = len(end) &lt;= 10000</code>。</li>
-	<li><code>start</code>和<code>end</code>中的字符串仅限于<code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>和<code>&#39;X&#39;</code>。</li>
+	<li><code>1 &lt;= start.length&nbsp;&lt;= 10<sup>4</sup></code></li>
+	<li><code>start.length == end.length</code></li>
+	<li><code>start</code> 和&nbsp;<code>end</code>&nbsp;都只包含&nbsp;<code>'L'</code>, <code>'R'</code>&nbsp;或&nbsp;<code>'X'</code>。</li>
 </ul>
 
 <!-- description:end -->

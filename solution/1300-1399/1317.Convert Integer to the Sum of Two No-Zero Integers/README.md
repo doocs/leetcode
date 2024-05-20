@@ -80,9 +80,9 @@ tags:
 
 ### 方法一：直接枚举
 
-从 $1$ 开始枚举 $a$，判断 $a$ 和 $n - a$ 是否满足条件，如果满足则返回。
+从 $1$ 开始枚举 $a$，那么 $b = n - a$。对于每个 $a$ 和 $b$，我们将它们转换为字符串并且连接起来，然后判断是否包含字符 `'0'`，如果不包含，那么就找到了答案，返回 $[a, b]$。
 
-时间复杂度 $O(n\times \log n)$，空间复杂度 $O(1)$。其中 $n$ 为题目给定的整数。
+时间复杂度 $O(n \times \log n)$，其中 $n$ 为题目给定的整数。空间复杂度 $O(\log n)$。
 
 <!-- tabs:start -->
 
@@ -141,13 +141,30 @@ func getNoZeroIntegers(n int) []int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function getNoZeroIntegers(n: number): number[] {
+    for (let a = 1; ; ++a) {
+        const b = n - a;
+        if (!`${a}${b}`.includes('0')) {
+            return [a, b];
+        }
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：直接枚举（另一种写法）
+
+在方法一中，我们将 $a$ 和 $b$ 转换为字符串并且连接起来，然后判断是否包含字符 `'0'`。这里我们可以通过一个函数 $f(x)$ 来判断 $x$ 是否包含字符 `'0'`，然后直接枚举 $a$，判断 $a$ 和 $b = n - a$ 是否都不包含字符 `'0'`，如果是，则找到了答案，返回 $[a, b]$。
+
+时间复杂度 $O(n \times \log n)$，其中 $n$ 为题目给定的整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -235,6 +252,27 @@ func getNoZeroIntegers(n int) []int {
 			return []int{a, b}
 		}
 	}
+}
+```
+
+#### TypeScript
+
+```ts
+function getNoZeroIntegers(n: number): number[] {
+    const f = (x: number): boolean => {
+        for (; x; x = (x / 10) | 0) {
+            if (x % 10 === 0) {
+                return false;
+            }
+        }
+        return true;
+    };
+    for (let a = 1; ; ++a) {
+        const b = n - a;
+        if (f(a) && f(b)) {
+            return [a, b];
+        }
+    }
 }
 ```
 

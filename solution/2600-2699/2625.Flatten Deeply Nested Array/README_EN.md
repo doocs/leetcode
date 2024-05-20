@@ -86,12 +86,12 @@ The maximum depth of any subarray is 1. Thus, all of them are flattened.</pre>
 type MultiDimensionalArray = (number | MultiDimensionalArray)[];
 
 var flat = function (arr: MultiDimensionalArray, n: number): MultiDimensionalArray {
-    if (n <= 0) {
+    if (!n) {
         return arr;
     }
     const ans: MultiDimensionalArray = [];
     for (const x of arr) {
-        if (Array.isArray(x)) {
+        if (Array.isArray(x) && n) {
             ans.push(...flat(x, n - 1));
         } else {
             ans.push(x);
