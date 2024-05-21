@@ -151,7 +151,7 @@ var hammingWeight = function (n) {
 
 ```swift
 class Solution {
-    func hammingWeight(_ n: UInt32) -> Int {
+    func hammingWeight(_ n: Int) -> Int {
         var n = n
         var ans = 0
         while n != 0 {
