@@ -4,10 +4,7 @@ on:
   push:
     branches:
       - main
-      - docs
     paths:
-      - package.json
-      - requirements.txt
       - solution/**
       - lcs/**
       - lcp/**
