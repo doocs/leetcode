@@ -249,7 +249,7 @@ class Solution {
         var ans: Double = 1
         var base: Double = a
         var exponent: Int64 = n
-        
+
         while exponent > 0 {
             if (exponent & 1) == 1 {
                 ans *= base
@@ -257,7 +257,7 @@ class Solution {
             base *= base
             exponent >>= 1
         }
-        
+
         return ans
     }
 }
