@@ -68,105 +68,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：位运算
 
-由于 `n & (n - 1)` 会消除 $n$ 的二进制表示中的最后一个 $1$，因此对 $n$ 重复该操作，直到 $n$ 变成 $0$，此时的操作次数即为 $n$ 的二进制表示中的 $1$ 的个数。
+由于 $n \& (n - 1)$ 可以消除 $n$ 的二进制表示中最右边的 1，因此不断执行 $n \& (n - 1)$，直到 $n = 0$，统计执行次数即可。
 
-或者，我们可以用 `lowbit` 函数来获取 $n$ 的二进制表示中的最后一个 $1$，然后将 $n$ 减去这个 $1$，再重复该操作，直到 $n$ 变成 $0$，此时的操作次数即为 $n$ 的二进制表示中的 $1$ 的个数。`lowbit(x)=x&(-x)`。
-
-时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为输入的整数。
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def hammingWeight(self, n: int) -> int:
-        return n.bit_count()
-```
-
-#### Java
-
-```java
-public class Solution {
-    // you need to treat n as an unsigned value
-    public int hammingWeight(int n) {
-        int ans = 0;
-        while (n != 0) {
-            n &= n - 1;
-            ++ans;
-        }
-        return ans;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int hammingWeight(uint32_t n) {
-        int ans = 0;
-        while (n) {
-            n &= n - 1;
-            ++ans;
-        }
-        return ans;
-    }
-};
-```
-
-#### Go
-
-```go
-func hammingWeight(num uint32) (ans int) {
-	for num != 0 {
-		num &= num - 1
-		ans++
-	}
-	return
-}
-```
-
-#### JavaScript
-
-```js
-/**
- * @param {number} n - a positive integer
- * @return {number}
- */
-var hammingWeight = function (n) {
-    let ans = 0;
-    while (n != 0) {
-        n &= n - 1;
-        ++ans;
-    }
-    return ans;
-};
-```
-
-#### C#
-
-```cs
-public class Solution {
-    public int HammingWeight(uint n) {
-        int ans = 0;
-        while (n != 0) {
-            n &= (n - 1);
-            ++ans;
-        }
-        return ans;
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start-->
-
-### 方法二
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -190,6 +94,93 @@ public class Solution {
     public int hammingWeight(int n) {
         int ans = 0;
         while (n != 0) {
+            n &= (n - 1);
+            ++ans;
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int ans = 0;
+        while (n) {
+            n &= (n - 1);
+            ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func hammingWeight(n uint32) (ans int) {
+	for n != 0 {
+		n &= n - 1
+		ans++
+	}
+	return
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n - a positive integer
+ * @return {number}
+ */
+var hammingWeight = function (n) {
+    let ans = 0;
+    while (n) {
+        n &= n - 1;
+        ++ans;
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：位运算（lowbit）
+
+根据位运算的性质，我们知道 $n \& (-n)$ 可以得到 $n$ 的二进制表示中最右边的 $1$，因此不断将 $n$ 减去 $n \& (-n)$，直到 $n = 0$，统计执行次数即可。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        ans = 0
+        while n:
+            n -= n & (-n)
+            ans += 1
+        return ans
+```
+
+#### Java
+
+```java
+public class Solution {
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
+        int ans = 0;
+        while (n != 0) {
             n -= n & -n;
             ++ans;
         }
@@ -205,7 +196,7 @@ class Solution {
 public:
     int hammingWeight(uint32_t n) {
         int ans = 0;
-        while (n != 0) {
+        while (n) {
             n -= n & -n;
             ++ans;
         }
@@ -217,35 +208,13 @@ public:
 #### Go
 
 ```go
-func hammingWeight(num uint32) (ans int) {
-	for num != 0 {
-		num -= num & -num
+func hammingWeight(n uint32) (ans int) {
+	for n != 0 {
+		n -= n & -n
 		ans++
 	}
 	return
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start-->
-
-### 方法三
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def hammingWeight(self, n: int) -> int:
-        ans = 0
-        while n:
-            n -= n & (-n)
-            ans += 1
-        return ans
 ```
 
 <!-- tabs:end -->
