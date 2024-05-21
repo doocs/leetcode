@@ -4,7 +4,7 @@
  */
 var hammingWeight = function (n) {
     let ans = 0;
-    while (n != 0) {
+    while (n) {
         n &= n - 1;
         ++ans;
     }
