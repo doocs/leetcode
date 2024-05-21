@@ -42,12 +42,12 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：动态规划
 
-我们定义 $dp[i]$ 表示正整数 $n$ 能获得的最大乘积，初始化 $dp[1] = 1$。答案即为 $dp[n]$。
+我们定义 $f[i]$ 表示正整数 $n$ 能获得的最大乘积，初始化 $f[1] = 1$。答案即为 $f[n]$。
 
 状态转移方程为：
 
 $$
-dp[i] = max(dp[i], dp[i - j] \times j, (i - j) \times j) \quad (j \in [0, i))
+f[i] = \max(f[i], f[i - j] \times j, (i - j) \times j) \quad (j \in [0, i))
 $$
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为正整数 $n$。
@@ -59,11 +59,11 @@ $$
 ```python
 class Solution:
     def cuttingRope(self, n: int) -> int:
-        dp = [1] * (n + 1)
+        f = [1] * (n + 1)
         for i in range(2, n + 1):
             for j in range(1, i):
-                dp[i] = max(dp[i], dp[i - j] * j, (i - j) * j)
-        return dp[n]
+                f[i] = max(f[i], f[i - j] * j, (i - j) * j)
+        return f[n]
 ```
 
 #### Java
@@ -71,14 +71,14 @@ class Solution:
 ```java
 class Solution {
     public int cuttingRope(int n) {
-        int[] dp = new int[n + 1];
-        dp[1] = 1;
+        int[] f = new int[n + 1];
+        f[1] = 1;
         for (int i = 2; i <= n; ++i) {
             for (int j = 1; j < i; ++j) {
-                dp[i] = Math.max(Math.max(dp[i], dp[i - j] * j), (i - j) * j);
+                f[i] = Math.max(Math.max(f[i], f[i - j] * j), (i - j) * j);
             }
         }
-        return dp[n];
+        return f[n];
     }
 }
 ```
@@ -89,14 +89,14 @@ class Solution {
 class Solution {
 public:
     int cuttingRope(int n) {
-        vector<int> dp(n + 1);
-        dp[1] = 1;
+        vector<int> f(n + 1);
+        f[1] = 1;
         for (int i = 2; i <= n; ++i) {
             for (int j = 1; j < i; ++j) {
-                dp[i] = max(max(dp[i], dp[i - j] * j), (i - j) * j);
+                f[i] = max({f[i], f[i - j] * j, (i - j) * j});
             }
         }
-        return dp[n];
+        return f[n];
     }
 };
 ```
@@ -105,14 +105,14 @@ public:
 
 ```go
 func cuttingRope(n int) int {
-	dp := make([]int, n+1)
-	dp[1] = 1
+	f := make([]int, n+1)
+	f[1] = 1
 	for i := 2; i <= n; i++ {
 		for j := 1; j < i; j++ {
-			dp[i] = max(max(dp[i], dp[i-j]*j), (i-j)*j)
+			f[i] = max(f[i], f[i-j]*j, (i-j)*j)
 		}
 	}
-	return dp[n]
+	return f[n]
 }
 ```
 
@@ -120,17 +120,13 @@ func cuttingRope(n int) int {
 
 ```ts
 function cuttingRope(n: number): number {
-    if (n < 4) {
-        return n - 1;
+    const f: number[] = Array(n + 1).fill(1);
+    for (let i = 2; i <= n; ++i) {
+        for (let j = 1; j < i; ++j) {
+            f[i] = Math.max(f[i], f[i - j] * j, (i - j) * j);
+        }
     }
-    const m = Math.floor(n / 3);
-    if (n % 3 == 0) {
-        return 3 ** m;
-    }
-    if (n % 3 == 1) {
-        return 3 ** (m - 1) * 4;
-    }
-    return 3 ** m * 2;
+    return f[n];
 }
 ```
 
@@ -139,11 +135,15 @@ function cuttingRope(n: number): number {
 ```rust
 impl Solution {
     pub fn cutting_rope(n: i32) -> i32 {
-        if n < 4 {
-            return n - 1;
+        let n = n as usize;
+        let mut f = vec![0; n + 1];
+        f[1] = 1;
+        for i in 2..=n {
+            for j in 1..i {
+                f[i] = f[i].max(f[i - j] * j).max((i - j) * j);
+            }
         }
-        let count = (n - 2) / 3;
-        (3i32).pow(count as u32) * (n - count * 3)
+        f[n] as i32
     }
 }
 ```
@@ -156,17 +156,13 @@ impl Solution {
  * @return {number}
  */
 var cuttingRope = function (n) {
-    if (n < 4) {
-        return n - 1;
+    const f = Array(n + 1).fill(1);
+    for (let i = 2; i <= n; ++i) {
+        for (let j = 1; j < i; ++j) {
+            f[i] = Math.max(f[i], f[i - j] * j, (i - j) * j);
+        }
     }
-    const m = Math.floor(n / 3);
-    if (n % 3 == 0) {
-        return 3 ** m;
-    }
-    if (n % 3 == 1) {
-        return 3 ** (m - 1) * 4;
-    }
-    return 3 ** m * 2;
+    return f[n];
 };
 ```
 
@@ -175,16 +171,14 @@ var cuttingRope = function (n) {
 ```cs
 public class Solution {
     public int CuttingRope(int n) {
-        if (n < 4) {
-            return n - 1;
+        int[] f = new int[n + 1];
+        f[1] = 1;
+        for (int i = 2; i <= n; ++i) {
+            for (int j = 1; j < i; ++j) {
+                f[i] = Math.Max(Math.Max(f[i], f[i - j] * j), (i - j) * j);
+            }
         }
-        if (n % 3 == 0) {
-            return (int) Math.Pow(3, n / 3);
-        }
-        if (n % 3 == 1) {
-            return (int) Math.Pow(3, n / 3 - 1) * 4;
-        }
-        return (int) Math.Pow(3, n / 3) * 2;
+        return f[n];
     }
 }
 ```
@@ -270,6 +264,79 @@ func cuttingRope(n int) int {
 		return int(math.Pow(3, float64(n/3-1))) * 4
 	}
 	return int(math.Pow(3, float64(n/3))) * 2
+}
+```
+
+#### TypeScript
+
+```ts
+function cuttingRope(n: number): number {
+    if (n < 4) {
+        return n - 1;
+    }
+    const m = Math.floor(n / 3);
+    if (n % 3 == 0) {
+        return 3 ** m;
+    }
+    if (n % 3 == 1) {
+        return 3 ** (m - 1) * 4;
+    }
+    return 3 ** m * 2;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn cutting_rope(n: i32) -> i32 {
+        if n < 4 {
+            return n - 1;
+        }
+        let count = (n - 2) / 3;
+        (3i32).pow(count as u32) * (n - count * 3)
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var cuttingRope = function (n) {
+    if (n < 4) {
+        return n - 1;
+    }
+    const m = Math.floor(n / 3);
+    if (n % 3 == 0) {
+        return 3 ** m;
+    }
+    if (n % 3 == 1) {
+        return 3 ** (m - 1) * 4;
+    }
+    return 3 ** m * 2;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int CuttingRope(int n) {
+        if (n < 4) {
+            return n - 1;
+        }
+        if (n % 3 == 0) {
+            return (int) Math.Pow(3, n / 3);
+        }
+        if (n % 3 == 1) {
+            return (int) Math.Pow(3, n / 3 - 1) * 4;
+        }
+        return (int) Math.Pow(3, n / 3) * 2;
+    }
 }
 ```
 

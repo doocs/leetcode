@@ -5,14 +5,12 @@
  * @return {number}
  */
 var movingCount = function (m, n, k) {
-    const vis = new Array(m * n).fill(false);
-    let dfs = function (i, j) {
-        if (
-            i >= m ||
-            j >= n ||
-            vis[i * n + j] ||
-            (i % 10) + Math.floor(i / 10) + (j % 10) + Math.floor(j / 10) > k
-        ) {
+    const vis = Array(m * n).fill(false);
+    const f = x => {
+        return ((x / 10) | 0) + (x % 10);
+    };
+    const dfs = (i, j) => {
+        if (i >= m || j >= n || vis[i * n + j] || f(i) + f(j) > k) {
             return 0;
         }
         vis[i * n + j] = true;
