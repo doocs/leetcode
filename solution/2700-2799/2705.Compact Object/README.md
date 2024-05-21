@@ -82,7 +82,7 @@ function compactObject(obj: Obj): Obj {
         return obj;
     }
     if (Array.isArray(obj)) {
-        return obj.map(compactObject).filter(Boolean);
+        return obj.filter(Boolean).map(compactObject);
     }
     return Object.entries(obj).reduce((acc, [key, value]) => {
         const compactedValue = compactObject(value);
@@ -106,7 +106,7 @@ var compactObject = function (obj) {
         return obj;
     }
     if (Array.isArray(obj)) {
-        return obj.map(compactObject).filter(Boolean);
+        return obj.filter(Boolean).map(compactObject);
     }
     return Object.entries(obj).reduce((acc, [key, value]) => {
         const compactedValue = compactObject(value);

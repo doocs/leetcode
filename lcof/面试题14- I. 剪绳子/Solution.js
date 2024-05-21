@@ -3,15 +3,11 @@
  * @return {number}
  */
 var cuttingRope = function (n) {
-    if (n < 4) {
-        return n - 1;
+    const f = Array(n + 1).fill(1);
+    for (let i = 2; i <= n; ++i) {
+        for (let j = 1; j < i; ++j) {
+            f[i] = Math.max(f[i], f[i - j] * j, (i - j) * j);
+        }
     }
-    const m = Math.floor(n / 3);
-    if (n % 3 == 0) {
-        return 3 ** m;
-    }
-    if (n % 3 == 1) {
-        return 3 ** (m - 1) * 4;
-    }
-    return 3 ** m * 2;
+    return f[n];
 };
