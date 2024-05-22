@@ -42,7 +42,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：数组或哈希表
 
-我们可以使用哈希表或数组来统计每个字符出现的次数，然后再遍历一遍字符串，找到第一个出现次数为 $1$ 的字符。
+我们可以使用哈希表或数组 $cnt$ 来统计每个字符出现的次数，然后再遍历一遍字符串，找到第一个出现次数为 $1$ 的字符。
 
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串长度；而 $C$ 为字符集大小，本题中 $C=26$。
 
@@ -121,12 +121,12 @@ func firstUniqChar(s string) byte {
 
 ```ts
 function firstUniqChar(s: string): string {
-    const map = new Map();
+    const cnt: number[] = Array(26).fill(0);
     for (const c of s) {
-        map.set(c, !map.has(c));
+        cnt[c.charCodeAt(0) - 97]++;
     }
     for (const c of s) {
-        if (map.get(c)) {
+        if (cnt[c.charCodeAt(0) - 97] === 1) {
             return c;
         }
     }
@@ -137,16 +137,15 @@ function firstUniqChar(s: string): string {
 #### Rust
 
 ```rust
-use std::collections::HashMap;
 impl Solution {
     pub fn first_uniq_char(s: String) -> char {
-        let mut map = HashMap::new();
-        for c in s.as_bytes() {
-            map.insert(c, !map.contains_key(c));
+        let mut cnt = [0; 26];
+        for c in s.chars() {
+            cnt[(c as usize) - ('a' as usize)] += 1;
         }
-        for c in s.as_bytes() {
-            if map[c] {
-                return char::from(*c);
+        for c in s.chars() {
+            if cnt[(c as usize) - ('a' as usize)] == 1 {
+                return c;
             }
         }
         ' '
@@ -162,7 +161,7 @@ impl Solution {
  * @return {character}
  */
 var firstUniqChar = function (s) {
-    const cnt = new Array(26).fill(0);
+    const cnt = Array(26).fill(0);
     for (const c of s) {
         cnt[c.charCodeAt(0) - 97]++;
     }
