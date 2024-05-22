@@ -6,17 +6,18 @@
 #         self.right = right
 class Solution:
     def closestValue(self, root: Optional[TreeNode], target: float) -> int:
-        def dfs(root):
-            if root is None:
+        def dfs(node: Optional[TreeNode]):
+            if node is None:
                 return
-            dfs(root.left)
-            nonlocal ans, mi
-            t = abs(root.val - target)
-            if t < mi:
-                mi = t
-                ans = root.val
-            dfs(root.right)
+            nxt = abs(target - node.val)
+            nonlocal ans, diff
+            if nxt < diff or (nxt == diff and node.val < ans):
+                diff = nxt
+                ans = node.val
+            node = node.left if target < node.val else node.right
+            dfs(node)
 
-        ans, mi = root.val, inf
+        ans = 0
+        diff = inf
         dfs(root)
         return ans
