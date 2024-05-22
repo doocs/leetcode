@@ -256,7 +256,7 @@ class Solution {
     func deleteNode(_ head: ListNode?, _ val: Int) -> ListNode? {
         let dummy = ListNode(0, head)
         var current: ListNode? = dummy
-        
+
         while current?.next != nil {
             if current?.next?.val == val {
                 current?.next = current?.next?.next
@@ -264,7 +264,7 @@ class Solution {
             }
             current = current?.next
         }
-        
+
         return dummy.next
     }
 }

@@ -56,7 +56,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Level Order Traversal
+
+We can use level order traversal to serialize the binary tree. Starting from the root node, we add the nodes of the binary tree to the queue in the order from top to bottom, from left to right. Then we dequeue the nodes in the queue one by one. If the node is not null, we add its value to the serialized string; otherwise, we add a special character `#`. Finally, we return the serialized string.
+
+During deserialization, we split the serialized string by the delimiter to get a string array, and then add the elements in the string array to the queue in order. The elements in the queue are the nodes of the binary tree. We dequeue the elements from the queue one by one. If the element is not `#`, we convert it to an integer and use it as the value of the node, and then add the node to the queue; otherwise, we set it to `null`. Finally, we return the root node.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -78,21 +84,19 @@ class Codec:
         :type root: TreeNode
         :rtype: str
         """
-
         if root is None:
-            return ''
-        res = []
-
-        def preorder(root):
-            if root is None:
-                res.append("#,")
-                return
-            res.append(str(root.val) + ",")
-            preorder(root.left)
-            preorder(root.right)
-
-        preorder(root)
-        return ''.join(res)
+            return ""
+        q = deque([root])
+        ans = []
+        while q:
+            node = q.popleft()
+            if node:
+                ans.append(str(node.val))
+                q.append(node.left)
+                q.append(node.right)
+            else:
+                ans.append("#")
+        return ",".join(ans)
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
@@ -102,21 +106,26 @@ class Codec:
         """
         if not data:
             return None
-        vals = data.split(',')
-
-        def inner():
-            first = vals.pop(0)
-            if first == '#':
-                return None
-            return TreeNode(int(first), inner(), inner())
-
-        return inner()
+        vals = data.split(",")
+        root = TreeNode(int(vals[0]))
+        q = deque([root])
+        i = 1
+        while q:
+            node = q.popleft()
+            if vals[i] != "#":
+                node.left = TreeNode(int(vals[i]))
+                q.append(node.left)
+            i += 1
+            if vals[i] != "#":
+                node.right = TreeNode(int(vals[i]))
+                q.append(node.right)
+            i += 1
+        return root
 
 
 # Your Codec object will be instantiated and called as such:
-# ser = Codec()
-# deser = Codec()
-# ans = deser.deserialize(ser.serialize(root))
+# codec = Codec()
+# codec.deserialize(codec.serialize(root))
 ```
 
 #### Java
@@ -132,57 +141,58 @@ class Codec:
  * }
  */
 public class Codec {
-    private static final String NULL = "#";
-    private static final String SEP = ",";
 
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         if (root == null) {
-            return "";
+            return null;
         }
-        StringBuilder sb = new StringBuilder();
-        preorder(root, sb);
-        return sb.toString();
-    }
-
-    private void preorder(TreeNode root, StringBuilder sb) {
-        if (root == null) {
-            sb.append(NULL + SEP);
-            return;
+        List<String> ans = new ArrayList<>();
+        Deque<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            TreeNode node = q.poll();
+            if (node != null) {
+                ans.add(node.val + "");
+                q.offer(node.left);
+                q.offer(node.right);
+            } else {
+                ans.add("#");
+            }
         }
-        sb.append(root.val + SEP);
-        preorder(root.left, sb);
-        preorder(root.right, sb);
+        return String.join(",", ans);
     }
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        if (data == null || "".equals(data)) {
+        if (data == null) {
             return null;
         }
-        List<String> vals = new LinkedList<>();
-        for (String x : data.split(SEP)) {
-            vals.add(x);
+        String[] vals = data.split(",");
+        int i = 0;
+        TreeNode root = new TreeNode(Integer.valueOf(vals[i++]));
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            TreeNode node = q.poll();
+            if (!"#".equals(vals[i])) {
+                node.left = new TreeNode(Integer.valueOf(vals[i]));
+                q.offer(node.left);
+            }
+            ++i;
+            if (!"#".equals(vals[i])) {
+                node.right = new TreeNode(Integer.valueOf(vals[i]));
+                q.offer(node.right);
+            }
+            ++i;
         }
-        return deserialize(vals);
-    }
-
-    private TreeNode deserialize(List<String> vals) {
-        String first = vals.remove(0);
-        if (NULL.equals(first)) {
-            return null;
-        }
-        TreeNode root = new TreeNode(Integer.parseInt(first));
-        root.left = deserialize(vals);
-        root.right = deserialize(vals);
         return root;
     }
 }
 
 // Your Codec object will be instantiated and called as such:
-// Codec ser = new Codec();
-// Codec deser = new Codec();
-// TreeNode ans = deser.deserialize(ser.serialize(root));
+// Codec codec = new Codec();
+// codec.deserialize(codec.serialize(root));
 ```
 
 #### C++
@@ -201,153 +211,132 @@ class Codec {
 public:
     // Encodes a tree to a single string.
     string serialize(TreeNode* root) {
-        if (!root) return "";
-        string s = "";
-        preorder(root, s);
-        return s;
-    }
-
-    void preorder(TreeNode* root, string& s) {
-        if (!root)
-            s += "# ";
-        else {
-            s += to_string(root->val) + " ";
-            preorder(root->left, s);
-            preorder(root->right, s);
+        if (!root) {
+            return "";
         }
+        queue<TreeNode*> q{{root}};
+        string ans;
+        while (!q.empty()) {
+            auto node = q.front();
+            q.pop();
+            if (node) {
+                ans += to_string(node->val) + " ";
+                q.push(node->left);
+                q.push(node->right);
+            } else {
+                ans += "# ";
+            }
+        }
+        ans.pop_back();
+        return ans;
     }
 
     // Decodes your encoded data to tree.
     TreeNode* deserialize(string data) {
-        if (data == "") return nullptr;
+        if (data == "") {
+            return nullptr;
+        }
         stringstream ss(data);
-        return deserialize(ss);
-    }
-
-    TreeNode* deserialize(stringstream& ss) {
-        string first;
-        ss >> first;
-        if (first == "#") return nullptr;
-        TreeNode* root = new TreeNode(stoi(first));
-        root->left = deserialize(ss);
-        root->right = deserialize(ss);
+        string t;
+        ss >> t;
+        TreeNode* root = new TreeNode(stoi(t));
+        queue<TreeNode*> q{{root}};
+        while (!q.empty()) {
+            auto node = q.front();
+            q.pop();
+            ss >> t;
+            if (t != "#") {
+                node->left = new TreeNode(stoi(t));
+                q.push(node->left);
+            }
+            ss >> t;
+            if (t != "#") {
+                node->right = new TreeNode(stoi(t));
+                q.push(node->right);
+            }
+        }
         return root;
     }
 };
 
 // Your Codec object will be instantiated and called as such:
-// Codec ser, deser;
-// TreeNode* ans = deser.deserialize(ser.serialize(root));
+// Codec codec;
+// codec.deserialize(codec.serialize(root));
 ```
 
-#### TypeScript
+#### Go
 
-```ts
+```go
 /**
  * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
  * }
  */
 
-/*
- * Encodes a tree to a single string.
- */
-function serialize(root: TreeNode | null): string {
-    return JSON.stringify(root);
+type Codec struct {
 }
 
-/*
- * Decodes your encoded data to tree.
- */
-function deserialize(data: string): TreeNode | null {
-    return JSON.parse(data);
+func Constructor() Codec {
+	return Codec{}
+}
+
+// Serializes a tree to a single string.
+func (this *Codec) serialize(root *TreeNode) string {
+	if root == nil {
+		return ""
+	}
+	q := []*TreeNode{root}
+	ans := []string{}
+	for len(q) > 0 {
+		node := q[0]
+		q = q[1:]
+		if node != nil {
+			ans = append(ans, strconv.Itoa(node.Val))
+			q = append(q, node.Left)
+			q = append(q, node.Right)
+		} else {
+			ans = append(ans, "#")
+		}
+	}
+	return strings.Join(ans, ",")
+}
+
+// Deserializes your encoded data to tree.
+func (this *Codec) deserialize(data string) *TreeNode {
+	if data == "" {
+		return nil
+	}
+	vals := strings.Split(data, ",")
+	v, _ := strconv.Atoi(vals[0])
+	i := 1
+	root := &TreeNode{Val: v}
+	q := []*TreeNode{root}
+	for len(q) > 0 {
+		node := q[0]
+		q = q[1:]
+		if x, err := strconv.Atoi(vals[i]); err == nil {
+			node.Left = &TreeNode{Val: x}
+			q = append(q, node.Left)
+		}
+		i++
+		if x, err := strconv.Atoi(vals[i]); err == nil {
+			node.Right = &TreeNode{Val: x}
+			q = append(q, node.Right)
+		}
+		i++
+	}
+	return root
 }
 
 /**
- * Your functions will be called as such:
- * deserialize(serialize(root));
- */
-```
-
-#### Rust
-
-```rust
-// Definition for a binary tree node.
-// #[derive(Debug, PartialEq, Eq)]
-// pub struct TreeNode {
-//   pub val: i32,
-//   pub left: Option<Rc<RefCell<TreeNode>>>,
-//   pub right: Option<Rc<RefCell<TreeNode>>>,
-// }
-//
-// impl TreeNode {
-//   #[inline]
-//   pub fn new(val: i32) -> Self {
-//     TreeNode {
-//       val,
-//       left: None,
-//       right: None
-//     }
-//   }
-// }
-use std::rc::Rc;
-use std::cell::RefCell;
-struct Codec {}
-
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
-impl Codec {
-    fn new() -> Self {
-        Codec {}
-    }
-
-    fn serialize(&self, root: Option<Rc<RefCell<TreeNode>>>) -> String {
-        if root.is_none() {
-            return String::from("#");
-        }
-        let mut node = root.as_ref().unwrap().borrow_mut();
-        let left = node.left.take();
-        let right = node.right.take();
-        format!("{},{},{}", self.serialize(right), self.serialize(left), node.val)
-    }
-
-    fn deserialize(&self, data: String) -> Option<Rc<RefCell<TreeNode>>> {
-        if data.len() == 1 {
-            return None;
-        }
-        Self::renew(&mut data.split(",").collect())
-    }
-
-    fn renew(vals: &mut Vec<&str>) -> Option<Rc<RefCell<TreeNode>>> {
-        let val = vals.pop().unwrap_or("#");
-        if val == "#" {
-            return None;
-        }
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val: val.parse().unwrap(),
-                    left: Self::renew(vals),
-                    right: Self::renew(vals),
-                })
-            )
-        )
-    }
-}/**
  * Your Codec object will be instantiated and called as such:
- * let obj = Codec::new();
- * let data: String = obj.serialize(strs);
- * let ans: Option<Rc<RefCell<TreeNode>>> = obj.deserialize(data);
+ * ser := Constructor();
+ * deser := Constructor();
+ * data := ser.serialize(root);
+ * ans := deser.deserialize(data);
  */
 ```
 
@@ -369,7 +358,23 @@ impl Codec {
  * @return {string}
  */
 var serialize = function (root) {
-    return rserialize(root, '');
+    if (root === null) {
+        return null;
+    }
+    const ans = [];
+    const q = [root];
+    let index = 0;
+    while (index < q.length) {
+        const node = q[index++];
+        if (node !== null) {
+            ans.push(node.val.toString());
+            q.push(node.left);
+            q.push(node.right);
+        } else {
+            ans.push('#');
+        }
+    }
+    return ans.join(',');
 };
 
 /**
@@ -379,32 +384,27 @@ var serialize = function (root) {
  * @return {TreeNode}
  */
 var deserialize = function (data) {
-    const dataArray = data.split(',');
-    return rdeserialize(dataArray);
-};
-
-const rserialize = (root, str) => {
-    if (root === null) {
-        str += '#,';
-    } else {
-        str += root.val + '' + ',';
-        str = rserialize(root.left, str);
-        str = rserialize(root.right, str);
-    }
-    return str;
-};
-
-const rdeserialize = dataList => {
-    if (dataList[0] === '#') {
-        dataList.shift();
+    if (data === null) {
         return null;
     }
-
-    const root = new TreeNode(parseInt(dataList[0]));
-    dataList.shift();
-    root.left = rdeserialize(dataList);
-    root.right = rdeserialize(dataList);
-
+    const vals = data.split(',');
+    let i = 0;
+    const root = new TreeNode(parseInt(vals[i++]));
+    const q = [root];
+    let index = 0;
+    while (index < q.length) {
+        const node = q[index++];
+        if (vals[i] !== '#') {
+            node.left = new TreeNode(+vals[i]);
+            q.push(node.left);
+        }
+        i++;
+        if (vals[i] !== '#') {
+            node.right = new TreeNode(+vals[i]);
+            q.push(node.right);
+        }
+        i++;
+    }
     return root;
 };
 
@@ -414,67 +414,71 @@ const rdeserialize = dataList => {
  */
 ```
 
-<!-- tabs:end -->
+#### C#
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
+```cs
 /**
  * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int x) { val = x; }
  * }
  */
+public class Codec {
 
-/*
- * Encodes a tree to a single string.
- */
-function serialize(root: TreeNode | null): string {
-    if (root == null) {
-        return '#';
-    }
-    const { val, left, right } = root;
-    return `${val},${serialize(left)},${serialize(right)}`;
-}
-
-/*
- * Decodes your encoded data to tree.
- */
-function deserialize(data: string): TreeNode | null {
-    const n = data.length;
-    if (n === 1) {
-        return null;
-    }
-    const vals = data.split(',').reverse();
-    const renew = () => {
-        const val = vals.pop();
-        if (val == null || val === '#') {
+    // Encodes a tree to a single string.
+    public string serialize(TreeNode root) {
+        if (root == null) {
             return null;
         }
-        return new TreeNode(Number(val), renew(), renew());
-    };
-    return renew();
+        List<string> ans = new List<string>();
+        Queue<TreeNode> q = new Queue<TreeNode>();
+        q.Enqueue(root);
+        while (q.Count > 0) {
+            TreeNode node = q.Dequeue();
+            if (node != null) {
+                ans.Add(node.val.ToString());
+                q.Enqueue(node.left);
+                q.Enqueue(node.right);
+            } else {
+                ans.Add("#");
+            }
+        }
+        return string.Join(",", ans);
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(string data) {
+        if (data == null) {
+            return null;
+        }
+        string[] vals = data.Split(',');
+        int i = 0;
+        TreeNode root = new TreeNode(int.Parse(vals[i++]));
+        Queue<TreeNode> q = new Queue<TreeNode>();
+        q.Enqueue(root);
+        while (q.Count > 0) {
+            TreeNode node = q.Dequeue();
+            if (vals[i] != "#") {
+                node.left = new TreeNode(int.Parse(vals[i]));
+                q.Enqueue(node.left);
+            }
+            i++;
+            if (vals[i] != "#") {
+                node.right = new TreeNode(int.Parse(vals[i]));
+                q.Enqueue(node.right);
+            }
+            i++;
+        }
+        return root;
+    }
 }
 
-/**
- * Your functions will be called as such:
- * deserialize(serialize(root));
- */
+// Your Codec object will be instantiated and called as such:
+// Codec codec = new Codec();
+// codec.deserialize(codec.serialize(root));
 ```
 
 <!-- tabs:end -->
