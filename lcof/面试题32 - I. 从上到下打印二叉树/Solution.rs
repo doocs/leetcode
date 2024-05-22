@@ -21,21 +21,21 @@ use std::cell::RefCell;
 use std::collections::VecDeque;
 impl Solution {
     pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-        let mut res = Vec::new();
-        let mut queue = VecDeque::new();
+        let mut ans = Vec::new();
+        let mut q = VecDeque::new();
         if let Some(node) = root {
-            queue.push_back(node);
+            q.push_back(node);
         }
-        while let Some(node) = queue.pop_front() {
+        while let Some(node) = q.pop_front() {
             let mut node = node.borrow_mut();
-            res.push(node.val);
+            ans.push(node.val);
             if let Some(l) = node.left.take() {
-                queue.push_back(l);
+                q.push_back(l);
             }
             if let Some(r) = node.right.take() {
-                queue.push_back(r);
+                q.push_back(r);
             }
         }
-        res
+        ans
     }
 }

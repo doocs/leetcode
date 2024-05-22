@@ -88,7 +88,7 @@ Then we traverse the hash table, put the players who lost 0 matches into `ans[0]
 
 Finally, we sort `ans[0]` and `ans[1]` in ascending order and return the result.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of matches.
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of matches.
 
 <!-- tabs:start -->
 

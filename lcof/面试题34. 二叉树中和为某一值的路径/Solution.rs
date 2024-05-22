@@ -22,25 +22,25 @@ impl Solution {
     fn dfs(
         root: &Option<Rc<RefCell<TreeNode>>>,
         mut target: i32,
-        paths: &mut Vec<i32>,
-        res: &mut Vec<Vec<i32>>
+        t: &mut Vec<i32>,
+        ans: &mut Vec<Vec<i32>>
     ) {
         if let Some(node) = root.as_ref() {
             let node = node.borrow();
-            paths.push(node.val);
+            t.push(node.val);
             target -= node.val;
             if node.left.is_none() && node.right.is_none() && target == 0 {
-                res.push(paths.clone());
+                ans.push(t.clone());
             }
-            Self::dfs(&node.left, target, paths, res);
-            Self::dfs(&node.right, target, paths, res);
-            paths.pop();
+            Self::dfs(&node.left, target, t, ans);
+            Self::dfs(&node.right, target, t, ans);
+            t.pop();
         }
     }
 
     pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, target: i32) -> Vec<Vec<i32>> {
-        let mut res = vec![];
-        Self::dfs(&root, target, &mut vec![], &mut res);
-        res
+        let mut ans = vec![];
+        Self::dfs(&root, target, &mut vec![], &mut ans);
+        ans
     }
 }
