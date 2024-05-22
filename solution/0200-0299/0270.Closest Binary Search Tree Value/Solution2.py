@@ -6,14 +6,11 @@
 #         self.right = right
 class Solution:
     def closestValue(self, root: Optional[TreeNode], target: float) -> int:
-        ans, mi = root.val, inf
+        ans, diff = root.val, inf
         while root:
-            t = abs(root.val - target)
-            if t < mi or (t == mi and root.val < ans):
-                mi = t
+            nxt = abs(root.val - target)
+            if nxt < diff or (nxt == diff and root.val < ans):
+                diff = nxt
                 ans = root.val
-            if root.val > target:
-                root = root.left
-            else:
-                root = root.right
+            root = root.left if target < root.val else root.right
         return ans

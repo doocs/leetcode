@@ -16,7 +16,7 @@
 class Solution {
     private int ans;
     private double target;
-    private double mi = Double.MAX_VALUE;
+    private double diff = Double.MAX_VALUE;
 
     public int closestValue(TreeNode root, double target) {
         this.target = target;
@@ -24,16 +24,16 @@ class Solution {
         return ans;
     }
 
-    private void dfs(TreeNode root) {
-        if (root == null) {
+    private void dfs(TreeNode node) {
+        if (node == null) {
             return;
         }
-        dfs(root.left);
-        double t = Math.abs(root.val - target);
-        if (t < mi) {
-            mi = t;
-            ans = root.val;
+        double nxt = Math.abs(node.val - target);
+        if (nxt < diff || (nxt == diff && node.val < ans)) {
+            diff = nxt;
+            ans = node.val;
         }
-        dfs(root.right);
+        node = target < node.val ? node.left : node.right;
+        dfs(node);
     }
 }

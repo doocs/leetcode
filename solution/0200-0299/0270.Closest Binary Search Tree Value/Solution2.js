@@ -13,18 +13,14 @@
  */
 var closestValue = function (root, target) {
     let ans = root.val;
-    let mi = Number.MAX_VALUE;
+    let diff = Infinity;
     while (root) {
-        const t = Math.abs(root.val - target);
-        if (t < mi || (t === mi && root.val < ans)) {
-            mi = t;
+        const nxt = Math.abs(root.val - target);
+        if (nxt < diff || (nxt === diff && root.val < ans)) {
+            diff = nxt;
             ans = root.val;
         }
-        if (root.val > target) {
-            root = root.left;
-        } else {
-            root = root.right;
-        }
+        root = target < root.val ? root.left : root.right;
     }
     return ans;
 };
