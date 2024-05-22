@@ -244,17 +244,17 @@ class Solution {
         var slow = head
         var fast = head
         var k = k
-        
+
         while k > 0 {
             fast = fast?.next
             k -= 1
         }
-        
+
         while fast != nil {
             slow = slow?.next
             fast = fast?.next
         }
-        
+
         return slow
     }
 }
