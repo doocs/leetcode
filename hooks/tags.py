@@ -4,25 +4,30 @@ from bs4 import BeautifulSoup
 
 
 def on_page_content(html, page, config, files):
-    # 修改 tags 页每个 tag 的 id 属性值
     is_cn_tag_page = page.abs_url == "/leetcode/tags/"
+    is_en_tag_page = page.abs_url == "/leetcode/en/tags/"
+    if not is_cn_tag_page and not is_en_tag_page:
+        return html
+
+    soup = BeautifulSoup(html, "html.parser")
     if is_cn_tag_page:
-        soup = BeautifulSoup(html, "html.parser")
+        # 修改 tags 页每个 tag 的 id 属性值
         h2_tags = soup.find_all("h2")
         for tag in h2_tags:
             span_tag = tag.find("span", class_="md-tag")
             if span_tag:
                 tag["id"] = span_tag.text.strip()
-        # 重新排序每个 tag 下的问题列表
-        ul_tags = soup.find_all("ul")
-        for ul_tag in ul_tags:
-            li_tags = ul_tag.find_all("li")
-            li_tags.sort(key=lambda x: int(re.search(r"\d+", x.text).group()))
-            ul_tag.clear()
-            for li_tag in li_tags:
-                ul_tag.append(li_tag)
-        html = str(soup)
 
+    # 重新排序每个 tag 下的问题列表
+    ul_tags = soup.find_all("ul")
+    for ul_tag in ul_tags:
+        li_tags = ul_tag.find_all("li")
+        li_tags.sort(key=lambda x: int(re.search(r"\d+", x.text).group()))
+        ul_tag.clear()
+        for li_tag in li_tags:
+            ul_tag.append(li_tag)
+
+    html = str(soup)
     return html
 
 
