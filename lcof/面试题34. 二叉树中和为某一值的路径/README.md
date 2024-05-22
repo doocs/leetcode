@@ -228,26 +228,26 @@ func pathSum(root *TreeNode, target int) (ans [][]int) {
  */
 
 function pathSum(root: TreeNode | null, target: number): number[][] {
-    const res: number[][] = [];
-    if (root == null) {
-        return res;
-    }
-    const paths: number[] = [];
-    const dfs = ({ val, right, left }: TreeNode, target: number) => {
-        paths.push(val);
-        target -= val;
-        if (left == null && right == null) {
-            if (target === 0) {
-                res.push([...paths]);
-            }
-        } else {
-            left && dfs(left, target);
-            right && dfs(right, target);
+    const ans: number[][] = [];
+    const t: number[] = [];
+
+    const dfs = (root: TreeNode | null, s: number): void => {
+        if (!root) {
+            return;
         }
-        paths.pop();
+        const { val, left, right } = root;
+        t.push(val);
+        s -= val;
+        if (!left && !right && s === 0) {
+            ans.push([...t]);
+        }
+        dfs(left, s);
+        dfs(right, s);
+        t.pop();
     };
+
     dfs(root, target);
-    return res;
+    return ans;
 }
 ```
 
@@ -278,26 +278,26 @@ impl Solution {
     fn dfs(
         root: &Option<Rc<RefCell<TreeNode>>>,
         mut target: i32,
-        paths: &mut Vec<i32>,
-        res: &mut Vec<Vec<i32>>
+        t: &mut Vec<i32>,
+        ans: &mut Vec<Vec<i32>>
     ) {
         if let Some(node) = root.as_ref() {
             let node = node.borrow();
-            paths.push(node.val);
+            t.push(node.val);
             target -= node.val;
             if node.left.is_none() && node.right.is_none() && target == 0 {
-                res.push(paths.clone());
+                ans.push(t.clone());
             }
-            Self::dfs(&node.left, target, paths, res);
-            Self::dfs(&node.right, target, paths, res);
-            paths.pop();
+            Self::dfs(&node.left, target, t, ans);
+            Self::dfs(&node.right, target, t, ans);
+            t.pop();
         }
     }
 
     pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, target: i32) -> Vec<Vec<i32>> {
-        let mut res = vec![];
-        Self::dfs(&root, target, &mut vec![], &mut res);
-        res
+        let mut ans = vec![];
+        Self::dfs(&root, target, &mut vec![], &mut ans);
+        ans
     }
 }
 ```
@@ -325,13 +325,14 @@ var pathSum = function (root, target) {
         if (!root) {
             return;
         }
-        t.push(root.val);
-        s -= root.val;
-        if (!root.left && !root.right && !s) {
+        const { val, left, right } = root;
+        t.push(val);
+        s -= val;
+        if (!left && !right && !s) {
             ans.push([...t]);
         }
-        dfs(root.left, s);
-        dfs(root.right, s);
+        dfs(left, s);
+        dfs(right, s);
         t.pop();
     };
     dfs(root, target);
@@ -376,80 +377,6 @@ public class Solution {
         dfs(root.left, s);
         dfs(root.right, s);
         t.RemoveAt(t.Count - 1);
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start-->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Rust
-
-```rust
-// Definition for a binary tree node.
-// #[derive(Debug, PartialEq, Eq)]
-// pub struct TreeNode {
-//   pub val: i32,
-//   pub left: Option<Rc<RefCell<TreeNode>>>,
-//   pub right: Option<Rc<RefCell<TreeNode>>>,
-// }
-//
-// impl TreeNode {
-//   #[inline]
-//   pub fn new(val: i32) -> Self {
-//     TreeNode {
-//       val,
-//       left: None,
-//       right: None
-//     }
-//   }
-// }
-use std::rc::Rc;
-use std::cell::RefCell;
-impl Solution {
-    fn dfs(
-        root: &Option<Rc<RefCell<TreeNode>>>,
-        mut target: i32,
-        paths: &mut Vec<i32>
-    ) -> Vec<Vec<i32>> {
-        let node = root.as_ref().unwrap().borrow();
-        paths.push(node.val);
-        target -= node.val;
-        let mut res = vec![];
-        // 确定叶结点身份
-        if node.left.is_none() && node.right.is_none() {
-            if target == 0 {
-                res.push(paths.clone());
-            }
-        } else {
-            if node.left.is_some() {
-                let res_l = Self::dfs(&node.left, target, paths);
-                if !res_l.is_empty() {
-                    res = [res, res_l].concat();
-                }
-            }
-            if node.right.is_some() {
-                let res_r = Self::dfs(&node.right, target, paths);
-                if !res_r.is_empty() {
-                    res = [res, res_r].concat();
-                }
-            }
-        }
-        paths.pop();
-        res
-    }
-    pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, target: i32) -> Vec<Vec<i32>> {
-        if root.is_none() {
-            return vec![];
-        }
-        Self::dfs(&root, target, &mut vec![])
     }
 }
 ```

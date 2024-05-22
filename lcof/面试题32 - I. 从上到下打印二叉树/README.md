@@ -211,18 +211,21 @@ func levelOrder(root *TreeNode) (ans []int) {
  */
 
 function levelOrder(root: TreeNode | null): number[] {
-    const res = [];
-    if (root == null) {
-        return res;
+    const ans: number[] = [];
+    if (!root) {
+        return ans;
     }
-    const queue = [root];
-    while (queue.length !== 0) {
-        const { val, left, right } = queue.shift();
-        res.push(val);
-        left && queue.push(left);
-        right && queue.push(right);
+    const q: TreeNode[] = [root];
+    while (q.length) {
+        const t: TreeNode[] = [];
+        for (const { val, left, right } of q) {
+            ans.push(val);
+            left && t.push(left);
+            right && t.push(right);
+        }
+        q.splice(0, q.length, ...t);
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -252,22 +255,22 @@ use std::cell::RefCell;
 use std::collections::VecDeque;
 impl Solution {
     pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-        let mut res = Vec::new();
-        let mut queue = VecDeque::new();
+        let mut ans = Vec::new();
+        let mut q = VecDeque::new();
         if let Some(node) = root {
-            queue.push_back(node);
+            q.push_back(node);
         }
-        while let Some(node) = queue.pop_front() {
+        while let Some(node) = q.pop_front() {
             let mut node = node.borrow_mut();
-            res.push(node.val);
+            ans.push(node.val);
             if let Some(l) = node.left.take() {
-                queue.push_back(l);
+                q.push_back(l);
             }
             if let Some(r) = node.right.take() {
-                queue.push_back(r);
+                q.push_back(r);
             }
         }
-        res
+        ans
     }
 }
 ```
@@ -287,18 +290,19 @@ impl Solution {
  * @return {number[]}
  */
 var levelOrder = function (root) {
+    const ans = [];
     if (!root) {
-        return [];
+        return ans;
     }
     const q = [root];
-    const ans = [];
     while (q.length) {
-        for (let n = q.length; n; --n) {
-            const { val, left, right } = q.shift();
+        const t = [];
+        for (const { val, left, right } of q) {
             ans.push(val);
-            left && q.push(left);
-            right && q.push(right);
+            left && t.push(left);
+            right && t.push(right);
         }
+        q.splice(0, q.length, ...t);
     }
     return ans;
 };
