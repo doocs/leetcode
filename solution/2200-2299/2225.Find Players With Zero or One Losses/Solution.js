@@ -4,14 +4,16 @@
  */
 var findWinners = function (matches) {
     const cnt = new Map();
-    for (const [a, b] of matches) {
-        cnt.set(a, cnt.has(a) ? cnt.get(a) : 0);
-        cnt.set(b, (cnt.get(b) || 0) + 1);
+    for (const [winner, loser] of matches) {
+        if (!cnt.has(winner)) {
+            cnt.set(winner, 0);
+        }
+        cnt.set(loser, (cnt.get(loser) || 0) + 1);
     }
     const ans = [[], []];
-    for (let [u, v] of cnt.entries()) {
+    for (const [x, v] of cnt) {
         if (v < 2) {
-            ans[v].push(u);
+            ans[v].push(x);
         }
     }
     ans[0].sort((a, b) => a - b);
