@@ -218,4 +218,35 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Iterative approach
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function canVisitAllRooms(rooms: number[][]): boolean {
+    const seen = new Set<number>();
+    const queue = [0];
+
+    while (queue.length) {
+        const room = queue.pop()!;
+
+        if (seen.has(room)) continue;
+        seen.add(room);
+        queue.push(...rooms[room]);
+    }
+
+    const res = rooms.length === seen.size;
+
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
