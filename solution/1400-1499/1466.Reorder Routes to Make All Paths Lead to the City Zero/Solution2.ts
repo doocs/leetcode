@@ -1,31 +1,24 @@
 function minReorder(n: number, connections: number[][]): number {
-    const roads: Record<number, Set<number>> = {};
-    const graph: Record<number, number[]> = {};
-    const seen = new Set<number>();
-
-    for (const [k, v] of connections) {
-        (roads[k] ?? (roads[k] = new Set())).add(v);
-        (graph[k] ?? (graph[k] = [])).push(v);
-        (graph[v] ?? (graph[v] = [])).push(k);
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of connections) {
+        g[a].push([b, 1]);
+        g[b].push([a, 0]);
     }
 
-    const xs = [0];
-    let res = 0;
+    const q: number[] = [0];
+    const vis = new Set<number>();
+    vis.add(0);
 
-    while (xs.length) {
-        const x = xs.pop()!;
-
-        if (seen.has(x)) continue;
-        seen.add(x);
-
-        if (graph[x]) xs.push(...graph[x]);
-
-        for (const neighbour of graph[x]) {
-            if (!seen.has(neighbour) && !roads?.[neighbour]?.has(x)) {
-                res++;
+    let ans = 0;
+    while (q.length) {
+        const a = q.pop()!;
+        for (const [b, c] of g[a]) {
+            if (!vis.has(b)) {
+                vis.add(b);
+                q.push(b);
+                ans += c;
             }
         }
     }
-
-    return res;
+    return ans;
 }
