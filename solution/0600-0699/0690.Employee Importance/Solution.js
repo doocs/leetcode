@@ -13,17 +13,16 @@
  * @return {number}
  */
 var GetImportance = function (employees, id) {
-    const map = new Map();
-    for (const employee of employees) {
-        map.set(employee.id, employee);
+    const d = new Map();
+    for (const e of employees) {
+        d.set(e.id, e);
     }
-    const dfs = id => {
-        const employee = map.get(id);
-        let sum = employee.importance;
-        for (const subId of employee.subordinates) {
-            sum += dfs(subId);
+    const dfs = i => {
+        let s = d.get(i).importance;
+        for (const j of d.get(i).subordinates) {
+            s += dfs(j);
         }
-        return sum;
+        return s;
     };
     return dfs(id);
 };

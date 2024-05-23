@@ -77,7 +77,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表 + DFS
+
+我们用一个哈希表 $d$ 存储所有员工的信息，其中键是员工的 ID，值是员工对象。然后我们从给定的员工 ID 开始深度优先搜索，每次遍历到一个员工时，将该员工的重要度加到答案中，并递归遍历该员工的所有下属，将下属的重要度也加到答案中。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是员工的数量。
 
 <!-- tabs:start -->
 
@@ -95,16 +99,11 @@ class Employee:
 
 
 class Solution:
-    def getImportance(self, employees: List['Employee'], id: int) -> int:
-        m = {emp.id: emp for emp in employees}
+    def getImportance(self, employees: List["Employee"], id: int) -> int:
+        def dfs(i: int) -> int:
+            return d[i].importance + sum(dfs(j) for j in d[i].subordinates)
 
-        def dfs(id: int) -> int:
-            emp = m[id]
-            s = emp.importance
-            for sub in emp.subordinates:
-                s += dfs(sub)
-            return s
-
+        d = {e.id: e for e in employees}
         return dfs(id)
 ```
 
@@ -121,24 +120,115 @@ class Employee {
 */
 
 class Solution {
-
-    private final Map<Integer, Employee> map = new HashMap<>();
+    private final Map<Integer, Employee> d = new HashMap<>();
 
     public int getImportance(List<Employee> employees, int id) {
-        for (Employee employee : employees) {
-            map.put(employee.id, employee);
+        for (var e : employees) {
+            d.put(e.id, e);
         }
         return dfs(id);
     }
 
-    private int dfs(int id) {
-        Employee employee = map.get(id);
-        int sum = employee.importance;
-        for (Integer subordinate : employee.subordinates) {
-            sum += dfs(subordinate);
+    private int dfs(int i) {
+        Employee e = d.get(i);
+        int s = e.importance;
+        for (int j : e.subordinates) {
+            s += dfs(j);
         }
-        return sum;
+        return s;
     }
+}
+```
+
+#### C++
+
+```cpp
+/*
+// Definition for Employee.
+class Employee {
+public:
+    int id;
+    int importance;
+    vector<int> subordinates;
+};
+*/
+
+class Solution {
+public:
+    int getImportance(vector<Employee*> employees, int id) {
+        unordered_map<int, Employee*> d;
+        for (auto& e : employees) {
+            d[e->id] = e;
+        }
+        function<int(int)> dfs = [&](int i) -> int {
+            int s = d[i]->importance;
+            for (int j : d[i]->subordinates) {
+                s += dfs(j);
+            }
+            return s;
+        };
+        return dfs(id);
+    }
+};
+```
+
+```go
+/**
+ * Definition for Employee.
+ * type Employee struct {
+ *     Id int
+ *     Importance int
+ *     Subordinates []int
+ * }
+ */
+
+func getImportance(employees []*Employee, id int) int {
+	d := map[int]*Employee{}
+	for _, e := range employees {
+		d[e.Id] = e
+	}
+	var dfs func(int) int
+	dfs = func(i int) int {
+		s := d[i].Importance
+		for _, j := range d[i].Subordinates {
+			s += dfs(j)
+		}
+		return s
+	}
+	return dfs(id)
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for Employee.
+ * class Employee {
+ *     id: number
+ *     importance: number
+ *     subordinates: number[]
+ *     constructor(id: number, importance: number, subordinates: number[]) {
+ *         this.id = (id === undefined) ? 0 : id;
+ *         this.importance = (importance === undefined) ? 0 : importance;
+ *         this.subordinates = (subordinates === undefined) ? [] : subordinates;
+ *     }
+ * }
+ */
+
+function getImportance(employees: Employee[], id: number): number {
+    const d = new Map<number, Employee>();
+    for (const e of employees) {
+        d.set(e.id, e);
+    }
+    const dfs = (i: number): number => {
+        let s = d.get(i)!.importance;
+        for (const j of d.get(i)!.subordinates) {
+            s += dfs(j);
+        }
+        return s;
+    };
+    return dfs(id);
 }
 ```
 
@@ -160,17 +250,16 @@ class Solution {
  * @return {number}
  */
 var GetImportance = function (employees, id) {
-    const map = new Map();
-    for (const employee of employees) {
-        map.set(employee.id, employee);
+    const d = new Map();
+    for (const e of employees) {
+        d.set(e.id, e);
     }
-    const dfs = id => {
-        const employee = map.get(id);
-        let sum = employee.importance;
-        for (const subId of employee.subordinates) {
-            sum += dfs(subId);
+    const dfs = i => {
+        let s = d.get(i).importance;
+        for (const j of d.get(i).subordinates) {
+            s += dfs(j);
         }
-        return sum;
+        return s;
     };
     return dfs(id);
 };
