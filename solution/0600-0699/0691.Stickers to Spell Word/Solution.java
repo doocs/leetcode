@@ -21,7 +21,7 @@ class Solution {
                         int j = target.charAt(i) - 'a';
                         if ((cur >> i & 1) == 0 && cnt[j] > 0) {
                             --cnt[j];
-                            nxt |= 1 << i; 
+                            nxt |= 1 << i;
                         }
                     }
                     if (!vis[nxt]) {
