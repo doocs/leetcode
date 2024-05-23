@@ -215,6 +215,35 @@ impl Solution {
 }
 ```
 
+#### TypeScript
+
+```ts
+export function validPath(
+    n: number,
+    edges: number[][],
+    source: number,
+    destination: number,
+): boolean {
+    const graph: number[][] = Array.from({ length: n }, () => []);
+
+    for (const [a, b] of edges) {
+        graph[a].push(b);
+        graph[b].push(a);
+    }
+
+    const seen = new Set<number>();
+    const dfs = (i: number) => {
+        if (i === destination) return true;
+        if (seen.has(i)) return false;
+
+        seen.add(i);
+        return graph[i].some(dfs);
+    };
+
+    return dfs(source);
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -306,6 +335,39 @@ func validPath(n int, edges [][]int, source int, destination int) bool {
 		p[find(e[0])] = find(e[1])
 	}
 	return find(source) == find(destination)
+}
+```
+
+#### TypeScript
+
+```ts
+export function validPath(
+    n: number,
+    edges: number[][],
+    source: number,
+    destination: number,
+): boolean {
+    const graph: number[][] = Array.from({ length: n }, () => []);
+
+    for (const [a, b] of edges) {
+        graph[a].push(b);
+        graph[b].push(a);
+    }
+
+    const seen = new Set<number>();
+    const q = [source];
+
+    while (q.length) {
+        const i = q.pop()!;
+
+        if (i === destination) return true;
+        if (seen.has(i)) continue;
+
+        seen.add(i);
+        q.push(...graph[i]);
+    }
+
+    return false;
 }
 ```
 
