@@ -21,7 +21,7 @@
 }
 .md-typeset .example-block {
     overflow-x: auto;
-    padding: 0 .2941176471em;
+    padding: .3em;
     background-color: var(--example-block-bg);
     border-radius: .1rem;
 }
@@ -31,7 +31,7 @@
 .md-content__inner>pre {
     margin: 0;
     overflow-x: auto;
-    padding: 0 .2941176471em;
+    padding: .3em;
     background-color: var(--pre-bg);
     border-radius: .1rem;
 }
