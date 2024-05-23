@@ -232,43 +232,148 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Iterative approach
+### 方法二：BFS
+
+我们可以使用广度优先搜索的方法，从节点 $0$ 出发，搜索其他所有节点，过程中，如果遇到需要变更方向的边，则累加一次变更方向的次数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是题目中节点的数量。
 
 <!-- tabs:start -->
 
-#### TypeScript
+#### Python3
+
+```python
+class Solution:
+    def minReorder(self, n: int, connections: List[List[int]]) -> int:
+        g = [[] for _ in range(n)]
+        for a, b in connections:
+            g[a].append((b, 1))
+            g[b].append((a, 0))
+        q = deque([0])
+        vis = {0}
+        ans = 0
+        while q:
+            a = q.popleft()
+            for b, c in g[a]:
+                if b not in vis:
+                    vis.add(b)
+                    q.append(b)
+                    ans += c
+        return ans
+```
+
+```java
+class Solution {
+    public int minReorder(int n, int[][] connections) {
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : connections) {
+            int a = e[0], b = e[1];
+            g[a].add(new int[] {b, 1});
+            g[b].add(new int[] {a, 0});
+        }
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(0);
+        boolean[] vis = new boolean[n];
+        vis[0] = true;
+        int ans = 0;
+        while (!q.isEmpty()) {
+            int a = q.poll();
+            for (var e : g[a]) {
+                int b = e[0], c = e[1];
+                if (!vis[b]) {
+                    vis[b] = true;
+                    q.offer(b);
+                    ans += c;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minReorder(int n, vector<vector<int>>& connections) {
+        vector<pair<int, int>> g[n];
+        for (auto& e : connections) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b, 1);
+            g[b].emplace_back(a, 0);
+        }
+        queue<int> q{{0}};
+        vector<bool> vis(n);
+        vis[0] = true;
+        int ans = 0;
+        while (q.size()) {
+            int a = q.front();
+            q.pop();
+            for (auto& [b, c] : g[a]) {
+                if (!vis[b]) {
+                    vis[b] = true;
+                    q.push(b);
+                    ans += c;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func minReorder(n int, connections [][]int) (ans int) {
+	g := make([][][2]int, n)
+	for _, e := range connections {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], [2]int{b, 1})
+		g[b] = append(g[b], [2]int{a, 0})
+	}
+	q := []int{0}
+	vis := make([]bool, n)
+	vis[0] = true
+	for len(q) > 0 {
+		a := q[0]
+		q = q[1:]
+		for _, e := range g[a] {
+			b, c := e[0], e[1]
+			if !vis[b] {
+				vis[b] = true
+				q = append(q, b)
+				ans += c
+			}
+		}
+	}
+	return
+}
+```
 
 ```ts
 function minReorder(n: number, connections: number[][]): number {
-    const roads: Record<number, Set<number>> = {};
-    const graph: Record<number, number[]> = {};
-    const seen = new Set<number>();
-
-    for (const [k, v] of connections) {
-        (roads[k] ?? (roads[k] = new Set())).add(v);
-        (graph[k] ?? (graph[k] = [])).push(v);
-        (graph[v] ?? (graph[v] = [])).push(k);
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of connections) {
+        g[a].push([b, 1]);
+        g[b].push([a, 0]);
     }
 
-    const xs = [0];
-    let res = 0;
+    const q: number[] = [0];
+    const vis = new Set<number>();
+    vis.add(0);
 
-    while (xs.length) {
-        const x = xs.pop()!;
-
-        if (seen.has(x)) continue;
-        seen.add(x);
-
-        if (graph[x]) xs.push(...graph[x]);
-
-        for (const neighbour of graph[x]) {
-            if (!seen.has(neighbour) && !roads?.[neighbour]?.has(x)) {
-                res++;
+    let ans = 0;
+    while (q.length) {
+        const a = q.pop()!;
+        for (const [b, c] of g[a]) {
+            if (!vis.has(b)) {
+                vis.add(b);
+                q.push(b);
+                ans += c;
             }
         }
     }
-
-    return res;
+    return ans;
 }
 ```
 
