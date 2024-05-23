@@ -215,28 +215,128 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Iterative approach
+### Solution 2: BFS
+
+We can also use the Breadth-First Search (BFS) method to traverse the entire graph. We use a hash table or an array `vis` to mark whether the current node has been visited to prevent repeated visits.
+
+Specifically, we define a queue $q$, initially put node $0$ into the queue, and then continuously traverse the queue. Each time we take out the front node $i$ of the queue, if $i$ has been visited, we skip it directly; otherwise, we mark it as visited, and then add the nodes that $i$ can reach to the queue.
+
+Finally, we count the number of visited nodes. If it is the same as the total number of nodes, it means that all nodes can be visited; otherwise, it means that there are unreachable nodes.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes, and $m$ is the number of edges.
 
 <!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        vis = set()
+        q = deque([0])
+        while q:
+            i = q.popleft()
+            if i in vis:
+                continue
+            vis.add(i)
+            q.extend(j for j in rooms[i])
+        return len(vis) == len(rooms)
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+        int n = rooms.size();
+        boolean[] vis = new boolean[n];
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(0);
+        int cnt = 0;
+        while (!q.isEmpty()) {
+            int i = q.poll();
+            if (vis[i]) {
+                continue;
+            }
+            vis[i] = true;
+            ++cnt;
+            for (int j : rooms.get(i)) {
+                q.offer(j);
+            }
+        }
+        return cnt == n;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool canVisitAllRooms(vector<vector<int>>& rooms) {
+        int n = rooms.size();
+        vector<bool> vis(n);
+        queue<int> q{{0}};
+        int cnt = 0;
+        while (q.size()) {
+            int i = q.front();
+            q.pop();
+            if (vis[i]) {
+                continue;
+            }
+            vis[i] = true;
+            ++cnt;
+            for (int j : rooms[i]) {
+                q.push(j);
+            }
+        }
+        return cnt == n;
+    }
+};
+```
+
+#### Go
+
+```go
+func canVisitAllRooms(rooms [][]int) bool {
+	n := len(rooms)
+	vis := make([]bool, n)
+	cnt := 0
+	q := []int{0}
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		if vis[i] {
+			continue
+		}
+		vis[i] = true
+		cnt++
+		for _, j := range rooms[i] {
+			q = append(q, j)
+		}
+	}
+	return cnt == n
+}
+```
 
 #### TypeScript
 
 ```ts
 function canVisitAllRooms(rooms: number[][]): boolean {
-    const seen = new Set<number>();
-    const queue = [0];
+    const vis = new Set<number>();
+    const q: number[] = [0];
 
-    while (queue.length) {
-        const room = queue.pop()!;
-
-        if (seen.has(room)) continue;
-        seen.add(room);
-        queue.push(...rooms[room]);
+    while (q.length) {
+        const i = q.pop()!;
+        if (vis.has(i)) {
+            continue;
+        }
+        vis.add(i);
+        q.push(...rooms[i]);
     }
 
-    const res = rooms.length === seen.size;
-
-    return res;
+    return vis.size == rooms.length;
 }
 ```
 
