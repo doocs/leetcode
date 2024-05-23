@@ -350,4 +350,3 @@ function canVisitAllRooms(rooms: number[][]): boolean {
 <!-- solution:end -->
 
 <!-- problem:end -->
-
