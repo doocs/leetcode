@@ -3167,7 +3167,7 @@
 |  3154  |  [到达第 K 级台阶的方案数](/solution/3100-3199/3154.Find%20Number%20of%20Ways%20to%20Reach%20the%20K-th%20Stair/README.md)  |  `位运算`,`记忆化搜索`,`数学`,`动态规划`,`组合数学`  |  困难  |  第 398 场周赛  |
 |  3155  |  [可升级服务器的最大数量](/solution/3100-3199/3155.Maximum%20Number%20of%20Upgradable%20Servers/README.md)  |  `数组`,`数学`,`二分查找`  |  中等  |  🔒  |
 |  3156  |  [员工任务持续时间和并发任务](/solution/3100-3199/3156.Employee%20Task%20Duration%20and%20Concurrent%20Tasks/README.md)  |  `数据库`  |  困难  |  🔒  |
-|  3157  |  [Find the Level of Tree with Minimum Sum](/solution/3100-3199/3157.Find%20the%20Level%20of%20Tree%20with%20Minimum%20Sum/README.md)  |    |  中等  |  🔒  |
+|  3157  |  [找到具有最小和的树的层数](/solution/3100-3199/3157.Find%20the%20Level%20of%20Tree%20with%20Minimum%20Sum/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
