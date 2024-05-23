@@ -279,7 +279,7 @@
 | 3126 | [服务器利用时间](/solution/3100-3199/3126.Server%20Utilization%20Time/README.md)                                                                             | `数据库` | 中等 | 🔒   |
 | 3140 | [连续空余座位 II](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README.md)                                                                   | `数据库` | 中等 | 🔒   |
 | 3150 | [无效的推文 II](/solution/3100-3199/3150.Invalid%20Tweets%20II/README.md)                                                                                    | `数据库` | 简单 | 🔒   |
-| 3156 | [员工任务持续时间和并发任务](/solution/3100-3199/3156.Employee%20Task%20Duration%20and%20Concurrent%20Tasks/README.md)                                       |          | 困难 | 🔒   |
+| 3156 | [员工任务持续时间和并发任务](/solution/3100-3199/3156.Employee%20Task%20Duration%20and%20Concurrent%20Tasks/README.md)                                       | `数据库` | 困难 | 🔒   |
 
 ## 版权
 

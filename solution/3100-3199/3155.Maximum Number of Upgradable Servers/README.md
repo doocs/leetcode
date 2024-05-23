@@ -2,11 +2,15 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3155.Maximum%20Number%20of%20Upgradable%20Servers/README.md
+tags:
+    - 数组
+    - 数学
+    - 二分查找
 ---
 
 <!-- problem:start -->
 
-# [3155. Maximum Number of Upgradable Servers 🔒](https://leetcode.cn/problems/maximum-number-of-upgradable-servers)
+# [3155. 可升级服务器的最大数量 🔒](https://leetcode.cn/problems/maximum-number-of-upgradable-servers)
 
 [English Version](/solution/3100-3199/3155.Maximum%20Number%20of%20Upgradable%20Servers/README_EN.md)
 
@@ -14,48 +18,48 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3155.Ma
 
 <!-- description:start -->
 
-<p>You have <code>n</code> data centers and need to upgrade their servers.</p>
+<p>你有&nbsp;<code>n</code>&nbsp;个数据中心并且需要升级他们的服务器。</p>
 
-<p>You are given four arrays <code>count</code>, <code>upgrade</code>, <code>sell</code>, and <code>money</code> of length <code>n</code>, which show:</p>
+<p>给定四个长度为&nbsp;<code>n</code>&nbsp;的数组&nbsp;<code>count</code>，<code>upgrade</code>，<code>sell</code>&nbsp;和&nbsp;<code>money</code>，分别针对每个数据中心表示：</p>
 
 <ul>
-	<li>The number of servers</li>
-	<li>The cost of upgrading a single server</li>
-	<li>The money you get by selling a server</li>
-	<li>The money you initially have</li>
+	<li>服务器的数量</li>
+	<li>升级单个服务器的成本</li>
+	<li>出售服务器获得的钱</li>
+	<li>你最初拥有的钱</li>
 </ul>
 
-<p>for each data center respectively.</p>
+<p>返回一个数组&nbsp;<code>answer</code>，其中对于每个数据中心，<code>answer</code>&nbsp;中相应的元素代表可以升级的 <strong>最大</strong> 服务器数量。</p>
 
-<p>Return an array <code>answer</code>, where for each data center, the corresponding element in <code>answer</code> represents the <strong>maximum</strong> number of servers that can be upgraded.</p>
-
-<p>Note that the money from one data center <strong>cannot</strong> be used for another data center.</p>
+<p>请注意，一个数据中心的资金 <strong>不能</strong> 用于另一个数据中心。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">count = [4,3], upgrade = [3,5], sell = [4,2], money = [8,9]</span></p>
+<p><strong>输入：</strong><span class="example-io">count = [4,3], upgrade = [3,5], sell = [4,2], money = [8,9]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[3,2]</span></p>
+<p><strong>输出：</strong><span class="example-io">[3,2]</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>For the first data center, if we sell one server, we&#39;ll have <code>8 + 4 = 12</code> units of money and we can upgrade the remaining 3 servers.</p>
+<p>对于第一个数据中心，如果我们出售一台服务器，我们将会有&nbsp;<code>8 + 4 = 12</code>&nbsp;单位的钱并且我们能够升级其余的 3 台服务器。</p>
 
-<p>For the second data center, if we sell one server, we&#39;ll have <code>9 + 2 = 11</code> units of money and we can upgrade the remaining 2 servers.</p>
+<p>对于第二个数据中心，如果我们出售一台服务器，我们将会有 <code>9 + 2 = 11</code> 单位的钱并且我们能够升级其余的 2&nbsp;台服务器。</p>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">count = [1], upgrade = [2], sell = [1], money = [1]</span></p>
+<p><strong>输入：</strong><span class="example-io">count = [1], upgrade = [2], sell = [1], money = [1]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[0]</span></p>
+<p><strong>输出：</strong><span class="example-io">[0]</span></p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= count.length == upgrade.length == sell.length == money.length &lt;= 10<sup>5</sup></code></li>

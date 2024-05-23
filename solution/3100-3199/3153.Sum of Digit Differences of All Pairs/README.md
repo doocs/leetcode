@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3153.Sum%20of%20Digit%20Differences%20of%20All%20Pairs/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 计数
 ---
 
 <!-- problem:start -->

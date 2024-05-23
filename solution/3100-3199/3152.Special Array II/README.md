@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3152.Special%20Array%20II/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 前缀和
 ---
 
 <!-- problem:start -->

@@ -996,7 +996,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0985  |  [Sum of Even Numbers After Queries](/solution/0900-0999/0985.Sum%20of%20Even%20Numbers%20After%20Queries/README_EN.md)  |  `Array`,`Simulation`  |  Medium  |  Weekly Contest 122  |
 |  0986  |  [Interval List Intersections](/solution/0900-0999/0986.Interval%20List%20Intersections/README_EN.md)  |  `Array`,`Two Pointers`  |  Medium  |  Weekly Contest 122  |
 |  0987  |  [Vertical Order Traversal of a Binary Tree](/solution/0900-0999/0987.Vertical%20Order%20Traversal%20of%20a%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Hash Table`,`Binary Tree`,`Sorting`  |  Hard  |  Weekly Contest 122  |
-|  0988  |  [Smallest String Starting From Leaf](/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/README_EN.md)  |  `Tree`,`Depth-First Search`,`String`,`Binary Tree`  |  Medium  |  Weekly Contest 122  |
+|  0988  |  [Smallest String Starting From Leaf](/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/README_EN.md)  |  `Tree`,`Depth-First Search`,`String`,`Backtracking`,`Binary Tree`  |  Medium  |  Weekly Contest 122  |
 |  0989  |  [Add to Array-Form of Integer](/solution/0900-0999/0989.Add%20to%20Array-Form%20of%20Integer/README_EN.md)  |  `Array`,`Math`  |  Easy  |  Weekly Contest 123  |
 |  0990  |  [Satisfiability of Equality Equations](/solution/0900-0999/0990.Satisfiability%20of%20Equality%20Equations/README_EN.md)  |  `Union Find`,`Graph`,`Array`,`String`  |  Medium  |  Weekly Contest 123  |
 |  0991  |  [Broken Calculator](/solution/0900-0999/0991.Broken%20Calculator/README_EN.md)  |  `Greedy`,`Math`  |  Medium  |  Weekly Contest 123  |
@@ -3159,12 +3159,12 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3148  |  [Maximum Difference Score in a Grid](/solution/3100-3199/3148.Maximum%20Difference%20Score%20in%20a%20Grid/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  Weekly Contest 397  |
 |  3149  |  [Find the Minimum Cost Array Permutation](/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Bitmask`  |  Hard  |  Weekly Contest 397  |
 |  3150  |  [Invalid Tweets II](/solution/3100-3199/3150.Invalid%20Tweets%20II/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
-|  3151  |  [Special Array I](/solution/3100-3199/3151.Special%20Array%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 398  |
-|  3152  |  [Special Array II](/solution/3100-3199/3152.Special%20Array%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 398  |
-|  3153  |  [Sum of Digit Differences of All Pairs](/solution/3100-3199/3153.Sum%20of%20Digit%20Differences%20of%20All%20Pairs/README_EN.md)  |    |  Medium  |  Weekly Contest 398  |
-|  3154  |  [Find Number of Ways to Reach the K-th Stair](/solution/3100-3199/3154.Find%20Number%20of%20Ways%20to%20Reach%20the%20K-th%20Stair/README_EN.md)  |    |  Hard  |  Weekly Contest 398  |
-|  3155  |  [Maximum Number of Upgradable Servers](/solution/3100-3199/3155.Maximum%20Number%20of%20Upgradable%20Servers/README_EN.md)  |    |  Medium  |  🔒  |
-|  3156  |  [Employee Task Duration and Concurrent Tasks](/solution/3100-3199/3156.Employee%20Task%20Duration%20and%20Concurrent%20Tasks/README_EN.md)  |    |  Hard  |  🔒  |
+|  3151  |  [Special Array I](/solution/3100-3199/3151.Special%20Array%20I/README_EN.md)  |  `Array`  |  Easy  |  Weekly Contest 398  |
+|  3152  |  [Special Array II](/solution/3100-3199/3152.Special%20Array%20II/README_EN.md)  |  `Array`,`Binary Search`,`Prefix Sum`  |  Medium  |  Weekly Contest 398  |
+|  3153  |  [Sum of Digit Differences of All Pairs](/solution/3100-3199/3153.Sum%20of%20Digit%20Differences%20of%20All%20Pairs/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Counting`  |  Medium  |  Weekly Contest 398  |
+|  3154  |  [Find Number of Ways to Reach the K-th Stair](/solution/3100-3199/3154.Find%20Number%20of%20Ways%20to%20Reach%20the%20K-th%20Stair/README_EN.md)  |  `Bit Manipulation`,`Memoization`,`Math`,`Dynamic Programming`,`Combinatorics`  |  Hard  |  Weekly Contest 398  |
+|  3155  |  [Maximum Number of Upgradable Servers](/solution/3100-3199/3155.Maximum%20Number%20of%20Upgradable%20Servers/README_EN.md)  |  `Array`,`Math`,`Binary Search`  |  Medium  |  🔒  |
+|  3156  |  [Employee Task Duration and Concurrent Tasks](/solution/3100-3199/3156.Employee%20Task%20Duration%20and%20Concurrent%20Tasks/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 |  3157  |  [Find the Level of Tree with Minimum Sum](/solution/3100-3199/3157.Find%20the%20Level%20of%20Tree%20with%20Minimum%20Sum/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright

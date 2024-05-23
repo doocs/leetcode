@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3155.Maximum%20Number%20of%20Upgradable%20Servers/README_EN.md
+tags:
+    - Array
+    - Math
+    - Binary Search
 ---
 
 <!-- problem:start -->

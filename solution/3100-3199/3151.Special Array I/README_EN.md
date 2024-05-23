@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3151.Special%20Array%20I/README_EN.md
+tags:
+    - Array
 ---
 
 <!-- problem:start -->

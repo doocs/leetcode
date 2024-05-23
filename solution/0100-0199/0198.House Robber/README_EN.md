@@ -54,7 +54,29 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ as the maximum total amount that can be robbed from the first $i$ houses, initially $f[0]=0$, $f[1]=nums[0]$.
+
+Consider the case where $i \gt 1$, the $i$th house has two options:
+
+-   Do not rob the $i$th house, the total amount of robbery is $f[i-1]$;
+-   Rob the $i$th house, the total amount of robbery is $f[i-2]+nums[i-1]$;
+
+Therefore, we can get the state transition equation:
+
+$$
+f[i]=
+\begin{cases}
+0, & i=0 \\
+nums[0], & i=1 \\
+\max(f[i-1],f[i-2]+nums[i-1]), & i \gt 1
+\end{cases}
+$$
+
+The final answer is $f[n]$, where $n$ is the length of the array.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -153,7 +175,9 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Space Optimization)
+
+We notice that when $i \gt 2$, $f[i]$ is only related to $f[i-1]$ and $f[i-2]$. Therefore, we can use two variables instead of an array to reduce the space complexity to $O(1)$.
 
 <!-- tabs:start -->
 
