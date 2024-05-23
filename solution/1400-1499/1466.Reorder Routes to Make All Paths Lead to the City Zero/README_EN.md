@@ -381,4 +381,3 @@ function minReorder(n: number, connections: number[][]): number {
 <!-- solution:end -->
 
 <!-- problem:end -->
-
