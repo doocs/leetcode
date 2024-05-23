@@ -111,10 +111,6 @@ Finally, we find the index $i$ corresponding to the maximum value in the $f$ arr
 
 The time complexity is $O(n^2 \times L)$, and the space complexity is $O(n)$. Here, $L$ represents the maximum length of a word.
 
-**Optimization: Space for Time**
-
-In **Solution 1**, we need to enumerate all $i$ and $j$ combinations, a step that can be optimized by maintaining a wildcard hash table. For each string $word[i]$, we enumerate each character, replace it with a wildcard, and then use the replaced string as the key and add its subscript to the list which is the value in the hash table. This allows us to find all $word[j]$ with a Hamming distance of 1 from $word[i]$ in $O(L)$ time. Although the time complexity is still $O(n^2 \times L)$, the average complexity is reduced.
-
 <!-- tabs:start -->
 
 #### Python3
@@ -390,7 +386,9 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming + Hash Table
+
+In Solution 1, we need to enumerate all $i$ and $j$ combinations, a step that can be optimized by maintaining a wildcard hash table. For each string $word[i]$, we enumerate each character, replace it with a wildcard, and then use the replaced string as the key and add its subscript to the list which is the value in the hash table. This allows us to find all $word[j]$ with a Hamming distance of 1 from $word[i]$ in $O(L)$ time. Although the time complexity is still $O(n^2 \times L)$, the average complexity is reduced.
 
 <!-- tabs:start -->
 

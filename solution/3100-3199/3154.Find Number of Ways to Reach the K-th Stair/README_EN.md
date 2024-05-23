@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3154.Find%20Number%20of%20Ways%20to%20Reach%20the%20K-th%20Stair/README_EN.md
+tags:
+    - Bit Manipulation
+    - Memoization
+    - Math
+    - Dynamic Programming
+    - Combinatorics
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,12 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3154.Find%20Number%20of%20Ways%20to%20Reach%20the%20K-th%20Stair/README.md
+tags:
+    - 位运算
+    - 记忆化搜索
+    - 数学
+    - 动态规划
+    - 组合数学
 ---
 
 <!-- problem:start -->
