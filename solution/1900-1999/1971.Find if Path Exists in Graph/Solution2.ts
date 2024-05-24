@@ -1,27 +1,24 @@
-export function validPath(
-    n: number,
-    edges: number[][],
-    source: number,
-    destination: number,
-): boolean {
-    const graph: number[][] = Array.from({ length: n }, () => []);
+function validPath(n: number, edges: number[][], source: number, destination: number): boolean {
+    const g: number[][] = Array.from({ length: n }, () => []);
 
     for (const [a, b] of edges) {
-        graph[a].push(b);
-        graph[b].push(a);
+        g[a].push(b);
+        g[b].push(a);
     }
 
-    const seen = new Set<number>();
+    const vis = new Set<number>();
     const q = [source];
 
     while (q.length) {
         const i = q.pop()!;
-
-        if (i === destination) return true;
-        if (seen.has(i)) continue;
-
-        seen.add(i);
-        q.push(...graph[i]);
+        if (i === destination) {
+            return true;
+        }
+        if (vis.has(i)) {
+            continue;
+        }
+        vis.add(i);
+        q.push(...g[i]);
     }
 
     return false;
