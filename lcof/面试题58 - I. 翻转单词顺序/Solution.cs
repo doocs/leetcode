@@ -1,19 +1,22 @@
 public class Solution {
     public string ReverseWords(string s) {
-        string[] tmp = s.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-        Stack<string> ss = new Stack<string>();
-        string res = "";
-
-        foreach (var i in tmp) {
-            ss.Push(i);
-        }
-
-        while (ss.Count > 0) {
-            res += ss.Pop();
-            if (ss.Count > 0) {
-                res += " ";
+        List<string> words = new List<string>();
+        int n = s.Length;
+        for (int i = 0; i < n;) {
+            while (i < n && s[i] == ' ') {
+                ++i;
+            }
+            if (i < n) {
+                System.Text.StringBuilder t = new System.Text.StringBuilder();
+                int j = i;
+                while (j < n && s[j] != ' ') {
+                    t.Append(s[j++]);
+                }
+                words.Add(t.ToString());
+                i = j;
             }
         }
-        return res;
+        words.Reverse();
+        return string.Join(" ", words);
     }
 }

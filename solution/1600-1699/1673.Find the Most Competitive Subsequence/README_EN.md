@@ -58,7 +58,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Stack
+
+We traverse the array `nums` from left to right, maintaining a stack `stk`. During the traversal, if the current element `nums[i]` is less than the top element of the stack, and the number of elements in the stack plus $n-i$ is greater than $k$, then we pop the top element of the stack until the above condition is no longer satisfied. At this point, if the number of elements in the stack is less than $k$, then we push the current element into the stack.
+
+After the traversal, the elements in the stack are the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(k)$. Where $n$ is the length of the array `nums`.
 
 <!-- tabs:start -->
 
@@ -147,7 +153,7 @@ function mostCompetitive(nums: number[], k: number): number[] {
     const stk: number[] = [];
     const n = nums.length;
     for (let i = 0; i < n; ++i) {
-        while (stk.length && stk.at(-1) > nums[i] && stk.length + n - i > k) {
+        while (stk.length && stk.at(-1)! > nums[i] && stk.length + n - i > k) {
             stk.pop();
         }
         if (stk.length < k) {

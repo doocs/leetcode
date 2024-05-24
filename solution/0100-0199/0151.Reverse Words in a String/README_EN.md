@@ -67,11 +67,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Use Language Built-in Functions
+### Solution 1: Two Pointers
 
-We split the string into a list of strings by spaces, then reverse the list, and finally join the list into a string separated by spaces.
+We can use two pointers $i$ and $j$ to find each word, add it to the result list, then reverse the result list, and finally concatenate it into a string.
 
-Time complexity $O(n)$, space complexity $O(n)$, where $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -80,7 +80,18 @@ Time complexity $O(n)$, space complexity $O(n)$, where $n$ is the length of the 
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
-        return ' '.join(reversed(s.split()))
+        words = []
+        i, n = 0, len(s)
+        while i < n:
+            while i < n and s[i] == " ":
+                i += 1
+            if i < n:
+                j = i
+                while j < n and s[j] != " ":
+                    j += 1
+                words.append(s[i:j])
+                i = j
+        return " ".join(words[::-1])
 ```
 
 #### Java
@@ -88,7 +99,22 @@ class Solution:
 ```java
 class Solution {
     public String reverseWords(String s) {
-        List<String> words = Arrays.asList(s.trim().split("\\s+"));
+        List<String> words = new ArrayList<>();
+        int n = s.length();
+        for (int i = 0; i < n;) {
+            while (i < n && s.charAt(i) == ' ') {
+                ++i;
+            }
+            if (i < n) {
+                StringBuilder t = new StringBuilder();
+                int j = i;
+                while (j < n && s.charAt(j) != ' ') {
+                    t.append(s.charAt(j++));
+                }
+                words.add(t.toString());
+                i = j;
+            }
+        }
         Collections.reverse(words);
         return String.join(" ", words);
     }
@@ -131,14 +157,154 @@ public:
 
 ```go
 func reverseWords(s string) string {
-	words := strings.Split(s, " ")
-	var ans []string
-	for i := len(words) - 1; i >= 0; i-- {
-		if words[i] != "" {
-			ans = append(ans, words[i])
+	words := []string{}
+	i, n := 0, len(s)
+	for i < n {
+		for i < n && s[i] == ' ' {
+			i++
+		}
+		if i < n {
+			j := i
+			t := []byte{}
+			for j < n && s[j] != ' ' {
+				t = append(t, s[j])
+				j++
+			}
+			words = append(words, string(t))
+			i = j
 		}
 	}
-	return strings.Join(ans, " ")
+	for i, j := 0, len(words)-1; i < j; i, j = i+1, j-1 {
+		words[i], words[j] = words[j], words[i]
+	}
+	return strings.Join(words, " ")
+}
+```
+
+#### TypeScript
+
+```ts
+function reverseWords(s: string): string {
+    const words: string[] = [];
+    const n = s.length;
+    let i = 0;
+    while (i < n) {
+        while (i < n && s[i] === ' ') {
+            i++;
+        }
+        if (i < n) {
+            let j = i;
+            while (j < n && s[j] !== ' ') {
+                j++;
+            }
+            words.push(s.slice(i, j));
+            i = j;
+        }
+    }
+    return words.reverse().join(' ');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn reverse_words(s: String) -> String {
+        let mut words = Vec::new();
+        let s: Vec<char> = s.chars().collect();
+        let mut i = 0;
+        let n = s.len();
+
+        while i < n {
+            while i < n && s[i] == ' ' {
+                i += 1;
+            }
+            if i < n {
+                let mut j = i;
+                while j < n && s[j] != ' ' {
+                    j += 1;
+                }
+                words.push(s[i..j].iter().collect::<String>());
+                i = j;
+            }
+        }
+
+        words.reverse();
+        words.join(" ")
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public string ReverseWords(string s) {
+        List<string> words = new List<string>();
+        int n = s.Length;
+        for (int i = 0; i < n;) {
+            while (i < n && s[i] == ' ') {
+                ++i;
+            }
+            if (i < n) {
+                System.Text.StringBuilder t = new System.Text.StringBuilder();
+                int j = i;
+                while (j < n && s[j] != ' ') {
+                    t.Append(s[j++]);
+                }
+                words.Add(t.ToString());
+                i = j;
+            }
+        }
+        words.Reverse();
+        return string.Join(" ", words);
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: String Split
+
+We can use the built-in string split function to split the string into a list of words by spaces, then reverse the list, and finally concatenate it into a string.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        return " ".join(reversed(s.split()))
+```
+
+#### Java
+
+```java
+class Solution {
+    public String reverseWords(String s) {
+        List<String> words = Arrays.asList(s.trim().split("\\s+"));
+        Collections.reverse(words);
+        return String.join(" ", words);
+    }
+}
+```
+
+#### Go
+
+```go
+func reverseWords(s string) string {
+	words := strings.Fields(s)
+	for i, j := 0, len(words)-1; i < j; i, j = i+1, j-1 {
+		words[i], words[j] = words[j], words[i]
+	}
+	return strings.Join(words, " ")
 }
 ```
 
@@ -156,76 +322,6 @@ function reverseWords(s: string): string {
 impl Solution {
     pub fn reverse_words(s: String) -> String {
         s.split_whitespace().rev().collect::<Vec<&str>>().join(" ")
-    }
-}
-```
-
-#### C#
-
-```cs
-public class Solution {
-    public string ReverseWords(string s) {
-         return string.Join(" ", s.Trim().Split(" ").Where(word => !string.IsNullOrEmpty(word) && !string.IsNullOrEmpty(word.Trim())).Reverse());
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2: Two Pointers
-
-We can use two pointers $i$ and $j$, each time we find a word, add it to the result list, then reverse the result list, and finally join the list into a string.
-
-Time complexity $O(n)$, space complexity $O(n)$, where $n$ is the length of the string.
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def reverseWords(self, s: str) -> str:
-        ans = []
-        i, n = 0, len(s)
-        while i < n:
-            while i < n and s[i] == ' ':
-                i += 1
-            if i < n:
-                j = i
-                while j < n and s[j] != ' ':
-                    j += 1
-                ans.append(s[i:j])
-                i = j
-        return ' '.join(ans[::-1])
-```
-
-#### Java
-
-```java
-class Solution {
-    public String reverseWords(String s) {
-        List<String> words = new ArrayList<>();
-        int n = s.length();
-        for (int i = 0; i < n;) {
-            while (i < n && s.charAt(i) == ' ') {
-                ++i;
-            }
-            if (i < n) {
-                StringBuilder t = new StringBuilder();
-                int j = i;
-                while (j < n && s.charAt(j) != ' ') {
-                    t.append(s.charAt(j++));
-                }
-                words.add(t.toString());
-                i = j;
-            }
-        }
-        Collections.reverse(words);
-        return String.join(" ", words);
     }
 }
 ```
