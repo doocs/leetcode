@@ -366,14 +366,14 @@ class Solution {
         guard let root = root else {
             return []
         }
-        
+
         var queue: [TreeNode] = [root]
         var result: [Int] = []
-        
+
         while !queue.isEmpty {
             let node = queue.removeFirst()
             result.append(node.val)
-            
+
             if let left = node.left {
                 queue.append(left)
             }
@@ -381,7 +381,7 @@ class Solution {
                 queue.append(right)
             }
         }
-        
+
         return result
     }
 }
