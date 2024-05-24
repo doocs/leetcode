@@ -11,7 +11,7 @@ class Solution:
                     return True
             return False
 
-        g = defaultdict(list)
+        g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)
             g[b].append(a)
