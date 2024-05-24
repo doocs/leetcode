@@ -222,36 +222,4 @@ public class Solution {
 
 <!-- solution:end -->
 
-<!-- solution:start-->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
-class Solution:
-    def maxDepth(self, root: TreeNode) -> int:
-        def dfs(root):
-            if root is None:
-                return 0
-            l, r = dfs(root.left), dfs(root.right)
-            return 1 + max(l, r)
-
-        return dfs(root)
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
 <!-- problem:end -->

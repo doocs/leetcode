@@ -52,7 +52,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 由于数组 `nums` 已排好序，我们可以使用二分查找的方法找到数组中第一个大于等于 `target` 的元素的下标 $l$，以及第一个大于 `target` 的元素的下标 $r$，那么 `target` 的个数就是 $r - l$。
 
-时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
+时间复杂度 $O(\log n)$，其中 $n$ 为数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -70,13 +70,16 @@ class Solution:
 
 ```java
 class Solution {
+    private int[] nums;
+
     public int search(int[] nums, int target) {
-        int l = lowerBound(nums, target);
-        int r = lowerBound(nums, target + 1);
+        this.nums = nums;
+        int l = search(target);
+        int r = search(target + 1);
         return r - l;
     }
 
-    private int lowerBound(int[] nums, int x) {
+    private int search(int x) {
         int l = 0, r = nums.length;
         while (l < r) {
             int mid = (l + r) >>> 1;
@@ -108,8 +111,8 @@ public:
 
 ```go
 func search(nums []int, target int) int {
-	l := sort.Search(len(nums), func(i int) bool { return nums[i] >= target })
-	r := sort.Search(len(nums), func(i int) bool { return nums[i] > target })
+	l := sort.SearchInts(nums, target)
+	r := sort.SearchInts(nums, target+1)
 	return r - l
 }
 ```
