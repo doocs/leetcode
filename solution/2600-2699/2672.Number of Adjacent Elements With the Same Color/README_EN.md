@@ -18,38 +18,46 @@ tags:
 
 <!-- description:start -->
 
-<p>There is a <strong>0-indexed</strong> array <code>nums</code> of length <code>n</code>. Initially, all elements are <strong>uncolored </strong>(has a value of <code>0</code>).</p>
+<p>You are given an integer <code>n</code> representing an array <code>colors</code> of length <code>n</code> where all elements are set to 0&#39;s meaning <strong>uncolored</strong>. You are also given a 2D integer array <code>queries</code> where <code>queries[i] = [index<sub>i</sub>, color<sub>i</sub>]</code>. For the <code>i<sup>th</sup></code> <strong>query</strong>:</p>
 
-<p>You are given a 2D integer array <code>queries</code> where <code>queries[i] = [index<sub>i</sub>, color<sub>i</sub>]</code>.</p>
+<ul>
+	<li>Set <code>colors[index<sub>i</sub>]</code> to <code>color<sub>i</sub></code>.</li>
+	<li>Count adjacent pairs in <code>colors</code> set to the same color (regardless of <code>color<sub>i</sub></code>).</li>
+</ul>
 
-<p>For each query, you color the index <code>index<sub>i</sub></code> with the color <code>color<sub>i</sub></code> in the array <code>nums</code>.</p>
-
-<p>Return <em>an array </em><code>answer</code><em> of the same length as </em><code>queries</code><em> where </em><code>answer[i]</code><em> is the number of adjacent elements with the same color <strong>after</strong> the </em><code>i<sup>th</sup></code><em> query</em>.</p>
-
-<p>More formally, <code>answer[i]</code> is the number of indices <code>j</code>, such that <code>0 &lt;= j &lt; n - 1</code> and <code>nums[j] == nums[j + 1]</code> and <code>nums[j] != 0</code> after the <code>i<sup>th</sup></code> query.</p>
+<p>Return an array <code>answer</code> of the same length as <code>queries</code> where <code>answer[i]</code> is the answer to the <code>i<sup>th</sup></code> query.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> n = 4, queries = [[0,2],[1,2],[3,1],[1,1],[2,1]]
-<strong>Output:</strong> [0,1,1,0,2]
-<strong>Explanation:</strong> Initially array nums = [0,0,0,0], where 0 denotes uncolored elements of the array.
-- After the 1<sup>st</sup> query nums = [2,0,0,0]. The count of adjacent elements with the same color is 0.
-- After the 2<sup>nd</sup> query nums = [2,2,0,0]. The count of adjacent elements with the same color is 1.
-- After the 3<sup>rd</sup>&nbsp;query nums = [2,2,0,1]. The count of adjacent elements with the same color is 1.
-- After the 4<sup>th</sup>&nbsp;query nums = [2,1,0,1]. The count of adjacent elements with the same color is 0.
-- After the 5<sup>th</sup>&nbsp;query nums = [2,1,1,1]. The count of adjacent elements with the same color is 2.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">n = 4, queries = [[0,2],[1,2],[3,1],[1,1],[2,1]]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[0,1,1,0,2]</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<ul>
+	<li>Initially array colors = [0,0,0,0], where 0 denotes uncolored elements of the array.</li>
+	<li>After the 1<sup>st</sup> query colors = [2,0,0,0]. The count of adjacent pairs with the same color is 0.</li>
+	<li>After the 2<sup>nd</sup> query colors = [2,2,0,0]. The count of adjacent pairs with the same color is 1.</li>
+	<li>After the 3<sup>rd</sup> query colors = [2,2,0,1]. The count of adjacent pairs with the same color is 1.</li>
+	<li>After the 4<sup>th</sup> query colors = [2,1,0,1]. The count of adjacent pairs with the same color is 0.</li>
+	<li>After the 5<sup>th</sup> query colors = [2,1,1,1]. The count of adjacent pairs with the same color is 2.</li>
+</ul>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> n = 1, queries = [[0,100000]]
-<strong>Output:</strong> [0]
-<strong>Explanation:</strong> Initially array nums = [0], where 0 denotes uncolored elements of the array.
-- After the 1<sup>st</sup> query nums = [100000]. The count of adjacent elements with the same color is 0.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">n = 1, queries = [[0,100000]]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[0]</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>After the 1<sup>st</sup> query colors = [100000]. The count of adjacent pairs with the same color is 0.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

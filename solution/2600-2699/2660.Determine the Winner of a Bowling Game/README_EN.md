@@ -19,58 +19,83 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given two <strong>0-indexed</strong> integer arrays <code><font face="monospace">player1</font></code> and <code>player2</code>, that represent the number of pins that player 1 and player 2 hit in a bowling game, respectively.</p>
+<p>You are given two <strong>0-indexed</strong> integer arrays <code><font face="monospace">player1</font></code> and <code>player2</code>, representing the number of pins that player 1 and player 2 hit in a bowling game, respectively.</p>
 
-<p>The bowling game consists of <code>n</code> turns, and the number of pins in each turn is exactly <code>10</code>.</p>
+<p>The bowling game consists of <code>n</code> turns, and the number of pins in each turn is exactly 10.</p>
 
-<p>Assume a player hit <code>x<sub>i</sub></code> pins in the <code>i<sup>th</sup></code> turn. The value of the <code>i<sup>th</sup></code> turn for the player is:</p>
+<p>Assume a player hits <code>x<sub>i</sub></code> pins in the i<sup>th</sup> turn. The value of the i<sup>th</sup> turn for the player is:</p>
 
 <ul>
-	<li><code>2x<sub>i</sub></code> if the player hit <code>10</code> pins in any of the previous two turns.</li>
-	<li>Otherwise, It is <code>x<sub>i</sub></code>.</li>
+	<li><code>2x<sub>i</sub></code> if the player hits 10 pins <b>in either (i - 1)<sup>th</sup> or (i - 2)<sup>th</sup> turn</b>.</li>
+	<li>Otherwise, it is <code>x<sub>i</sub></code>.</li>
 </ul>
 
-<p>The score of the player is the sum of the values of their <code>n</code> turns.</p>
+<p>The <strong>score</strong> of the player is the sum of the values of their <code>n</code> turns.</p>
 
 <p>Return</p>
 
 <ul>
-	<li><code>1</code> <em>if the score of player 1 is more than the score of player 2,</em></li>
-	<li><code>2</code> <em>if the score of player 2 is more than the score of player 1, and</em></li>
-	<li><code>0</code> <em>in case of a draw.</em></li>
+	<li>1 if the score of player 1 is more than the score of player 2,</li>
+	<li>2 if the score of player 2 is more than the score of player 1, and</li>
+	<li>0 in case of a draw.</li>
 </ul>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> player1 = [4,10,7,9], player2 = [6,5,2,3]
-<strong>Output:</strong> 1
-<strong>Explanation:</strong> The score of player1 is 4 + 10 + 2*7 + 2*9 = 46.
-The score of player2 is 6 + 5 + 2 + 3 = 16.
-Score of player1 is more than the score of player2, so, player1 is the winner, and the answer is 1.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">player1 = [5,10,3,2], player2 = [6,5,7,3]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">1</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The score of player 1 is 5 + 10 + 2*3 + 2*2 = 25.</p>
+
+<p>The score of player 2 is 6 + 5 + 7 + 3 = 21.</p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> player1 = [3,5,7,6], player2 = [8,10,10,2]
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> The score of player1 is 3 + 5 + 7 + 6 = 21.
-The score of player2 is 8 + 10 + 2*10 + 2*2 = 42.
-Score of player2 is more than the score of player1, so, player2 is the winner, and the answer is 2.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">player1 = [3,5,7,6], player2 = [8,10,10,2]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">2</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The score of player 1 is 3 + 5 + 7 + 6 = 21.</p>
+
+<p>The score of player 2 is 8 + 10 + 2*10 + 2*2 = 42.</p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> player1 = [2,3], player2 = [4,1]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> The score of player1 is 2 + 3 = 5
-The score of player2 is 4 + 1 = 5
-The score of player1 equals to the score of player2, so, there is a draw, and the answer is 0.
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">player1 = [2,3], player2 = [4,1]</span></p>
 
-</pre>
+<p><strong>Output:</strong> <span class="example-io">0</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The score of player1 is 2 + 3 = 5.</p>
+
+<p>The score of player2 is 4 + 1 = 5.</p>
+</div>
+
+<p><strong class="example">Example 4:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">player1 = [1,1,1,10,10,10,10], player2 = [10,10,10,10,1,1,1]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">1</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The score of player1 is 1 + 1 + 1 + 10 + 2*10 + 2*10 + 2*10 = 73.</p>
+
+<p>The score of player2 is 10 + 2*10 + 2*10 + 2*10 + 2*1 + 2*1 + 1 = 75.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

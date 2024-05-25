@@ -14,7 +14,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3157.Fi
 
 <!-- description:start -->
 
-<p>给定一棵二叉树的根&nbsp;<code>root</code>，其中每个节点有一个值，返回所有层中值之和 <strong>最小</strong>&nbsp;的树的层数（如果相等，返回&nbsp;<strong>最低</strong>&nbsp;的层数）。</p>
+<p>给定一棵二叉树的根&nbsp;<code>root</code>，其中每个节点有一个值，返回树中 <strong>层和最小</strong> 的层数（如果相等，返回&nbsp;<strong>最低</strong>&nbsp;的层数）。</p>
 
 <p><strong>注意</strong>&nbsp;树的根节点在第一层，其它任何节点的层数是它到根节点的距离+1。</p>
 
