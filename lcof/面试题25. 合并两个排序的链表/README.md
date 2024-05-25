@@ -330,7 +330,7 @@ class Solution {
         var cur: ListNode? = dummy
         var l1 = l1
         var l2 = l2
-        
+
         while let l1Node = l1, let l2Node = l2 {
             if l1Node.val <= l2Node.val {
                 cur?.next = l1Node
@@ -341,9 +341,9 @@ class Solution {
             }
             cur = cur?.next
         }
-        
+
         cur?.next = l1 ?? l2
-        
+
         return dummy.next
     }
 }
