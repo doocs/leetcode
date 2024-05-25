@@ -51,11 +51,11 @@ $$
 f[i][j] = \sum_{k=1}^6 f[i-1][j-k]
 $$
 
-其中 $k$ 表示当前骰子的点数，$f[i-1][j-k]$ 表示投掷 $i-1$ 个骰子，点数和为 $j-k$ 的方案数。
+其中 $k$ 表示当前骰子的点数，而 $f[i-1][j-k]$ 表示投掷 $i-1$ 个骰子，点数和为 $j-k$ 的方案数。
 
-最终我们需要求的是 $f[n][n \sim 6n]$ 的和，即投掷 $n$ 个骰子，点数和为 $n \sim 6n$ 的方案数之和。
+初始条件为 $f[1][j] = 1$，表示投掷一个骰子，点数和为 $j$ 的方案数为 $1$。
 
-注意到 $f[i][j]$ 的值只与 $f[i-1][j-k]$ 有关，因此我们可以使用滚动数组的方法将空间复杂度降低到 $O(6n)$。
+最终，我们要求的答案即为 $\frac{f[n][j]}{6^n}$，其中 $n$ 为骰子个数，而 $j$ 的取值范围为 $[n, 6n]$。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(6n)$。其中 $n$ 为骰子个数。
 
@@ -75,7 +75,7 @@ class Solution:
                     if j - k >= 0:
                         f[i][j] += f[i - 1][j - k]
         m = pow(6, n)
-        return [f[n][i] / m for i in range(n, 6 * n + 1)]
+        return [f[n][j] / m for j in range(n, 6 * n + 1)]
 ```
 
 #### Java
@@ -98,8 +98,8 @@ class Solution {
         }
         double m = Math.pow(6, n);
         double[] ans = new double[5 * n + 1];
-        for (int i = 0; i < ans.length; ++i) {
-            ans[i] = f[n][n + i] / m;
+        for (int j = n; j <= 6 * n; ++j) {
+            ans[j - n] = f[n][j] / m;
         }
         return ans;
     }
@@ -126,10 +126,10 @@ public:
                 }
             }
         }
-        vector<double> ans(5 * n + 1);
+        vector<double> ans;
         double m = pow(6, n);
-        for (int i = 0; i < ans.size(); ++i) {
-            ans[i] = f[n][n + i] / m;
+        for (int j = n; j <= 6 * n; ++j) {
+            ans.push_back(f[n][j] / m);
         }
         return ans;
     }
@@ -199,20 +199,29 @@ var dicesProbability = function (n) {
 ```cs
 public class Solution {
     public double[] DicesProbability(int n) {
-        var bp = new double[6];
-        for (int i = 0; i < 6; i++) {
-            bp[i] = 1 / 6.0;
+        int[,] f = new int[n + 1, 6 * n + 1];
+
+        for (int j = 1; j <= 6; ++j) {
+            f[1, j] = 1;
         }
-        double[] ans = new double[]{1};
-        for (int i = 1; i <= n; i++) {
-            var tmp = ans;
-            ans = new double[tmp.Length + 5];
-            for (int i1 = 0; i1 < tmp.Length; i1++) {
-                for (int i2 = 0; i2 < bp.Length; i2++) {
-                    ans[i1+i2] += tmp[i1] * bp[i2];
+
+        for (int i = 2; i <= n; ++i) {
+            for (int j = i; j <= 6 * i; ++j) {
+                for (int k = 1; k <= 6; ++k) {
+                    if (j >= k) {
+                        f[i, j] += f[i - 1, j - k];
+                    }
                 }
             }
         }
+
+        double m = Math.Pow(6, n);
+        double[] ans = new double[5 * n + 1];
+
+        for (int j = n; j <= 6 * n; ++j) {
+            ans[j - n] = f[n, j] / m;
+        }
+
         return ans;
     }
 }
@@ -224,7 +233,9 @@ public class Solution {
 
 <!-- solution:start-->
 
-### 方法二
+### 方法二：动态规划（空间优化）
+
+我们可以发现，上述方法中的 $f[i][j]$ 的值仅与 $f[i-1][j-k]$ 有关，因此我们可以使用滚动数组的方式，将空间复杂度优化至 $O(6n)$。
 
 <!-- tabs:start -->
 
@@ -245,25 +256,125 @@ class Solution:
         return [f[j] / m for j in range(n, 6 * n + 1)]
 ```
 
+#### Java
+
+```java
+class Solution {
+    public double[] dicesProbability(int n) {
+        int[] f = new int[7];
+        Arrays.fill(f, 1);
+        f[0] = 0;
+        for (int i = 2; i <= n; ++i) {
+            int[] g = new int[6 * i + 1];
+            for (int j = i; j <= 6 * i; ++j) {
+                for (int k = 1; k <= 6; ++k) {
+                    if (j - k >= 0 && j - k < f.length) {
+                        g[j] += f[j - k];
+                    }
+                }
+            }
+            f = g;
+        }
+        double m = Math.pow(6, n);
+        double[] ans = new double[5 * n + 1];
+        for (int j = n; j <= 6 * n; ++j) {
+            ans[j - n] = f[j] / m;
+        }
+        return ans;
+    }
+}
+```
+
 #### Go
 
 ```go
-func dicesProbability(n int) []float64 {
-	dp := make([]float64, 7)
+func dicesProbability(n int) (ans []float64) {
+	f := make([]int, 7)
 	for i := 1; i <= 6; i++ {
-		dp[i] = 1.0 / 6.0
+		f[i] = 1
 	}
+
 	for i := 2; i <= n; i++ {
-		n := len(dp)
-		tmp := make([]float64, 6*i+1)
-		for j := 0; j < n; j++ {
+		g := make([]int, 6*i+1)
+		for j := i; j <= 6*i; j++ {
 			for k := 1; k <= 6; k++ {
-				tmp[j+k] += dp[j] / 6.0
+				if j-k >= 0 && j-k < len(f) {
+					g[j] += f[j-k]
+				}
 			}
 		}
-		dp = tmp
+		f = g
 	}
-	return dp[n:]
+
+	m := math.Pow(6, float64(n))
+	for j := n; j <= 6*n; j++ {
+		ans = append(ans, float64(f[j])/m)
+	}
+	return
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {number[]}
+ */
+var dicesProbability = function (n) {
+    let f = Array(7).fill(1);
+    f[0] = 0;
+    for (let i = 2; i <= n; ++i) {
+        let g = Array(6 * i + 1).fill(0);
+        for (let j = i; j <= 6 * i; ++j) {
+            for (let k = 1; k <= 6; ++k) {
+                if (j - k >= 0 && j - k < f.length) {
+                    g[j] += f[j - k];
+                }
+            }
+        }
+        f = g;
+    }
+
+    const ans = [];
+    const m = Math.pow(6, n);
+    for (let j = n; j <= 6 * n; ++j) {
+        ans.push(f[j] / m);
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public double[] DicesProbability(int n) {
+        int[] f = new int[7];
+        for (int i = 1; i <= 6; ++i) {
+            f[i] = 1;
+        }
+        f[0] = 0;
+
+        for (int i = 2; i <= n; ++i) {
+            int[] g = new int[6 * i + 1];
+            for (int j = i; j <= 6 * i; ++j) {
+                for (int k = 1; k <= 6; ++k) {
+                    if (j - k >= 0 && j - k < f.Length) {
+                        g[j] += f[j - k];
+                    }
+                }
+            }
+            f = g;
+        }
+
+        double m = Math.Pow(6, n);
+        double[] ans = new double[5 * n + 1];
+        for (int j = n; j <= 6 * n; ++j) {
+            ans[j - n] = f[j] / m;
+        }
+        return ans;
+    }
 }
 ```
 
