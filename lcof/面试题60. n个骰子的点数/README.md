@@ -321,7 +321,7 @@ func dicesProbability(n int) (ans []float64) {
  * @param {number} num
  * @return {number[]}
  */
-var statisticsProbability = function (n) {
+var dicesProbability = function (n) {
     let f = Array(7).fill(1);
     f[0] = 0;
     for (let i = 2; i <= n; ++i) {
