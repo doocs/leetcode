@@ -15,8 +15,8 @@ class Solution {
         }
         double m = Math.pow(6, n);
         double[] ans = new double[5 * n + 1];
-        for (int i = 0; i < ans.length; ++i) {
-            ans[i] = f[n][n + i] / m;
+        for (int j = n; j <= 6 * n; ++j) {
+            ans[j - n] = f[n][j] / m;
         }
         return ans;
     }
