@@ -28,6 +28,10 @@ comments: true
 
 #### 第 131 场双周赛(2024-05-25 22:30, 90 分钟) 参赛人数 2467
 
+- [3158. 求出出现两次数字的 XOR 值](/solution/3100-3199/3158.Find%20the%20XOR%20of%20Numbers%20Which%20Appear%20Twice/README.md)
+- [3159. 查询数组中元素的出现位置](/solution/3100-3199/3159.Find%20Occurrences%20of%20an%20Element%20in%20an%20Array/README.md)
+- [3160. 所有球里面不同颜色的数目](/solution/3100-3199/3160.Find%20the%20Number%20of%20Distinct%20Colors%20Among%20the%20Balls/README.md)
+- [3161. 物块放置查询](/solution/3100-3199/3161.Block%20Placement%20Queries/README.md)
 
 #### 第 398 场周赛(2024-05-19 10:30, 90 分钟) 参赛人数 3606
 
