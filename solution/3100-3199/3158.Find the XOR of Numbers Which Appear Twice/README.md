@@ -72,32 +72,90 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3158.Fi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：计数
+
+我们定义一个数组或哈希表 $\text{cnt}$ 记录每个数字出现的次数。
+
+接下来，遍历数组 $\text{nums}$，当某个数字出现两次时，我们将其与答案进行异或运算。
+
+最后返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $\text{nums}$ 的长度，而 $M$ 是数组 $\text{nums}$ 中的最大值或数组 $\text{nums}$ 不同数字的个数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def duplicateNumbersXOR(self, nums: List[int]) -> int:
+        cnt = Counter(nums)
+        return reduce(xor, [x for x, v in cnt.items() if v == 2], 0)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int duplicateNumbersXOR(int[] nums) {
+        int[] cnt = new int[51];
+        int ans = 0;
+        for (int x : nums) {
+            if (++cnt[x] == 2) {
+                ans ^= x;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int duplicateNumbersXOR(vector<int>& nums) {
+        int cnt[51]{};
+        int ans = 0;
+        for (int x : nums) {
+            if (++cnt[x] == 2) {
+                ans ^= x;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func duplicateNumbersXOR(nums []int) (ans int) {
+	cnt := [51]int{}
+	for _, x := range nums {
+		cnt[x]++
+		if cnt[x] == 2 {
+			ans ^= x
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function duplicateNumbersXOR(nums: number[]): number {
+    const cnt: number[] = Array(51).fill(0);
+    let ans: number = 0;
+    for (const x of nums) {
+        if (++cnt[x] === 2) {
+            ans ^= x;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
