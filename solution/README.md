@@ -3172,6 +3172,10 @@
 |  3159  |  [查询数组中元素的出现位置](/solution/3100-3199/3159.Find%20Occurrences%20of%20an%20Element%20in%20an%20Array/README.md)  |    |  中等  |  第 131 场双周赛  |
 |  3160  |  [所有球里面不同颜色的数目](/solution/3100-3199/3160.Find%20the%20Number%20of%20Distinct%20Colors%20Among%20the%20Balls/README.md)  |    |  中等  |  第 131 场双周赛  |
 |  3161  |  [物块放置查询](/solution/3100-3199/3161.Block%20Placement%20Queries/README.md)  |    |  困难  |  第 131 场双周赛  |
+|  3162  |  [优质数对的总数 I](/solution/3100-3199/3162.Find%20the%20Number%20of%20Good%20Pairs%20I/README.md)  |    |  简单  |  第 399 场周赛  |
+|  3163  |  [压缩字符串 III](/solution/3100-3199/3163.String%20Compression%20III/README.md)  |    |  中等  |  第 399 场周赛  |
+|  3164  |  [优质数对的总数 II](/solution/3100-3199/3164.Find%20the%20Number%20of%20Good%20Pairs%20II/README.md)  |    |  中等  |  第 399 场周赛  |
+|  3165  |  [不包含相邻元素的子序列的最大和](/solution/3100-3199/3165.Maximum%20Sum%20of%20Subsequence%20With%20Non-adjacent%20Elements/README.md)  |    |  困难  |  第 399 场周赛  |
 
 ## 版权
 

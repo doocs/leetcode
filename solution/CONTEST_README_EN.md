@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 399
+
+- [3162. Find the Number of Good Pairs I](/solution/3100-3199/3162.Find%20the%20Number%20of%20Good%20Pairs%20I/README_EN.md)
+- [3163. String Compression III](/solution/3100-3199/3163.String%20Compression%20III/README_EN.md)
+- [3164. Find the Number of Good Pairs II](/solution/3100-3199/3164.Find%20the%20Number%20of%20Good%20Pairs%20II/README_EN.md)
+- [3165. Maximum Sum of Subsequence With Non-adjacent Elements](/solution/3100-3199/3165.Maximum%20Sum%20of%20Subsequence%20With%20Non-adjacent%20Elements/README_EN.md)
+
 #### Biweekly Contest 131
 
 - [3158. Find the XOR of Numbers Which Appear Twice](/solution/3100-3199/3158.Find%20the%20XOR%20of%20Numbers%20Which%20Appear%20Twice/README_EN.md)

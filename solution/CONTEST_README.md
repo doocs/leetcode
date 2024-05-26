@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 399 场周赛(2024-05-26 10:30, 90 分钟) 参赛人数 3423
+
+- [3162. 优质数对的总数 I](/solution/3100-3199/3162.Find%20the%20Number%20of%20Good%20Pairs%20I/README.md)
+- [3163. 压缩字符串 III](/solution/3100-3199/3163.String%20Compression%20III/README.md)
+- [3164. 优质数对的总数 II](/solution/3100-3199/3164.Find%20the%20Number%20of%20Good%20Pairs%20II/README.md)
+- [3165. 不包含相邻元素的子序列的最大和](/solution/3100-3199/3165.Maximum%20Sum%20of%20Subsequence%20With%20Non-adjacent%20Elements/README.md)
+
 #### 第 131 场双周赛(2024-05-25 22:30, 90 分钟) 参赛人数 2467
 
 - [3158. 求出出现两次数字的 XOR 值](/solution/3100-3199/3158.Find%20the%20XOR%20of%20Numbers%20Which%20Appear%20Twice/README.md)

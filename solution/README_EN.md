@@ -3170,6 +3170,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3159  |  [Find Occurrences of an Element in an Array](/solution/3100-3199/3159.Find%20Occurrences%20of%20an%20Element%20in%20an%20Array/README_EN.md)  |    |  Medium  |  Biweekly Contest 131  |
 |  3160  |  [Find the Number of Distinct Colors Among the Balls](/solution/3100-3199/3160.Find%20the%20Number%20of%20Distinct%20Colors%20Among%20the%20Balls/README_EN.md)  |    |  Medium  |  Biweekly Contest 131  |
 |  3161  |  [Block Placement Queries](/solution/3100-3199/3161.Block%20Placement%20Queries/README_EN.md)  |    |  Hard  |  Biweekly Contest 131  |
+|  3162  |  [Find the Number of Good Pairs I](/solution/3100-3199/3162.Find%20the%20Number%20of%20Good%20Pairs%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 399  |
+|  3163  |  [String Compression III](/solution/3100-3199/3163.String%20Compression%20III/README_EN.md)  |    |  Medium  |  Weekly Contest 399  |
+|  3164  |  [Find the Number of Good Pairs II](/solution/3100-3199/3164.Find%20the%20Number%20of%20Good%20Pairs%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 399  |
+|  3165  |  [Maximum Sum of Subsequence With Non-adjacent Elements](/solution/3100-3199/3165.Maximum%20Sum%20of%20Subsequence%20With%20Non-adjacent%20Elements/README_EN.md)  |    |  Hard  |  Weekly Contest 399  |
 
 ## Copyright
 

@@ -67,32 +67,98 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3159.Fi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+According to the problem description, we can first traverse the array `nums` to find the indices of all elements with a value of $x$, and record them in the array `ids`.
+
+Next, we traverse the array `queries`. For each query $i$, if $i - 1$ is less than the length of `ids`, then the answer is `ids[i - 1]`, otherwise, the answer is $-1$.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the arrays `nums` and `queries` respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def occurrencesOfElement(
+        self, nums: List[int], queries: List[int], x: int
+    ) -> List[int]:
+        ids = [i for i, v in enumerate(nums) if v == x]
+        return [ids[i - 1] if i - 1 < len(ids) else -1 for i in queries]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] occurrencesOfElement(int[] nums, int[] queries, int x) {
+        List<Integer> ids = new ArrayList<>();
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] == x) {
+                ids.add(i);
+            }
+        }
+        int m = queries.length;
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            int j = queries[i] - 1;
+            ans[i] = j < ids.size() ? ids.get(j) : -1;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> occurrencesOfElement(vector<int>& nums, vector<int>& queries, int x) {
+        vector<int> ids;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] == x) {
+                ids.push_back(i);
+            }
+        }
+        vector<int> ans;
+        for (int& i : queries) {
+            ans.push_back(i - 1 < ids.size() ? ids[i - 1] : -1);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func occurrencesOfElement(nums []int, queries []int, x int) (ans []int) {
+	ids := []int{}
+	for i, v := range nums {
+		if v == x {
+			ids = append(ids, i)
+		}
+	}
+	for _, i := range queries {
+		if i-1 < len(ids) {
+			ans = append(ans, ids[i-1])
+		} else {
+			ans = append(ans, -1)
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function occurrencesOfElement(nums: number[], queries: number[], x: number): number[] {
+    const ids: number[] = nums.map((v, i) => (v === x ? i : -1)).filter(v => v !== -1);
+    return queries.map(i => ids[i - 1] ?? -1);
+}
 ```
 
 <!-- tabs:end -->

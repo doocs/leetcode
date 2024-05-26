@@ -70,32 +70,90 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3158.Fi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+We define an array or hash table `cnt` to record the occurrence of each number.
+
+Next, we traverse the array `nums`. When a number appears twice, we perform an XOR operation with the answer.
+
+Finally, we return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(M)$. Where $n$ is the length of the array `nums`, and $M$ is the maximum value in the array `nums` or the number of distinct numbers in the array `nums`.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def duplicateNumbersXOR(self, nums: List[int]) -> int:
+        cnt = Counter(nums)
+        return reduce(xor, [x for x, v in cnt.items() if v == 2], 0)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int duplicateNumbersXOR(int[] nums) {
+        int[] cnt = new int[51];
+        int ans = 0;
+        for (int x : nums) {
+            if (++cnt[x] == 2) {
+                ans ^= x;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int duplicateNumbersXOR(vector<int>& nums) {
+        int cnt[51]{};
+        int ans = 0;
+        for (int x : nums) {
+            if (++cnt[x] == 2) {
+                ans ^= x;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func duplicateNumbersXOR(nums []int) (ans int) {
+	cnt := [51]int{}
+	for _, x := range nums {
+		cnt[x]++
+		if cnt[x] == 2 {
+			ans ^= x
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function duplicateNumbersXOR(nums: number[]): number {
+    const cnt: number[] = Array(51).fill(0);
+    let ans: number = 0;
+    for (const x of nums) {
+        if (++cnt[x] === 2) {
+            ans ^= x;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
