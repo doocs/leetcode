@@ -31,6 +31,10 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 #### Biweekly Contest 131
 
+- [3158. Find the XOR of Numbers Which Appear Twice](/solution/3100-3199/3158.Find%20the%20XOR%20of%20Numbers%20Which%20Appear%20Twice/README_EN.md)
+- [3159. Find Occurrences of an Element in an Array](/solution/3100-3199/3159.Find%20Occurrences%20of%20an%20Element%20in%20an%20Array/README_EN.md)
+- [3160. Find the Number of Distinct Colors Among the Balls](/solution/3100-3199/3160.Find%20the%20Number%20of%20Distinct%20Colors%20Among%20the%20Balls/README_EN.md)
+- [3161. Block Placement Queries](/solution/3100-3199/3161.Block%20Placement%20Queries/README_EN.md)
 
 #### Weekly Contest 398
 

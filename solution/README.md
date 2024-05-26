@@ -3168,6 +3168,10 @@
 |  3155  |  [可升级服务器的最大数量](/solution/3100-3199/3155.Maximum%20Number%20of%20Upgradable%20Servers/README.md)  |  `数组`,`数学`,`二分查找`  |  中等  |  🔒  |
 |  3156  |  [员工任务持续时间和并发任务](/solution/3100-3199/3156.Employee%20Task%20Duration%20and%20Concurrent%20Tasks/README.md)  |  `数据库`  |  困难  |  🔒  |
 |  3157  |  [找到具有最小和的树的层数](/solution/3100-3199/3157.Find%20the%20Level%20of%20Tree%20with%20Minimum%20Sum/README.md)  |    |  中等  |  🔒  |
+|  3158  |  [求出出现两次数字的 XOR 值](/solution/3100-3199/3158.Find%20the%20XOR%20of%20Numbers%20Which%20Appear%20Twice/README.md)  |    |  简单  |  第 131 场双周赛  |
+|  3159  |  [查询数组中元素的出现位置](/solution/3100-3199/3159.Find%20Occurrences%20of%20an%20Element%20in%20an%20Array/README.md)  |    |  中等  |  第 131 场双周赛  |
+|  3160  |  [所有球里面不同颜色的数目](/solution/3100-3199/3160.Find%20the%20Number%20of%20Distinct%20Colors%20Among%20the%20Balls/README.md)  |    |  中等  |  第 131 场双周赛  |
+|  3161  |  [物块放置查询](/solution/3100-3199/3161.Block%20Placement%20Queries/README.md)  |    |  困难  |  第 131 场双周赛  |
 
 ## 版权
 
