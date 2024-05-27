@@ -203,7 +203,7 @@ class Solution {
     func majorityElement(_ nums: [Int]) -> Int {
         var cnt = 0
         var m = 0
-        
+
         for v in nums {
             if cnt == 0 {
                 m = v
