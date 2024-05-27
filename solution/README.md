@@ -3176,6 +3176,7 @@
 |  3163  |  [压缩字符串 III](/solution/3100-3199/3163.String%20Compression%20III/README.md)  |    |  中等  |  第 399 场周赛  |
 |  3164  |  [优质数对的总数 II](/solution/3100-3199/3164.Find%20the%20Number%20of%20Good%20Pairs%20II/README.md)  |    |  中等  |  第 399 场周赛  |
 |  3165  |  [不包含相邻元素的子序列的最大和](/solution/3100-3199/3165.Maximum%20Sum%20of%20Subsequence%20With%20Non-adjacent%20Elements/README.md)  |    |  困难  |  第 399 场周赛  |
+|  3166  |  [计算停车费与时长](/solution/3100-3199/3166.Calculate%20Parking%20Fees%20and%20Duration/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
