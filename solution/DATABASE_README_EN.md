@@ -278,6 +278,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3140 | [Consecutive Available Seats II](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README_EN.md)                                                                                 | `Database` | Medium     | 🔒     |
 | 3150 | [Invalid Tweets II](/solution/3100-3199/3150.Invalid%20Tweets%20II/README_EN.md)                                                                                                             | `Database` | Easy       | 🔒     |
 | 3156 | [Employee Task Duration and Concurrent Tasks](/solution/3100-3199/3156.Employee%20Task%20Duration%20and%20Concurrent%20Tasks/README_EN.md)                                                   | `Database` | Hard       | 🔒     |
+| 3166 | [Calculate Parking Fees and Duration](/solution/3100-3199/3166.Calculate%20Parking%20Fees%20and%20Duration/README_EN.md)                                                                     |            | Medium     | 🔒     |
 
 ## Copyright
 

@@ -3174,6 +3174,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3163  |  [String Compression III](/solution/3100-3199/3163.String%20Compression%20III/README_EN.md)  |    |  Medium  |  Weekly Contest 399  |
 |  3164  |  [Find the Number of Good Pairs II](/solution/3100-3199/3164.Find%20the%20Number%20of%20Good%20Pairs%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 399  |
 |  3165  |  [Maximum Sum of Subsequence With Non-adjacent Elements](/solution/3100-3199/3165.Maximum%20Sum%20of%20Subsequence%20With%20Non-adjacent%20Elements/README_EN.md)  |    |  Hard  |  Weekly Contest 399  |
+|  3166  |  [Calculate Parking Fees and Duration](/solution/3100-3199/3166.Calculate%20Parking%20Fees%20and%20Duration/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
