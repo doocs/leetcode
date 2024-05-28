@@ -245,11 +245,11 @@ class Solution {
         var vis = Set<Int64>()
         var pq = PriorityQueue<Int64>()
         let factors: [Int64] = [2, 3, 5]
-        
+
         pq.push(1)
         vis.insert(1)
         var ans: Int64 = 0
-        
+
         for _ in 0..<n {
             ans = pq.pop()!
             for factor in factors {
@@ -259,23 +259,23 @@ class Solution {
                 }
             }
         }
-        
+
         return Int(ans)
     }
 }
 
 struct PriorityQueue<T: Comparable> {
     private var heap: [T] = []
-    
+
     var isEmpty: Bool {
         return heap.isEmpty
     }
-    
+
     mutating func push(_ element: T) {
         heap.append(element)
         heapifyUp(from: heap.count - 1)
     }
-    
+
     mutating func pop() -> T? {
         guard !heap.isEmpty else {
             return nil
@@ -288,7 +288,7 @@ struct PriorityQueue<T: Comparable> {
         heapifyDown(from: 0)
         return value
     }
-    
+
     private mutating func heapifyUp(from index: Int) {
         var index = index
         let element = heap[index]
@@ -302,7 +302,7 @@ struct PriorityQueue<T: Comparable> {
         }
         heap[index] = element
     }
-    
+
     private mutating func heapifyDown(from index: Int) {
         var index = index
         let element = heap[index]
