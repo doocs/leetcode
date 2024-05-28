@@ -222,6 +222,41 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function equalSubstring(s: string, t: string, maxCost: number): number {
+    const n = s.length;
+    const f = Array(n + 1).fill(0);
+
+    for (let i = 0; i < n; i++) {
+        f[i + 1] = f[i] + Math.abs(s.charCodeAt(i) - t.charCodeAt(i));
+    }
+
+    const check = (x: number): boolean => {
+        for (let i = 0; i + x - 1 < n; i++) {
+            if (f[i + x] - f[i] <= maxCost) {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    let l = 0,
+        r = n;
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (check(mid)) {
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
+    }
+
+    return l;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -230,11 +265,11 @@ func abs(x int) int {
 
 ### 方法二：双指针
 
-我们可以维护两个指针 $j$ 和 $i$，初始时 $i = j = 0$；维护一个变量 $sum$，表示下标区间 $[i,..j]$ 之间的 ASCII 码值的差的绝对值之和。在每一步中，我们将 $i$ 向右移动一位，然后更新 $sum = sum + |s[i] - t[i]|$。如果 $sum \gt maxCost$，那么我们就循环将指针 $j$ 向右移动，并且在移动过程中不断减少 $sum$ 的值，直到 $sum \leq maxCost$。然后我们更新答案，即 $ans = \max(ans, i - j + 1)$。
+我们可以维护两个指针 $l$ 和 $r$，初始时 $l = r = 0$；维护一个变量 $\text{cost}$，表示下标区间 $[l,..r]$ 之间的 ASCII 码值的差的绝对值之和。在每一步中，我们将 $r$ 向右移动一位，然后更新 $\text{cost} = \text{cost} + |s[r] - t[r]|$。如果 $\text{cost} \gt \text{maxCost}$，那么我们就循环将 $l$ 向右移动一位，并且减少 $\text{cost}$ 的值，直到 $\text{cost} \leq \text{maxCost}$。然后我们更新答案，即 $\text{ans} = \max(\text{ans}, r - l + 1)$。
 
 最后返回答案即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -244,14 +279,13 @@ func abs(x int) int {
 class Solution:
     def equalSubstring(self, s: str, t: str, maxCost: int) -> int:
         n = len(s)
-        sum = j = 0
-        ans = 0
-        for i in range(n):
-            sum += abs(ord(s[i]) - ord(t[i]))
-            while sum > maxCost:
-                sum -= abs(ord(s[j]) - ord(t[j]))
-                j += 1
-            ans = max(ans, i - j + 1)
+        ans = cost = l = 0
+        for r in range(n):
+            cost += abs(ord(s[r]) - ord(t[r]))
+            while cost > maxCost:
+                cost -= abs(ord(s[l]) - ord(t[l]))
+                l += 1
+            ans = max(ans, r - l + 1)
         return ans
 ```
 
@@ -261,15 +295,14 @@ class Solution:
 class Solution {
     public int equalSubstring(String s, String t, int maxCost) {
         int n = s.length();
-        int sum = 0;
-        int ans = 0;
-        for (int i = 0, j = 0; i < n; ++i) {
-            sum += Math.abs(s.charAt(i) - t.charAt(i));
-            while (sum > maxCost) {
-                sum -= Math.abs(s.charAt(j) - t.charAt(j));
-                ++j;
+        int ans = 0, cost = 0;
+        for (int l = 0, r = 0; r < n; ++r) {
+            cost += Math.abs(s.charAt(r) - t.charAt(r));
+            while (cost > maxCost) {
+                cost -= Math.abs(s.charAt(l) - t.charAt(l));
+                ++l;
             }
-            ans = Math.max(ans, i - j + 1);
+            ans = Math.max(ans, r - l + 1);
         }
         return ans;
     }
@@ -282,15 +315,15 @@ class Solution {
 class Solution {
 public:
     int equalSubstring(string s, string t, int maxCost) {
-        int n = s.size();
-        int ans = 0, sum = 0;
-        for (int i = 0, j = 0; i < n; ++i) {
-            sum += abs(s[i] - t[i]);
-            while (sum > maxCost) {
-                sum -= abs(s[j] - t[j]);
-                ++j;
+        int n = s.length();
+        int ans = 0, cost = 0;
+        for (int l = 0, r = 0; r < n; ++r) {
+            cost += abs(s[r] - t[r]);
+            while (cost > maxCost) {
+                cost -= abs(s[l] - t[l]);
+                ++l;
             }
-            ans = max(ans, i - j + 1);
+            ans = max(ans, r - l + 1);
         }
         return ans;
     }
@@ -301,15 +334,13 @@ public:
 
 ```go
 func equalSubstring(s string, t string, maxCost int) (ans int) {
-	var sum, j int
-	for i := range s {
-		sum += abs(int(s[i]) - int(t[i]))
-		for ; sum > maxCost; j++ {
-			sum -= abs(int(s[j]) - int(t[j]))
+	var cost, l int
+	for r := range s {
+		cost += abs(int(s[r]) - int(t[r]))
+		for ; cost > maxCost; l++ {
+			cost -= abs(int(s[l]) - int(t[l]))
 		}
-		if ans < i-j+1 {
-			ans = i - j + 1
-		}
+		ans = max(ans, r-l+1)
 	}
 	return
 }
@@ -328,19 +359,129 @@ func abs(x int) int {
 function equalSubstring(s: string, t: string, maxCost: number): number {
     const getCost = (i: number) => Math.abs(s[i].charCodeAt(0) - t[i].charCodeAt(0));
     const n = s.length;
-    let res = 0;
-    let l = 0;
-    let r = -1;
-    let cost = 0;
-
-    while (++r < n) {
+    let ans = 0,
+        cost = 0;
+    for (let l = 0, r = 0; r < n; ++r) {
         cost += getCost(r);
-
-        if (cost <= maxCost) res = Math.max(res, r - l + 1);
-        else cost -= getCost(l++);
+        while (cost > maxCost) {
+            cost -= getCost(l++);
+        }
+        ans = Math.max(ans, r - l + 1);
     }
+    return ans;
+}
+```
 
-    return res;
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：双指针的另一种写法
+
+在方法二中，双指针维护的区间可能变短，也可能变长，由于题目只需要求出最大长度，我们可以维护一个单调变长的区间。
+
+具体地，我们用两个指针 $l$ 和 $r$ 指向区间的左右端点，初始时 $l = r = 0$。在每一步中，我们将 $r$ 向右移动一位，然后更新 $\text{cost} = \text{cost} + |s[r] - t[r]|$。如果 $\text{cost} \gt \text{maxCost}$，那么我们就将 $l$ 向右移动一位，并且减少 $\text{cost}$ 的值。
+
+最后返回 $n - l$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def equalSubstring(self, s: str, t: str, maxCost: int) -> int:
+        cost = l = 0
+        for a, b in zip(s, t):
+            cost += abs(ord(a) - ord(b))
+            if cost > maxCost:
+                cost -= abs(ord(s[l]) - ord(t[l]))
+                l += 1
+        return len(s) - l
+```
+
+#### Java
+
+```java
+class Solution {
+    public int equalSubstring(String s, String t, int maxCost) {
+        int n = s.length();
+        int cost = 0, l = 0;
+        for (int r = 0; r < n; ++r) {
+            cost += Math.abs(s.charAt(r) - t.charAt(r));
+            if (cost > maxCost) {
+                cost -= Math.abs(s.charAt(l) - t.charAt(l));
+                ++l;
+            }
+        }
+        return n - l;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int equalSubstring(string s, string t, int maxCost) {
+        int n = s.length();
+        int cost = 0, l = 0;
+        for (int r = 0; r < n; ++r) {
+            cost += abs(s[r] - t[r]);
+            if (cost > maxCost) {
+                cost -= abs(s[l] - t[l]);
+                ++l;
+            }
+        }
+        return n - l;
+    }
+};
+```
+
+#### Go
+
+```go
+func equalSubstring(s string, t string, maxCost int) int {
+	n := len(s)
+	var cost, l int
+	for r := range s {
+		cost += abs(int(s[r]) - int(t[r]))
+		if cost > maxCost {
+			cost -= abs(int(s[l]) - int(t[l]))
+			l++
+		}
+	}
+	return n - l
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function equalSubstring(s: string, t: string, maxCost: number): number {
+    const getCost = (i: number) => Math.abs(s[i].charCodeAt(0) - t[i].charCodeAt(0));
+    const n = s.length;
+    let cost = 0;
+    let l = 0;
+    for (let r = 0; r < n; ++r) {
+        cost += getCost(r);
+        if (cost > maxCost) {
+            cost -= getCost(l++);
+        }
+    }
+    return n - l;
 }
 ```
 
@@ -349,3 +490,4 @@ function equalSubstring(s: string, t: string, maxCost: number): number {
 <!-- solution:end -->
 
 <!-- problem:end -->
+
