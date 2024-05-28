@@ -1,13 +1,14 @@
-func equalSubstring(s string, t string, maxCost int) (ans int) {
+func equalSubstring(s string, t string, maxCost int) int {
+	n := len(s)
 	var cost, l int
 	for r := range s {
 		cost += abs(int(s[r]) - int(t[r]))
-		for ; cost > maxCost; l++ {
+		if cost > maxCost {
 			cost -= abs(int(s[l]) - int(t[l]))
+			l++
 		}
-		ans = max(ans, r-l+1)
 	}
-	return
+	return n - l
 }
 
 func abs(x int) int {
