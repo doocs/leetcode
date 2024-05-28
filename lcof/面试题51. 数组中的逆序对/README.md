@@ -335,7 +335,7 @@ class Solution {
         var i = left
         var j = mid + 1
         var k = left
-        
+
         while i <= mid && j <= right {
             if nums[i] <= nums[j] {
                 temp[k] = nums[i]
@@ -347,23 +347,23 @@ class Solution {
             }
             k += 1
         }
-        
+
         while i <= mid {
             temp[k] = nums[i]
             i += 1
             k += 1
         }
-        
+
         while j <= right {
             temp[k] = nums[j]
             j += 1
             k += 1
         }
-        
+
         for i in left...right {
             nums[i] = temp[i]
         }
-        
+
         return count
     }
 }
