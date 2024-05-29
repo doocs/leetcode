@@ -72,100 +72,92 @@ tags:
 
 ### 方法一：线段树
 
-线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 `log(width)`。更新某个元素的值，只需要更新 `log(width)` 个区间，并且这些区间都包含在一个包含该元素的大区间内。区间修改时，需要使用**懒标记**保证效率。
+线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 $\log(\text{width})$。更新某个元素的值，只需要更新 $\log(\text{width})$ 个区间，并且这些区间都包含在一个包含该元素的大区间内。区间修改时，需要使用**懒标记**保证效率。
 
 -   线段树的每个节点代表一个区间；
--   线段树具有唯一的根节点，代表的区间是整个统计范围，如 `[1, N]`；
--   线段树的每个叶子节点代表一个长度为 1 的元区间 `[x, x]`；
--   对于每个内部节点 `[l, r]`，它的左儿子是 `[l, mid]`，右儿子是 `[mid + 1, r]`, 其中 `mid = ⌊(l + r) / 2⌋` (即向下取整)。
+-   线段树具有唯一的根节点，代表的区间是整个统计范围，如 $[1, n]$；
+-   线段树的每个叶子节点代表一个长度为 $1$ 的元区间 $[x, x]$；
+-   对于每个内部节点 $[l, r]$，它的左儿子是 $[l, mid]$，右儿子是 $[mid + 1, r]$, 其中 $mid = \frac{l + r}{2}$；
 
 对于本题，线段树节点维护的信息有：
 
-1. 前缀最长连续字符个数 `lmx`；
-1. 后缀最长连续字符个数 `rmx`；
-1. 区间最长连续字符个数 `mx`；
-1. 区间长度 `size`；
-1. 区间首尾字符 `lc, rc`。
+1. 前缀最长连续字符个数 $lmx$；
+1. 后缀最长连续字符个数 $rmx$；
+1. 区间最长连续字符个数 $mx$。
+1. 区间左端点 $l$ 和右端点 $r$。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n \times \log n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+def max(a: int, b: int) -> int:
+    return a if a > b else b
+
+
 class Node:
-    def __init__(self):
-        self.l = 0
-        self.r = 0
-        self.lmx = 0
-        self.rmx = 0
-        self.mx = 0
-        self.size = 0
-        self.lc = None
-        self.rc = None
+    __slots__ = "l", "r", "lmx", "rmx", "mx"
 
-
-N = 100010
-tr = [Node() for _ in range(N << 2)]
+    def __init__(self, l: int, r: int):
+        self.l = l
+        self.r = r
+        self.lmx = self.rmx = self.mx = 1
 
 
 class SegmentTree:
-    def __init__(self, s):
+    __slots__ = "s", "tr"
+
+    def __init__(self, s: str):
+        self.s = list(s)
         n = len(s)
-        self.s = s
+        self.tr: List[Node | None] = [None] * (n * 4)
         self.build(1, 1, n)
 
-    def build(self, u, l, r):
-        tr[u].l = l
-        tr[u].r = r
+    def build(self, u: int, l: int, r: int):
+        self.tr[u] = Node(l, r)
         if l == r:
-            tr[u].lmx = tr[u].rmx = tr[u].mx = tr[u].size = 1
-            tr[u].lc = tr[u].rc = self.s[l - 1]
             return
-        mid = (l + r) >> 1
+        mid = (l + r) // 2
         self.build(u << 1, l, mid)
         self.build(u << 1 | 1, mid + 1, r)
         self.pushup(u)
 
-    def modify(self, u, x, v):
-        if tr[u].l == x and tr[u].r == x:
-            tr[u].lc = tr[u].rc = v
+    def query(self, u: int, l: int, r: int) -> int:
+        if self.tr[u].l >= l and self.tr[u].r <= r:
+            return self.tr[u].mx
+        mid = (self.tr[u].l + self.tr[u].r) // 2
+        ans = 0
+        if r <= mid:
+            ans = self.query(u << 1, l, r)
+        if l > mid:
+            ans = max(ans, self.query(u << 1 | 1, l, r))
+        return ans
+
+    def modify(self, u: int, x: int, v: str):
+        if self.tr[u].l == self.tr[u].r:
+            self.s[x - 1] = v
             return
-        mid = (tr[u].l + tr[u].r) >> 1
+        mid = (self.tr[u].l + self.tr[u].r) // 2
         if x <= mid:
             self.modify(u << 1, x, v)
         else:
             self.modify(u << 1 | 1, x, v)
         self.pushup(u)
 
-    def query(self, u, l, r):
-        if tr[u].l >= l and tr[u].r <= r:
-            return tr[u]
-        mid = (tr[u].l + tr[u].r) >> 1
-        if r <= mid:
-            return self.query(u << 1, l, r)
-        if l > mid:
-            return self.query(u << 1 | 1, l, r)
-        left, right = self.query(u << 1, l, r), self.query(u << 1 | 1, l, r)
-        ans = Node()
-        self._pushup(ans, left, right)
-        return ans
-
-    def _pushup(self, root, left, right):
-        root.lc, root.rc = left.lc, right.rc
-        root.size = left.size + right.size
-
+    def pushup(self, u: int):
+        root, left, right = self.tr[u], self.tr[u << 1], self.tr[u << 1 | 1]
+        root.lmx = left.lmx
+        root.rmx = right.rmx
         root.mx = max(left.mx, right.mx)
-        root.lmx, root.rmx = left.lmx, right.rmx
-
-        if left.rc == right.lc:
-            if left.lmx == left.size:
+        a, b = left.r - left.l + 1, right.r - right.l + 1
+        if self.s[left.r - 1] == self.s[right.l - 1]:
+            if left.lmx == a:
                 root.lmx += right.lmx
-            if right.rmx == right.size:
+            if right.rmx == b:
                 root.rmx += left.rmx
             root.mx = max(root.mx, left.rmx + right.lmx)
-
-    def pushup(self, u):
-        self._pushup(tr[u], tr[u << 1], tr[u << 1 | 1])
 
 
 class Solution:
@@ -173,12 +165,10 @@ class Solution:
         self, s: str, queryCharacters: str, queryIndices: List[int]
     ) -> List[int]:
         tree = SegmentTree(s)
-        k = len(queryIndices)
         ans = []
-        for i, c in enumerate(queryCharacters):
-            x = queryIndices[i] + 1
-            tree.modify(1, x, c)
-            ans.append(tree.query(1, 1, len(s)).mx)
+        for x, v in zip(queryIndices, queryCharacters):
+            tree.modify(1, x + 1, v)
+            ans.append(tree.query(1, 1, len(s)))
         return ans
 ```
 
@@ -186,40 +176,30 @@ class Solution:
 
 ```java
 class Node {
-    int l;
-    int r;
-    int size;
-    int lmx;
-    int rmx;
-    int mx;
-    char lc;
-    char rc;
+    int l, r;
+    int lmx, rmx, mx;
+
+    Node(int l, int r) {
+        this.l = l;
+        this.r = r;
+        lmx = rmx = mx = 1;
+    }
 }
 
 class SegmentTree {
-    private String s;
+    private char[] s;
     private Node[] tr;
 
-    public SegmentTree(String s) {
-        int n = s.length();
+    public SegmentTree(char[] s) {
+        int n = s.length;
         this.s = s;
         tr = new Node[n << 2];
-        for (int i = 0; i < tr.length; ++i) {
-            tr[i] = new Node();
-        }
         build(1, 1, n);
     }
 
     public void build(int u, int l, int r) {
-        tr[u].l = l;
-        tr[u].r = r;
+        tr[u] = new Node(l, r);
         if (l == r) {
-            tr[u].lmx = 1;
-            tr[u].rmx = 1;
-            tr[u].mx = 1;
-            tr[u].size = 1;
-            tr[u].lc = s.charAt(l - 1);
-            tr[u].rc = s.charAt(l - 1);
             return;
         }
         int mid = (l + r) >> 1;
@@ -228,10 +208,9 @@ class SegmentTree {
         pushup(u);
     }
 
-    void modify(int u, int x, char v) {
+    public void modify(int u, int x, char v) {
         if (tr[u].l == x && tr[u].r == x) {
-            tr[u].lc = v;
-            tr[u].rc = v;
+            s[x - 1] = v;
             return;
         }
         int mid = (tr[u].l + tr[u].r) >> 1;
@@ -243,59 +222,53 @@ class SegmentTree {
         pushup(u);
     }
 
-    Node query(int u, int l, int r) {
+    public int query(int u, int l, int r) {
         if (tr[u].l >= l && tr[u].r <= r) {
-            return tr[u];
+            return tr[u].mx;
         }
         int mid = (tr[u].l + tr[u].r) >> 1;
+        int ans = 0;
         if (r <= mid) {
-            return query(u << 1, l, r);
+            ans = query(u << 1, l, r);
         }
         if (l > mid) {
-            return query(u << 1 | 1, l, r);
+            ans = Math.max(ans, query(u << 1 | 1, l, r));
         }
-        Node ans = new Node();
-        Node left = query(u << 1, l, r);
-        Node right = query(u << 1 | 1, l, r);
-        pushup(ans, left, right);
         return ans;
+
     }
 
-    void pushup(Node root, Node left, Node right) {
-        root.lc = left.lc;
-        root.rc = right.rc;
-        root.size = left.size + right.size;
-
+    private void pushup(int u) {
+        Node root = tr[u];
+        Node left = tr[u << 1], right = tr[u << 1 | 1];
         root.mx = Math.max(left.mx, right.mx);
         root.lmx = left.lmx;
         root.rmx = right.rmx;
-
-        if (left.rc == right.lc) {
-            if (left.lmx == left.size) {
+        int a = left.r - left.l + 1;
+        int b = right.r - right.l + 1;
+        if (s[left.r - 1] == s[right.l - 1]) {
+            if (left.lmx == a) {
                 root.lmx += right.lmx;
             }
-            if (right.rmx == right.size) {
+            if (right.rmx == b) {
                 root.rmx += left.rmx;
             }
             root.mx = Math.max(root.mx, left.rmx + right.lmx);
         }
     }
-
-    void pushup(int u) {
-        pushup(tr[u], tr[u << 1], tr[u << 1 | 1]);
-    }
 }
 
 class Solution {
     public int[] longestRepeating(String s, String queryCharacters, int[] queryIndices) {
-        SegmentTree tree = new SegmentTree(s);
-        int k = queryCharacters.length();
+        SegmentTree tree = new SegmentTree(s.toCharArray());
+        int k = queryIndices.length;
         int[] ans = new int[k];
+        int n = s.length();
         for (int i = 0; i < k; ++i) {
             int x = queryIndices[i] + 1;
-            char c = queryCharacters.charAt(i);
-            tree.modify(1, x, c);
-            ans[i] = tree.query(1, 1, s.length()).mx;
+            char v = queryCharacters.charAt(i);
+            tree.modify(1, x, v);
+            ans[i] = tree.query(1, 1, n);
         }
         return ans;
     }
@@ -307,8 +280,15 @@ class Solution {
 ```cpp
 class Node {
 public:
-    int l, r, size, lmx, rmx, mx;
-    char lc, rc;
+    int l, r;
+    int lmx, rmx, mx;
+
+    Node(int l, int r)
+        : l(l)
+        , r(r)
+        , lmx(1)
+        , rmx(1)
+        , mx(1) {}
 };
 
 class SegmentTree {
@@ -316,21 +296,9 @@ private:
     string s;
     vector<Node*> tr;
 
-public:
-    SegmentTree(string& s) {
-        this->s = s;
-        int n = s.size();
-        tr.resize(n << 2);
-        for (int i = 0; i < tr.size(); ++i) tr[i] = new Node();
-        build(1, 1, n);
-    }
-
     void build(int u, int l, int r) {
-        tr[u]->l = l;
-        tr[u]->r = r;
+        tr[u] = new Node(l, r);
         if (l == r) {
-            tr[u]->lmx = tr[u]->rmx = tr[u]->mx = tr[u]->size = 1;
-            tr[u]->lc = tr[u]->rc = s[l - 1];
             return;
         }
         int mid = (l + r) >> 1;
@@ -339,62 +307,75 @@ public:
         pushup(u);
     }
 
-    void modify(int u, int x, char v) {
-        if (tr[u]->l == x && tr[u]->r == x) {
-            tr[u]->lc = tr[u]->rc = v;
-            return;
-        }
-        int mid = (tr[u]->l + tr[u]->r) >> 1;
-        if (x <= mid)
-            modify(u << 1, x, v);
-        else
-            modify(u << 1 | 1, x, v);
-        pushup(u);
-    }
-
-    Node* query(int u, int l, int r) {
-        if (tr[u]->l >= l && tr[u]->r <= r) return tr[u];
-        int mid = (tr[u]->l + tr[u]->r) >> 1;
-        if (r <= mid) return query(u << 1, l, r);
-        if (l > mid) query(u << 1 | 1, l, r);
-        Node* ans = new Node();
-        Node* left = query(u << 1, l, r);
-        Node* right = query(u << 1 | 1, l, r);
-        pushup(ans, left, right);
-        return ans;
-    }
-
-    void pushup(Node* root, Node* left, Node* right) {
-        root->lc = left->lc;
-        root->rc = right->rc;
-        root->size = left->size + right->size;
-
+    void pushup(int u) {
+        Node* root = tr[u];
+        Node* left = tr[u << 1];
+        Node* right = tr[u << 1 | 1];
         root->mx = max(left->mx, right->mx);
         root->lmx = left->lmx;
         root->rmx = right->rmx;
-
-        if (left->rc == right->lc) {
-            if (left->lmx == left->size) root->lmx += right->lmx;
-            if (right->rmx == right->size) root->rmx += left->rmx;
+        int a = left->r - left->l + 1;
+        int b = right->r - right->l + 1;
+        if (s[left->r - 1] == s[right->l - 1]) {
+            if (left->lmx == a) {
+                root->lmx += right->lmx;
+            }
+            if (right->rmx == b) {
+                root->rmx += left->rmx;
+            }
             root->mx = max(root->mx, left->rmx + right->lmx);
         }
     }
 
-    void pushup(int u) {
-        pushup(tr[u], tr[u << 1], tr[u << 1 | 1]);
+public:
+    SegmentTree(const string& s)
+        : s(s) {
+        int n = s.size();
+        tr.resize(n * 4);
+        build(1, 1, n);
+    }
+
+    void modify(int u, int x, char v) {
+        if (tr[u]->l == x && tr[u]->r == x) {
+            s[x - 1] = v;
+            return;
+        }
+        int mid = (tr[u]->l + tr[u]->r) >> 1;
+        if (x <= mid) {
+            modify(u << 1, x, v);
+        } else {
+            modify(u << 1 | 1, x, v);
+        }
+        pushup(u);
+    }
+
+    int query(int u, int l, int r) {
+        if (tr[u]->l >= l && tr[u]->r <= r) {
+            return tr[u]->mx;
+        }
+        int mid = (tr[u]->l + tr[u]->r) >> 1;
+        int ans = 0;
+        if (r <= mid) {
+            ans = query(u << 1, l, r);
+        } else if (l > mid) {
+            ans = max(ans, query(u << 1 | 1, l, r));
+        }
+        return ans;
     }
 };
 
 class Solution {
 public:
     vector<int> longestRepeating(string s, string queryCharacters, vector<int>& queryIndices) {
-        SegmentTree* tree = new SegmentTree(s);
-        int k = queryCharacters.size();
+        SegmentTree tree(s);
+        int k = queryIndices.size();
         vector<int> ans(k);
+        int n = s.size();
         for (int i = 0; i < k; ++i) {
             int x = queryIndices[i] + 1;
-            tree->modify(1, x, queryCharacters[i]);
-            ans[i] = tree->query(1, 1, s.size())->mx;
+            char v = queryCharacters[i];
+            tree.modify(1, x, v);
+            ans[i] = tree.query(1, 1, n);
         }
         return ans;
     }
@@ -404,78 +385,205 @@ public:
 #### Go
 
 ```go
-type segmentTree struct {
-	str []byte
-	mx  []int
-	lmx []int
-	rmx []int
+type Node struct {
+	l, r         int
+	lmx, rmx, mx int
 }
 
-func newSegmentTree(s string) *segmentTree {
+type SegmentTree struct {
+	s  []byte
+	tr []*Node
+}
+
+func NewNode(l, r int) *Node {
+	return &Node{l: l, r: r, lmx: 1, rmx: 1, mx: 1}
+}
+
+func NewSegmentTree(s string) *SegmentTree {
 	n := len(s)
-	t := &segmentTree{
-		str: []byte(s),
-		mx:  make([]int, n<<2),
-		lmx: make([]int, n<<2),
-		rmx: make([]int, n<<2),
-	}
-	t.build(0, 0, n-1)
-	return t
+	tree := &SegmentTree{s: []byte(s), tr: make([]*Node, n<<2)}
+	tree.build(1, 1, n)
+	return tree
 }
 
-func (t *segmentTree) build(x, l, r int) {
+func (tree *SegmentTree) build(u, l, r int) {
+	tree.tr[u] = NewNode(l, r)
 	if l == r {
-		t.lmx[x] = 1
-		t.rmx[x] = 1
-		t.mx[x] = 1
 		return
 	}
-	m := int(uint(l+r) >> 1)
-	t.build(x*2+1, l, m)
-	t.build(x*2+2, m+1, r)
-	t.pushup(x, l, m, r)
+	mid := (l + r) >> 1
+	tree.build(u<<1, l, mid)
+	tree.build(u<<1|1, mid+1, r)
+	tree.pushup(u)
 }
 
-func (t *segmentTree) pushup(x, l, m, r int) {
-	lch, rch := x*2+1, x*2+2
-	t.lmx[x] = t.lmx[lch]
-	t.rmx[x] = t.rmx[rch]
-	t.mx[x] = max(t.mx[lch], t.mx[rch])
-	// can be merged
-	if t.str[m] == t.str[m+1] {
-		if t.lmx[lch] == m-l+1 {
-			t.lmx[x] += t.lmx[rch]
-		}
-		if t.rmx[rch] == r-m {
-			t.rmx[x] += t.rmx[lch]
-		}
-		t.mx[x] = max(t.mx[x], t.rmx[lch]+t.lmx[rch])
-	}
-}
-
-func (t *segmentTree) update(x, l, r, pos int, val byte) {
-	if l == r {
-		t.str[pos] = val
+func (tree *SegmentTree) modify(u, x int, v byte) {
+	if tree.tr[u].l == x && tree.tr[u].r == x {
+		tree.s[x-1] = v
 		return
 	}
-	m := int(uint(l+r) >> 1)
-	if pos <= m {
-		t.update(x*2+1, l, m, pos, val)
+	mid := (tree.tr[u].l + tree.tr[u].r) >> 1
+	if x <= mid {
+		tree.modify(u<<1, x, v)
 	} else {
-		t.update(x*2+2, m+1, r, pos, val)
+		tree.modify(u<<1|1, x, v)
 	}
-	t.pushup(x, l, m, r)
+	tree.pushup(u)
 }
 
-func longestRepeating(s string, queryCharacters string, queryIndices []int) []int {
-	ans := make([]int, len(queryCharacters))
-	t := newSegmentTree(s)
-	n := len(s)
-	for i, c := range queryCharacters {
-		t.update(0, 0, n-1, queryIndices[i], byte(c))
-		ans[i] = t.mx[0]
+func (tree *SegmentTree) query(u, l, r int) int {
+	if tree.tr[u].l >= l && tree.tr[u].r <= r {
+		return tree.tr[u].mx
+	}
+	mid := (tree.tr[u].l + tree.tr[u].r) >> 1
+	ans := 0
+	if r <= mid {
+		ans = tree.query(u<<1, l, r)
+	} else if l > mid {
+		ans = max(ans, tree.query(u<<1|1, l, r))
+	} else {
+		ans = max(tree.query(u<<1, l, r), tree.query(u<<1|1, l, r))
 	}
 	return ans
+}
+
+func (tree *SegmentTree) pushup(u int) {
+	root := tree.tr[u]
+	left := tree.tr[u<<1]
+	right := tree.tr[u<<1|1]
+	root.mx = max(left.mx, right.mx)
+	root.lmx = left.lmx
+	root.rmx = right.rmx
+	a := left.r - left.l + 1
+	b := right.r - right.l + 1
+	if tree.s[left.r-1] == tree.s[right.l-1] {
+		if left.lmx == a {
+			root.lmx += right.lmx
+		}
+		if right.rmx == b {
+			root.rmx += left.rmx
+		}
+		root.mx = max(root.mx, left.rmx+right.lmx)
+	}
+}
+
+func longestRepeating(s string, queryCharacters string, queryIndices []int) (ans []int) {
+	tree := NewSegmentTree(s)
+	n := len(s)
+	for i, v := range queryCharacters {
+		x := queryIndices[i] + 1
+		tree.modify(1, x, byte(v))
+		ans = append(ans, tree.query(1, 1, n))
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+class Node {
+    l: number;
+    r: number;
+    lmx: number;
+    rmx: number;
+    mx: number;
+
+    constructor(l: number, r: number) {
+        this.l = l;
+        this.r = r;
+        this.lmx = 1;
+        this.rmx = 1;
+        this.mx = 1;
+    }
+}
+
+class SegmentTree {
+    private s: string[];
+    private tr: Node[];
+
+    constructor(s: string) {
+        this.s = s.split('');
+        this.tr = Array(s.length * 4)
+            .fill(null)
+            .map(() => new Node(0, 0));
+        this.build(1, 1, s.length);
+    }
+
+    private build(u: number, l: number, r: number): void {
+        this.tr[u] = new Node(l, r);
+        if (l === r) {
+            return;
+        }
+        const mid = (l + r) >> 1;
+        this.build(u << 1, l, mid);
+        this.build((u << 1) | 1, mid + 1, r);
+        this.pushup(u);
+    }
+
+    public modify(u: number, x: number, v: string): void {
+        if (this.tr[u].l === x && this.tr[u].r === x) {
+            this.s[x - 1] = v;
+            return;
+        }
+        const mid = (this.tr[u].l + this.tr[u].r) >> 1;
+        if (x <= mid) {
+            this.modify(u << 1, x, v);
+        } else {
+            this.modify((u << 1) | 1, x, v);
+        }
+        this.pushup(u);
+    }
+
+    public query(u: number, l: number, r: number): number {
+        if (this.tr[u].l >= l && this.tr[u].r <= r) {
+            return this.tr[u].mx;
+        }
+        const mid = (this.tr[u].l + this.tr[u].r) >> 1;
+        let ans = 0;
+        if (r <= mid) {
+            ans = this.query(u << 1, l, r);
+        } else if (l > mid) {
+            ans = Math.max(ans, this.query((u << 1) | 1, l, r));
+        } else {
+            ans = Math.max(this.query(u << 1, l, r), this.query((u << 1) | 1, l, r));
+        }
+        return ans;
+    }
+
+    private pushup(u: number): void {
+        const root = this.tr[u];
+        const left = this.tr[u << 1];
+        const right = this.tr[(u << 1) | 1];
+        root.mx = Math.max(left.mx, right.mx);
+        root.lmx = left.lmx;
+        root.rmx = right.rmx;
+        const a = left.r - left.l + 1;
+        const b = right.r - right.l + 1;
+        if (this.s[left.r - 1] === this.s[right.l - 1]) {
+            if (left.lmx === a) {
+                root.lmx += right.lmx;
+            }
+            if (right.rmx === b) {
+                root.rmx += left.rmx;
+            }
+            root.mx = Math.max(root.mx, left.rmx + right.lmx);
+        }
+    }
+}
+
+function longestRepeating(s: string, queryCharacters: string, queryIndices: number[]): number[] {
+    const tree = new SegmentTree(s);
+    const k = queryIndices.length;
+    const ans: number[] = new Array(k);
+    const n = s.length;
+    for (let i = 0; i < k; ++i) {
+        const x = queryIndices[i] + 1;
+        const v = queryCharacters[i];
+        tree.modify(1, x, v);
+        ans[i] = tree.query(1, 1, n);
+    }
+    return ans;
 }
 ```
 
