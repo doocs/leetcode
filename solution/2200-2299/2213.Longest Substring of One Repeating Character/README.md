@@ -235,7 +235,6 @@ class SegmentTree {
             ans = Math.max(ans, query(u << 1 | 1, l, r));
         }
         return ans;
-
     }
 
     private void pushup(int u) {
