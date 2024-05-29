@@ -1,73 +1,92 @@
-type segmentTree struct {
-	str []byte
-	mx  []int
-	lmx []int
-	rmx []int
+type Node struct {
+	l, r         int
+	lmx, rmx, mx int
 }
 
-func newSegmentTree(s string) *segmentTree {
+type SegmentTree struct {
+	s  []byte
+	tr []*Node
+}
+
+func NewNode(l, r int) *Node {
+	return &Node{l: l, r: r, lmx: 1, rmx: 1, mx: 1}
+}
+
+func NewSegmentTree(s string) *SegmentTree {
 	n := len(s)
-	t := &segmentTree{
-		str: []byte(s),
-		mx:  make([]int, n<<2),
-		lmx: make([]int, n<<2),
-		rmx: make([]int, n<<2),
-	}
-	t.build(0, 0, n-1)
-	return t
+	tree := &SegmentTree{s: []byte(s), tr: make([]*Node, n<<2)}
+	tree.build(1, 1, n)
+	return tree
 }
 
-func (t *segmentTree) build(x, l, r int) {
+func (tree *SegmentTree) build(u, l, r int) {
+	tree.tr[u] = NewNode(l, r)
 	if l == r {
-		t.lmx[x] = 1
-		t.rmx[x] = 1
-		t.mx[x] = 1
 		return
 	}
-	m := int(uint(l+r) >> 1)
-	t.build(x*2+1, l, m)
-	t.build(x*2+2, m+1, r)
-	t.pushup(x, l, m, r)
+	mid := (l + r) >> 1
+	tree.build(u<<1, l, mid)
+	tree.build(u<<1|1, mid+1, r)
+	tree.pushup(u)
 }
 
-func (t *segmentTree) pushup(x, l, m, r int) {
-	lch, rch := x*2+1, x*2+2
-	t.lmx[x] = t.lmx[lch]
-	t.rmx[x] = t.rmx[rch]
-	t.mx[x] = max(t.mx[lch], t.mx[rch])
-	// can be merged
-	if t.str[m] == t.str[m+1] {
-		if t.lmx[lch] == m-l+1 {
-			t.lmx[x] += t.lmx[rch]
-		}
-		if t.rmx[rch] == r-m {
-			t.rmx[x] += t.rmx[lch]
-		}
-		t.mx[x] = max(t.mx[x], t.rmx[lch]+t.lmx[rch])
-	}
-}
-
-func (t *segmentTree) update(x, l, r, pos int, val byte) {
-	if l == r {
-		t.str[pos] = val
+func (tree *SegmentTree) modify(u, x int, v byte) {
+	if tree.tr[u].l == x && tree.tr[u].r == x {
+		tree.s[x-1] = v
 		return
 	}
-	m := int(uint(l+r) >> 1)
-	if pos <= m {
-		t.update(x*2+1, l, m, pos, val)
+	mid := (tree.tr[u].l + tree.tr[u].r) >> 1
+	if x <= mid {
+		tree.modify(u<<1, x, v)
 	} else {
-		t.update(x*2+2, m+1, r, pos, val)
+		tree.modify(u<<1|1, x, v)
 	}
-	t.pushup(x, l, m, r)
+	tree.pushup(u)
 }
 
-func longestRepeating(s string, queryCharacters string, queryIndices []int) []int {
-	ans := make([]int, len(queryCharacters))
-	t := newSegmentTree(s)
-	n := len(s)
-	for i, c := range queryCharacters {
-		t.update(0, 0, n-1, queryIndices[i], byte(c))
-		ans[i] = t.mx[0]
+func (tree *SegmentTree) query(u, l, r int) int {
+	if tree.tr[u].l >= l && tree.tr[u].r <= r {
+		return tree.tr[u].mx
+	}
+	mid := (tree.tr[u].l + tree.tr[u].r) >> 1
+	ans := 0
+	if r <= mid {
+		ans = tree.query(u<<1, l, r)
+	} else if l > mid {
+		ans = max(ans, tree.query(u<<1|1, l, r))
+	} else {
+		ans = max(tree.query(u<<1, l, r), tree.query(u<<1|1, l, r))
 	}
 	return ans
+}
+
+func (tree *SegmentTree) pushup(u int) {
+	root := tree.tr[u]
+	left := tree.tr[u<<1]
+	right := tree.tr[u<<1|1]
+	root.mx = max(left.mx, right.mx)
+	root.lmx = left.lmx
+	root.rmx = right.rmx
+	a := left.r - left.l + 1
+	b := right.r - right.l + 1
+	if tree.s[left.r-1] == tree.s[right.l-1] {
+		if left.lmx == a {
+			root.lmx += right.lmx
+		}
+		if right.rmx == b {
+			root.rmx += left.rmx
+		}
+		root.mx = max(root.mx, left.rmx+right.lmx)
+	}
+}
+
+func longestRepeating(s string, queryCharacters string, queryIndices []int) (ans []int) {
+	tree := NewSegmentTree(s)
+	n := len(s)
+	for i, v := range queryCharacters {
+		x := queryIndices[i] + 1
+		tree.modify(1, x, byte(v))
+		ans = append(ans, tree.query(1, 1, n))
+	}
+	return
 }
