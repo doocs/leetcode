@@ -210,7 +210,7 @@ class Solution {
         for num in nums {
             xorSum ^= num
         }
-        
+
         let lowBit = xorSum & -xorSum
         var a = 0
         for num in nums {
@@ -218,7 +218,7 @@ class Solution {
                 a ^= num
             }
         }
-        
+
         let b = xorSum ^ a
         return [a, b]
     }
