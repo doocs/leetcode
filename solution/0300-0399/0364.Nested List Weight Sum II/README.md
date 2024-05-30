@@ -62,7 +62,35 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：DFS
+
+我们不妨假设整数分别为 $a_1, a_2, \cdots, a_n$，它们的深度分别为 $d_1, d_2, \cdots, d_n$，最大深度为 $\text{maxDepth}$，那么答案就是：
+
+$$
+a_1 \times \text{maxDepth} - a_1 \times d_1 + a_1 + a_2 \times \text{maxDepth} - a_2 \times d_2 + a_2 + \cdots + a_n \times \text{maxDepth} - a_n \times d_n + a_n
+$$
+
+即：
+
+$$
+(\text{maxDepth} + 1) \times (a_1 + a_2 + \cdots + a_n) - (a_1 \times d_1 + a_2 \times d_2 + \cdots + a_n \times d_n)
+$$
+
+如果我们记所有整数的和为 $s$，所有整数乘以深度的和为 $ws$，那么答案就是：
+
+$$
+(\text{maxDepth} + 1) \times s - ws
+$$
+
+因此，我们设计一个函数 $dfs(x, d)$，表示从 $x$ 开始，深度为 $d$ 开始搜索，函数 $dfs(x, d)$ 的执行过程如下：
+
+-   我们先更新 $\text{maxDepth} = \max(\text{maxDepth}, d)$；
+-   如果 $x$ 是一个整数，那么我们更新 $s = s + x$, $ws = ws + x \times d$；
+-   否则，我们递归地遍历 $x$ 的每一个元素 $y$，调用 $dfs(y, d + 1)$。
+
+我们遍历整个列表，对于每一个元素 $x$，我们调用 $dfs(x, 1)$，最终返回 $(\text{maxDepth} + 1) \times s - ws$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为整数的个数。
 
 <!-- tabs:start -->
 
@@ -113,25 +141,20 @@ tags:
 #        """
 class Solution:
     def depthSumInverse(self, nestedList: List[NestedInteger]) -> int:
-        def max_depth(nestedList):
-            depth = 1
-            for item in nestedList:
-                if item.isInteger():
-                    continue
-                depth = max(depth, max_depth(item.getList()) + 1)
-            return depth
+        def dfs(x, d):
+            nonlocal maxDepth, s, ws
+            maxDepth = max(maxDepth, d)
+            if x.isInteger():
+                s += x.getInteger()
+                ws += x.getInteger() * d
+            else:
+                for y in x.getList():
+                    dfs(y, d + 1)
 
-        def dfs(nestedList, max_depth):
-            depth_sum = 0
-            for item in nestedList:
-                if item.isInteger():
-                    depth_sum += item.getInteger() * max_depth
-                else:
-                    depth_sum += dfs(item.getList(), max_depth - 1)
-            return depth_sum
-
-        depth = max_depth(nestedList)
-        return dfs(nestedList, depth)
+        maxDepth = s = ws = 0
+        for x in nestedList:
+            dfs(x, 1)
+        return (maxDepth + 1) * s - ws
 ```
 
 #### Java
@@ -166,33 +189,194 @@ class Solution:
  * }
  */
 class Solution {
+    private int maxDepth;
+    private int ws;
+    private int s;
+
     public int depthSumInverse(List<NestedInteger> nestedList) {
-        int depth = maxDepth(nestedList);
-        return dfs(nestedList, depth);
-    }
-
-    private int maxDepth(List<NestedInteger> nestedList) {
-        int depth = 1;
-        for (NestedInteger item : nestedList) {
-            if (item.isInteger()) {
-                continue;
-            }
-            depth = Math.max(depth, 1 + maxDepth(item.getList()));
+        for (NestedInteger x : nestedList) {
+            dfs(x, 1);
         }
-        return depth;
+        return (maxDepth + 1) * s - ws;
     }
 
-    private int dfs(List<NestedInteger> nestedList, int depth) {
-        int depthSum = 0;
-        for (NestedInteger item : nestedList) {
-            if (item.isInteger()) {
-                depthSum += item.getInteger() * depth;
+    private void dfs(NestedInteger x, int d) {
+        maxDepth = Math.max(maxDepth, d);
+        if (x.isInteger()) {
+            ws += x.getInteger() * d;
+            s += x.getInteger();
+        } else {
+            for (NestedInteger y : x.getList()) {
+                dfs(y, d + 1);
+            }
+        }
+    }
+}
+```
+
+#### C++
+
+```cpp
+/**
+ * // This is the interface that allows for creating nested lists.
+ * // You should not implement it, or speculate about its implementation
+ * class NestedInteger {
+ *   public:
+ *     // Constructor initializes an empty nested list.
+ *     NestedInteger();
+ *
+ *     // Constructor initializes a single integer.
+ *     NestedInteger(int value);
+ *
+ *     // Return true if this NestedInteger holds a single integer, rather than a nested list.
+ *     bool isInteger() const;
+ *
+ *     // Return the single integer that this NestedInteger holds, if it holds a single integer
+ *     // The result is undefined if this NestedInteger holds a nested list
+ *     int getInteger() const;
+ *
+ *     // Set this NestedInteger to hold a single integer.
+ *     void setInteger(int value);
+ *
+ *     // Set this NestedInteger to hold a nested list and adds a nested integer to it.
+ *     void add(const NestedInteger &ni);
+ *
+ *     // Return the nested list that this NestedInteger holds, if it holds a nested list
+ *     // The result is undefined if this NestedInteger holds a single integer
+ *     const vector<NestedInteger> &getList() const;
+ * };
+ */
+class Solution {
+public:
+    int depthSumInverse(vector<NestedInteger>& nestedList) {
+        int maxDepth = 0, ws = 0, s = 0;
+        function<void(NestedInteger&, int)> dfs = [&](NestedInteger& x, int d) {
+            maxDepth = max(maxDepth, d);
+            if (x.isInteger()) {
+                ws += x.getInteger() * d;
+                s += x.getInteger();
             } else {
-                depthSum += dfs(item.getList(), depth - 1);
+                for (auto& y : x.getList()) {
+                    dfs(y, d + 1);
+                }
+            }
+        };
+        for (auto& x : nestedList) {
+            dfs(x, 1);
+        }
+        return (maxDepth + 1) * s - ws;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * // This is the interface that allows for creating nested lists.
+ * // You should not implement it, or speculate about its implementation
+ * type NestedInteger struct {
+ * }
+ *
+ * // Return true if this NestedInteger holds a single integer, rather than a nested list.
+ * func (n NestedInteger) IsInteger() bool {}
+ *
+ * // Return the single integer that this NestedInteger holds, if it holds a single integer
+ * // The result is undefined if this NestedInteger holds a nested list
+ * // So before calling this method, you should have a check
+ * func (n NestedInteger) GetInteger() int {}
+ *
+ * // Set this NestedInteger to hold a single integer.
+ * func (n *NestedInteger) SetInteger(value int) {}
+ *
+ * // Set this NestedInteger to hold a nested list and adds a nested integer to it.
+ * func (n *NestedInteger) Add(elem NestedInteger) {}
+ *
+ * // Return the nested list that this NestedInteger holds, if it holds a nested list
+ * // The list length is zero if this NestedInteger holds a single integer
+ * // You can access NestedInteger's List element directly if you want to modify it
+ * func (n NestedInteger) GetList() []*NestedInteger {}
+ */
+func depthSumInverse(nestedList []*NestedInteger) int {
+	var maxDepth, ws, s int
+	var dfs func(*NestedInteger, int)
+	dfs = func(x *NestedInteger, d int) {
+		maxDepth = max(maxDepth, d)
+		if x.IsInteger() {
+			ws += x.GetInteger() * d
+			s += x.GetInteger()
+		} else {
+			for _, y := range x.GetList() {
+				dfs(y, d+1)
+			}
+		}
+	}
+	for _, x := range nestedList {
+		dfs(x, 1)
+	}
+	return (maxDepth+1)*s - ws
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * // This is the interface that allows for creating nested lists.
+ * // You should not implement it, or speculate about its implementation
+ * class NestedInteger {
+ *     If value is provided, then it holds a single integer
+ *     Otherwise it holds an empty nested list
+ *     constructor(value?: number) {
+ *         ...
+ *     };
+ *
+ *     Return true if this NestedInteger holds a single integer, rather than a nested list.
+ *     isInteger(): boolean {
+ *         ...
+ *     };
+ *
+ *     Return the single integer that this NestedInteger holds, if it holds a single integer
+ *     Return null if this NestedInteger holds a nested list
+ *     getInteger(): number | null {
+ *         ...
+ *     };
+ *
+ *     Set this NestedInteger to hold a single integer equal to value.
+ *     setInteger(value: number) {
+ *         ...
+ *     };
+ *
+ *     Set this NestedInteger to hold a nested list and adds a nested integer elem to it.
+ *     add(elem: NestedInteger) {
+ *         ...
+ *     };
+ *
+ *     Return the nested list that this NestedInteger holds,
+ *     or an empty list if this NestedInteger holds a single integer
+ *     getList(): NestedInteger[] {
+ *         ...
+ *     };
+ * };
+ */
+
+function depthSumInverse(nestedList: NestedInteger[]): number {
+    let [maxDepth, ws, s] = [0, 0, 0];
+    const dfs = (x: NestedInteger, d: number) => {
+        maxDepth = Math.max(maxDepth, d);
+        if (x.isInteger()) {
+            ws += x.getInteger() * d;
+            s += x.getInteger();
+        } else {
+            for (const y of x.getList()) {
+                dfs(y, d + 1);
             }
         }
-        return depthSum;
+    };
+    for (const x of nestedList) {
+        dfs(x, 1);
     }
+    return (maxDepth + 1) * s - ws;
 }
 ```
 
@@ -242,29 +426,22 @@ class Solution {
  * @return {number}
  */
 var depthSumInverse = function (nestedList) {
-    const maxDepth = nestedList => {
-        let depth = 1;
-        for (const item of nestedList) {
-            if (item.isInteger()) {
-                continue;
-            }
-            depth = Math.max(depth, 1 + maxDepth(item.getList()));
-        }
-        return depth;
-    };
-    const dfs = (nestedList, depth) => {
-        let depthSum = 0;
-        for (const item of nestedList) {
-            if (item.isInteger()) {
-                depthSum += item.getInteger() * depth;
-            } else {
-                depthSum += dfs(item.getList(), depth - 1);
+    let [maxDepth, ws, s] = [0, 0, 0];
+    const dfs = (x, d) => {
+        maxDepth = Math.max(maxDepth, d);
+        if (x.isInteger()) {
+            ws += x.getInteger() * d;
+            s += x.getInteger();
+        } else {
+            for (const y of x.getList()) {
+                dfs(y, d + 1);
             }
         }
-        return depthSum;
     };
-    const depth = maxDepth(nestedList);
-    return dfs(nestedList, depth);
+    for (const x of nestedList) {
+        dfs(x, 1);
+    }
+    return (maxDepth + 1) * s - ws;
 };
 ```
 

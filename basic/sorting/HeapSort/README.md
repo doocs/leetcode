@@ -71,8 +71,6 @@ for (int i = n / 2; i > 0; --i) {
 
 <!-- tabs:start -->
 
-### **Python3**
-
 #### Python3
 
 ```python
@@ -111,8 +109,6 @@ for i in range(m):
 
 print(' '.join(list(map(str, res))))
 ```
-
-### **Java**
 
 #### Java
 
@@ -168,8 +164,6 @@ public class Main {
     }
 }
 ```
-
-### **Rust**
 
 #### Rust
 
@@ -235,8 +229,6 @@ fn main() -> io::Result<()> {
     Ok(())
 }
 ```
-
-### **Go**
 
 #### Go
 
