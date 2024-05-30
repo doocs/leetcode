@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README.md
+rating: 1152
+source: 第 397 场周赛 Q1
 tags:
     - 哈希表
     - 字符串

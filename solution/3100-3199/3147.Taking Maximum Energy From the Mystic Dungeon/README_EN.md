@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3147.Taking%20Maximum%20Energy%20From%20the%20Mystic%20Dungeon/README_EN.md
+rating: 1460
+source: Weekly Contest 397 Q2
 tags:
     - Array
     - Prefix Sum

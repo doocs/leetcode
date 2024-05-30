@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3153.Sum%20of%20Digit%20Differences%20of%20All%20Pairs/README.md
+rating: 1645
+source: 第 398 场周赛 Q3
 tags:
     - 数组
     - 哈希表

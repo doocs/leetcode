@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3152.Special%20Array%20II/README.md
+rating: 1523
+source: 第 398 场周赛 Q2
 tags:
     - 数组
     - 二分查找

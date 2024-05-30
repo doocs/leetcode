@@ -2,6 +2,9 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3162.Find%20the%20Number%20of%20Good%20Pairs%20I/README_EN.md
+tags:
+    - Array
+    - Hash Table
 ---
 
 <!-- problem:start -->

@@ -20,47 +20,140 @@ tags:
 
 <!-- description:start -->
 
-<p>Given a <strong>0-indexed</strong> 2D <code>grid</code> of size <code>m x n</code>, you should find the matrix <code>answer</code> of size <code>m x n</code>.</p>
+<p>Given a 2D <code>grid</code> of size <code>m x n</code>, you should find the matrix <code>answer</code> of size <code>m x n</code>.</p>
 
-<p>The value of each cell <code>(r, c)</code> of the matrix <code>answer</code> is calculated in the following way:</p>
+<p>The cell <code>answer[r][c]</code> is calculated by looking at the diagonal values of the cell <code>grid[r][c]</code>:</p>
 
 <ul>
-	<li>Let <code>topLeft[r][c]</code> be the number of <strong>distinct</strong> values in the top-left diagonal of the cell <code>(r, c)</code> in the matrix <code>grid</code>.</li>
-	<li>Let <code>bottomRight[r][c]</code> be the number of <strong>distinct</strong> values in the bottom-right diagonal of the cell <code>(r, c)</code> in the matrix <code>grid</code>.</li>
+	<li>Let <code>leftAbove[r][c]</code> be the number of <strong>distinct</strong> values on the diagonal to the left and above the cell <code>grid[r][c]</code> not including the cell <code>grid[r][c]</code> itself.</li>
+	<li>Let <code>rightBelow[r][c]</code> be the number of <strong>distinct</strong> values on the diagonal to the right and below the cell <code>grid[r][c]</code>, not including the cell <code>grid[r][c]</code> itself.</li>
+	<li>Then <code>answer[r][c] = |leftAbove[r][c] - rightBelow[r][c]|</code>.</li>
 </ul>
 
-<p>Then <code>answer[r][c] = |topLeft[r][c] - bottomRight[r][c]|</code>.</p>
+<p>A <strong>matrix diagonal</strong> is a diagonal line of cells starting from some cell in either the topmost row or leftmost column and going in the bottom-right direction until the end of the matrix is reached.</p>
 
-<p>Return <em>the matrix</em> <code>answer</code>.</p>
+<ul>
+	<li>For example, in the below diagram the diagonal is highlighted using the cell with indices <code>(2, 3)</code> colored gray:
 
-<p>A <strong>matrix diagonal</strong> is a diagonal line of cells starting from some cell in either the topmost row or leftmost column and going in the bottom-right direction until reaching the matrix&#39;s end.</p>
+    <ul>
+    	<li>Red-colored cells are left and above the cell.</li>
+    	<li>Blue-colored cells are right and below the cell.</li>
+    </ul>
+    </li>
 
-<p>A cell <code>(r<sub>1</sub>, c<sub>1</sub>)</code> belongs to the top-left diagonal of the cell <code>(r, c)</code>, if both belong to the same diagonal and <code>r<sub>1</sub> &lt; r</code>. Similarly is defined bottom-right diagonal.</p>
+</ul>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/images/diagonal.png" style="width: 200px; height: 160px;" /></p>
+
+<p>Return the matrix <code>answer</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/images/ex2.png" style="width: 786px; height: 121px;" />
-<pre>
-<strong>
-Input:</strong> grid = [[1,2,3],[3,1,5],[3,2,1]]
-<strong>Output:</strong> [[1,1,0],[1,0,1],[0,1,1]]
-<strong>Explanation:</strong> The 1<sup>st</sup> diagram denotes the initial grid.&nbsp;
-The 2<sup>nd</sup> diagram denotes a grid for cell (0,0), where blue-colored cells are cells on its bottom-right diagonal.
-The 3<sup>rd</sup> diagram denotes a grid for cell (1,2), where red-colored cells are cells on its top-left diagonal.
-The 4<sup>th</sup> diagram denotes a grid for cell (1,1), where blue-colored cells are cells on its bottom-right diagonal and red-colored cells are cells on its top-left diagonal.
-- The cell (0,0) contains [1,1] on its bottom-right diagonal and [] on its top-left diagonal. The answer is |1 - 0| = 1.
-- The cell (1,2) contains [] on its bottom-right diagonal and [2] on its top-left diagonal. The answer is |0 - 1| = 1.
-- The cell (1,1) contains [1] on its bottom-right diagonal and [1] on its top-left diagonal. The answer is |1 - 1| = 0.
-The answers of other cells are similarly calculated.
-</pre>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">grid = [[1,2,3],[3,1,5],[3,2,1]]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">Output: [[1,1,0],[1,0,1],[0,1,1]]</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>To calculate the <code>answer</code> cells:</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>answer</th>
+			<th>left-above elements</th>
+			<th>leftAbove</th>
+			<th>right-below elements</th>
+			<th>rightBelow</th>
+			<th>|leftAbove - rightBelow|</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>[0][0]</td>
+			<td>[]</td>
+			<td>0</td>
+			<td>[grid[1][1], grid[2][2]]</td>
+			<td>|{1, 1}| = 1</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>[0][1]</td>
+			<td>[]</td>
+			<td>0</td>
+			<td>[grid[1][2]]</td>
+			<td>|{5}| = 1</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>[0][2]</td>
+			<td>[]</td>
+			<td>0</td>
+			<td>[]</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td>[1][0]</td>
+			<td>[]</td>
+			<td>0</td>
+			<td>[grid[2][1]]</td>
+			<td>|{2}| = 1</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>[1][1]</td>
+			<td>[grid[0][0]]</td>
+			<td>|{1}| = 1</td>
+			<td>[grid[2][2]]</td>
+			<td>|{1}| = 1</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td>[1][2]</td>
+			<td>[grid[0][1]]</td>
+			<td>|{2}| = 1</td>
+			<td>[]</td>
+			<td>0</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>[2][0]</td>
+			<td>[]</td>
+			<td>0</td>
+			<td>[]</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td>[2][1]</td>
+			<td>[grid[1][0]]</td>
+			<td>|{3}| = 1</td>
+			<td>[]</td>
+			<td>0</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>[2][2]</td>
+			<td>[grid[0][0], grid[1][1]]</td>
+			<td>|{1, 1}| = 1</td>
+			<td>[]</td>
+			<td>0</td>
+			<td>1</td>
+		</tr>
+	</tbody>
+</table>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> grid = [[1]]
-<strong>Output:</strong> [[0]]
-<strong>Explanation:</strong> - The cell (0,0) contains [] on its bottom-right diagonal and [] on its top-left diagonal. The answer is |0 - 0| = 0.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">grid = [[1]]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">Output: [[0]]</span></p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3154.Find%20Number%20of%20Ways%20to%20Reach%20the%20K-th%20Stair/README_EN.md
+rating: 2071
+source: Weekly Contest 398 Q4
 tags:
     - Bit Manipulation
     - Memoization

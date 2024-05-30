@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3151.Special%20Array%20I/README_EN.md
+rating: 1152
+source: Weekly Contest 398 Q1
 tags:
     - Array
 ---
