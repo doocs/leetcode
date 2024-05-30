@@ -258,7 +258,7 @@ class Solution {
     func reverseWords(_ s: String) -> String {
         var words = [String]()
         var i = s.startIndex
-        
+
         while i < s.endIndex {
             while i < s.endIndex && s[i] == " " {
                 i = s.index(after: i)
@@ -274,7 +274,7 @@ class Solution {
                 i = j
             }
         }
-        
+
         words.reverse()
         return words.joined(separator: " ")
     }
