@@ -399,7 +399,7 @@ public class Solution {
  *     }
  * }
  */
- 
+
 class Solution {
     private var t = [Int]()
     private var ans = [[Int]]()

@@ -1,17 +1,24 @@
-func dicesProbability(n int) []float64 {
-	dp := make([]float64, 7)
+func dicesProbability(n int) (ans []float64) {
+	f := make([]int, 7)
 	for i := 1; i <= 6; i++ {
-		dp[i] = 1.0 / 6.0
+		f[i] = 1
 	}
+
 	for i := 2; i <= n; i++ {
-		n := len(dp)
-		tmp := make([]float64, 6*i+1)
-		for j := 0; j < n; j++ {
+		g := make([]int, 6*i+1)
+		for j := i; j <= 6*i; j++ {
 			for k := 1; k <= 6; k++ {
-				tmp[j+k] += dp[j] / 6.0
+				if j-k >= 0 && j-k < len(f) {
+					g[j] += f[j-k]
+				}
 			}
 		}
-		dp = tmp
+		f = g
 	}
-	return dp[n:]
+
+	m := math.Pow(6, float64(n))
+	for j := n; j <= 6*n; j++ {
+		ans = append(ans, float64(f[j])/m)
+	}
+	return
 }
