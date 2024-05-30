@@ -6,6 +6,7 @@ rating: 1665
 source: Biweekly Contest 100 Q3
 tags:
     - Array
+    - Hash Table
     - Sorting
     - Simulation
     - Heap (Priority Queue)

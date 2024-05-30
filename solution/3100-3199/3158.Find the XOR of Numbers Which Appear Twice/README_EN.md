@@ -2,6 +2,10 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3158.Find%20the%20XOR%20of%20Numbers%20Which%20Appear%20Twice/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
 ---
 
 <!-- problem:start -->

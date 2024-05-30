@@ -2601,7 +2601,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2590  |  [Design a Todo List](/solution/2500-2599/2590.Design%20a%20Todo%20List/README_EN.md)  |  `Design`,`Array`,`Hash Table`,`String`,`Sorting`  |  Medium  |  🔒  |
 |  2591  |  [Distribute Money to Maximum Children](/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README_EN.md)  |  `Greedy`,`Math`  |  Easy  |  Biweekly Contest 100  |
 |  2592  |  [Maximize Greatness of an Array](/solution/2500-2599/2592.Maximize%20Greatness%20of%20an%20Array/README_EN.md)  |  `Greedy`,`Array`,`Two Pointers`,`Sorting`  |  Medium  |  Biweekly Contest 100  |
-|  2593  |  [Find Score of an Array After Marking All Elements](/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README_EN.md)  |  `Array`,`Sorting`,`Simulation`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 100  |
+|  2593  |  [Find Score of an Array After Marking All Elements](/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README_EN.md)  |  `Array`,`Hash Table`,`Sorting`,`Simulation`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 100  |
 |  2594  |  [Minimum Time to Repair Cars](/solution/2500-2599/2594.Minimum%20Time%20to%20Repair%20Cars/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Biweekly Contest 100  |
 |  2595  |  [Number of Even and Odd Bits](/solution/2500-2599/2595.Number%20of%20Even%20and%20Odd%20Bits/README_EN.md)  |  `Bit Manipulation`  |  Easy  |  Weekly Contest 337  |
 |  2596  |  [Check Knight Tour Configuration](/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Array`,`Matrix`,`Simulation`  |  Medium  |  Weekly Contest 337  |
@@ -3165,16 +3165,16 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3154  |  [Find Number of Ways to Reach the K-th Stair](/solution/3100-3199/3154.Find%20Number%20of%20Ways%20to%20Reach%20the%20K-th%20Stair/README_EN.md)  |  `Bit Manipulation`,`Memoization`,`Math`,`Dynamic Programming`,`Combinatorics`  |  Hard  |  Weekly Contest 398  |
 |  3155  |  [Maximum Number of Upgradable Servers](/solution/3100-3199/3155.Maximum%20Number%20of%20Upgradable%20Servers/README_EN.md)  |  `Array`,`Math`,`Binary Search`  |  Medium  |  🔒  |
 |  3156  |  [Employee Task Duration and Concurrent Tasks](/solution/3100-3199/3156.Employee%20Task%20Duration%20and%20Concurrent%20Tasks/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
-|  3157  |  [Find the Level of Tree with Minimum Sum](/solution/3100-3199/3157.Find%20the%20Level%20of%20Tree%20with%20Minimum%20Sum/README_EN.md)  |    |  Medium  |  🔒  |
-|  3158  |  [Find the XOR of Numbers Which Appear Twice](/solution/3100-3199/3158.Find%20the%20XOR%20of%20Numbers%20Which%20Appear%20Twice/README_EN.md)  |    |  Easy  |  Biweekly Contest 131  |
-|  3159  |  [Find Occurrences of an Element in an Array](/solution/3100-3199/3159.Find%20Occurrences%20of%20an%20Element%20in%20an%20Array/README_EN.md)  |    |  Medium  |  Biweekly Contest 131  |
-|  3160  |  [Find the Number of Distinct Colors Among the Balls](/solution/3100-3199/3160.Find%20the%20Number%20of%20Distinct%20Colors%20Among%20the%20Balls/README_EN.md)  |    |  Medium  |  Biweekly Contest 131  |
-|  3161  |  [Block Placement Queries](/solution/3100-3199/3161.Block%20Placement%20Queries/README_EN.md)  |    |  Hard  |  Biweekly Contest 131  |
-|  3162  |  [Find the Number of Good Pairs I](/solution/3100-3199/3162.Find%20the%20Number%20of%20Good%20Pairs%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 399  |
-|  3163  |  [String Compression III](/solution/3100-3199/3163.String%20Compression%20III/README_EN.md)  |    |  Medium  |  Weekly Contest 399  |
-|  3164  |  [Find the Number of Good Pairs II](/solution/3100-3199/3164.Find%20the%20Number%20of%20Good%20Pairs%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 399  |
-|  3165  |  [Maximum Sum of Subsequence With Non-adjacent Elements](/solution/3100-3199/3165.Maximum%20Sum%20of%20Subsequence%20With%20Non-adjacent%20Elements/README_EN.md)  |    |  Hard  |  Weekly Contest 399  |
-|  3166  |  [Calculate Parking Fees and Duration](/solution/3100-3199/3166.Calculate%20Parking%20Fees%20and%20Duration/README_EN.md)  |    |  Medium  |  🔒  |
+|  3157  |  [Find the Level of Tree with Minimum Sum](/solution/3100-3199/3157.Find%20the%20Level%20of%20Tree%20with%20Minimum%20Sum/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Tree`  |  Medium  |  🔒  |
+|  3158  |  [Find the XOR of Numbers Which Appear Twice](/solution/3100-3199/3158.Find%20the%20XOR%20of%20Numbers%20Which%20Appear%20Twice/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`  |  Easy  |  Biweekly Contest 131  |
+|  3159  |  [Find Occurrences of an Element in an Array](/solution/3100-3199/3159.Find%20Occurrences%20of%20an%20Element%20in%20an%20Array/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |  Biweekly Contest 131  |
+|  3160  |  [Find the Number of Distinct Colors Among the Balls](/solution/3100-3199/3160.Find%20the%20Number%20of%20Distinct%20Colors%20Among%20the%20Balls/README_EN.md)  |  `Array`,`Hash Table`,`Simulation`  |  Medium  |  Biweekly Contest 131  |
+|  3161  |  [Block Placement Queries](/solution/3100-3199/3161.Block%20Placement%20Queries/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`,`Binary Search`  |  Hard  |  Biweekly Contest 131  |
+|  3162  |  [Find the Number of Good Pairs I](/solution/3100-3199/3162.Find%20the%20Number%20of%20Good%20Pairs%20I/README_EN.md)  |  `Array`,`Hash Table`  |  Easy  |  Weekly Contest 399  |
+|  3163  |  [String Compression III](/solution/3100-3199/3163.String%20Compression%20III/README_EN.md)  |  `String`  |  Medium  |  Weekly Contest 399  |
+|  3164  |  [Find the Number of Good Pairs II](/solution/3100-3199/3164.Find%20the%20Number%20of%20Good%20Pairs%20II/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |  Weekly Contest 399  |
+|  3165  |  [Maximum Sum of Subsequence With Non-adjacent Elements](/solution/3100-3199/3165.Maximum%20Sum%20of%20Subsequence%20With%20Non-adjacent%20Elements/README_EN.md)  |  `Segment Tree`,`Array`,`Divide and Conquer`,`Dynamic Programming`  |  Hard  |  Weekly Contest 399  |
+|  3166  |  [Calculate Parking Fees and Duration](/solution/3100-3199/3166.Calculate%20Parking%20Fees%20and%20Duration/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  3167  |  [Better Compression of String](/solution/3100-3199/3167.Better%20Compression%20of%20String/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright

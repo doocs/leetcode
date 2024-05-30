@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3167.Be
 
 <!-- problem:start -->
 
-# [3167. Better Compression of String 🔒](https://leetcode.cn/problems/better-compression-of-string)
+# [3167. 字符串的更好压缩 🔒](https://leetcode.cn/problems/better-compression-of-string)
 
 [English Version](/solution/3100-3199/3167.Better%20Compression%20of%20String/README_EN.md)
 
@@ -14,58 +14,60 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3167.Be
 
 <!-- description:start -->
 
-<p>You are given a string <code>compressed</code> representing a compressed version of a string. The format is a character followed by its frequency. For example, <code>&quot;a3b1a1c2&quot;</code> is a compressed version of the string <code>&quot;aaabacc&quot;</code>.</p>
+<p>给定一个字符串&nbsp;<code>compressed</code>&nbsp;表示一个字符串的压缩版本。格式是一个字符后面加上其出现频率。例如&nbsp;<code>"a3b1a1c2"</code>&nbsp;是字符串&nbsp;<code>"aaabacc"</code>&nbsp;的一个压缩版本。</p>
 
-<p>We seek a <strong>better compression</strong> with the following conditions:</p>
+<p>我们在以下条件下寻求 <strong>更好的压缩</strong>：</p>
 
 <ol>
-	<li>Each character should appear <strong>only once</strong> in the compressed version.</li>
-	<li>The characters should be in <strong>alphabetical order</strong>.</li>
+	<li>每个字符在压缩版本中只应出现 <strong>一次</strong>。</li>
+	<li>字符应按 <strong>字母顺序</strong> 排列。</li>
 </ol>
 
-<p>Return the <em>better compression</em> of <code>compressed</code>.</p>
+<p>返回&nbsp;<code>compressed</code>&nbsp;的更好压缩版本。</p>
 
-<p><strong>Note:</strong> In the better version of compression, the order of letters may change, which is acceptable.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">compressed = &quot;a3c9b2c1&quot;</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">&quot;a3b2c10&quot;</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>Characters &quot;a&quot; and &quot;b&quot; appear only once in the input, but &quot;c&quot; appears twice, once with a size of 9 and once with a size of 1.</p>
-
-<p>Hence, in the resulting string, it should have a size of 10.</p>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">compressed = &quot;c2b3a1&quot;</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">&quot;a1b3c2&quot;</span></p>
-</div>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">compressed = &quot;a2b4c1&quot;</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">&quot;a2b4c1&quot;</span></p>
-</div>
+<p><strong>注意：</strong>在更好的压缩版本中，字母的顺序可能会改变，这是可以接受的。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">compressed = "a3c9b2c1"</span></p>
+
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">"a3b2c10"</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>字符 "a" 和 "b" 在输入中只出现了一次，但 "c" 出现了两次，第一次出现了 9 次，另一次是 1 次。</p>
+
+<p>因此，在结果字符串中，它应当出现 10 次。</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">compressed = "c2b3a1"</span></p>
+
+<p><span class="example-io"><b>输出：</b>"a1b3c2"</span></p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">compressed = "a2b4c1"</span></p>
+
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">"a2b4c1"</span></p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= compressed.length &lt;= 6 * 10<sup>4</sup></code></li>
-	<li><code>compressed</code> consists only of lowercase English letters and digits.</li>
-	<li><code>compressed</code> is a valid compression, i.e., each character is followed by its frequency.</li>
-	<li>Frequencies are in the range <code>[1, 10<sup>4</sup>]</code> and have no leading zeroes.</li>
+	<li><code>compressed</code> 仅由大写英文字母和数字组成。</li>
+	<li><code>compressed</code> 是有效的压缩，即，每个字符后面都有其出现频率。</li>
+	<li>出现频率在&nbsp;<code>[1, 10<sup>4</sup>]</code>&nbsp;之间并且没有前导 0。</li>
 </ul>
 
 <!-- description:end -->

@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3159.Find%20Occurrences%20of%20an%20Element%20in%20an%20Array/README_EN.md
+tags:
+    - Array
+    - Hash Table
 ---
 
 <!-- problem:start -->

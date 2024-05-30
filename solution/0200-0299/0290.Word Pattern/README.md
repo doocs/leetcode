@@ -23,19 +23,19 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例1:</strong></p>
+<p><strong class="example">示例1:</strong></p>
 
 <pre>
 <strong>输入:</strong> pattern = <code>"abba"</code>, s = <code>"dog cat cat dog"</code>
 <strong>输出:</strong> true</pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong class="example">示例 2:</strong></p>
 
 <pre>
 <strong>输入:</strong>pattern = <code>"abba"</code>, s = <code>"dog cat cat fish"</code>
 <strong>输出:</strong> false</pre>
 
-<p><strong>示例 3:</strong></p>
+<p><strong class="example">示例 3:</strong></p>
 
 <pre>
 <strong>输入:</strong> pattern = <code>"aaaa"</code>, s = <code>"dog cat cat dog"</code>

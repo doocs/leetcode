@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3166.Calculate%20Parking%20Fees%20and%20Duration/README.md
+tags:
+    - 数据库
 ---
 
 <!-- problem:start -->
@@ -30,7 +32,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3166.Ca
 这张表的每一行包含停车场的 ID，车的 ID，入场和出场时间，以及停车时长的支付费用。
 </pre>
 
-<p>编写一个解决方案来找到 <strong>所有停车场</strong>&nbsp;中每辆车支付的 <strong>总停车费</strong>，以及 <strong>每</strong> 辆车支付的&nbsp;<strong>每小时平均费用</strong>（舍入到&nbsp;<code>2</code> 位小数）。同时，找到 <strong>总花费时间</strong> 最多的 <strong>停车场</strong>。</p>
+<p>编写一个解决方案来找到 <strong>所有停车场</strong>&nbsp;中每辆车支付的 <strong>总停车费</strong>，以及 <strong>每</strong> 辆车支付的&nbsp;<strong>每小时平均费用</strong>（舍入到&nbsp;<code>2</code> 位小数）。同时，找到每辆车 <strong>总花费时间</strong> 最多的 <strong>停车场</strong>。</p>
 
 <p>返回结果表以<em>&nbsp;</em><code>car_id</code><em><b>&nbsp;升序 </b>排序。</em></p>
 
@@ -81,13 +83,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3166.Ca
 		<li>从 2023-06-01 10:45:00 到 2023-06-01 12:00:00 在停车场 2：1.25 小时，费用 6.00</li>
 		<li>从 2023-06-03 07:00:00 到 2023-06-03 09:00:00 在停车场 3：2 小时，费用 4.00</li>
 	</ul>
-	总共支付费用：18.00，总小时：7.5，每小时平均费用：2.40，停车场 1 最长时间花费：2.5 小时。</li>
+	总共支付费用：18.00，总小时：7.5，每小时平均费用：2.40，停车场 1 总花费时间最长：2.5 小时。</li>
 	<li>对于汽车 ID 1002：
 	<ul>
 		<li>从 2023-06-01 09:00:00 到 2023-06-01 11:30:00 在停车场 2：2.5 小时，费用 4.00</li>
 		<li>从 2023-06-02 12:00:00 到 2023-06-02 14:00:00 在停车场 3：2 小时，费用 2.00</li>
 	</ul>
-	总共支付费用：6.00，总小时：4.5，每小时平均费用：1.33，停车场 2 最长时间花费：2.5 小时。</li>
+	总共支付费用：6.00，总小时：4.5，每小时平均费用：1.33，停车场 2 总花费时间最长：4.25 小时。</li>
 </ul>
 
 <p><b>注意：</b>&nbsp;输出表以 car_id 升序排序。</p>

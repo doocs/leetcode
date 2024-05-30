@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3153.Sum%20of%20Digit%20Differences%20of%20All%20Pairs/README_EN.md
+rating: 1645
+source: Weekly Contest 398 Q3
 tags:
     - Array
     - Hash Table

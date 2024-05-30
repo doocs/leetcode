@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3152.Special%20Array%20II/README_EN.md
+rating: 1523
+source: Weekly Contest 398 Q2
 tags:
     - Array
     - Binary Search

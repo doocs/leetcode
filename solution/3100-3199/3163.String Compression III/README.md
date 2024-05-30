@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3163.String%20Compression%20III/README.md
+tags:
+    - 字符串
 ---
 
 <!-- problem:start -->

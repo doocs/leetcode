@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3161.Block%20Placement%20Queries/README.md
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 二分查找
 ---
 
 <!-- problem:start -->

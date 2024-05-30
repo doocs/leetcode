@@ -26,7 +26,7 @@ comments: true
 
 ## 往期竞赛
 
-#### 第 399 场周赛(2024-05-26 10:30, 90 分钟) 参赛人数 3423
+#### 第 399 场周赛(2024-05-26 10:30, 90 分钟) 参赛人数 3424
 
 - [3162. 优质数对的总数 I](/solution/3100-3199/3162.Find%20the%20Number%20of%20Good%20Pairs%20I/README.md)
 - [3163. 压缩字符串 III](/solution/3100-3199/3163.String%20Compression%20III/README.md)

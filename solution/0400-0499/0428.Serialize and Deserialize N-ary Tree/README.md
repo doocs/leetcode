@@ -43,21 +43,21 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1:</strong></p>
+<p><strong class="example">示例 1:</strong></p>
 
 <pre>
 <strong>输入:</strong> root = [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]
 <strong>输出:</strong> [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong class="example">示例 2:</strong></p>
 
 <pre>
 <strong>输入:</strong> root = [1,null,3,2,4,null,5,6]
 <strong>输出:</strong> [1,null,3,2,4,null,5,6]
 </pre>
 
-<p><strong>示例 3:</strong></p>
+<p><strong class="example">示例 3:</strong></p>
 
 <pre>
 <strong>输入:</strong> root = []
