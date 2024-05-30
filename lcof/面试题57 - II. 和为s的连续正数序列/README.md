@@ -218,7 +218,7 @@ class Solution {
     func findContinuousSequence(_ target: Int) -> [[Int]] {
         var l = 1, r = 2
         var result = [[Int]]()
-        
+
         while l < r {
             let sum = (l + r) * (r - l + 1) / 2
             if sum == target {
@@ -234,7 +234,7 @@ class Solution {
                 l += 1
             }
         }
-        
+
         return result
     }
 }

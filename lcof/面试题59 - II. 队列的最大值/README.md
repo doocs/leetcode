@@ -428,14 +428,14 @@ public class MaxQueue {
 class MaxQueue {
     private var q1: [Int] = []
     private var q2: [Int] = []
-    
+
     init() {
     }
-    
+
     func max_value() -> Int {
         return q2.isEmpty ? -1 : q2.first!
     }
-    
+
     func push_back(_ value: Int) {
         q1.append(value)
         while !q2.isEmpty && q2.last! < value {
@@ -443,7 +443,7 @@ class MaxQueue {
         }
         q2.append(value)
     }
-    
+
     func pop_front() -> Int {
         if q1.isEmpty {
             return -1
