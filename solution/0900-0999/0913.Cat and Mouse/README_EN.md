@@ -80,7 +80,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greatest Common Divisor
+
+First, we use an array or hash table `cnt` to count the occurrence of each number. Only when $X$ is a divisor of the greatest common divisor of all `cnt[i]`, can it satisfy the problem's requirement.
+
+Therefore, we find the greatest common divisor $g$ of the occurrence of all numbers, and then check whether it is greater than or equal to $2$.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(n + \log M)$. Where $n$ and $M$ are the length of the array `deck` and the maximum value in the array `deck`, respectively.
 
 <!-- tabs:start -->
 
