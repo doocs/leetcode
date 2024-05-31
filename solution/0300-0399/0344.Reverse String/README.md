@@ -154,33 +154,4 @@ var reverseString = function (s) {
 
 <!-- solution:end -->
 
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def reverseString(self, s: List[str]) -> None:
-        s[:] = s[::-1]
-```
-
-#### TypeScript
-
-```ts
-/**
- Do not return anything, modify s in-place instead.
- */
-function reverseString(s: string[]): void {
-    s.reverse();
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
 <!-- problem:end -->
