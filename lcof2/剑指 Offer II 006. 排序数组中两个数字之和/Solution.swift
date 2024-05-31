@@ -14,7 +14,7 @@ class Solution {
                 }
             }
             if l < n && numbers[l] == x {
-                return [i + 1, l + 1]
+                return [i, l]
             }
         }
         return []
