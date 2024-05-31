@@ -52,7 +52,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Pointers
+
+We use two pointers $i$ and $j$ to point to the first character of the strings `typed` and `name` respectively, and then start traversing. If `typed[j]` is not equal to `name[i]`, it means the two strings do not match, and we directly return `False`. Otherwise, we find the next position of the continuous identical characters, denoted as $x$ and $y$ respectively. If $x - i > y - j$, it means the number of characters in `typed` is less than the number of characters in `name`, and we directly return `False`. Otherwise, we update $i$ and $j$ to $x$ and $y$ respectively, continue traversing, until $i$ and $j$ have traversed `name` and `typed` respectively, and return `True`.
+
+The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the strings `name` and `typed` respectively. The space complexity is $O(1)`.
 
 <!-- tabs:start -->
 
@@ -66,17 +70,15 @@ class Solution:
         while i < m and j < n:
             if name[i] != typed[j]:
                 return False
-            cnt1 = cnt2 = 0
-            c = name[i]
-            while i + 1 < m and name[i + 1] == c:
-                i += 1
-                cnt1 += 1
-            while j + 1 < n and typed[j + 1] == c:
-                j += 1
-                cnt2 += 1
-            if cnt1 > cnt2:
+            x = i + 1
+            while x < m and name[x] == name[i]:
+                x += 1
+            y = j + 1
+            while y < n and typed[y] == typed[j]:
+                y += 1
+            if x - i > y - j:
                 return False
-            i, j = i + 1, j + 1
+            i, j = x, y
         return i == m and j == n
 ```
 
@@ -87,23 +89,23 @@ class Solution {
     public boolean isLongPressedName(String name, String typed) {
         int m = name.length(), n = typed.length();
         int i = 0, j = 0;
-        for (; i < m && j < n; ++i, ++j) {
+        while (i < m && j < n) {
             if (name.charAt(i) != typed.charAt(j)) {
                 return false;
             }
-            int cnt1 = 0, cnt2 = 0;
-            char c = name.charAt(i);
-            while (i + 1 < m && name.charAt(i + 1) == c) {
-                ++i;
-                ++cnt1;
+            int x = i + 1;
+            while (x < m && name.charAt(x) == name.charAt(i)) {
+                ++x;
             }
-            while (j + 1 < n && typed.charAt(j + 1) == c) {
-                ++j;
-                ++cnt2;
+            int y = j + 1;
+            while (y < n && typed.charAt(y) == typed.charAt(j)) {
+                ++y;
             }
-            if (cnt1 > cnt2) {
+            if (x - i > y - j) {
                 return false;
             }
+            i = x;
+            j = y;
         }
         return i == m && j == n;
     }
@@ -116,21 +118,25 @@ class Solution {
 class Solution {
 public:
     bool isLongPressedName(string name, string typed) {
-        int m = name.size(), n = typed.size();
+        int m = name.length(), n = typed.length();
         int i = 0, j = 0;
-        for (; i < m && j < n; ++i, ++j) {
-            if (name[i] != typed[j]) return false;
-            int cnt1 = 0, cnt2 = 0;
-            char c = name[i];
-            while (i + 1 < m && name[i + 1] == c) {
-                ++i;
-                ++cnt1;
+        while (i < m && j < n) {
+            if (name[i] != typed[j]) {
+                return false;
             }
-            while (j + 1 < n && typed[j + 1] == c) {
-                ++j;
-                ++cnt2;
+            int x = i + 1;
+            while (x < m && name[x] == name[i]) {
+                ++x;
             }
-            if (cnt1 > cnt2) return false;
+            int y = j + 1;
+            while (y < n && typed[y] == typed[j]) {
+                ++y;
+            }
+            if (x - i > y - j) {
+                return false;
+            }
+            i = x;
+            j = y;
         }
         return i == m && j == n;
     }
@@ -143,25 +149,92 @@ public:
 func isLongPressedName(name string, typed string) bool {
 	m, n := len(name), len(typed)
 	i, j := 0, 0
-	for ; i < m && j < n; i, j = i+1, j+1 {
+
+	for i < m && j < n {
 		if name[i] != typed[j] {
 			return false
 		}
-		cnt1, cnt2 := 0, 0
-		c := name[i]
-		for i+1 < m && name[i+1] == c {
-			i++
-			cnt1++
+		x, y := i+1, j+1
+
+		for x < m && name[x] == name[i] {
+			x++
 		}
-		for j+1 < n && typed[j+1] == c {
-			j++
-			cnt2++
+
+		for y < n && typed[y] == typed[j] {
+			y++
 		}
-		if cnt1 > cnt2 {
+
+		if x-i > y-j {
 			return false
 		}
+
+		i, j = x, y
 	}
+
 	return i == m && j == n
+}
+```
+
+#### TypeScript
+
+```ts
+function isLongPressedName(name: string, typed: string): boolean {
+    const [m, n] = [name.length, typed.length];
+    let i = 0;
+    let j = 0;
+    while (i < m && j < n) {
+        if (name[i] !== typed[j]) {
+            return false;
+        }
+        let x = i + 1;
+        while (x < m && name[x] === name[i]) {
+            x++;
+        }
+        let y = j + 1;
+        while (y < n && typed[y] === typed[j]) {
+            y++;
+        }
+        if (x - i > y - j) {
+            return false;
+        }
+        i = x;
+        j = y;
+    }
+    return i === m && j === n;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_long_pressed_name(name: String, typed: String) -> bool {
+        let (m, n) = (name.len(), typed.len());
+        let (mut i, mut j) = (0, 0);
+        let s: Vec<char> = name.chars().collect();
+        let t: Vec<char> = typed.chars().collect();
+
+        while i < m && j < n {
+            if s[i] != t[j] {
+                return false;
+            }
+            let mut x = i + 1;
+            while x < m && s[x] == s[i] {
+                x += 1;
+            }
+            let mut y = j + 1;
+            while y < n && t[y] == t[j] {
+                y += 1;
+            }
+            if x - i > y - j {
+                return false;
+            }
+            i = x;
+            j = y;
+        }
+
+        i == m && j == n
+    }
 }
 ```
 

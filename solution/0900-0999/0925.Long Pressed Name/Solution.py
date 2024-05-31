@@ -5,15 +5,13 @@ class Solution:
         while i < m and j < n:
             if name[i] != typed[j]:
                 return False
-            cnt1 = cnt2 = 0
-            c = name[i]
-            while i + 1 < m and name[i + 1] == c:
-                i += 1
-                cnt1 += 1
-            while j + 1 < n and typed[j + 1] == c:
-                j += 1
-                cnt2 += 1
-            if cnt1 > cnt2:
+            x = i + 1
+            while x < m and name[x] == name[i]:
+                x += 1
+            y = j + 1
+            while y < n and typed[y] == typed[j]:
+                y += 1
+            if x - i > y - j:
                 return False
-            i, j = i + 1, j + 1
+            i, j = x, y
         return i == m and j == n
