@@ -102,109 +102,6 @@ tags:
 ```python
 class Solution:
     def maxSubarraySumCircular(self, nums: List[int]) -> int:
-        s1 = s2 = f1 = f2 = nums[0]
-        for num in nums[1:]:
-            f1 = num + max(f1, 0)
-            f2 = num + min(f2, 0)
-            s1 = max(s1, f1)
-            s2 = min(s2, f2)
-        return s1 if s1 <= 0 else max(s1, sum(nums) - s2)
-```
-
-#### Java
-
-```java
-class Solution {
-    public int maxSubarraySumCircular(int[] nums) {
-        int s1 = nums[0], s2 = nums[0], f1 = nums[0], f2 = nums[0], total = nums[0];
-        for (int i = 1; i < nums.length; ++i) {
-            total += nums[i];
-            f1 = nums[i] + Math.max(f1, 0);
-            f2 = nums[i] + Math.min(f2, 0);
-            s1 = Math.max(s1, f1);
-            s2 = Math.min(s2, f2);
-        }
-        return s1 > 0 ? Math.max(s1, total - s2) : s1;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int maxSubarraySumCircular(vector<int>& nums) {
-        int s1 = nums[0], s2 = nums[0], f1 = nums[0], f2 = nums[0], total = nums[0];
-        for (int i = 1; i < nums.size(); ++i) {
-            total += nums[i];
-            f1 = nums[i] + max(f1, 0);
-            f2 = nums[i] + min(f2, 0);
-            s1 = max(s1, f1);
-            s2 = min(s2, f2);
-        }
-        return s1 > 0 ? max(s1, total - s2) : s1;
-    }
-};
-```
-
-#### Go
-
-```go
-func maxSubarraySumCircular(nums []int) int {
-	s1, s2, f1, f2, total := nums[0], nums[0], nums[0], nums[0], nums[0]
-	for i := 1; i < len(nums); i++ {
-		total += nums[i]
-		f1 = nums[i] + max(f1, 0)
-		f2 = nums[i] + min(f2, 0)
-		s1 = max(s1, f1)
-		s2 = min(s2, f2)
-	}
-	if s1 <= 0 {
-		return s1
-	}
-	return max(s1, total-s2)
-}
-```
-
-#### TypeScript
-
-```ts
-function maxSubarraySumCircular(nums: number[]): number {
-    let pre1 = nums[0],
-        pre2 = nums[0];
-    let ans1 = nums[0],
-        ans2 = nums[0];
-    let sum = nums[0];
-
-    for (let i = 1; i < nums.length; ++i) {
-        let cur = nums[i];
-        sum += cur;
-        pre1 = Math.max(pre1 + cur, cur);
-        ans1 = Math.max(pre1, ans1);
-
-        pre2 = Math.min(pre2 + cur, cur);
-        ans2 = Math.min(pre2, ans2);
-    }
-    return ans1 > 0 ? Math.max(ans1, sum - ans2) : ans1;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def maxSubarraySumCircular(self, nums: List[int]) -> int:
         pmi, pmx = 0, -inf
         ans, s, smi = -inf, 0, inf
         for x in nums:
@@ -279,9 +176,8 @@ func maxSubarraySumCircular(nums []int) int {
 
 ```ts
 function maxSubarraySumCircular(nums: number[]): number {
-    const inf = 1 << 30;
-    let [pmi, pmx] = [0, -inf];
-    let [ans, s, smi] = [-inf, 0, inf];
+    let [pmi, pmx] = [0, -Infinity];
+    let [ans, s, smi] = [-Infinity, 0, Infinity];
     for (const x of nums) {
         s += x;
         ans = Math.max(ans, s - pmi);
