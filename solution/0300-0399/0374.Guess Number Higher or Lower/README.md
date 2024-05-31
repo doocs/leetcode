@@ -75,7 +75,7 @@ tags:
 
 我们在区间 $[1,..n]$ 进行二分查找，找到第一个满足 `guess(x) <= 0` 的数，即为答案。
 
-时间复杂度 $O(\log n)$。其中 $n$ 为题目给定的上限。
+时间复杂度 $O(\log n)$。其中 $n$ 为题目给定的上限。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -84,20 +84,15 @@ tags:
 ```python
 # The guess API is already defined for you.
 # @param num, your guess
-# @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
+# @return -1 if num is higher than the picked number
+#          1 if num is lower than the picked number
+#          otherwise return 0
 # def guess(num: int) -> int:
 
 
 class Solution:
     def guessNumber(self, n: int) -> int:
-        left, right = 1, n
-        while left < right:
-            mid = (left + right) >> 1
-            if guess(mid) <= 0:
-                right = mid
-            else:
-                left = mid + 1
-        return left
+        return bisect.bisect(range(1, n + 1), 0, key=lambda x: -guess(x))
 ```
 
 #### Java
@@ -163,23 +158,17 @@ public:
 /**
  * Forward declaration of guess API.
  * @param  num   your guess
- * @return 	     -1 if num is lower than the guess number
- *			      1 if num is higher than the guess number
+ * @return 	     -1 if num is higher than the picked number
+ *			      1 if num is lower than the picked number
  *               otherwise return 0
  * func guess(num int) int;
  */
 
 func guessNumber(n int) int {
-	left, right := 1, n
-	for left < right {
-		mid := (left + right) >> 1
-		if guess(mid) <= 0 {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
+	return sort.Search(n, func(i int) bool {
+		i++
+		return guess(i) <= 0
+	}) + 1
 }
 ```
 
@@ -270,52 +259,6 @@ public class Solution : GuessGame {
         }
         return left;
     }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-# The guess API is already defined for you.
-# @param num, your guess
-# @return -1 if num is higher than the picked number
-#          1 if num is lower than the picked number
-#          otherwise return 0
-# def guess(num: int) -> int:
-
-
-class Solution:
-    def guessNumber(self, n: int) -> int:
-        return bisect.bisect(range(1, n + 1), 0, key=lambda x: -guess(x))
-```
-
-#### Go
-
-```go
-/**
- * Forward declaration of guess API.
- * @param  num   your guess
- * @return 	     -1 if num is higher than the picked number
- *			      1 if num is lower than the picked number
- *               otherwise return 0
- * func guess(num int) int;
- */
-
-func guessNumber(n int) int {
-	return sort.Search(n, func(i int) bool {
-		i++
-		return guess(i) <= 0
-	}) + 1
 }
 ```
 
