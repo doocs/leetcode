@@ -1,9 +1,12 @@
 class Solution {
     func threeSum(_ nums: [Int]) -> [[Int]] {
+        if nums.count < 3 {
+            return []
+        }
         let nums = nums.sorted()
         var ans = [[Int]]()
         let n = nums.count
-        
+
         for i in 0..<n-2 {
             if nums[i] > 0 { break }
             if i > 0 && nums[i] == nums[i - 1] { continue }
