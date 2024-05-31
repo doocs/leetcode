@@ -80,13 +80,30 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Greatest Common Divisor
+### Solution 1: Topological Sorting
 
-First, we use an array or hash table `cnt` to count the occurrence of each number. Only when $X$ is a divisor of the greatest common divisor of all `cnt[i]`, can it satisfy the problem's requirement.
+In the game of cat and mouse, the state is determined by three factors: the position of the mouse, the position of the cat, and the mover. According to the game rules, the boundary states that can directly determine the outcome are:
 
-Therefore, we find the greatest common divisor $g$ of the occurrence of all numbers, and then check whether it is greater than or equal to $2$.
+-   When the positions of the cat and the mouse are the same, the cat wins. This is a must-win state for the cat and a must-lose state for the mouse.
+-   When the mouse is in the hole, the mouse wins. This is a must-win state for the mouse and a must-lose state for the cat.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(n + \log M)$. Where $n$ and $M$ are the length of the array `deck` and the maximum value in the array `deck`, respectively.
+To get the game result of the initial state, we need to traverse all states starting from the boundary state. Each state includes the position of the mouse, the position of the cat, and the mover. Based on the current state, we can get all possible states of the previous round. The mover of the previous round is opposite to the mover of the current state, and the position of the mover of the previous round is different from the position of the current state.
+
+We use the tuple $(m, c, t)$ to represent the state of this round, and $(pm, pc, pt)$ to represent the possible state of the previous round. Then, all possible states of the previous round are:
+
+-   If the mover of this round is the mouse, then the mover of the previous round is the cat, the position of the mouse in the previous round is the position of the mouse in this round, and the position of the cat in the previous round is all adjacent points of the position of the cat in this round.
+-   If the mover of this round is the cat, then the mover of the previous round is the mouse, the position of the cat in the previous round is the position of the cat in this round, and the position of the mouse in the previous round is all adjacent points of the position of the mouse in this round.
+
+Initially, except for the boundary states, the results of all other states are unknown. We start from the boundary state, for each state, get all possible states of the previous round and update the result. The update logic is as follows:
+
+1. If the mover of the previous round is the same as the winner of this round, then the mover of the previous round can reach the current state and win, directly update the state of the previous round to the winner of this round.
+1. If the mover of the previous round is different from the winner of this round, and all states that the mover of the previous round can reach are the must-lose states for the mover of the previous round, then we update the state of the previous round to the winner of this round.
+
+For the second update logic, we need to record the degree of each state. Initially, the degree of each state represents the number of nodes that the mover of the state can move to, that is, the number of adjacent nodes of the node where the mover is located. If the mover is the cat and the node where it is located is adjacent to the hole, the degree of the state needs to be reduced by $1$.
+
+When the results of all states are updated, the result of the initial state is the final result.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Where $n$ is the number of nodes in the graph.
 
 <!-- tabs:start -->
 

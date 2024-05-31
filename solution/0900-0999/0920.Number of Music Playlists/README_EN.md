@@ -83,8 +83,6 @@ The final answer is $f[goal][n]$.
 
 The time complexity is $O(goal \times n)$, and the space complexity is $O(goal \times n)$. Here, $goal$ and $n$ are the parameters given in the problem.
 
-Notice that $f[i][j]$ only depends on $f[i - 1][j - 1]$ and $f[i - 1][j]$, so we can use rolling array to optimize the space complexity. The time complexity is unchanged.
-
 <!-- tabs:start -->
 
 #### Python3
@@ -233,7 +231,9 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Space Optimization)
+
+We notice that $f[i][j]$ is only related to $f[i - 1][j - 1]$ and $f[i - 1][j]$. Therefore, we can use a rolling array to optimize the space complexity, reducing the space complexity to $O(n)$.
 
 <!-- tabs:start -->
 
