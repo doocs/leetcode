@@ -82,7 +82,7 @@ Each row of this table contains the ID of the parking lot, the ID of the car, th
 		<li>From 2023-06-01 10:45:00 to 2023-06-01 12:00:00 in lot 2: 1.25 hours, fee 6.00</li>
 		<li>From 2023-06-03 07:00:00 to 2023-06-03 09:00:00 in lot 3: 2 hours, fee 4.00</li>
 	</ul>
-	Total fee paid: 18.00, total hours: 7.5, average hourly fee: 2.40, most time spent in lot 1: 2.5 hours.</li>
+	Total fee paid: 18.00, total hours: 7.5, average hourly fee: 2.40, most time spent in lot 1: 4.25 hours.</li>
 	<li>For car ID 1002:
 	<ul>
 		<li>From 2023-06-01 09:00:00 to 2023-06-01 11:30:00 in lot 2: 2.5 hours, fee 4.00</li>

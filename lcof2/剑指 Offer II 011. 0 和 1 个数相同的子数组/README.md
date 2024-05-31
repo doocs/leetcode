@@ -169,7 +169,7 @@ class Solution {
         var d: [Int: Int] = [0: -1]
         var ans = 0
         var s = 0
-        
+
         for i in 0..<nums.count {
             s += nums[i] == 0 ? -1 : 1
             if let prevIndex = d[s] {
@@ -178,7 +178,7 @@ class Solution {
                 d[s] = i
             }
         }
-        
+
         return ans
     }
 }

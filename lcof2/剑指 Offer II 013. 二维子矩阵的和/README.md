@@ -264,7 +264,7 @@ class NumMatrix {
         let m = matrix.count
         let n = matrix[0].count
         prefixSum = Array(repeating: Array(repeating: 0, count: n + 1), count: m + 1)
-        
+
         for i in 1...m {
             for j in 1...n {
                 prefixSum[i][j] = prefixSum[i - 1][j] + prefixSum[i][j - 1] - prefixSum[i - 1][j - 1] + matrix[i - 1][j - 1]

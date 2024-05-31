@@ -38,9 +38,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3167.Be
 
 <p><strong>解释：</strong></p>
 
-<p>字符 "a" 和 "b" 在输入中只出现了一次，但 "c" 出现了两次，第一次出现了 9 次，另一次是 1 次。</p>
+<p>字符 "a" 和 "b" 在输入中只出现了一次，但 "c" 出现了两次，第一次长度为 9，另一次是长度为 1。</p>
 
-<p>因此，在结果字符串中，它应当出现 10 次。</p>
+<p>因此，在结果字符串中，它应当长度为 10。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>

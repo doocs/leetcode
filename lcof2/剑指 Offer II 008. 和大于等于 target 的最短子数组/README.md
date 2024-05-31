@@ -185,7 +185,7 @@ class Solution {
         var ans = inf
         var sum = 0
         var i = 0
-        
+
         for j in 0..<nums.count {
             sum += nums[j]
             while sum >= target {
@@ -194,7 +194,7 @@ class Solution {
                 i += 1
             }
         }
-        
+
         return ans == inf ? 0 : ans
     }
 }
