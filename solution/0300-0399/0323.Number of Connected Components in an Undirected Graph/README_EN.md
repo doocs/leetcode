@@ -491,37 +491,177 @@ function countComponents(n: number, edges: number[][]): number {
 
 ### Solution 3: BFS
 
+We can also use BFS (Breadth-First Search) to count the number of connected components in the graph.
+
+Similar to Solution 1, we first construct an adjacency list $g$ based on the given edges. Then we traverse all nodes. For each node, if it has not been visited, we start BFS traversal from this node, marking all its adjacent nodes as visited, until all its adjacent nodes have been visited. In this way, we have found a connected component, and the answer is incremented by one.
+
+After traversing all nodes, we get the number of connected components in the graph.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes and edges, respectively.
+
 <!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        vis = set()
+        ans = 0
+        for i in range(n):
+            if i in vis:
+                continue
+            vis.add(i)
+            q = deque([i])
+            while q:
+                a = q.popleft()
+                for b in g[a]:
+                    if b not in vis:
+                        vis.add(b)
+                        q.append(b)
+            ans += 1
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int countComponents(int n, int[][] edges) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int ans = 0;
+        boolean[] vis = new boolean[n];
+        for (int i = 0; i < n; ++i) {
+            if (vis[i]) {
+                continue;
+            }
+            vis[i] = true;
+            ++ans;
+            Deque<Integer> q = new ArrayDeque<>();
+            q.offer(i);
+            while (!q.isEmpty()) {
+                int a = q.poll();
+                for (int b : g[a]) {
+                    if (!vis[b]) {
+                        vis[b] = true;
+                        q.offer(b);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countComponents(int n, vector<vector<int>>& edges) {
+        vector<int> g[n];
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<bool> vis(n);
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (vis[i]) {
+                continue;
+            }
+            vis[i] = true;
+            ++ans;
+            queue<int> q{{i}};
+            while (!q.empty()) {
+                int a = q.front();
+                q.pop();
+                for (int b : g[a]) {
+                    if (!vis[b]) {
+                        vis[b] = true;
+                        q.push(b);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countComponents(n int, edges [][]int) (ans int) {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	vis := make([]bool, n)
+	for i := range g {
+		if vis[i] {
+			continue
+		}
+		vis[i] = true
+		ans++
+		q := []int{i}
+		for len(q) > 0 {
+			a := q[0]
+			q = q[1:]
+			for _, b := range g[a] {
+				if !vis[b] {
+					vis[b] = true
+					q = append(q, b)
+				}
+			}
+		}
+	}
+	return
+}
+```
 
 #### TypeScript
 
 ```ts
 function countComponents(n: number, edges: number[][]): number {
     const g: number[][] = Array.from({ length: n }, () => []);
-    const vis = new Set<number>();
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const vis: boolean[] = Array(n).fill(false);
     let ans = 0;
-
-    for (const [i, j] of edges) {
-        g[i].push(j);
-        g[j].push(i);
-    }
-
-    const dfs = (i: number) => {
-        if (vis.has(i)) return;
-
-        vis.add(i);
-        for (const j of g[i]) {
-            dfs(j);
+    for (let i = 0; i < n; ++i) {
+        if (vis[i]) {
+            continue;
         }
-    };
-
-    for (let i = 0; i < n; i++) {
-        if (vis.has(i)) continue;
-
-        dfs(i);
-        ans++;
+        vis[i] = true;
+        ++ans;
+        const q: number[] = [i];
+        while (q.length) {
+            const a = q.pop()!;
+            for (const b of g[a]) {
+                if (!vis[b]) {
+                    vis[b] = true;
+                    q.push(b);
+                }
+            }
+        }
     }
-
     return ans;
 }
 ```

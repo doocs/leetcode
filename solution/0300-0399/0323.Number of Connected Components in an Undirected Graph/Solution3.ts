@@ -1,28 +1,27 @@
 function countComponents(n: number, edges: number[][]): number {
     const g: number[][] = Array.from({ length: n }, () => []);
-    const vis = new Set<number>();
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const vis: boolean[] = Array(n).fill(false);
     let ans = 0;
-
-    for (const [i, j] of edges) {
-        g[i].push(j);
-        g[j].push(i);
-    }
-
-    const dfs = (i: number) => {
-        if (vis.has(i)) return;
-
-        vis.add(i);
-        for (const j of g[i]) {
-            dfs(j);
+    for (let i = 0; i < n; ++i) {
+        if (vis[i]) {
+            continue;
         }
-    };
-
-    for (let i = 0; i < n; i++) {
-        if (vis.has(i)) continue;
-
-        dfs(i);
-        ans++;
+        vis[i] = true;
+        ++ans;
+        const q: number[] = [i];
+        while (q.length) {
+            const a = q.pop()!;
+            for (const b of g[a]) {
+                if (!vis[b]) {
+                    vis[b] = true;
+                    q.push(b);
+                }
+            }
+        }
     }
-
     return ans;
 }
