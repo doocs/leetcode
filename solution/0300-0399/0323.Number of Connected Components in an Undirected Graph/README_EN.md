@@ -638,30 +638,29 @@ func countComponents(n int, edges [][]int) (ans int) {
 
 ```ts
 function countComponents(n: number, edges: number[][]): number {
-    const g: number[][] = Array.from({ length: n }, () => []);
-    for (const [a, b] of edges) {
-        g[a].push(b);
-        g[b].push(a);
-    }
-    const vis: boolean[] = Array(n).fill(false);
+    const graph: Map<number, number[]> = new Map(Array.from({ length: n }, (_, i) => [i, []]));
+    const vis = new Set<number>();
     let ans = 0;
-    for (let i = 0; i < n; ++i) {
-        if (vis[i]) {
-            continue;
-        }
-        vis[i] = true;
-        ++ans;
-        const q: number[] = [i];
-        while (q.length) {
-            const a = q.pop()!;
-            for (const b of g[a]) {
-                if (!vis[b]) {
-                    vis[b] = true;
-                    q.push(b);
-                }
-            }
-        }
+
+    for (const [a, b] of edges) {
+        graph.get(a)!.push(b);
+        graph.get(b)!.push(a);
     }
+
+    for (const [i] of graph) {
+        if (vis.has(i)) continue;
+
+        const q = [i];
+        for (const j of q) {
+            if (vis.has(j)) continue;
+
+            vis.add(j);
+            q.push(...graph.get(j)!);
+        }
+
+        ans++;
+    }
+
     return ans;
 }
 ```
