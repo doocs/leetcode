@@ -1,14 +1,16 @@
 class TicTacToe {
-    private int n;
-    private int[][] cnt;
+private:
+    int n;
+    vector<vector<int>> cnt;
 
-    public TicTacToe(int n) {
-        this.n = n;
-        cnt = new int[2][(n << 1) + 2];
+public:
+    TicTacToe(int n)
+        : n(n)
+        , cnt(2, vector<int>((n << 1) + 2, 0)) {
     }
 
-    public int move(int row, int col, int player) {
-        int[] cur = cnt[player - 1];
+    int move(int row, int col, int player) {
+        vector<int>& cur = cnt[player - 1];
         ++cur[row];
         ++cur[n + col];
         if (row == col) {
@@ -22,10 +24,10 @@ class TicTacToe {
         }
         return 0;
     }
-}
+};
 
 /**
  * Your TicTacToe object will be instantiated and called as such:
- * TicTacToe obj = new TicTacToe(n);
- * int param_1 = obj.move(row,col,player);
+ * TicTacToe* obj = new TicTacToe(n);
+ * int param_1 = obj->move(row,col,player);
  */
