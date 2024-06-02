@@ -3178,6 +3178,10 @@
 |  3165  |  [不包含相邻元素的子序列的最大和](/solution/3100-3199/3165.Maximum%20Sum%20of%20Subsequence%20With%20Non-adjacent%20Elements/README.md)  |  `线段树`,`数组`,`分治`,`动态规划`  |  困难  |  第 399 场周赛  |
 |  3166  |  [计算停车费与时长](/solution/3100-3199/3166.Calculate%20Parking%20Fees%20and%20Duration/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  3167  |  [字符串的更好压缩](/solution/3100-3199/3167.Better%20Compression%20of%20String/README.md)  |    |  中等  |  🔒  |
+|  3168  |  [候诊室中的最少椅子数](/solution/3100-3199/3168.Minimum%20Number%20of%20Chairs%20in%20a%20Waiting%20Room/README.md)  |    |  简单  |  第 400 场周赛  |
+|  3169  |  [无需开会的工作日](/solution/3100-3199/3169.Count%20Days%20Without%20Meetings/README.md)  |    |  中等  |  第 400 场周赛  |
+|  3170  |  [删除星号以后字典序最小的字符串](/solution/3100-3199/3170.Lexicographically%20Minimum%20String%20After%20Removing%20Stars/README.md)  |    |  中等  |  第 400 场周赛  |
+|  3171  |  [找到按位与最接近 K 的子数组](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README.md)  |    |  困难  |  第 400 场周赛  |
 
 ## 版权
 
