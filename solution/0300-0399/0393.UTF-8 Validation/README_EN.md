@@ -77,7 +77,22 @@ But the second continuation byte does not start with 10, so it is invalid.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Pass
+
+We use a variable $cnt$ to record the current number of bytes that need to be filled starting with $10$, initially $cnt = 0$.
+
+For each integer $v$ in the array:
+
+-   If $cnt > 0$, then check if $v$ starts with $10$. If not, return `false`, otherwise decrement $cnt$.
+-   If the highest bit of $v$ is $0$, then $cnt = 0$.
+-   If the highest two bits of $v$ are $110$, then $cnt = 1$.
+-   If the highest three bits of $v$ are $1110$, then $cnt = 2$.
+-   If the highest four bits of $v$ are $11110$, then $cnt = 3$.
+-   Otherwise, return `false`.
+
+Finally, if $cnt = 0$, return `true`, otherwise return `false`.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `data`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -86,23 +101,23 @@ But the second continuation byte does not start with 10, so it is invalid.
 ```python
 class Solution:
     def validUtf8(self, data: List[int]) -> bool:
-        n = 0
+        cnt = 0
         for v in data:
-            if n > 0:
+            if cnt > 0:
                 if v >> 6 != 0b10:
                     return False
-                n -= 1
+                cnt -= 1
             elif v >> 7 == 0:
-                n = 0
+                cnt = 0
             elif v >> 5 == 0b110:
-                n = 1
+                cnt = 1
             elif v >> 4 == 0b1110:
-                n = 2
+                cnt = 2
             elif v >> 3 == 0b11110:
-                n = 3
+                cnt = 3
             else:
                 return False
-        return n == 0
+        return cnt == 0
 ```
 
 #### Java
@@ -110,26 +125,26 @@ class Solution:
 ```java
 class Solution {
     public boolean validUtf8(int[] data) {
-        int n = 0;
+        int cnt = 0;
         for (int v : data) {
-            if (n > 0) {
+            if (cnt > 0) {
                 if (v >> 6 != 0b10) {
                     return false;
                 }
-                --n;
+                --cnt;
             } else if (v >> 7 == 0) {
-                n = 0;
+                cnt = 0;
             } else if (v >> 5 == 0b110) {
-                n = 1;
+                cnt = 1;
             } else if (v >> 4 == 0b1110) {
-                n = 2;
+                cnt = 2;
             } else if (v >> 3 == 0b11110) {
-                n = 3;
+                cnt = 3;
             } else {
                 return false;
             }
         }
-        return n == 0;
+        return cnt == 0;
     }
 }
 ```
@@ -140,23 +155,26 @@ class Solution {
 class Solution {
 public:
     bool validUtf8(vector<int>& data) {
-        int n = 0;
+        int cnt = 0;
         for (int& v : data) {
-            if (n > 0) {
-                if (v >> 6 != 0b10) return false;
-                --n;
-            } else if (v >> 7 == 0)
-                n = 0;
-            else if (v >> 5 == 0b110)
-                n = 1;
-            else if (v >> 4 == 0b1110)
-                n = 2;
-            else if (v >> 3 == 0b11110)
-                n = 3;
-            else
+            if (cnt > 0) {
+                if (v >> 6 != 0b10) {
+                    return false;
+                }
+                --cnt;
+            } else if (v >> 7 == 0) {
+                cnt = 0;
+            } else if (v >> 5 == 0b110) {
+                cnt = 1;
+            } else if (v >> 4 == 0b1110) {
+                cnt = 2;
+            } else if (v >> 3 == 0b11110) {
+                cnt = 3;
+            } else {
                 return false;
+            }
         }
-        return n == 0;
+        return cnt == 0;
     }
 };
 ```
@@ -165,26 +183,53 @@ public:
 
 ```go
 func validUtf8(data []int) bool {
-	n := 0
+	cnt := 0
 	for _, v := range data {
-		if n > 0 {
+		if cnt > 0 {
 			if v>>6 != 0b10 {
 				return false
 			}
-			n--
+			cnt--
 		} else if v>>7 == 0 {
-			n = 0
+			cnt = 0
 		} else if v>>5 == 0b110 {
-			n = 1
+			cnt = 1
 		} else if v>>4 == 0b1110 {
-			n = 2
+			cnt = 2
 		} else if v>>3 == 0b11110 {
-			n = 3
+			cnt = 3
 		} else {
 			return false
 		}
 	}
-	return n == 0
+	return cnt == 0
+}
+```
+
+#### TypeScript
+
+```ts
+function validUtf8(data: number[]): boolean {
+    let cnt = 0;
+    for (const v of data) {
+        if (cnt > 0) {
+            if (v >> 6 != 0b10) {
+                return false;
+            }
+            --cnt;
+        } else if (v >> 7 == 0) {
+            cnt = 0;
+        } else if (v >> 5 == 0b110) {
+            cnt = 1;
+        } else if (v >> 4 == 0b1110) {
+            cnt = 2;
+        } else if (v >> 3 == 0b11110) {
+            cnt = 3;
+        } else {
+            return false;
+        }
+    }
+    return cnt == 0;
 }
 ```
 

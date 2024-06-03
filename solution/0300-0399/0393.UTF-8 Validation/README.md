@@ -79,7 +79,22 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：一次遍历
+
+我们用一个变量 $cnt$ 记录当前需要填充的以 $10$ 开头的字节的个数，初始时 $cnt = 0$。
+
+遍历数组中的每个整数，对于每个整数 $v$：
+
+-   如果 $cnt > 0$，则判断 $v$ 是否以 $10$ 开头，如果不是，则返回 `false`，否则 $cnt$ 减一。
+-   如果 $v$ 的最高位为 $0$，则 $cnt = 0$。
+-   如果 $v$ 的最高两位为 $110$，则 $cnt = 1$。
+-   如果 $v$ 的最高三位为 $1110$，则 $cnt = 2$。
+-   如果 $v$ 的最高四位为 $11110$，则 $cnt = 3$。
+-   否则，返回 `false`。
+
+最后，如果 $cnt = 0$，则返回 `true`，否则返回 `false`。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 `data` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -88,23 +103,23 @@ tags:
 ```python
 class Solution:
     def validUtf8(self, data: List[int]) -> bool:
-        n = 0
+        cnt = 0
         for v in data:
-            if n > 0:
+            if cnt > 0:
                 if v >> 6 != 0b10:
                     return False
-                n -= 1
+                cnt -= 1
             elif v >> 7 == 0:
-                n = 0
+                cnt = 0
             elif v >> 5 == 0b110:
-                n = 1
+                cnt = 1
             elif v >> 4 == 0b1110:
-                n = 2
+                cnt = 2
             elif v >> 3 == 0b11110:
-                n = 3
+                cnt = 3
             else:
                 return False
-        return n == 0
+        return cnt == 0
 ```
 
 #### Java
@@ -112,26 +127,26 @@ class Solution:
 ```java
 class Solution {
     public boolean validUtf8(int[] data) {
-        int n = 0;
+        int cnt = 0;
         for (int v : data) {
-            if (n > 0) {
+            if (cnt > 0) {
                 if (v >> 6 != 0b10) {
                     return false;
                 }
-                --n;
+                --cnt;
             } else if (v >> 7 == 0) {
-                n = 0;
+                cnt = 0;
             } else if (v >> 5 == 0b110) {
-                n = 1;
+                cnt = 1;
             } else if (v >> 4 == 0b1110) {
-                n = 2;
+                cnt = 2;
             } else if (v >> 3 == 0b11110) {
-                n = 3;
+                cnt = 3;
             } else {
                 return false;
             }
         }
-        return n == 0;
+        return cnt == 0;
     }
 }
 ```
@@ -142,23 +157,26 @@ class Solution {
 class Solution {
 public:
     bool validUtf8(vector<int>& data) {
-        int n = 0;
+        int cnt = 0;
         for (int& v : data) {
-            if (n > 0) {
-                if (v >> 6 != 0b10) return false;
-                --n;
-            } else if (v >> 7 == 0)
-                n = 0;
-            else if (v >> 5 == 0b110)
-                n = 1;
-            else if (v >> 4 == 0b1110)
-                n = 2;
-            else if (v >> 3 == 0b11110)
-                n = 3;
-            else
+            if (cnt > 0) {
+                if (v >> 6 != 0b10) {
+                    return false;
+                }
+                --cnt;
+            } else if (v >> 7 == 0) {
+                cnt = 0;
+            } else if (v >> 5 == 0b110) {
+                cnt = 1;
+            } else if (v >> 4 == 0b1110) {
+                cnt = 2;
+            } else if (v >> 3 == 0b11110) {
+                cnt = 3;
+            } else {
                 return false;
+            }
         }
-        return n == 0;
+        return cnt == 0;
     }
 };
 ```
@@ -167,26 +185,53 @@ public:
 
 ```go
 func validUtf8(data []int) bool {
-	n := 0
+	cnt := 0
 	for _, v := range data {
-		if n > 0 {
+		if cnt > 0 {
 			if v>>6 != 0b10 {
 				return false
 			}
-			n--
+			cnt--
 		} else if v>>7 == 0 {
-			n = 0
+			cnt = 0
 		} else if v>>5 == 0b110 {
-			n = 1
+			cnt = 1
 		} else if v>>4 == 0b1110 {
-			n = 2
+			cnt = 2
 		} else if v>>3 == 0b11110 {
-			n = 3
+			cnt = 3
 		} else {
 			return false
 		}
 	}
-	return n == 0
+	return cnt == 0
+}
+```
+
+#### TypeScript
+
+```ts
+function validUtf8(data: number[]): boolean {
+    let cnt = 0;
+    for (const v of data) {
+        if (cnt > 0) {
+            if (v >> 6 != 0b10) {
+                return false;
+            }
+            --cnt;
+        } else if (v >> 7 == 0) {
+            cnt = 0;
+        } else if (v >> 5 == 0b110) {
+            cnt = 1;
+        } else if (v >> 4 == 0b1110) {
+            cnt = 2;
+        } else if (v >> 3 == 0b11110) {
+            cnt = 3;
+        } else {
+            return false;
+        }
+    }
+    return cnt == 0;
 }
 ```
 
