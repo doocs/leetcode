@@ -214,32 +214,26 @@ func minMutation(start string, end string, bank []string) int {
 #### TypeScript
 
 ```ts
-function minMutation(start: string, end: string, bank: string[]): number {
-    const queue = [start];
-    let res = 0;
-    while (queue.length !== 0) {
-        const n = queue.length;
-        for (let i = 0; i < n; i++) {
-            const s1 = queue.shift();
-            if (s1 === end) {
-                return res;
+function minMutation(startGene: string, endGene: string, bank: string[]): number {
+    const vis = new Set<string>();
+    const q: [string, number][] = [[startGene, 0]];
+
+    for (const [gene, depth] of q) {
+        if (gene === endGene) return depth;
+        if (vis.has(gene)) continue;
+        vis.add(gene);
+
+        for (const next of bank) {
+            let c = 2;
+            for (let k = 0; k < 8; k++) {
+                if (gene[k] !== next[k]) c--;
+                if (!c) break;
             }
 
-            for (let j = bank.length - 1; j >= 0; j--) {
-                const s2 = bank[j];
-                let count = 0;
-                for (let k = 0; k < 8; k++) {
-                    if (s1[k] !== s2[k]) {
-                        count++;
-                    }
-                }
-                if (count <= 1) {
-                    queue.push(...bank.splice(j, 1));
-                }
-            }
+            if (c) q.push([next, depth + 1]);
         }
-        res++;
     }
+
     return -1;
 }
 ```
