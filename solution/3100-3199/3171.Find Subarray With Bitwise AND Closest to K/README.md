@@ -84,7 +84,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3171.Fi
 
 相似题目：
 
--   [3097. 或值至少为 K 的最短子数组 II](/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README.md)
+-   [3097. 或值至少为 K 的最短子数组 II](https://github.com/doocs/leetcode/blob/main/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README.md)
 
 <!-- tabs:start -->
 
@@ -272,7 +272,7 @@ function minimumDifference(nums: number[], k: number): number {
 
 相似题目：
 
--   [1521. 找到最接近目标值的函数值](/solution/1500-1599/1521.Find%20a%20Value%20of%20a%20Mysterious%20Function%20Closest%20to%20Target/README.md)
+-   [1521. 找到最接近目标值的函数值](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1521.Find%20a%20Value%20of%20a%20Mysterious%20Function%20Closest%20to%20Target/README.md)
 
 <!-- tabs:start -->
 
