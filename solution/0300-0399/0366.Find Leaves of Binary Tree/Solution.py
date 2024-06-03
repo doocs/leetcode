@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def findLeaves(self, root: Optional[TreeNode]) -> List[List[int]]:
-        def dfs(root: Optional[TreeNode]):
+        def dfs(root: Optional[TreeNode]) -> int:
             if root is None:
                 return 0
             l, r = dfs(root.left), dfs(root.right)
