@@ -23,7 +23,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1:</strong></p>
+<p><strong class="example">示例 1:</strong></p>
 
 <pre>
 <strong>输入:</strong> nums = [2,3,-2,4]
@@ -31,7 +31,7 @@ tags:
 <strong>解释:</strong>&nbsp;子数组 [2,3] 有最大乘积 6。
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong class="example">示例 2:</strong></p>
 
 <pre>
 <strong>输入:</strong> nums = [-2,0,-1]

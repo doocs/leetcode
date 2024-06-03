@@ -3182,6 +3182,7 @@
 |  3169  |  [无需开会的工作日](/solution/3100-3199/3169.Count%20Days%20Without%20Meetings/README.md)  |    |  中等  |  第 400 场周赛  |
 |  3170  |  [删除星号以后字典序最小的字符串](/solution/3100-3199/3170.Lexicographically%20Minimum%20String%20After%20Removing%20Stars/README.md)  |    |  中等  |  第 400 场周赛  |
 |  3171  |  [找到按位与最接近 K 的子数组](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README.md)  |    |  困难  |  第 400 场周赛  |
+|  3172  |  [第二天验证](/solution/3100-3199/3172.Second%20Day%20Verification/README.md)  |    |  简单  |  🔒  |
 
 ## 版权
 
