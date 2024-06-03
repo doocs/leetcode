@@ -76,6 +76,10 @@ If we fix the right endpoint $r$ each time, then the range of the left endpoint 
 
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ and $M$ are the length of the array $arr$ and the maximum value in the array $arr$, respectively.
 
+Similar problems:
+
+-   [3171. Find Subarray With Bitwise AND Closest to K](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README_EN.md)
+
 <!-- tabs:start -->
 
 #### Python3

@@ -90,6 +90,10 @@ Finally, we return the minimum length. If there is no subarray that meets the co
 
 The time complexity is $O(n \times \log M)$ and the space complexity is $O(\log M)$, where $n$ and $M$ are the length of the array and the maximum value of the elements in the array, respectively.
 
+Similar Problems:
+
+-   [3171. Find Subarray With Bitwise AND Closest to K](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README_EN.md)
+
 <!-- tabs:start -->
 
 #### Python3

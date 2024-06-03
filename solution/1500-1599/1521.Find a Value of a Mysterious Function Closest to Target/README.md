@@ -75,6 +75,10 @@ tags:
 
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(\log M)$。其中 $n$ 和 $M$ 分别是数组 $arr$ 的长度和数组 $arr$ 中的最大值。
 
+相似题目：
+
+-   [3171. 找到按位与最接近 K 的子数组](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README.md)
+
 <!-- tabs:start -->
 
 #### Python3
