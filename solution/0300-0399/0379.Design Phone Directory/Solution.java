@@ -6,7 +6,7 @@ class PhoneDirectory {
             available.add(i);
         }
     }
-    
+
     public int get() {
         if (available.isEmpty()) {
             return -1;
@@ -15,11 +15,11 @@ class PhoneDirectory {
         available.remove(x);
         return x;
     }
-    
+
     public boolean check(int number) {
         return available.contains(number);
     }
-    
+
     public void release(int number) {
         available.add(number);
     }
