@@ -6,33 +6,20 @@
  *     Right *TreeNode
  * }
  */
-func findLeaves(root *TreeNode) [][]int {
-	prev := &TreeNode{
-		Val:   0,
-		Left:  root,
-		Right: nil,
-	}
-	var res [][]int
-	for prev.Left != nil {
-		var t []int
-		dfs(prev.Left, prev, &t)
-		res = append(res, t)
-	}
-	return res
-}
-
-func dfs(root, prev *TreeNode, t *[]int) {
-	if root == nil {
-		return
-	}
-	if root.Left == nil && root.Right == nil {
-		*t = append(*t, root.Val)
-		if prev.Left == root {
-			prev.Left = nil
-		} else {
-			prev.Right = nil
+func findLeaves(root *TreeNode) (ans [][]int) {
+	var dfs func(*TreeNode) int
+	dfs = func(root *TreeNode) int {
+		if root == nil {
+			return 0
 		}
+		l, r := dfs(root.Left), dfs(root.Right)
+		h := max(l, r)
+		if len(ans) == h {
+			ans = append(ans, []int{})
+		}
+		ans[h] = append(ans[h], root.Val)
+		return h + 1
 	}
-	dfs(root.Left, root, t)
-	dfs(root.Right, root, t)
+	dfs(root)
+	return
 }
