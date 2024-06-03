@@ -5,7 +5,7 @@ public:
             available.insert(i);
         }
     }
-    
+
     int get() {
         if (available.empty()) {
             return -1;
@@ -14,11 +14,11 @@ public:
         available.erase(x);
         return x;
     }
-    
+
     bool check(int number) {
         return available.contains(number);
     }
-    
+
     void release(int number) {
         available.insert(number);
     }
