@@ -82,7 +82,7 @@ The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log
 
 Similar Problems:
 
--   [3097. Shortest Subarray With OR at Least K II](/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README_EN.md)
+-   [3097. Shortest Subarray With OR at Least K II](https://github.com/doocs/leetcode/blob/main/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -270,7 +270,7 @@ The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log
 
 Similar problems:
 
--   [1521. Find a Value of a Mysterious Function Closest to Target](/solution/1500-1599/1521.Find%20a%20Value%20of%20a%20Mysterious%20Function%20Closest%20to%20Target/README_EN.md)
+-   [1521. Find a Value of a Mysterious Function Closest to Target](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1521.Find%20a%20Value%20of%20a%20Mysterious%20Function%20Closest%20to%20Target/README_EN.md)
 
 <!-- tabs:start -->
 
