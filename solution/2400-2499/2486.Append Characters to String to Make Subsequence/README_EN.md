@@ -152,17 +152,14 @@ func appendCharacters(s string, t string) int {
 
 ```ts
 function appendCharacters(s: string, t: string): number {
-    const [m, n] = [s.length, t.length];
-    for (let i = 0, j = 0; j < n; ++j) {
-        while (i < m && s[i] !== t[j]) {
-            ++i;
-        }
-        if (i === m) {
-            return n - j;
-        }
-        ++i;
+    const n = s.length;
+    let j = 0;
+
+    for (let i = 0; i < n; i++) {
+        if (s[i] === t[j]) j++;
     }
-    return 0;
+
+    return t.length - j;
 }
 ```
 
