@@ -1,9 +1,5 @@
-/**
- * @param {number} n
- * @return {number[]}
- */
-var lexicalOrder = function (n) {
-    const ans = [];
+function lexicalOrder(n: number): number[] {
+    const ans: number[] = [];
     let v = 1;
     for (let i = 0; i < n; ++i) {
         ans.push(v);
@@ -17,4 +13,4 @@ var lexicalOrder = function (n) {
         }
     }
     return ans;
-};
+}
