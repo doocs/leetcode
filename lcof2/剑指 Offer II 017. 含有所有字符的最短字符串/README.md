@@ -338,7 +338,7 @@ class Solution {
 
         var need = [Character: Int]()
         var window = [Character: Int]()
-        
+
         for ch in t {
             need[ch, default: 0] += 1
         }
@@ -351,7 +351,7 @@ class Solution {
             let ch = sArray[right]
             window[ch, default: 0] += 1
             right += 1
-            
+
             while check(need, window) {
                 if right - left < minLen {
                     minLen = right - left
