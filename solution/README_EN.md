@@ -3180,6 +3180,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3169  |  [Count Days Without Meetings](/solution/3100-3199/3169.Count%20Days%20Without%20Meetings/README_EN.md)  |    |  Medium  |  Weekly Contest 400  |
 |  3170  |  [Lexicographically Minimum String After Removing Stars](/solution/3100-3199/3170.Lexicographically%20Minimum%20String%20After%20Removing%20Stars/README_EN.md)  |    |  Medium  |  Weekly Contest 400  |
 |  3171  |  [Find Subarray With Bitwise AND Closest to K](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README_EN.md)  |    |  Hard  |  Weekly Contest 400  |
+|  3172  |  [Second Day Verification](/solution/3100-3199/3172.Second%20Day%20Verification/README_EN.md)  |    |  Easy  |  🔒  |
 
 ## Copyright
 
