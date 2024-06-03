@@ -214,7 +214,7 @@ class Solution {
         self.s = s
         var i = s.startIndex
         var j = s.index(before: s.endIndex)
-        
+
         while i < j {
             if s[i] != s[j] {
                 return check(s.index(after: i), j) || check(i, s.index(before: j))
