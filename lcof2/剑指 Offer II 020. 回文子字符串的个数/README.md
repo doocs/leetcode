@@ -167,13 +167,13 @@ class Solution {
         var i = i
         var j = j
         let chars = Array(s)
-        
+
         while i >= 0 && j < chars.count && chars[i] == chars[j] {
             cnt += 1
             i -= 1
             j += 1
         }
-        
+
         return cnt
     }
 }

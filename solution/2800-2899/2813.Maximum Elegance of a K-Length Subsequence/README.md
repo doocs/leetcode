@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2813.Ma
 rating: 2582
 source: 第 357 场周赛 Q4
 tags:
+    - 栈
     - 贪心
     - 数组
     - 哈希表

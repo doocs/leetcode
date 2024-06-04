@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README.md
+tags:
+    - 位运算
+    - 线段树
+    - 数组
+    - 二分查找
 ---
 
 <!-- problem:start -->

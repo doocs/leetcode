@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3167.Better%20Compression%20of%20String/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+    - 排序
 ---
 
 <!-- problem:start -->

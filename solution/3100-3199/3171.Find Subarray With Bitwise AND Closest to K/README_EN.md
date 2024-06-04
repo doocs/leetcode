@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README_EN.md
+tags:
+    - Bit Manipulation
+    - Segment Tree
+    - Array
+    - Binary Search
 ---
 
 <!-- problem:start -->

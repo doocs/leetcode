@@ -68,7 +68,7 @@ comments: true
 - [3144. 分割字符频率相等的最少子字符串](/solution/3100-3199/3144.Minimum%20Substring%20Partition%20of%20Equal%20Character%20Frequency/README.md)
 - [3145. 大数组元素的乘积](/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README.md)
 
-#### 第 396 场周赛(2024-05-05 10:30, 90 分钟) 参赛人数 2931
+#### 第 396 场周赛(2024-05-05 10:30, 90 分钟) 参赛人数 2932
 
 - [3136. 有效单词](/solution/3100-3199/3136.Valid%20Word/README.md)
 - [3137. K 周期字符串需要的最少操作次数](/solution/3100-3199/3137.Minimum%20Number%20of%20Operations%20to%20Make%20Word%20K-Periodic/README.md)
