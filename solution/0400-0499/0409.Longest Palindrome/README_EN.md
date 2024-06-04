@@ -57,13 +57,13 @@ tags:
 
 A valid palindrome string can have at most one character that appears an odd number of times, and the rest of the characters appear an even number of times.
 
-Therefore, we can first traverse the string $s$, count the number of times each character appears, and record it in an array or hash table $cnt$.
+Therefore, we can first traverse the string $s$, count the number of occurrences of each character, and record it in an array or hash table $cnt$.
 
-Then, we traverse $cnt$, for each character $c$, if $cnt[c]$ is even, then directly add $cnt[c]$ to the answer $ans$; if $cnt[c]$ is odd, then add $cnt[c] - 1$ to $ans$, if $ans$ is even, then increase $ans$ by $1$.
+Then, we traverse $cnt$, for each count $v$, we divide $v$ by 2, take the integer part, multiply by 2, and add it to the answer $ans$.
 
-Finally, we return $ans$.
+Finally, if the answer is less than the length of the string $s$, we increment the answer by one and return $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string $s$; and $C$ is the size of the character set, in this problem $C = 128$.
+The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 128$.
 
 <!-- tabs:start -->
 
@@ -73,10 +73,8 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is 
 class Solution:
     def longestPalindrome(self, s: str) -> int:
         cnt = Counter(s)
-        ans = 0
-        for v in cnt.values():
-            ans += v - (v & 1)
-            ans += (ans & 1 ^ 1) and (v & 1)
+        ans = sum(v // 2 * 2 for v in cnt.values())
+        ans += int(ans < len(s))
         return ans
 ```
 
@@ -86,16 +84,15 @@ class Solution:
 class Solution {
     public int longestPalindrome(String s) {
         int[] cnt = new int[128];
-        for (int i = 0; i < s.length(); ++i) {
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
             ++cnt[s.charAt(i)];
         }
         int ans = 0;
         for (int v : cnt) {
-            ans += v - (v & 1);
-            if (ans % 2 == 0 && v % 2 == 1) {
-                ++ans;
-            }
+            ans += v / 2 * 2;
         }
+        ans += ans < n ? 1 : 0;
         return ans;
     }
 }
@@ -108,16 +105,14 @@ class Solution {
 public:
     int longestPalindrome(string s) {
         int cnt[128]{};
-        for (char& c : s) {
+        for (char c : s) {
             ++cnt[c];
         }
         int ans = 0;
         for (int v : cnt) {
-            ans += v - (v & 1);
-            if (ans % 2 == 0 && v % 2 == 1) {
-                ++ans;
-            }
+            ans += v / 2 * 2;
         }
+        ans += ans < s.size();
         return ans;
     }
 };
@@ -132,10 +127,10 @@ func longestPalindrome(s string) (ans int) {
 		cnt[c]++
 	}
 	for _, v := range cnt {
-		ans += v - (v & 1)
-		if ans&1 == 0 && v&1 == 1 {
-			ans++
-		}
+		ans += v / 2 * 2
+	}
+	if ans < len(s) {
+		ans++
 	}
 	return
 }
@@ -145,17 +140,13 @@ func longestPalindrome(s string) (ans int) {
 
 ```ts
 function longestPalindrome(s: string): number {
-    let n = s.length;
-    let ans = 0;
-    let record = new Array(128).fill(0);
-    for (let i = 0; i < n; i++) {
-        record[s.charCodeAt(i)]++;
+    const cnt: Record<string, number> = {};
+    for (const c of s) {
+        cnt[c] = (cnt[c] || 0) + 1;
     }
-    for (let i = 65; i < 128; i++) {
-        let count = record[i];
-        ans += count % 2 == 0 ? count : count - 1;
-    }
-    return ans < s.length ? ans + 1 : ans;
+    let ans = Object.values(cnt).reduce((acc, v) => acc + Math.floor(v / 2) * 2, 0);
+    ans += ans < s.length ? 1 : 0;
+    return ans;
 }
 ```
 
@@ -166,52 +157,22 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn longest_palindrome(s: String) -> i32 {
-        let mut map: HashMap<char, i32> = HashMap::new();
-        for c in s.chars() {
-            map.insert(c, map.get(&c).unwrap_or(&0) + 1);
+        let mut cnt = HashMap::new();
+        for ch in s.chars() {
+            *cnt.entry(ch).or_insert(0) += 1;
         }
-        let mut has_odd = false;
-        let mut res = 0;
-        for v in map.values() {
-            res += v;
-            if v % 2 == 1 {
-                has_odd = true;
-                res -= 1;
-            }
+
+        let mut ans = 0;
+        for &v in cnt.values() {
+            ans += (v / 2) * 2;
         }
-        res + (if has_odd { 1 } else { 0 })
-    }
-}
-```
 
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function longestPalindrome(s: string): number {
-    const map = new Map();
-    for (const c of s) {
-        map.set(c, (map.get(c) ?? 0) + 1);
-    }
-    let hasOdd = false;
-    let res = 0;
-    for (const v of map.values()) {
-        res += v;
-        if (v & 1) {
-            hasOdd = true;
-            res--;
+        if ans < (s.len() as i32) {
+            ans += 1;
         }
+
+        ans
     }
-    return res + (hasOdd ? 1 : 0);
 }
 ```
 
