@@ -68,7 +68,11 @@ The right interval for [2,3] is [3,4] since start<sub>2</sub> = 3 is the smalles
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Binary Search
+
+We can store the start point and index of each interval into an array `arr`, and sort it by the start point. Then we iterate through the interval array, for each interval `[_, ed]`, we can use binary search to find the first interval whose start point is greater than or equal to `ed`, which is its right-side interval. If found, we store its index into the answer array, otherwise, we store `-1`.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the intervals.
 
 <!-- tabs:start -->
 
@@ -77,15 +81,13 @@ The right interval for [2,3] is [3,4] since start<sub>2</sub> = 3 is the smalles
 ```python
 class Solution:
     def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
-        for i, v in enumerate(intervals):
-            v.append(i)
-        intervals.sort()
         n = len(intervals)
         ans = [-1] * n
-        for _, e, i in intervals:
-            j = bisect_left(intervals, [e])
+        arr = sorted((st, i) for i, (st, _) in enumerate(intervals))
+        for i, (_, ed) in enumerate(intervals):
+            j = bisect_left(arr, (ed, -inf))
             if j < n:
-                ans[i] = intervals[j][2]
+                ans[i] = arr[j][1]
         return ans
 ```
 
@@ -95,27 +97,30 @@ class Solution:
 class Solution {
     public int[] findRightInterval(int[][] intervals) {
         int n = intervals.length;
-        List<int[]> starts = new ArrayList<>();
+        int[][] arr = new int[n][0];
         for (int i = 0; i < n; ++i) {
-            starts.add(new int[] {intervals[i][0], i});
+            arr[i] = new int[] {intervals[i][0], i};
         }
-        starts.sort(Comparator.comparingInt(a -> a[0]));
-        int[] res = new int[n];
-        int i = 0;
-        for (int[] interval : intervals) {
-            int left = 0, right = n - 1;
-            int end = interval[1];
-            while (left < right) {
-                int mid = (left + right) >> 1;
-                if (starts.get(mid)[0] >= end) {
-                    right = mid;
-                } else {
-                    left = mid + 1;
-                }
+        Arrays.sort(arr, (a, b) -> a[0] - b[0]);
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            int j = search(arr, intervals[i][1]);
+            ans[i] = j < n ? arr[j][1] : -1;
+        }
+        return ans;
+    }
+
+    private int search(int[][] arr, int x) {
+        int l = 0, r = arr.length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (arr[mid][0] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
             }
-            res[i++] = starts.get(left)[0] < end ? -1 : starts.get(left)[1];
         }
-        return res;
+        return l;
     }
 }
 ```
@@ -127,25 +132,17 @@ class Solution {
 public:
     vector<int> findRightInterval(vector<vector<int>>& intervals) {
         int n = intervals.size();
-        vector<pair<int, int>> starts;
+        vector<pair<int, int>> arr;
         for (int i = 0; i < n; ++i) {
-            starts.emplace_back(make_pair(intervals[i][0], i));
+            arr.emplace_back(intervals[i][0], i);
         }
-        sort(starts.begin(), starts.end());
-        vector<int> res;
-        for (auto interval : intervals) {
-            int left = 0, right = n - 1;
-            int end = interval[1];
-            while (left < right) {
-                int mid = left + right >> 1;
-                if (starts[mid].first >= end)
-                    right = mid;
-                else
-                    left = mid + 1;
-            }
-            res.push_back(starts[left].first < end ? -1 : starts[left].second);
+        sort(arr.begin(), arr.end());
+        vector<int> ans;
+        for (auto& e : intervals) {
+            int j = lower_bound(arr.begin(), arr.end(), make_pair(e[1], -1)) - arr.begin();
+            ans.push_back(j == n ? -1 : arr[j].second);
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -153,35 +150,21 @@ public:
 #### Go
 
 ```go
-func findRightInterval(intervals [][]int) []int {
-	n := len(intervals)
-	starts := make([][]int, n)
-	for i := 0; i < n; i++ {
-		starts[i] = make([]int, 2)
-		starts[i][0] = intervals[i][0]
-		starts[i][1] = i
+func findRightInterval(intervals [][]int) (ans []int) {
+	arr := make([][2]int, len(intervals))
+	for i, v := range intervals {
+		arr[i] = [2]int{v[0], i}
 	}
-	sort.Slice(starts, func(i, j int) bool {
-		return starts[i][0] < starts[j][0]
-	})
-	var res []int
-	for _, interval := range intervals {
-		left, right, end := 0, n-1, interval[1]
-		for left < right {
-			mid := (left + right) >> 1
-			if starts[mid][0] >= end {
-				right = mid
-			} else {
-				left = mid + 1
-			}
+	sort.Slice(arr, func(i, j int) bool { return arr[i][0] < arr[j][0] })
+	for _, e := range intervals {
+		j := sort.Search(len(arr), func(i int) bool { return arr[i][0] >= e[1] })
+		if j < len(arr) {
+			ans = append(ans, arr[j][1])
+		} else {
+			ans = append(ans, -1)
 		}
-		val := -1
-		if starts[left][0] >= end {
-			val = starts[left][1]
-		}
-		res = append(res, val)
 	}
-	return res
+	return
 }
 ```
 
@@ -190,28 +173,19 @@ func findRightInterval(intervals [][]int) []int {
 ```ts
 function findRightInterval(intervals: number[][]): number[] {
     const n = intervals.length;
-    const starts = Array.from({ length: n }).map(() => new Array<number>(2));
-    for (let i = 0; i < n; i++) {
-        starts[i][0] = intervals[i][0];
-        starts[i][1] = i;
-    }
-    starts.sort((a, b) => a[0] - b[0]);
-
-    return intervals.map(([_, target]) => {
-        let left = 0;
-        let right = n;
-        while (left < right) {
-            const mid = (left + right) >>> 1;
-            if (starts[mid][0] < target) {
-                left = mid + 1;
+    const arr: number[][] = Array.from({ length: n }, (_, i) => [intervals[i][0], i]);
+    arr.sort((a, b) => a[0] - b[0]);
+    return intervals.map(([_, ed]) => {
+        let [l, r] = [0, n];
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (arr[mid][0] >= ed) {
+                r = mid;
             } else {
-                right = mid;
+                l = mid + 1;
             }
         }
-        if (left >= n) {
-            return -1;
-        }
-        return starts[left][1];
+        return l < n ? arr[l][1] : -1;
     });
 }
 ```
