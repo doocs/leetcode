@@ -21,7 +21,7 @@ class Solution {
         }
         
         var cur = slow.next
-        slow.next = nil
+
         var prev: ListNode? = nil
         while cur != nil {
             let nextTemp = cur?.next
