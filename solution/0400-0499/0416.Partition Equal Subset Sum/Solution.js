@@ -9,9 +9,7 @@ var canPartition = function (nums) {
     }
     const n = nums.length;
     const m = s >> 1;
-    const f = Array(n + 1)
-        .fill(0)
-        .map(() => Array(m + 1).fill(false));
+    const f = Array.from({ length: n + 1 }, () => Array(m + 1).fill(false));
     f[0][0] = true;
     for (let i = 1; i <= n; ++i) {
         const x = nums[i - 1];
