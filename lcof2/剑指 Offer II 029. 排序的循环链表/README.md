@@ -295,7 +295,7 @@ class Solution {
             newNode.next = newNode
             return newNode
         }
-        
+
         var current = head
         repeat {
             if current!.val <= insertVal && insertVal <= current!.next!.val {
