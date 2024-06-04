@@ -1,32 +1,26 @@
-func minMutation(start string, end string, bank []string) int {
-	s := make(map[string]bool)
-	for _, b := range bank {
-		s[b] = true
-	}
-	mp := make(map[byte]string)
-	mp['A'] = "TCG"
-	mp['T'] = "ACG"
-	mp['C'] = "ATG"
-	mp['G'] = "ATC"
+func minMutation(startGene string, endGene string, bank []string) int {
 	type pair struct {
-		first  string
-		second int
+		s     string
+		depth int
 	}
-	q := []pair{{start, 0}}
+	q := []pair{pair{startGene, 0}}
+	vis := map[string]bool{startGene: true}
 	for len(q) > 0 {
 		p := q[0]
 		q = q[1:]
-		t, step := p.first, p.second
-		if t == end {
-			return step
+		if p.s == endGene {
+			return p.depth
 		}
-		for i := 0; i < len(t); i++ {
-			for _, c := range mp[t[i]] {
-				next := t[:i] + string(c) + t[i+1:]
-				if s[next] {
-					q = append(q, pair{next, step + 1})
-					s[next] = false
+		for _, next := range bank {
+			diff := 0
+			for i := 0; i < len(startGene); i++ {
+				if p.s[i] != next[i] {
+					diff++
 				}
+			}
+			if diff == 1 && !vis[next] {
+				vis[next] = true
+				q = append(q, pair{next, p.depth + 1})
 			}
 		}
 	}
