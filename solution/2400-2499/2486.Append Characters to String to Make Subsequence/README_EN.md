@@ -71,9 +71,9 @@ It can be shown that appending any 4 characters to the end of s will never make 
 
 ### Solution 1: Two Pointers
 
-We define two pointers $i$ and $j$, pointing to the first characters of strings $s$ and $t$ respectively. We traverse string $t$, when $s[i] \neq t[j]$, we move pointer $i$ forward until $s[i] = t[j]$ or $i$ reaches the end of string $s$. If $i$ reaches the end of string $s$, it means that the character $t[j]$ in $t$ cannot find the corresponding character in $s$, so we return the remaining number of characters in $t$. Otherwise, we move both pointers $i$ and $j$ forward and continue to traverse string $t$.
+We define two pointers $i$ and $j$, pointing to the first characters of strings $s$ and $t$ respectively. We iterate through string $s$, if $s[i] = t[j]$, then we move $j$ one step forward. Finally, we return $n - j$, where $n$ is the length of string $t$.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(1)$. Where $m$ and $n$ are the lengths of strings $s$ and $t$ respectively.
+The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of strings $s$ and $t$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -82,14 +82,11 @@ The time complexity is $O(m + n)$, and the space complexity is $O(1)$. Where $m$
 ```python
 class Solution:
     def appendCharacters(self, s: str, t: str) -> int:
-        i, m = 0, len(s)
-        for j, c in enumerate(t):
-            while i < m and s[i] != c:
-                i += 1
-            if i == m:
-                return len(t) - j
-            i += 1
-        return 0
+        n, j = len(t), 0
+        for c in s:
+            if j < n and c == t[j]:
+                j += 1
+        return n - j
 ```
 
 #### Java
@@ -97,16 +94,13 @@ class Solution:
 ```java
 class Solution {
     public int appendCharacters(String s, String t) {
-        int m = s.length(), n = t.length();
-        for (int i = 0, j = 0; j < n; ++j) {
-            while (i < m && s.charAt(i) != t.charAt(j)) {
-                ++i;
-            }
-            if (i++ == m) {
-                return n - j;
+        int n = t.length(), j = 0;
+        for (int i = 0; i < s.length() && j < n; ++i) {
+            if (s.charAt(i) == t.charAt(j)) {
+                ++j;
             }
         }
-        return 0;
+        return n - j;
     }
 }
 ```
@@ -117,16 +111,13 @@ class Solution {
 class Solution {
 public:
     int appendCharacters(string s, string t) {
-        int m = s.size(), n = t.size();
-        for (int i = 0, j = 0; j < n; ++j) {
-            while (i < m && s[i] != t[j]) {
-                ++i;
-            }
-            if (i++ == m) {
-                return n - j;
+        int n = t.length(), j = 0;
+        for (int i = 0; i < s.size() && j < n; ++i) {
+            if (s[i] == t[j]) {
+                ++j;
             }
         }
-        return 0;
+        return n - j;
     }
 };
 ```
@@ -135,16 +126,13 @@ public:
 
 ```go
 func appendCharacters(s string, t string) int {
-	m, n := len(s), len(t)
-	for i, j := 0, 0; j < n; i, j = i+1, j+1 {
-		for i < m && s[i] != t[j] {
-			i++
-		}
-		if i == m {
-			return n - j
+	n, j := len(t), 0
+	for _, c := range s {
+		if j < n && byte(c) == t[j] {
+			j++
 		}
 	}
-	return 0
+	return n - j
 }
 ```
 
@@ -152,13 +140,12 @@ func appendCharacters(s string, t string) int {
 
 ```ts
 function appendCharacters(s: string, t: string): number {
-    const n = s.length;
     let j = 0;
-
-    for (let i = 0; i < n; i++) {
-        if (s[i] === t[j]) j++;
+    for (const c of s) {
+        if (c === t[j]) {
+            ++j;
+        }
     }
-
     return t.length - j;
 }
 ```

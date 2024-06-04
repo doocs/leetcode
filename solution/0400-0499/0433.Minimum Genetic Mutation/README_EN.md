@@ -62,7 +62,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: BFS
+
+We define a queue `q` to store the current gene sequence and the number of changes, and a set `vis` to store the visited gene sequences. Initially, we add the starting gene sequence `start` to the queue `q` and the set `vis`.
+
+Then, we continuously take out a gene sequence from the queue `q`. If this gene sequence equals the target gene sequence, we return the current number of changes. Otherwise, we iterate through the gene bank `bank`, calculate the difference value between the current gene sequence and the gene sequence in the gene bank. If the difference value is $1$ and the gene sequence in the gene bank has not been visited, we add it to the queue `q` and the set `vis`.
+
+If the queue `q` is empty, it means that the gene change cannot be completed, so we return $-1$.
+
+The time complexity is $O(C \times n \times m)$, and the space complexity is $O(n \times m)$. Where $n$ and $m$ are the lengths of the gene sequence and the gene bank respectively, and $C$ is the size of the character set of the gene sequence. In this problem, $C = 4$.
 
 <!-- tabs:start -->
 
@@ -70,20 +78,18 @@ tags:
 
 ```python
 class Solution:
-    def minMutation(self, start: str, end: str, bank: List[str]) -> int:
-        s = set(bank)
-        q = deque([(start, 0)])
-        mp = {'A': 'TCG', 'T': 'ACG', 'C': 'ATG', 'G': 'ATC'}
+    def minMutation(self, startGene: str, endGene: str, bank: List[str]) -> int:
+        q = deque([(startGene, 0)])
+        vis = {startGene}
         while q:
-            t, step = q.popleft()
-            if t == end:
-                return step
-            for i, v in enumerate(t):
-                for j in mp[v]:
-                    next = t[:i] + j + t[i + 1 :]
-                    if next in s:
-                        q.append((next, step + 1))
-                        s.remove(next)
+            gene, depth = q.popleft()
+            if gene == endGene:
+                return depth
+            for nxt in bank:
+                diff = sum(a != b for a, b in zip(gene, nxt))
+                if diff == 1 and nxt not in vis:
+                    q.append((nxt, depth + 1))
+                    vis.add(nxt)
         return -1
 ```
 
@@ -91,34 +97,32 @@ class Solution:
 
 ```java
 class Solution {
-    public int minMutation(String start, String end, String[] bank) {
-        Set<String> s = new HashSet<>();
-        for (String b : bank) {
-            s.add(b);
-        }
-        Map<Character, String> mp = new HashMap<>(4);
-        mp.put('A', "TCG");
-        mp.put('T', "ACG");
-        mp.put('C', "ATG");
-        mp.put('G', "ATC");
-        Deque<Pair<String, Integer>> q = new LinkedList<>();
-        q.offer(new Pair<>(start, 0));
+    public int minMutation(String startGene, String endGene, String[] bank) {
+        Deque<String> q = new ArrayDeque<>();
+        q.offer(startGene);
+        Set<String> vis = new HashSet<>();
+        vis.add(startGene);
+        int depth = 0;
         while (!q.isEmpty()) {
-            Pair<String, Integer> p = q.poll();
-            String t = p.getKey();
-            int step = p.getValue();
-            if (end.equals(t)) {
-                return step;
-            }
-            for (int i = 0; i < t.length(); ++i) {
-                for (char c : mp.get(t.charAt(i)).toCharArray()) {
-                    String next = t.substring(0, i) + c + t.substring(i + 1);
-                    if (s.contains(next)) {
-                        q.offer(new Pair<>(next, step + 1));
-                        s.remove(next);
+            for (int m = q.size(); m > 0; --m) {
+                String gene = q.poll();
+                if (gene.equals(endGene)) {
+                    return depth;
+                }
+                for (String next : bank) {
+                    int c = 2;
+                    for (int k = 0; k < 8 && c > 0; ++k) {
+                        if (gene.charAt(k) != next.charAt(k)) {
+                            --c;
+                        }
+                    }
+                    if (c > 0 && !vis.contains(next)) {
+                        q.offer(next);
+                        vis.add(next);
                     }
                 }
             }
+            ++depth;
         }
         return -1;
     }
@@ -130,29 +134,23 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int minMutation(string start, string end, vector<string>& bank) {
-        unordered_set<string> s;
-        for (auto& b : bank) s.insert(b);
-        unordered_map<char, string> mp;
-        mp['A'] = "TCG";
-        mp['T'] = "ACG";
-        mp['C'] = "ATG";
-        mp['G'] = "ATC";
-        queue<pair<string, int>> q;
-        q.push({start, 0});
+    int minMutation(string startGene, string endGene, vector<string>& bank) {
+        queue<pair<string, int>> q{{{startGene, 0}}};
+        unordered_set<string> vis = {startGene};
         while (!q.empty()) {
-            auto p = q.front();
+            auto [gene, depth] = q.front();
             q.pop();
-            string t = p.first;
-            int step = p.second;
-            if (t == end) return step;
-            for (int i = 0; i < t.size(); ++i) {
-                for (char c : mp[t[i]]) {
-                    string next = t.substr(0, i) + c + t.substr(i + 1, t.size() - i - 1);
-                    if (s.count(next)) {
-                        q.push({next, step + 1});
-                        s.erase(next);
-                    }
+            if (gene == endGene) {
+                return depth;
+            }
+            for (const string& next : bank) {
+                int c = 2;
+                for (int k = 0; k < 8 && c; ++k) {
+                    c -= gene[k] != next[k];
+                }
+                if (c && !vis.contains(next)) {
+                    vis.insert(next);
+                    q.push({next, depth + 1});
                 }
             }
         }
@@ -164,35 +162,29 @@ public:
 #### Go
 
 ```go
-func minMutation(start string, end string, bank []string) int {
-	s := make(map[string]bool)
-	for _, b := range bank {
-		s[b] = true
-	}
-	mp := make(map[byte]string)
-	mp['A'] = "TCG"
-	mp['T'] = "ACG"
-	mp['C'] = "ATG"
-	mp['G'] = "ATC"
+func minMutation(startGene string, endGene string, bank []string) int {
 	type pair struct {
-		first  string
-		second int
+		s     string
+		depth int
 	}
-	q := []pair{{start, 0}}
+	q := []pair{pair{startGene, 0}}
+	vis := map[string]bool{startGene: true}
 	for len(q) > 0 {
 		p := q[0]
 		q = q[1:]
-		t, step := p.first, p.second
-		if t == end {
-			return step
+		if p.s == endGene {
+			return p.depth
 		}
-		for i := 0; i < len(t); i++ {
-			for _, c := range mp[t[i]] {
-				next := t[:i] + string(c) + t[i+1:]
-				if s[next] {
-					q = append(q, pair{next, step + 1})
-					s[next] = false
+		for _, next := range bank {
+			diff := 0
+			for i := 0; i < len(startGene); i++ {
+				if p.s[i] != next[i] {
+					diff++
 				}
+			}
+			if diff == 1 && !vis[next] {
+				vis[next] = true
+				q = append(q, pair{next, p.depth + 1})
 			}
 		}
 	}
@@ -230,187 +222,37 @@ function minMutation(startGene: string, endGene: string, bank: string[]): number
 #### Rust
 
 ```rust
-use std::collections::VecDeque;
-impl Solution {
-    pub fn min_mutation(start: String, end: String, mut bank: Vec<String>) -> i32 {
-        let mut queue = vec![start].into_iter().collect::<VecDeque<String>>();
-        let mut res = 0;
-        while !queue.is_empty() {
-            let n = queue.len();
-            for _ in 0..n {
-                let s1 = queue.pop_front().unwrap();
-                if s1 == end {
-                    return res;
-                }
+use std::collections::{ HashSet, VecDeque };
 
-                for i in (0..bank.len()).rev() {
-                    let s1 = s1.as_bytes();
-                    let s2 = bank[i].as_bytes();
-                    let mut count = 0;
-                    for j in 0..8 {
-                        if s1[j] != s2[j] {
-                            count += 1;
-                        }
+impl Solution {
+    pub fn min_mutation(start_gene: String, end_gene: String, bank: Vec<String>) -> i32 {
+        let mut q = VecDeque::new();
+        q.push_back((start_gene.clone(), 0));
+        let mut vis = HashSet::new();
+        vis.insert(start_gene);
+
+        while let Some((gene, depth)) = q.pop_front() {
+            if gene == end_gene {
+                return depth;
+            }
+            for next in &bank {
+                let mut c = 2;
+                for k in 0..8 {
+                    if gene.as_bytes()[k] != next.as_bytes()[k] {
+                        c -= 1;
                     }
-                    if count <= 1 {
-                        queue.push_back(bank.remove(i));
+                    if c == 0 {
+                        break;
                     }
+                }
+                if c > 0 && !vis.contains(next) {
+                    vis.insert(next.clone());
+                    q.push_back((next.clone(), depth + 1));
                 }
             }
-            res += 1;
         }
         -1
     }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def minMutation(self, start: str, end: str, bank: List[str]) -> int:
-        def dfs(start, t):
-            if start == end:
-                nonlocal ans
-                ans = min(ans, t)
-                return
-            for i, x in enumerate(start):
-                for y in 'ACGT':
-                    if x != y:
-                        nxt = start[:i] + y + start[i + 1 :]
-                        if nxt in s:
-                            s.remove(nxt)
-                            dfs(nxt, t + 1)
-
-        s = set(bank)
-        ans = inf
-        dfs(start, 0)
-        return -1 if ans == inf else ans
-```
-
-#### Java
-
-```java
-class Solution {
-    private int ans;
-    private Set<String> s;
-    private static final char[] seq = {'A', 'C', 'G', 'T'};
-
-    public int minMutation(String start, String end, String[] bank) {
-        s = new HashSet<>();
-        for (String b : bank) {
-            s.add(b);
-        }
-        ans = Integer.MAX_VALUE;
-        dfs(start, end, 0);
-        s.remove(start);
-        return ans == Integer.MAX_VALUE ? -1 : ans;
-    }
-
-    private void dfs(String start, String end, int t) {
-        if (start.equals(end)) {
-            ans = Math.min(ans, t);
-            return;
-        }
-        for (int i = 0; i < start.length(); ++i) {
-            for (char c : seq) {
-                if (start.charAt(i) == c) {
-                    continue;
-                }
-                String nxt = start.substring(0, i) + c + start.substring(i + 1);
-                if (s.contains(nxt)) {
-                    s.remove(nxt);
-                    dfs(nxt, end, t + 1);
-                }
-            }
-        }
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int ans;
-    string seq = "ACGT";
-
-    int minMutation(string start, string end, vector<string>& bank) {
-        unordered_set<string> s;
-        for (auto& b : bank) s.insert(b);
-        ans = INT_MAX;
-        s.erase(start);
-        dfs(start, end, s, 0);
-        return ans == INT_MAX ? -1 : ans;
-    }
-
-    void dfs(string& start, string& end, unordered_set<string>& s, int t) {
-        if (start == end) {
-            ans = min(ans, t);
-            return;
-        }
-        for (int i = 0; i < start.size(); ++i) {
-            for (char& c : seq) {
-                if (start[i] == c) continue;
-                string nxt = start.substr(0, i) + c + start.substr(i + 1, start.size() - i - 1);
-                if (s.count(nxt)) {
-                    s.erase(nxt);
-                    dfs(nxt, end, s, t + 1);
-                }
-            }
-        }
-    }
-};
-```
-
-#### Go
-
-```go
-func minMutation(start string, end string, bank []string) int {
-	s := make(map[string]bool)
-	for _, b := range bank {
-		s[b] = true
-	}
-	ans := math.MaxInt32
-	s[start] = false
-	seq := []rune{'A', 'C', 'G', 'T'}
-	var dfs func(start string, t int)
-	dfs = func(start string, t int) {
-		if start == end {
-			if ans > t {
-				ans = t
-			}
-			return
-		}
-		for i, x := range start {
-			for _, y := range seq {
-				if x == y {
-					continue
-				}
-				nxt := start[:i] + string(y) + start[i+1:]
-				if s[nxt] {
-					s[nxt] = false
-					dfs(nxt, t+1)
-				}
-			}
-		}
-	}
-	dfs(start, 0)
-	if ans == math.MaxInt32 {
-		return -1
-	}
-	return ans
 }
 ```
 

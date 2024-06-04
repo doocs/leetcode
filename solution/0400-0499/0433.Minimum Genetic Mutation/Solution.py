@@ -1,16 +1,14 @@
 class Solution:
-    def minMutation(self, start: str, end: str, bank: List[str]) -> int:
-        s = set(bank)
-        q = deque([(start, 0)])
-        mp = {'A': 'TCG', 'T': 'ACG', 'C': 'ATG', 'G': 'ATC'}
+    def minMutation(self, startGene: str, endGene: str, bank: List[str]) -> int:
+        q = deque([(startGene, 0)])
+        vis = {startGene}
         while q:
-            t, step = q.popleft()
-            if t == end:
-                return step
-            for i, v in enumerate(t):
-                for j in mp[v]:
-                    next = t[:i] + j + t[i + 1 :]
-                    if next in s:
-                        q.append((next, step + 1))
-                        s.remove(next)
+            gene, depth = q.popleft()
+            if gene == endGene:
+                return depth
+            for nxt in bank:
+                diff = sum(a != b for a, b in zip(gene, nxt))
+                if diff == 1 and nxt not in vis:
+                    q.append((nxt, depth + 1))
+                    vis.add(nxt)
         return -1
