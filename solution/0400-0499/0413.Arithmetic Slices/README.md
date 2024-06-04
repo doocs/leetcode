@@ -67,7 +67,7 @@ tags:
 
 我们用 $d$ 表示当前相邻两个元素的差值，用 $cnt$ 表示当前等差数列的长度，初始时 $d = 3000$, $cnt = 2$。
 
-遍历数组 `nums`，对于相邻的两个元素 $a$ 和 $b$，如果 $b - a = d$，则说明当前元素 $b$ 也属于当前等差数列，此时 $cnt$ 自增 1；否则说明当前元素 $b$ 不属于当前等差数列，此时更新 $d = b - a$，$cnt = 2$。如果 $cnt \ge 3$，则说明当前等差数列的长度至少为 3，此时等差数列的个数为 $cnt - 2$，将其加到答案中。
+遍历数组 `nums`，对于相邻的两个元素 $a$ 和 $b$，如果 $b - a = d$，则说明当前元素 $b$ 也属于当前等差数列，此时 $cnt$ 自增 1；否则说明当前元素 $b$ 不属于当前等差数列，此时更新 $d = b - a$，且 $cnt = 2$。如果 $cnt \ge 3$，则说明当前等差数列的长度至少为 3，此时等差数列的个数为 $cnt - 2$，将其加到答案中。
 
 遍历结束后，即可得到答案。
 
@@ -87,15 +87,15 @@ tags:
 ```python
 class Solution:
     def numberOfArithmeticSlices(self, nums: List[int]) -> int:
-        ans, cnt = 0, 2
+        ans = cnt = 0
         d = 3000
         for a, b in pairwise(nums):
             if b - a == d:
                 cnt += 1
             else:
                 d = b - a
-                cnt = 2
-            ans += max(0, cnt - 2)
+                cnt = 0
+            ans += cnt
         return ans
 ```
 
@@ -181,33 +181,6 @@ function numberOfArithmeticSlices(nums: number[]): number {
     }
     return ans;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def numberOfArithmeticSlices(self, nums: List[int]) -> int:
-        ans = cnt = 0
-        d = 3000
-        for a, b in pairwise(nums):
-            if b - a == d:
-                cnt += 1
-            else:
-                d = b - a
-                cnt = 0
-            ans += cnt
-        return ans
 ```
 
 <!-- tabs:end -->

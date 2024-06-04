@@ -65,9 +65,7 @@ $$
 
 最终答案为 $f[n][m]$。
 
-注意到 $f[i][j]$ 只与 $f[i - 1][\cdot]$ 有关，因此我们可以将二维数组压缩成一维数组。
-
-时间复杂度 $O(n \times m)$，空间复杂度 $O(m)$。其中 $n$ 是数组的长度，而 $m$ 是数组的总和的一半。
+时间复杂度 $(m \times n)$，空间复杂度 $(m \times n)$。其中 $m$ 和 $n$ 分别为数组的总和的一半和数组的长度。
 
 <!-- tabs:start -->
 
@@ -179,9 +177,7 @@ function canPartition(nums: number[]): boolean {
     }
     const n = nums.length;
     const m = s >> 1;
-    const f: boolean[][] = Array(n + 1)
-        .fill(0)
-        .map(() => Array(m + 1).fill(false));
+    const f: boolean[][] = Array.from({ length: n + 1 }, () => Array(m + 1).fill(false));
     f[0][0] = true;
     for (let i = 1; i <= n; ++i) {
         const x = nums[i - 1];
@@ -245,9 +241,7 @@ var canPartition = function (nums) {
     }
     const n = nums.length;
     const m = s >> 1;
-    const f = Array(n + 1)
-        .fill(0)
-        .map(() => Array(m + 1).fill(false));
+    const f = Array.from({ length: n + 1 }, () => Array(m + 1).fill(false));
     f[0][0] = true;
     for (let i = 1; i <= n; ++i) {
         const x = nums[i - 1];
@@ -265,7 +259,11 @@ var canPartition = function (nums) {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：动态规划（空间优化）
+
+我们注意到，方法一中 $f[i][j]$ 只与 $f[i - 1][\cdot]$ 有关，因此我们可以将二维数组压缩成一维数组。
+
+时间复杂度 $O(n \times m)$，空间复杂度 $O(m)$。其中 $n$ 是数组的长度，而 $m$ 是数组的总和的一半。
 
 <!-- tabs:start -->
 
