@@ -180,4 +180,30 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Bitwise inversion and odd counting
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function longestPalindrome(s: string): number {
+    const odd: Record<string, number> = {};
+    let c = 0;
+
+    for (const ch of s) {
+        odd[ch] ^= 1;
+        c += odd[ch] ? 1 : -1;
+    }
+
+    return c ? s.length - c + 1 : s.length;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
