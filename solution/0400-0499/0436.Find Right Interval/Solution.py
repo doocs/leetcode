@@ -1,12 +1,10 @@
 class Solution:
     def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
-        for i, v in enumerate(intervals):
-            v.append(i)
-        intervals.sort()
         n = len(intervals)
         ans = [-1] * n
-        for _, e, i in intervals:
-            j = bisect_left(intervals, [e])
+        arr = sorted((st, i) for i, (st, _) in enumerate(intervals))
+        for i, (_, ed) in enumerate(intervals):
+            j = bisect_left(arr, (ed, -inf))
             if j < n:
-                ans[i] = intervals[j][2]
+                ans[i] = arr[j][1]
         return ans
