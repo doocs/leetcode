@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3169.Count%20Days%20Without%20Meetings/README_EN.md
+tags:
+    - Array
+    - Sorting
 ---
 
 <!-- problem:start -->

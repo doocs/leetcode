@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3172.Second%20Day%20Verification/README.md
+tags:
+    - 数据库
 ---
 
 <!-- problem:start -->
@@ -95,8 +97,8 @@ signup_action 是 ('Verified', 'Not Verified') 的枚举类型。
 <p><strong>解释：</strong></p>
 
 <ul>
-	<li>email_id 为 7005 的用户在 2022-08-20 10:00:00 注册并且在第二天验证。</li>
-	<li>email_id 为 7771 的用户在 2022-06-14 09:30:00 注册并且在第二天验证。</li>
+	<li>user_id 为 7005 的用户在 2022-08-20 10:00:00 注册并且在第二天验证。</li>
+	<li>user_id 为 7771 的用户在 2022-06-14 09:30:00 注册并且在第二天验证。</li>
 </ul>
 </div>
 

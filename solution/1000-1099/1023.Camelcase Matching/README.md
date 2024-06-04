@@ -24,7 +24,7 @@ tags:
 
 <p>给你一个字符串数组 <code>queries</code>，和一个表示模式的字符串&nbsp;<code>pattern</code>，请你返回一个布尔数组 <code>answer</code> 。只有在待查项&nbsp;<code>queries[i]</code> 与模式串&nbsp;<code>pattern</code> 匹配时，&nbsp;<code>answer[i]</code>&nbsp;才为 <code>true</code>，否则为 <code>false</code>。</p>
 
-<p>如果可以将<strong>小写字母</strong>插入模式串&nbsp;<code>pattern</code>&nbsp;得到待查询项&nbsp;<code>query</code>，那么待查询项与给定模式串匹配。可以在任何位置插入每个字符，也可以不插入字符。</p>
+<p>如果可以将<strong>小写字母</strong>插入模式串&nbsp;<code>pattern</code>&nbsp;得到待查询项&nbsp;<code>queries[i]</code>，那么待查询项与给定模式串匹配。可以在任何位置插入每个字符，也可以不插入字符。</p>
 
 <p>&nbsp;</p>
 

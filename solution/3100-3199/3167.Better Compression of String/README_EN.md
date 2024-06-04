@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3167.Better%20Compression%20of%20String/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Counting
+    - Sorting
 ---
 
 <!-- problem:start -->

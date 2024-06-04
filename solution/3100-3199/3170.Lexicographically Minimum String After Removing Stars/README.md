@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3170.Lexicographically%20Minimum%20String%20After%20Removing%20Stars/README.md
+tags:
+    - 栈
+    - 贪心
+    - 哈希表
+    - 字符串
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->
