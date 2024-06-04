@@ -366,14 +366,14 @@ public class Solution {
 class Solution {
     func isPalindrome(_ head: ListNode?) -> Bool {
         guard let head = head else { return true }
-        
+
         var slow = head
         var fast = head.next
         while fast != nil && fast?.next != nil {
             slow = slow.next!
             fast = fast?.next?.next
         }
-        
+
         var cur = slow.next
 
         var prev: ListNode? = nil
@@ -383,7 +383,7 @@ class Solution {
             prev = cur
             cur = nextTemp
         }
-        
+
         var left = head
         var right = prev
         while right != nil {
