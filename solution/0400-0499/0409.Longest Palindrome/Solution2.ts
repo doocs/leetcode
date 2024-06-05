@@ -1,11 +1,9 @@
 function longestPalindrome(s: string): number {
     const odd: Record<string, number> = {};
-    let c = 0;
-
-    for (const ch of s) {
-        odd[ch] ^= 1;
-        c += odd[ch] ? 1 : -1;
+    let cnt = 0;
+    for (const c of s) {
+        odd[c] ^= 1;
+        cnt += odd[c] ? 1 : -1;
     }
-
-    return c ? s.length - c + 1 : s.length;
+    return cnt ? s.length - cnt + 1 : s.length;
 }
