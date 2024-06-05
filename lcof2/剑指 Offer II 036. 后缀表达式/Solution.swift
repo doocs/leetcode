@@ -1,28 +1,26 @@
 class Solution {
     func evalRPN(_ tokens: [String]) -> Int {
-        var stack = [Int]()
-        
+        var stk = [Int]()
+
         for token in tokens {
             if let num = Int(token) {
-                stack.append(num)
+                stk.append(num)
             } else {
-                let y = stack.removeLast()
-                let x = stack.removeLast()
+                let y = stk.removeLast()
+                let x = stk.removeLast()
                 switch token {
                 case "+":
-                    stack.append(x + y)
+                    stk.append(x + y)
                 case "-":
-                    stack.append(x - y)
+                    stk.append(x - y)
                 case "*":
-                    stack.append(x * y)
-                case "/":
-                    stack.append(x / y)
+                    stk.append(x * y)
                 default:
-                    fatalError("Invalid operator")
+                    stk.append(x / y)
                 }
             }
         }
-        
-        return stack.removeLast()
+
+        return stk.removeLast()
     }
 }
