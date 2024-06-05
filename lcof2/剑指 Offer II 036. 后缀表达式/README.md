@@ -223,7 +223,7 @@ func popInt(stack *arraystack.Stack) int {
 class Solution {
     func evalRPN(_ tokens: [String]) -> Int {
         var stack = [Int]()
-        
+
         for token in tokens {
             if let num = Int(token) {
                 stack.append(num)
@@ -244,7 +244,7 @@ class Solution {
                 }
             }
         }
-        
+
         return stack.removeLast()
     }
 }
