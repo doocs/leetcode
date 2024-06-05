@@ -185,15 +185,15 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Bit Manipulation + Counting
+### 方法二：位运算 + 计数
 
-We can use an array or hash table $odd$ to record whether each character in string $s$ appears an odd number of times, and an integer variable $cnt$ to record the number of characters that appear an odd number of times.
+我们可以使用一个数组或哈希表 $odd$ 记录字符串 $s$ 中每个字符是否出现奇数次，用一个整型变量 $cnt$ 记录出现奇数次的字符个数。
 
-We iterate through the string $s$. For each character $c$, we flip $odd[c]$, i.e., $0 \rightarrow 1$, $1 \rightarrow 0$. If $odd[c]$ changes from $0$ to $1$, then we increment $cnt$ by one; if $odd[c]$ changes from $1$ to $0$, then we decrement $cnt$ by one.
+遍历字符串 $s$，对于每个字符 $c$，将 $odd[c]$ 取反，即 $0 \rightarrow 1$, $1 \rightarrow 0$。如果 $odd[c]$ 由 $0$ 变为 $1$，则 $cnt$ 加一；如果 $odd[c]$ 由 $1$ 变为 $0$，则 $cnt$ 减一。
 
-Finally, if $cnt$ is greater than $0$, the answer is $n - cnt + 1$, otherwise, the answer is $n$.
+最后，如果 $cnt$ 大于 $0$，答案为 $n - cnt + 1$，否则答案为 $n$。
 
-The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 128$.
+时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$。其中，$n$ 为字符串 $s$ 的长度，而 $|\Sigma|$ 为字符集大小，在本题中 $|\Sigma| = 128$。
 
 <!-- tabs:start -->
 
