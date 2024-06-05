@@ -183,4 +183,104 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：位运算 + 计数
+
+我们可以使用一个数组或哈希表 $odd$ 记录字符串 $s$ 中每个字符是否出现奇数次，用一个整型变量 $cnt$ 记录出现奇数次的字符个数。
+
+遍历字符串 $s$，对于每个字符 $c$，将 $odd[c]$ 取反，即 $0 \rightarrow 1$, $1 \rightarrow 0$。如果 $odd[c]$ 由 $0$ 变为 $1$，则 $cnt$ 加一；如果 $odd[c]$ 由 $1$ 变为 $0$，则 $cnt$ 减一。
+
+最后，如果 $cnt$ 大于 $0$，答案为 $n - cnt + 1$，否则答案为 $n$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$。其中，$n$ 为字符串 $s$ 的长度，而 $|\Sigma|$ 为字符集大小，在本题中 $|\Sigma| = 128$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        odd = defaultdict(int)
+        cnt = 0
+        for c in s:
+            odd[c] ^= 1
+            cnt += 1 if odd[c] else -1
+        return len(s) - cnt + 1 if cnt else len(s)
+```
+
+#### Java
+
+```java
+class Solution {
+    public int longestPalindrome(String s) {
+        int[] odd = new int[128];
+        int n = s.length();
+        int cnt = 0;
+        for (int i = 0; i < n; ++i) {
+            odd[s.charAt(i)] ^= 1;
+            cnt += odd[s.charAt(i)] == 1 ? 1 : -1;
+        }
+        return cnt > 0 ? n - cnt + 1 : n;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int longestPalindrome(string s) {
+        int odd[128]{};
+        int n = s.length();
+        int cnt = 0;
+        for (char& c : s) {
+            odd[c] ^= 1;
+            cnt += odd[c] ? 1 : -1;
+        }
+        return cnt ? n - cnt + 1 : n;
+    }
+};
+```
+
+#### Go
+
+```go
+func longestPalindrome(s string) (ans int) {
+	odd := [128]int{}
+	cnt := 0
+	for _, c := range s {
+		odd[c] ^= 1
+		cnt += odd[c]
+		if odd[c] == 0 {
+			cnt--
+		}
+	}
+	if cnt > 0 {
+		return len(s) - cnt + 1
+	}
+	return len(s)
+}
+```
+
+#### TypeScript
+
+```ts
+function longestPalindrome(s: string): number {
+    const odd: Record<string, number> = {};
+    let cnt = 0;
+    for (const c of s) {
+        odd[c] ^= 1;
+        cnt += odd[c] ? 1 : -1;
+    }
+    return cnt ? s.length - cnt + 1 : s.length;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
