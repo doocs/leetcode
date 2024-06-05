@@ -185,23 +185,97 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Bitwise inversion and odd counting
+### Solution 2: Bit Manipulation + Counting
+
+We can use an array or hash table $odd$ to record whether each character in string $s$ appears an odd number of times, and an integer variable $cnt$ to record the number of characters that appear an odd number of times.
+
+We iterate through the string $s$. For each character $c$, we flip $odd[c]$, i.e., $0 \rightarrow 1$, $1 \rightarrow 0$. If $odd[c]$ changes from $0$ to $1$, then we increment $cnt$ by one; if $odd[c]$ changes from $1$ to $0$, then we decrement $cnt$ by one.
+
+Finally, if $cnt$ is greater than $0$, the answer is $n - cnt + 1$, otherwise, the answer is $n$.
+
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 128$.
 
 <!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        odd = defaultdict(int)
+        cnt = 0
+        for c in s:
+            odd[c] ^= 1
+            cnt += 1 if odd[c] else -1
+        return len(s) - cnt + 1 if cnt else len(s)
+```
+
+#### Java
+
+```java
+class Solution {
+    public int longestPalindrome(String s) {
+        int[] odd = new int[128];
+        int n = s.length();
+        int cnt = 0;
+        for (int i = 0; i < n; ++i) {
+            odd[s.charAt(i)] ^= 1;
+            cnt += odd[s.charAt(i)] == 1 ? 1 : -1;
+        }
+        return cnt > 0 ? n - cnt + 1 : n;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int longestPalindrome(string s) {
+        int odd[128]{};
+        int n = s.length();
+        int cnt = 0;
+        for (char& c : s) {
+            odd[c] ^= 1;
+            cnt += odd[c] ? 1 : -1;
+        }
+        return cnt ? n - cnt + 1 : n;
+    }
+};
+```
+
+#### Go
+
+```go
+func longestPalindrome(s string) (ans int) {
+	odd := [128]int{}
+	cnt := 0
+	for _, c := range s {
+		odd[c] ^= 1
+		cnt += odd[c]
+		if odd[c] == 0 {
+			cnt--
+		}
+	}
+	if cnt > 0 {
+		return len(s) - cnt + 1
+	}
+	return len(s)
+}
+```
 
 #### TypeScript
 
 ```ts
 function longestPalindrome(s: string): number {
     const odd: Record<string, number> = {};
-    let c = 0;
-
-    for (const ch of s) {
-        odd[ch] ^= 1;
-        c += odd[ch] ? 1 : -1;
+    let cnt = 0;
+    for (const c of s) {
+        odd[c] ^= 1;
+        cnt += odd[c] ? 1 : -1;
     }
-
-    return c ? s.length - c + 1 : s.length;
+    return cnt ? s.length - cnt + 1 : s.length;
 }
 ```
 
