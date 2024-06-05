@@ -152,21 +152,52 @@ func fourSumCount(nums1 []int, nums2 []int, nums3 []int, nums4 []int) (ans int) 
 
 ```ts
 function fourSumCount(nums1: number[], nums2: number[], nums3: number[], nums4: number[]): number {
-    const cnt: Map<number, number> = new Map();
+    const cnt: Record<number, number> = {};
     for (const a of nums1) {
         for (const b of nums2) {
             const x = a + b;
-            cnt.set(x, (cnt.get(x) || 0) + 1);
+            cnt[x] = (cnt[x] || 0) + 1;
         }
     }
     let ans = 0;
     for (const c of nums3) {
         for (const d of nums4) {
             const x = c + d;
-            ans += cnt.get(-x) || 0;
+            ans += cnt[-x] || 0;
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn four_sum_count(
+        nums1: Vec<i32>,
+        nums2: Vec<i32>,
+        nums3: Vec<i32>,
+        nums4: Vec<i32>
+    ) -> i32 {
+        let mut cnt = HashMap::new();
+        for &a in &nums1 {
+            for &b in &nums2 {
+                *cnt.entry(a + b).or_insert(0) += 1;
+            }
+        }
+        let mut ans = 0;
+        for &c in &nums3 {
+            for &d in &nums4 {
+                if let Some(&count) = cnt.get(&(0 - (c + d))) {
+                    ans += count;
+                }
+            }
+        }
+        ans
+    }
 }
 ```
 
