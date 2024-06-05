@@ -670,23 +670,22 @@ public class LRUCache {
 #### Swift
 
 ```swift
-/* class Node {
-*     var key: Int
-*     var val: Int
-*     var prev: Node?
-*     var next: Node?
-    
-*     init() {
-*         self.key = 0
-*         self.val = 0
-*     }
-    
-*     init(_ key: Int, _ val: Int) {
-*         self.key = key
-*         self.val = val
-*     }
-* }
-*/
+class Node {
+    var key: Int
+    var val: Int
+    var prev: Node?
+    var next: Node?
+
+    init() {
+        self.key = 0
+        self.val = 0
+    }
+
+    init(_ key: Int, _ val: Int) {
+        self.key = key
+        self.val = val
+    }
+}
 
 class LRUCache {
     private var cache = [Int: Node]()
@@ -694,7 +693,7 @@ class LRUCache {
     private let tail: Node
     private let capacity: Int
     private var size: Int
-    
+
     init(_ capacity: Int) {
         self.capacity = capacity
         self.size = 0
@@ -703,7 +702,7 @@ class LRUCache {
         head.next = tail
         tail.prev = head
     }
-    
+
     func get(_ key: Int) -> Int {
         guard let node = cache[key] else {
             return -1
@@ -711,7 +710,7 @@ class LRUCache {
         moveToHead(node)
         return node.val
     }
-    
+
     func put(_ key: Int, _ value: Int) {
         if let node = cache[key] {
             node.val = value
@@ -728,24 +727,24 @@ class LRUCache {
             }
         }
     }
-    
+
     private func moveToHead(_ node: Node) {
         removeNode(node)
         addToHead(node)
     }
-    
+
     private func removeNode(_ node: Node) {
         node.prev?.next = node.next
         node.next?.prev = node.prev
     }
-    
+
     private func addToHead(_ node: Node) {
         node.next = head.next
         node.prev = head
         head.next?.prev = node
         head.next = node
     }
-    
+
     private func removeTail() -> Node {
         let node = tail.prev!
         removeNode(node)
@@ -754,10 +753,11 @@ class LRUCache {
 }
 
 /**
-* let cache = LRUCache(2)
-* cache.put(1, 1)
-* cache.put(2, 2)
-*/
+ * Your LRUCache object will be instantiated and called as such:
+ * let obj = LRUCache(capacity)
+ * let ret_1: Int = obj.get(key)
+ * obj.put(key, value)
+ */
 ```
 
 <!-- tabs:end -->
