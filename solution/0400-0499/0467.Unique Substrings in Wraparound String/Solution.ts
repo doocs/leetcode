@@ -1,16 +1,15 @@
-function findSubstringInWraproundString(p: string): number {
-    const n = p.length;
-    const dp = new Array(26).fill(0);
-    let cur = 1;
-    dp[p.charCodeAt(0) - 'a'.charCodeAt(0)] = 1;
-    for (let i = 1; i < n; i++) {
-        if ((p.charCodeAt(i) - p.charCodeAt(i - 1) + 25) % 26 == 0) {
-            cur++;
+function findSubstringInWraproundString(s: string): number {
+    const idx = (c: string): number => c.charCodeAt(0) - 97;
+    const f: number[] = Array(26).fill(0);
+    const n = s.length;
+    for (let i = 0, k = 0; i < n; ++i) {
+        const j = idx(s[i]);
+        if (i && (j - idx(s[i - 1]) + 26) % 26 === 1) {
+            ++k;
         } else {
-            cur = 1;
+            k = 1;
         }
-        const index = p.charCodeAt(i) - 'a'.charCodeAt(0);
-        dp[index] = Math.max(dp[index], cur);
+        f[j] = Math.max(f[j], k);
     }
-    return dp.reduce((r, v) => r + v);
+    return f.reduce((acc, cur) => acc + cur, 0);
 }

@@ -1,19 +1,20 @@
 impl Solution {
-    pub fn find_substring_in_wrapround_string(p: String) -> i32 {
-        let n = p.len();
-        let p = p.as_bytes();
-        let mut dp = [0; 26];
-        let mut cur = 1;
-        dp[(p[0] - b'a') as usize] = 1;
-        for i in 1..n {
-            if (p[i] - p[i - 1] + 25) % 26 == 0 {
-                cur += 1;
+    pub fn find_substring_in_wrapround_string(s: String) -> i32 {
+        let idx = |c: u8| -> usize { (c - b'a') as usize };
+        let mut f = vec![0; 26];
+        let n = s.len();
+        let s = s.as_bytes();
+        let mut k = 0;
+        for i in 0..n {
+            let j = idx(s[i]);
+            if i > 0 && ((j as i32) - (idx(s[i - 1]) as i32) + 26) % 26 == 1 {
+                k += 1;
             } else {
-                cur = 1;
+                k = 1;
             }
-            let index = (p[i] - b'a') as usize;
-            dp[index] = dp[index].max(cur);
+            f[j] = f[j].max(k);
         }
-        dp.into_iter().sum()
+
+        f.iter().sum()
     }
 }

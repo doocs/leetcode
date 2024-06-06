@@ -64,7 +64,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We can define an array $f$ of length $26$, where $f[i]$ represents the length of the longest consecutive substring ending with the $i$th character. The answer is the sum of all elements in $f$.
+
+We define a variable $k$ to represent the length of the longest consecutive substring ending with the current character. We iterate through the string $s$. For each character $c$, if the difference between $c$ and the previous character $s[i - 1]$ is $1$, then we increment $k$ by $1$, otherwise, we reset $k$ to $1$. Then we update $f[c]$ to be the larger value of $f[c]$ and $k$.
+
+Finally, we return the sum of all elements in $f$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set, in this case, the set of lowercase letters.
 
 <!-- tabs:start -->
 
@@ -72,40 +80,34 @@ tags:
 
 ```python
 class Solution:
-    def findSubstringInWraproundString(self, p: str) -> int:
-        dp = [0] * 26
+    def findSubstringInWraproundString(self, s: str) -> int:
+        f = defaultdict(int)
         k = 0
-        for i, c in enumerate(p):
-            if i and (ord(c) - ord(p[i - 1])) % 26 == 1:
+        for i, c in enumerate(s):
+            if i and (ord(c) - ord(s[i - 1])) % 26 == 1:
                 k += 1
             else:
                 k = 1
-            idx = ord(c) - ord('a')
-            dp[idx] = max(dp[idx], k)
-        return sum(dp)
+            f[c] = max(f[c], k)
+        return sum(f.values())
 ```
 
 #### Java
 
 ```java
 class Solution {
-    public int findSubstringInWraproundString(String p) {
-        int[] dp = new int[26];
-        int k = 0;
-        for (int i = 0; i < p.length(); ++i) {
-            char c = p.charAt(i);
-            if (i > 0 && (c - p.charAt(i - 1) + 26) % 26 == 1) {
+    public int findSubstringInWraproundString(String s) {
+        int[] f = new int[26];
+        int n = s.length();
+        for (int i = 0, k = 0; i < n; ++i) {
+            if (i > 0 && (s.charAt(i) - s.charAt(i - 1) + 26) % 26 == 1) {
                 ++k;
             } else {
                 k = 1;
             }
-            dp[c - 'a'] = Math.max(dp[c - 'a'], k);
+            f[s.charAt(i) - 'a'] = Math.max(f[s.charAt(i) - 'a'], k);
         }
-        int ans = 0;
-        for (int v : dp) {
-            ans += v;
-        }
-        return ans;
+        return Arrays.stream(f).sum();
     }
 }
 ```
@@ -115,20 +117,18 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int findSubstringInWraproundString(string p) {
-        vector<int> dp(26);
-        int k = 0;
-        for (int i = 0; i < p.size(); ++i) {
-            char c = p[i];
-            if (i && (c - p[i - 1] + 26) % 26 == 1)
+    int findSubstringInWraproundString(string s) {
+        int f[26]{};
+        int n = s.length();
+        for (int i = 0, k = 0; i < n; ++i) {
+            if (i && (s[i] - s[i - 1] + 26) % 26 == 1) {
                 ++k;
-            else
+            } else {
                 k = 1;
-            dp[c - 'a'] = max(dp[c - 'a'], k);
+            }
+            f[s[i] - 'a'] = max(f[s[i] - 'a'], k);
         }
-        int ans = 0;
-        for (int& v : dp) ans += v;
-        return ans;
+        return accumulate(begin(f), end(f), 0);
     }
 };
 ```
@@ -136,44 +136,41 @@ public:
 #### Go
 
 ```go
-func findSubstringInWraproundString(p string) int {
-	dp := make([]int, 26)
+func findSubstringInWraproundString(s string) (ans int) {
+	f := [26]int{}
 	k := 0
-	for i := range p {
-		c := p[i]
-		if i > 0 && (c-p[i-1]+26)%26 == 1 {
+	for i := range s {
+		if i > 0 && (s[i]-s[i-1]+26)%26 == 1 {
 			k++
 		} else {
 			k = 1
 		}
-		dp[c-'a'] = max(dp[c-'a'], k)
+		f[s[i]-'a'] = max(f[s[i]-'a'], k)
 	}
-	ans := 0
-	for _, v := range dp {
-		ans += v
+	for _, x := range f {
+		ans += x
 	}
-	return ans
+	return
 }
 ```
 
 #### TypeScript
 
 ```ts
-function findSubstringInWraproundString(p: string): number {
-    const n = p.length;
-    const dp = new Array(26).fill(0);
-    let cur = 1;
-    dp[p.charCodeAt(0) - 'a'.charCodeAt(0)] = 1;
-    for (let i = 1; i < n; i++) {
-        if ((p.charCodeAt(i) - p.charCodeAt(i - 1) + 25) % 26 == 0) {
-            cur++;
+function findSubstringInWraproundString(s: string): number {
+    const idx = (c: string): number => c.charCodeAt(0) - 97;
+    const f: number[] = Array(26).fill(0);
+    const n = s.length;
+    for (let i = 0, k = 0; i < n; ++i) {
+        const j = idx(s[i]);
+        if (i && (j - idx(s[i - 1]) + 26) % 26 === 1) {
+            ++k;
         } else {
-            cur = 1;
+            k = 1;
         }
-        const index = p.charCodeAt(i) - 'a'.charCodeAt(0);
-        dp[index] = Math.max(dp[index], cur);
+        f[j] = Math.max(f[j], k);
     }
-    return dp.reduce((r, v) => r + v);
+    return f.reduce((acc, cur) => acc + cur, 0);
 }
 ```
 
@@ -181,22 +178,23 @@ function findSubstringInWraproundString(p: string): number {
 
 ```rust
 impl Solution {
-    pub fn find_substring_in_wrapround_string(p: String) -> i32 {
-        let n = p.len();
-        let p = p.as_bytes();
-        let mut dp = [0; 26];
-        let mut cur = 1;
-        dp[(p[0] - b'a') as usize] = 1;
-        for i in 1..n {
-            if (p[i] - p[i - 1] + 25) % 26 == 0 {
-                cur += 1;
+    pub fn find_substring_in_wrapround_string(s: String) -> i32 {
+        let idx = |c: u8| -> usize { (c - b'a') as usize };
+        let mut f = vec![0; 26];
+        let n = s.len();
+        let s = s.as_bytes();
+        let mut k = 0;
+        for i in 0..n {
+            let j = idx(s[i]);
+            if i > 0 && ((j as i32) - (idx(s[i - 1]) as i32) + 26) % 26 == 1 {
+                k += 1;
             } else {
-                cur = 1;
+                k = 1;
             }
-            let index = (p[i] - b'a') as usize;
-            dp[index] = dp[index].max(cur);
+            f[j] = f[j].max(k);
         }
-        dp.into_iter().sum()
+
+        f.iter().sum()
     }
 }
 ```
