@@ -1,18 +1,16 @@
-func findSubstringInWraproundString(p string) int {
-	dp := make([]int, 26)
+func findSubstringInWraproundString(s string) (ans int) {
+	f := [26]int{}
 	k := 0
-	for i := range p {
-		c := p[i]
-		if i > 0 && (c-p[i-1]+26)%26 == 1 {
+	for i := range s {
+		if i > 0 && (s[i]-s[i-1]+26)%26 == 1 {
 			k++
 		} else {
 			k = 1
 		}
-		dp[c-'a'] = max(dp[c-'a'], k)
+		f[s[i]-'a'] = max(f[s[i]-'a'], k)
 	}
-	ans := 0
-	for _, v := range dp {
-		ans += v
+	for _, x := range f {
+		ans += x
 	}
-	return ans
+	return
 }
