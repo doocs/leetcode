@@ -70,7 +70,31 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以定义两个函数 `isIPv4` 和 `isIPv6` 来判断一个字符串是否是有效的 IPv4 地址和 IPv6 地址。
+
+函数 `isIPv4` 的实现如下：
+
+1. 我们首先判断字符串 `s` 是否以 `.` 结尾，如果是的话，说明 `s` 不是一个有效的 IPv4 地址，直接返回 `false`。
+1. 然后我们将字符串 `s` 以 `.` 分割成一个字符串数组 `ss`，如果 `ss` 的长度不等于 `4`，说明 `s` 不是一个有效的 IPv4 地址，直接返回 `false`。
+1. 对于数组 `ss` 中的每个字符串 `t`，我们判断：
+    - 如果 `t` 的长度大于 `1` 且 `t` 的第一个字符是 `0`，说明 `t` 不是一个有效的 IPv4 地址，直接返回 `false`。
+    - 如果 `t` 不是一个数字或者 `t` 不在 `0` 到 `255` 的范围内，说明 `t` 不是一个有效的 IPv4 地址，直接返回 `false`。
+1. 如果上述条件都不满足，说明 `s` 是一个有效的 IPv4 地址，返回 `true`。
+
+函数 `isIPv6` 的实现如下：
+
+1. 我们首先判断字符串 `s` 是否以 `:` 结尾，如果是的话，说明 `s` 不是一个有效的 IPv6 地址，直接返回 `false`。
+1. 然后我们将字符串 `s` 以 `:` 分割成一个字符串数组 `ss`，如果 `ss` 的长度不等于 `8`，说明 `s` 不是一个有效的 IPv6 地址，直接返回 `false`。
+1. 对于数组 `ss` 中的每个字符串 `t`，我们判断：
+    - 如果 `t` 的长度小于 `1` 或大于 `4`，说明 `t` 不是一个有效的 IPv6 地址，直接返回 `false`。
+    - 如果 `t` 中的字符不全是 `0` 到 `9` 和 `a` 到 `f`（不区分大小写），说明 `t` 不是一个有效的 IPv6 地址，直接返回 `false`。
+1. 如果上述条件都不满足，说明 `s` 是一个有效的 IPv6 地址，返回 `true`。
+
+最后，我们调用 `isIPv4` 和 `isIPv6` 函数判断 `queryIP` 是不是一个有效的 IPv4 地址或 IPv6 地址，如果都不是，返回 `Neither`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 `queryIP` 的长度。
 
 <!-- tabs:start -->
 
@@ -78,76 +102,334 @@ tags:
 
 ```python
 class Solution:
-    def validIPAddress(self, IP: str) -> str:
-        if "." in IP:
-            segments = IP.split(".")
-            if len(segments) != 4:
-                return "Neither"
-            for segment in segments:
-                if (
-                    not segment.isdigit()
-                    or not 0 <= int(segment) <= 255
-                    or (segment[0] == "0" and len(segment) > 1)
-                ):
-                    return "Neither"
+    def validIPAddress(self, queryIP: str) -> str:
+        def is_ipv4(s: str) -> bool:
+            ss = s.split(".")
+            if len(ss) != 4:
+                return False
+            for t in ss:
+                if len(t) > 1 and t[0] == "0":
+                    return False
+                if not t.isdigit() or not 0 <= int(t) <= 255:
+                    return False
+            return True
+
+        def is_ipv6(s: str) -> bool:
+            ss = s.split(":")
+            if len(ss) != 8:
+                return False
+            for t in ss:
+                if not 1 <= len(t) <= 4:
+                    return False
+                if not all(c in "0123456789abcdefABCDEF" for c in t):
+                    return False
+            return True
+
+        if is_ipv4(queryIP):
             return "IPv4"
-        elif ":" in IP:
-            segments = IP.split(":")
-            if len(segments) != 8:
-                return "Neither"
-            for segment in segments:
-                if (
-                    not segment
-                    or len(segment) > 4
-                    or not all(c in string.hexdigits for c in segment)
-                ):
-                    return "Neither"
+        if is_ipv6(queryIP):
             return "IPv6"
         return "Neither"
+```
+
+#### Java
+
+```java
+class Solution {
+    public String validIPAddress(String queryIP) {
+        if (isIPv4(queryIP)) {
+            return "IPv4";
+        }
+        if (isIPv6(queryIP)) {
+            return "IPv6";
+        }
+        return "Neither";
+    }
+
+    private boolean isIPv4(String s) {
+        if (s.endsWith(".")) {
+            return false;
+        }
+        String[] ss = s.split("\\.");
+        if (ss.length != 4) {
+            return false;
+        }
+        for (String t : ss) {
+            if (t.length() == 0 || t.length() > 1 && t.charAt(0) == '0') {
+                return false;
+            }
+            int x = convert(t);
+            if (x < 0 || x > 255) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isIPv6(String s) {
+        if (s.endsWith(":")) {
+            return false;
+        }
+        String[] ss = s.split(":");
+        if (ss.length != 8) {
+            return false;
+        }
+        for (String t : ss) {
+            if (t.length() < 1 || t.length() > 4) {
+                return false;
+            }
+            for (char c : t.toCharArray()) {
+                if (!Character.isDigit(c)
+                    && !"0123456789abcdefABCDEF".contains(String.valueOf(c))) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private int convert(String s) {
+        int x = 0;
+        for (char c : s.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return -1;
+            }
+            x = x * 10 + (c - '0');
+            if (x > 255) {
+                return x;
+            }
+        }
+        return x;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    string validIPAddress(string queryIP) {
+        if (isIPv4(queryIP)) {
+            return "IPv4";
+        }
+        if (isIPv6(queryIP)) {
+            return "IPv6";
+        }
+        return "Neither";
+    }
+
+private:
+    bool isIPv4(const string& s) {
+        if (s.empty() || s.back() == '.') {
+            return false;
+        }
+        vector<string> ss = split(s, '.');
+        if (ss.size() != 4) {
+            return false;
+        }
+        for (const string& t : ss) {
+            if (t.empty() || (t.size() > 1 && t[0] == '0')) {
+                return false;
+            }
+            int x = convert(t);
+            if (x < 0 || x > 255) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    bool isIPv6(const string& s) {
+        if (s.empty() || s.back() == ':') {
+            return false;
+        }
+        vector<string> ss = split(s, ':');
+        if (ss.size() != 8) {
+            return false;
+        }
+        for (const string& t : ss) {
+            if (t.size() < 1 || t.size() > 4) {
+                return false;
+            }
+            for (char c : t) {
+                if (!isxdigit(c)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    int convert(const string& s) {
+        int x = 0;
+        for (char c : s) {
+            if (!isdigit(c)) {
+                return -1;
+            }
+            x = x * 10 + (c - '0');
+            if (x > 255) {
+                return x;
+            }
+        }
+        return x;
+    }
+
+    vector<string> split(const string& s, char delimiter) {
+        vector<string> tokens;
+        string token;
+        istringstream iss(s);
+        while (getline(iss, token, delimiter)) {
+            tokens.push_back(token);
+        }
+        return tokens;
+    }
+};
+```
+
+#### Go
+
+```go
+func validIPAddress(queryIP string) string {
+	if isIPv4(queryIP) {
+		return "IPv4"
+	}
+	if isIPv6(queryIP) {
+		return "IPv6"
+	}
+	return "Neither"
+}
+
+func isIPv4(s string) bool {
+	if strings.HasSuffix(s, ".") {
+		return false
+	}
+	ss := strings.Split(s, ".")
+	if len(ss) != 4 {
+		return false
+	}
+	for _, t := range ss {
+		if len(t) == 0 || (len(t) > 1 && t[0] == '0') {
+			return false
+		}
+		x := convert(t)
+		if x < 0 || x > 255 {
+			return false
+		}
+	}
+	return true
+}
+
+func isIPv6(s string) bool {
+	if strings.HasSuffix(s, ":") {
+		return false
+	}
+	ss := strings.Split(s, ":")
+	if len(ss) != 8 {
+		return false
+	}
+	for _, t := range ss {
+		if len(t) < 1 || len(t) > 4 {
+			return false
+		}
+		for _, c := range t {
+			if !unicode.IsDigit(c) && !strings.ContainsRune("0123456789abcdefABCDEF", c) {
+				return false
+			}
+		}
+	}
+	return true
+}
+
+func convert(s string) int {
+	x := 0
+	for _, c := range s {
+		if !unicode.IsDigit(c) {
+			return -1
+		}
+		x = x*10 + int(c-'0')
+		if x > 255 {
+			return x
+		}
+	}
+	return x
+}
 ```
 
 #### TypeScript
 
 ```ts
 function validIPAddress(queryIP: string): string {
-    const isIPv4 = () => {
-        const ss = queryIP.split('.');
-        if (ss.length !== 4) {
-            return false;
-        }
-        for (const s of ss) {
-            const num = Number(s);
-            if (num < 0 || num > 255 || num + '' !== s) {
-                return false;
-            }
-        }
-        return true;
-    };
-    const isIPv6 = () => {
-        const ss = queryIP.split(':');
-        if (ss.length !== 8) {
-            return false;
-        }
-        for (const s of ss) {
-            if (s.length === 0 || s.length > 4) {
-                return false;
-            }
-            for (const c of s) {
-                if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')) {
-                    continue;
-                }
-                return false;
-            }
-        }
-        return true;
-    };
-    if (isIPv4()) {
+    if (isIPv4(queryIP)) {
         return 'IPv4';
     }
-    if (isIPv6()) {
+    if (isIPv6(queryIP)) {
         return 'IPv6';
     }
     return 'Neither';
+}
+
+function isIPv4(s: string): boolean {
+    if (s.endsWith('.')) {
+        return false;
+    }
+    const ss = s.split('.');
+    if (ss.length !== 4) {
+        return false;
+    }
+    for (const t of ss) {
+        if (t.length === 0 || (t.length > 1 && t[0] === '0')) {
+            return false;
+        }
+        const x = convert(t);
+        if (x < 0 || x > 255) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function isIPv6(s: string): boolean {
+    if (s.endsWith(':')) {
+        return false;
+    }
+    const ss = s.split(':');
+    if (ss.length !== 8) {
+        return false;
+    }
+    for (const t of ss) {
+        if (t.length < 1 || t.length > 4) {
+            return false;
+        }
+        for (const c of t) {
+            if (!isHexDigit(c)) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+function convert(s: string): number {
+    let x = 0;
+    for (const c of s) {
+        if (!isDigit(c)) {
+            return -1;
+        }
+        x = x * 10 + (c.charCodeAt(0) - '0'.charCodeAt(0));
+        if (x > 255) {
+            return x;
+        }
+    }
+    return x;
+}
+
+function isDigit(c: string): boolean {
+    return c >= '0' && c <= '9';
+}
+
+function isHexDigit(c: string): boolean {
+    return (c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F');
 }
 ```
 
@@ -155,57 +437,71 @@ function validIPAddress(queryIP: string): string {
 
 ```rust
 impl Solution {
-    fn is_IPv4(s: &String) -> bool {
-        let ss = s.split('.').collect::<Vec<&str>>();
+    pub fn valid_ip_address(query_ip: String) -> String {
+        if Self::is_ipv4(&query_ip) {
+            return "IPv4".to_string();
+        }
+        if Self::is_ipv6(&query_ip) {
+            return "IPv6".to_string();
+        }
+        "Neither".to_string()
+    }
+
+    fn is_ipv4(s: &str) -> bool {
+        if s.ends_with('.') {
+            return false;
+        }
+        let ss: Vec<&str> = s.split('.').collect();
         if ss.len() != 4 {
             return false;
         }
-        for s in ss {
-            match s.parse::<i32>() {
-                Err(_) => {
-                    return false;
+        for t in ss {
+            if t.is_empty() || (t.len() > 1 && t.starts_with('0')) {
+                return false;
+            }
+            match Self::convert(t) {
+                Some(x) if x <= 255 => {
+                    continue;
                 }
-                Ok(num) => {
-                    if num < 0 || num > 255 || num.to_string() != s.to_string() {
-                        return false;
-                    }
+                _ => {
+                    return false;
                 }
             }
         }
         true
     }
 
-    fn is_IPv6(s: &String) -> bool {
-        let ss = s.split(':').collect::<Vec<&str>>();
+    fn is_ipv6(s: &str) -> bool {
+        if s.ends_with(':') {
+            return false;
+        }
+        let ss: Vec<&str> = s.split(':').collect();
         if ss.len() != 8 {
             return false;
         }
-        for s in ss {
-            if s.len() == 0 || s.len() > 4 {
+        for t in ss {
+            if t.len() < 1 || t.len() > 4 {
                 return false;
             }
-            for &c in s.as_bytes() {
-                if
-                    (c >= b'0' && c <= b'9') ||
-                    (c >= b'a' && c <= b'f') ||
-                    (c >= b'A' && c <= b'F')
-                {
-                    continue;
-                }
+            if !t.chars().all(|c| c.is_digit(16)) {
                 return false;
             }
         }
         true
     }
 
-    pub fn valid_ip_address(query_ip: String) -> String {
-        if Self::is_IPv4(&query_ip) {
-            return String::from("IPv4");
+    fn convert(s: &str) -> Option<i32> {
+        let mut x = 0;
+        for c in s.chars() {
+            if !c.is_digit(10) {
+                return None;
+            }
+            x = x * 10 + (c.to_digit(10).unwrap() as i32);
+            if x > 255 {
+                return Some(x);
+            }
         }
-        if Self::is_IPv6(&query_ip) {
-            return String::from("IPv6");
-        }
-        String::from("Neither")
+        Some(x)
     }
 }
 ```
