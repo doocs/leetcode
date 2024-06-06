@@ -56,7 +56,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Preprocessing + Iteration
+
+We preprocess the string $s_2$ such that for each starting position $i$, we calculate the next position $j$ and the count of $s_2$ after matching a complete $s_1$, i.e., $d[i] = (cnt, j)$, where $cnt$ represents the count of $s_2$, and $j$ represents the next position in the string $s_2$.
+
+Next, we initialize $j=0$, and then loop $n1$ times. Each time, we add $d[j][0]$ to the answer, and then update $j=d[j][1]$.
+
+The final answer is the count of $s_2$ that can be matched by $n1$ $s_1$, divided by $n2$.
+
+The time complexity is $O(m \times n + n_1)$, and the space complexity is $O(n)$. Where $m$ and $n$ are the lengths of $s_1$ and $s_2$ respectively.
 
 <!-- tabs:start -->
 
