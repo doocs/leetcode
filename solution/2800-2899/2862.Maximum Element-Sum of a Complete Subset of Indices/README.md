@@ -26,21 +26,29 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>nums = [8,7,3,5,7,2,4,9]
-<strong>输出：</strong>16
-<strong>解释：</strong>我们选择了下标 2 和 8 的元素，并且 2 * 8 是一个完全平方数。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">nums = [8,7,3,5,7,2,4,9]</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>输出：</strong><span class="example-io">16</span></p>
 
-<pre>
-<strong>输入：</strong>nums = [8,10,3,8,1,13,7,9,4]
-<strong>输出：</strong>20
-<strong>解释：</strong>我们选择了下标 1，4 和 9 的元素。1 * 4，1 * 9，4 * 9 都是完全平方数。
-</pre>
+<p><strong>解释：</strong></p>
+
+<p>我们选择下标为 2 和 8 的元素，并且&nbsp;<code>1 * 4</code>&nbsp;是一个完全平方数。</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums = [8,10,3,8,1,13,7,9,4]</span></p>
+
+<p><span class="example-io"><b>输出：</b>20</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>我们选择下标为 1, 4, 9 的元素。<code>1 * 4</code>, <code>1 * 9</code>, <code>4 * 9</code>&nbsp;是完全平方数。</p>
+</div>
 
 <p>&nbsp;</p>
 
