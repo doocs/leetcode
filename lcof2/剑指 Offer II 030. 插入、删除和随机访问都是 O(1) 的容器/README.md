@@ -223,12 +223,12 @@ public:
 class RandomizedSet {
     private var m: [Int: Int]
     private var a: [Int]
-    
+
     init() {
         self.m = [Int: Int]()
         self.a = [Int]()
     }
-    
+
     func insert(_ val: Int) -> Bool {
         if m[val] != nil {
             return false
@@ -237,7 +237,7 @@ class RandomizedSet {
         a.append(val)
         return true
     }
-    
+
     func remove(_ val: Int) -> Bool {
         if let idx = m[val] {
             let last = a.count - 1
@@ -251,7 +251,7 @@ class RandomizedSet {
         }
         return false
     }
-    
+
     func getRandom() -> Int {
         return a[Int.random(in: 0..<a.count)]
     }
