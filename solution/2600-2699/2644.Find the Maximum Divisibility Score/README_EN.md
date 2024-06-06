@@ -22,7 +22,7 @@ tags:
 
 <p>The <strong>divisibility score</strong> of <code>divisors[i]</code> is the number of indices <code>j</code> such that <code>nums[j]</code> is divisible by <code>divisors[i]</code>.</p>
 
-<p>Return the integer <code>divisors[i]</code> with the <strong>maximum</strong> divisibility score. If multiple numbers have the maximum score, return the smallest one.</p>
+<p>Return the integer <code>divisors[i]</code> with the <strong>maximum</strong> divisibility score. If multiple integers have the maximum score, return the smallest one.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -58,7 +58,7 @@ tags:
 
 <p>The divisibility score of <code>divisors[1]</code> is 1 since only <code>nums[0]</code> is divisible by 2.</p>
 
-<p>The divisibility score of <code>divisors[2]</code> is 3 since <code>nums[2]</code> , <code>nums[3]</code> and <code>nums[4]</code> are divisible by 3.</p>
+<p>The divisibility score of <code>divisors[2]</code> is 3 since <code>nums[2]</code>, <code>nums[3]</code> and <code>nums[4]</code> are divisible by 3.</p>
 </div>
 
 <p><strong class="example">Example 3:</strong></p>
