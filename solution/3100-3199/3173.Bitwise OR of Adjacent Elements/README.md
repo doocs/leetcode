@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3173.Bi
 
 <!-- problem:start -->
 
-# [3173. Bitwise OR of Adjacent Elements 🔒](https://leetcode.cn/problems/bitwise-or-of-adjacent-elements)
+# [3173. 相邻元素的按位与 🔒](https://leetcode.cn/problems/bitwise-or-of-adjacent-elements)
 
 [English Version](/solution/3100-3199/3173.Bitwise%20OR%20of%20Adjacent%20Elements/README_EN.md)
 
@@ -14,35 +14,41 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3173.Bi
 
 <!-- description:start -->
 
-<p>Given an array <code>nums</code> of length <code>n</code>, return an array <code>answer</code> of length <code>n - 1</code> such that <code>answer[i] = nums[i] | nums[i + 1]</code> where <code>|</code> is the bitwise <code>OR</code> operation.</p>
+<p>给定一个长度为 <code>n</code>&nbsp;的数组&nbsp;<code>nums</code>，返回一个长度为 <code>n - 1</code>&nbsp;的数组&nbsp;<code>answer</code>&nbsp;使得&nbsp;<code>answer[i] = nums[i] | nums[i + 1]</code>，其中&nbsp;<code>|</code>&nbsp;表示按位&nbsp;<code>OR</code>&nbsp;操作。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,3,7,15]</span></p>
+<p><strong>输入：</strong><span class="example-io">nums = [1,3,7,15]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[3,7,15]</span></p>
+<p><strong>输出：</strong><span class="example-io">[3,7,15]</span></p>
+
+<p>&nbsp;</p>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [8,4,2]</span></p>
+<p><strong>输入：</strong><span class="example-io">nums = [8,4,2]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[12,6]</span></p>
+<p><strong>输出：</strong><span class="example-io">[12,6]</span></p>
+
+<p>&nbsp;</p>
 </div>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [5,4,9,11]</span></p>
+<p><strong>输入：</strong><span class="example-io">nums = [5,4,9,11]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[5,13,11]</span></p>
+<p><strong>输出：</strong><span class="example-io">[5,13,11]</span></p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>2 &lt;= nums.length &lt;= 100</code></li>

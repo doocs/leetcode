@@ -218,11 +218,11 @@ RecentCounter.prototype.ping = function (t) {
 ```swift
 class RecentCounter {
     private var q: [Int]
-    
+
     init() {
         q = []
     }
-    
+
     func ping(_ t: Int) -> Int {
         q.append(t)
         while q.first! < t - 3000 {

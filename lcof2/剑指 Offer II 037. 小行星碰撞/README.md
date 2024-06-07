@@ -227,7 +227,7 @@ impl Solution {
 class Solution {
     func asteroidCollision(_ asteroids: [Int]) -> [Int] {
         var stack = [Int]()
-        
+
         for asteroid in asteroids {
             if asteroid > 0 {
                 stack.append(asteroid)
@@ -242,7 +242,7 @@ class Solution {
                 }
             }
         }
-        
+
         return stack
     }
 }

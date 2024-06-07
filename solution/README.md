@@ -3183,7 +3183,7 @@
 |  3170  |  [删除星号以后字典序最小的字符串](/solution/3100-3199/3170.Lexicographically%20Minimum%20String%20After%20Removing%20Stars/README.md)  |  `栈`,`贪心`,`哈希表`,`字符串`,`堆（优先队列）`  |  中等  |  第 400 场周赛  |
 |  3171  |  [找到按位与最接近 K 的子数组](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README.md)  |  `位运算`,`线段树`,`数组`,`二分查找`  |  困难  |  第 400 场周赛  |
 |  3172  |  [第二天验证](/solution/3100-3199/3172.Second%20Day%20Verification/README.md)  |  `数据库`  |  简单  |  🔒  |
-|  3173  |  [Bitwise OR of Adjacent Elements](/solution/3100-3199/3173.Bitwise%20OR%20of%20Adjacent%20Elements/README.md)  |    |  简单  |  🔒  |
+|  3173  |  [相邻元素的按位与](/solution/3100-3199/3173.Bitwise%20OR%20of%20Adjacent%20Elements/README.md)  |    |  简单  |  🔒  |
 
 ## 版权
 
