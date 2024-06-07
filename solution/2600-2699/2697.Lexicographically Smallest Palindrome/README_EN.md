@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README_EN.md
 rating: 1303
+source: Weekly Contest 346 Q2
 tags:
     - Greedy
     - Two Pointers
     - String
 ---
 
+<!-- problem:start -->
+
 # [2697. Lexicographically Smallest Palindrome](https://leetcode.com/problems/lexicographically-smallest-palindrome)
 
 [中文文档](/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code node="[object Object]">s</code> consisting of <strong>lowercase English letters</strong>, and you are allowed to perform operations on it. In one operation, you can <strong>replace</strong> a character in <code node="[object Object]">s</code> with another lowercase English letter.</p>
 
@@ -56,7 +61,11 @@ tags:
 	<li><code>s</code>&nbsp;consists of only lowercase English letters<b>.</b></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
 
@@ -68,6 +77,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeSmallestPalindrome(self, s: str) -> str:
@@ -78,6 +89,8 @@ class Solution:
             i, j = i + 1, j - 1
         return "".join(cs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makeSmallestPalindrome(s string) string {
 	cs := []byte(s)
@@ -114,6 +131,8 @@ func makeSmallestPalindrome(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function makeSmallestPalindrome(s: string): string {
     const cs = s.split('');
@@ -123,6 +142,8 @@ function makeSmallestPalindrome(s: string): string {
     return cs.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -141,4 +162,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [890. Find and Replace Pattern](https://leetcode.com/problems/find-and-replace-pattern)
 
 [中文文档](/solution/0800-0899/0890.Find%20and%20Replace%20Pattern/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a list of strings <code>words</code> and a string <code>pattern</code>, return <em>a list of</em> <code>words[i]</code> <em>that match</em> <code>pattern</code>. You may return the answer in <strong>any order</strong>.</p>
 
@@ -47,11 +51,17 @@ tags:
 	<li><code>pattern</code> and <code>words[i]</code> are lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +76,8 @@ class Solution:
 
         return [word for word in words if match(word, pattern)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +131,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findAndReplacePattern(words []string, pattern string) []string {
@@ -141,6 +157,8 @@ func findAndReplacePattern(words []string, pattern string) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findAndReplacePattern(words: string[], pattern: string): string[] {
     return words.filter(word => {
@@ -157,6 +175,8 @@ function findAndReplacePattern(words: string[], pattern: string): string[] {
     });
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -186,4 +206,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

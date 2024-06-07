@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1133.Largest%20Unique%20Number/README_EN.md
 rating: 1226
+source: Biweekly Contest 5 Q1
 tags:
     - Array
     - Hash Table
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1133. Largest Unique Number 🔒](https://leetcode.com/problems/largest-unique-number)
 
 [中文文档](/solution/1100-1199/1133.Largest%20Unique%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, return <em>the largest integer that only occurs once</em>. If no integer occurs once, return <code>-1</code>.</p>
 
@@ -41,7 +46,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Reverse Traversal
 
@@ -51,12 +60,16 @@ The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestUniqueNumber(self, nums: List[int]) -> int:
         cnt = Counter(nums)
         return max((x for x, v in cnt.items() if v == 1), default=-1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -93,6 +108,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestUniqueNumber(nums []int) int {
 	cnt := [1001]int{}
@@ -108,6 +125,8 @@ func largestUniqueNumber(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function largestUniqueNumber(nums: number[]): number {
     const cnt = Array(1001).fill(0);
@@ -122,6 +141,8 @@ function largestUniqueNumber(nums: number[]): number {
     return -1;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -144,4 +165,6 @@ var largestUniqueNumber = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

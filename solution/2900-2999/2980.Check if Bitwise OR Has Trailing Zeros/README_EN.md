@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2980.Check%20if%20Bitwise%20OR%20Has%20Trailing%20Zeros/README_EN.md
 rating: 1233
+source: Weekly Contest 378 Q1
 tags:
     - Bit Manipulation
     - Array
 ---
+
+<!-- problem:start -->
 
 # [2980. Check if Bitwise OR Has Trailing Zeros](https://leetcode.com/problems/check-if-bitwise-or-has-trailing-zeros)
 
 [中文文档](/solution/2900-2999/2980.Check%20if%20Bitwise%20OR%20Has%20Trailing%20Zeros/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <strong>positive</strong> integers <code>nums</code>.</p>
 
@@ -56,7 +61,11 @@ Other possible ways to select elements to have trailing zeroes in the binary rep
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting Even Numbers
 
@@ -66,11 +75,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hasTrailingZeros(self, nums: List[int]) -> bool:
         return sum(x & 1 ^ 1 for x in nums) >= 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hasTrailingZeros(nums []int) bool {
 	cnt := 0
@@ -106,6 +123,8 @@ func hasTrailingZeros(nums []int) bool {
 	return cnt >= 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hasTrailingZeros(nums: number[]): boolean {
@@ -119,4 +138,6 @@ function hasTrailingZeros(nums: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

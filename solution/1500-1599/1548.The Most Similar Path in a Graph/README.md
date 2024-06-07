@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1548. 图中最相似的路径 🔒](https://leetcode.cn/problems/the-most-similar-path-in-a-graph)
 
 [English Version](/solution/1500-1599/1548.The%20Most%20Similar%20Path%20in%20a%20Graph/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们有&nbsp;<code>n</code>&nbsp;座城市和&nbsp;<code>m</code>&nbsp;条双向道路&nbsp;<code>roads</code>&nbsp;，其中&nbsp;<code>roads[i] = [a<sub>i</sub>, b<sub>i</sub>]</code>&nbsp;连接城市&nbsp;<code>a<sub>i</sub></code>&nbsp;和城市&nbsp;<code>b<sub>i</sub></code>。每个城市的名称由字符串数组&nbsp;<code>names</code>&nbsp;中给出的三个大写英文字母组成。从任意城市&nbsp;<code>x</code>&nbsp;出发，你可以到达任意城市&nbsp;<code>y</code> ，其中&nbsp;<code>y != x</code>&nbsp;（即：城市和道路形成一张无向连通图）。</p>
 
@@ -85,7 +87,11 @@ tags:
 
 <p><strong>进阶：</strong>如果路径中每个节点只可访问一次，你该如何修改你的答案？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -104,6 +110,8 @@ $$
 时间复杂度 $O(m \times n^2)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是 $targetPath$ 和 $names$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -137,6 +145,8 @@ class Solution:
             k = pre[i][k]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -188,6 +198,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -234,6 +246,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mostSimilar(n int, roads [][]int, names []string, targetPath []string) []int {
@@ -292,6 +306,8 @@ func mostSimilar(n int, roads [][]int, names []string, targetPath []string) []in
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mostSimilar(
     n: number,
@@ -340,4 +356,6 @@ function mostSimilar(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

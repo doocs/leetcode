@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README_EN.md
 rating: 2020
+source: Weekly Contest 325 Q3
 tags:
     - Greedy
     - Array
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2517. Maximum Tastiness of Candy Basket](https://leetcode.com/problems/maximum-tastiness-of-candy-basket)
 
 [中文文档](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of positive integers <code>price</code> where <code>price[i]</code> denotes the price of the <code>i<sup>th</sup></code> candy and a positive integer <code>k</code>.</p>
 
@@ -59,11 +64,17 @@ It can be proven that 2 is the maximum tastiness that can be achieved.
 	<li><code>1 &lt;= price[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +97,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumTastiness(price []int, k int) int {
 	sort.Ints(price)
@@ -160,6 +177,8 @@ func maximumTastiness(price []int, k int) int {
 	}) - 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumTastiness(price: number[], k: number): number {
@@ -187,6 +206,8 @@ function maximumTastiness(price: number[], k: number): number {
     return l;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -219,4 +240,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

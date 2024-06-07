@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1138.Alphabet%20Board%20Path/README.md
 rating: 1410
+source: 第 147 场周赛 Q2
 tags:
     - 哈希表
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1138. 字母板上的路径](https://leetcode.cn/problems/alphabet-board-path)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们从一块字母板上的位置&nbsp;<code>(0, 0)</code>&nbsp;出发，该坐标对应的字符为&nbsp;<code>board[0][0]</code>。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>target</code>&nbsp;仅含有小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -70,6 +77,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $target$ 的长度，需要遍历字符串 $target$ 中的每一个字符。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +103,8 @@ class Solution:
             ans.append("!")
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +136,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -158,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func alphabetBoardPath(target string) string {
 	ans := []byte{}
@@ -189,4 +204,6 @@ func alphabetBoardPath(target string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

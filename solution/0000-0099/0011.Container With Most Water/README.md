@@ -8,13 +8,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water)
 
 [English Version](/solution/0000-0099/0011.Container%20With%20Most%20Water/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个长度为 <code>n</code> 的整数数组&nbsp;<code>height</code>&nbsp;。有&nbsp;<code>n</code>&nbsp;条垂线，第 <code>i</code> 条线的两个端点是&nbsp;<code>(i, 0)</code>&nbsp;和&nbsp;<code>(i, height[i])</code>&nbsp;。</p>
 
@@ -52,7 +54,11 @@ tags:
 	<li><code>0 &lt;= height[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -65,6 +71,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是数组 `height` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +88,8 @@ class Solution:
                 j -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxArea(height []int) (ans int) {
 	i, j := 0, len(height)-1
@@ -135,6 +149,8 @@ func maxArea(height []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxArea(height: number[]): number {
@@ -154,6 +170,8 @@ function maxArea(height: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn max_area(height: Vec<i32>) -> i32 {
@@ -172,6 +190,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -195,6 +215,8 @@ var maxArea = function (height) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MaxArea(int[] height) {
@@ -213,6 +235,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -240,4 +264,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

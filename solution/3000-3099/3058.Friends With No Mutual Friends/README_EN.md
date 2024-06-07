@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3058. Friends With No Mutual Friends 🔒](https://leetcode.com/problems/friends-with-no-mutual-friends)
 
 [中文文档](/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Friends</code></p>
 
@@ -64,7 +68,11 @@ Friends table:
 - Users 3 and 4 are friends with each other, but their mutual connection with user ID 2 means they are not included, similarly for users 2 and 5 are friends but are excluded due to their mutual connection with user ID 1.
 Output table is ordered by user_id1 in ascending order.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Subquery
 
@@ -73,6 +81,8 @@ First, we list all the friend relationships and record them in table `T`. Then w
 Next, we can use a subquery to find pairs of friends who do not have common friends, i.e., this pair of friends does not belong to any other person's friends.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -93,6 +103,8 @@ WHERE
     )
 ORDER BY 1, 2;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -122,4 +134,6 @@ def friends_with_no_mutual_friends(friends: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

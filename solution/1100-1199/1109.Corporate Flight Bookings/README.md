@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README.md
 rating: 1569
+source: 第 144 场周赛 Q2
 tags:
     - 数组
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [1109. 航班预订统计](https://leetcode.cn/problems/corporate-flight-bookings)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>这里有&nbsp;<code>n</code>&nbsp;个航班，它们分别从 <code>1</code> 到 <code>n</code> 进行编号。</p>
 
@@ -63,7 +66,11 @@ tags:
 	<li><code>1 &lt;= seats<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
@@ -72,6 +79,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为航班数。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +92,8 @@ class Solution:
                 ans[last] -= seats
         return list(accumulate(ans))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func corpFlightBookings(bookings [][]int, n int) []int {
 	ans := make([]int, n)
@@ -139,6 +154,8 @@ func corpFlightBookings(bookings [][]int, n int) []int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -165,6 +182,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} bookings
@@ -188,6 +207,10 @@ var corpFlightBookings = function (bookings, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：树状数组 + 差分思想
 
 我们也可以利用树状数组，结合差分的思想，来实现上述操作。我们可以将每一次预订看作是在某个区间 `[first, last]` 内的所有航班上预订了 `seats` 个座位。因此，我们可以对每一次预订，对树状数组的 `first` 位置加上 `seats`，对树状数组的 `last + 1` 位置减去 `seats`。最后，对树状数组每个位置求前缀和，即可得到每个航班预定的座位总数。
@@ -204,6 +227,8 @@ var corpFlightBookings = function (bookings, n) {
 这两个操作的时间复杂度均为 $O(\log n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -232,6 +257,8 @@ class Solution:
             tree.update(last + 1, -seats)
         return [tree.query(i + 1) for i in range(n)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -276,6 +303,8 @@ class BinaryIndexedTree {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -323,6 +352,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -367,4 +398,6 @@ func corpFlightBookings(bookings [][]int, n int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1873. 计算特殊奖金](https://leetcode.cn/problems/calculate-special-bonus)
 
 [English Version](/solution/1800-1899/1873.Calculate%20Special%20Bonus/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Employees</code></p>
 
@@ -67,13 +69,19 @@ Employees 表:
 雇员id为3的因为他的名字以'M'开头，所以，奖金是0。
 其他的雇员得到了百分之百的奖金。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：IF 语句 + ORDER BY 子句
 
 我们可以使用 `IF` 语句来判断奖金的计算方式，然后使用 `ORDER BY` 将结果按照 `employee_id` 排序。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -92,4 +100,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2514.Count%20Anagrams/README.md
 rating: 2069
+source: 第 94 场双周赛 Q4
 tags:
     - 哈希表
     - 数学
@@ -11,13 +12,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2514. 统计同位异构字符串数目](https://leetcode.cn/problems/count-anagrams)
 
 [English Version](/solution/2500-2599/2514.Count%20Anagrams/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;，它包含一个或者多个单词。单词之间用单个空格&nbsp;<code>' '</code>&nbsp;隔开。</p>
 
@@ -54,11 +57,17 @@ tags:
 	<li>相邻单词之间由单个空格隔开。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 mod = 10**9 + 7
@@ -79,6 +88,8 @@ class Solution:
                 ans %= mod
         return ans
 ```
+
+#### Java
 
 ```java
 import java.math.BigInteger;
@@ -109,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 const mod int = 1e9 + 7
 
@@ -173,9 +188,15 @@ func pow(x, n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -193,4 +214,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

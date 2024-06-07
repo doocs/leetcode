@@ -10,13 +10,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [526. 优美的排列](https://leetcode.cn/problems/beautiful-arrangement)
 
 [English Version](/solution/0500-0599/0526.Beautiful%20Arrangement/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假设有从 1 到 n 的 n 个整数。用这些整数构造一个数组 <code>perm</code>（<strong>下标从 1 开始</strong>），只要满足下述条件 <strong>之一</strong> ，该数组就是一个 <strong>优美的排列</strong> ：</p>
 
@@ -58,11 +60,17 @@ tags:
 	<li><code>1 &lt;= n &lt;= 15</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +97,8 @@ class Solution:
         dfs(1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -168,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countArrangement(n int) int {
 	ans := 0
@@ -201,6 +215,8 @@ func countArrangement(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countArrangement(n: number): number {
     const vis = new Array(n + 1).fill(0);
@@ -231,6 +247,8 @@ function countArrangement(n: number): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -269,9 +287,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -297,4 +321,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

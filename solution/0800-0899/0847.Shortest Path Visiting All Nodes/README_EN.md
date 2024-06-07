@@ -10,11 +10,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [847. Shortest Path Visiting All Nodes](https://leetcode.com/problems/shortest-path-visiting-all-nodes)
 
 [中文文档](/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have an undirected, connected graph of <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. You are given an array <code>graph</code> where <code>graph[i]</code> is a list of all the nodes connected with node <code>i</code> by an edge.</p>
 
@@ -49,11 +53,17 @@ tags:
 	<li>The input graph is always connected.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +87,8 @@ class Solution:
                         q.append((j, nst))
             ans += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestPathLength(graph [][]int) int {
 	n := len(graph)
@@ -170,6 +186,8 @@ func shortestPathLength(graph [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shortestPathLength(graph: number[][]): number {
     const n = graph.length;
@@ -196,6 +214,8 @@ function shortestPathLength(graph: number[][]): number {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -236,9 +256,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -264,6 +290,8 @@ class Solution:
                     heappush(q, (dist[v][nxt] + f(nxt), v, nxt))
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -309,6 +337,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -349,4 +379,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

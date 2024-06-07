@@ -8,11 +8,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [525. Contiguous Array](https://leetcode.com/problems/contiguous-array)
 
 [中文文档](/solution/0500-0599/0525.Contiguous%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a binary array <code>nums</code>, return <em>the maximum length of a contiguous subarray with an equal number of </em><code>0</code><em> and </em><code>1</code>.</p>
 
@@ -41,11 +45,17 @@ tags:
 	<li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +70,8 @@ class Solution:
                 mp[s] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -99,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaxLength(nums []int) int {
 	mp := map[int]int{0: -1}
@@ -117,6 +133,8 @@ func findMaxLength(nums []int) int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -139,4 +157,6 @@ var findMaxLength = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

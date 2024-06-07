@@ -9,13 +9,15 @@ tags:
     - 滚动哈希
 ---
 
+<!-- problem:start -->
+
 # [214. 最短回文串](https://leetcode.cn/problems/shortest-palindrome)
 
 [English Version](/solution/0200-0299/0214.Shortest%20Palindrome/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串 <em><strong>s</strong></em>，你可以通过在字符串前面添加字符将其转换为<span data-keyword="palindrome-string">回文串</span>。找到并返回可以用这种方式转换的最短回文串。</p>
 
@@ -44,7 +46,11 @@ tags:
 	<li><code>s</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符串哈希
 
@@ -61,6 +67,8 @@ tags:
 记 s 的长度为 n，其最长回文前缀的长度为 m，将 s 的后 n-m 个字符反序并添加到 s 的前面即可构成最短回文串。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +87,8 @@ class Solution:
                 idx = i + 1
         return s if idx == n else s[idx:][::-1] + s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef unsigned long long ull;
 
@@ -131,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestPalindrome(s string) string {
@@ -158,6 +172,8 @@ func shortestPalindrome(s string) string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn shortest_palindrome(s: String) -> String {
@@ -181,6 +197,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 ﻿// https://leetcode.com/problems/shortest-palindrome/
@@ -226,4 +244,6 @@ public partial class Solution
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

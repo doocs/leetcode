@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.14.Smallest%20K/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.14. 最小 K 个数](https://leetcode.cn/problems/smallest-k-lcci)
 
 [English Version](/lcci/17.14.Smallest%20K/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>设计一个算法，找出数组中最小的k个数。以任意顺序返回这k个数均可。</p>
 <p><strong>示例：</strong></p>
 <pre><strong>输入：</strong> arr = [1,3,5,7,2,4,6,8], k = 4
@@ -22,7 +25,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.14.Smallest%20K/RE
 	<li><code>0 &lt;= k &lt;= min(100000, len(arr))</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -32,11 +39,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.14.Smallest%20K/RE
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestK(self, arr: List[int], k: int) -> List[int]:
         return sorted(arr)[:k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -50,6 +61,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -65,6 +78,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestK(arr []int, k int) []int {
 	sort.Ints(arr)
@@ -75,6 +90,8 @@ func smallestK(arr []int, k int) []int {
 	return ans
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -88,6 +105,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：优先队列（大根堆）
 
 维护一个大小为 $k$ 的大根堆，遍历数组，将当前元素入堆，如果堆的大小超过 $k$，弹出堆顶元素。
@@ -97,6 +118,8 @@ class Solution {
 时间复杂度 $O(n\log k)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -108,6 +131,8 @@ class Solution:
                 heappop(h)
         return [-v for v in h]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +176,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestK(arr []int, k int) []int {
@@ -180,4 +209,6 @@ func (h *hp) Pop() any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

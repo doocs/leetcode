@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README_EN.md
 rating: 1355
+source: Biweekly Contest 54 Q2
 tags:
     - Array
     - Binary Search
@@ -10,11 +11,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1894. Find the Student that Will Replace the Chalk](https://leetcode.com/problems/find-the-student-that-will-replace-the-chalk)
 
 [中文文档](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> students in a class numbered from <code>0</code> to <code>n - 1</code>. The teacher will give each student a problem starting with the student number <code>0</code>, then the student number <code>1</code>, and so on until the teacher reaches the student number <code>n - 1</code>. After that, the teacher will restart the process, starting with the student number <code>0</code> again.</p>
 
@@ -65,7 +70,11 @@ Student number 1 does not have enough chalk, so they will have to replace it.
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sum and Modulo + Simulation
 
@@ -77,6 +86,8 @@ The time complexity is $O(n)$, where $n$ is the number of students. The space co
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def chalkReplacer(self, chalk: List[int], k: int) -> int:
@@ -87,6 +98,8 @@ class Solution:
                 return i
             k -= x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func chalkReplacer(chalk []int, k int) int {
@@ -138,6 +155,8 @@ func chalkReplacer(chalk []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function chalkReplacer(chalk: number[], k: number): number {
     let s = 0;
@@ -153,6 +172,8 @@ function chalkReplacer(chalk: number[], k: number): number {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,4 +196,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

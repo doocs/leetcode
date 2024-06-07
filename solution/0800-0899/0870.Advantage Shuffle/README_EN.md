@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [870. Advantage Shuffle](https://leetcode.com/problems/advantage-shuffle)
 
 [中文文档](/solution/0800-0899/0870.Advantage%20Shuffle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code> both of the same length. The <strong>advantage</strong> of <code>nums1</code> with respect to <code>nums2</code> is the number of indices <code>i</code> for which <code>nums1[i] &gt; nums2[i]</code>.</p>
 
@@ -36,11 +40,17 @@ tags:
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +69,8 @@ class Solution:
                 i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +96,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +119,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func advantageCount(nums1 []int, nums2 []int) []int {
@@ -132,6 +148,8 @@ func advantageCount(nums1 []int, nums2 []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function advantageCount(nums1: number[], nums2: number[]): number[] {
     const n = nums1.length;
@@ -154,6 +172,8 @@ function advantageCount(nums1: number[], nums2: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -181,4 +201,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

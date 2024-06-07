@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2611.Mice%20and%20Cheese/README_EN.md
 rating: 1663
+source: Weekly Contest 339 Q3
 tags:
     - Greedy
     - Array
@@ -10,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2611. Mice and Cheese](https://leetcode.com/problems/mice-and-cheese)
 
 [中文文档](/solution/2600-2699/2611.Mice%20and%20Cheese/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are two mice and <code>n</code> different types of cheese, each type of cheese should be eaten by exactly one mouse.</p>
 
@@ -59,7 +64,11 @@ It can be proven that 2 is the maximum total points that the mice can achieve.
 	<li><code>0 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sort
 
@@ -71,6 +80,8 @@ Time complexity $O(n \times \log n)$, space complexity $O(n)$. Where $n$ is the 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def miceAndCheese(self, reward1: List[int], reward2: List[int], k: int) -> int:
@@ -78,6 +89,8 @@ class Solution:
         idx = sorted(range(n), key=lambda i: reward1[i] - reward2[i], reverse=True)
         return sum(reward1[i] for i in idx[:k]) + sum(reward2[i] for i in idx[k:])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
@@ -141,6 +158,8 @@ func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function miceAndCheese(reward1: number[], reward2: number[], k: number): number {
     const n = reward1.length;
@@ -159,9 +178,15 @@ function miceAndCheese(reward1: number[], reward2: number[], k: number): number 
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -171,6 +196,8 @@ class Solution:
         reward1.sort(reverse=True)
         return sum(reward2) + sum(reward1[:k])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -190,6 +217,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -207,6 +236,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
 	for i, x := range reward2 {
@@ -221,6 +252,8 @@ func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function miceAndCheese(reward1: number[], reward2: number[], k: number): number {
@@ -240,4 +273,6 @@ function miceAndCheese(reward1: number[], reward2: number[], k: number): number 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

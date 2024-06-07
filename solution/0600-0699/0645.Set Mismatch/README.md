@@ -9,13 +9,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [645. 错误的集合](https://leetcode.cn/problems/set-mismatch)
 
 [English Version](/solution/0600-0699/0645.Set%20Mismatch/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>集合 <code>s</code> 包含从 <code>1</code> 到 <code>n</code> 的整数。不幸的是，因为数据错误，导致集合里面某一个数字复制了成了集合里面的另外一个数字的值，导致集合 <strong>丢失了一个数字</strong> 并且 <strong>有一个数字重复</strong> 。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li><code>1 <= nums[i] <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -60,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
@@ -69,6 +77,8 @@ class Solution:
         s = sum(nums)
         return [s - s2, s1 - s2]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findErrorNums(nums []int) []int {
@@ -123,6 +137,8 @@ func findErrorNums(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findErrorNums(nums: number[]): number[] {
     const n = nums.length;
@@ -132,6 +148,8 @@ function findErrorNums(nums: number[]): number[] {
     return [s - s2, s1 - s2];
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -148,6 +166,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：哈希表
 
 我们也可以一种更加直观的方法，直接用哈希表 $cnt$ 统计数组 $nums$ 中每个数字出现的次数。
@@ -157,6 +179,8 @@ impl Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -171,6 +195,8 @@ class Solution:
                 ans[1] = x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -194,6 +220,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -216,6 +244,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findErrorNums(nums []int) []int {
 	n := len(nums)
@@ -234,6 +264,8 @@ func findErrorNums(nums []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findErrorNums(nums: number[]): number[] {
@@ -254,6 +286,8 @@ function findErrorNums(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -285,6 +319,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：位运算
 
 根据异或运算的性质，对于整数 $x$，有 $x \oplus x = 0$ 以及 $x \oplus 0 = x$，因此我们对数组 $nums$ 中的所有元素以及 $i \in [1, n]$ 的所有数字进行异或运算，可以消除出现两次的数字，最终只留下缺失的数字和重复的数字的异或结果，即 $xs = a \oplus b$。
@@ -296,6 +334,8 @@ impl Solution {
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$，仅使用常数大小的额外空间。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -316,6 +356,8 @@ class Solution:
                 return [a, b]
         return [b, a]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -345,6 +387,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -376,6 +420,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findErrorNums(nums []int) []int {
 	xs := 0
@@ -402,6 +448,8 @@ func findErrorNums(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findErrorNums(nums: number[]): number[] {
     const n = nums.length;
@@ -426,4 +474,6 @@ function findErrorNums(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

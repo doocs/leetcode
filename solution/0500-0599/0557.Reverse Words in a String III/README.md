@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [557. 反转字符串中的单词 III](https://leetcode.cn/problems/reverse-words-in-a-string-iii)
 
 [English Version](/solution/0500-0599/0557.Reverse%20Words%20in%20a%20String%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串<meta charset="UTF-8" />&nbsp;<code>s</code>&nbsp;，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。</p>
 
@@ -45,17 +47,25 @@ tags:
 	<li><meta charset="UTF-8" /><code>s</code>&nbsp;中的所有单词都用一个空格隔开。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
         return ' '.join([t[::-1] for t in s.split(' ')])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +82,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -87,6 +99,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reverseWords(s string) string {
@@ -105,6 +119,8 @@ func reverseWords(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reverseWords(s: string): string {
     return s
@@ -120,6 +136,8 @@ function reverseWords(s: string): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn reverse_words(s: String) -> String {
@@ -130,6 +148,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -149,4 +169,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

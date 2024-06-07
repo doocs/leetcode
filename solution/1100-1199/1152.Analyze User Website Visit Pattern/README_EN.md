@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1152.Analyze%20User%20Website%20Visit%20Pattern/README_EN.md
 rating: 1850
+source: Biweekly Contest 6 Q3
 tags:
     - Array
     - Hash Table
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1152. Analyze User Website Visit Pattern 🔒](https://leetcode.com/problems/analyze-user-website-visit-pattern)
 
 [中文文档](/solution/1100-1199/1152.Analyze%20User%20Website%20Visit%20Pattern/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two string arrays <code>username</code> and <code>website</code> and an integer array <code>timestamp</code>. All the given arrays are of the same length and the tuple <code>[username[i], website[i], timestamp[i]]</code> indicates that the user <code>username[i]</code> visited the website <code>website[i]</code> at time <code>timestamp[i]</code>.</p>
 
@@ -71,7 +76,11 @@ The pattern (&quot;home&quot;, &quot;home&quot;, &quot;home&quot;) has score 0 (
 	<li>All the tuples <code>[username[i], timestamp[i], website[i]]</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
 
@@ -80,6 +89,8 @@ First, we use a hash table $d$ to record the websites each user visits. Then we 
 The time complexity is $O(n^3)$, and the space complexity is $O(n^3)$. Here, $n$ is the length of `username`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +116,8 @@ class Solution:
                 cnt[t] += 1
         return sorted(cnt.items(), key=lambda x: (-x[1], x[0]))[0][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +174,8 @@ class Node {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -214,6 +229,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostVisitedPattern(username []string, timestamp []int, website []string) []string {
 	d := map[string][]pair{}
@@ -258,4 +275,6 @@ type pair struct {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

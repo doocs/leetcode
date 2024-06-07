@@ -10,13 +10,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [353. 贪吃蛇 🔒](https://leetcode.cn/problems/design-snake-game)
 
 [English Version](/solution/0300-0399/0353.Design%20Snake%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你设计一个 <a href="https://baike.baidu.com/item/%E8%B4%AA%E5%90%83%E8%9B%87/9510203?fr=aladdin" target="_blank">贪吃蛇游戏</a>，该游戏将会在一个 <strong>屏幕尺寸 = 宽度 x 高度 </strong>的屏幕上运行。如果你不熟悉这个游戏，可以 <a href="http://patorjk.com/games/snake/">点击这里</a> 在线试玩。</p>
 
@@ -73,7 +75,11 @@ snakeGame.move("U"); // 返回 -1 ，蛇与边界相撞，游戏结束
 	<li>最多调用 <code>10<sup>4</sup></code> 次 <code>move</code> 方法</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双端队列模拟
 
@@ -92,6 +98,8 @@ snakeGame.move("U"); // 返回 -1 ，蛇与边界相撞，游戏结束
 时间复杂度 $O(k)$，空间复杂度 $O(k)$，其中 $k$ 为移动的次数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class SnakeGame:
@@ -138,6 +146,8 @@ class SnakeGame:
 # obj = SnakeGame(width, height, food)
 # param_1 = obj.move(direction)
 ```
+
+#### Java
 
 ```java
 class SnakeGame {
@@ -200,6 +210,8 @@ class SnakeGame {
  * int param_1 = obj.move(direction);
  */
 ```
+
+#### C++
 
 ```cpp
 class SnakeGame {
@@ -268,6 +280,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type SnakeGame struct {
 	m     int
@@ -325,6 +339,8 @@ func (this *SnakeGame) Move(direction string) int {
  * param_1 := obj.Move(direction);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class SnakeGame {
@@ -394,4 +410,6 @@ class SnakeGame {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

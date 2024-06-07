@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1831. 每天的最大交易 🔒](https://leetcode.cn/problems/maximum-transaction-each-day)
 
 [English Version](/solution/1800-1899/1831.Maximum%20Transaction%20Each%20Day/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Transactions</code></p>
 
@@ -71,13 +73,19 @@ Transactions table:
 
 <p><strong>进阶：</strong>你可以不使用&nbsp;<code>MAX()</code>&nbsp;函数解决这道题目吗?</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数
 
 我们可以使用窗口函数 `RANK`，按照每天的交易金额 `amount` 降序排列，然后选择排名为 $1$ 的交易。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -99,4 +107,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

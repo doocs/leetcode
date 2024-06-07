@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README_EN.md
 rating: 2422
+source: Weekly Contest 126 Q4
 tags:
     - Array
     - Dynamic Programming
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1000. Minimum Cost to Merge Stones](https://leetcode.com/problems/minimum-cost-to-merge-stones)
 
 [中文文档](/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> piles of <code>stones</code> arranged in a row. The <code>i<sup>th</sup></code> pile has <code>stones[i]</code> stones.</p>
 
@@ -63,11 +68,17 @@ The total cost was 25, and this is the minimum possible.
 	<li><code>2 &lt;= k &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +99,8 @@ class Solution:
                 f[i][j][1] = f[i][j][K] + s[j] - s[i - 1]
         return f[1][n][1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +174,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mergeStones(stones []int, K int) int {
@@ -200,4 +217,6 @@ func mergeStones(stones []int, K int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

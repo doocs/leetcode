@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3140. Consecutive Available Seats II 🔒](https://leetcode.com/problems/consecutive-available-seats-ii)
 
 [中文文档](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Cinema</code></p>
 
@@ -75,13 +79,19 @@ Each row of this table indicates whether the i<sup>th</sup> seat is free or not.
 </ul>
 Output table is ordered by first_seat_id in ascending order.</div>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Using Window Function
 
 First, we find all the vacant seats, and then group the seats. The grouping is based on the seat number minus its ranking. In this way, consecutive vacant seats will be grouped together. Then we find the minimum seat number, maximum seat number, and length of consecutive seats in each group. Finally, we find the group with the longest length of consecutive seats, and output the minimum seat number, maximum seat number, and length of consecutive seats in this group.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -110,4 +120,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,13 +11,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [839. 相似字符串组](https://leetcode.cn/problems/similar-string-groups)
 
 [English Version](/solution/0800-0899/0839.Similar%20String%20Groups/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果交换字符串&nbsp;<code>X</code> 中的两个不同位置的字母，使得它和字符串&nbsp;<code>Y</code> 相等，那么称 <code>X</code> 和 <code>Y</code> 两个字符串相似。如果这两个字符串本身是相等的，那它们也是相似的。</p>
 
@@ -54,11 +56,17 @@ tags:
 	<li><code>strs</code> 中的所有单词都具有相同的长度，且是彼此的字母异位词。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +84,8 @@ class Solution:
                     p[find(i)] = find(j)
         return sum(i == find(i) for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +169,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSimilarGroups(strs []string) int {
@@ -200,4 +214,6 @@ func numSimilarGroups(strs []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

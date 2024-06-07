@@ -9,13 +9,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [845. 数组中的最长山脉](https://leetcode.cn/problems/longest-mountain-in-array)
 
 [English Version](/solution/0800-0899/0845.Longest%20Mountain%20in%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>把符合下列属性的数组 <code>arr</code> 称为 <strong>山脉数组</strong> ：</p>
 
@@ -67,7 +69,11 @@ tags:
 	<li>你可以用 <code>O(1)</code> 空间解决此问题吗？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理 + 枚举
 
@@ -76,6 +82,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +102,8 @@ class Solution:
                     ans = max(ans, f[i] + g[i] - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -150,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestMountain(arr []int) (ans int) {
 	n := len(arr)
@@ -178,6 +192,10 @@ func longestMountain(arr []int) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：一次遍历（枚举左侧山脚）
 
 我们可以枚举山脉的左侧山脚，然后向右寻找山脉的右侧山脚。我们可以使用两个指针 $l$ 和 $r$，其中 $l$ 表示左侧山脚的下标，$r$ 表示右侧山脚的下标，初始时 $l=0$,$r=0$，然后我们向右移动 $r$，找到山顶的位置，此时判断 $r$ 是否满足 $r + 1 \lt n$ 并且 $arr[r] \gt arr[r + 1]$，如果满足，我们向右继续移动 $r$，直到找到右侧山脚的位置，此时山脉的长度为 $r - l + 1$，我们更新答案，然后将 $l$ 的值更新为 $r$，继续寻找下一个山脉。
@@ -185,6 +203,8 @@ func longestMountain(arr []int) (ans int) {
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -205,6 +225,8 @@ class Solution:
             l = r
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -231,6 +253,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -259,6 +283,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestMountain(arr []int) (ans int) {
 	n := len(arr)
@@ -284,4 +310,6 @@ func longestMountain(arr []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

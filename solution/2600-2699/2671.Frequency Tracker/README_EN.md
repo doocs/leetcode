@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2671.Frequency%20Tracker/README_EN.md
 rating: 1509
+source: Weekly Contest 344 Q2
 tags:
     - Design
     - Hash Table
 ---
+
+<!-- problem:start -->
 
 # [2671. Frequency Tracker](https://leetcode.com/problems/frequency-tracker)
 
 [中文文档](/solution/2600-2699/2671.Frequency%20Tracker/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a data structure that keeps track of the values in it and answers some queries regarding their frequencies.</p>
 
@@ -86,7 +91,11 @@ frequencyTracker.hasFrequency(1); // Returns true, because 3 occurs once
 	<li>At most, <code>2 *&nbsp;10<sup>5</sup></code>&nbsp;calls will be made to <code>add</code>, <code>deleteOne</code>, and <code>hasFrequency</code>&nbsp;in <strong>total</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -101,6 +110,8 @@ For the `hasFrequency` operation, we directly return whether $freq[frequency]$ i
 In terms of time complexity, since we use hash tables, the time complexity of each operation is $O(1)$. The space complexity is $O(n)$, where $n$ is the number of distinct numbers.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class FrequencyTracker:
@@ -129,6 +140,8 @@ class FrequencyTracker:
 # obj.deleteOne(number)
 # param_3 = obj.hasFrequency(frequency)
 ```
+
+#### Java
 
 ```java
 class FrequencyTracker {
@@ -165,6 +178,8 @@ class FrequencyTracker {
  * boolean param_3 = obj.hasFrequency(frequency);
  */
 ```
+
+#### C++
 
 ```cpp
 class FrequencyTracker {
@@ -204,6 +219,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type FrequencyTracker struct {
 	cnt  map[int]int
@@ -240,6 +257,8 @@ func (this *FrequencyTracker) HasFrequency(frequency int) bool {
  * param_3 := obj.HasFrequency(frequency);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class FrequencyTracker {
@@ -280,6 +299,8 @@ class FrequencyTracker {
  * var param_3 = obj.hasFrequency(frequency)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -338,4 +359,6 @@ impl FrequencyTracker {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1694.Reformat%20Phone%20Number/README.md
 rating: 1321
+source: 第 220 场周赛 Q1
 tags:
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1694. 重新格式化电话号码](https://leetcode.cn/problems/reformat-phone-number)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串形式的电话号码 <code>number</code> 。<code>number</code> 由数字、空格 <code>' '</code>、和破折号 <code>'-'</code> 组成。</p>
 
@@ -92,7 +95,11 @@ tags:
 	<li><code>number</code> 中至少含 <strong>2</strong> 个数字。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：简单模拟
 
@@ -108,6 +115,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reformatNumber(self, number: str) -> str:
@@ -121,6 +130,8 @@ class Solution:
             ans.append(number[-2:])
         return "-".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +152,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -174,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reformatNumber(number string) string {
 	number = strings.ReplaceAll(number, " ", "")
@@ -193,6 +208,8 @@ func reformatNumber(number string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reformatNumber(number: string): string {
     const cs = [...number].filter(c => c !== ' ' && c !== '-');
@@ -207,6 +224,8 @@ function reformatNumber(number: string): string {
         .join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -231,4 +250,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

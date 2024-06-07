@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2267.Check%20if%20There%20Is%20a%20Valid%20Parentheses%20String%20Path/README_EN.md
 rating: 2084
+source: Weekly Contest 292 Q4
 tags:
     - Array
     - Dynamic Programming
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2267. Check if There Is a Valid Parentheses String Path](https://leetcode.com/problems/check-if-there-is-a-valid-parentheses-string-path)
 
 [中文文档](/solution/2200-2299/2267.Check%20if%20There%20Is%20a%20Valid%20Parentheses%20String%20Path/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A parentheses string is a <strong>non-empty</strong> string consisting only of <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code>. It is <strong>valid</strong> if <strong>any</strong> of the following conditions is <strong>true</strong>:</p>
 
@@ -64,11 +69,17 @@ Note that there may be other valid parentheses string paths.
 	<li><code>grid[i][j]</code> is either <code>&#39;(&#39;</code> or <code>&#39;)&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +102,8 @@ class Solution:
         m, n = len(grid), len(grid[0])
         return dfs(0, 0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 bool vis[100][100][200];
 int dirs[3] = {1, 0, 1};
@@ -157,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func hasValidPath(grid [][]byte) bool {
@@ -200,4 +217,6 @@ func hasValidPath(grid [][]byte) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

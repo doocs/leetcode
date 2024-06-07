@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2029.Stone%20Game%20IX/README_EN.md
 rating: 2277
+source: Weekly Contest 261 Q3
 tags:
     - Greedy
     - Array
@@ -11,11 +12,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [2029. Stone Game IX](https://leetcode.com/problems/stone-game-ix)
 
 [中文文档](/solution/2000-2099/2029.Stone%20Game%20IX/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob continue their games with stones. There is a row of n stones, and each stone has an associated value. You are given an integer array <code>stones</code>, where <code>stones[i]</code> is the <strong>value</strong> of the <code>i<sup>th</sup></code> stone.</p>
 
@@ -66,11 +71,17 @@ Alice loses the game because the sum of the removed stones (15) is divisible by 
 	<li><code>1 &lt;= stones[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +102,8 @@ class Solution:
         c1 = [c[0], c[2], c[1]]
         return check(c) or check(c1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func stoneGameIX(stones []int) bool {
@@ -165,4 +182,6 @@ func stoneGameIX(stones []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

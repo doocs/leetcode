@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1583.Count%20Unhappy%20Friends/README.md
 rating: 1658
+source: 第 206 场周赛 Q2
 tags:
     - 数组
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1583. 统计不开心的朋友](https://leetcode.cn/problems/count-unhappy-friends)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一份 <code>n</code> 位朋友的亲近程度列表，其中 <code>n</code> 总是 <strong>偶数</strong> 。</p>
 
@@ -82,7 +85,11 @@ tags:
 	<li>每位朋友都 <strong>恰好</strong> 被包含在一对中</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组 + 枚举
 
@@ -95,6 +102,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为朋友的数目。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -112,6 +121,8 @@ class Solution:
             ans += any(d[u][x] < d[u][p[u]] for u in preferences[x][: d[x][y]])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +156,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -180,6 +193,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func unhappyFriends(n int, preferences [][]int, pairs [][]int) (ans int) {
 	d := make([][]int, n)
@@ -213,4 +228,6 @@ func unhappyFriends(n int, preferences [][]int, pairs [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

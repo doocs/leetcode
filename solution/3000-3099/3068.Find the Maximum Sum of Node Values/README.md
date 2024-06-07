@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README.md
 rating: 2267
+source: 第 125 场双周赛 Q4
 tags:
     - 贪心
     - 位运算
@@ -12,13 +13,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [3068. 最大节点价值之和](https://leetcode.cn/problems/find-the-maximum-sum-of-node-values)
 
 [English Version](/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵 <code>n</code>&nbsp;个节点的 <strong>无向</strong>&nbsp;树，节点从 <code>0</code>&nbsp;到 <code>n - 1</code>&nbsp;编号。树以长度为 <code>n - 1</code>&nbsp;下标从 <strong>0</strong>&nbsp;开始的二维整数数组 <code>edges</code>&nbsp;的形式给你，其中&nbsp;<code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code>&nbsp;表示树中节点&nbsp;<code>u<sub>i</sub></code>&nbsp;和&nbsp;<code>v<sub>i</sub></code>&nbsp;之间有一条边。同时给你一个 <strong>正</strong>&nbsp;整数&nbsp;<code>k</code>&nbsp;和一个长度为 <code>n</code>&nbsp;下标从&nbsp;<strong>0</strong>&nbsp;开始的&nbsp;<strong>非负</strong>&nbsp;整数数组&nbsp;<code>nums</code>&nbsp;，其中&nbsp;<code>nums[i]</code>&nbsp;表示节点 <code>i</code>&nbsp;的 <strong>价值</strong>&nbsp;。</p>
 
@@ -89,23 +92,62 @@ tags:
 	<li>输入保证&nbsp;<code>edges</code>&nbsp;构成一棵合法的树。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
-```cpp
+#### C++
 
+```cpp
+class Solution {
+public:
+    long long maximumValueSum(vector<int>& nums, int k, vector<vector<int>>& edges) {
+        long long totalSum = 0;
+        int count = 0;
+        int positiveMin = INT_MAX;
+        int negativeMax = INT_MIN;
+
+        for (int nodeValue : nums) {
+            int nodeValAfterOperation = nodeValue ^ k;
+            totalSum += nodeValue;
+            int netChange = nodeValAfterOperation - nodeValue;
+
+            if (netChange > 0) {
+                positiveMin = min(positiveMin, netChange);
+                totalSum += netChange;
+                count += 1;
+            } else {
+                negativeMax = max(negativeMax, netChange);
+            }
+        }
+
+        if (count % 2 == 0) {
+            return totalSum;
+        }
+        return max(totalSum - positiveMin, totalSum + negativeMax);
+    }
+};
 ```
+
+#### Go
 
 ```go
 
@@ -113,4 +155,6 @@ tags:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

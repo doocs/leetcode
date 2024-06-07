@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [922. 按奇偶排序数组 II](https://leetcode.cn/problems/sort-array-by-parity-ii)
 
 [English Version](/solution/0900-0999/0922.Sort%20Array%20By%20Parity%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个非负整数数组&nbsp;<code>nums</code>，&nbsp;&nbsp;<code>nums</code> 中一半整数是 <strong>奇数</strong> ，一半整数是 <strong>偶数</strong> 。</p>
 
@@ -54,7 +56,11 @@ tags:
 
 <p><strong>进阶：</strong>可以不使用额外空间解决问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -65,6 +71,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +85,8 @@ class Solution:
                 nums[i], nums[j] = nums[j], nums[i]
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortArrayByParityII(nums []int) []int {
 	for i, j := 0, 1; i < len(nums); i += 2 {
@@ -127,6 +141,8 @@ func sortArrayByParityII(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sortArrayByParityII(nums: number[]): number[] {
     for (let i = 0, j = 1; i < nums.length; i += 2) {
@@ -140,6 +156,8 @@ function sortArrayByParityII(nums: number[]): number[] {
     return nums;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -161,4 +179,6 @@ var sortArrayByParityII = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

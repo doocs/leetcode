@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.06.Palindrome%20Linked%20List/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [02.06. Palindrome Linked List](https://leetcode.cn/problems/palindrome-linked-list-lcci)
 
 [中文文档](/lcci/02.06.Palindrome%20Linked%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement a function to check if a linked list is a palindrome.</p>
 
@@ -40,7 +44,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.06.Palindrome%20Li
 
 Could you do it in O(n) time and O(1) space?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Fast and Slow Pointers + Reverse List
 
@@ -55,6 +63,8 @@ Finally, we loop to compare the first half and the second half of the list. If t
 The time complexity is $O(n)$, where $n$ is the length of the list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -86,6 +96,8 @@ class Solution:
             p = p.next
         return True
 ```
+
+#### Java
 
 ```java
 /**
@@ -128,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -172,6 +186,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -208,6 +224,8 @@ func isPalindrome(head *ListNode) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -253,6 +271,8 @@ function isPalindrome(head: ListNode | null): boolean {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -296,6 +316,8 @@ var isPalindrome = function (head) {
 };
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for singly-linked list.
@@ -337,6 +359,8 @@ public class Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 /**
@@ -391,4 +415,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

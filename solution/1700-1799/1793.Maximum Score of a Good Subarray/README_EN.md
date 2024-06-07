@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1793.Maximum%20Score%20of%20a%20Good%20Subarray/README_EN.md
 rating: 1945
+source: Weekly Contest 232 Q4
 tags:
     - Stack
     - Array
@@ -11,11 +12,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [1793. Maximum Score of a Good Subarray](https://leetcode.com/problems/maximum-score-of-a-good-subarray)
 
 [中文文档](/solution/1700-1799/1793.Maximum%20Score%20of%20a%20Good%20Subarray/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of integers <code>nums</code> <strong>(0-indexed)</strong> and an integer <code>k</code>.</p>
 
@@ -49,7 +54,11 @@ tags:
 	<li><code>0 &lt;= k &lt; nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
 
@@ -60,6 +69,8 @@ It should be noted that the answer can only be updated when the left and right b
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +99,8 @@ class Solution:
                 ans = max(ans, v * (right[i] - left[i] - 1))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +185,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumScore(nums []int, k int) (ans int) {
 	n := len(nums)
@@ -209,6 +226,8 @@ func maximumScore(nums []int, k int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumScore(nums: number[], k: number): number {
     const n = nums.length;
@@ -246,4 +265,6 @@ function maximumScore(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

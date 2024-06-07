@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [518. 零钱兑换 II](https://leetcode.cn/problems/coin-change-ii)
 
 [English Version](/solution/0500-0599/0518.Coin%20Change%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>coins</code> 表示不同面额的硬币，另给一个整数 <code>amount</code> 表示总金额。</p>
 
@@ -66,7 +68,11 @@ tags:
 	<li><code>0 <= amount <= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划(完全背包)
 
@@ -98,6 +104,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
@@ -111,6 +119,8 @@ class Solution:
                     f[i][j] += f[i][j - x]
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func change(amount int, coins []int) int {
 	m, n := len(coins), amount
@@ -171,6 +185,8 @@ func change(amount int, coins []int) int {
 	return f[m][n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function change(amount: number, coins: number[]): number {
@@ -195,6 +211,8 @@ function change(amount: number, coins: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
@@ -205,6 +223,8 @@ class Solution:
                 f[j] += f[j - x]
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -221,6 +241,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -240,6 +262,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func change(amount int, coins []int) int {
 	n := amount
@@ -253,6 +277,8 @@ func change(amount int, coins []int) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function change(amount: number, coins: number[]): number {
@@ -270,4 +296,6 @@ function change(amount: number, coins: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

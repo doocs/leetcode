@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1417.Reformat%20The%20String/README.md
 rating: 1241
+source: 第 185 场周赛 Q1
 tags:
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1417. 重新格式化字符串](https://leetcode.cn/problems/reformat-the-string)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个混合了数字和字母的字符串 <code>s</code>，其中的字母均为小写英文字母。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>s</code> 仅由小写英文字母和/或数字组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -78,6 +85,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +104,8 @@ class Solution:
             ans.append(a[-1])
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +175,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reformat(s string) string {
@@ -194,4 +209,6 @@ func reformat(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

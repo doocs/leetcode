@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2826.Sorting%20Three%20Groups/README_EN.md
 rating: 1721
+source: Biweekly Contest 111 Q3
 tags:
     - Array
     - Binary Search
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2826. Sorting Three Groups](https://leetcode.com/problems/sorting-three-groups)
 
 [中文文档](/solution/2800-2899/2826.Sorting%20Three%20Groups/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>. Each element in <code>nums</code> is 1, 2 or 3. In each operation, you can remove an element from&nbsp;<code>nums</code>. Return the <strong>minimum</strong> number of operations to make <code>nums</code> <strong>non-decreasing</strong>.</p>
 
@@ -65,7 +70,11 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow-up:</strong> Can you come up with an algorithm that runs in <code>O(n)</code> time complexity?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -77,27 +86,31 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
-        f = g = h = 0
+        f = [0] * 3
         for x in nums:
-            ff = gg = hh = 0
+            g = [0] * 3
             if x == 1:
-                ff = f
-                gg = min(f, g) + 1
-                hh = min(f, g, h) + 1
+                g[0] = f[0]
+                g[1] = min(f[:2]) + 1
+                g[2] = min(f) + 1
             elif x == 2:
-                ff = f + 1
-                gg = min(f, g)
-                hh = min(f, g, h) + 1
+                g[0] = f[0] + 1
+                g[1] = min(f[:2])
+                g[2] = min(f) + 1
             else:
-                ff = f + 1
-                gg = min(f, g) + 1
-                hh = min(f, g, h)
-            f, g, h = ff, gg, hh
-        return min(f, g, h)
+                g[0] = f[0] + 1
+                g[1] = min(f[:2]) + 1
+                g[2] = min(f)
+            f = g
+        return min(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperations(nums []int) int {
 	f := make([]int, 3)
@@ -175,6 +192,8 @@ func minimumOperations(nums []int) int {
 	return min(f[0], min(f[1], f[2]))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperations(nums: number[]): number {
@@ -202,32 +221,6 @@ function minimumOperations(nums: number[]): number {
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def minimumOperations(self, nums: List[int]) -> int:
-        f = [0] * 3
-        for x in nums:
-            g = [0] * 3
-            if x == 1:
-                g[0] = f[0]
-                g[1] = min(f[:2]) + 1
-                g[2] = min(f) + 1
-            elif x == 2:
-                g[0] = f[0] + 1
-                g[1] = min(f[:2])
-                g[2] = min(f) + 1
-            else:
-                g[0] = f[0] + 1
-                g[1] = min(f[:2]) + 1
-                g[2] = min(f)
-            f = g
-        return min(f)
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

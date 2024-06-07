@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2877.Create%20a%20DataFrame%20from%20List/README.md
 ---
 
+<!-- problem:start -->
+
 # [2877. 从表中创建 DataFrame](https://leetcode.cn/problems/create-a-dataframe-from-list)
 
 [English Version](/solution/2800-2899/2877.Create%20a%20DataFrame%20from%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个解决方案，基于名为&nbsp;&nbsp;<code>student_data</code>&nbsp;的二维列表&nbsp;<b>创建 </b>一个 DataFrame 。这个二维列表包含一些学生的 ID 和年龄信息。</p>
 
@@ -44,11 +46,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2877.Cr
 基于 student_data 创建了一个 DataFrame，包含 student_id 和 age 两列。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -60,4 +68,6 @@ def createDataframe(student_data: List[List[int]]) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

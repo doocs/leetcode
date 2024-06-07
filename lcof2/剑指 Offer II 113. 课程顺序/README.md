@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20113.%20%E8%AF%BE%E7%A8%8B%E9%A1%BA%E5%BA%8F/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 113. 课程顺序](https://leetcode.cn/problems/QA2IGt)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现在总共有 <code>numCourses</code>&nbsp;门课需要选，记为&nbsp;<code>0</code>&nbsp;到&nbsp;<code>numCourses-1</code>。</p>
 
@@ -59,7 +61,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 210&nbsp;题相同：<a href="https://leetcode.cn/problems/course-schedule-ii/">https://leetcode.cn/problems/course-schedule-ii/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拓扑排序
 
@@ -72,6 +78,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点的个数和边的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +100,8 @@ class Solution:
                     q.append(j)
         return ans if len(ans) == numCourses else []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -158,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findOrder(numCourses int, prerequisites [][]int) []int {
@@ -193,6 +207,8 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findOrder(numCourses: number, prerequisites: number[][]): number[] {
     const g: number[][] = Array.from({ length: numCourses }, () => []);
@@ -215,6 +231,8 @@ function findOrder(numCourses: number, prerequisites: number[][]): number[] {
     return ans.length === numCourses ? ans : [];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -253,4 +271,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [403. Frog Jump](https://leetcode.com/problems/frog-jump)
 
 [中文文档](/solution/0400-0499/0403.Frog%20Jump/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A frog is crossing a river. The river is divided into some number of units, and at each unit, there may or may not exist a stone. The frog can jump on a stone, but it must not jump into the water.</p>
 
@@ -46,7 +50,11 @@ tags:
 	<li><code>stones</code>&nbsp;is sorted in a strictly increasing order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Memoization
 
@@ -66,6 +74,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canCross(self, stones: List[int]) -> bool:
@@ -82,6 +92,8 @@ class Solution:
         pos = {s: i for i, s in enumerate(stones)}
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canCross(stones []int) bool {
@@ -187,6 +203,8 @@ func canCross(stones []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canCross(stones: number[]): boolean {
     const n = stones.length;
@@ -216,6 +234,8 @@ function canCross(stones: number[]): boolean {
     return dfs(0, 0);
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -270,6 +290,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We define $f[i][k]$ to be true if and only if it is possible to reach stone $i$ with last jump of size $k$. Initially $f[0][0] = true$, and all other elements of $f$ are false.
@@ -281,6 +305,8 @@ If we can reach the last stone, the answer is true. Otherwise, the answer is fal
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the number of stones.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -298,6 +324,8 @@ class Solution:
                     return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -321,6 +349,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -347,6 +377,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canCross(stones []int) bool {
 	n := len(stones)
@@ -371,6 +403,8 @@ func canCross(stones []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canCross(stones: number[]): boolean {
     const n = stones.length;
@@ -391,6 +425,8 @@ function canCross(stones: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -423,4 +459,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

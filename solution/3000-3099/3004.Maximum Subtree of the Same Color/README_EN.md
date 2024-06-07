@@ -9,11 +9,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [3004. Maximum Subtree of the Same Color 🔒](https://leetcode.com/problems/maximum-subtree-of-the-same-color)
 
 [中文文档](/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D integer array <code>edges</code> representing a tree with <code>n</code> nodes, numbered from <code>0</code> to <code>n - 1</code>, rooted at node <code>0</code>, where <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> means there is an edge between the nodes <code>v<sub>i</sub></code> and <code>u<sub>i</sub></code>.</p>
 
@@ -65,7 +69,11 @@ tags:
 	<li>The input is generated such that the graph represented by <code>edges</code> is a tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -83,6 +91,8 @@ We call $dfs(0, -1)$, where $0$ represents the root node number, and $-1$ repres
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -109,6 +119,8 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +162,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +197,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSubtreeSize(edges [][]int, colors []int) (ans int) {
 	n := len(edges) + 1
@@ -213,6 +229,8 @@ func maximumSubtreeSize(edges [][]int, colors []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumSubtreeSize(edges: number[][], colors: number[]): number {
@@ -245,4 +263,6 @@ function maximumSubtreeSize(edges: number[][], colors: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

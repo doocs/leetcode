@@ -3,18 +3,24 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README_EN.md
 rating: 1665
+source: Biweekly Contest 100 Q3
 tags:
     - Array
+    - Hash Table
     - Sorting
     - Simulation
     - Heap (Priority Queue)
 ---
+
+<!-- problem:start -->
 
 # [2593. Find Score of an Array After Marking All Elements](https://leetcode.com/problems/find-score-of-an-array-after-marking-all-elements)
 
 [中文文档](/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> consisting of positive integers.</p>
 
@@ -62,7 +68,11 @@ Our score is 1 + 2 + 2 = 5.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min Heap)
 
@@ -75,6 +85,8 @@ Finally, return the answer.
 The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +107,8 @@ class Solution:
                 heappop(q)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -156,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findScore(nums []int) (ans int64) {
@@ -191,6 +209,8 @@ func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
+
+#### TypeScript
 
 ```ts
 interface pair {
@@ -231,6 +251,10 @@ function findScore(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting
 
 We can create an index array $idx$ where $idx[i]=i$, and then we sort the index array $idx$ according to the element values in the array $nums$. If the element values are the same, then sort them according to the index values.
@@ -245,6 +269,8 @@ The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findScore(self, nums: List[int]) -> int:
@@ -258,6 +284,8 @@ class Solution:
                 vis[i] = vis[i + 2] = True
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -282,6 +310,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -305,6 +335,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findScore(nums []int) (ans int64) {
 	n := len(nums)
@@ -326,6 +358,8 @@ func findScore(nums []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findScore(nums: number[]): number {
@@ -350,4 +384,6 @@ function findScore(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

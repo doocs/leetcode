@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1839.Longest%20Substring%20Of%20All%20Vowels%20in%20Order/README_EN.md
 rating: 1580
+source: Weekly Contest 238 Q3
 tags:
     - String
     - Sliding Window
 ---
+
+<!-- problem:start -->
 
 # [1839. Longest Substring Of All Vowels in Order](https://leetcode.com/problems/longest-substring-of-all-vowels-in-order)
 
 [中文文档](/solution/1800-1899/1839.Longest%20Substring%20Of%20All%20Vowels%20in%20Order/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A string is considered <strong>beautiful</strong> if it satisfies the following conditions:</p>
 
@@ -59,7 +64,11 @@ tags:
 	<li><code>word</code> consists of characters <code>&#39;a&#39;</code>, <code>&#39;e&#39;</code>, <code>&#39;i&#39;</code>, <code>&#39;o&#39;</code>, and <code>&#39;u&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers + Simulation
 
@@ -70,6 +79,8 @@ Next, we traverse the array `arr`, each time taking $5$ adjacent data items, and
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string `word`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +101,8 @@ class Solution:
                 ans = max(ans, a[1] + b[1] + c[1] + d[1] + e[1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +140,8 @@ class Node {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +169,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestBeautifulSubstring(word string) (ans int) {
@@ -184,4 +201,6 @@ type pair struct {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

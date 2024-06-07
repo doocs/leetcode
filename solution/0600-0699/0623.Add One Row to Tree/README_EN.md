@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [623. Add One Row to Tree](https://leetcode.com/problems/add-one-row-to-tree)
 
 [中文文档](/solution/0600-0699/0623.Add%20One%20Row%20to%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree and two integers <code>val</code> and <code>depth</code>, add a row of nodes with value <code>val</code> at the given depth <code>depth</code>.</p>
 
@@ -54,11 +58,17 @@ tags:
 	<li><code>1 &lt;= depth &lt;= the depth of tree + 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -86,6 +96,8 @@ class Solution:
         dfs(root, 1)
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -134,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -174,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -204,6 +220,8 @@ func addOneRow(root *TreeNode, val int, depth int) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -243,9 +261,15 @@ function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode 
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -275,6 +299,8 @@ class Solution:
                     node.right = TreeNode(val, None, node.right)
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -321,6 +347,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -357,6 +385,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -392,6 +422,8 @@ func addOneRow(root *TreeNode, val int, depth int) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -432,4 +464,6 @@ function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

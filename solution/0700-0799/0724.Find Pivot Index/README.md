@@ -7,13 +7,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [724. 寻找数组的中心下标](https://leetcode.cn/problems/find-pivot-index)
 
 [English Version](/solution/0700-0799/0724.Find%20Pivot%20Index/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code> ，请计算数组的 <strong>中心下标 </strong>。</p>
 
@@ -67,7 +69,11 @@ tags:
 
 <p><strong>注意：</strong>本题与主站 1991 题相同：<a href="https://leetcode.cn/problems/find-the-middle-index-in-array/" target="_blank">https://leetcode.cn/problems/find-the-middle-index-in-array/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和
 
@@ -86,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
@@ -97,6 +105,8 @@ class Solution:
             left += x
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pivotIndex(nums []int) int {
 	var left, right int
@@ -148,6 +162,8 @@ func pivotIndex(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function pivotIndex(nums: number[]): number {
     let left = 0,
@@ -162,6 +178,8 @@ function pivotIndex(nums: number[]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,6 +196,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -200,4 +220,6 @@ var pivotIndex = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

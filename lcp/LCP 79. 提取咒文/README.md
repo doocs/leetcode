@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2079.%20%E6%8F%90%E5%8F%96%E5%92%92%E6%96%87/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 79. 提取咒文](https://leetcode.cn/problems/kjpLFZ)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 随着兽群逐渐远去，一座大升降机缓缓的从地下升到了远征队面前。借由这台升降机，他们将能够到达地底的永恒至森。
 在升降机的操作台上，是一个由魔法符号组成的矩阵，为了便于辨识，我们用小写字母来表示。 `matrix[i][j]` 表示矩阵第 `i` 行 `j` 列的字母。该矩阵上有一个提取装置，可以对所在位置的字母提取。
@@ -44,13 +46,19 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2079.%20%E6%8F%90%
 -   `0 < mantra.length <= 100`
 -   `matrix 和 mantra` 仅由小写字母组成
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
 时间复杂度 $O(m \times n \times l)$，空间复杂度 $O(m \times n \times l)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +89,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +168,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func extractMantra(matrix []string, mantra string) (ans int) {
@@ -196,6 +210,8 @@ func extractMantra(matrix []string, mantra string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function extractMantra(matrix: string[], mantra: string): number {
     const [m, n, l] = [matrix.length, matrix[0].length, mantra.length];
@@ -235,4 +251,6 @@ function extractMantra(matrix: string[], mantra: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [738. 单调递增的数字](https://leetcode.cn/problems/monotone-increasing-digits)
 
 [English Version](/solution/0700-0799/0738.Monotone%20Increasing%20Digits/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>当且仅当每个相邻位数上的数字&nbsp;<code>x</code>&nbsp;和&nbsp;<code>y</code>&nbsp;满足&nbsp;<code>x &lt;= y</code>&nbsp;时，我们称这个整数是<strong>单调递增</strong>的。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -63,6 +69,8 @@ tags:
 时间复杂度 $O(\log n)$，空间复杂度 $O(\log n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +89,8 @@ class Solution:
                 i += 1
         return int(''.join(s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func monotoneIncreasingDigits(n int) int {
 	s := []byte(strconv.Itoa(n))
@@ -147,4 +161,6 @@ func monotoneIncreasingDigits(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

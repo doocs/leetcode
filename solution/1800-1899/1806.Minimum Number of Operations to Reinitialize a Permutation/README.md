@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1806.Minimum%20Number%20of%20Operations%20to%20Reinitialize%20a%20Permutation/README.md
 rating: 1491
+source: 第 234 场周赛 Q2
 tags:
     - 数组
     - 数学
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1806. 还原排列的最少操作步数](https://leetcode.cn/problems/minimum-number-of-operations-to-reinitialize-a-permutation)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个偶数 <code>n</code>​​​​​​ ，已知存在一个长度为 <code>n</code> 的排列 <code>perm</code> ，其中 <code>perm[i] == i</code>​（下标 <strong>从 0 开始</strong> 计数）。</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>n</code>​​​​​​ 是一个偶数</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：找规律 + 模拟
 
@@ -86,6 +93,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reinitializePermutation(self, n: int) -> int:
@@ -99,6 +108,8 @@ class Solution:
             if i == 1:
                 return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reinitializePermutation(n int) (ans int) {
 	for i := 1; ; {
@@ -157,4 +172,6 @@ func reinitializePermutation(n int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

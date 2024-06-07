@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1290.Convert%20Binary%20Number%20in%20a%20Linked%20List%20to%20Integer/README.md
 rating: 1151
+source: 第 167 场周赛 Q1
 tags:
     - 链表
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1290. 二进制链表转整数](https://leetcode.cn/problems/convert-binary-number-in-a-linked-list-to-integer)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个单链表的引用结点&nbsp;<code>head</code>。链表中每个结点的值不是 0 就是 1。已知此链表是一个整数数字的二进制表示形式。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li>每个结点的值不是&nbsp;<code>0</code> 就是 <code>1</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历链表
 
@@ -76,6 +83,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -91,6 +100,8 @@ class Solution:
             head = head.next
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -113,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -137,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -152,6 +167,8 @@ func getDecimalValue(head *ListNode) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -174,6 +191,8 @@ function getDecimalValue(head: ListNode | null): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -205,6 +224,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -225,6 +246,8 @@ var getDecimalValue = function (head) {
     return ans;
 };
 ```
+
+#### PHP
 
 ```php
 /**
@@ -255,6 +278,8 @@ class Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for singly-linked list.
@@ -277,4 +302,6 @@ int getDecimalValue(struct ListNode* head) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

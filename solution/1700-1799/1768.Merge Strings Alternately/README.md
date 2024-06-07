@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1768.Merge%20Strings%20Alternately/README.md
 rating: 1166
+source: 第 229 场周赛 Q1
 tags:
     - 双指针
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1768. 交替合并字符串](https://leetcode.cn/problems/merge-strings-alternately)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串 <code>word1</code> 和 <code>word2</code> 。请你从 <code>word1</code> 开始，通过交替添加字母来合并字符串。如果一个字符串比另一个字符串长，就将多出来的字母追加到合并后字符串的末尾。</p>
 
@@ -64,7 +67,11 @@ word2：    p   q
 	<li><code>word1</code> 和 <code>word2</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：直接模拟
 
@@ -74,11 +81,15 @@ word2：    p   q
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
         return ''.join(a + b for a, b in zip_longest(word1, word2, fillvalue=''))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mergeAlternately(word1 string, word2 string) string {
@@ -129,6 +144,8 @@ func mergeAlternately(word1 string, word2 string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mergeAlternately(word1: string, word2: string): string {
     const ans: string[] = [];
@@ -144,6 +161,8 @@ function mergeAlternately(word1: string, word2: string): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -164,6 +183,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* mergeAlternately(char* word1, char* word2) {
@@ -189,4 +210,6 @@ char* mergeAlternately(char* word1, char* word2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

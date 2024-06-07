@@ -8,13 +8,15 @@ tags:
     - 数据流
 ---
 
+<!-- problem:start -->
+
 # [933. 最近的请求次数](https://leetcode.cn/problems/number-of-recent-calls)
 
 [English Version](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>写一个&nbsp;<code>RecentCounter</code>&nbsp;类来计算特定时间范围内最近的请求。</p>
 
@@ -56,7 +58,11 @@ recentCounter.ping(3002);  // requests = [1, <strong>100</strong>, <strong>3001<
 	<li>至多调用 <code>ping</code> 方法 <code>10<sup>4</sup></code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：队列
 
@@ -67,6 +73,8 @@ recentCounter.ping(3002);  // requests = [1, <strong>100</strong>, <strong>3001<
 可以使用队列。每次将 `t` 进入队尾，同时从队头开始，依次移除小于 `t - 3000` 的元素。然后返回队列的大小（`q.size()`）即可。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class RecentCounter:
@@ -84,6 +92,8 @@ class RecentCounter:
 # obj = RecentCounter()
 # param_1 = obj.ping(t)
 ```
+
+#### Java
 
 ```java
 class RecentCounter {
@@ -119,6 +129,8 @@ class RecentCounter {
  */
 ```
 
+#### C++
+
 ```cpp
 class RecentCounter {
 public:
@@ -140,6 +152,8 @@ public:
  * int param_1 = obj->ping(t);
  */
 ```
+
+#### Go
 
 ```go
 type RecentCounter struct {
@@ -165,6 +179,8 @@ func (this *RecentCounter) Ping(t int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class RecentCounter {
     private queue: number[];
@@ -188,6 +204,8 @@ class RecentCounter {
  * var param_1 = obj.ping(t)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -223,6 +241,8 @@ impl RecentCounter {
  */
 ```
 
+#### JavaScript
+
 ```js
 var RecentCounter = function () {
     this.q = [];
@@ -246,6 +266,8 @@ RecentCounter.prototype.ping = function (t) {
  * var param_1 = obj.ping(t)
  */
 ```
+
+#### C#
 
 ```cs
 public class RecentCounter {
@@ -274,11 +296,17 @@ public class RecentCounter {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二分查找
 
 `t` 严格单调递增，非常适合用二分查找来定位 `[t-3000, t]` 的左右边界。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class RecentCounter:
@@ -294,6 +322,8 @@ class RecentCounter:
 # obj = RecentCounter()
 # param_1 = obj.ping(t)
 ```
+
+#### C++
 
 ```cpp
 class RecentCounter {
@@ -315,6 +345,8 @@ public:
  * int param_1 = obj->ping(t);
  */
 ```
+
+#### Go
 
 ```go
 type RecentCounter struct {
@@ -351,4 +383,6 @@ func (this *RecentCounter) Ping(t int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

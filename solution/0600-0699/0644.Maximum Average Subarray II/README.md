@@ -8,13 +8,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [644. 子数组最大平均数 II 🔒](https://leetcode.cn/problems/maximum-average-subarray-ii)
 
 [English Version](/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个包含 <code>n</code> 个整数的数组 <code>nums</code> ，和一个整数 <code>k</code> 。</p>
 
@@ -52,7 +54,11 @@ tags:
 	<li><code>-10<sup>4</sup> <= nums[i] <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -92,6 +98,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxAverage(self, nums: List[int], k: int) -> float:
@@ -118,6 +126,8 @@ class Solution:
                 r = mid
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -162,6 +172,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -202,6 +214,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaxAverage(nums []int, k int) float64 {
 	eps := 1e-5
@@ -239,6 +253,8 @@ func findMaxAverage(nums []int, k int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMaxAverage(nums: number[], k: number): number {
     const eps = 1e-5;
@@ -275,4 +291,6 @@ function findMaxAverage(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

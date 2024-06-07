@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [119. 杨辉三角 II](https://leetcode.cn/problems/pascals-triangle-ii)
 
 [English Version](/solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个非负索引 <code>rowIndex</code>，返回「杨辉三角」的第 <code>rowIndex</code><em> </em>行。</p>
 
@@ -58,7 +60,11 @@ tags:
 
 <p>你可以优化你的算法到 <code><em>O</em>(<i>rowIndex</i>)</code> 空间复杂度吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递推
 
@@ -72,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getRow(self, rowIndex: int) -> List[int]:
@@ -81,6 +89,8 @@ class Solution:
                 f[j] += f[j - 1]
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getRow(rowIndex int) []int {
@@ -129,6 +143,8 @@ func getRow(rowIndex int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getRow(rowIndex: number): number[] {
     const f: number[] = Array(rowIndex + 1).fill(1);
@@ -140,6 +156,8 @@ function getRow(rowIndex: number): number[] {
     return f;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -158,4 +176,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

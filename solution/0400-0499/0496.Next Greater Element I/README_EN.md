@@ -9,11 +9,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [496. Next Greater Element I](https://leetcode.com/problems/next-greater-element-i)
 
 [中文文档](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>next greater element</strong> of some element <code>x</code> in an array is the <strong>first greater</strong> element that is <strong>to the right</strong> of <code>x</code> in the same array.</p>
 
@@ -58,11 +62,17 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you find an <code>O(nums1.length + nums2.length)</code> solution?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +85,8 @@ class Solution:
             stk.append(v)
         return [m.get(v, -1) for v in nums1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nextGreaterElement(nums1 []int, nums2 []int) []int {
@@ -140,6 +156,8 @@ func nextGreaterElement(nums1 []int, nums2 []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
     const map = new Map<number, number>();
@@ -153,6 +171,8 @@ function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
     return nums1.map(num => map.get(num) || -1);
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -175,6 +195,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums1
@@ -196,9 +218,15 @@ var nextGreaterElement = function (nums1, nums2) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -213,6 +241,8 @@ class Solution:
             stk.append(v)
         return [m.get(x, -1) for x in nums1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -238,6 +268,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -255,6 +287,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nextGreaterElement(nums1 []int, nums2 []int) []int {
@@ -281,6 +315,8 @@ func nextGreaterElement(nums1 []int, nums2 []int) []int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn next_greater_element(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
@@ -302,6 +338,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -327,4 +365,6 @@ var nextGreaterElement = function (nums1, nums2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

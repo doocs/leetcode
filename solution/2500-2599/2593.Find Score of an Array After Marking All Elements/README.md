@@ -3,12 +3,16 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README.md
 rating: 1665
+source: 第 100 场双周赛 Q3
 tags:
     - 数组
+    - 哈希表
     - 排序
     - 模拟
     - 堆（优先队列）
 ---
+
+<!-- problem:start -->
 
 # [2593. 标记所有元素后数组的分数](https://leetcode.cn/problems/find-score-of-an-array-after-marking-all-elements)
 
@@ -16,7 +20,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组&nbsp;<code>nums</code>&nbsp;，它包含若干正整数。</p>
 
@@ -35,23 +39,25 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><b>输入：</b>nums = [2,1,3,4,5,2]
+<pre>
+<b>输入：</b>nums = [2,1,3,4,5,2]
 <b>输出：</b>7
 <b>解释：</b>我们按照如下步骤标记元素：
-- 1 是最小未标记元素，所以标记它和相邻两个元素：[<em><strong>2</strong></em>,<em><strong>1</strong></em>,<em><strong>3</strong></em>,4,5,2] 。
-- 2 是最小未标记元素，所以标记它和左边相邻元素：[<em><strong>2</strong></em>,<em><strong>1</strong></em>,<em><strong>3</strong></em>,4,<em><strong>5</strong></em>,<em><strong>2</strong></em>] 。
-- 4 是仅剩唯一未标记的元素，所以我们标记它：[<em><strong>2</strong></em>,<em><strong>1</strong></em>,<em><strong>3</strong></em>,<em><strong>4</strong></em>,<em><strong>5</strong></em>,<em><strong>2</strong></em>] 。
+- 1 是最小未标记元素，所以标记它和相邻两个元素：[<u><em><strong>2</strong></em></u>,<u><em><strong>1</strong></em></u>,<u><em><strong>3</strong></em></u>,4,5,2] 。
+- 2 是最小未标记元素，所以标记它和左边相邻元素：[<u><em><strong>2</strong></em></u>,<u><em><strong>1</strong></em></u>,<u><em><strong>3</strong></em></u>,4,<u><em><strong>5</strong></em></u>,<u><em><strong>2</strong></em></u>] 。
+- 4 是仅剩唯一未标记的元素，所以我们标记它：[<u><em><strong>2</strong></em></u>,<u><em><strong>1</strong></em></u>,<u><em><strong>3</strong></em></u>,<u><em><strong>4</strong></em></u>,<u><em><strong>5</strong></em></u>,<u><em><strong>2</strong></em></u>] 。
 总得分为 1 + 2 + 4 = 7 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>nums = [2,3,5,1,3,2]
+<pre>
+<b>输入：</b>nums = [2,3,5,1,3,2]
 <b>输出：</b>5
 <b>解释：</b>我们按照如下步骤标记元素：
-- 1 是最小未标记元素，所以标记它和相邻两个元素：[2,3,<em><strong>5</strong></em>,<em><strong>1</strong></em>,<em><strong>3</strong></em>,2] 。
-- 2 是最小未标记元素，由于有两个 2 ，我们选择最左边的一个 2 ，也就是下标为 0 处的 2 ，以及它右边相邻的元素：[<em><strong>2</strong></em>,<em><strong>3</strong></em>,<em><strong>5</strong></em>,<em><strong>1</strong></em>,<em><strong>3</strong></em>,2] 。
-- 2 是仅剩唯一未标记的元素，所以我们标记它：[<em><strong>2</strong></em>,<em><strong>3</strong></em>,<em><strong>5</strong></em>,<em><strong>1</strong></em>,<em><strong>3</strong></em>,<em><strong>2</strong></em>] 。
+- 1 是最小未标记元素，所以标记它和相邻两个元素：[2,3,<u><em><strong>5</strong></em></u>,<u><em><strong>1</strong></em></u>,<u><em><strong>3</strong></em></u>,2] 。
+- 2 是最小未标记元素，由于有两个 2 ，我们选择最左边的一个 2 ，也就是下标为 0 处的 2 ，以及它右边相邻的元素：[<u><em><strong>2</strong></em></u>,<u><em><strong>3</strong></em></u>,<u><em><strong>5</strong></em></u>,<u><em><strong>1</strong></em></u>,<u><em><strong>3</strong></em></u>,2] 。
+- 2 是仅剩唯一未标记的元素，所以我们标记它：[<u><em><strong>2</strong></em></u>,<u><em><strong>3</strong></em></u>,<u><em><strong>5</strong></em></u>,<u><em><strong>1</strong></em></u>,<u><em><strong>3</strong></em></u>,<u><em><strong>2</strong></em></u>] 。
 总得分为 1 + 2 + 2 = 5 。
 </pre>
 
@@ -64,7 +70,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（小根堆）
 
@@ -77,6 +87,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +109,8 @@ class Solution:
                 heappop(q)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -158,6 +174,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findScore(nums []int) (ans int64) {
@@ -193,6 +211,8 @@ func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
+
+#### TypeScript
 
 ```ts
 interface pair {
@@ -233,6 +253,10 @@ function findScore(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序
 
 我们可以创建一个下标数组 $idx$，其中 $idx[i]=i$，然后我们对数组 $idx$ 按照数组 $nums$ 中的元素值进行排序，如果元素值相同，则按照下标值进行排序。
@@ -247,6 +271,8 @@ function findScore(nums: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findScore(self, nums: List[int]) -> int:
@@ -260,6 +286,8 @@ class Solution:
                 vis[i] = vis[i + 2] = True
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -284,6 +312,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -307,6 +337,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findScore(nums []int) (ans int64) {
 	n := len(nums)
@@ -328,6 +360,8 @@ func findScore(nums []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findScore(nums: number[]): number {
@@ -352,4 +386,6 @@ function findScore(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

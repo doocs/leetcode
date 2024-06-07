@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README.md
 rating: 1500
+source: 第 127 场双周赛 Q2
 tags:
     - 数组
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [3096. 得到更多分数的最少关卡数目](https://leetcode.cn/problems/minimum-levels-to-gain-more-points)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;的二进制数组&nbsp;<code>possible</code>&nbsp;。</p>
 
@@ -92,7 +95,11 @@ tags:
 	<li><code>possible[i]</code>&nbsp;要么是&nbsp;<code>0</code>&nbsp;要么是&nbsp;<code>1</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -106,6 +113,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumLevels(self, possible: List[int]) -> int:
@@ -117,6 +126,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +169,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumLevels(possible []int) int {
@@ -180,6 +195,8 @@ func minimumLevels(possible []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumLevels(possible: number[]): number {
     const s = possible.reduce((acc, x) => acc + (x === 0 ? -1 : 1), 0);
@@ -196,4 +213,6 @@ function minimumLevels(possible: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

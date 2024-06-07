@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1074.Number%20of%20Submatrices%20That%20Sum%20to%20Target/README_EN.md
 rating: 2189
+source: Weekly Contest 139 Q4
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1074. Number of Submatrices That Sum to Target](https://leetcode.com/problems/number-of-submatrices-that-sum-to-target)
 
 [中文文档](/solution/1000-1099/1074.Number%20of%20Submatrices%20That%20Sum%20to%20Target/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>matrix</code>&nbsp;and a <code>target</code>, return the number of non-empty submatrices that sum to <font face="monospace">target</font>.</p>
 
@@ -56,11 +61,17 @@ tags:
 	<li><code>-10^8 &lt;= target &lt;= 10^8</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +96,8 @@ class Solution:
                 ans += f(col)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -150,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSubmatrixSumTarget(matrix [][]int, target int) (ans int) {
 	m, n := len(matrix), len(matrix[0])
@@ -178,6 +195,8 @@ func f(nums []int, target int) (cnt int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numSubmatrixSumTarget(matrix: number[][], target: number): number {
@@ -214,4 +233,6 @@ function f(nums: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle)
 
 [中文文档](/solution/0100-0199/0141.Linked%20List%20Cycle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given <code>head</code>, the head of a linked list, determine if the linked list has a cycle in it.</p>
 
@@ -57,7 +61,11 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you solve it using <code>O(1)</code> (i.e. constant) memory?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -66,6 +74,8 @@ We can traverse the linked list and use a hash table $s$ to record each node. Wh
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the linked list.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -85,6 +95,8 @@ class Solution:
             head = head.next
         return False
 ```
+
+#### Java
 
 ```java
 /**
@@ -111,6 +123,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -135,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -154,6 +170,8 @@ func hasCycle(head *ListNode) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -182,6 +200,10 @@ function hasCycle(head: ListNode | null): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Fast and Slow Pointers
 
 We define two pointers, $fast$ and $slow$, both initially pointing to $head$.
@@ -191,6 +213,8 @@ The fast pointer moves two steps at a time, and the slow pointer moves one step 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nodes in the linked list.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -209,6 +233,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 /**
@@ -238,6 +264,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -264,6 +292,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -283,6 +313,8 @@ func hasCycle(head *ListNode) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -311,6 +343,8 @@ function hasCycle(head: ListNode | null): boolean {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -337,6 +371,8 @@ var hasCycle = function (head) {
     return false;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -368,4 +404,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

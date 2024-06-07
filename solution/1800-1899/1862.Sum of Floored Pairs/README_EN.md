@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1862.Sum%20of%20Floored%20Pairs/README_EN.md
 rating: 2170
+source: Biweekly Contest 52 Q4
 tags:
     - Array
     - Math
@@ -10,11 +11,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1862. Sum of Floored Pairs](https://leetcode.com/problems/sum-of-floored-pairs)
 
 [中文文档](/solution/1800-1899/1862.Sum%20of%20Floored%20Pairs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, return the sum of <code>floor(nums[i] / nums[j])</code> for all pairs of indices <code>0 &lt;= i, j &lt; nums.length</code> in the array. Since the answer may be too large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
@@ -50,7 +55,11 @@ We calculate the floor of the division for every pair of indices in the array th
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum of Value Range + Optimized Enumeration
 
@@ -61,6 +70,8 @@ Next, we enumerate the denominator $y$ and the quotient $d$. Using the prefix su
 The time complexity is $O(M \times \log M)$, and the space complexity is $O(M)$. Here, $M$ is the maximum value in the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +92,8 @@ class Solution:
                     d += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfFlooredPairs(nums []int) (ans int) {
 	mx := slices.Max(nums)
@@ -163,6 +180,8 @@ func sumOfFlooredPairs(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfFlooredPairs(nums: number[]): number {
@@ -188,6 +207,8 @@ function sumOfFlooredPairs(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -232,4 +253,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

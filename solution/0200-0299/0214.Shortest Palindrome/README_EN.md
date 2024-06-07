@@ -9,11 +9,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [214. Shortest Palindrome](https://leetcode.com/problems/shortest-palindrome)
 
 [中文文档](/solution/0200-0299/0214.Shortest%20Palindrome/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code>. You can convert <code>s</code> to a <span data-keyword="palindrome-string">palindrome</span> by adding characters in front of it.</p>
 
@@ -35,11 +39,17 @@ tags:
 	<li><code>s</code> consists of lowercase English letters only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -58,6 +68,8 @@ class Solution:
                 idx = i + 1
         return s if idx == n else s[idx:][::-1] + s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef unsigned long long ull;
 
@@ -110,6 +124,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestPalindrome(s string) string {
@@ -137,6 +153,8 @@ func shortestPalindrome(s string) string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn shortest_palindrome(s: String) -> String {
@@ -160,6 +178,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 ﻿// https://leetcode.com/problems/shortest-palindrome/
@@ -205,4 +225,6 @@ public partial class Solution
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

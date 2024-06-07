@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3100.Water%20Bottles%20II/README_EN.md
 rating: 1366
+source: Weekly Contest 391 Q2
 tags:
     - Math
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [3100. Water Bottles II](https://leetcode.com/problems/water-bottles-ii)
 
 [中文文档](/solution/3100-3199/3100.Water%20Bottles%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>numBottles</code> and <code>numExchange</code>.</p>
 
@@ -52,7 +57,11 @@ tags:
 	<li><code>1 &lt;= numExchange &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -67,6 +76,8 @@ The time complexity is $O(\sqrt{numBottles})$ and the space complexity is $O(1)$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxBottlesDrunk(self, numBottles: int, numExchange: int) -> int:
@@ -78,6 +89,8 @@ class Solution:
             numBottles += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxBottlesDrunk(numBottles int, numExchange int) int {
 	ans := numBottles
@@ -122,6 +139,8 @@ func maxBottlesDrunk(numBottles int, numExchange int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxBottlesDrunk(numBottles: number, numExchange: number): number {
@@ -138,4 +157,6 @@ function maxBottlesDrunk(numBottles: number, numExchange: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

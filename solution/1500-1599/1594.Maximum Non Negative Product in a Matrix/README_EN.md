@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1594.Maximum%20Non%20Negative%20Product%20in%20a%20Matrix/README_EN.md
 rating: 1807
+source: Weekly Contest 207 Q3
 tags:
     - Array
     - Dynamic Programming
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1594. Maximum Non Negative Product in a Matrix](https://leetcode.com/problems/maximum-non-negative-product-in-a-matrix)
 
 [中文文档](/solution/1500-1599/1594.Maximum%20Non%20Negative%20Product%20in%20a%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <code>m x n</code> matrix <code>grid</code>. Initially, you are located at the top-left corner <code>(0, 0)</code>, and in each step, you can only <strong>move right or down</strong> in the matrix.</p>
 
@@ -58,11 +63,17 @@ tags:
 	<li><code>-4 &lt;= grid[i][j] &lt;= 4</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +97,8 @@ class Solution:
         ans = dp[-1][-1][1]
         return -1 if ans < 0 else ans % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 const int mod = 1e9 + 7;
@@ -158,6 +173,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProductPath(grid [][]int) int {
@@ -201,4 +218,6 @@ func maxProductPath(grid [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

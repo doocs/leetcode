@@ -8,13 +8,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [335. 路径交叉](https://leetcode.cn/problems/self-crossing)
 
 [English Version](/solution/0300-0399/0335.Self%20Crossing/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>distance</code><em> </em>。</p>
 
@@ -53,11 +55,17 @@ tags:
 	<li><code>1 &lt;=&nbsp;distance[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +86,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isSelfCrossing(distance []int) bool {
@@ -132,6 +146,8 @@ func isSelfCrossing(distance []int) bool {
 	return false
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -152,4 +168,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

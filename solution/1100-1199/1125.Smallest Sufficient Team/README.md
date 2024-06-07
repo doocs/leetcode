@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README.md
 rating: 2250
+source: 第 145 场周赛 Q4
 tags:
     - 位运算
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [1125. 最小的必要团队](https://leetcode.cn/problems/smallest-sufficient-team)
 
 [English Version](/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>作为项目经理，你规划了一份需求的技能清单 <code>req_skills</code>，并打算从备选人员名单 <code>people</code> 中选出些人组成一个「必要团队」（ 编号为 <code>i</code> 的备选人员 <code>people[i]</code> 含有一份该备选人员掌握的技能列表）。</p>
 
@@ -62,7 +65,11 @@ tags:
 	<li>题目数据保证「必要团队」一定存在</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩动态规划
 
@@ -85,6 +92,8 @@ tags:
 时间复杂度 $O(2^m \times n)$，空间复杂度 $O(2^m)$。其中 $m$ 和 $n$ 分别为 `req_skills` 和 `people` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -116,6 +125,8 @@ class Solution:
             i = h[i]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +214,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestSufficientTeam(req_skills []string, people [][]string) (ans []int) {
 	d := map[string]int{}
@@ -240,6 +255,8 @@ func smallestSufficientTeam(req_skills []string, people [][]string) (ans []int) 
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestSufficientTeam(req_skills: string[], people: string[][]): number[] {
@@ -282,4 +299,6 @@ function smallestSufficientTeam(req_skills: string[], people: string[][]): numbe
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

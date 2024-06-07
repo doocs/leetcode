@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1450.Number%20of%20Students%20Doing%20Homework%20at%20a%20Given%20Time/README.md
 rating: 1129
+source: 第 189 场周赛 Q1
 tags:
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [1450. 在既定时间做作业的学生人数](https://leetcode.cn/problems/number-of-students-doing-homework-at-a-given-time)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数数组 <code>startTime</code>（开始时间）和 <code>endTime</code>（结束时间），并指定一个整数 <code>queryTime</code> 作为查询时间。</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li><code>1 &lt;=&nbsp;queryTime &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历计数
 
@@ -79,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def busyStudent(
@@ -86,6 +95,8 @@ class Solution:
     ) -> int:
         return sum(a <= queryTime <= b for a, b in zip(startTime, endTime))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func busyStudent(startTime []int, endTime []int, queryTime int) int {
@@ -127,6 +142,8 @@ func busyStudent(startTime []int, endTime []int, queryTime int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function busyStudent(startTime: number[], endTime: number[], queryTime: number): number {
     const n = startTime.length;
@@ -139,6 +156,8 @@ function busyStudent(startTime: number[], endTime: number[], queryTime: number):
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -154,6 +173,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int busyStudent(int* startTime, int startTimeSize, int* endTime, int endTimeSize, int queryTime) {
     int res = 0;
@@ -167,6 +188,10 @@ int busyStudent(int* startTime, int startTimeSize, int* endTime, int endTimeSize
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：差分数组
 
@@ -194,6 +219,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def busyStudent(
@@ -205,6 +232,8 @@ class Solution:
             c[b + 1] -= 1
         return sum(c[: queryTime + 1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -222,6 +251,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -241,6 +272,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func busyStudent(startTime []int, endTime []int, queryTime int) int {
 	c := make([]int, 1010)
@@ -259,4 +292,6 @@ func busyStudent(startTime []int, endTime []int, queryTime int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

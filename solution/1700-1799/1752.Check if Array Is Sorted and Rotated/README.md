@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1752.Check%20if%20Array%20Is%20Sorted%20and%20Rotated/README.md
 rating: 1324
+source: 第 227 场周赛 Q1
 tags:
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [1752. 检查数组是否经排序和轮转得到](https://leetcode.cn/problems/check-if-array-is-sorted-and-rotated)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组 <code>nums</code> 。<code>nums</code> 的源数组中，所有元素与 <code>nums</code> 相同，但按非递减顺序排列。</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -72,11 +79,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def check(self, nums: List[int]) -> bool:
         return sum(nums[i - 1] > v for i, v in enumerate(nums)) <= 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func check(nums []int) bool {
 	cnt := 0
@@ -117,12 +132,16 @@ func check(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function check(nums: number[]): boolean {
     const n = nums.length;
     return nums.reduce((r, v, i) => r + (v > nums[(i + 1) % n] ? 1 : 0), 0) <= 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -139,6 +158,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 bool check(int* nums, int numsSize) {
     int count = 0;
@@ -153,4 +174,6 @@ bool check(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

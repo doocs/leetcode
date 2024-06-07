@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1745.Palindrome%20Partitioning%20IV/README.md
 rating: 1924
+source: 第 226 场周赛 Q4
 tags:
     - 字符串
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [1745. 分割回文串 IV](https://leetcode.cn/problems/palindrome-partitioning-iv)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> ，如果可以将它分割成三个 <strong>非空</strong> 回文子字符串，那么返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
 
@@ -47,7 +50,11 @@ tags:
 	<li><code>s</code>​​​​​​ 只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理 + 枚举
 
@@ -56,6 +63,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为字符串 `s` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +80,8 @@ class Solution:
                     return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkPartitioning(s string) bool {
@@ -148,4 +163,6 @@ func checkPartitioning(s string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

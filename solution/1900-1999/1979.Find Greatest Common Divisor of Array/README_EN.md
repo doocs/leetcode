@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1979.Find%20Greatest%20Common%20Divisor%20of%20Array/README_EN.md
 rating: 1184
+source: Weekly Contest 255 Q1
 tags:
     - Array
     - Math
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [1979. Find Greatest Common Divisor of Array](https://leetcode.com/problems/find-greatest-common-divisor-of-array)
 
 [中文文档](/solution/1900-1999/1979.Find%20Greatest%20Common%20Divisor%20of%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, return<strong> </strong><em>the <strong>greatest common divisor</strong> of the smallest number and largest number in </em><code>nums</code>.</p>
 
@@ -61,17 +66,25 @@ The greatest common divisor of 3 and 3 is 3.
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def findGCD(self, nums: List[int]) -> int:
         return gcd(max(nums), min(nums))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -100,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findGCD(nums []int) int {
@@ -114,6 +131,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findGCD(nums: number[]): number {
@@ -136,4 +155,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,13 +10,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [923. 三数之和的多种可能](https://leetcode.cn/problems/3sum-with-multiplicity)
 
 [English Version](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;，以及一个整数&nbsp;<code>target</code>&nbsp;作为目标值，返回满足 <code>i &lt; j &lt; k</code> 且<meta charset="UTF-8" />&nbsp;<code>arr[i] + arr[j] + arr[k] == target</code>&nbsp;的元组&nbsp;<code>i, j, k</code>&nbsp;的数量。</p>
 
@@ -58,7 +60,11 @@ arr[i] = 1, arr[j] = arr[k] = 2 出现 12 次：
 	<li><code>0 &lt;= target &lt;= 300</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 枚举
 
@@ -71,6 +77,8 @@ arr[i] = 1, arr[j] = arr[k] = 2 出现 12 次：
 时间复杂度 $O(n^2)$，其中 $n$ 为数组 $arr$ 的长度。空间复杂度 $O(C)$，其中 $C$ 为数组 $arr$ 中元素的最大值，本题中 $C = 100$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +93,8 @@ class Solution:
                 ans = (ans + cnt[c]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func threeSumMulti(arr []int, target int) (ans int) {
 	const mod int = 1e9 + 7
@@ -153,6 +167,8 @@ func threeSumMulti(arr []int, target int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function threeSumMulti(arr: number[], target: number): number {
@@ -178,4 +194,6 @@ function threeSumMulti(arr: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README_EN.md
 rating: 2022
+source: Weekly Contest 159 Q4
 tags:
     - Array
     - Binary Search
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1235. Maximum Profit in Job Scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling)
 
 [中文文档](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We have <code>n</code> jobs, where every job is scheduled to be done from <code>startTime[i]</code> to <code>endTime[i]</code>, obtaining a profit of <code>profit[i]</code>.</p>
 
@@ -63,7 +68,11 @@ Profit obtained 150 = 20 + 70 + 60.
 	<li><code>1 &lt;= profit[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search + Binary Search
 
@@ -85,6 +94,8 @@ The time complexity is $O(n \times \log n)$, where $n$ is the number of jobs.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def jobScheduling(
@@ -102,6 +113,8 @@ class Solution:
         n = len(profit)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +162,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func jobScheduling(startTime []int, endTime []int, profit []int) int {
@@ -199,6 +216,8 @@ func jobScheduling(startTime []int, endTime []int, profit []int) int {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function jobScheduling(startTime: number[], endTime: number[], profit: number[]): number {
@@ -235,6 +254,10 @@ function jobScheduling(startTime: number[], endTime: number[], profit: number[])
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming + Binary Search
 
 We can also change the memoization search in Solution 1 to dynamic programming.
@@ -258,6 +281,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def jobScheduling(
@@ -271,6 +296,8 @@ class Solution:
             dp[i + 1] = max(dp[i], dp[j] + p)
         return dp[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -304,6 +331,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -323,6 +352,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func jobScheduling(startTime []int, endTime []int, profit []int) int {
 	n := len(profit)
@@ -340,6 +371,8 @@ func jobScheduling(startTime []int, endTime []int, profit []int) int {
 	return dp[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function jobScheduling(startTime: number[], endTime: number[], profit: number[]): number {
@@ -371,6 +404,56 @@ function jobScheduling(startTime: number[], endTime: number[], profit: number[])
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+
+    func binarySearch<T: Comparable>(inputArr: [T], searchItem: T) -> Int? {
+        var lowerIndex = 0
+        var upperIndex = inputArr.count - 1
+
+        while lowerIndex < upperIndex {
+            let currentIndex = (lowerIndex + upperIndex) / 2
+            if inputArr[currentIndex] <= searchItem {
+                lowerIndex = currentIndex + 1
+            } else {
+                upperIndex = currentIndex
+            }
+        }
+
+        if inputArr[upperIndex] <= searchItem {
+            return upperIndex + 1
+        }
+        return lowerIndex
+    }
+
+    func jobScheduling(_ startTime: [Int], _ endTime: [Int], _ profit: [Int]) -> Int {
+        let zipList = zip(zip(startTime, endTime), profit)
+        var table: [(startTime: Int, endTime: Int, profit: Int, cumsum: Int)] = []
+
+        for ((x, y), z) in zipList {
+            table.append((x, y, z, 0))
+        }
+        table.sort(by: { $0.endTime < $1.endTime })
+        let sortedEndTime = endTime.sorted()
+
+        var profits: [Int] = [0]
+        for iJob in table {
+            let index: Int! = binarySearch(inputArr: sortedEndTime, searchItem: iJob.startTime)
+            if profits.last! < profits[index] + iJob.profit {
+                profits.append(profits[index] + iJob.profit)
+            } else {
+                profits.append(profits.last!)
+            }
+        }
+        return profits.last!
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

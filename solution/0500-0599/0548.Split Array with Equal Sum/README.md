@@ -8,13 +8,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [548. 将数组分割成和相等的子数组 🔒](https://leetcode.cn/problems/split-array-with-equal-sum)
 
 [English Version](/solution/0500-0599/0548.Split%20Array%20with%20Equal%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个有 <code>n</code> 个整数的数组 <code>nums</code>&nbsp;，如果能找到满足以下条件的三元组&nbsp; <code>(i, j, k)</code>&nbsp; 则返回 <code>true</code> ：</p>
 
@@ -57,7 +59,11 @@ sum(k + 1, n - 1) = sum(6, 6) = 1
 	<li><code>-10<sup>6</sup>&nbsp;&lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 哈希表
 
@@ -72,6 +78,8 @@ sum(k + 1, n - 1) = sum(6, 6) = 1
 时间复杂度 $O(n^2)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +98,8 @@ class Solution:
                     return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func splitArray(nums []int) bool {
@@ -164,4 +178,6 @@ func splitArray(nums []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

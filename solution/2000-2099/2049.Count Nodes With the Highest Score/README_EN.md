@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README_EN.md
 rating: 1911
+source: Weekly Contest 264 Q3
 tags:
     - Tree
     - Depth-First Search
@@ -10,11 +11,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2049. Count Nodes With the Highest Score](https://leetcode.com/problems/count-nodes-with-the-highest-score)
 
 [中文文档](/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a <strong>binary</strong> tree rooted at <code>0</code> consisting of <code>n</code> nodes. The nodes are labeled from <code>0</code> to <code>n - 1</code>. You are given a <strong>0-indexed</strong> integer array <code>parents</code> representing the tree, where <code>parents[i]</code> is the parent of node <code>i</code>. Since node <code>0</code> is the root, <code>parents[0] == -1</code>.</p>
 
@@ -60,7 +65,11 @@ The highest score is 2, and two nodes (node 0 and node 1) have the highest score
 	<li><code>parents</code> represents a valid binary tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -85,6 +94,8 @@ In the end, we call `dfs(0, -1)` and return $ans$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -114,6 +125,8 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -195,6 +210,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countHighestScoreNodes(parents []int) (ans int) {
 	n := len(parents)
@@ -229,6 +246,8 @@ func countHighestScoreNodes(parents []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countHighestScoreNodes(parents: number[]): number {
     const n = parents.length;
@@ -261,6 +280,8 @@ function countHighestScoreNodes(parents: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -313,4 +334,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

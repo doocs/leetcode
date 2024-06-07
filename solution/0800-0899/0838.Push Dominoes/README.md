@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [838. 推多米诺](https://leetcode.cn/problems/push-dominoes)
 
 [English Version](/solution/0800-0899/0838.Push%20Dominoes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>n</code> 张多米诺骨牌排成一行，将每张多米诺骨牌垂直竖立。在开始时，同时把一些多米诺骨牌向左或向右推。</p>
 
@@ -60,11 +62,17 @@ tags:
 	<li><code>dominoes[i]</code> 为 <code>'L'</code>、<code>'R'</code> 或 <code>'.'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +102,8 @@ class Solution:
                         force[j].append(f)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -177,6 +189,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pushDominoes(dominoes string) string {
@@ -222,6 +236,8 @@ func pushDominoes(dominoes string) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function pushDominoes(dominoes: string): string {
@@ -269,4 +285,6 @@ function pushDominoes(dominoes: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

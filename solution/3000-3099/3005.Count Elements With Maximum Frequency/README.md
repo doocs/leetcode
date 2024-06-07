@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README.md
 rating: 1216
+source: 第 380 场周赛 Q1
 tags:
     - 数组
     - 哈希表
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [3005. 最大频率元素计数](https://leetcode.cn/problems/count-elements-with-maximum-frequency)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由 <strong>正整数 </strong>组成的数组 <code>nums</code> 。</p>
 
@@ -52,7 +55,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -64,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxFrequencyElements(self, nums: List[int]) -> int:
@@ -71,6 +80,8 @@ class Solution:
         mx = max(cnt.values())
         return sum(x for x in cnt.values() if x == mx)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxFrequencyElements(nums []int) (ans int) {
 	cnt := [101]int{}
@@ -132,6 +147,8 @@ func maxFrequencyElements(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxFrequencyElements(nums: number[]): number {
@@ -154,4 +171,6 @@ function maxFrequencyElements(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

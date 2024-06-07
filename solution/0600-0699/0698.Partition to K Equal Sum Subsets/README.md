@@ -11,13 +11,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [698. 划分为 k 个相等的子集](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets)
 
 [English Version](/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组&nbsp;&nbsp;<code>nums</code> 和一个正整数 <code>k</code>，找出是否有可能把这个数组分成 <code>k</code> 个非空子集，其总和都相等。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li>每个元素的频率在 <code>[1,4]</code> 范围内</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS + 剪枝
 
@@ -59,6 +65,8 @@ tags:
 如果能将所有元素都加入到 `cur` 中，说明可以划分为 $k$ 个子集，返回 `true`。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +90,8 @@ class Solution:
         nums.sort(reverse=True)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canPartitionKSubsets(nums []int, k int) bool {
@@ -192,6 +206,8 @@ func canPartitionKSubsets(nums []int, k int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canPartitionKSubsets(nums: number[], k: number): boolean {
     let s = nums.reduce((a, b) => a + b);
@@ -224,6 +240,10 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：状态压缩 + 记忆化搜索
 
 与方法一相同，我们依然先判断数组 `nums` 是否有可能被划分为 $k$ 个子集。如果不能被 $k$ 整除，直接返回 `false`。
@@ -244,6 +264,8 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 时间复杂度 $O(n\times 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 表示数组 $nums$ 的长度。对于每个状态，我们需要遍历数组 `nums`，时间复杂度为 $O(n)$；状态总数为 $2^n$，因此总的时间复杂度为 $O(n\times 2^n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -268,6 +290,8 @@ class Solution:
         mask = (1 << len(nums)) - 1
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -316,6 +340,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -356,6 +382,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canPartitionKSubsets(nums []int, k int) bool {
@@ -402,6 +430,10 @@ func canPartitionKSubsets(nums []int, k int) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：动态规划
 
 我们可以使用动态规划的方法求解本题。
@@ -415,6 +447,8 @@ func canPartitionKSubsets(nums []int, k int) bool {
 时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 表示数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -440,6 +474,8 @@ class Solution:
                         f[i | 1 << j] = True
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -476,6 +512,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -510,6 +548,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canPartitionKSubsets(nums []int, k int) bool {
@@ -546,4 +586,6 @@ func canPartitionKSubsets(nums []int, k int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2680.Maximum%20OR/README_EN.md
 rating: 1912
+source: Biweekly Contest 104 Q3
 tags:
     - Greedy
     - Bit Manipulation
@@ -10,11 +11,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2680. Maximum OR](https://leetcode.com/problems/maximum-or)
 
 [中文文档](/solution/2600-2699/2680.Maximum%20OR/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code> and an integer <code>k</code>. In an operation, you can choose an element and multiply it by <code>2</code>.</p>
 
@@ -48,7 +53,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 15</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Preprocessing
 
@@ -61,6 +70,8 @@ Next, we traverse the array $nums$ from left to right, and maintain the current 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
             pre |= x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumOr(nums []int, k int) int64 {
 	n := len(nums)
@@ -130,6 +147,8 @@ func maximumOr(nums []int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumOr(nums: number[], k: number): number {
     const n = nums.length;
@@ -145,6 +164,8 @@ function maximumOr(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -171,4 +192,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

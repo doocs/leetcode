@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/README.md
 rating: 2011
+source: 第 3 场双周赛 Q4
 tags:
     - 深度优先搜索
     - 广度优先搜索
@@ -13,13 +14,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1102. 得分最高的路径 🔒](https://leetcode.cn/problems/path-with-maximum-minimum-value)
 
 [English Version](/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <code>m x n</code> 的整数矩阵&nbsp;<code>grid</code>，返回从 <code>(0,0)</code> 开始到 <code>(m - 1, n - 1)</code> 在四个基本方向上移动的路径的最大 <strong>分数</strong> 。</p>
 
@@ -70,7 +73,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 并查集
 
@@ -81,6 +88,8 @@ tags:
 时间复杂度 $O(m \times n \times (\log (m \times n) + \alpha(m \times n)))$，其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -107,6 +116,8 @@ class Solution:
                     p[find(i * n + j)] = find(x * n + y)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -187,6 +200,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumMinimumPath(grid [][]int) (ans int) {
@@ -228,6 +243,8 @@ func maximumMinimumPath(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumMinimumPath(grid: number[][]): number {
     const m = grid.length;
@@ -267,6 +284,8 @@ function maximumMinimumPath(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 struct UnionFind {
@@ -350,9 +369,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -399,6 +424,8 @@ class Solution:
                     uf.union(x * n + y, i * n + j)
         return ans
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -464,6 +491,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class UnionFind {
@@ -532,6 +561,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type unionFind struct {
 	p, size []int
@@ -597,6 +628,8 @@ func maximumMinimumPath(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class UnionFind {
@@ -667,4 +700,6 @@ function maximumMinimumPath(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

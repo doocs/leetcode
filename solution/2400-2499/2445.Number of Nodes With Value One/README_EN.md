@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2445. Number of Nodes With Value One 🔒](https://leetcode.com/problems/number-of-nodes-with-value-one)
 
 [中文文档](/solution/2400-2499/2445.Number%20of%20Nodes%20With%20Value%20One/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an <strong>undirected</strong> connected tree with <code>n</code> nodes labeled from <code>1</code> to <code>n</code> and <code>n - 1</code> edges. You are given the integer <code>n</code>. The parent node of a node with a label <code>v</code> is the node with the label <code>floor (v / 2)</code>. The root of the tree is the node with the label <code>1</code>.</p>
 
@@ -60,7 +64,11 @@ After processing the queries, there are one red node (node with value 1): 2.
 	<li><code>1 &lt;= queries[i] &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -71,6 +79,8 @@ There is an optimization point here. If a node and its corresponding subtree hav
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +99,8 @@ class Solution:
                 dfs(i)
         return sum(tree)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfNodes(n int, queries []int) int {
@@ -177,4 +193,6 @@ func numberOfNodes(n int, queries []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

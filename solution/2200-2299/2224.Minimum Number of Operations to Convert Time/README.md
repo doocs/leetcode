@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2224.Minimum%20Number%20of%20Operations%20to%20Convert%20Time/README.md
 rating: 1295
+source: 第 287 场周赛 Q1
 tags:
     - 贪心
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2224. 转化时间需要的最少操作数](https://leetcode.cn/problems/minimum-number-of-operations-to-convert-time)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串 <code>current</code> 和 <code>correct</code> ，表示两个 <strong>24 小时制时间</strong> 。</p>
 
@@ -53,11 +56,17 @@ tags:
 	<li><code>current &lt;= correct</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +79,8 @@ class Solution:
             d %= i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func convertTime(current string, correct string) int {
@@ -124,4 +139,6 @@ func convertTime(current string, correct string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

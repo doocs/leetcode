@@ -8,13 +8,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [22. 括号生成](https://leetcode.cn/problems/generate-parentheses)
 
 [English Version](/solution/0000-0099/0022.Generate%20Parentheses/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>数字 <code>n</code>&nbsp;代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 <strong>有效的 </strong>括号组合。</p>
 
@@ -42,7 +44,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 8</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS + 剪枝
 
@@ -58,6 +64,8 @@ tags:
 时间复杂度 $O(2^{n\times 2} \times n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +83,8 @@ class Solution:
         dfs(0, 0, '')
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generateParenthesis(n int) (ans []string) {
 	var dfs func(int, int, string)
@@ -140,6 +154,8 @@ func generateParenthesis(n int) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function generateParenthesis(n: number): string[] {
     function dfs(l, r, t) {
@@ -158,6 +174,8 @@ function generateParenthesis(n: number): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -186,6 +204,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -211,9 +231,15 @@ var generateParenthesis = function (n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -246,6 +272,8 @@ impl Solution {
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -276,4 +304,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

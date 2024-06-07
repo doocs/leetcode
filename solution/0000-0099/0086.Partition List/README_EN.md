@@ -7,11 +7,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [86. Partition List](https://leetcode.com/problems/partition-list)
 
 [中文文档](/solution/0000-0099/0086.Partition%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>head</code> of a linked list and a value <code>x</code>, partition it such that all nodes <strong>less than</strong> <code>x</code> come before nodes <strong>greater than or equal</strong> to <code>x</code>.</p>
 
@@ -41,7 +45,11 @@ tags:
 	<li><code>-200 &lt;= x &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -50,6 +58,8 @@ We create two linked lists, one to store nodes less than $x$, and the other to s
 The time complexity is $O(n)$, where $n$ is the length of the original linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -73,6 +83,8 @@ class Solution:
         t2.next = None
         return d1.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -106,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -142,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -168,6 +184,8 @@ func partition(head *ListNode, x int) *ListNode {
 	return d1.Next
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -208,6 +226,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -244,4 +264,6 @@ var partition = function (head, x) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

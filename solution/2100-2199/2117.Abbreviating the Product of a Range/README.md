@@ -3,9 +3,12 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2117.Abbreviating%20the%20Product%20of%20a%20Range/README.md
 rating: 2476
+source: 第 68 场双周赛 Q4
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [2117. 一个区间内所有数乘积的缩写](https://leetcode.cn/problems/abbreviating-the-product-of-a-range)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数&nbsp;<code>left</code>&nbsp;和&nbsp;<code>right</code>&nbsp;，满足&nbsp;<code>left &lt;= right</code>&nbsp;。请你计算&nbsp;<strong>闭区间</strong>&nbsp;<code>[left, right]</code>&nbsp;中所有整数的&nbsp;<strong>乘积</strong>&nbsp;。</p>
 
@@ -82,11 +85,17 @@ tags:
 	<li><code>1 &lt;= left &lt;= right &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import numpy
@@ -123,6 +132,8 @@ class Solution:
         pre = int(pow(10, z - int(z) + 4))
         return str(pre) + "..." + str(suf).zfill(5) + "e" + str(c)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +175,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -207,6 +220,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func abbreviateProduct(left int, right int) string {
@@ -254,9 +269,15 @@ func abbreviateProduct(left int, right int) string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -293,4 +314,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

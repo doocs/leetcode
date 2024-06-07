@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [259. 3Sum Smaller 🔒](https://leetcode.com/problems/3sum-smaller)
 
 [中文文档](/solution/0200-0299/0259.3Sum%20Smaller/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of <code>n</code> integers <code>nums</code> and an integer&nbsp;<code>target</code>, find the number of index triplets <code>i</code>, <code>j</code>, <code>k</code> with <code>0 &lt;= i &lt; j &lt; k &lt; n</code> that satisfy the condition <code>nums[i] + nums[j] + nums[k] &lt; target</code>.</p>
 <p>&nbsp;</p>
@@ -51,11 +55,17 @@ tags:
 	<li><code>-100 &lt;= target &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +83,8 @@ class Solution:
                     j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func threeSumSmaller(nums []int, target int) int {
 	sort.Ints(nums)
@@ -139,6 +155,8 @@ func threeSumSmaller(nums []int, target int) int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -168,4 +186,6 @@ var threeSumSmaller = function (nums, target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

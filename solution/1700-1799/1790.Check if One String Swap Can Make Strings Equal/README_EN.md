@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1790.Check%20if%20One%20String%20Swap%20Can%20Make%20Strings%20Equal/README_EN.md
 rating: 1300
+source: Weekly Contest 232 Q1
 tags:
     - Hash Table
     - String
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1790. Check if One String Swap Can Make Strings Equal](https://leetcode.com/problems/check-if-one-string-swap-can-make-strings-equal)
 
 [中文文档](/solution/1700-1799/1790.Check%20if%20One%20String%20Swap%20Can%20Make%20Strings%20Equal/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>s1</code> and <code>s2</code> of equal length. A <strong>string swap</strong> is an operation where you choose two indices in a string (not necessarily different) and swap the characters at these indices.</p>
 
@@ -53,7 +58,11 @@ tags:
 	<li><code>s1</code> and <code>s2</code> consist of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -66,6 +75,8 @@ At the end of the traversal, if $cnt \neq 1$, return `true`.
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +91,8 @@ class Solution:
                 c1, c2 = a, b
         return cnt != 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func areAlmostEqual(s1 string, s2 string) bool {
 	cnt := 0
@@ -138,6 +155,8 @@ func areAlmostEqual(s1 string, s2 string) bool {
 	return cnt != 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function areAlmostEqual(s1: string, s2: string): boolean {
@@ -157,6 +176,8 @@ function areAlmostEqual(s1: string, s2: string): boolean {
     return cnt != 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,6 +199,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool areAlmostEqual(char* s1, char* s2) {
@@ -207,4 +230,6 @@ bool areAlmostEqual(char* s1, char* s2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

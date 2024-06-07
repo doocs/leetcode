@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2771.Longest%20Non-decreasing%20Subarray%20From%20Two%20Arrays/README.md
 rating: 1791
+source: 第 353 场周赛 Q3
 tags:
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2771. 构造最长非递减子数组](https://leetcode.cn/problems/longest-non-decreasing-subarray-from-two-arrays)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong> 开始的整数数组 <code>nums1</code> 和 <code>nums2</code> ，长度均为 <code>n</code> 。</p>
 
@@ -64,7 +67,11 @@ nums3 = [nums1[0], nums1[1]] =&gt; [1,1]
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -87,6 +94,8 @@ nums3 = [nums1[0], nums1[1]] =&gt; [1,1]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxNonDecreasingLength(self, nums1: List[int], nums2: List[int]) -> int:
@@ -107,6 +116,8 @@ class Solution:
             ans = max(ans, f, g)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +147,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -167,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNonDecreasingLength(nums1 []int, nums2 []int) int {
 	n := len(nums1)
@@ -191,6 +206,8 @@ func maxNonDecreasingLength(nums1 []int, nums2 []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxNonDecreasingLength(nums1: number[], nums2: number[]): number {
@@ -220,4 +237,6 @@ function maxNonDecreasingLength(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

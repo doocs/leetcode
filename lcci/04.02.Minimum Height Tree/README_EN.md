@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.02.Minimum%20Height%20Tree/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [04.02. Minimum Height Tree](https://leetcode.cn/problems/minimum-height-tree-lcci)
 
 [中文文档](/lcci/04.02.Minimum%20Height%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a sorted (increasing order) array with unique integer elements, write an algo&shy;rithm to create a binary search tree with minimal height.</p>
 
@@ -36,7 +40,11 @@ One possible answer is: [0,-3,9,-10,null,5]，which represents the following tre
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -51,6 +59,8 @@ The execution process of the function `dfs(l, r)` is as follows:
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -71,6 +81,8 @@ class Solution:
 
         return dfs(0, len(nums) - 1)
 ```
+
+#### Java
 
 ```java
 /**
@@ -100,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -125,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -147,6 +163,8 @@ func sortedArrayToBST(nums []int) *TreeNode {
 	return dfs(0, len(nums)-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -174,6 +192,8 @@ function sortedArrayToBST(nums: number[]): TreeNode | null {
     return dfs(0, nums.length - 1);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -218,6 +238,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -242,6 +264,8 @@ var sortedArrayToBST = function (nums) {
     return dfs(0, nums.length - 1);
 };
 ```
+
+#### Swift
 
 ```swift
 /**
@@ -278,4 +302,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

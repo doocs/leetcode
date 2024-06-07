@@ -2,13 +2,24 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README_EN.md
+rating: 2641
+source: Weekly Contest 397 Q4
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+    - Bitmask
 ---
+
+<!-- problem:start -->
 
 # [3149. Find the Minimum Cost Array Permutation](https://leetcode.com/problems/find-the-minimum-cost-array-permutation)
 
 [中文文档](/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> which is a <span data-keyword="permutation">permutation</span> of <code>[0, 1, 2, ..., n - 1]</code>. The <strong>score</strong> of any permutation of <code>[0, 1, 2, ..., n - 1]</code> named <code>perm</code> is defined as:</p>
 
@@ -53,7 +64,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3149.Fi
 	<li><code>nums</code> is a permutation of <code>[0, 1, 2, ..., n - 1]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -73,6 +88,8 @@ Finally, we use a function $\text{g}(\text{mask}, \text{pre})$ to construct the 
 The time complexity is $(n^2 \times 2^n)$, and the space complexity is $O(n \times 2^n)$. Where $n$ is the length of the array $\text{nums}$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -103,6 +120,8 @@ class Solution:
         g(1, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -198,6 +219,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findPermutation(nums []int) (ans []int) {
@@ -254,6 +277,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findPermutation(nums: number[]): number[] {
     const n = nums.length;
@@ -296,4 +321,6 @@ function findPermutation(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

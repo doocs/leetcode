@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2752. Customers with Maximum Number of Transactions on Consecutive Days 🔒](https://leetcode.com/problems/customers-with-maximum-number-of-transactions-on-consecutive-days)
 
 [中文文档](/solution/2700-2799/2752.Customers%20with%20Maximum%20Number%20of%20Transactions%20on%20Consecutive%20Days/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Transactions</code></p>
 
@@ -66,11 +70,17 @@ Transactions table:
 In total, the highest number of consecutive transactions is 3, achieved by customer_id 101 and 105. The customer_id are sorted in ascending order.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -100,4 +110,6 @@ ORDER BY customer_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

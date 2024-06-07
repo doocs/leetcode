@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [1428. 至少有一个 1 的最左端列 🔒](https://leetcode.cn/problems/leftmost-column-with-at-least-a-one)
 
 [English Version](/solution/1400-1499/1428.Leftmost%20Column%20with%20at%20Least%20a%20One/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><em>（这是一个<strong>交互题</strong>）</em></p>
 
@@ -83,7 +85,11 @@ tags:
 	<li><code>mat[i]</code>&nbsp;已按非递减顺序排序。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -92,6 +98,8 @@ tags:
 时间复杂度 $O(m \times \log n)$，其中 $m$ 和 $n$ 分别是矩阵的行数和列数。需要遍历每一行，每一行内使用二分查找，时间复杂度为 $O(\log n)$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -112,6 +120,8 @@ class Solution:
             ans = min(ans, j)
         return -1 if ans >= n else ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -144,6 +154,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -179,6 +191,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is the BinaryMatrix's API interface.
@@ -212,6 +226,8 @@ func leftMostColumnWithOne(binaryMatrix BinaryMatrix) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * // This is the BinaryMatrix's API interface.
@@ -242,7 +258,10 @@ function leftMostColumnWithOne(binaryMatrix: BinaryMatrix) {
 }
 ```
 
+#### Rust
+
 ```rust
+
 /**
  * // This is the BinaryMatrix's API interface.
  * // You should not implement it, or speculate about its implementation
@@ -282,6 +301,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 /**
  * // This is BinaryMatrix's API interface.
@@ -316,4 +337,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

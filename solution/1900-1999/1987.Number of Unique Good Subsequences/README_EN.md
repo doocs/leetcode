@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README_EN.md
 rating: 2422
+source: Weekly Contest 256 Q4
 tags:
     - String
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [1987. Number of Unique Good Subsequences](https://leetcode.com/problems/number-of-unique-good-subsequences)
 
 [中文文档](/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a binary string <code>binary</code>. A <strong>subsequence</strong> of <code>binary</code> is considered <strong>good</strong> if it is <strong>not empty</strong> and has <strong>no leading zeros</strong> (with the exception of <code>&quot;0&quot;</code>).</p>
 
@@ -61,11 +66,17 @@ The unique good subsequences are &quot;0&quot;, &quot;1&quot;, &quot;10&quot;, &
 	<li><code>binary</code> consists of only <code>&#39;0&#39;</code>s and <code>&#39;1&#39;</code>s.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +93,8 @@ class Solution:
         ans = (ans + f + g) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfUniqueGoodSubsequences(binary string) (ans int) {
 	const mod int = 1e9 + 7
@@ -140,6 +157,8 @@ func numberOfUniqueGoodSubsequences(binary string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfUniqueGoodSubsequences(binary: string): number {
@@ -161,4 +180,6 @@ function numberOfUniqueGoodSubsequences(binary: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

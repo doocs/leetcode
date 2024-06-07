@@ -7,13 +7,15 @@ tags:
     - 分治
 ---
 
+<!-- problem:start -->
+
 # [190. 颠倒二进制位](https://leetcode.cn/problems/reverse-bits)
 
 [English Version](/solution/0100-0199/0190.Reverse%20Bits/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>颠倒给定的 32 位无符号整数的二进制位。</p>
 
@@ -54,7 +56,11 @@ tags:
 
 <p><strong>进阶</strong>: 如果多次调用这个函数，你将如何优化你的算法？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -66,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseBits(self, n: int) -> int:
@@ -75,6 +83,8 @@ class Solution:
             n >>= 1
         return ans
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -90,6 +100,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseBits(n uint32) (ans uint32) {
 	for i := 0; i < 32; i++ {
@@ -113,6 +127,8 @@ func reverseBits(n uint32) (ans uint32) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -126,6 +142,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -144,4 +162,6 @@ var reverseBits = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

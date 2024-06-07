@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [917. 仅仅反转字母](https://leetcode.cn/problems/reverse-only-letters)
 
 [English Version](/solution/0900-0999/0917.Reverse%20Only%20Letters/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> ，根据下述规则反转字符串：</p>
 
@@ -66,7 +68,11 @@ tags:
 	<li><code>s</code> 不含 <code>'\"'</code> 或 <code>'\\'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -75,6 +81,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +99,8 @@ class Solution:
                 i, j = i + 1, j - 1
         return "".join(cs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reverseOnlyLetters(s string) string {
@@ -159,6 +173,8 @@ func reverseOnlyLetters(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reverseOnlyLetters(s: string): string {
     const cs = [...s];
@@ -177,6 +193,8 @@ function reverseOnlyLetters(s: string): string {
     return cs.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -203,4 +221,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

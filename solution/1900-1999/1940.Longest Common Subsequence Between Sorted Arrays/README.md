@@ -8,13 +8,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [1940. 排序数组之间的最长公共子序列 🔒](https://leetcode.cn/problems/longest-common-subsequence-between-sorted-arrays)
 
 [English Version](/solution/1900-1999/1940.Longest%20Common%20Subsequence%20Between%20Sorted%20Arrays/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个由整数数组组成的数组<code>arrays</code>，其中<code>arrays[i]</code>是严格递增排序的，返回一个表示所有数组之间的最长公共子序列的整数数组。</p>
 
@@ -59,11 +61,17 @@ tags:
 	<li><code>arrays[i]</code> 是严格递增排序.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +83,8 @@ class Solution:
                 counter[e] += 1
         return [e for e, count in counter.items() if count == n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestCommomSubsequence(arrays [][]int) []int {
 	counter := make(map[int]int)
@@ -133,6 +147,8 @@ func longestCommomSubsequence(arrays [][]int) []int {
 	return res
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -155,9 +171,15 @@ var longestCommonSubsequence = function (arrays) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -184,4 +206,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

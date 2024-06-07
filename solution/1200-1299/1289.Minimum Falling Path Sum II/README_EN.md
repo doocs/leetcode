@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1289.Minimum%20Falling%20Path%20Sum%20II/README_EN.md
 rating: 1697
+source: Biweekly Contest 15 Q4
 tags:
     - Array
     - Dynamic Programming
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1289. Minimum Falling Path Sum II](https://leetcode.com/problems/minimum-falling-path-sum-ii)
 
 [中文文档](/solution/1200-1299/1289.Minimum%20Falling%20Path%20Sum%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>n x n</code> integer matrix <code>grid</code>, return <em>the minimum sum of a <strong>falling path with non-zero shifts</strong></em>.</p>
 
@@ -49,11 +54,17 @@ The falling path with the smallest sum is&nbsp;[1,5,7], so the answer is&nbsp;13
 	<li><code>-99 &lt;= grid[i][j] &lt;= 99</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +77,8 @@ class Solution:
                 f[i][j] = v + x
         return min(f[n])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +131,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minFallingPathSum(grid [][]int) int {
@@ -146,9 +163,15 @@ func minFallingPathSum(grid [][]int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -169,6 +192,8 @@ class Solution:
             f, g, fp = ff, gg, ffp
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -197,6 +222,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -227,6 +254,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minFallingPathSum(grid [][]int) int {
 	const inf = 1 << 30
@@ -255,4 +284,6 @@ func minFallingPathSum(grid [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

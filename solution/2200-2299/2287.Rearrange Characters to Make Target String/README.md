@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2287.Rearrange%20Characters%20to%20Make%20Target%20String/README.md
 rating: 1299
+source: 第 295 场周赛 Q1
 tags:
     - 哈希表
     - 字符串
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [2287. 重排字符形成目标字符串](https://leetcode.cn/problems/rearrange-characters-to-make-target-string)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong> 开始的字符串 <code>s</code> 和 <code>target</code> 。你可以从 <code>s</code> 取出一些字符并将其重排，得到若干新的字符串。</p>
 
@@ -63,7 +66,11 @@ tags:
 	<li><code>s</code> 和 <code>target</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -73,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rearrangeCharacters(self, s: str, target: str) -> int:
@@ -80,6 +89,8 @@ class Solution:
         cnt2 = Counter(target)
         return min(cnt1[c] // v for c, v in cnt2.items())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rearrangeCharacters(s string, target string) int {
 	var cnt1, cnt2 [26]int
@@ -144,6 +159,8 @@ func rearrangeCharacters(s string, target string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function rearrangeCharacters(s: string, target: string): number {
@@ -166,6 +183,8 @@ function rearrangeCharacters(s: string, target: string): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn rearrange_characters(s: String, target: String) -> i32 {
@@ -187,6 +206,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -212,4 +233,6 @@ int rearrangeCharacters(char* s, char* target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

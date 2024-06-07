@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1243.Array%20Transformation/README_EN.md
 rating: 1558
+source: Biweekly Contest 12 Q2
 tags:
     - Array
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [1243. Array Transformation 🔒](https://leetcode.com/problems/array-transformation)
 
 [中文文档](/solution/1200-1299/1243.Array%20Transformation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an initial array <code>arr</code>, every day you produce a new array using the array of the previous day.</p>
 
@@ -56,7 +61,11 @@ No more operations can be done to this array.
 	<li><code>1 &lt;= arr[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -65,6 +74,8 @@ Simulate each day. For each element, if it is greater than its left and right ne
 The time complexity is $O(n \times m)$, and the space complexity is $O(n)$. Where $n$ is the length of the array, and $m$ is the maximum value in the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +93,8 @@ class Solution:
                     f = True
         return arr
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func transformArray(arr []int) []int {
@@ -158,4 +175,6 @@ func transformArray(arr []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

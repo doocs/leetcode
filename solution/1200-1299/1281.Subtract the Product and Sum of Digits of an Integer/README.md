@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1281.Subtract%20the%20Product%20and%20Sum%20of%20Digits%20of%20an%20Integer/README.md
 rating: 1141
+source: 第 166 场周赛 Q1
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1281. 整数的各位积和之差](https://leetcode.cn/problems/subtract-the-product-and-sum-of-digits-of-an-integer)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>，请你帮忙计算并返回该整数「各位数字之积」与「各位数字之和」的差。</p>
 
@@ -47,7 +50,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10^5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -61,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
@@ -71,6 +80,8 @@ class Solution:
             y += v
         return x - y
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subtractProductAndSum(n int) int {
 	x, y := 1, 0
@@ -113,6 +128,8 @@ func subtractProductAndSum(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subtractProductAndSum(n: number): number {
     let [x, y] = [1, 0];
@@ -124,6 +141,8 @@ function subtractProductAndSum(n: number): number {
     return x - y;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -141,6 +160,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int SubtractProductAndSum(int n) {
@@ -155,6 +176,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int subtractProductAndSum(int n) {
@@ -171,9 +194,15 @@ int subtractProductAndSum(int n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -184,4 +213,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

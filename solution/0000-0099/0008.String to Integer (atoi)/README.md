@@ -6,13 +6,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [8. 字符串转换整数 (atoi)](https://leetcode.cn/problems/string-to-integer-atoi)
 
 [English Version](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你来实现一个&nbsp;<code>myAtoi(string s)</code>&nbsp;函数，使其能将字符串转换成一个 32 位有符号整数。</p>
 
@@ -127,7 +129,11 @@ tags:
 	<li><code>s</code> 由英文字母（大写和小写）、数字（<code>0-9</code>）、<code>' '</code>、<code>'+'</code>、<code>'-'</code> 和 <code>'.'</code> 组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历字符串
 
@@ -144,6 +150,8 @@ tags:
 同[面试题 67. 把字符串转换成整数](https://github.com/doocs/leetcode/blob/main/lcof/面试题67.%20把字符串转换成整数/README.md)。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -176,6 +184,8 @@ class Solution:
         return sign * res
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int myAtoi(String s) {
@@ -203,6 +213,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func myAtoi(s string) int {
@@ -242,6 +254,8 @@ func myAtoi(s string) int {
 }
 ```
 
+#### JavaScript
+
 ```js
 const myAtoi = function (str) {
     str = str.trim();
@@ -268,6 +282,8 @@ const myAtoi = function (str) {
     return isPositive ? ans : -ans;
 };
 ```
+
+#### C#
 
 ```cs
 ﻿// https://leetcode.com/problems/string-to-integer-atoi/
@@ -318,6 +334,8 @@ public partial class Solution
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -340,4 +358,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

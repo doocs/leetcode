@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [956. 最高的广告牌](https://leetcode.cn/problems/tallest-billboard)
 
 [English Version](/solution/0900-0999/0956.Tallest%20Billboard/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你正在安装一个广告牌，并希望它高度最大。这块广告牌将有两个钢制支架，两边各一个。每个钢支架的高度必须相等。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>sum(rods[i]) &lt;= 5000</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -79,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def tallestBillboard(self, rods: List[int]) -> int:
@@ -92,6 +100,8 @@ class Solution:
 
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func tallestBillboard(rods []int) int {
@@ -189,6 +203,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function tallestBillboard(rods: number[]): number {
     const s = rods.reduce((a, b) => a + b, 0);
@@ -210,6 +226,10 @@ function tallestBillboard(rods: number[]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：动态规划
 
@@ -237,6 +257,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def tallestBillboard(self, rods: List[int]) -> int:
@@ -257,6 +279,8 @@ class Solution:
                     f[i][j] = max(f[i][j], f[i - 1][x - j] + x - j)
         return f[n][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -292,6 +316,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -321,6 +347,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func tallestBillboard(rods []int) int {
@@ -359,4 +387,6 @@ func tallestBillboard(rods []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2055.Plates%20Between%20Candles/README.md
 rating: 1819
+source: 第 64 场双周赛 Q3
 tags:
     - 数组
     - 字符串
@@ -10,13 +11,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [2055. 蜡烛之间的盘子](https://leetcode.cn/problems/plates-between-candles)
 
 [English Version](/solution/2000-2099/2055.Plates%20Between%20Candles/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长桌子，桌子上盘子和蜡烛排成一列。给你一个下标从 <strong>0</strong>&nbsp;开始的字符串&nbsp;<code>s</code>&nbsp;，它只包含字符&nbsp;<code>'*'</code> 和&nbsp;<code>'|'</code>&nbsp;，其中&nbsp;<code>'*'</code>&nbsp;表示一个 <strong>盘子</strong>&nbsp;，<code>'|'</code>&nbsp;表示一支&nbsp;<strong>蜡烛</strong>&nbsp;。</p>
 
@@ -64,11 +67,17 @@ tags:
 	<li><code>0 &lt;= left<sub>i</sub> &lt;= right<sub>i</sub> &lt; s.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +105,8 @@ class Solution:
                 ans[k] = presum[j] - presum[i + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func platesBetweenCandles(s string, queries [][]int) []int {
@@ -196,4 +211,6 @@ func platesBetweenCandles(s string, queries [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

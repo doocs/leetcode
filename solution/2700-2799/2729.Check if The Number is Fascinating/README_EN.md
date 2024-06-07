@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README_EN.md
 rating: 1227
+source: Biweekly Contest 106 Q1
 tags:
     - Hash Table
     - Math
 ---
+
+<!-- problem:start -->
 
 # [2729. Check if The Number is Fascinating](https://leetcode.com/problems/check-if-the-number-is-fascinating)
 
 [中文文档](/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code> that consists of exactly <code>3</code> digits.</p>
 
@@ -50,11 +55,17 @@ tags:
 	<li><code>100 &lt;= n &lt;= 999</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +73,8 @@ class Solution:
         s = str(n) + str(2 * n) + str(3 * n)
         return "".join(sorted(s)) == "123456789"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +91,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -88,6 +103,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isFascinating(n int) bool {
@@ -103,12 +120,16 @@ func isFascinating(n int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isFascinating(n: number): boolean {
     const s = `${n}${n * 2}${n * 3}`;
     return s.split('').sort().join('') === '123456789';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -131,9 +152,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -176,4 +203,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

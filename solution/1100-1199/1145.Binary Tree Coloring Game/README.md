@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1145.Binary%20Tree%20Coloring%20Game/README.md
 rating: 1741
+source: 第 148 场周赛 Q2
 tags:
     - 树
     - 深度优先搜索
     - 二叉树
 ---
+
+<!-- problem:start -->
 
 # [1145. 二叉树着色游戏](https://leetcode.cn/problems/binary-tree-coloring-game)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有两位极客玩家参与了一场「二叉树着色」的游戏。游戏中，给出二叉树的根节点&nbsp;<code>root</code>，树上总共有 <code>n</code> 个节点，且 <code>n</code> 为奇数，其中每个节点上的值从&nbsp;<code>1</code> 到&nbsp;<code>n</code>&nbsp;各不相同。</p>
 
@@ -63,7 +66,11 @@ tags:
 	<li>树中所有值 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -74,6 +81,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点总数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -98,6 +107,8 @@ class Solution:
         l, r = count(node.left), count(node.right)
         return max(l, r, n - l - r - 1) > n // 2
 ```
+
+#### Java
 
 ```java
 /**
@@ -140,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -177,6 +190,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -212,6 +227,8 @@ func btreeGameWinningMove(root *TreeNode, n int, x int) bool {
 	return max(max(l, r), n-l-r-1) > n/2
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -249,6 +266,8 @@ function btreeGameWinningMove(root: TreeNode | null, n: number, x: number): bool
     return Math.max(l, r, n - l - r - 1) > n / 2;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -289,4 +308,6 @@ var btreeGameWinningMove = function (root, n, x) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

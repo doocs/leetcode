@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README_EN.md
 rating: 1355
+source: Weekly Contest 310 Q2
 tags:
     - Greedy
     - Hash Table
     - String
 ---
 
+<!-- problem:start -->
+
 # [2405. Optimal Partition of String](https://leetcode.com/problems/optimal-partition-of-string)
 
 [中文文档](/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, partition the string into one or more <strong>substrings</strong> such that the characters in each substring are <strong>unique</strong>. That is, no letter appears in a single substring more than <strong>once</strong>.</p>
 
@@ -49,7 +54,11 @@ It can be shown that 4 is the minimum number of substrings needed.
 	<li><code>s</code> consists of only English lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -60,6 +69,8 @@ During the process, we can use a hash table to record all characters in the curr
 The time complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +84,8 @@ class Solution:
             ss.add(c)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func partitionString(s string) int {
 	ss := map[rune]bool{}
@@ -124,6 +141,8 @@ func partitionString(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function partitionString(s: string): number {
     const set = new Set();
@@ -138,6 +157,8 @@ function partitionString(s: string): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -159,9 +180,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -175,6 +202,8 @@ class Solution:
             v |= 1 << i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -193,6 +222,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -213,6 +244,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func partitionString(s string) int {
 	ans, v := 1, 0
@@ -230,4 +263,6 @@ func partitionString(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

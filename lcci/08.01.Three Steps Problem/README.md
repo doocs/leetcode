@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.01.Three%20Steps%20Problem/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.01. 三步问题](https://leetcode.cn/problems/three-steps-problem-lcci)
 
 [English Version](/lcci/08.01.Three%20Steps%20Problem/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>三步问题。有个小孩正在上楼梯，楼梯有n阶台阶，小孩一次可以上1阶、2阶或3阶。实现一种方法，计算小孩有多少种上楼梯的方式。结果可能很大，你需要对结果模1000000007。</p>
 
 <p> <strong>示例1:</strong></p>
@@ -34,7 +37,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.01.Three%20Steps%2
 <li>n范围在[1, 1000000]之间</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递推
 
@@ -48,6 +55,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.01.Three%20Steps%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToStep(self, n: int) -> int:
@@ -57,6 +66,8 @@ class Solution:
             a, b, c = b, c, (a + b + c) % mod
         return a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -73,6 +84,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,6 +104,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToStep(n int) int {
 	const mod int = 1e9 + 7
@@ -101,6 +116,8 @@ func waysToStep(n int) int {
 	return a
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -118,6 +135,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -133,6 +152,8 @@ var waysToStep = function (n) {
 };
 ```
 
+#### C
+
 ```c
 int waysToStep(int n) {
     const int mod = 1e9 + 7;
@@ -146,6 +167,8 @@ int waysToStep(int n) {
     return a;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -168,6 +191,10 @@ class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：矩阵快速幂加速递推
 
@@ -196,6 +223,8 @@ $$
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -226,6 +255,8 @@ class Solution:
         return sum(pow(a, n - 4)[0]) % mod
 ```
 
+#### Python3
+
 ```python
 import numpy as np
 
@@ -245,6 +276,8 @@ class Solution:
             n >>= 1
         return res.sum() % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -289,6 +322,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -336,6 +371,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 const mod = 1e9 + 7
 
@@ -379,6 +416,8 @@ func pow(a [][]int, n int) [][]int {
 	return res
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -434,4 +473,6 @@ function pow(a, n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1378. Replace Employee ID With The Unique Identifier](https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier)
 
 [中文文档](/solution/1300-1399/1378.Replace%20Employee%20ID%20With%20The%20Unique%20Identifier/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employees</code></p>
 
@@ -88,11 +92,17 @@ The unique ID of Winston is 3.
 The unique ID of Jonathan is 1.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -104,4 +114,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

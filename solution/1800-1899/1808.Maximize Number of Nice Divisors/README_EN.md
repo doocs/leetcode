@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1808.Maximize%20Number%20of%20Nice%20Divisors/README_EN.md
 rating: 2070
+source: Weekly Contest 234 Q4
 tags:
     - Recursion
     - Math
 ---
+
+<!-- problem:start -->
 
 # [1808. Maximize Number of Nice Divisors](https://leetcode.com/problems/maximize-number-of-nice-divisors)
 
 [中文文档](/solution/1800-1899/1808.Maximize%20Number%20of%20Nice%20Divisors/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer <code>primeFactors</code>. You are asked to construct a positive integer <code>n</code> that satisfies the following conditions:</p>
 
@@ -66,7 +71,11 @@ There is not other value of n that has at most 5 prime factors and more nice div
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Problem Transformation + Fast Power
 
@@ -87,6 +96,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxNiceDivisors(self, primeFactors: int) -> int:
@@ -99,6 +110,8 @@ class Solution:
             return 4 * pow(3, primeFactors // 3 - 1, mod) % mod
         return 2 * pow(3, primeFactors // 3, mod) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNiceDivisors(primeFactors int) int {
 	if primeFactors < 4 {
@@ -184,6 +201,8 @@ func maxNiceDivisors(primeFactors int) int {
 	return qpow(3, primeFactors/3) * 2 % mod
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -218,4 +237,6 @@ var maxNiceDivisors = function (primeFactors) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

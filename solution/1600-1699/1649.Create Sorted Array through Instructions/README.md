@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1649.Create%20Sorted%20Array%20through%20Instructions/README.md
 rating: 2207
+source: 第 214 场周赛 Q4
 tags:
     - 树状数组
     - 线段树
@@ -13,13 +14,15 @@ tags:
     - 归并排序
 ---
 
+<!-- problem:start -->
+
 # [1649. 通过指令创建有序数组](https://leetcode.cn/problems/create-sorted-array-through-instructions)
 
 [English Version](/solution/1600-1699/1649.Create%20Sorted%20Array%20through%20Instructions/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>instructions</code> ，你需要根据 <code>instructions</code> 中的元素创建一个有序数组。一开始你有一个空的数组 <code>nums</code> ，你需要 <strong>从左到右</strong> 遍历 <code>instructions</code> 中的元素，将它们依次插入 <code>nums</code> 数组中。每一次插入操作的 <strong>代价</strong> 是以下两者的 <strong>较小值</strong> ：</p>
 
@@ -85,7 +88,11 @@ tags:
 	<li><code>1 &lt;= instructions[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：树状数组
 
@@ -103,6 +110,8 @@ tags:
 解决方案是直接遍历数组，每个位置先求出 `query(a[i])`，然后再修改树状数组 `update(a[i], 1)` 即可。当数的范围比较大时，需要进行离散化，即先进行去重并排序，然后对每个数字进行编号。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -135,6 +144,8 @@ class Solution:
             tree.update(x, 1)
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -183,6 +194,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -229,6 +242,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -268,6 +283,8 @@ func createSortedArray(instructions []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -313,6 +330,10 @@ function createSortedArray(instructions: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：线段树
 
 线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 `log(width)`。更新某个元素的值，只需要更新 `log(width)` 个区间，并且这些区间都包含在一个包含该元素的大区间内。
@@ -325,6 +346,8 @@ function createSortedArray(instructions: number[]): number {
 > 本题线段树 Python3 代码 TLE，Java、C++ 代码 AC。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -386,6 +409,8 @@ class Solution:
             tree.modify(1, num, 1)
         return ans % int((1e9 + 7))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -468,6 +493,8 @@ class SegmentTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -543,4 +570,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

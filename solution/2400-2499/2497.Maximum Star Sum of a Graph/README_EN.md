@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2497.Maximum%20Star%20Sum%20of%20a%20Graph/README_EN.md
 rating: 1682
+source: Biweekly Contest 93 Q2
 tags:
     - Greedy
     - Graph
@@ -11,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2497. Maximum Star Sum of a Graph](https://leetcode.com/problems/maximum-star-sum-of-a-graph)
 
 [中文文档](/solution/2400-2499/2497.Maximum%20Star%20Sum%20of%20a%20Graph/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an undirected graph consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>. You are given a <strong>0-indexed</strong> integer array <code>vals</code> of length <code>n</code> where <code>vals[i]</code> denotes the value of the <code>i<sup>th</sup></code> node.</p>
 
@@ -63,11 +68,17 @@ Hence, we return -5.
 	<li><code>0 &lt;= k &lt;= n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +93,8 @@ class Solution:
             bs.sort(reverse=True)
         return max(v + sum(g[i][:k]) for i, v in enumerate(vals))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxStarSum(vals []int, edges [][]int, k int) (ans int) {
@@ -166,4 +183,6 @@ func maxStarSum(vals []int, edges [][]int, k int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

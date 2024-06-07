@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2503.Maximum%20Number%20of%20Points%20From%20Grid%20Queries/README.md
 rating: 2195
+source: 第 323 场周赛 Q4
 tags:
     - 广度优先搜索
     - 并查集
@@ -13,13 +14,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [2503. 矩阵查询可获得的最大分数](https://leetcode.cn/problems/maximum-number-of-points-from-grid-queries)
 
 [English Version](/solution/2500-2599/2503.Maximum%20Number%20of%20Points%20From%20Grid%20Queries/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> 的整数矩阵 <code>grid</code> 和一个大小为 <code>k</code> 的数组 <code>queries</code> 。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>1 &lt;= grid[i][j], queries[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：离线查询 + BFS + 优先队列（小根堆）
 
@@ -80,6 +87,8 @@ tags:
 时间复杂度 $O(k \times \log k + m \times n \log(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数，而 $k$ 为查询的个数。我们需要对 `queries` 数组进行排序，时间复杂度为 $O(k \times \log k)$。矩阵中的每个单元格最多只会被访问一次，每一次入队和出队的时间复杂度为 $O(\log(m \times n))$。因此，总时间复杂度为 $O(k \times \log k + m \times n \log(m \times n))$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -103,6 +112,8 @@ class Solution:
             ans[k] = cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +152,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -181,6 +194,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxPoints(grid [][]int, queries []int) []int {
@@ -231,45 +246,6 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def maxPoints(self, grid: List[List[int]], queries: List[int]) -> List[int]:
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
-        def union(a, b):
-            pa, pb = find(a), find(b)
-            if pa == pb:
-                return
-            p[pa] = pb
-            size[pb] += size[pa]
-
-        m, n = len(grid), len(grid[0])
-        arr = sorted((grid[i][j], i, j) for i in range(m) for j in range(n))
-        k = len(queries)
-        ans = [0] * k
-        p = list(range(m * n))
-        size = [1] * len(p)
-        j = 0
-        for i, v in sorted(enumerate(queries), key=lambda x: x[1]):
-            while j < len(arr) and arr[j][0] < v:
-                _, a, b = arr[j]
-                for x, y in pairwise((-1, 0, 1, 0, -1)):
-                    c, d = a + x, b + y
-                    if 0 <= c < m and 0 <= d < n and grid[c][d] < v:
-                        union(a * n + b, c * n + d)
-                j += 1
-            if grid[0][0] < v:
-                ans[i] = size[find(0)]
-        return ans
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

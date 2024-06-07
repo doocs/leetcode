@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [777. Swap Adjacent in LR String](https://leetcode.com/problems/swap-adjacent-in-lr-string)
 
 [中文文档](/solution/0700-0799/0777.Swap%20Adjacent%20in%20LR%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In a string composed of <code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>, and <code>&#39;X&#39;</code> characters, like <code>&quot;RXXLRXRXL&quot;</code>, a move consists of either replacing one occurrence of <code>&quot;XL&quot;</code> with <code>&quot;LX&quot;</code>, or replacing one occurrence of <code>&quot;RX&quot;</code> with <code>&quot;XR&quot;</code>. Given the starting string <code>start</code> and the ending string <code>end</code>, return <code>True</code> if and only if there exists a sequence of moves to transform one string to the other.</p>
 
@@ -45,11 +49,17 @@ XRLXXRRLX
 	<li>Both <code>start</code> and <code>end</code> will only consist of characters in <code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>, and&nbsp;<code>&#39;X&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +81,8 @@ class Solution:
                 return False
             i, j = i + 1, j + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +133,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canTransform(start string, end string) bool {
@@ -150,4 +166,6 @@ func canTransform(start string, end string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

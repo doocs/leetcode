@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [640. Solve the Equation](https://leetcode.com/problems/solve-the-equation)
 
 [中文文档](/solution/0600-0699/0640.Solve%20the%20Equation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Solve a given equation and return the value of <code>&#39;x&#39;</code> in the form of a string <code>&quot;x=#value&quot;</code>. The equation contains only <code>&#39;+&#39;</code>, <code>&#39;-&#39;</code> operation, the variable <code>&#39;x&#39;</code> and its coefficient. You should return <code>&quot;No solution&quot;</code> if there is no solution for the equation, or <code>&quot;Infinite solutions&quot;</code> if there are infinite solutions for the equation.</p>
 
@@ -49,11 +53,17 @@ tags:
 	<li><code>equation</code> consists of integers with an absolute value in the range <code>[0, 100]</code> without any leading zeros, and the variable <code>&#39;x&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +94,8 @@ class Solution:
             return 'Infinite solutions' if y1 == y2 else 'No solution'
         return f'x={(y2 - y1) // (x1 - x2)}'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func solveEquation(equation string) string {
@@ -172,6 +186,8 @@ func solveEquation(equation string) string {
 	return fmt.Sprintf("x=%d", (y2-y1)/(x1-x2))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function solveEquation(equation: string): string {
@@ -233,4 +249,6 @@ function solveEquation(equation: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

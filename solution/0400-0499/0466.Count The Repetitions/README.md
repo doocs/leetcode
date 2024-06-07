@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [466. 统计重复个数](https://leetcode.cn/problems/count-the-repetitions)
 
 [English Version](/solution/0400-0499/0466.Count%20The%20Repetitions/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>定义 <code>str = [s, n]</code> 表示 <code>str</code> 由 <code>n</code> 个字符串 <code>s</code> 连接构成。</p>
 
@@ -57,19 +59,25 @@ tags:
 	<li><code>1 <= n1, n2 <= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理 + 递推
 
-我们预处理出以字符串 $s2$ 的每个位置 $i$ 开始匹配一个完整的 $s1$ 后，下一个位置 $j$ 以及经过了多少个 $s2$，即 $d[i] = (cnt, j)$，其中 $cnt$ 表示匹配了多少个 $s2$，而 $j$ 表示字符串 $s2$ 的下一个位置。
+我们预处理出以字符串 $s_2$ 的每个位置 $i$ 开始匹配一个完整的 $s_1$ 后，下一个位置 $j$ 以及经过了多少个 $s_2$，即 $d[i] = (cnt, j)$，其中 $cnt$ 表示匹配了多少个 $s_2$，而 $j$ 表示字符串 $s_2$ 的下一个位置。
 
 接下来，我们初始化 $j=0$，然后循环 $n1$ 次，每一次将 $d[j][0]$ 加到答案中，然后更新 $j=d[j][1]$。
 
-最后得到的答案就是 $n1$ 个 $s1$ 所能匹配的 $s2$ 的个数，除以 $n2$ 即可得到答案。
+最后得到的答案就是 $n1$ 个 $s_1$ 所能匹配的 $s_2$ 的个数，除以 $n2$ 即可得到答案。
 
-时间复杂度 $O(m \times n + n1)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别是 $s1$ 和 $s2$ 的长度。
+时间复杂度 $O(m \times n + n_1)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别是 $s_1$ 和 $s_2$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +102,8 @@ class Solution:
             ans += cnt
         return ans // n2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getMaxRepetitions(s1 string, n1 int, s2 string, n2 int) (ans int) {
 	n := len(s2)
@@ -178,6 +192,8 @@ func getMaxRepetitions(s1 string, n1 int, s2 string, n2 int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMaxRepetitions(s1: string, n1: number, s2: string, n2: number): number {
@@ -207,4 +223,6 @@ function getMaxRepetitions(s1: string, n1: number, s2: string, n2: number): numb
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

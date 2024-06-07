@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.01.Three%20in%20One/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [03.01. Three in One](https://leetcode.cn/problems/three-in-one-lcci)
 
 [中文文档](/lcci/03.01.Three%20in%20One/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Describe how you could use a single array to implement three stacks.</p>
 
@@ -50,7 +54,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.01.Three%20in%20On
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array Simulation
 
@@ -67,6 +75,8 @@ For the `isEmpty` operation, we directly check whether the stack is empty. For s
 In terms of time complexity, the time complexity of each operation is $O(1)$. The space complexity is $O(\text{cap})$, where $\text{cap}$ is the size of the stack.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class TripleInOne:
@@ -102,6 +112,8 @@ class TripleInOne:
 # param_3 = obj.peek(stackNum)
 # param_4 = obj.isEmpty(stackNum)
 ```
+
+#### Java
 
 ```java
 class TripleInOne {
@@ -146,6 +158,8 @@ class TripleInOne {
  * boolean param_4 = obj.isEmpty(stackNum);
  */
 ```
+
+#### C++
 
 ```cpp
 class TripleInOne {
@@ -193,6 +207,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type TripleInOne struct {
 	cap int
@@ -238,6 +254,8 @@ func (this *TripleInOne) IsEmpty(stackNum int) bool {
  * param_4 := obj.IsEmpty(stackNum);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class TripleInOne {
@@ -285,6 +303,8 @@ class TripleInOne {
  * var param_4 = obj.isEmpty(stackNum)
  */
 ```
+
+#### Swift
 
 ```swift
 class TripleInOne {
@@ -335,4 +355,6 @@ class TripleInOne {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

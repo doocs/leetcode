@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3114.Latest%20Time%20You%20Can%20Obtain%20After%20Replacing%20Characters/README.md
 rating: 1290
+source: 第 393 场周赛 Q1
 tags:
     - 字符串
     - 枚举
 ---
+
+<!-- problem:start -->
 
 # [3114. 替换字符可以得到的最晚时间](https://leetcode.cn/problems/latest-time-you-can-obtain-after-replacing-characters)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code>，表示一个 12 小时制的时间格式，其中一些数字（可能没有）被 <code>"?"</code> 替换。</p>
 
@@ -57,7 +60,11 @@ tags:
 	<li>输入保证在替换 <code>"?"</code> 字符后至少存在一个介于 <code>"00:00"</code> 和 <code>"11:59"</code> 之间的时间。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -66,6 +73,8 @@ tags:
 时间复杂度 $O(h \times m)$，其中 $h = 12$, $m = 60$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +85,8 @@ class Solution:
                 if all(a == b for a, b in zip(s, t) if a != "?"):
                     return t
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLatestTime(s string) string {
 	for h := 11; ; h-- {
@@ -142,6 +157,8 @@ func findLatestTime(s string) string {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findLatestTime(s: string): string {
@@ -165,6 +182,10 @@ function findLatestTime(s: string): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：逐个判断
 
 我们可以逐个判断 $s$ 的每一位字符，如果是 "?" 的话，我们就根据前后的字符来确定这一位字符的值。具体地，我们有以下规则：
@@ -177,6 +198,8 @@ function findLatestTime(s: string): string {
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -192,6 +215,8 @@ class Solution:
             s[4] = "9"
         return "".join(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -214,6 +239,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -234,6 +261,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLatestTime(s string) string {
@@ -262,6 +291,8 @@ func findLatestTime(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLatestTime(s: string): string {
     const cs = s.split('');
@@ -283,4 +314,6 @@ function findLatestTime(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

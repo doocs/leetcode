@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [617. 合并二叉树](https://leetcode.cn/problems/merge-two-binary-trees)
 
 [English Version](/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两棵二叉树： <code>root1</code> 和 <code>root2</code> 。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -62,6 +68,8 @@ tags:
 时间复杂度 $O(m)$，空间复杂度 $O(m)$。其中 $m$ 是两棵树的节点数的最小值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -83,6 +91,8 @@ class Solution:
         node.right = self.mergeTrees(root1.right, root2.right)
         return node
 ```
+
+#### Java
 
 ```java
 /**
@@ -116,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -141,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -163,6 +177,8 @@ func mergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
 	return node
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -188,6 +204,8 @@ function mergeTrees(root1: TreeNode | null, root2: TreeNode | null): TreeNode | 
     return new TreeNode(root1.val + root2.val, left, right);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -234,6 +252,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -264,4 +284,6 @@ var mergeTrees = function (root1, root2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

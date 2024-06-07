@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1536.Minimum%20Swaps%20to%20Arrange%20a%20Binary%20Grid/README.md
 rating: 1880
+source: 第 200 场周赛 Q3
 tags:
     - 贪心
     - 数组
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [1536. 排布二进制网格的最少交换次数](https://leetcode.cn/problems/minimum-swaps-to-arrange-a-binary-grid)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个&nbsp;<code>n&nbsp;x n</code>&nbsp;的二进制网格&nbsp;<code>grid</code>，每一次操作中，你可以选择网格的&nbsp;<strong>相邻两行</strong>&nbsp;进行交换。</p>
 
@@ -63,7 +66,11 @@ tags:
 	<li><code>grid[i][j]</code>&nbsp;要么是&nbsp;<code>0</code>&nbsp;要么是&nbsp;<code>1</code>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -72,6 +79,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是网格的边长。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +107,8 @@ class Solution:
                 k -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +186,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSwaps(grid [][]int) (ans int) {
 	n := len(grid)
@@ -207,6 +222,8 @@ func minSwaps(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minSwaps(grid: number[][]): number {
@@ -243,4 +260,6 @@ function minSwaps(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

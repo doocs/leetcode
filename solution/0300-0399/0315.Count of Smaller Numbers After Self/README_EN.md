@@ -12,11 +12,15 @@ tags:
     - Merge Sort
 ---
 
+<!-- problem:start -->
+
 # [315. Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self)
 
 [中文文档](/solution/0300-0399/0315.Count%20of%20Smaller%20Numbers%20After%20Self/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, return<em> an integer array </em><code>counts</code><em> where </em><code>counts[i]</code><em> is the number of smaller elements to the right of </em><code>nums[i]</code>.</p>
 
@@ -55,11 +59,17 @@ To the right of 1 there is <b>0</b> smaller element.
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -96,6 +106,8 @@ class Solution:
             ans.append(tree.query(x - 1))
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +165,8 @@ class BinaryIndexedTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -204,6 +218,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -263,9 +279,15 @@ func countSmaller(nums []int) []int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -327,6 +349,8 @@ class Solution:
             tree.modify(1, x, 1)
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -416,6 +440,8 @@ class SegmentTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -491,6 +517,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Pair struct {
 	val   int
@@ -552,4 +580,6 @@ func merge(arr []Pair, low, mid, high int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

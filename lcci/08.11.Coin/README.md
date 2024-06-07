@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.11.Coin/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.11. 硬币](https://leetcode.cn/problems/coin-lcci)
 
 [English Version](/lcci/08.11.Coin/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>硬币。给定数量不限的硬币，币值为25分、10分、5分和1分，编写代码计算n分有几种表示法。(结果可能会很大，你需要将结果模上1000000007)</p>
 <p> <strong>示例1:</strong></p>
 <pre>
@@ -37,7 +40,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.11.Coin/README.md
     <li>0 &lt;= n (总金额) &lt;= 1000000</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -71,6 +78,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToChange(self, n: int) -> int:
@@ -85,6 +94,8 @@ class Solution:
                     f[i][j] = (f[i][j] + f[i][j - c]) % mod
         return f[-1][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToChange(n int) int {
 	const mod int = 1e9 + 7
@@ -149,6 +164,8 @@ func waysToChange(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function waysToChange(n: number): number {
     const mod = 10 ** 9 + 7;
@@ -166,6 +183,8 @@ function waysToChange(n: number): number {
     return f[4][n];
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -190,11 +209,17 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：动态规划（空间优化）
 
 我们注意到，$f[i][j]$ 的计算只与 $f[i−1][..]$ 有关，因此我们可以去掉第一维，将空间复杂度优化到 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -207,6 +232,8 @@ class Solution:
                 f[j] = (f[j] + f[j - c]) % mod
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -224,6 +251,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -244,6 +273,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToChange(n int) int {
 	const mod int = 1e9 + 7
@@ -258,6 +289,8 @@ func waysToChange(n int) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function waysToChange(n: number): number {
@@ -276,4 +309,6 @@ function waysToChange(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

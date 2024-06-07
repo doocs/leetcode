@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.06.Hanota/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.06. 汉诺塔问题](https://leetcode.cn/problems/hanota-lcci)
 
 [English Version](/lcci/08.06.Hanota/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在经典汉诺塔问题中，有 3 根柱子及 N 个不同大小的穿孔圆盘，盘子可以滑入任意一根柱子。一开始，所有盘子自上而下按升序依次套在第一根柱子上(即每一个盘子只能放在更大的盘子上面)。移动圆盘时受到以下限制:<br>
 (1) 每次只能移动一个盘子;<br>
@@ -31,7 +33,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.06.Hanota/README.m
 	<li>A中盘子的数目不大于14个。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -42,6 +48,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.06.Hanota/README.m
 时间复杂度 $O(2^n)$，空间复杂度 $O(n)$。其中 $n$ 是盘子的数目。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -56,6 +64,8 @@ class Solution:
 
         dfs(len(A), A, B, C)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +84,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hanota(A []int, B []int, C []int) []int {
 	var dfs func(n int, a, b, c *[]int)
@@ -114,6 +128,8 @@ func hanota(A []int, B []int, C []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  Do not return anything, modify C in-place instead.
@@ -131,6 +147,8 @@ function hanota(A: number[], B: number[], C: number[]): void {
     dfs(A.length, A, B, C);
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -152,6 +170,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：迭代（栈）
 
 我们可以用栈来模拟递归的过程。
@@ -172,6 +194,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hanota(self, A: List[int], B: List[int], C: List[int]) -> None:
@@ -185,6 +209,8 @@ class Solution:
                 stk.append((1, a, b, c))
                 stk.append((n - 1, a, c, b))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -223,6 +249,8 @@ class Task {
 }
 ```
 
+#### C++
+
 ```cpp
 struct Task {
     int n;
@@ -252,6 +280,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hanota(A []int, B []int, C []int) []int {
 	stk := []Task{{len(A), &A, &B, &C}}
@@ -276,6 +306,8 @@ type Task struct {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  Do not return anything, modify C in-place instead.
@@ -297,4 +329,6 @@ function hanota(A: number[], B: number[], C: number[]): void {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

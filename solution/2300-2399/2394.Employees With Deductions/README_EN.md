@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2394. Employees With Deductions 🔒](https://leetcode.com/problems/employees-with-deductions)
 
 [中文文档](/solution/2300-2399/2394.Employees%20With%20Deductions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employees</code></p>
 
@@ -101,11 +105,17 @@ Employee 3:
  - Employee 3 did not work their hours and will be deducted.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -126,4 +136,6 @@ WHERE IFNULL(tot, 0) < needed_hours;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

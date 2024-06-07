@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2808.Minimum%20Seconds%20to%20Equalize%20a%20Circular%20Array/README.md
 rating: 1875
+source: 第 110 场双周赛 Q3
 tags:
     - 数组
     - 哈希表
 ---
+
+<!-- problem:start -->
 
 # [2808. 使循环数组所有元素相等的最少秒数](https://leetcode.cn/problems/minimum-seconds-to-equalize-a-circular-array)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始长度为 <code>n</code>&nbsp;的数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -78,6 +85,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +103,8 @@ class Solution:
             ans = min(ans, t // 2)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSeconds(nums []int) int {
 	d := map[int][]int{}
@@ -159,6 +174,8 @@ func minimumSeconds(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSeconds(nums: number[]): number {
@@ -185,4 +202,6 @@ function minimumSeconds(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

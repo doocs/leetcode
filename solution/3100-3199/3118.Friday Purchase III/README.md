@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3118. Friday Purchase III 🔒](https://leetcode.cn/problems/friday-purchase-iii)
 
 [English Version](/solution/3100-3199/3118.Friday%20Purchase%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Table: <code>Purchases</code></p>
 
@@ -118,7 +120,11 @@ Each row of this table indicates the user_id, membership type.
 <p><strong>Note:</strong> The output table is ordered by week_of_month and membership in ascending order.</p>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归 + 连接
 
@@ -127,6 +133,8 @@ Each row of this table indicates the user_id, membership type.
 接着创建一个表 `P`，包含 `week_of_month`、`membership` 和 `amount_spend` 列，筛选出每个会员在每个月的第几周的周五的消费金额。最后，我们将 `T` 和 `M` 表连接，再左连接 `P` 表，并且按照 `week_of_month` 和 `membership` 列进行分组，计算每周每种会员的总消费金额。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -161,4 +169,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

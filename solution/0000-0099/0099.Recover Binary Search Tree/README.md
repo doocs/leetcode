@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [99. 恢复二叉搜索树](https://leetcode.cn/problems/recover-binary-search-tree)
 
 [English Version](/solution/0000-0099/0099.Recover%20Binary%20Search%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你二叉搜索树的根节点 <code>root</code> ，该树中的 <strong>恰好</strong> 两个节点的值被错误地交换。<em>请在不改变其结构的情况下，恢复这棵树&nbsp;</em>。</p>
 
@@ -49,7 +51,11 @@ tags:
 
 <p><strong>进阶：</strong>使用 <code>O(n)</code> 空间复杂度的解法很容易实现。你能想出一个只使用&nbsp;<code>O(1)</code> 空间的解决方案吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：中序遍历
 
@@ -58,6 +64,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉搜索树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -88,6 +96,8 @@ class Solution:
         dfs(root)
         first.val, second.val = second.val, first.val
 ```
+
+#### Java
 
 ```java
 /**
@@ -134,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -168,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -198,6 +212,8 @@ func recoverTree(root *TreeNode) {
 	first.Val, second.Val = second.Val, first.Val
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -236,6 +252,8 @@ var recoverTree = function (root) {
     second.val = t;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -280,4 +298,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

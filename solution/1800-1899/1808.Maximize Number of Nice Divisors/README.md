@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1808.Maximize%20Number%20of%20Nice%20Divisors/README.md
 rating: 2070
+source: 第 234 场周赛 Q4
 tags:
     - 递归
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1808. 好因子的最大数目](https://leetcode.cn/problems/maximize-number-of-nice-divisors)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数 <code>primeFactors</code> 。你需要构造一个正整数 <code>n</code> ，它满足以下条件：</p>
 
@@ -54,7 +57,11 @@ tags:
 	<li><code>1 <= primeFactors <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：问题转换 + 快速幂
 
@@ -75,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxNiceDivisors(self, primeFactors: int) -> int:
@@ -87,6 +96,8 @@ class Solution:
             return 4 * pow(3, primeFactors // 3 - 1, mod) % mod
         return 2 * pow(3, primeFactors // 3, mod) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNiceDivisors(primeFactors int) int {
 	if primeFactors < 4 {
@@ -172,6 +187,8 @@ func maxNiceDivisors(primeFactors int) int {
 	return qpow(3, primeFactors/3) * 2 % mod
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -206,4 +223,6 @@ var maxNiceDivisors = function (primeFactors) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

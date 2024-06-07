@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2022.Convert%201D%20Array%20Into%202D%20Array/README.md
 rating: 1307
+source: 第 62 场双周赛 Q1
 tags:
     - 数组
     - 矩阵
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [2022. 将一维数组转变成二维数组](https://leetcode.cn/problems/convert-1d-array-into-2d-array)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的一维整数数组&nbsp;<code>original</code>&nbsp;和两个整数&nbsp;<code>m</code>&nbsp;和&nbsp;&nbsp;<code>n</code>&nbsp;。你需要使用&nbsp;<code>original</code>&nbsp;中&nbsp;<strong>所有</strong>&nbsp;元素创建一个&nbsp;<code>m</code>&nbsp;行&nbsp;<code>n</code>&nbsp;列的二维数组。</p>
 
@@ -72,7 +75,11 @@ original 中只有 1 个元素。
 	<li><code>1 &lt;= m, n &lt;= 4 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -84,6 +91,8 @@ original 中只有 1 个元素。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def construct2DArray(self, original: List[int], m: int, n: int) -> List[List[int]]:
@@ -91,6 +100,8 @@ class Solution:
             return []
         return [original[i : i + n] for i in range(0, m * n, n)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func construct2DArray(original []int, m int, n int) (ans [][]int) {
 	if m*n != len(original) {
@@ -138,6 +153,8 @@ func construct2DArray(original []int, m int, n int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function construct2DArray(original: number[], m: number, n: number): number[][] {
@@ -151,6 +168,8 @@ function construct2DArray(original: number[], m: number, n: number): number[][] 
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -173,4 +192,6 @@ var construct2DArray = function (original, m, n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

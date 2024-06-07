@@ -9,13 +9,15 @@ tags:
     - 概率与统计
 ---
 
+<!-- problem:start -->
+
 # [1227. 飞机座位分配概率](https://leetcode.cn/problems/airplane-seat-assignment-probability)
 
 [English Version](/solution/1200-1299/1227.Airplane%20Seat%20Assignment%20Probability/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有 <code>n</code> 位乘客即将登机，飞机正好有 <code>n</code> 个座位。第一位乘客的票丢了，他随便选了一个座位坐下。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10^5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -138,11 +144,15 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nthPersonGetsNthSeat(self, n: int) -> float:
         return 1 if n == 1 else 0.5
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +162,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nthPersonGetsNthSeat(n int) float64 {
@@ -172,4 +186,6 @@ func nthPersonGetsNthSeat(n int) float64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

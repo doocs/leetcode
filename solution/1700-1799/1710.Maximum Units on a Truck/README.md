@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1710.Maximum%20Units%20on%20a%20Truck/README.md
 rating: 1309
+source: 第 222 场周赛 Q1
 tags:
     - 贪心
     - 数组
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [1710. 卡车上的最大单元数](https://leetcode.cn/problems/maximum-units-on-a-truck)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你将一些箱子装在 <strong>一辆卡车</strong> 上。给你一个二维数组 <code>boxTypes</code> ，其中 <code>boxTypes[i] = [numberOfBoxes<sub>i</sub>, numberOfUnitsPerBox<sub>i</sub>]</code> ：</p>
 
@@ -59,7 +62,11 @@ tags:
 	<li><code>1 <= truckSize <= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -70,6 +77,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，其中 $n$ 表示二维数组 `boxTypes` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +91,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	sort.Slice(boxTypes, func(i, j int) bool { return boxTypes[i][1] > boxTypes[j][1] })
@@ -132,6 +147,8 @@ func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumUnits(boxTypes: number[][], truckSize: number): number {
@@ -150,6 +167,8 @@ function maximumUnits(boxTypes: number[][], truckSize: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,6 +192,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：计数排序
 
 我们还可以利用计数排序的思想，开一个长度为 $1001$ 的数组 $cnt$，其中 $cnt[b]$ 表示单元数为 $b$ 的箱子的数量。
@@ -182,6 +205,8 @@ impl Solution {
 时间复杂度 $O(M)$，其中 $M$ 是单元数的最大值。本题中 $M=1000$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -199,6 +224,8 @@ class Solution:
                     break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -220,6 +247,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -243,6 +272,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	cnt := [1001]int{}
@@ -260,6 +291,8 @@ func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumUnits(boxTypes: number[][], truckSize: number): number {
@@ -281,4 +314,6 @@ function maximumUnits(boxTypes: number[][], truckSize: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

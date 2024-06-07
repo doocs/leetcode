@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9804.%20%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 04. 二维数组中的查找](https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
 
@@ -42,7 +46,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p><strong>注意：</strong>本题与主站 240 题相同：<a href="https://leetcode.cn/problems/search-a-2d-matrix-ii/">https://leetcode.cn/problems/search-a-2d-matrix-ii/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -54,6 +62,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -> bool:
@@ -63,6 +73,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -93,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findNumberIn2DArray(matrix [][]int, target int) bool {
 	for _, row := range matrix {
@@ -104,6 +120,8 @@ func findNumberIn2DArray(matrix [][]int, target int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findNumberIn2DArray(matrix: number[][], target: number): boolean {
@@ -125,6 +143,8 @@ function findNumberIn2DArray(matrix: number[][], target: number): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -153,6 +173,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -179,6 +201,8 @@ var findNumberIn2DArray = function (matrix, target) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool FindNumberIn2DArray(int[][] matrix, int target) {
@@ -200,7 +224,26 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func findNumberIn2DArray(_ matrix: [[Int]], _ target: Int) -> Bool {
+        for row in matrix {
+            if let _ = row.firstIndex(of: target) {
+                return true
+            }
+        }
+        return false
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：从左下角或右上角搜索
 
@@ -215,6 +258,8 @@ public class Solution {
 时间复杂度 $O(m + n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -232,6 +277,8 @@ class Solution:
                 j += 1
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -254,6 +301,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -278,6 +327,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findNumberIn2DArray(matrix [][]int, target int) bool {
 	if len(matrix) == 0 {
@@ -300,4 +351,6 @@ func findNumberIn2DArray(matrix [][]int, target int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

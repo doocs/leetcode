@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1710.Maximum%20Units%20on%20a%20Truck/README_EN.md
 rating: 1309
+source: Weekly Contest 222 Q1
 tags:
     - Greedy
     - Array
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1710. Maximum Units on a Truck](https://leetcode.com/problems/maximum-units-on-a-truck)
 
 [中文文档](/solution/1700-1799/1710.Maximum%20Units%20on%20a%20Truck/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are assigned to put some amount of boxes onto <strong>one truck</strong>. You are given a 2D array <code>boxTypes</code>, where <code>boxTypes[i] = [numberOfBoxes<sub>i</sub>, numberOfUnitsPerBox<sub>i</sub>]</code>:</p>
 
@@ -56,7 +61,11 @@ The total number of units will be = (1 * 3) + (2 * 2) + (1 * 1) = 8.
 	<li><code>1 &lt;= truckSize &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -67,6 +76,8 @@ Then we traverse `boxTypes` from front to back, choose up to `truckSize` boxes, 
 The time complexity is $O(n \times \log n)$, where $n$ is the length of the two-dimensional array `boxTypes`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +90,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	sort.Slice(boxTypes, func(i, j int) bool { return boxTypes[i][1] > boxTypes[j][1] })
@@ -129,6 +146,8 @@ func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumUnits(boxTypes: number[][], truckSize: number): number {
@@ -147,6 +166,8 @@ function maximumUnits(boxTypes: number[][], truckSize: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -170,6 +191,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Counting Sort
 
 We can also use the idea of counting sort, create an array $cnt$ of length $1001$, where $cnt[b]$ represents the number of boxes with $b$ units.
@@ -179,6 +204,8 @@ Then starting from the box with the maximum number of units, choose up to `truck
 The time complexity is $O(M)$, where $M$ is the maximum number of units. In this problem, $M=1000$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -196,6 +223,8 @@ class Solution:
                     break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -217,6 +246,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -240,6 +271,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	cnt := [1001]int{}
@@ -257,6 +290,8 @@ func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumUnits(boxTypes: number[][], truckSize: number): number {
@@ -278,4 +313,6 @@ function maximumUnits(boxTypes: number[][], truckSize: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README_EN.md
 rating: 1732
+source: Biweekly Contest 109 Q3
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [2786. Visit Array Positions to Maximize Score](https://leetcode.com/problems/visit-array-positions-to-maximize-score)
 
 [中文文档](/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and a positive integer <code>x</code>.</p>
 
@@ -56,11 +61,17 @@ The total score is: 2 + 4 + 6 + 8 = 20.
 	<li><code>1 &lt;= nums[i], x &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +82,8 @@ class Solution:
             f[v & 1] = max(f[v & 1] + v, f[v & 1 ^ 1] + v - x)
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxScore(nums []int, x int) int64 {
 	const inf int = 1 << 40
@@ -113,6 +130,8 @@ func maxScore(nums []int, x int) int64 {
 	return int64(max(f[0], f[1]))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxScore(nums: number[], x: number): number {
@@ -128,4 +147,6 @@ function maxScore(nums: number[], x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

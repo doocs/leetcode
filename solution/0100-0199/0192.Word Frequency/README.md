@@ -1,7 +1,11 @@
+<!-- problem:start -->
+
 ---
+
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0192.Word%20Frequency/README.md
+
 ---
 
 # [192. 统计词频](https://leetcode.cn/problems/word-frequency)
@@ -10,7 +14,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0192.Wo
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>写一个 bash 脚本以统计一个文本文件&nbsp;<code>words.txt</code>&nbsp;中每个单词出现的<span data-keyword="frequency-textfile">频率</span>。</p>
 
@@ -47,11 +51,17 @@ day 1
 	<li>你可以使用一行&nbsp;<a href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-4.html">Unix pipes</a>&nbsp;实现吗？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：awk
 
 <!-- tabs:start -->
+
+#### Shell
 
 ```bash
 # Read from the file words.txt and output the word frequency list to stdout.
@@ -60,4 +70,6 @@ cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -nr | awk '{print $2, $1}
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2083. Substrings That Begin and End With the Same Letter 🔒](https://leetcode.com/problems/substrings-that-begin-and-end-with-the-same-letter)
 
 [中文文档](/solution/2000-2099/2083.Substrings%20That%20Begin%20and%20End%20With%20the%20Same%20Letter/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> consisting of only lowercase English letters. Return <em>the number of <strong>substrings</strong> in </em><code>s</code> <em>that begin and end with the <strong>same</strong> character.</em></p>
 
@@ -60,11 +64,17 @@ The substring of length 1 that starts and ends with the same letter is: &quot;a&
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +86,8 @@ class Solution:
             ans += cnt[c]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +119,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfSubstrings(s string) (ans int64) {
@@ -120,4 +136,6 @@ func numberOfSubstrings(s string) (ans int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

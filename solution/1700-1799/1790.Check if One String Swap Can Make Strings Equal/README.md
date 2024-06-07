@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1790.Check%20if%20One%20String%20Swap%20Can%20Make%20Strings%20Equal/README.md
 rating: 1300
+source: 第 232 场周赛 Q1
 tags:
     - 哈希表
     - 字符串
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [1790. 仅执行一次字符串交换能否使两个字符串相等](https://leetcode.cn/problems/check-if-one-string-swap-can-make-strings-equal)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你长度相等的两个字符串 <code>s1</code> 和 <code>s2</code> 。一次<strong> 字符串交换 </strong>操作的步骤如下：选出某个字符串中的两个下标（不必不同），并交换这两个下标所对应的字符。</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li><code>s1</code> 和 <code>s2</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -73,6 +80,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为字符串长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +96,8 @@ class Solution:
                 c1, c2 = a, b
         return cnt != 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func areAlmostEqual(s1 string, s2 string) bool {
 	cnt := 0
@@ -145,6 +160,8 @@ func areAlmostEqual(s1 string, s2 string) bool {
 	return cnt != 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function areAlmostEqual(s1: string, s2: string): boolean {
@@ -164,6 +181,8 @@ function areAlmostEqual(s1: string, s2: string): boolean {
     return cnt != 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -185,6 +204,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool areAlmostEqual(char* s1, char* s2) {
@@ -214,4 +235,6 @@ bool areAlmostEqual(char* s1, char* s2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

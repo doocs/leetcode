@@ -4,11 +4,15 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.20.Continuous%20Median/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.20. Continuous Median](https://leetcode.cn/problems/continuous-median-lcci)
 
 [中文文档](/lcci/17.20.Continuous%20Median/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Numbers are randomly generated and passed to a method. Write a program to find and maintain the median value as new values are generated.</p>
 
@@ -43,11 +47,17 @@ findMedian() -&gt; 2
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MedianFinder:
@@ -75,6 +85,8 @@ class MedianFinder:
 # obj.addNum(num)
 # param_2 = obj.findMedian()
 ```
+
+#### Java
 
 ```java
 class MedianFinder {
@@ -108,6 +120,8 @@ class MedianFinder {
  * double param_2 = obj.findMedian();
  */
 ```
+
+#### C++
 
 ```cpp
 class MedianFinder {
@@ -145,6 +159,8 @@ private:
  * double param_2 = obj->findMedian();
  */
 ```
+
+#### Go
 
 ```go
 type MedianFinder struct {
@@ -190,6 +206,8 @@ func (h *hp) Pop() any {
 	return v
 }
 ```
+
+#### Swift
 
 ```swift
 class MedianFinder {
@@ -301,4 +319,6 @@ struct Heap<T> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

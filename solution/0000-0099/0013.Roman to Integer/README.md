@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [13. 罗马数字转整数](https://leetcode.cn/problems/roman-to-integer)
 
 [English Version](/solution/0000-0099/0013.Roman%20to%20Integer/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>罗马数字包含以下七种字符:&nbsp;<code>I</code>，&nbsp;<code>V</code>，&nbsp;<code>X</code>，&nbsp;<code>L</code>，<code>C</code>，<code>D</code>&nbsp;和&nbsp;<code>M</code>。</p>
 
@@ -88,7 +90,11 @@ M             1000</pre>
 	<li>关于罗马数字的详尽书写规则，可以参考 <a href="https://b2b.partcommunity.com/community/knowledge/zh_CN/detail/10753/%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97#knowledge_article">罗马数字 - Mathematics </a>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 模拟
 
@@ -100,12 +106,16 @@ M             1000</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def romanToInt(self, s: str) -> int:
         d = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
         return sum((-1 if d[a] < d[b] else 1) * d[a] for a, b in pairwise(s)) + d[s[-1]]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +136,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -150,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func romanToInt(s string) (ans int) {
 	d := map[byte]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
@@ -164,6 +178,8 @@ func romanToInt(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function romanToInt(s: string): number {
@@ -185,6 +201,8 @@ function romanToInt(s: string): number {
 }
 ```
 
+#### JavaScript
+
 ```js
 const romanToInt = function (s) {
     const d = {
@@ -204,6 +222,8 @@ const romanToInt = function (s) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -225,6 +245,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -256,6 +278,8 @@ class Solution {
     }
 }
 ```
+
+#### Ruby
 
 ```rb
 # @param {String} s
@@ -294,4 +318,6 @@ end
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

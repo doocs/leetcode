@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [680. Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii)
 
 [中文文档](/solution/0600-0699/0680.Valid%20Palindrome%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, return <code>true</code> <em>if the </em><code>s</code><em> can be palindrome after deleting <strong>at most one</strong> character from it</em>.</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -58,6 +66,8 @@ If we have not encountered a situation where the characters pointed to by the po
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +86,8 @@ class Solution:
             i, j = i + 1, j - 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validPalindrome(s string) bool {
 	check := func(i, j int) bool {
@@ -140,6 +156,8 @@ func validPalindrome(s string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validPalindrome(s: string): boolean {
@@ -160,6 +178,8 @@ function isPalinddrome(s: string): boolean {
     return true;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -183,6 +203,8 @@ var validPalindrome = function (s) {
     return true;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -213,4 +235,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

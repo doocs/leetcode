@@ -8,13 +8,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [858. 镜面反射](https://leetcode.cn/problems/mirror-reflection)
 
 [English Version](/solution/0800-0899/0858.Mirror%20Reflection/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个特殊的正方形房间，每面墙上都有一面镜子。除西南角以外，每个角落都放有一个接受器，编号为&nbsp;<code>0</code>，&nbsp;<code>1</code>，以及&nbsp;<code>2</code>。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>1 &lt;= q &lt;= p &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -60,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mirrorReflection(self, p: int, q: int) -> int:
@@ -70,6 +78,8 @@ class Solution:
             return 1
         return 0 if p == 1 else 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mirrorReflection(p int, q int) int {
@@ -126,6 +140,8 @@ func gcd(a, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mirrorReflection(p: number, q: number): number {
     const g = gcd(p, q);
@@ -144,4 +160,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

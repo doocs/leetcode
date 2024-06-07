@@ -7,13 +7,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [636. 函数的独占时间](https://leetcode.cn/problems/exclusive-time-of-functions)
 
 [English Version](/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个 <strong>单线程</strong> CPU 正在运行一个含有 <code>n</code> 道函数的程序。每道函数都有一个位于&nbsp; <code>0</code> 和 <code>n-1</code> 之间的唯一标识符。</p>
 
@@ -79,13 +81,19 @@ tags:
 	<li>每道函数都有一个对应&nbsp;<code>"start"</code> 日志的 <code>"end"</code> 日志</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈模拟
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -108,6 +116,8 @@ class Solution:
                 curr = ts + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func exclusiveTime(n int, logs []string) []int {
 	ans := make([]int, n)
@@ -188,6 +202,8 @@ func exclusiveTime(n int, logs []string) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function exclusiveTime(n: number, logs: string[]): number[] {
@@ -219,4 +235,6 @@ function exclusiveTime(n: number, logs: string[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

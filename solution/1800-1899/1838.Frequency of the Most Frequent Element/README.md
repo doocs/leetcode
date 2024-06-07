@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README.md
 rating: 1876
+source: 第 238 场周赛 Q2
 tags:
     - 贪心
     - 数组
@@ -12,13 +13,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [1838. 最高频元素的频数](https://leetcode.cn/problems/frequency-of-the-most-frequent-element)
 
 [English Version](/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>元素的 <strong>频数</strong> 是该元素在一个数组中出现的次数。</p>
 
@@ -64,7 +67,11 @@ tags:
 	<li><code>1 <= k <= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 前缀和 + 二分查找
 
@@ -83,6 +90,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +114,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -177,6 +190,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxFrequency(nums []int, k int) int {
 	n := len(nums)
@@ -205,6 +220,8 @@ func maxFrequency(nums []int, k int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxFrequency(nums: number[], k: number): number {
@@ -237,6 +254,10 @@ function maxFrequency(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序 + 双指针
 
 我们也可以使用双指针来维护一个滑动窗口，窗口内中的元素都可以变成窗口中的最大值，窗口内元素的操作次数为 $s$，且 $s \leq k$。
@@ -246,6 +267,8 @@ function maxFrequency(nums: number[], k: number): number {
 时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -261,6 +284,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -279,6 +304,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -299,6 +326,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxFrequency(nums []int, k int) int {
 	sort.Ints(nums)
@@ -314,6 +343,8 @@ func maxFrequency(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxFrequency(nums: number[], k: number): number {
@@ -333,4 +364,6 @@ function maxFrequency(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

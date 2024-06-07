@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence)
 
 [English Version](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，找到其中最长严格递增子序列的长度。</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li>你能将算法的时间复杂度降低到&nbsp;<code>O(n log(n))</code> 吗?</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -74,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
@@ -85,6 +93,8 @@ class Solution:
                     f[i] = max(f[i], f[j] + 1)
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lengthOfLIS(nums []int) int {
@@ -144,6 +158,8 @@ func lengthOfLIS(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function lengthOfLIS(nums: number[]): number {
     const n = nums.length;
@@ -158,6 +174,8 @@ function lengthOfLIS(nums: number[]): number {
     return Math.max(...f);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,6 +196,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：离散化 + 树状数组
 
 我们将数组中的元素离散化，然后使用树状数组维护不大于某个元素的最长递增子序列的长度。
@@ -189,6 +211,8 @@ impl Solution {
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -220,6 +244,8 @@ class Solution:
             tree.update(x, t)
         return tree.query(m)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -283,6 +309,8 @@ class BinaryIndexedTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -327,6 +355,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -375,6 +405,8 @@ func lengthOfLIS(nums []int) int {
 	return tree.query(m)
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -432,4 +464,6 @@ function search(nums: number[], x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

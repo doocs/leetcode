@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README_EN.md
 rating: 1422
+source: Biweekly Contest 101 Q2
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2606. Find the Substring With Maximum Cost](https://leetcode.com/problems/find-the-substring-with-maximum-cost)
 
 [中文文档](/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code>, a string <code>chars</code> of <strong>distinct</strong> characters and an integer array <code>vals</code> of the same length as <code>chars</code>.</p>
 
@@ -68,7 +73,11 @@ It can be proven that 0 is the maximum cost.
 	<li><code>-1000 &lt;= vals[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix sum + Maintain the minimum prefix sum
 
@@ -79,6 +88,8 @@ After the traversal is over, return the answer $ans$.
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +103,8 @@ class Solution:
             mi = min(mi, tot)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
 	d := [26]int{}
@@ -158,6 +175,8 @@ func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumCostSubstring(s: string, chars: string, vals: number[]): number {
@@ -179,6 +198,10 @@ function maximumCostSubstring(s: string, chars: string, vals: number[]): number 
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Convert to the maximum subarray sum problem
 
 We can consider the value $v$ of each character $c$ as an integer, so the actual problem is to solve the maximum subarray sum problem.
@@ -188,6 +211,8 @@ We use the variable $f$ to maintain the cost of the maximum cost substring endin
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -200,6 +225,8 @@ class Solution:
             ans = max(ans, f)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -224,6 +251,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -245,6 +274,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
 	d := [26]int{}
@@ -264,6 +295,8 @@ func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumCostSubstring(s: string, chars: string, vals: number[]): number {
     const d: number[] = Array.from({ length: 26 }, (_, i) => i + 1);
@@ -282,4 +315,6 @@ function maximumCostSubstring(s: string, chars: string, vals: number[]): number 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

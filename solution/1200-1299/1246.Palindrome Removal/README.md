@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1246.Palindrome%20Removal/README.md
 rating: 2203
+source: 第 12 场双周赛 Q4
 tags:
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [1246. 删除回文子数组 🔒](https://leetcode.cn/problems/palindrome-removal)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>arr</code>，每一次操作你都可以选择并删除它的一个 <strong>回文</strong> 子数组&nbsp;<code>arr[i], arr[i+1], ..., arr[j]</code>（ <code>i &lt;= j</code>）。</p>
 
@@ -46,7 +49,11 @@ tags:
 	<li><code>1 &lt;= arr[i] &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划（区间 DP）
 
@@ -61,6 +68,8 @@ tags:
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +89,8 @@ class Solution:
                     f[i][j] = t
         return f[0][n - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumMoves(arr []int) int {
@@ -168,4 +183,6 @@ func minimumMoves(arr []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

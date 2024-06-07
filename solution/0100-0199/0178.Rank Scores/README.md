@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [178. 分数排名](https://leetcode.cn/problems/rank-scores)
 
 [English Version](/solution/0100-0199/0178.Rank%20Scores/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表:&nbsp;<code>Scores</code></p>
 
@@ -23,13 +25,13 @@ tags:
 | id          | int     |
 | score       | decimal |
 +-------------+---------+
-在 SQL 中，id 是该表的主键。
+id 是该表的主键（有不同值的列）。
 该表的每一行都包含了一场比赛的分数。Score 是一个有两位小数点的浮点值。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>查询并对分数进行排序。排名按以下规则计算:</p>
+<p>编写一个解决方案来查询分数的排名。排名按以下规则计算:</p>
 
 <ul>
 	<li>分数应按从高到低排列。</li>
@@ -43,7 +45,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1:</strong></p>
+<p><strong class="example">示例 1:</strong></p>
 
 <pre>
 <strong>输入:</strong> 
@@ -70,7 +72,11 @@ Scores 表:
 | 3.50  | 4    |
 +-------+------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用窗口函数 `DENSE_RANK()`
 
@@ -92,6 +98,8 @@ DENSE_RANK() OVER (
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -106,6 +114,8 @@ def order_scores(scores: pd.DataFrame) -> pd.DataFrame:
     return result_df
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -116,11 +126,17 @@ FROM Scores;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：变量
 
 MySQL 8 开始才提供了 `ROW_NUMBER()`，`RANK()`，`DENSE_RANK()` 等[窗口函数](https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html)，在之前的版本，可以使用变量实现类似的功能。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -146,4 +162,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

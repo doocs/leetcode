@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README_EN.md
 rating: 1511
+source: Weekly Contest 144 Q3
 tags:
     - Tree
     - Depth-First Search
@@ -11,11 +12,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1110. Delete Nodes And Return Forest](https://leetcode.com/problems/delete-nodes-and-return-forest)
 
 [中文文档](/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, each node in the tree has a distinct value.</p>
 
@@ -48,7 +53,11 @@ tags:
 	<li><code>to_delete</code> contains distinct values between <code>1</code> and <code>1000</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -64,6 +73,8 @@ In the main function, we call `dfs(root)`. If the result is not null, it means t
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -94,6 +105,8 @@ class Solution:
             ans.append(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -145,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -191,6 +206,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -229,6 +246,8 @@ func delNodes(root *TreeNode, to_delete []int) (ans []*TreeNode) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -277,4 +296,6 @@ function delNodes(root: TreeNode | null, to_delete: number[]): Array<TreeNode | 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

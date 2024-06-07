@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README.md
 rating: 1295
+source: 第 358 场周赛 Q1
 tags:
     - 数组
     - 哈希表
 ---
+
+<!-- problem:start -->
 
 # [2815. 数组中的最大数对和](https://leetcode.cn/problems/max-pair-sum-in-an-array)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 。请你从 <code>nums</code> 中找出和 <strong>最大</strong> 的一对数，且这两个数数位上最大的数字相等。</p>
 
@@ -47,7 +50,11 @@ i = 3 和 j = 4 ，nums[i] 和 nums[j] 数位上最大的数字相等，且这�
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -56,6 +63,8 @@ i = 3 和 j = 4 ，nums[i] 和 nums[j] 数位上最大的数字相等，且这�
 时间复杂度 $O(n^2 \times \log M)$，其中 $n$ 是数组的长度，而 $M$ 是数组中的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +77,8 @@ class Solution:
                     ans = v
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSum(nums []int) int {
 	ans := -1
@@ -141,6 +156,8 @@ func maxSum(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSum(nums: number[]): number {
@@ -167,4 +184,6 @@ function maxSum(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [414. 第三大的数](https://leetcode.cn/problems/third-maximum-number)
 
 [English Version](/solution/0400-0499/0414.Third%20Maximum%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个非空数组，返回此数组中 <strong>第三大的数</strong> 。如果不存在，则返回数组中最大的数。</p>
 
@@ -55,11 +57,30 @@ tags:
 
 <p><strong>进阶：</strong>你能设计一个时间复杂度 <code>O(n)</code> 的解决方案吗？</p>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：一次遍历
+
+我们可以使用三个变量 $m_1$, $m_2$, $m_3$ 分别表示数组中的第一大、第二大和第三大的数。初始时，我们将这三个变量都赋值为负无穷大。
+
+然后，我们遍历数组中的每个数，对于每个数，我们将其与 $m_1$, $m_2$, $m_3$ 进行比较，根据比较的结果更新这三个变量。具体地，我们遍历数组中的每个数，对于每个数：
+
+-   如果这个数等于 $m_1$, $m_2$, $m_3$ 中的任何一个，我们跳过这个数；
+-   如果这个数大于 $m_1$，我们将 $m_1$, $m_2$, $m_3$ 的值更新为 $m_2$, $m_3$, 这个数；
+-   如果这个数大于 $m_2$，我们将 $m_2$, $m_3$ 的值更新为 $m_3$, 这个数；
+-   如果这个数大于 $m_3$，我们将 $m_3$ 的值更新为这个数。
+
+最后，如果 $m_3$ 的值没有被更新，说明数组中不存在第三大的数，那么我们返回 $m_1$，否则我们返回 $m_3$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 `nums` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +97,8 @@ class Solution:
                 m3 = num
         return m3 if m3 != -inf else m1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func thirdMax(nums []int) int {
@@ -150,4 +177,6 @@ func thirdMax(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

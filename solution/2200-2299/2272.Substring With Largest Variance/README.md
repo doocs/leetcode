@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2272.Substring%20With%20Largest%20Variance/README.md
 rating: 2515
+source: 第 78 场双周赛 Q4
 tags:
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2272. 最大波动的子字符串](https://leetcode.cn/problems/substring-with-largest-variance)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>字符串的 <strong>波动</strong>&nbsp;定义为子字符串中出现次数 <strong>最多</strong>&nbsp;的字符次数与出现次数 <strong>最少</strong>&nbsp;的字符次数之差。</p>
 
@@ -56,7 +59,11 @@ s 中没有字母出现超过 1 次，所以 s 中每个子字符串的波动值
 	<li><code>s</code>&nbsp; 只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 动态规划
 
@@ -76,6 +83,8 @@ s 中没有字母出现超过 1 次，所以 s 中每个子字符串的波动值
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestVariance(self, s: str) -> int:
@@ -94,6 +103,8 @@ class Solution:
                     ans = f[1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestVariance(s string) int {
@@ -177,4 +192,6 @@ func largestVariance(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

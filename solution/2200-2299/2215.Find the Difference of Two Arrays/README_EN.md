@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2215.Find%20the%20Difference%20of%20Two%20Arrays/README_EN.md
 rating: 1207
+source: Weekly Contest 286 Q1
 tags:
     - Array
     - Hash Table
 ---
+
+<!-- problem:start -->
 
 # [2215. Find the Difference of Two Arrays](https://leetcode.com/problems/find-the-difference-of-two-arrays)
 
 [中文文档](/solution/2200-2299/2215.Find%20the%20Difference%20of%20Two%20Arrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code>, return <em>a list</em> <code>answer</code> <em>of size</em> <code>2</code> <em>where:</em></p>
 
@@ -51,7 +56,11 @@ Every integer in nums2 is present in nums1. Therefore, answer[1] = [].
 	<li><code>-1000 &lt;= nums1[i], nums2[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -61,12 +70,16 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
         s1, s2 = set(nums1), set(nums2)
         return [list(s1 - s2), list(s2 - s1)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findDifference(nums1 []int, nums2 []int) [][]int {
@@ -144,6 +161,8 @@ func findDifference(nums1 []int, nums2 []int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findDifference(nums1: number[], nums2: number[]): number[][] {
     const s1: Set<number> = new Set(nums1);
@@ -153,6 +172,8 @@ function findDifference(nums1: number[], nums2: number[]): number[][] {
     return [Array.from(s1), Array.from(s2)];
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -176,6 +197,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums1
@@ -190,6 +213,8 @@ var findDifference = function (nums1, nums2) {
     return [Array.from(s1), Array.from(s2)];
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -212,4 +237,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

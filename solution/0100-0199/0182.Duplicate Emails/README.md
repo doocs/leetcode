@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [182. 查找重复的电子邮箱](https://leetcode.cn/problems/duplicate-emails)
 
 [English Version](/solution/0100-0199/0182.Duplicate%20Emails/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><meta charset="UTF-8" /></p>
 
@@ -59,13 +61,19 @@ Person 表:
 +---------+
 <strong>解释:</strong> a@b.com 出现了两次。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组统计
 
 我们可以使用 `GROUP BY` 语句，按照 `email` 字段进行分组，然后使用 `HAVING` 语句，筛选出现次数大于 $1$ 的 `email`。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -79,6 +87,8 @@ def duplicate_emails(person: pd.DataFrame) -> pd.DataFrame:
     return results.drop_duplicates()
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT email
@@ -89,11 +99,17 @@ HAVING COUNT(1) > 1;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：自连接
 
 我们可以使用自连接的方法，将 `Person` 表自身连接一次，然后筛选出 `id` 不同，但 `email` 相同的记录。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT DISTINCT p1.email
@@ -105,4 +121,6 @@ WHERE p1.id != p2.id AND p1.email = p2.email;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

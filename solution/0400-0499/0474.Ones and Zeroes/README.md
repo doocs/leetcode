@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [474. 一和零](https://leetcode.cn/problems/ones-and-zeroes)
 
 [English Version](/solution/0400-0499/0474.Ones%20and%20Zeroes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二进制字符串数组 <code>strs</code> 和两个整数 <code>m</code> 和 <code>n</code> 。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>1 &lt;= m, n &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -75,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
@@ -89,6 +97,8 @@ class Solution:
                         f[i][j][k] = max(f[i][j][k], f[i - 1][j - a][k - b] + 1)
         return f[sz][m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMaxForm(strs []string, m int, n int) int {
@@ -177,6 +191,8 @@ func count(s string) (int, int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMaxForm(strs: string[], m: number, n: number): number {
     const sz = strs.length;
@@ -207,9 +223,15 @@ function findMaxForm(strs: string[], m: number, n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -222,6 +244,8 @@ class Solution:
                     f[i][j] = max(f[i][j], f[i - a][j - b] + 1)
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -248,6 +272,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -272,6 +298,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaxForm(strs []string, m int, n int) int {
 	f := make([][]int, m+1)
@@ -294,6 +322,8 @@ func count(s string) (int, int) {
 	return a, len(s) - a
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaxForm(strs: string[], m: number, n: number): number {
@@ -319,4 +349,6 @@ function findMaxForm(strs: string[], m: number, n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

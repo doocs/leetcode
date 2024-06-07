@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1796.Second%20Largest%20Digit%20in%20a%20String/README.md
 rating: 1341
+source: 第 48 场双周赛 Q1
 tags:
     - 哈希表
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1796. 字符串中第二大的数字](https://leetcode.cn/problems/second-largest-digit-in-a-string)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个混合字符串 <code>s</code> ，请你返回 <code>s</code> 中 <strong>第二大 </strong>的数字，如果不存在第二大的数字，请你返回 <code>-1</code> 。</p>
 
@@ -47,7 +50,11 @@ tags:
 	<li><code>s</code> 只包含小写英文字母和（或）数字。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -60,6 +67,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +83,8 @@ class Solution:
                     b = v
         return b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func secondHighest(s string) int {
 	a, b := -1, -1
@@ -132,6 +147,8 @@ func secondHighest(s string) int {
 	return b
 }
 ```
+
+#### TypeScript
 
 ```ts
 function secondHighest(s: string): number {
@@ -150,6 +167,8 @@ function secondHighest(s: string): number {
     return second;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,6 +191,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int secondHighest(char* s) {
     int first = -1;
@@ -193,6 +214,10 @@ int secondHighest(char* s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：位运算
 
 我们可以用一个整数 $mask$ 来标识字符串中出现的数字，其中 $mask$ 的第 $i$ 位表示数字 $i$ 是否出现过。
@@ -204,6 +229,8 @@ int secondHighest(char* s) {
 时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -217,6 +244,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -238,6 +267,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -251,6 +282,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func secondHighest(s string) int {
@@ -274,4 +307,6 @@ func secondHighest(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

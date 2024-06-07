@@ -7,13 +7,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [2237. 计算街道上满足所需亮度的位置数量 🔒](https://leetcode.cn/problems/count-positions-on-street-with-required-brightness)
 
 [English Version](/solution/2200-2299/2237.Count%20Positions%20on%20Street%20With%20Required%20Brightness/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code>。一条完全笔直的街道用一条从 <code>0</code> 到 <code>n - 1</code> 的数轴表示。给你一个二维整数数组 <code>lights</code>，表示街道上的路灯。每个 <code>lights[i] = [position<sub>i</sub>, range<sub>i</sub>]</code>&nbsp;表示在位置 <code>position<sub>i</sub></code> 有一盏路灯，从 <code>[max(0, position<sub>i</sub> - range<sub>i</sub>), min(n - 1, position<sub>i</sub> + range<sub>i</sub>)]</code>&nbsp;(<strong>包含边界</strong>) 开始照亮该区域。</p>
 
@@ -67,13 +69,19 @@ tags:
 	<li><code>0 &lt;= requirement[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
 时间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +95,8 @@ class Solution:
             d[j + 1] -= 1
         return sum(s >= r for s, r in zip(accumulate(d), requirement))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func meetRequirement(n int, lights [][]int, requirement []int) int {
@@ -152,4 +166,6 @@ func meetRequirement(n int, lights [][]int, requirement []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

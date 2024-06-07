@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README.md
 rating: 1975
+source: 第 359 场周赛 Q4
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [2831. 找出最长等值子数组](https://leetcode.cn/problems/find-the-longest-equal-subarray)
 
 [English Version](/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 和一个整数 <code>k</code> 。</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 双指针
 
@@ -76,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestEqualSubarray(self, nums: List[int], k: int) -> int:
@@ -90,6 +99,8 @@ class Solution:
                 l += 1
         return mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestEqualSubarray(nums []int, k int) int {
 	cnt := map[int]int{}
@@ -140,6 +155,8 @@ func longestEqualSubarray(nums []int, k int) int {
 	return mx
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestEqualSubarray(nums: number[], k: number): number {
@@ -160,4 +177,136 @@ function longestEqualSubarray(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：哈希表 + 双指针（写法二）
+
+我们可以用一个哈希表 $g$ 维护每个元素的下标列表。
+
+接下来，我们枚举每个元素作为等值元素，我们从哈希表 $g$ 中取出这个元素的下标列表 $ids$，然后我们定义两个指针 $l$ 和 $r$，用于维护一个窗口，使得窗口内的元素个数减去等值元素的个数，结果不超过 $k$。那么我们只需要求出最大的满足条件的窗口即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def longestEqualSubarray(self, nums: List[int], k: int) -> int:
+        g = defaultdict(list)
+        for i, x in enumerate(nums):
+            g[x].append(i)
+        ans = 0
+        for ids in g.values():
+            l = 0
+            for r in range(len(ids)):
+                while ids[r] - ids[l] - (r - l) > k:
+                    l += 1
+                ans = max(ans, r - l + 1)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int longestEqualSubarray(List<Integer> nums, int k) {
+        int n = nums.size();
+        List<Integer>[] g = new List[n + 1];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (int i = 0; i < n; ++i) {
+            g[nums.get(i)].add(i);
+        }
+        int ans = 0;
+        for (List<Integer> ids : g) {
+            int l = 0;
+            for (int r = 0; r < ids.size(); ++r) {
+                while (ids.get(r) - ids.get(l) - (r - l) > k) {
+                    ++l;
+                }
+                ans = Math.max(ans, r - l + 1);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int longestEqualSubarray(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<int> g[n + 1];
+        for (int i = 0; i < n; ++i) {
+            g[nums[i]].push_back(i);
+        }
+        int ans = 0;
+        for (const auto& ids : g) {
+            int l = 0;
+            for (int r = 0; r < ids.size(); ++r) {
+                while (ids[r] - ids[l] - (r - l) > k) {
+                    ++l;
+                }
+                ans = max(ans, r - l + 1);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func longestEqualSubarray(nums []int, k int) (ans int) {
+	g := make([][]int, len(nums)+1)
+	for i, x := range nums {
+		g[x] = append(g[x], i)
+	}
+	for _, ids := range g {
+		l := 0
+		for r := range ids {
+			for ids[r]-ids[l]-(r-l) > k {
+				l++
+			}
+			ans = max(ans, r-l+1)
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function longestEqualSubarray(nums: number[], k: number): number {
+    const n = nums.length;
+    const g: number[][] = Array.from({ length: n + 1 }, () => []);
+    for (let i = 0; i < n; ++i) {
+        g[nums[i]].push(i);
+    }
+    let ans = 0;
+    for (const ids of g) {
+        let l = 0;
+        for (let r = 0; r < ids.length; ++r) {
+            while (ids[r] - ids[l] - (r - l) > k) {
+                ++l;
+            }
+            ans = Math.max(ans, r - l + 1);
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

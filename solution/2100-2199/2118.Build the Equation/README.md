@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2118. 建立方程 🔒](https://leetcode.cn/problems/build-the-equation)
 
 [English Version](/solution/2100-2199/2118.Build%20the%20Equation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Terms</code></p>
 
@@ -106,11 +108,17 @@ Terms 表:
 
 <p><strong>扩展:</strong> 如果幂函数不是主键，但每个幂函数在答案中都是唯一的，那么解决方案中需要改变什么?</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -139,4 +147,6 @@ FROM T;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

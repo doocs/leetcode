@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2470.Number%20of%20Subarrays%20With%20LCM%20Equal%20to%20K/README_EN.md
 rating: 1559
+source: Weekly Contest 319 Q2
 tags:
     - Array
     - Math
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2470. Number of Subarrays With LCM Equal to K](https://leetcode.com/problems/number-of-subarrays-with-lcm-equal-to-k)
 
 [中文文档](/solution/2400-2499/2470.Number%20of%20Subarrays%20With%20LCM%20Equal%20to%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the number of <strong>subarrays</strong> of </em><code>nums</code><em> where the least common multiple of the subarray&#39;s elements is </em><code>k</code>.</p>
 
@@ -50,7 +55,11 @@ tags:
 	<li><code>1 &lt;= nums[i], k &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -59,6 +68,8 @@ Enumerate each number as the first number of the subarray, and then enumerate ea
 The time complexity is $O(n^2)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +84,8 @@ class Solution:
                 a = x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func subarrayLCM(nums []int, k int) (ans int) {
@@ -151,4 +168,6 @@ func lcm(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

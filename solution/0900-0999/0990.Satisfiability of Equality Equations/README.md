@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [990. 等式方程的可满足性](https://leetcode.cn/problems/satisfiability-of-equality-equations)
 
 [English Version](/solution/0900-0999/0990.Satisfiability%20of%20Equality%20Equations/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个由表示变量之间关系的字符串方程组成的数组，每个字符串方程 <code>equations[i]</code> 的长度为 <code>4</code>，并采用两种不同的形式之一：<code>&quot;a==b&quot;</code> 或&nbsp;<code>&quot;a!=b&quot;</code>。在这里，a 和 b 是小写字母（不一定不同），表示单字母变量名。</p>
 
@@ -70,11 +72,17 @@ tags:
 	<li><code>equations[i][2]</code>&nbsp;是&nbsp;<code>&#39;=&#39;</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +103,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +166,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func equationsPossible(equations []string) bool {
@@ -183,6 +197,8 @@ func equationsPossible(equations []string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 class UnionFind {
@@ -229,4 +245,6 @@ function equationsPossible(equations: string[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

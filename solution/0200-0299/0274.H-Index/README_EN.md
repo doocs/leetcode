@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [274. H-Index](https://leetcode.com/problems/h-index)
 
 [中文文档](/solution/0200-0299/0274.H-Index/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>citations</code> where <code>citations[i]</code> is the number of citations a researcher received for their <code>i<sup>th</sup></code> paper, return <em>the researcher&#39;s h-index</em>.</p>
 
@@ -44,7 +48,11 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 	<li><code>0 &lt;= citations[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -53,6 +61,8 @@ We can sort the array `citations` in descending order. Then we enumerate the val
 Time complexity $O(n \times \log n)$, space complexity $O(\log n)$. Here $n$ is the length of the array `citations`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +73,8 @@ class Solution:
                 return h
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +91,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +108,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hIndex(citations []int) int {
 	sort.Ints(citations)
@@ -107,6 +123,8 @@ func hIndex(citations []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function hIndex(citations: number[]): number {
     citations.sort((a, b) => b - a);
@@ -118,6 +136,8 @@ function hIndex(citations: number[]): number {
     return 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -141,6 +161,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Counting + Sum
 
 We can use an array $cnt$ of length $n+1$, where $cnt[i]$ represents the number of papers with the reference count of $i$. We traverse the array `citations` and treat the papers with the reference count greater than $n$ as papers with a reference count of $n$. Then we use the reference count as the index and add $1$ to the corresponding element of $cnt$ for each paper. In this way, we have counted the number of papers for each reference count.
@@ -150,6 +174,8 @@ Then we enumerate the value $h$ from large to small, and add the element value o
 Time complexity $O(n)$, space complexity $O(n)$. Here $n$ is the length of the array `citations`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -164,6 +190,8 @@ class Solution:
             if s >= h:
                 return h
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -182,6 +210,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -203,6 +233,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hIndex(citations []int) int {
 	n := len(citations)
@@ -218,6 +250,8 @@ func hIndex(citations []int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hIndex(citations: number[]): number {
@@ -237,6 +271,10 @@ function hIndex(citations: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3: Binary Search
 
 We notice that if there is a $h$ value that satisfies at least $h$ papers are cited at least $h$ times, then for any $h'<h$, at least $h'$ papers are cited at least $h'$ times. Therefore, we can use the binary search method to find the largest $h$ such that at least $h$ papers are cited at least $h$ times.
@@ -246,6 +284,8 @@ We define the left boundary of binary search $l=0$ and the right boundary $r=n$.
 Time complexity $O(n \times \log n)$, where $n$ is the length of array `citations`. Space complexity $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -259,6 +299,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -282,6 +324,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -307,6 +351,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hIndex(citations []int) int {
 	l, r := 0, len(citations)
@@ -327,6 +373,8 @@ func hIndex(citations []int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hIndex(citations: number[]): number {
@@ -352,4 +400,6 @@ function hIndex(citations: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

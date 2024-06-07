@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2002.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Subsequences/README.md
 rating: 1869
+source: 第 258 场周赛 Q3
 tags:
     - 位运算
     - 字符串
@@ -11,13 +12,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [2002. 两个回文子序列长度的最大乘积](https://leetcode.cn/problems/maximum-product-of-the-length-of-two-palindromic-subsequences)
 
 [English Version](/solution/2000-2099/2002.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Subsequences/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;，请你找到&nbsp;<code>s</code>&nbsp;中两个&nbsp;<strong>不相交回文子序列</strong>&nbsp;，使得它们长度的&nbsp;<strong>乘积最大</strong>&nbsp;。两个子序列在原字符串中如果没有任何相同下标的字符，则它们是&nbsp;<strong>不相交</strong>&nbsp;的。</p>
 
@@ -62,7 +65,11 @@ tags:
 	<li><code>s</code>&nbsp;只含有小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二进制枚举
 
@@ -73,6 +80,8 @@ tags:
 时间复杂度 $(2^n \times n + 3^n)$，空间复杂度 $O(2^n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -103,6 +112,8 @@ class Solution:
                     j = (j - 1) & mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -179,6 +192,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProduct(s string) (ans int) {
@@ -220,4 +235,6 @@ func maxProduct(s string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

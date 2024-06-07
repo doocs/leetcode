@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2178.Maximum%20Split%20of%20Positive%20Even%20Integers/README_EN.md
 rating: 1538
+source: Biweekly Contest 72 Q3
 tags:
     - Greedy
     - Math
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [2178. Maximum Split of Positive Even Integers](https://leetcode.com/problems/maximum-split-of-positive-even-integers)
 
 [中文文档](/solution/2100-2199/2178.Maximum%20Split%20of%20Positive%20Even%20Integers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>finalSum</code>. Split it into a sum of a <strong>maximum</strong> number of <strong>unique</strong> positive even integers.</p>
 
@@ -60,11 +65,17 @@ Note that [10,2,4,12], [6,2,4,16], etc. are also accepted.
 	<li><code>1 &lt;= finalSum &lt;= 10<sup>10</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +91,8 @@ class Solution:
         ans[-1] += finalSum
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumEvenSplit(finalSum int64) (ans []int64) {
 	if finalSum%2 == 1 {
@@ -127,6 +144,8 @@ func maximumEvenSplit(finalSum int64) (ans []int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumEvenSplit(finalSum: number): number[] {
@@ -142,6 +161,8 @@ function maximumEvenSplit(finalSum: number): number[] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -162,4 +183,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

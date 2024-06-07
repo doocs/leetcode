@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README.md
 rating: 2019
+source: 第 329 场周赛 Q4
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2547. 拆分数组的最小代价](https://leetcode.cn/problems/minimum-cost-to-split-an-array)
 
 [English Version](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> 。</p>
 
@@ -84,7 +87,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -100,6 +107,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -123,6 +132,8 @@ class Solution:
         n = len(nums)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -162,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -196,6 +209,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(nums []int, k int) int {
 	n := len(nums)
@@ -226,6 +241,8 @@ func minCost(nums []int, k int) int {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCost(nums: number[], k: number): number {
@@ -259,4 +276,6 @@ function minCost(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [471. Encode String with Shortest Length 🔒](https://leetcode.com/problems/encode-string-with-shortest-length)
 
 [中文文档](/solution/0400-0499/0471.Encode%20String%20with%20Shortest%20Length/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, encode the string such that its encoded length is the shortest.</p>
 
@@ -52,11 +56,17 @@ tags:
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +93,8 @@ class Solution:
                             f[i][j] = t
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func encode(s string) string {
 	n := len(s)
@@ -198,6 +214,8 @@ func encode(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function encode(s: string): string {
     const n = s.length;
@@ -233,4 +251,6 @@ function encode(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

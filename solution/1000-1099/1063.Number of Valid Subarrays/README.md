@@ -8,13 +8,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [1063. 有效子数组的数目 🔒](https://leetcode.cn/problems/number-of-valid-subarrays)
 
 [English Version](/solution/1000-1099/1063.Number%20of%20Valid%20Subarrays/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组&nbsp;<code>nums</code>&nbsp;，返回满足下面条件的&nbsp;<em>非空、连续</em><strong>&nbsp;子数组</strong>的数目：</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -71,6 +77,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +94,8 @@ class Solution:
             stk.append(i)
         return sum(j - i for i, j in enumerate(right))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validSubarrays(nums []int) (ans int) {
 	n := len(nums)
@@ -160,6 +174,8 @@ func validSubarrays(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validSubarrays(nums: number[]): number {
@@ -185,9 +201,15 @@ function validSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -202,6 +224,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -222,6 +246,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -240,6 +266,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validSubarrays(nums []int) (ans int) {
@@ -261,6 +289,8 @@ func validSubarrays(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function validSubarrays(nums: number[]): number {
     const n = nums.length;
@@ -279,4 +309,6 @@ function validSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

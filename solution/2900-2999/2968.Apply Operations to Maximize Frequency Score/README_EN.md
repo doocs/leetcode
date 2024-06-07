@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2968.Apply%20Operations%20to%20Maximize%20Frequency%20Score/README_EN.md
 rating: 2444
+source: Weekly Contest 376 Q4
 tags:
     - Array
     - Binary Search
@@ -11,11 +12,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2968. Apply Operations to Maximize Frequency Score](https://leetcode.com/problems/apply-operations-to-maximize-frequency-score)
 
 [中文文档](/solution/2900-2999/2968.Apply%20Operations%20to%20Maximize%20Frequency%20Score/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>k</code>.</p>
 
@@ -62,7 +67,11 @@ It can be shown that we cannot achieve a better score.
 	<li><code>0 &lt;= k &lt;= 10<sup>14</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Prefix Sum + Binary Search
 
@@ -96,6 +105,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxFrequencyScore(self, nums: List[int], k: int) -> int:
@@ -120,6 +131,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +170,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -198,6 +213,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxFrequencyScore(nums []int, k int64) int {
 	sort.Ints(nums)
@@ -234,6 +251,8 @@ func maxFrequencyScore(nums []int, k int64) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxFrequencyScore(nums: number[], k: number): number {
@@ -272,4 +291,6 @@ function maxFrequencyScore(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

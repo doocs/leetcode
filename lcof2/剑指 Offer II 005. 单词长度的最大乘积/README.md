@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20005.%20%E5%8D%95%E8%AF%8D%E9%95%BF%E5%BA%A6%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B9%98%E7%A7%AF/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 005. 单词长度的最大乘积](https://leetcode.cn/problems/aseY1I)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串数组&nbsp;<code>words</code>，请计算当两个字符串 <code>words[i]</code> 和 <code>words[j]</code> 不包含相同字符时，它们长度的乘积的最大值。假设字符串中只包含英语的小写字母。如果没有不包含相同字符的一对字符串，返回 0。</p>
 
@@ -49,7 +51,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 318&nbsp;题相同：<a href="https://leetcode.cn/problems/maximum-product-of-word-lengths/">https://leetcode.cn/problems/maximum-product-of-word-lengths/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算 + 枚举
 
@@ -60,6 +66,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 时间复杂度 $O(n \times (n + |S|))$，空间复杂度 $O(n)$。其中 $n$ 是数组 $words$ 的长度，而 $|S|$ 是字符串的最大长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +83,8 @@ class Solution:
                     ans = max(ans, len(a) * len(b))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProduct(words []string) (ans int) {
 	n := len(words)
@@ -143,6 +157,8 @@ func maxProduct(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProduct(words: string[]): number {
@@ -165,6 +181,36 @@ function maxProduct(words: string[]): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func maxProduct(_ words: [String]) -> Int {
+        let n = words.count
+        var masks = [Int](repeating: 0, count: n)
+
+        for i in 0..<n {
+            for c in words[i] {
+                masks[i] |= 1 << (c.asciiValue! - Character("a").asciiValue!)
+            }
+        }
+
+        var maxProduct = 0
+        for i in 0..<n {
+            for j in i+1..<n {
+                if masks[i] & masks[j] == 0 {
+                    maxProduct = max(maxProduct, words[i].count * words[j].count)
+                }
+            }
+        }
+
+        return maxProduct
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

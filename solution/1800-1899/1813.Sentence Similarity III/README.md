@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1813.Sentence%20Similarity%20III/README.md
 rating: 1588
+source: 第 49 场双周赛 Q2
 tags:
     - 数组
     - 双指针
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1813. 句子相似性 III](https://leetcode.cn/problems/sentence-similarity-iii)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个句子是由一些单词与它们之间的单个空格组成，且句子的开头和结尾没有多余空格。比方说，<code>"Hello World"</code> ，<code>"HELLO"</code> ，<code>"hello world hello world"</code> 都是句子。每个单词都 <strong>只</strong> 包含大写和小写英文字母。</p>
 
@@ -62,7 +65,11 @@ tags:
 	<li><code>sentence1</code> 和 <code>sentence2</code> 中的单词都只由单个空格隔开。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -75,6 +82,8 @@ tags:
 时间复杂度 $O(L)$，空间复杂度 $O(L)$。其中 $L$ 为两个句子的长度之和。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +100,8 @@ class Solution:
             j += 1
         return i + j >= n
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func areSentencesSimilar(sentence1 string, sentence2 string) bool {
 	words1, words2 := strings.Fields(sentence1), strings.Fields(sentence2)
@@ -164,6 +179,8 @@ func areSentencesSimilar(sentence1 string, sentence2 string) bool {
 	return i+j >= n
 }
 ```
+
+#### TypeScript
 
 ```ts
 function areSentencesSimilar(sentence1: string, sentence2: string): boolean {
@@ -186,4 +203,6 @@ function areSentencesSimilar(sentence1: string, sentence2: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

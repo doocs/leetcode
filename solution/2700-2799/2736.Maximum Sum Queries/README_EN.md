@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2736.Maximum%20Sum%20Queries/README_EN.md
 rating: 2533
+source: Weekly Contest 349 Q4
 tags:
     - Stack
     - Binary Indexed Tree
@@ -13,11 +14,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2736. Maximum Sum Queries](https://leetcode.com/problems/maximum-sum-queries)
 
 [中文文档](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code>, each of length <code>n</code>, and a <strong>1-indexed 2D array</strong> <code>queries</code> where <code>queries[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>
 
@@ -72,7 +77,11 @@ Therefore, we return&nbsp;<code node="[object Object]">[6,10,7]</code>.
 	<li><code>1 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
 
@@ -97,6 +106,8 @@ Similar problems:
 -   [2940. Find Building Where Alice and Bob Can Meet](https://github.com/doocs/leetcode/blob/main/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -139,6 +150,8 @@ class Solution:
             ans[i] = tree.query(k)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -201,6 +214,8 @@ class Solution {
 }
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int[] maximumSumQueries(int[] nums1, int[] nums2, int[][] q) {
@@ -245,6 +260,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -305,6 +322,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -363,6 +382,8 @@ func maximumSumQueries(nums1 []int, nums2 []int, queries [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -434,4 +455,6 @@ function maximumSumQueries(nums1: number[], nums2: number[], queries: number[][]
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

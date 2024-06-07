@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [733. 图像渲染](https://leetcode.cn/problems/flood-fill)
 
 [English Version](/solution/0700-0799/0733.Flood%20Fill/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一幅以&nbsp;<code>m x n</code>&nbsp;的二维整数数组表示的图画&nbsp;<code>image</code>&nbsp;，其中&nbsp;<code>image[i][j]</code>&nbsp;表示该图画的像素值大小。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>0 &lt;= sc &lt;&nbsp;n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：Flood fill 算法
 
@@ -69,6 +75,8 @@ Flood fill 算法是从一个区域中提取若干个连通的点与其他相邻
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为图像的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +101,8 @@ class Solution:
         dfs(sr, sc)
         return image
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func floodFill(image [][]int, sr int, sc int, color int) [][]int {
 	oc := image[sr][sc]
@@ -163,6 +177,8 @@ func floodFill(image [][]int, sr int, sc int, color int) [][]int {
 	return image
 }
 ```
+
+#### TypeScript
 
 ```ts
 function floodFill(image: number[][], sr: number, sc: number, newColor: number): number[][] {
@@ -190,6 +206,8 @@ function floodFill(image: number[][], sr: number, sc: number, newColor: number):
     return image;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -220,9 +238,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -244,6 +268,8 @@ class Solution:
                     image[x][y] = color
         return image
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -273,6 +299,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -300,6 +328,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func floodFill(image [][]int, sr int, sc int, color int) [][]int {
 	if image[sr][sc] == color {
@@ -326,4 +356,6 @@ func floodFill(image [][]int, sr int, sc int, color int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,9 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9819.%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 19. 正则表达式匹配](https://leetcode.cn/problems/zheng-ze-biao-da-shi-pi-pei-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>请实现一个函数用来匹配包含<code>&#39;. &#39;</code>和<code>&#39;*&#39;</code>的正则表达式。模式中的字符<code>&#39;.&#39;</code>表示任意一个字符，而<code>&#39;*&#39;</code>表示它前面的字符可以出现任意次（含0次）。在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串<code>&quot;aaa&quot;</code>与模式<code>&quot;a.a&quot;</code>和<code>&quot;ab*ac*a&quot;</code>匹配，但与<code>&quot;aa.a&quot;</code>和<code>&quot;ab*a&quot;</code>均不匹配。</p>
 
@@ -60,7 +64,11 @@ p = &quot;mis*is*p*.&quot;
 
 <p>注意：本题与主站 10&nbsp;题相同：<a href="https://leetcode.cn/problems/regular-expression-matching/">https://leetcode.cn/problems/regular-expression-matching/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -78,6 +86,8 @@ p = &quot;mis*is*p*.&quot;
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
@@ -94,6 +104,8 @@ class Solution:
         m, n = len(s), len(p)
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isMatch(s string, p string) bool {
 	m, n := len(s), len(p)
@@ -190,6 +206,8 @@ func isMatch(s string, p string) bool {
 	return dfs(0, 0)
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -222,6 +240,8 @@ var isMatch = function (s, p) {
     return dfs(0, 0);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -261,7 +281,49 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    private var memo: [[Bool?]] = []
+    private var s: [Character] = []
+    private var p: [Character] = []
+    private var m: Int = 0
+    private var n: Int = 0
+
+    func isMatch(_ s: String, _ p: String) -> Bool {
+        self.s = Array(s)
+        self.p = Array(p)
+        self.m = s.count
+        self.n = p.count
+        self.memo = Array(repeating: Array(repeating: nil, count: n + 1), count: m + 1)
+        return dfs(0, 0)
+    }
+
+    private func dfs(_ i: Int, _ j: Int) -> Bool {
+        if j >= n {
+            return i == m
+        }
+        if let res = memo[i][j] {
+            return res
+        }
+        var res = false
+        if j + 1 < n && p[j + 1] == "*" {
+            res = dfs(i, j + 2) || (i < m && (s[i] == p[j] || p[j] == ".") && dfs(i + 1, j))
+        } else {
+            res = i < m && (s[i] == p[j] || p[j] == ".") && dfs(i + 1, j + 1)
+        }
+        memo[i][j] = res
+        return res
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：动态规划
 
@@ -277,6 +339,8 @@ public class Solution {
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是 $s$ 和 $p$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -294,6 +358,8 @@ class Solution:
                     f[i][j] = f[i - 1][j - 1]
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -318,6 +384,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -344,6 +412,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isMatch(s string, p string) bool {
 	m, n := len(s), len(p)
@@ -367,6 +437,8 @@ func isMatch(s string, p string) bool {
 	return f[m][n]
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -395,6 +467,8 @@ var isMatch = function (s, p) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsMatch(string s, string p) {
@@ -420,4 +494,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

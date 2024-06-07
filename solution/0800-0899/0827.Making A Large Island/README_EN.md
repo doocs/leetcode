@@ -10,11 +10,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [827. Making A Large Island](https://leetcode.com/problems/making-a-large-island)
 
 [中文文档](/solution/0800-0899/0827.Making%20A%20Large%20Island/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>n x n</code> binary matrix <code>grid</code>. You are allowed to change <strong>at most one</strong> <code>0</code> to be <code>1</code>.</p>
 
@@ -56,11 +60,17 @@ tags:
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -103,6 +113,8 @@ class Solution:
                     ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +181,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -229,6 +243,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestIsland(grid [][]int) int {
 	n := len(grid)
@@ -286,6 +302,8 @@ func largestIsland(grid [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestIsland(grid: number[][]): number {
@@ -347,6 +365,8 @@ function largestIsland(grid: number[][]): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -431,9 +451,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -472,6 +498,8 @@ class Solution:
                     ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -532,6 +560,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -590,6 +620,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestIsland(grid [][]int) int {
 	n := len(grid)
@@ -647,4 +679,6 @@ func largestIsland(grid [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

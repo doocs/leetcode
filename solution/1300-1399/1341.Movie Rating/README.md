@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1341. 电影评分](https://leetcode.cn/problems/movie-rating)
 
 [English Version](/solution/1300-1399/1341.Movie%20Rating/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Movies</code></p>
 
@@ -118,13 +120,19 @@ Daniel 和 Monica 都点评了 3 部电影（"Avengers", "Frozen 2" 和 "Joker"�
 Frozen 2 和 Joker 在 2 月的评分都是 3.5，但是 Frozen 2 的字典序比较小。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：Union all
 
 分别查询两个结果，然后使用 `union all` 合并结果集。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -152,4 +160,6 @@ UNION ALL
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

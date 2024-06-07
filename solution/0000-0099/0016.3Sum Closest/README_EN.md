@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [16. 3Sum Closest](https://leetcode.com/problems/3sum-closest)
 
 [中文文档](/solution/0000-0099/0016.3Sum%20Closest/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> of length <code>n</code> and an integer <code>target</code>, find three integers in <code>nums</code> such that the sum is closest to <code>target</code>.</p>
 
@@ -46,7 +50,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Two Pointers
 
@@ -55,6 +63,8 @@ We sort the array first, then traverse the array. For each element $nums[i]$, we
 The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +86,8 @@ class Solution:
                     j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func threeSumClosest(nums []int, target int) int {
@@ -162,6 +178,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function threeSumClosest(nums: number[], target: number): number {
     nums.sort((a, b) => a - b);
@@ -188,6 +206,8 @@ function threeSumClosest(nums: number[], target: number): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -220,6 +240,8 @@ var threeSumClosest = function (nums, target) {
     return ans;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -264,4 +286,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

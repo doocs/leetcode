@@ -6,11 +6,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [504. Base 7](https://leetcode.com/problems/base-7)
 
 [中文文档](/solution/0500-0599/0504.Base%207/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>num</code>, return <em>a string of its <strong>base 7</strong> representation</em>.</p>
 
@@ -29,11 +33,17 @@ tags:
 	<li><code>-10<sup>7</sup> &lt;= num &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -48,6 +58,8 @@ class Solution:
             num //= 7
         return ''.join(ans[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -68,6 +80,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -83,6 +97,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func convertToBase7(num int) string {
@@ -100,6 +116,8 @@ func convertToBase7(num int) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function convertToBase7(num: number): string {
@@ -119,6 +137,8 @@ function convertToBase7(num: number): string {
     return isMinus ? '-' + res : res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -145,4 +165,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1811. 寻找面试候选人 🔒](https://leetcode.cn/problems/find-interview-candidates)
 
 [English Version](/solution/1800-1899/1811.Find%20Interview%20Candidates/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Contests</code></p>
 
@@ -111,11 +113,17 @@ Quarz在连续5场竞赛中赢得了奖牌(190, 191, 192, 193, and 194), 所以�
 	<li>有的用户可能没有参加每一场竞赛，但是在参加的每一场竞赛中都表现得不错。你如何更改你的解法，以达到只考虑那些&nbsp;<strong>用户参与了的&nbsp;</strong>比赛？可假设另一张表给出了每场比赛的注册用户信息。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -161,4 +169,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

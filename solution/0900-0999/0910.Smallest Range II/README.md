@@ -9,13 +9,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [910. 最小差值 II](https://leetcode.cn/problems/smallest-range-ii)
 
 [English Version](/solution/0900-0999/0910.Smallest%20Range%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code>，和一个整数&nbsp;<code>k</code> 。</p>
 
@@ -64,7 +66,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 枚举
 
@@ -75,6 +81,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +95,8 @@ class Solution:
             ans = min(ans, mx - mi)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestRangeII(nums []int, k int) int {
 	sort.Ints(nums)
@@ -134,6 +148,8 @@ func smallestRangeII(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestRangeII(nums: number[], k: number): number {
@@ -150,4 +166,6 @@ function smallestRangeII(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

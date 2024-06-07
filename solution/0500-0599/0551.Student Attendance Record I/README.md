@@ -6,13 +6,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [551. 学生出勤记录 I](https://leetcode.cn/problems/student-attendance-record-i)
 
 [English Version](/solution/0500-0599/0551.Student%20Attendance%20Record%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> 表示一个学生的出勤记录，其中的每个字符用来标记当天的出勤情况（缺勤、迟到、到场）。记录中只含下面三种字符：</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>s[i]</code> 为 <code>'A'</code>、<code>'L'</code> 或 <code>'P'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符串遍历
 
@@ -68,11 +74,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkRecord(self, s: str) -> bool:
         return s.count('A') < 2 and 'LLL' not in s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,11 +103,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkRecord(s string) bool {
 	return strings.Count(s, "A") < 2 && !strings.Contains(s, "LLL")
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkRecord(s: string): boolean {
@@ -105,4 +121,6 @@ function checkRecord(s: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

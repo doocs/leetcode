@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1607. 没有卖出的卖家 🔒](https://leetcode.cn/problems/sellers-with-no-sales)
 
 [English Version](/solution/1600-1699/1607.Sellers%20With%20No%20Sales/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Customer</code></p>
 
@@ -112,13 +114,19 @@ Daniel 在 2020 年 3 月卖出 1 次。
 Elizabeth 在 2020 年卖出 2 次, 在 2019 年卖出 1 次。
 Frank 在 2019 年卖出 1 次, 在 2020 年没有卖出。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：左连接 + 分组 + 筛选
 
 我们可以使用左连接，将 `Seller` 表与 `Orders` 表按照字段 `seller_id` 连接，然后按照 `seller_id` 分组，统计每个卖家在 $2020$ 年的卖出次数，最后筛选出卖出次数为 $0$ 的卖家。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -133,4 +141,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

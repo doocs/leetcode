@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/README.md
 rating: 1665
+source: 第 37 场双周赛 Q2
 tags:
     - 数组
     - 枚举
 ---
+
+<!-- problem:start -->
 
 # [1620. 网络信号最好的坐标](https://leetcode.cn/problems/coordinate-with-maximum-network-quality)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组 <code>towers</code>&nbsp;和一个整数 <code>radius</code> 。</p>
 
@@ -79,7 +82,11 @@ tags:
 	<li><code>1 &lt;= radius &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -88,6 +95,8 @@ tags:
 时间复杂度 $O(n \times C^2)$，其中 $n$ 是信号塔的数量，而 $C$ 是坐标点的范围大小。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +115,8 @@ class Solution:
                     ans = [i, j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -158,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func bestCoordinate(towers [][]int, radius int) []int {
 	ans := []int{0, 0}
@@ -183,4 +198,6 @@ func bestCoordinate(towers [][]int, radius int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

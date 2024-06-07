@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1747. 应该被禁止的 Leetflex 账户 🔒](https://leetcode.cn/problems/leetflex-banned-accounts)
 
 [English Version](/solution/1700-1799/1747.Leetflex%20Banned%20Accounts/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>LogInfo</code></p>
 
@@ -70,7 +72,11 @@ Account ID 2 --&gt; 该账户在两个不同的网络地址 (6, 7) 激活了，�
 Account ID 3 --&gt; 该账户在两个不同的网络地址 (9, 13) 激活了，虽然是同一天，但时间上没有交集.
 Account ID 4 --&gt; 该账户从 "2021-02-01 17:00:00" 到 "2021-02-01 17:00:00" 在两个不同的网络地址 (10 and 11)上激活了。它应该被禁止.</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：自连接
 
@@ -81,6 +87,8 @@ Account ID 4 --&gt; 该账户从 "2021-02-01 17:00:00" 到 "2021-02-01 17:00:00"
 -   一次登录的时间在另一次“登录-退出”的时间范围内
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -96,4 +104,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2719.Count%20of%20Integers/README.md
 rating: 2354
+source: 第 348 场周赛 Q4
 tags:
     - 数学
     - 字符串
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2719. 统计整数数目](https://leetcode.cn/problems/count-of-integers)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个数字字符串&nbsp;<code>num1</code>&nbsp;和&nbsp;<code>num2</code>&nbsp;，以及两个整数&nbsp;<code>max_sum</code> 和&nbsp;<code>min_sum</code>&nbsp;。如果一个整数&nbsp;<code>x</code>&nbsp;满足以下条件，我们称它是一个好整数：</p>
 
@@ -55,7 +58,11 @@ tags:
 	<li><code>1 &lt;= min_sum &lt;= max_sum &lt;= 400</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数位 DP
 
@@ -72,6 +79,8 @@ tags:
 -   [2801. 统计范围内的步进数字数目](https://github.com/doocs/leetcode/blob/main/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +102,8 @@ class Solution:
         b = dfs(0, 0, True)
         return (a - b) % mod
 ```
+
+#### Java
 
 ```java
 import java.math.BigInteger;
@@ -135,6 +146,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -180,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func count(num1 string, num2 string, min_sum int, max_sum int) int {
@@ -236,6 +251,8 @@ func count(num1 string, num2 string, min_sum int, max_sum int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function count(num1: string, num2: string, min_sum: number, max_sum: number): number {
     const mod = 1e9 + 7;
@@ -268,4 +285,6 @@ function count(num1: string, num2: string, min_sum: number, max_sum: number): nu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

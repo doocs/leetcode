@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3051. 寻找数据科学家职位的候选人 🔒](https://leetcode.cn/problems/find-candidates-for-data-scientist-position)
 
 [English Version](/solution/3000-3099/3051.Find%20Candidates%20for%20Data%20Scientist%20Position/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<font face="monospace"><code>Candidates</code></font></p>
 
@@ -70,13 +72,19 @@ Candidates 表：
 输出表以 candidate_id 升序排序。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：条件筛选 + 分组统计
 
 我们首先筛选出具备 `Python`, `Tableau`, `PostgreSQL` 这三个技能的候选人，然后按照 `candidate_id` 进行分组统计，统计每个候选人具备的技能数量，最后筛选出具备这三个技能的候选人，并且按照 `candidate_id` 进行升序排序。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -90,4 +98,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

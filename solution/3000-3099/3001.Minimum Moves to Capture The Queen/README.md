@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README.md
 rating: 1796
+source: 第 379 场周赛 Q2
 tags:
     - 数组
     - 枚举
 ---
+
+<!-- problem:start -->
 
 # [3001. 捕获黑皇后需要的最少移动次数](https://leetcode.cn/problems/minimum-moves-to-capture-the-queen)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现有一个下标从 <strong>1</strong> 开始的 <code>8 x 8</code> 棋盘，上面有 <code>3</code> 枚棋子。</p>
 
@@ -67,11 +70,17 @@ tags:
 	<li>两枚棋子不会同时出现在同一个格子上。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +102,8 @@ class Solution:
         dirs2 = (-1, 1, 1, -1, -1)
         return 1 if check(dirs1, a, b, c, d) or check(dirs2, c, d, a, b) else 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMovesToCaptureTheQueen(a int, b int, c int, d int, e int, f int) int {
 	dirs := [2][5]int{{-1, 0, 1, 0, -1}, {-1, 1, 1, -1, -1}}
@@ -173,6 +188,8 @@ func minMovesToCaptureTheQueen(a int, b int, c int, d int, e int, f int) int {
 	return 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minMovesToCaptureTheQueen(
@@ -211,4 +228,6 @@ function minMovesToCaptureTheQueen(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

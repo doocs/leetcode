@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1893.Check%20if%20All%20the%20Integers%20in%20a%20Range%20Are%20Covered/README_EN.md
 rating: 1307
+source: Biweekly Contest 54 Q1
 tags:
     - Array
     - Hash Table
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1893. Check if All the Integers in a Range Are Covered](https://leetcode.com/problems/check-if-all-the-integers-in-a-range-are-covered)
 
 [中文文档](/solution/1800-1899/1893.Check%20if%20All%20the%20Integers%20in%20a%20Range%20Are%20Covered/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D integer array <code>ranges</code> and two integers <code>left</code> and <code>right</code>. Each <code>ranges[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> represents an <strong>inclusive</strong> interval between <code>start<sub>i</sub></code> and <code>end<sub>i</sub></code>.</p>
 
@@ -50,11 +55,17 @@ tags:
 	<li><code>1 &lt;= left &lt;= right &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +81,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isCovered(ranges [][]int, left int, right int) bool {
 	diff := [52]int{}
@@ -133,6 +150,8 @@ func isCovered(ranges [][]int, left int, right int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isCovered(ranges: number[][], left: number, right: number): boolean {
     const diff = new Array(52).fill(0);
@@ -150,6 +169,8 @@ function isCovered(ranges: number[][], left: number, right: number): boolean {
     return true;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -177,4 +198,6 @@ var isCovered = function (ranges, left, right) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

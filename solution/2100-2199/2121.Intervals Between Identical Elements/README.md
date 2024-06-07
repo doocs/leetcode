@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README.md
 rating: 1760
+source: 第 273 场周赛 Q3
 tags:
     - 数组
     - 哈希表
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [2121. 相同元素的间隔之和](https://leetcode.cn/problems/intervals-between-identical-elements)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、由 <code>n</code> 个整数组成的数组 <code>arr</code> 。</p>
 
@@ -62,11 +65,17 @@ tags:
 	<li><code>1 &lt;= arr[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +94,8 @@ class Solution:
                 ans[p] = val
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getDistances(arr []int) []int64 {
@@ -168,4 +183,6 @@ func getDistances(arr []int) []int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

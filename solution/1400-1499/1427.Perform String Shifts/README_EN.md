@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1427. Perform String Shifts 🔒](https://leetcode.com/problems/perform-string-shifts)
 
 [中文文档](/solution/1400-1499/1427.Perform%20String%20Shifts/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> containing lowercase English letters, and a matrix <code>shift</code>, where <code>shift[i] = [direction<sub>i</sub>, amount<sub>i</sub>]</code>:</p>
 
@@ -58,7 +62,11 @@ tags:
 	<li><code>0 &lt;= amount<sub>i</sub> &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -68,6 +76,8 @@ The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the stri
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stringShift(self, s: str, shift: List[List[int]]) -> str:
@@ -75,6 +85,8 @@ class Solution:
         x %= len(s)
         return s[-x:] + s[:-x]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stringShift(s string, shift [][]int) string {
 	x := 0
@@ -125,6 +141,8 @@ func stringShift(s string, shift [][]int) string {
 	return s[n-x:] + s[:n-x]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stringShift(s: string, shift: number[][]): string {
@@ -142,4 +160,6 @@ function stringShift(s: string, shift: number[][]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

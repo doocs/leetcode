@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2241.Design%20an%20ATM%20Machine/README.md
 rating: 1616
+source: 第 76 场双周赛 Q3
 tags:
     - 贪心
     - 设计
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [2241. 设计一个 ATM 机器](https://leetcode.cn/problems/design-an-atm-machine)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个 ATM 机器，存有&nbsp;<code>5</code>&nbsp;种面值的钞票：<code>20</code>&nbsp;，<code>50</code>&nbsp;，<code>100</code>&nbsp;，<code>200</code>&nbsp;和&nbsp;<code>500</code>&nbsp;美元。初始时，ATM 机是空的。用户可以用它存或者取任意数目的钱。</p>
 
@@ -67,7 +70,11 @@ atm.withdraw(550);        // 返回 [0,1,0,0,1] ，机器会返回 1 张 $50 的
 	<li><span style="">函数 </span><code>withdraw</code> 和&nbsp;<code>deposit</code>&nbsp;至少各有 <strong>一次&nbsp;</strong>调用。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -78,6 +85,8 @@ atm.withdraw(550);        // 返回 [0,1,0,0,1] ，机器会返回 1 张 $50 的
 对于 `withdraw` 操作，我们从大到小枚举每种面额的钞票，取出尽可能多且不超过 $amount$ 的钞票，然后将 $amount$ 减去取出的钞票面额之和，如果最后 $amount$ 仍大于 $0$，说明无法取出 $amount$ 的钞票，返回 $-1$ 即可。否则，返回取出的钞票数量即可。时间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class ATM:
@@ -106,6 +115,8 @@ class ATM:
 # obj.deposit(banknotesCount)
 # param_2 = obj.withdraw(amount)
 ```
+
+#### Java
 
 ```java
 class ATM {
@@ -144,6 +155,8 @@ class ATM {
  * int[] param_2 = obj.withdraw(amount);
  */
 ```
+
+#### C++
 
 ```cpp
 class ATM {
@@ -184,6 +197,8 @@ private:
  * vector<int> param_2 = obj->withdraw(amount);
  */
 ```
+
+#### Go
 
 ```go
 type ATM struct {
@@ -226,4 +241,6 @@ func (this *ATM) Withdraw(amount int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

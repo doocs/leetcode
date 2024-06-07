@@ -8,11 +8,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [858. Mirror Reflection](https://leetcode.com/problems/mirror-reflection)
 
 [中文文档](/solution/0800-0899/0858.Mirror%20Reflection/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a special square room with mirrors on each of the four walls. Except for the southwest corner, there are receptors on each of the remaining corners, numbered <code>0</code>, <code>1</code>, and <code>2</code>.</p>
 
@@ -45,11 +49,17 @@ tags:
 	<li><code>1 &lt;= q &lt;= p &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +71,8 @@ class Solution:
             return 1
         return 0 if p == 1 else 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +108,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mirrorReflection(p int, q int) int {
@@ -117,6 +133,8 @@ func gcd(a, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mirrorReflection(p: number, q: number): number {
     const g = gcd(p, q);
@@ -135,4 +153,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

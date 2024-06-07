@@ -7,11 +7,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [330. Patching Array](https://leetcode.com/problems/patching-array)
 
 [中文文档](/solution/0300-0399/0330.Patching%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a sorted integer array <code>nums</code> and an integer <code>n</code>, add/patch elements to the array such that any number in the range <code>[1, n]</code> inclusive can be formed by the sum of some elements in the array.</p>
 
@@ -55,7 +59,11 @@ Explanation: The two patches can be [2, 4].
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -80,6 +88,8 @@ The time complexity is $O(m + \log n)$, where $m$ is the length of the array $nu
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minPatches(self, nums: List[int], n: int) -> int:
@@ -94,6 +104,8 @@ class Solution:
                 x <<= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minPatches(nums []int, n int) (ans int) {
 	x := 1
@@ -147,6 +163,8 @@ func minPatches(nums []int, n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minPatches(nums: number[], n: number): number {
@@ -166,4 +184,6 @@ function minPatches(nums: number[], n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

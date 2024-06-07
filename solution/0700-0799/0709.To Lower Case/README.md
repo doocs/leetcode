@@ -6,13 +6,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [709. 转换成小写字母](https://leetcode.cn/problems/to-lower-case)
 
 [English Version](/solution/0700-0799/0709.To%20Lower%20Case/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> ，将该字符串中的大写字母转换成相同的小写字母，返回新的字符串。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li><code>s</code> 由 ASCII 字符集中的可打印字符组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -58,11 +64,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def toLowerCase(self, s: str) -> str:
         return "".join([chr(ord(c) | 32) if c.isupper() else c for c in s])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +88,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -92,6 +104,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func toLowerCase(s string) string {
 	cs := []byte(s)
@@ -104,11 +118,15 @@ func toLowerCase(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function toLowerCase(s: string): string {
     return s.toLowerCase();
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -117,6 +135,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* toLowerCase(char* s) {
@@ -132,15 +152,23 @@ char* toLowerCase(char* s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function toLowerCase(s: string): string {
     return [...s].map(c => String.fromCharCode(c.charCodeAt(0) | 32)).join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -155,4 +183,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

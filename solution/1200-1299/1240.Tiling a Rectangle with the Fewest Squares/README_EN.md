@@ -3,15 +3,20 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/README_EN.md
 rating: 2241
+source: Weekly Contest 160 Q4
 tags:
     - Backtracking
 ---
+
+<!-- problem:start -->
 
 # [1240. Tiling a Rectangle with the Fewest Squares](https://leetcode.com/problems/tiling-a-rectangle-with-the-fewest-squares)
 
 [中文文档](/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a rectangle of size <code>n</code> x <code>m</code>, return <em>the minimum number of integer-sided squares that tile the rectangle</em>.</p>
 
@@ -52,7 +57,11 @@ tags:
 	<li><code>1 &lt;= n, m &lt;= 13</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursive Backtracking + State Compression
 
@@ -66,6 +75,8 @@ We can perform recursive backtracking by position, during which we use a variabl
 Since each position only has two states: filled or not filled, we can use an integer to represent the current state. We use an integer array $filled$ of length $n$, where $filled[i]$ represents the state of the $i$-th row. If the $j$-th bit of $filled[i]$ is $1$, it means that the $i$-th row and the $j$-th column have been filled, otherwise it means not filled.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +116,8 @@ class Solution:
         dfs(0, 0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +177,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -225,6 +240,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func tilingRectangle(n int, m int) int {
 	ans := n * m
@@ -274,6 +291,8 @@ func tilingRectangle(n int, m int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function tilingRectangle(n: number, m: number): number {
@@ -326,9 +345,15 @@ function tilingRectangle(n: number, m: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -369,6 +394,8 @@ class Solution:
         dfs(0, 0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -430,6 +457,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -493,6 +522,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func tilingRectangle(n int, m int) int {
 	ans := n * m
@@ -544,6 +575,8 @@ func tilingRectangle(n int, m int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function tilingRectangle(n: number, m: number): number {
@@ -598,4 +631,6 @@ function tilingRectangle(n: number, m: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1760.Minimum%20Limit%20of%20Balls%20in%20a%20Bag/README.md
 rating: 1939
+source: 第 228 场周赛 Q3
 tags:
     - 数组
     - 二分查找
 ---
+
+<!-- problem:start -->
 
 # [1760. 袋子里最少数目的球](https://leetcode.cn/problems/minimum-limit-of-balls-in-a-bag)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，其中 <code>nums[i]</code> 表示第 <code>i</code> 个袋子里球的数目。同时给你一个整数 <code>maxOperations</code> 。</p>
 
@@ -76,7 +79,11 @@ tags:
 	<li><code>1 <= maxOperations, nums[i] <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -86,6 +93,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSize(self, nums: List[int], maxOperations: int) -> int:
@@ -94,6 +103,8 @@ class Solution:
 
         return bisect_left(range(1, max(nums)), True, key=check) + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSize(nums []int, maxOperations int) int {
 	r := slices.Max(nums)
@@ -154,6 +169,8 @@ func minimumSize(nums []int, maxOperations int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSize(nums: number[], maxOperations: number): number {
@@ -174,6 +191,8 @@ function minimumSize(nums: number[], maxOperations: number): number {
     return left;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -202,4 +221,6 @@ var minimumSize = function (nums, maxOperations) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

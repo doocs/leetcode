@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 46. 志愿者调配](https://leetcode.cn/problems/05ZEDJ)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 「力扣挑战赛」有 `n` 个比赛场馆（场馆编号从 `0` 开始），场馆之间的通道分布情况记录于二维数组 `edges` 中，`edges[i]= [x, y]` 表示第 `i` 条通道连接场馆 `x` 和场馆 `y`(即两个场馆相邻)。初始每个场馆中都有一定人数的志愿者（不同场馆人数可能不同），后续 `m` 天每天均会根据赛事热度进行志愿者人数调配。调配方案分为如下三种：
 
@@ -56,6 +58,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2046.%20%E5%BF%97%
 -   `0 <= finalCnt[i] < 10^9`
 -   `0 <= totalNum < 5*10^13`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

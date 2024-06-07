@@ -6,13 +6,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [57. 插入区间](https://leetcode.cn/problems/insert-interval)
 
 [English Version](/solution/0000-0099/0057.Insert%20Interval/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个<strong> 无重叠的</strong><em> ，</em>按照区间起始端点排序的区间列表 <code>intervals</code>，其中&nbsp;<code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>&nbsp;表示第&nbsp;<code>i</code>&nbsp;个区间的开始和结束，并且&nbsp;<code>intervals</code>&nbsp;按照&nbsp;<code>start<sub>i</sub></code>&nbsp;升序排列。同样给定一个区间&nbsp;<code>newInterval = [start, end]</code>&nbsp;表示另一个区间的开始和结束。</p>
 
@@ -52,7 +54,11 @@ tags:
 	<li><code>0 &lt;=&nbsp;start &lt;=&nbsp;end &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 区间合并
 
@@ -61,6 +67,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是区间的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +88,8 @@ class Solution:
         intervals.append(newInterval)
         return merge(intervals)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func insert(intervals [][]int, newInterval []int) [][]int {
 	merge := func(intervals [][]int) (ans [][]int) {
@@ -151,6 +165,8 @@ func insert(intervals [][]int, newInterval []int) [][]int {
 	return merge(intervals)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function insert(intervals: number[][], newInterval: number[]): number[][] {
@@ -171,6 +187,8 @@ function insert(intervals: number[][], newInterval: number[]): number[][] {
     return merge(intervals);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -199,6 +217,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -229,6 +249,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：一次遍历
 
 我们可以遍历区间列表 `intervals`，记当前区间为 `interval`，对于每个区间有三种情况：
@@ -242,6 +266,8 @@ public class Solution {
 时间复杂度 $O(n)$，其中 $n$ 是区间的数量。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -266,6 +292,8 @@ class Solution:
             ans.append([st, ed])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -295,6 +323,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -326,6 +356,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func insert(intervals [][]int, newInterval []int) (ans [][]int) {
 	st, ed := newInterval[0], newInterval[1]
@@ -352,6 +384,8 @@ func insert(intervals [][]int, newInterval []int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function insert(intervals: number[][], newInterval: number[]): number[][] {
     let [st, ed] = newInterval;
@@ -377,6 +411,8 @@ function insert(intervals: number[][], newInterval: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -409,6 +445,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int[][] Insert(int[][] intervals, int[] newInterval) {
@@ -440,4 +478,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

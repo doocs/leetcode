@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2425.Bitwise%20XOR%20of%20All%20Pairings/README.md
 rating: 1622
+source: 第 88 场双周赛 Q3
 tags:
     - 位运算
     - 脑筋急转弯
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [2425. 所有数对的异或和](https://leetcode.cn/problems/bitwise-xor-of-all-pairings)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong>&nbsp;开始的数组&nbsp;<code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;，两个数组都只包含非负整数。请你求出另外一个数组&nbsp;<code>nums3</code>&nbsp;，包含 <code>nums1</code>&nbsp;和 <code>nums2</code>&nbsp;中 <strong>所有数对</strong>&nbsp;的异或和（<code>nums1</code>&nbsp;中每个整数都跟 <code>nums2</code>&nbsp;中每个整数 <strong>恰好</strong>&nbsp;匹配一次）。</p>
 
@@ -51,7 +54,11 @@ tags:
 	<li><code>0 &lt;= nums1[i], nums2[j] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯 + 位运算
 
@@ -67,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def xorAllNums(self, nums1: List[int], nums2: List[int]) -> int:
@@ -79,6 +88,8 @@ class Solution:
                 ans ^= v
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func xorAllNums(nums1 []int, nums2 []int) int {
 	ans := 0
@@ -136,6 +151,8 @@ func xorAllNums(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function xorAllNums(nums1: number[], nums2: number[]): number {
     let ans = 0;
@@ -151,4 +168,6 @@ function xorAllNums(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2704.To%20Be%20Or%20Not%20To%20Be/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2704. To Be Or Not To Be](https://leetcode.com/problems/to-be-or-not-to-be)
 
 [中文文档](/solution/2700-2799/2704.To%20Be%20Or%20Not%20To%20Be/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a function&nbsp;<code>expect</code> that helps developers test their code. It should take in any value&nbsp;<code>val</code>&nbsp;and return an object with the following two functions.</p>
 
@@ -42,11 +46,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2704.To
 <strong>Explanation:</strong> 5 !== null so this expression returns true.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 type ToBeOrNotToBe = {
@@ -76,6 +86,8 @@ function expect(val: any): ToBeOrNotToBe {
  * expect(5).notToBe(5); // throws "Equal"
  */
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -107,4 +119,6 @@ var expect = function (val) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

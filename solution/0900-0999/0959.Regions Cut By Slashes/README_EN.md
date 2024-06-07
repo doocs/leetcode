@@ -11,11 +11,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [959. Regions Cut By Slashes](https://leetcode.com/problems/regions-cut-by-slashes)
 
 [中文文档](/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An <code>n x n</code> grid is composed of <code>1 x 1</code> squares where each <code>1 x 1</code> square consists of a <code>&#39;/&#39;</code>, <code>&#39;\&#39;</code>, or blank space <code>&#39; &#39;</code>. These characters divide the square into contiguous regions.</p>
 
@@ -55,11 +59,17 @@ tags:
 	<li><code>grid[i][j]</code> is either <code>&#39;/&#39;</code>, <code>&#39;\&#39;</code>, or <code>&#39; &#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +108,8 @@ class Solution:
                     union(4 * k + 2, 4 * k + 3)
         return size
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -156,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -203,6 +217,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func regionsBySlashes(grid []string) int {
@@ -255,4 +271,6 @@ func regionsBySlashes(grid []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [759. Employee Free Time 🔒](https://leetcode.com/problems/employee-free-time)
 
 [中文文档](/solution/0700-0799/0759.Employee%20Free%20Time/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We are given a list <code>schedule</code> of employees, which represents the working time for each employee.</p>
 
@@ -48,6 +52,42 @@ We discard any intervals that contain inf as they aren&#39;t finite.
 	<li><code>0 &lt;= schedule[i].start &lt; schedule[i].end &lt;= 10^8</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

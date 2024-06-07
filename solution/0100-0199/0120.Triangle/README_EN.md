@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [120. Triangle](https://leetcode.com/problems/triangle)
 
 [中文文档](/solution/0100-0199/0120.Triangle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>triangle</code> array, return <em>the minimum path sum from top to bottom</em>.</p>
 
@@ -51,7 +55,11 @@ The minimum path sum from top to bottom is 2 + 3 + 5 + 1 = 11 (underlined above)
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you&nbsp;do this using only <code>O(n)</code> extra space, where <code>n</code> is the total number of rows in the triangle?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -71,6 +79,8 @@ Furthermore, we can directly reuse the `triangle` as the `f` array, so there is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
@@ -81,6 +91,8 @@ class Solution:
                 f[i][j] = min(f[i + 1][j], f[i + 1][j + 1]) + triangle[i][j]
         return f[0][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTotal(triangle [][]int) int {
 	n := len(triangle)
@@ -127,6 +143,8 @@ func minimumTotal(triangle [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumTotal(triangle: number[][]): number {
     const n = triangle.length;
@@ -139,6 +157,8 @@ function minimumTotal(triangle: number[][]): number {
     return f[0];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -157,9 +177,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -171,6 +197,8 @@ class Solution:
                 f[j] = min(f[j], f[j + 1]) + triangle[i][j]
         return f[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -187,6 +215,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +231,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTotal(triangle [][]int) int {
 	for i := len(triangle) - 2; i >= 0; i-- {
@@ -212,6 +244,8 @@ func minimumTotal(triangle [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumTotal(triangle: number[][]): number {
     for (let i = triangle.length - 2; ~i; --i) {
@@ -222,6 +256,8 @@ function minimumTotal(triangle: number[][]): number {
     return triangle[0][0];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -239,9 +275,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -257,4 +299,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

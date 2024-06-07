@@ -7,11 +7,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [154. Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii)
 
 [中文文档](/solution/0100-0199/0154.Find%20Minimum%20in%20Rotated%20Sorted%20Array%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Suppose an array of length <code>n</code> sorted in ascending order is <strong>rotated</strong> between <code>1</code> and <code>n</code> times. For example, the array <code>nums = [0,1,4,4,5,6,7]</code> might become:</p>
 
@@ -49,11 +53,17 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +79,8 @@ class Solution:
                 right -= 1
         return nums[left]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMin(nums []int) int {
 	left, right := 0, len(nums)-1
@@ -124,6 +140,8 @@ func findMin(nums []int) int {
 	return nums[left]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMin(nums: number[]): number {
@@ -142,6 +160,8 @@ function findMin(nums: number[]): number {
     return nums[left];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -167,4 +187,6 @@ var findMin = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.02.Min%20Stack/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [03.02. Min Stack](https://leetcode.cn/problems/min-stack-lcci)
 
 [中文文档](/lcci/03.02.Min%20Stack/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>How would you design a stack which, in addition to push and pop, has a function min which returns the minimum element? Push, pop and min should all operate in 0(1) time.</p>
 
@@ -32,7 +36,11 @@ minStack.top();      --&gt; return 0.
 
 minStack.getMin();   --&gt; return -2.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Double Stack
 
@@ -46,6 +54,8 @@ We use two stacks to implement this, where `stk1` is used to store data, and `st
 For each operation, the time complexity is $O(1)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MinStack:
@@ -78,6 +88,8 @@ class MinStack:
 # param_3 = obj.top()
 # param_4 = obj.getMin()
 ```
+
+#### Java
 
 ```java
 class MinStack {
@@ -117,6 +129,8 @@ class MinStack {
  * int param_4 = obj.getMin();
  */
 ```
+
+#### C++
 
 ```cpp
 class MinStack {
@@ -159,6 +173,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MinStack struct {
 	stk1 []int
@@ -198,6 +214,8 @@ func (this *MinStack) GetMin() int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MinStack {
     stack: number[];
@@ -235,6 +253,8 @@ class MinStack {
  * var param_4 = obj.getMin()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -284,6 +304,8 @@ impl MinStack {
  */
 ```
 
+#### C#
+
 ```cs
 public class MinStack {
     private Stack<int> stk1 = new Stack<int>();
@@ -322,6 +344,8 @@ public class MinStack {
  * int param_4 = obj.GetMin();
  */
 ```
+
+#### Swift
 
 ```swift
 class MinStack {
@@ -365,4 +389,6 @@ class MinStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

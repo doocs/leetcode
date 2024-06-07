@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1879.Minimum%20XOR%20Sum%20of%20Two%20Arrays/README_EN.md
 rating: 2145
+source: Biweekly Contest 53 Q4
 tags:
     - Bit Manipulation
     - Array
@@ -10,11 +11,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1879. Minimum XOR Sum of Two Arrays](https://leetcode.com/problems/minimum-xor-sum-of-two-arrays)
 
 [中文文档](/solution/1800-1899/1879.Minimum%20XOR%20Sum%20of%20Two%20Arrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code> of length <code>n</code>.</p>
 
@@ -56,11 +61,17 @@ The XOR sum is (1 XOR 5) + (0 XOR 4) + (3 XOR 3) = 4 + 4 + 0 = 8.
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
                         f[i][j] = min(f[i][j], f[i - 1][j ^ (1 << k)] + (x ^ nums2[k]))
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumXORSum(nums1 []int, nums2 []int) int {
@@ -146,6 +163,8 @@ func minimumXORSum(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumXORSum(nums1: number[], nums2: number[]): number {
     const n = nums1.length;
@@ -168,9 +187,15 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -185,6 +210,8 @@ class Solution:
                         f[j] = min(f[j], f[j ^ (1 << k)] + (x ^ nums2[k]))
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +233,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -229,6 +258,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumXORSum(nums1 []int, nums2 []int) int {
 	n := len(nums1)
@@ -250,6 +281,8 @@ func minimumXORSum(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumXORSum(nums1: number[], nums2: number[]): number {
     const n = nums1.length;
@@ -270,9 +303,15 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -287,6 +326,8 @@ class Solution:
                     f[i] = min(f[i], f[i ^ (1 << j)] + (nums1[k] ^ nums2[j]))
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -307,6 +348,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -329,6 +372,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumXORSum(nums1 []int, nums2 []int) int {
 	n := len(nums1)
@@ -348,6 +393,8 @@ func minimumXORSum(nums1 []int, nums2 []int) int {
 	return f[(1<<n)-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumXORSum(nums1: number[], nums2: number[]): number {
@@ -377,4 +424,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

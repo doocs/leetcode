@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1405.Longest%20Happy%20String/README.md
 rating: 1820
+source: 第 183 场周赛 Q3
 tags:
     - 贪心
     - 字符串
     - 堆（优先队列）
 ---
+
+<!-- problem:start -->
 
 # [1405. 最长快乐字符串](https://leetcode.cn/problems/longest-happy-string)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果字符串中不含有任何 <code>&#39;aaa&#39;</code>，<code>&#39;bbb&#39;</code> 或 <code>&#39;ccc&#39;</code> 这样的字符串作为子串，那么该字符串就是一个「快乐字符串」。</p>
 
@@ -59,13 +62,19 @@ tags:
 	<li><code>a + b + c &gt; 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 优先队列
 
 贪心，优先选择剩余最多的字符，通过优先队列或排序，确保每次选到的字符都是剩余最多的（为了避免出现连续 3 个一样的字符，一些情况需要选择剩余第二多的字符）。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +107,8 @@ class Solution:
 
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -180,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type pair struct {
@@ -234,6 +249,8 @@ func longestDiverseString(a int, b int, c int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestDiverseString(a: number, b: number, c: number): string {
     let ans = [];
@@ -268,4 +285,6 @@ function longestDiverseString(a: number, b: number, c: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

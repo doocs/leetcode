@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2762.Continuous%20Subarrays/README.md
 rating: 1940
+source: 第 352 场周赛 Q3
 tags:
     - 队列
     - 数组
@@ -12,13 +13,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [2762. 不间断子数组](https://leetcode.cn/problems/continuous-subarrays)
 
 [English Version](/solution/2700-2799/2762.Continuous%20Subarrays/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;。<code>nums</code>&nbsp;的一个子数组如果满足以下条件，那么它是 <strong>不间断</strong> 的：</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：有序列表 + 双指针
 
@@ -80,6 +87,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -97,6 +106,8 @@ class Solution:
             ans += len(sl)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func continuousSubarrays(nums []int) (ans int64) {
@@ -171,4 +186,6 @@ func continuousSubarrays(nums []int) (ans int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

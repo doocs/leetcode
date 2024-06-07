@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1433.Check%20If%20a%20String%20Can%20Break%20Another%20String/README.md
 rating: 1436
+source: 第 25 场双周赛 Q3
 tags:
     - 贪心
     - 字符串
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [1433. 检查一个字符串是否可以打破另一个字符串](https://leetcode.cn/problems/check-if-a-string-can-break-another-string)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串&nbsp;<code>s1</code>&nbsp;和&nbsp;<code>s2</code>&nbsp;，它们长度相等，请你检查是否存在一个&nbsp;<code>s1</code>&nbsp; 的排列可以打破 <code>s2</code>&nbsp;的一个排列，或者是否存在一个&nbsp;<code>s2</code>&nbsp;的排列可以打破 <code>s1</code> 的一个排列。</p>
 
@@ -54,7 +57,11 @@ tags:
 	<li>所有字符串都只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -63,6 +70,8 @@ tags:
 时间复杂度 $O(nlogn)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +82,8 @@ class Solution:
             a <= b for a, b in zip(cs1, cs2)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkIfCanBreak(s1 string, s2 string) bool {
 	cs1 := []byte(s1)
@@ -132,6 +147,8 @@ func checkIfCanBreak(s1 string, s2 string) bool {
 	return check(cs1, cs2) || check(cs2, cs1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkIfCanBreak(s1: string, s2: string): boolean {
@@ -153,4 +170,6 @@ function checkIfCanBreak(s1: string, s2: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

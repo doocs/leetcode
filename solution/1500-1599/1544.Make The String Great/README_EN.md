@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1544.Make%20The%20String%20Great/README_EN.md
 rating: 1344
+source: Weekly Contest 201 Q1
 tags:
     - Stack
     - String
 ---
+
+<!-- problem:start -->
 
 # [1544. Make The String Great](https://leetcode.com/problems/make-the-string-great)
 
 [中文文档](/solution/1500-1599/1544.Make%20The%20String%20Great/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> of lower and upper case English letters.</p>
 
@@ -63,11 +68,17 @@ tags:
 	<li><code>s</code> contains only lower and upper case English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +91,8 @@ class Solution:
                 stk.pop()
         return "".join(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makeGood(s string) string {
@@ -137,4 +154,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2260.Minimum%20Consecutive%20Cards%20to%20Pick%20Up/README.md
 rating: 1364
+source: 第 291 场周赛 Q2
 tags:
     - 数组
     - 哈希表
     - 滑动窗口
 ---
+
+<!-- problem:start -->
 
 # [2260. 必须拿起的最小连续卡牌数](https://leetcode.cn/problems/minimum-consecutive-cards-to-pick-up)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>cards</code> ，其中 <code>cards[i]</code> 表示第 <code>i</code> 张卡牌的 <strong>值</strong> 。如果两张卡牌的值相同，则认为这一对卡牌 <strong>匹配</strong> 。</p>
 
@@ -44,7 +47,11 @@ tags:
 	<li><code>0 &lt;= cards[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -53,6 +60,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +74,8 @@ class Solution:
             last[x] = i
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCardPickup(cards []int) int {
 	last := map[int]int{}
@@ -119,6 +134,8 @@ func minimumCardPickup(cards []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumCardPickup(cards: number[]): number {
     const n = cards.length;
@@ -136,4 +153,6 @@ function minimumCardPickup(cards: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

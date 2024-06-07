@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README.md
 rating: 1836
+source: 第 17 场双周赛 Q4
 tags:
     - 字典树
     - 字符串
@@ -10,13 +11,15 @@ tags:
     - 滚动哈希
 ---
 
+<!-- problem:start -->
+
 # [1316. 不同的循环子字符串](https://leetcode.cn/problems/distinct-echo-substrings)
 
 [English Version](/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>text</code> ，请你返回满足下述条件的&nbsp;<strong>不同</strong> 非空子字符串的数目：</p>
 
@@ -51,7 +54,11 @@ tags:
 	<li><code>text</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符串哈希
 
@@ -64,6 +71,8 @@ tags:
 除了在极特殊构造的数据上，上述 hash 算法很难产生冲突，一般情况下上述 hash 算法完全可以出现在题目的标准答案中。我们还可以多取一些恰当的 BASE 和 MOD 的值（例如大质数），多进行几组 hash 运算，当结果都相同时才认为原字符串相等，就更加难以构造出使这个 hash 产生错误的数据。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +99,8 @@ class Solution:
                     vis.add(a)
         return len(vis)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef unsigned long long ull;
 
@@ -161,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctEchoSubstrings(text string) int {
 	n := len(text)
@@ -189,6 +204,8 @@ func distinctEchoSubstrings(text string) int {
 	return len(vis)
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -237,4 +254,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

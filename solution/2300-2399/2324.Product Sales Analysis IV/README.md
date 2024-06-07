@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2324. 产品销售分析 IV 🔒](https://leetcode.cn/problems/product-sales-analysis-iv)
 
 [English Version](/solution/2300-2399/2324.Product%20Sales%20Analysis%20IV/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Sales</code></p>
 
@@ -99,11 +101,17 @@ Product 表:
 用户 102 在产品 1、2、3 上花的钱最多。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -128,4 +136,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

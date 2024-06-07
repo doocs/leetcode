@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README_EN.md
 rating: 1433
+source: Weekly Contest 200 Q2
 tags:
     - Array
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [1535. Find the Winner of an Array Game](https://leetcode.com/problems/find-the-winner-of-an-array-game)
 
 [中文文档](/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>arr</code> of <strong>distinct</strong> integers and an integer <code>k</code>.</p>
 
@@ -55,11 +60,17 @@ So we can see that 4 rounds will be played and 5 is the winner because it wins 2
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +87,8 @@ class Solution:
                 break
         return mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getWinner(arr []int, k int) int {
 	mx, cnt := arr[0], 0
@@ -135,6 +152,8 @@ func getWinner(arr []int, k int) int {
 	return mx
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getWinner(arr: number[], k: number): number {
@@ -154,6 +173,8 @@ function getWinner(arr: number[], k: number): number {
     return mx;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -177,4 +198,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

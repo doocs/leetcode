@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2146.K%20Highest%20Ranked%20Items%20Within%20a%20Price%20Range/README_EN.md
 rating: 1836
+source: Biweekly Contest 70 Q3
 tags:
     - Breadth-First Search
     - Array
@@ -11,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2146. K Highest Ranked Items Within a Price Range](https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range)
 
 [中文文档](/solution/2100-2199/2146.K%20Highest%20Ranked%20Items%20Within%20a%20Price%20Range/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>grid</code> of size <code>m x n</code> that represents a map of the items in a shop. The integers in the grid represent the following:</p>
 
@@ -103,11 +108,17 @@ Note that k = 3 but there are only 2 reachable items within the price range.
 	<li><code>1 &lt;= k &lt;= m * n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -133,6 +144,8 @@ class Solution:
         items.sort()
         return [item[2:] for item in items][:k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -185,6 +198,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -221,6 +236,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func highestRankedKItems(grid [][]int, pricing []int, start []int, k int) [][]int {
@@ -272,4 +289,6 @@ func highestRankedKItems(grid [][]int, pricing []int, start []int, k int) [][]in
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

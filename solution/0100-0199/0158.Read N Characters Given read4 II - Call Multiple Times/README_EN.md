@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [158. Read N Characters Given read4 II - Call Multiple Times 🔒](https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times)
 
 [中文文档](/solution/0100-0199/0158.Read%20N%20Characters%20Given%20read4%20II%20-%20Call%20Multiple%20Times/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>file</code> and assume that you can only read the file using a given method <code>read4</code>, implement a method <code>read</code> to read <code>n</code> characters. Your method <code>read</code> may be <strong>called multiple times</strong>.</p>
 
@@ -107,11 +111,17 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 	<li><code>1 &lt;= queries[i] &lt;= 500</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # The read4 API is already defined for you.
@@ -137,6 +147,8 @@ class Solution:
                 j += 1
         return j
 ```
+
+#### Java
 
 ```java
 /**
@@ -173,6 +185,8 @@ public class Solution extends Reader4 {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * The read4 API is defined in the parent class Reader4.
@@ -205,6 +219,8 @@ private:
     int size = 0;
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -246,4 +262,6 @@ var solution = func(read4 func([]byte) int) func([]byte, int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

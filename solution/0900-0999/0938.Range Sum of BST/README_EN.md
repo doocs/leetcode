@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [938. Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst)
 
 [中文文档](/solution/0900-0999/0938.Range%20Sum%20of%20BST/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> node of a binary search tree and two integers <code>low</code> and <code>high</code>, return <em>the sum of values of all nodes with a value in the <strong>inclusive</strong> range </em><code>[low, high]</code>.</p>
 
@@ -44,7 +48,11 @@ tags:
 	<li>All <code>Node.val</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -61,6 +69,8 @@ The execution logic of the function $dfs(root)$ is as follows:
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -84,6 +94,8 @@ class Solution:
 
         return dfs(root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -123,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -157,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -187,6 +203,8 @@ func rangeSumBST(root *TreeNode, low int, high int) int {
 	return dfs(root)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -221,6 +239,8 @@ function rangeSumBST(root: TreeNode | null, low: number, high: number): number {
     return dfs(root);
 }
 ```
+
+#### C#
 
 ```cs
 /**
@@ -260,4 +280,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1702.Maximum%20Binary%20String%20After%20Change/README_EN.md
 rating: 1825
+source: Biweekly Contest 42 Q3
 tags:
     - Greedy
     - String
 ---
+
+<!-- problem:start -->
 
 # [1702. Maximum Binary String After Change](https://leetcode.com/problems/maximum-binary-string-after-change)
 
 [中文文档](/solution/1700-1799/1702.Maximum%20Binary%20String%20After%20Change/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a binary string <code>binary</code> consisting of only <code>0</code>&#39;s or <code>1</code>&#39;s. You can apply each of the following operations any number of times:</p>
 
@@ -63,7 +68,11 @@ tags:
 	<li><code>binary</code> consist of <code>&#39;0&#39;</code> and <code>&#39;1&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Quick Thinking
 
@@ -77,6 +86,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumBinaryString(self, binary: str) -> str:
@@ -86,6 +97,8 @@ class Solution:
         k += binary[k + 1 :].count('0')
         return '1' * k + '0' + '1' * (len(binary) - k - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumBinaryString(binary string) string {
@@ -147,6 +164,8 @@ func maximumBinaryString(binary string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumBinaryString(binary: string): string {
     let k = binary.indexOf('0');
@@ -157,6 +176,8 @@ function maximumBinaryString(binary: string): string {
     return '1'.repeat(k) + '0' + '1'.repeat(binary.length - k - 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,6 +196,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string MaximumBinaryString(string binary) {
@@ -190,4 +213,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README.md
 rating: 1387
+source: 第 16 场双周赛 Q3
 tags:
     - 树
     - 深度优先搜索
@@ -10,13 +11,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [1302. 层数最深叶子节点的和](https://leetcode.cn/problems/deepest-leaves-sum)
 
 [English Version](/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵二叉树的根节点 <code>root</code> ，请你返回 <strong>层数最深的叶子节点的和</strong> 。</p>
 
@@ -47,7 +50,11 @@ tags:
 	<li><code>1 <= Node.val <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -56,6 +63,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中节点的数目。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -78,6 +87,8 @@ class Solution:
                     q.append(root.right)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -118,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -150,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -179,6 +194,8 @@ func deepestLeavesSum(root *TreeNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -212,6 +229,8 @@ function deepestLeavesSum(root: TreeNode | null): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -261,6 +280,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for a binary tree node.
@@ -299,11 +320,17 @@ int deepestLeavesSum(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：DFS
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中节点的数目。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -330,6 +357,8 @@ class Solution:
         dfs(root, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -372,6 +401,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -408,6 +439,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -437,6 +470,8 @@ func deepestLeavesSum(root *TreeNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -476,4 +511,6 @@ function deepestLeavesSum(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

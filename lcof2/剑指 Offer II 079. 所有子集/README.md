@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20079.%20%E6%89%80%E6%9C%89%E5%AD%90%E9%9B%86/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 079. 所有子集](https://leetcode.cn/problems/TVdhkn)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组&nbsp;<code>nums</code> ，数组中的元素 <strong>互不相同</strong> 。返回该数组所有可能的子集（幂集）。</p>
 
@@ -43,11 +45,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 78&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/subsets/">https://leetcode.cn/problems/subsets/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +74,8 @@ class Solution:
         dfs(0, len(nums), [])
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsets(nums []int) [][]int {
 	var res [][]int
@@ -132,6 +146,8 @@ func dfs(i int, nums, t []int, res *[][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subsets(nums: number[]): number[][] {
     const n = nums.length;
@@ -148,6 +164,8 @@ function subsets(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,4 +190,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

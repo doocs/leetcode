@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README.md
 rating: 1904
+source: 第 101 场双周赛 Q4
 tags:
     - 广度优先搜索
     - 图
 ---
+
+<!-- problem:start -->
 
 # [2608. 图中的最短环](https://leetcode.cn/problems/shortest-cycle-in-a-graph)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现有一个含 <code>n</code> 个顶点的 <strong>双向</strong> 图，每个顶点按从 <code>0</code> 到 <code>n - 1</code> 标记。图中的边由二维整数数组 <code>edges</code> 表示，其中 <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> 表示顶点 <code>u<sub>i</sub></code> 和 <code>v<sub>i</sub></code> 之间存在一条边。每对顶点最多通过一条边连接，并且不存在与自身相连的顶点。</p>
 
@@ -51,7 +54,11 @@ tags:
 	<li>不存在重复的边</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举删除的边 + BFS
 
@@ -62,6 +69,8 @@ tags:
 时间复杂度 $O(m^2)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为数组 $edges$ 的长度以及顶点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +94,8 @@ class Solution:
         ans = min(bfs(u, v) for u, v in edges)
         return ans if ans < inf else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findShortestCycle(n int, edges [][]int) int {
@@ -208,6 +223,8 @@ func findShortestCycle(n int, edges [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findShortestCycle(n: number, edges: number[][]): number {
     const g: number[][] = new Array(n).fill(0).map(() => []);
@@ -242,6 +259,10 @@ function findShortestCycle(n: number, edges: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：枚举点 + BFS
 
 与方法一类似，我们先根据数组 $edges$ 构建出邻接表 $g$，其中 $g[u]$ 表示顶点 $u$ 的所有邻接点。
@@ -251,6 +272,8 @@ function findShortestCycle(n: number, edges: number[][]): number {
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为数组 $edges$ 的长度以及顶点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -277,6 +300,8 @@ class Solution:
         ans = min(bfs(i) for i in range(n))
         return ans if ans < inf else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -323,6 +348,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -365,6 +392,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findShortestCycle(n int, edges [][]int) int {
@@ -410,6 +439,8 @@ func findShortestCycle(n int, edges [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findShortestCycle(n: number, edges: number[][]): number {
     const g: number[][] = new Array(n).fill(0).map(() => []);
@@ -448,4 +479,6 @@ function findShortestCycle(n: number, edges: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

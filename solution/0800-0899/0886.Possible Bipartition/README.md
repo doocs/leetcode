@@ -9,13 +9,15 @@ tags:
     - 图
 ---
 
+<!-- problem:start -->
+
 # [886. 可能的二分法](https://leetcode.cn/problems/possible-bipartition)
 
 [English Version](/solution/0800-0899/0886.Possible%20Bipartition/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一组&nbsp;<code>n</code>&nbsp;人（编号为&nbsp;<code>1, 2, ..., n</code>），&nbsp;我们想把每个人分进<strong>任意</strong>大小的两组。每个人都可能不喜欢其他人，那么他们不应该属于同一组。</p>
 
@@ -63,7 +65,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：染色法
 
@@ -78,6 +84,8 @@ tags:
 时间复杂度 $O(n + m)$，其中 $n$, $m$ 分别是人数和不喜欢的关系数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +107,8 @@ class Solution:
             g[b].append(a)
         return all(c or dfs(i, 1) for i, c in enumerate(color))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +177,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func possibleBipartition(n int, dislikes [][]int) bool {
@@ -197,6 +211,8 @@ func possibleBipartition(n int, dislikes [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function possibleBipartition(n: number, dislikes: number[][]): boolean {
     const color = new Array(n + 1).fill(0);
@@ -222,6 +238,8 @@ function possibleBipartition(n: number, dislikes: number[][]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -255,6 +273,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：并查集
 
@@ -301,6 +323,8 @@ def union(a, b):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
@@ -322,6 +346,8 @@ class Solution:
                 p[find(j)] = find(g[i][0])
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -359,6 +385,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -385,6 +413,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func possibleBipartition(n int, dislikes [][]int) bool {
@@ -419,4 +449,6 @@ func possibleBipartition(n int, dislikes [][]int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

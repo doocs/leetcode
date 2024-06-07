@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1647.Minimum%20Deletions%20to%20Make%20Character%20Frequencies%20Unique/README_EN.md
 rating: 1509
+source: Weekly Contest 214 Q2
 tags:
     - Greedy
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1647. Minimum Deletions to Make Character Frequencies Unique](https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique)
 
 [中文文档](/solution/1600-1699/1647.Minimum%20Deletions%20to%20Make%20Character%20Frequencies%20Unique/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A string <code>s</code> is called <strong>good</strong> if there are no two different characters in <code>s</code> that have the same <strong>frequency</strong>.</p>
 
@@ -56,11 +61,17 @@ Note that we only care about characters that are still in the string at the end 
 	<li><code>s</code>&nbsp;contains only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +88,8 @@ class Solution:
                 pre = v
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minDeletions(s string) (ans int) {
 	cnt := make([]int, 26)
@@ -133,6 +150,8 @@ func minDeletions(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minDeletions(s: string): number {
@@ -152,6 +171,8 @@ function minDeletions(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -180,9 +201,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -196,6 +223,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -222,6 +251,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -244,6 +275,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minDeletions(s string) (ans int) {
@@ -269,4 +302,6 @@ func minDeletions(s string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

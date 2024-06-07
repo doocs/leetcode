@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20017.%20%E5%90%AB%E6%9C%89%E6%89%80%E6%9C%89%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E7%9F%AD%E5%AD%97%E7%AC%A6%E4%B8%B2/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 017. 含有所有字符的最短字符串](https://leetcode.cn/problems/M1oyTv)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串 <code>s</code> 和&nbsp;<code>t</code> 。返回 <code>s</code> 中包含&nbsp;<code>t</code>&nbsp;的所有字符的最短子字符串。如果 <code>s</code> 中不存在符合条件的子字符串，则返回空字符串 <code>&quot;&quot;</code> 。</p>
 
@@ -57,11 +59,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 76&nbsp;题相似（本题答案不唯一）：<a href="https://leetcode.cn/problems/minimum-window-substring/">https://leetcode.cn/problems/minimum-window-substring/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +99,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func minWindow(s string, t string) string {
@@ -172,9 +184,15 @@ func check(need, window map[byte]int) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -209,6 +227,8 @@ class Solution:
                     window[ch] -= 1
         return "" if minLen == inf else s[start : start + minLen]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -257,6 +277,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 func minWindow(s string, t string) string {
 	m, n := len(s), len(t)
@@ -304,6 +326,59 @@ func minWindow(s string, t string) string {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func minWindow(_ s: String, _ t: String) -> String {
+        let m = s.count, n = t.count
+        if n > m {
+            return ""
+        }
+
+        var need = [Character: Int]()
+        var window = [Character: Int]()
+
+        for ch in t {
+            need[ch, default: 0] += 1
+        }
+
+        let sArray = Array(s)
+        var start = 0, minLen = Int.max
+        var left = 0, right = 0
+
+        while right < m {
+            let ch = sArray[right]
+            window[ch, default: 0] += 1
+            right += 1
+
+            while check(need, window) {
+                if right - left < minLen {
+                    minLen = right - left
+                    start = left
+                }
+                let leftChar = sArray[left]
+                window[leftChar, default: 0] -= 1
+                left += 1
+            }
+        }
+
+        return minLen == Int.max ? "" : String(sArray[start..<start + minLen])
+    }
+
+    private func check(_ need: [Character: Int], _ window: [Character: Int]) -> Bool {
+        for (key, value) in need {
+            if window[key, default: 0] < value {
+                return false
+            }
+        }
+        return true
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

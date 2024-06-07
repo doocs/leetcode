@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.07.Intersection%20of%20Two%20Linked%20Lists/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [02.07. Intersection of Two Linked Lists](https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci)
 
 [中文文档](/lcci/02.07.Intersection%20of%20Two%20Linked%20Lists/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two (singly) linked lists, determine if the two lists intersect. Return the inter&shy; secting node. Note that the intersection is defined based on reference, not value. That is, if the kth node of the first linked list is the exact same node (by reference) as the jth node of the second linked list, then they are intersecting.</p>
 
@@ -51,7 +55,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.07.Intersection%20
 -   You may assume there are no cycles anywhere in the entire linked structure.
 -   Your code should preferably run in O(n) time and use only O(1) memory.
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -64,6 +72,8 @@ If the two pointers meet, the node they point to is the first common node. If th
 The time complexity is $O(m+n)$, where $m$ and $n$ are the lengths of the linked lists $headA$ and $headB$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -81,6 +91,8 @@ class Solution:
             b = b.next if b else headA
         return a
 ```
+
+#### Java
 
 ```java
 /**
@@ -106,6 +118,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -127,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -154,6 +170,8 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -177,6 +195,8 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
     return a;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -202,6 +222,8 @@ var getIntersectionNode = function (headA, headB) {
     return a;
 };
 ```
+
+#### Swift
 
 ```swift
 /**
@@ -231,4 +253,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

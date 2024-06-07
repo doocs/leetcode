@@ -9,13 +9,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [641. 设计循环双端队列](https://leetcode.cn/problems/design-circular-deque)
 
 [English Version](/solution/0600-0699/0641.Design%20Circular%20Deque/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计实现双端队列。</p>
 
@@ -67,7 +69,11 @@ circularDeque.getFront();				// 返回 4
 	<li><code>insertFront</code>,&nbsp;<code>insertLast</code>,&nbsp;<code>deleteFront</code>,&nbsp;<code>deleteLast</code>,&nbsp;<code>getFront</code>,&nbsp;<code>getRear</code>,&nbsp;<code>isEmpty</code>,&nbsp;<code>isFull</code>&nbsp; 调用次数不大于&nbsp;<code>2000</code>&nbsp;次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组
 
@@ -83,6 +89,8 @@ circularDeque.getFront();				// 返回 4
 时间复杂度 $O(1)$，空间复杂度 $O(k)$。其中 $k$ 是队列的容量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyCircularDeque:
@@ -178,6 +186,8 @@ class MyCircularDeque:
 # param_7 = obj.isEmpty()
 # param_8 = obj.isFull()
 ```
+
+#### Java
 
 ```java
 class MyCircularDeque {
@@ -277,6 +287,8 @@ class MyCircularDeque {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyCircularDeque {
 public:
@@ -359,6 +371,8 @@ public:
  * bool param_8 = obj->isFull();
  */
 ```
+
+#### Go
 
 ```go
 type MyCircularDeque struct {
@@ -447,6 +461,8 @@ func (this *MyCircularDeque) IsFull() bool {
  * param_8 := obj.IsFull();
  */
 ```
+
+#### TypeScript
 
 ```ts
 class MyCircularDeque {
@@ -566,4 +582,6 @@ class MyCircularDeque {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

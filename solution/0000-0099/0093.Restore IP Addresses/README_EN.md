@@ -7,11 +7,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [93. Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses)
 
 [中文文档](/solution/0000-0099/0093.Restore%20IP%20Addresses/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>valid IP address</strong> consists of exactly four integers separated by single dots. Each integer is between <code>0</code> and <code>255</code> (<strong>inclusive</strong>) and cannot have leading zeros.</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li><code>s</code> consists of digits only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -66,6 +74,8 @@ If $i$ is less than the length of string $s$, it means that we still need to spl
 The time complexity is $O(n \times 3^4)$, and the space complexity is $O(n)$. Here, $n$ is the length of string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +103,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func restoreIpAddresses(s string) (ans []string) {
 	n := len(s)
@@ -191,6 +207,8 @@ func restoreIpAddresses(s string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function restoreIpAddresses(s: string): string[] {
     const n = s.length;
@@ -219,6 +237,8 @@ function restoreIpAddresses(s: string): string[] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -258,4 +278,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

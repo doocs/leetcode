@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.03.Delete%20Middle%20Node/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [02.03. Delete Middle Node](https://leetcode.cn/problems/delete-middle-node-lcci)
 
 [中文文档](/lcci/02.03.Delete%20Middle%20Node/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node, not necessarily the exact middle) of a singly linked list, given only access to that node.</p>
 
@@ -24,7 +28,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.03.Delete%20Middle
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Node Assignment
 
@@ -33,6 +41,8 @@ We can replace the value of the current node with the value of the next node, an
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -47,6 +57,8 @@ class Solution:
         node.val = node.next.val
         node.next = node.next.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -64,6 +76,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -83,6 +97,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -96,6 +112,8 @@ func deleteNode(node *ListNode) {
 	node.Next = node.Next.Next
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -114,6 +132,8 @@ var deleteNode = function (node) {
     node.next = node.next.next;
 };
 ```
+
+#### Swift
 
 ```swift
 /**
@@ -137,4 +157,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

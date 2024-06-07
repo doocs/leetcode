@@ -4,11 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2072.%20%E8%A1%A5%E7%BB%99%E9%A9%AC%E8%BD%A6/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 72. 补给马车](https://leetcode.cn/problems/hqCnmP)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 远征队即将开启未知的冒险之旅，不过在此之前，将对补给车队进行最后的检查。`supplies[i]` 表示编号为 `i` 的补给马车装载的物资数量。
 考虑到车队过长容易被野兽偷袭，他们决定将车队的长度变为原来的一半（向下取整），计划为：
@@ -41,7 +43,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2072.%20%E8%A1%A5%
 -   `2 <= supplies.length <= 1000`
 -   `1 <= supplies[i] <= 1000`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -50,6 +56,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2072.%20%E8%A1%A5%
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为 `supplies` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +83,8 @@ class Solution:
             supplies = t
         return supplies
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func supplyWagon(supplies []int) []int {
 	for h := (len(supplies) + 1) >> 1; h > 0; h-- {
@@ -164,6 +178,8 @@ func supplyWagon(supplies []int) []int {
 	return supplies
 }
 ```
+
+#### TypeScript
 
 ```ts
 function supplyWagon(supplies: number[]): number[] {
@@ -195,4 +211,6 @@ function supplyWagon(supplies: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

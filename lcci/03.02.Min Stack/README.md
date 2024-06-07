@@ -4,16 +4,23 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.02.Min%20Stack/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 03.02. 栈的最小值](https://leetcode.cn/problems/min-stack-lcci)
 
 [English Version](/lcci/03.02.Min%20Stack/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>请设计一个栈，除了常规栈支持的pop与push函数以外，还支持min函数，该函数返回栈元素中的最小值。执行push、pop和min操作的时间复杂度必须为O(1)。</p><br><p><strong>示例：</strong><pre>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   --> 返回 -3.<br>minStack.pop();<br>minStack.top();      --> 返回 0.<br>minStack.getMin();   --> 返回 -2.</pre></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双栈
 
@@ -27,6 +34,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.02.Min%20Stack/REA
 时间复杂度：对于每个操作，时间复杂度均为 $O(1)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MinStack:
@@ -59,6 +68,8 @@ class MinStack:
 # param_3 = obj.top()
 # param_4 = obj.getMin()
 ```
+
+#### Java
 
 ```java
 class MinStack {
@@ -98,6 +109,8 @@ class MinStack {
  * int param_4 = obj.getMin();
  */
 ```
+
+#### C++
 
 ```cpp
 class MinStack {
@@ -140,6 +153,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MinStack struct {
 	stk1 []int
@@ -179,6 +194,8 @@ func (this *MinStack) GetMin() int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MinStack {
     stack: number[];
@@ -216,6 +233,8 @@ class MinStack {
  * var param_4 = obj.getMin()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -265,6 +284,8 @@ impl MinStack {
  */
 ```
 
+#### C#
+
 ```cs
 public class MinStack {
     private Stack<int> stk1 = new Stack<int>();
@@ -303,6 +324,8 @@ public class MinStack {
  * int param_4 = obj.GetMin();
  */
 ```
+
+#### Swift
 
 ```swift
 class MinStack {
@@ -346,4 +369,6 @@ class MinStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

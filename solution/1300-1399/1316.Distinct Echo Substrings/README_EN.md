@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README_EN.md
 rating: 1836
+source: Biweekly Contest 17 Q4
 tags:
     - Trie
     - String
@@ -10,11 +11,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [1316. Distinct Echo Substrings](https://leetcode.com/problems/distinct-echo-substrings)
 
 [中文文档](/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Return the number of <strong>distinct</strong> non-empty substrings of <code>text</code>&nbsp;that can be written as the concatenation of some string with itself (i.e. it can be written as <code>a + a</code>&nbsp;where <code>a</code> is some string).</p>
 
@@ -43,11 +48,17 @@ tags:
 	<li><code>text</code>&nbsp;has only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +85,8 @@ class Solution:
                     vis.add(a)
         return len(vis)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef unsigned long long ull;
 
@@ -145,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctEchoSubstrings(text string) int {
 	n := len(text)
@@ -173,6 +190,8 @@ func distinctEchoSubstrings(text string) int {
 	return len(vis)
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -221,4 +240,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

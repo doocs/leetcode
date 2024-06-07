@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1435. 制作会话柱状图 🔒](https://leetcode.cn/problems/create-a-session-bar-chart)
 
 [English Version](/solution/1400-1499/1435.Create%20a%20Session%20Bar%20Chart/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Sessions</code></p>
 
@@ -69,11 +71,17 @@ Sessions 表：
 对于 session_id 5, 它的访问时间大于等于 15 分钟。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT '[0-5>' AS bin, COUNT(1) AS total FROM Sessions WHERE duration < 300
@@ -87,4 +95,6 @@ SELECT '15 or more' AS bin, COUNT(1) AS total FROM Sessions WHERE 900 <= duratio
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

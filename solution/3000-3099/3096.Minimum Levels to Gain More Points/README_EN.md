@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README_EN.md
 rating: 1500
+source: Biweekly Contest 127 Q2
 tags:
     - Array
     - Prefix Sum
 ---
+
+<!-- problem:start -->
 
 # [3096. Minimum Levels to Gain More Points](https://leetcode.com/problems/minimum-levels-to-gain-more-points)
 
 [中文文档](/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a binary array <code>possible</code> of length <code>n</code>.</p>
 
@@ -88,7 +93,11 @@ tags:
 	<li><code>possible[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -102,6 +111,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumLevels(self, possible: List[int]) -> int:
@@ -113,6 +124,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumLevels(possible []int) int {
@@ -176,6 +193,8 @@ func minimumLevels(possible []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumLevels(possible: number[]): number {
     const s = possible.reduce((acc, x) => acc + (x === 0 ? -1 : 1), 0);
@@ -192,4 +211,6 @@ function minimumLevels(possible: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

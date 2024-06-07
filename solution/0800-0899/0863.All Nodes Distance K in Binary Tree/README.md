@@ -10,17 +10,19 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [863. 二叉树中所有距离为 K 的结点](https://leetcode.cn/problems/all-nodes-distance-k-in-binary-tree)
 
 [English Version](/solution/0800-0899/0863.All%20Nodes%20Distance%20K%20in%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给定一个二叉树（具有根结点&nbsp;<code>root</code>），&nbsp;一个目标结点&nbsp;<code>target</code>&nbsp;，和一个整数值 <code>k</code> 。</p>
+<p>给定一个二叉树（具有根结点&nbsp;<code>root</code>），&nbsp;一个目标结点&nbsp;<code>target</code>&nbsp;，和一个整数值 <code>k</code>&nbsp;，返回到目标结点 <code>target</code> 距离为 <code>k</code> 的所有结点的值的数组。</p>
 
-<p>返回到目标结点 <code>target</code> 距离为 <code>k</code> 的所有结点的值的列表。 答案可以以 <strong>任何顺序</strong> 返回。</p>
+<p>答案可以以 <strong>任何顺序</strong> 返回。</p>
 
 <p>&nbsp;</p>
 
@@ -58,7 +60,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS + 哈希表
 
@@ -67,6 +73,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的结点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -106,6 +114,8 @@ class Solution:
         dfs(target, k)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -156,6 +166,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -198,6 +210,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -243,9 +257,15 @@ func distanceK(root *TreeNode, target *TreeNode, k int) []int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -282,6 +302,66 @@ class Solution:
         return ans
 ```
 
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function distanceK(root: TreeNode | null, target: TreeNode | null, k: number): number[] {
+    if (!root) return [0];
+
+    const g: Record<number, number[]> = {};
+
+    const dfs = (node: TreeNode | null, parent: TreeNode | null = null) => {
+        if (!node) return;
+
+        g[node.val] ??= [];
+        if (parent) g[node.val].push(parent.val);
+        if (node.left) g[node.val].push(node.left.val);
+        if (node.right) g[node.val].push(node.right.val);
+
+        dfs(node.left, node);
+        dfs(node.right, node);
+    };
+
+    dfs(root);
+
+    const vis = new Set<number>();
+    let q = [target!.val];
+
+    while (q.length) {
+        if (!k--) return q;
+
+        const nextQ: number[] = [];
+
+        for (const x of q) {
+            if (vis.has(x)) continue;
+
+            vis.add(x);
+            nextQ.push(...g[x].filter(x => !vis.has(x)));
+        }
+
+        q = nextQ;
+    }
+
+    return [];
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1985.Find%20the%20Kth%20Largest%20Integer%20in%20the%20Array/README_EN.md
 rating: 1414
+source: Weekly Contest 256 Q2
 tags:
     - Array
     - String
@@ -12,11 +13,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1985. Find the Kth Largest Integer in the Array](https://leetcode.com/problems/find-the-kth-largest-integer-in-the-array)
 
 [中文文档](/solution/1900-1999/1985.Find%20the%20Kth%20Largest%20Integer%20in%20the%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of strings <code>nums</code> and an integer <code>k</code>. Each string in <code>nums</code> represents an integer without leading zeros.</p>
 
@@ -65,11 +70,17 @@ The 2<sup>nd</sup> largest integer in nums is &quot;0&quot;.
 	<li><code>nums[i]</code> will not have any leading zeros.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +94,8 @@ class Solution:
         return nums[k - 1]
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String kthLargestNumber(String[] nums, int k) {
@@ -92,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +118,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kthLargestNumber(nums []string, k int) string {
@@ -119,4 +136,6 @@ func kthLargestNumber(nums []string, k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README.md
 rating: 1928
+source: 第 203 场周赛 Q3
 tags:
     - 数组
     - 二分查找
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1562. 查找大小为 M 的最新分组](https://leetcode.cn/problems/find-latest-group-of-size-m)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组 <code>arr</code> ，该数组表示一个从 <code>1</code> 到 <code>n</code> 的数字排列。有一个长度为 <code>n</code> 的二进制字符串，该字符串上的所有位最初都设置为 <code>0</code> 。</p>
 
@@ -76,7 +79,11 @@ tags:
 	<li><code>1 &lt;= m&nbsp;&lt;= arr.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：并查集
 
@@ -89,6 +96,8 @@ tags:
 -   [2334. 元素值大于变化阈值的子数组](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -125,6 +134,8 @@ class Solution:
             vis[v] = True
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -181,6 +192,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -223,6 +236,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLatestStep(arr []int, m int) int {
@@ -276,6 +291,10 @@ func findLatestStep(arr []int, m int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态维护区间端点的长度
 
 我们其实并不需要去通过查找并查集来获取每个区间长度，我们只需要在每个区间端点处记录每个区间长度，由于合并的时候**只会访问区间端点**，所以合并区间的时候修改端点区间长度即可。
@@ -283,6 +302,8 @@ func findLatestStep(arr []int, m int) int {
 时间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -300,6 +321,8 @@ class Solution:
             cnt[v - l] = cnt[v + r] = l + r + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -324,6 +347,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -342,6 +367,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLatestStep(arr []int, m int) int {
@@ -364,4 +391,6 @@ func findLatestStep(arr []int, m int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

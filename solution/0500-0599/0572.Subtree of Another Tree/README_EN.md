@@ -10,11 +10,15 @@ tags:
     - Hash Function
 ---
 
+<!-- problem:start -->
+
 # [572. Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree)
 
 [中文文档](/solution/0500-0599/0572.Subtree%20of%20Another%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the roots of two binary trees <code>root</code> and <code>subRoot</code>, return <code>true</code> if there is a subtree of <code>root</code> with the same structure and node values of<code> subRoot</code> and <code>false</code> otherwise.</p>
 
@@ -45,11 +49,17 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= subRoot.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -79,6 +89,8 @@ class Solution:
             or self.isSubtree(root.right, subRoot)
         )
 ```
+
+#### Java
 
 ```java
 /**
@@ -118,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -145,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -171,6 +187,8 @@ func isSubtree(root *TreeNode, subRoot *TreeNode) bool {
 	return dfs(root, subRoot) || isSubtree(root.Left, subRoot) || isSubtree(root.Right, subRoot)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -204,6 +222,8 @@ function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
     return dfs(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -262,6 +282,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -295,4 +317,6 @@ var isSubtree = function (root, subRoot) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

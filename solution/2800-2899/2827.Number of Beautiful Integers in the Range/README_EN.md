@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2827.Number%20of%20Beautiful%20Integers%20in%20the%20Range/README_EN.md
 rating: 2324
+source: Biweekly Contest 111 Q4
 tags:
     - Math
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [2827. Number of Beautiful Integers in the Range](https://leetcode.com/problems/number-of-beautiful-integers-in-the-range)
 
 [中文文档](/solution/2800-2899/2827.Number%20of%20Beautiful%20Integers%20in%20the%20Range/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given positive integers <code>low</code>, <code>high</code>, and <code>k</code>.</p>
 
@@ -67,7 +72,11 @@ It can be shown that there is only 1 beautiful integer in the given range.
 	<li><code>0 &lt; k &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Digit DP
 
@@ -96,6 +105,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfBeautifulIntegers(self, low: int, high: int, k: int) -> int:
@@ -120,6 +131,8 @@ class Solution:
         b = dfs(0, 0, 10, 1, 1)
         return a - b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -162,6 +175,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +216,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfBeautifulIntegers(low int, high int, k int) int {
@@ -262,6 +279,8 @@ func g(m, n, k int) [][][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfBeautifulIntegers(low: number, high: number, k: number): number {
     let s = String(high);
@@ -310,4 +329,6 @@ function numberOfBeautifulIntegers(low: number, high: number, k: number): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

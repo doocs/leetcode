@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/README_EN.md
 rating: 1804
+source: Weekly Contest 140 Q3
 tags:
     - Tree
     - Depth-First Search
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1080. Insufficient Nodes in Root to Leaf Paths](https://leetcode.com/problems/insufficient-nodes-in-root-to-leaf-paths)
 
 [中文文档](/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree and an integer <code>limit</code>, delete all <strong>insufficient nodes</strong> in the tree simultaneously, and return <em>the root of the resulting binary tree</em>.</p>
 
@@ -52,11 +57,17 @@ tags:
 	<li><code>-10<sup>9</sup> &lt;= limit &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -78,6 +89,8 @@ class Solution:
         root.right = self.sufficientSubset(root.right, limit)
         return None if root.left is None and root.right is None else root
 ```
+
+#### Java
 
 ```java
 /**
@@ -111,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -139,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -172,6 +189,8 @@ func sufficientSubset(root *TreeNode, limit int) *TreeNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -200,6 +219,8 @@ function sufficientSubset(root: TreeNode | null, limit: number): TreeNode | null
     return root.left === null && root.right === null ? null : root;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -231,4 +252,6 @@ var sufficientSubset = function (root, limit) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1770.Maximum%20Score%20from%20Performing%20Multiplication%20Operations/README.md
 rating: 2068
+source: 第 229 场周赛 Q3
 tags:
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [1770. 执行乘法运算的最大分数](https://leetcode.cn/problems/maximum-score-from-performing-multiplication-operations)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个长度分别 <code>n</code> 和 <code>m</code> 的整数数组 <code>nums</code> 和 <code>multipliers</code><strong> </strong>，其中 <code>n &gt;= m</code> ，数组下标 <strong>从 1 开始</strong> 计数。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>-1000 &lt;= nums[i], multipliers[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -82,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumScore(self, nums: List[int], multipliers: List[int]) -> int:
@@ -97,6 +106,8 @@ class Solution:
         m = len(multipliers)
         return f(0, n - 1, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumScore(nums []int, multipliers []int) int {
@@ -179,6 +194,8 @@ func maximumScore(nums []int, multipliers []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumScore(nums: number[], multipliers: number[]): number {
     const inf = 1 << 30;
@@ -207,6 +224,10 @@ function maximumScore(nums: number[], multipliers: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们可以将方法一中的记忆化搜索改写为动态规划的形式。
@@ -220,6 +241,8 @@ function maximumScore(nums: number[], multipliers: number[]): number {
 时间复杂度 $O(m^2)$，空间复杂度 $O(m^2)$。其中 $m$ 为 `multipliers` 数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -239,6 +262,8 @@ class Solution:
                     ans = max(ans, f[i][j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -270,6 +295,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -297,6 +324,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumScore(nums []int, multipliers []int) int {
@@ -331,4 +360,6 @@ func maximumScore(nums []int, multipliers []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

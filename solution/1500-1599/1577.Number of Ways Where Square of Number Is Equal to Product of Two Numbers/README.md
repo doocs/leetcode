@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1577.Number%20of%20Ways%20Where%20Square%20of%20Number%20Is%20Equal%20to%20Product%20of%20Two%20Numbers/README.md
 rating: 1593
+source: 第 205 场周赛 Q2
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [1577. 数的平方等于两数乘积的方法数](https://leetcode.cn/problems/number-of-ways-where-square-of-number-is-equal-to-product-of-two-numbers)
 
 [English Version](/solution/1500-1599/1577.Number%20of%20Ways%20Where%20Square%20of%20Number%20Is%20Equal%20to%20Product%20of%20Two%20Numbers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数数组 <code>nums1</code> 和 <code>nums2</code> ，请你返回根据以下规则形成的三元组的数目（类型 1 和类型 2 ）：</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 10^5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -83,6 +90,8 @@ tags:
 时间复杂度 $O(n \times m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为数组 `nums1` 和 `nums2` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +115,8 @@ class Solution:
                         ans += x * y * cnt1[c]
         return ans >> 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +157,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 func numTriplets(nums1 []int, nums2 []int) (ans int) {
 	cnt1 := map[int]int{}
@@ -183,4 +196,6 @@ func numTriplets(nums1 []int, nums2 []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

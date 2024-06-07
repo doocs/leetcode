@@ -1,7 +1,14 @@
 class Node {
 public:
-    int l, r, size, lmx, rmx, mx;
-    char lc, rc;
+    int l, r;
+    int lmx, rmx, mx;
+
+    Node(int l, int r)
+        : l(l)
+        , r(r)
+        , lmx(1)
+        , rmx(1)
+        , mx(1) {}
 };
 
 class SegmentTree {
@@ -9,21 +16,9 @@ private:
     string s;
     vector<Node*> tr;
 
-public:
-    SegmentTree(string& s) {
-        this->s = s;
-        int n = s.size();
-        tr.resize(n << 2);
-        for (int i = 0; i < tr.size(); ++i) tr[i] = new Node();
-        build(1, 1, n);
-    }
-
     void build(int u, int l, int r) {
-        tr[u]->l = l;
-        tr[u]->r = r;
+        tr[u] = new Node(l, r);
         if (l == r) {
-            tr[u]->lmx = tr[u]->rmx = tr[u]->mx = tr[u]->size = 1;
-            tr[u]->lc = tr[u]->rc = s[l - 1];
             return;
         }
         int mid = (l + r) >> 1;
@@ -32,62 +27,75 @@ public:
         pushup(u);
     }
 
-    void modify(int u, int x, char v) {
-        if (tr[u]->l == x && tr[u]->r == x) {
-            tr[u]->lc = tr[u]->rc = v;
-            return;
-        }
-        int mid = (tr[u]->l + tr[u]->r) >> 1;
-        if (x <= mid)
-            modify(u << 1, x, v);
-        else
-            modify(u << 1 | 1, x, v);
-        pushup(u);
-    }
-
-    Node* query(int u, int l, int r) {
-        if (tr[u]->l >= l && tr[u]->r <= r) return tr[u];
-        int mid = (tr[u]->l + tr[u]->r) >> 1;
-        if (r <= mid) return query(u << 1, l, r);
-        if (l > mid) query(u << 1 | 1, l, r);
-        Node* ans = new Node();
-        Node* left = query(u << 1, l, r);
-        Node* right = query(u << 1 | 1, l, r);
-        pushup(ans, left, right);
-        return ans;
-    }
-
-    void pushup(Node* root, Node* left, Node* right) {
-        root->lc = left->lc;
-        root->rc = right->rc;
-        root->size = left->size + right->size;
-
+    void pushup(int u) {
+        Node* root = tr[u];
+        Node* left = tr[u << 1];
+        Node* right = tr[u << 1 | 1];
         root->mx = max(left->mx, right->mx);
         root->lmx = left->lmx;
         root->rmx = right->rmx;
-
-        if (left->rc == right->lc) {
-            if (left->lmx == left->size) root->lmx += right->lmx;
-            if (right->rmx == right->size) root->rmx += left->rmx;
+        int a = left->r - left->l + 1;
+        int b = right->r - right->l + 1;
+        if (s[left->r - 1] == s[right->l - 1]) {
+            if (left->lmx == a) {
+                root->lmx += right->lmx;
+            }
+            if (right->rmx == b) {
+                root->rmx += left->rmx;
+            }
             root->mx = max(root->mx, left->rmx + right->lmx);
         }
     }
 
-    void pushup(int u) {
-        pushup(tr[u], tr[u << 1], tr[u << 1 | 1]);
+public:
+    SegmentTree(const string& s)
+        : s(s) {
+        int n = s.size();
+        tr.resize(n * 4);
+        build(1, 1, n);
+    }
+
+    void modify(int u, int x, char v) {
+        if (tr[u]->l == x && tr[u]->r == x) {
+            s[x - 1] = v;
+            return;
+        }
+        int mid = (tr[u]->l + tr[u]->r) >> 1;
+        if (x <= mid) {
+            modify(u << 1, x, v);
+        } else {
+            modify(u << 1 | 1, x, v);
+        }
+        pushup(u);
+    }
+
+    int query(int u, int l, int r) {
+        if (tr[u]->l >= l && tr[u]->r <= r) {
+            return tr[u]->mx;
+        }
+        int mid = (tr[u]->l + tr[u]->r) >> 1;
+        int ans = 0;
+        if (r <= mid) {
+            ans = query(u << 1, l, r);
+        } else if (l > mid) {
+            ans = max(ans, query(u << 1 | 1, l, r));
+        }
+        return ans;
     }
 };
 
 class Solution {
 public:
     vector<int> longestRepeating(string s, string queryCharacters, vector<int>& queryIndices) {
-        SegmentTree* tree = new SegmentTree(s);
-        int k = queryCharacters.size();
+        SegmentTree tree(s);
+        int k = queryIndices.size();
         vector<int> ans(k);
+        int n = s.size();
         for (int i = 0; i < k; ++i) {
             int x = queryIndices[i] + 1;
-            tree->modify(1, x, queryCharacters[i]);
-            ans[i] = tree->query(1, 1, s.size())->mx;
+            char v = queryCharacters[i];
+            tree.modify(1, x, v);
+            ans[i] = tree.query(1, 1, n);
         }
         return ans;
     }

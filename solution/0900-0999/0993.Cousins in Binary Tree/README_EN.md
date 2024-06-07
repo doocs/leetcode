@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [993. Cousins in Binary Tree](https://leetcode.com/problems/cousins-in-binary-tree)
 
 [中文文档](/solution/0900-0999/0993.Cousins%20in%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree with unique values and the values of two different nodes of the tree <code>x</code> and <code>y</code>, return <code>true</code> <em>if the nodes corresponding to the values </em><code>x</code><em> and </em><code>y</code><em> in the tree are <strong>cousins</strong>, or </em><code>false</code><em> otherwise.</em></p>
 
@@ -54,11 +58,17 @@ tags:
 	<li><code>x</code> and <code>y</code> are exist in the tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -87,6 +97,8 @@ class Solution:
             depth += 1
         return p1 != p2 and d1 == d2
 ```
+
+#### Java
 
 ```java
 /**
@@ -134,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -177,6 +191,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -211,6 +227,8 @@ func isCousins(root *TreeNode, x int, y int) bool {
 	return d1 == d2 && p1 != p2
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -254,9 +272,15 @@ function isCousins(root: TreeNode | null, x: number, y: number): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -281,6 +305,8 @@ class Solution:
         dfs(root, None, 0)
         return st[0][0] != st[1][0] and st[0][1] == st[1][1]
 ```
+
+#### Java
 
 ```java
 /**
@@ -327,6 +353,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -365,6 +393,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -394,6 +424,8 @@ func isCousins(root *TreeNode, x int, y int) bool {
 	return d1 == d2 && p1 != p2
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -431,4 +463,6 @@ function isCousins(root: TreeNode | null, x: number, y: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2029.%20%E4%B9%90%E5%9B%A2%E7%AB%99%E4%BD%8D/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 29. 乐团站位](https://leetcode.cn/problems/SNJvJP)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 某乐团的演出场地可视作 `num * num` 的二维矩阵 `grid`（左上角坐标为 `[0,0]`)，每个位置站有一位成员。乐团共有 `9` 种乐器，乐器编号为 `1~9`，每位成员持有 `1` 个乐器。
 
@@ -40,6 +42,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2029.%20%E4%B9%90%
 -   `1 <= num <= 10^9`
 -   `0 <= Xpos, Ypos < num`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

@@ -1,11 +1,14 @@
 class Solution {
+    private int[] nums;
+
     public int search(int[] nums, int target) {
-        int l = lowerBound(nums, target);
-        int r = lowerBound(nums, target + 1);
+        this.nums = nums;
+        int l = search(target);
+        int r = search(target + 1);
         return r - l;
     }
 
-    private int lowerBound(int[] nums, int x) {
+    private int search(int x) {
         int l = 0, r = nums.length;
         while (l < r) {
             int mid = (l + r) >>> 1;

@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1186.Maximum%20Subarray%20Sum%20with%20One%20Deletion/README_EN.md
 rating: 1799
+source: Weekly Contest 153 Q3
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [1186. Maximum Subarray Sum with One Deletion](https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion)
 
 [中文文档](/solution/1100-1199/1186.Maximum%20Subarray%20Sum%20with%20One%20Deletion/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers, return the maximum sum for a <strong>non-empty</strong>&nbsp;subarray (contiguous elements) with at most one element deletion.&nbsp;In other words, you want to choose a subarray and optionally delete one element from it so that there is still at least one element left and the&nbsp;sum of the remaining elements is maximum possible.</p>
 
@@ -50,7 +55,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration
 
@@ -61,6 +70,8 @@ If we do not delete any element, then the maximum subarray sum is the maximum va
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +92,8 @@ class Solution:
             ans = max(ans, left[i - 1] + right[i + 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSum(arr []int) int {
 	n := len(arr)
@@ -150,6 +167,8 @@ func maximumSum(arr []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumSum(arr: number[]): number {
@@ -174,4 +193,6 @@ function maximumSum(arr: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

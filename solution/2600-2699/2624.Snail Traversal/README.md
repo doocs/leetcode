@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2624.Snail%20Traversal/README.md
 ---
 
+<!-- problem:start -->
+
 # [2624. 蜗牛排序](https://leetcode.cn/problems/snail-traversal)
 
 [English Version](/solution/2600-2699/2624.Snail%20Traversal/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你编写一段代码为所有数组实现&nbsp;&nbsp;<code>snail(rowsCount，colsCount)</code> 方法，该方法将 1D 数组转换为以蜗牛排序的模式的 2D 数组。无效的输入值应该输出一个空数组。当 <code>rowsCount * colsCount&nbsp;!==</code><code>nums.length</code>&nbsp;时。这个输入被认为是无效的。</p>
 
@@ -71,7 +73,11 @@ colsCount = 2
 	<li><code>1 &lt;= colsCount &lt;= 250</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -82,6 +88,8 @@ colsCount = 2
 时间复杂度 $(n)$，其中 $n$ 为数组的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 declare global {
@@ -115,4 +123,6 @@ Array.prototype.snail = function (rowsCount: number, colsCount: number): number[
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

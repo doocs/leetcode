@@ -6,11 +6,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [38. Count and Say](https://leetcode.com/problems/count-and-say)
 
 [中文文档](/solution/0000-0099/0038.Count%20and%20Say/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>count-and-say</strong> sequence is a sequence of digit strings defined by the recursive formula:</p>
 
@@ -63,7 +67,11 @@ countAndSay(4) = RLE of &quot;21&quot; = &quot;1211&quot;
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve it iteratively?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -80,6 +88,8 @@ Overall, the time complexity is $O(n \times m)$, where n is the input parameter 
 Space Complexity: $O(m)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +108,8 @@ class Solution:
             s = ''.join(t)
         return s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countAndSay(n int) string {
@@ -163,6 +179,8 @@ func countAndSay(n int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countAndSay(n: number): string {
     let s = '1';
@@ -184,6 +202,8 @@ function countAndSay(n: number): string {
     return s;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::iter::once;
@@ -209,6 +229,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 const countAndSay = function (n) {
     let s = '1';
@@ -231,6 +253,8 @@ const countAndSay = function (n) {
     return s;
 };
 ```
+
+#### C#
 
 ```cs
 using System.Text;
@@ -272,6 +296,8 @@ public class Solution {
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -306,4 +332,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

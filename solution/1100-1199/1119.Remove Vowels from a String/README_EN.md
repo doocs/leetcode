@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1119.Remove%20Vowels%20from%20a%20String/README_EN.md
 rating: 1232
+source: Biweekly Contest 4 Q2
 tags:
     - String
 ---
+
+<!-- problem:start -->
 
 # [1119. Remove Vowels from a String 🔒](https://leetcode.com/problems/remove-vowels-from-a-string)
 
 [中文文档](/solution/1100-1199/1119.Remove%20Vowels%20from%20a%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, remove the vowels <code>&#39;a&#39;</code>, <code>&#39;e&#39;</code>, <code>&#39;i&#39;</code>, <code>&#39;o&#39;</code>, and <code>&#39;u&#39;</code> from it, and return the new string.</p>
 
@@ -38,7 +43,11 @@ tags:
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -48,11 +57,15 @@ The time complexity is $O(n)$, where $n$ is the length of the string. Ignoring t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeVowels(self, s: str) -> str:
         return "".join(c for c in s if c not in "aeiou")
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -69,6 +82,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -84,6 +99,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeVowels(s string) string {
 	ans := []rune{}
@@ -96,6 +113,8 @@ func removeVowels(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function removeVowels(s: string): string {
     return s.replace(/[aeiou]/g, '');
@@ -104,4 +123,6 @@ function removeVowels(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

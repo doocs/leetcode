@@ -7,13 +7,15 @@ tags:
     - 字符串匹配
 ---
 
+<!-- problem:start -->
+
 # [459. 重复的子字符串](https://leetcode.cn/problems/repeated-substring-pattern)
 
 [English Version](/solution/0400-0499/0459.Repeated%20Substring%20Pattern/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个非空的字符串<meta charset="UTF-8" />&nbsp;<code>s</code>&nbsp;，检查是否可以通过由它的一个子串重复多次构成。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li><code>s</code>&nbsp;由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双倍字符串
 
@@ -65,11 +71,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def repeatedSubstringPattern(self, s: str) -> bool:
         return (s + s).index(s, 1) < len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +90,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -89,17 +101,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func repeatedSubstringPattern(s string) bool {
 	return strings.Index(s[1:]+s, s) < len(s)-1
 }
 ```
 
+#### TypeScript
+
 ```ts
 function repeatedSubstringPattern(s: string): boolean {
     return (s + s).slice(1, (s.length << 1) - 1).includes(s);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -111,9 +129,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function repeatedSubstringPattern(s: string): boolean {
@@ -140,4 +164,6 @@ function repeatedSubstringPattern(s: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

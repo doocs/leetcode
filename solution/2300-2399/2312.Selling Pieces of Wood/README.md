@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README.md
 rating: 2363
+source: 第 298 场周赛 Q4
 tags:
     - 记忆化搜索
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2312. 卖木头块](https://leetcode.cn/problems/selling-pieces-of-wood)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数&nbsp;<code>m</code> 和&nbsp;<code>n</code>&nbsp;，分别表示一块矩形木块的高和宽。同时给你一个二维整数数组&nbsp;<code>prices</code>&nbsp;，其中&nbsp;<code>prices[i] = [h<sub>i</sub>, w<sub>i</sub>, price<sub>i</sub>]</code>&nbsp;表示你可以以&nbsp;<code>price<sub>i</sub></code>&nbsp;元的价格卖一块高为&nbsp;<code>h<sub>i</sub></code>&nbsp;宽为&nbsp;<code>w<sub>i</sub></code>&nbsp;的矩形木块。</p>
 
@@ -77,7 +80,11 @@ tags:
 	<li>所有&nbsp;<code>(h<sub>i</sub>, w<sub>i</sub>)</code> <strong>互不相同</strong>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -93,6 +100,8 @@ tags:
 时间复杂度 $(m \times n \times (m + n) + p)$，空间复杂度 $O(m \times n)$。其中 $p$ 表示价格数组的长度，而 $m$ 和 $n$ 分别表示木块的高和宽。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +120,8 @@ class Solution:
             d[h][w] = p
         return dfs(m, n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +184,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sellingWood(m int, n int, prices [][]int) int64 {
@@ -205,6 +220,8 @@ func sellingWood(m int, n int, prices [][]int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sellingWood(m: number, n: number, prices: number[][]): number {
     const f: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(-1));
@@ -234,6 +251,10 @@ function sellingWood(m: number, n: number, prices: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们可以将方法一的记忆化搜索转换为动态规划。
@@ -252,6 +273,8 @@ function sellingWood(m: number, n: number, prices: number[][]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sellingWood(self, m: int, n: int, prices: List[List[int]]) -> int:
@@ -268,6 +291,8 @@ class Solution:
                     f[i][j] = max(f[i][j], f[i][k] + f[i][j - k])
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -292,6 +317,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -320,6 +347,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sellingWood(m int, n int, prices [][]int) int64 {
 	d := make([][]int, m+1)
@@ -345,6 +374,8 @@ func sellingWood(m int, n int, prices [][]int) int64 {
 	return f[m][n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sellingWood(m: number, n: number, prices: number[][]): number {
@@ -372,4 +403,6 @@ function sellingWood(m: number, n: number, prices: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

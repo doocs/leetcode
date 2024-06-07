@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [929. 独特的电子邮件地址](https://leetcode.cn/problems/unique-email-addresses)
 
 [English Version](/solution/0900-0999/0929.Unique%20Email%20Addresses/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>每个 <strong>有效电子邮件地址</strong> 都由一个 <strong>本地名</strong> 和一个 <strong>域名</strong> 组成，以 <code>'@'</code> 符号分隔。除小写字母之外，电子邮件地址还可以含有一个或多个&nbsp;<code>'.'</code> 或 <code>'+'</code> 。</p>
 
@@ -67,13 +69,19 @@ tags:
 	<li>本地名不会以 <code>'+'</code> 字符作为开头</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
 利用哈希表存放转换后的电子邮件，最后返回哈希表的 size 即可。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +95,8 @@ class Solution:
             s.add(local + '@' + domain)
         return len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numUniqueEmails(emails []string) int {
 	s := map[string]bool{}
@@ -141,6 +155,8 @@ func numUniqueEmails(emails []string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numUniqueEmails(emails: string[]): number {
     return new Set(
@@ -150,6 +166,8 @@ function numUniqueEmails(emails: string[]): number {
     ).size;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -176,6 +194,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 const numUniqueEmails2 = function (emails) {
@@ -222,4 +242,6 @@ const numUniqueEmails = function (emails) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2461.Maximum%20Sum%20of%20Distinct%20Subarrays%20With%20Length%20K/README_EN.md
 rating: 1552
+source: Weekly Contest 318 Q2
 tags:
     - Array
     - Hash Table
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2461. Maximum Sum of Distinct Subarrays With Length K](https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k)
 
 [中文文档](/solution/2400-2499/2461.Maximum%20Sum%20of%20Distinct%20Subarrays%20With%20Length%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>. Find the maximum subarray sum of all the subarrays of <code>nums</code> that meet the following conditions:</p>
 
@@ -59,7 +64,11 @@ We return 0 because no subarrays meet the conditions.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window + Hash Table
 
@@ -68,6 +77,8 @@ We maintain a sliding window of length $k$, use a hash table $cnt$ to record the
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +96,8 @@ class Solution:
                 ans = max(ans, s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSubarraySum(nums []int, k int) (ans int64) {
 	n := len(nums)
@@ -167,6 +184,8 @@ func maximumSubarraySum(nums []int, k int) (ans int64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumSubarraySum(nums: number[], k: number): number {
     const n = nums.length;
@@ -191,6 +210,8 @@ function maximumSubarraySum(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -236,4 +257,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README_EN.md
 rating: 2069
+source: Biweekly Contest 7 Q4
 tags:
     - Union Find
     - Graph
@@ -10,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1168. Optimize Water Distribution in a Village 🔒](https://leetcode.com/problems/optimize-water-distribution-in-a-village)
 
 [中文文档](/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> houses in a village. We want to supply water for all the houses by building wells and laying pipes.</p>
 
@@ -67,7 +72,11 @@ Note that we can connect houses 1 and 2 with cost 1 or with cost 2 but we will a
 	<li><code>house1<sub>j</sub> != house2<sub>j</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Kruskal's Algorithm (Minimum Spanning Tree)
 
@@ -78,6 +87,8 @@ We can use Kruskal's algorithm to find the minimum spanning tree of the undirect
 The time complexity is $O((m + n) \times \log (m + n))$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the lengths of the $pipes$ array and the $wells$ array, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -103,6 +114,8 @@ class Solution:
                 if n == 0:
                     return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -177,6 +192,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
 	for i, w := range wells {
@@ -211,6 +228,8 @@ func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCostToSupplyWater(n: number, wells: number[], pipes: number[][]): number {
     for (let i = 0; i < n; ++i) {
@@ -242,6 +261,8 @@ function minCostToSupplyWater(n: number, wells: number[], pipes: number[][]): nu
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 struct UnionFind {
@@ -308,9 +329,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -354,6 +381,8 @@ class Solution:
                 if n == 0:
                     return ans
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -415,6 +444,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -474,6 +505,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type unionFind struct {
 	p, size []int
@@ -529,6 +562,8 @@ func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class UnionFind {
@@ -587,4 +622,6 @@ function minCostToSupplyWater(n: number, wells: number[], pipes: number[][]): nu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

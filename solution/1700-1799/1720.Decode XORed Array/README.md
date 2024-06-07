@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1720.Decode%20XORed%20Array/README.md
 rating: 1284
+source: 第 223 场周赛 Q1
 tags:
     - 位运算
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [1720. 解码异或后的数组](https://leetcode.cn/problems/decode-xored-array)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>未知</strong> 整数数组 <code>arr</code> 由 <code>n</code> 个非负整数组成。</p>
 
@@ -52,11 +55,17 @@ tags:
 	<li><code>0 <= first <= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +75,8 @@ class Solution:
             ans.append(ans[-1] ^ e)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -92,6 +105,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func decode(encoded []int, first int) []int {
@@ -105,4 +120,6 @@ func decode(encoded []int, first int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

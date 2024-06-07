@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [887. 鸡蛋掉落](https://leetcode.cn/problems/super-egg-drop)
 
 [English Version](/solution/0800-0899/0887.Super%20Egg%20Drop/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你 <code>k</code> 枚相同的鸡蛋，并可以使用一栋从第 <code>1</code> 层到第 <code>n</code> 层共有 <code>n</code> 层楼的建筑。</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li><code>1 <= n <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索 + 二分查找
 
@@ -81,6 +87,8 @@ tags:
 时间复杂度 $O(n \times k \log n)$，空间复杂度 $O(n \times k)$。其中 $n$ 和 $k$ 分别是楼层数和鸡蛋数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -104,6 +112,8 @@ class Solution:
 
         return dfs(n, k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func superEggDrop(k int, n int) int {
@@ -208,6 +222,8 @@ func superEggDrop(k int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function superEggDrop(k: number, n: number): number {
     const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
@@ -241,6 +257,10 @@ function superEggDrop(k: number, n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划 + 二分查找
 
 我们也可以使用动态规划的方法解决这个问题。
@@ -254,6 +274,8 @@ function superEggDrop(k: number, n: number): number {
 时间复杂度 $O(n \times k \log n)$，空间复杂度 $O(n \times k)$。其中 $n$ 和 $k$ 分别是楼层数和鸡蛋数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -274,6 +296,8 @@ class Solution:
                 f[i][j] = max(f[l - 1][j - 1], f[i - l][j]) + 1
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -302,6 +326,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -333,6 +359,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func superEggDrop(k int, n int) int {
 	f := make([][]int, n+1)
@@ -360,6 +388,8 @@ func superEggDrop(k int, n int) int {
 	return f[n][k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function superEggDrop(k: number, n: number): number {
@@ -390,4 +420,6 @@ function superEggDrop(k: number, n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

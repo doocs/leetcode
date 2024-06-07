@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README_EN.md
 rating: 2711
+source: Weekly Contest 338 Q4
 tags:
     - Tree
     - Graph
@@ -10,11 +11,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2603. Collect Coins in a Tree](https://leetcode.com/problems/collect-coins-in-a-tree)
 
 [中文文档](/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There exists an undirected and unrooted tree with <code>n</code> nodes indexed from <code>0</code> to <code>n - 1</code>. You are given an integer <code>n</code> and a 2D integer array edges of length <code>n - 1</code>, where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the tree. You are also given&nbsp;an array <code>coins</code> of size <code>n</code> where <code>coins[i]</code> can be either <code>0</code> or <code>1</code>, where <code>1</code> indicates the presence of a coin in the vertex <code>i</code>.</p>
 
@@ -60,7 +65,11 @@ tags:
 	<li><code>edges</code> represents a valid tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Topological sorting
 
@@ -81,6 +90,8 @@ Similar problems:
 -   [2204. Distance to a Cycle in Undirected Graph](https://github.com/doocs/leetcode/blob/main/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +117,8 @@ class Solution:
                 g[i].clear()
         return sum(len(g[a]) > 0 and len(g[b]) > 0 for a, b in edges) * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +172,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -214,6 +229,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func collectTheCoins(coins []int, edges [][]int) int {
 	n := len(coins)
@@ -268,6 +285,8 @@ func collectTheCoins(coins []int, edges [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function collectTheCoins(coins: number[], edges: number[][]): number {
     const n = coins.length;
@@ -318,4 +337,6 @@ function collectTheCoins(coins: number[], edges: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

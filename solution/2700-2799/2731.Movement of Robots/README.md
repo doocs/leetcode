@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2731.Movement%20of%20Robots/README.md
 rating: 1922
+source: 第 106 场双周赛 Q3
 tags:
     - 脑筋急转弯
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2731. 移动机器人](https://leetcode.cn/problems/movement-of-robots)
 
 [English Version](/solution/2700-2799/2731.Movement%20of%20Robots/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一些机器人分布在一条无限长的数轴上，他们初始坐标用一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;表示。当你给机器人下达命令时，它们以每秒钟一单位的速度开始移动。</p>
 
@@ -87,7 +90,11 @@ tags:
 	<li><code>nums[i]</code>&nbsp;互不相同。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯 + 排序
 
@@ -98,6 +105,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是机器人的数目。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -112,6 +121,8 @@ class Solution:
             s += x
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -155,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumDistance(nums []int, s string, d int) (ans int) {
 	for i, c := range s {
@@ -174,6 +189,8 @@ func sumDistance(nums []int, s string, d int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumDistance(nums: number[], s: string, d: number): number {
@@ -195,4 +212,6 @@ function sumDistance(nums: number[], s: string, d: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

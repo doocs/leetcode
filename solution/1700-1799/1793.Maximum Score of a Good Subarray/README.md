@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1793.Maximum%20Score%20of%20a%20Good%20Subarray/README.md
 rating: 1945
+source: 第 232 场周赛 Q4
 tags:
     - 栈
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [1793. 好子数组的最大分数](https://leetcode.cn/problems/maximum-score-of-a-good-subarray)
 
 [English Version](/solution/1700-1799/1793.Maximum%20Score%20of%20a%20Good%20Subarray/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> <strong>（下标从 0 开始）</strong>和一个整数 <code>k</code> 。</p>
 
@@ -51,7 +54,11 @@ tags:
 	<li><code>0 &lt;= k &lt; nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -62,6 +69,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +99,8 @@ class Solution:
                 ans = max(ans, v * (right[i] - left[i] - 1))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +185,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumScore(nums []int, k int) (ans int) {
 	n := len(nums)
@@ -211,6 +226,8 @@ func maximumScore(nums []int, k int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumScore(nums: number[], k: number): number {
     const n = nums.length;
@@ -248,4 +265,6 @@ function maximumScore(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

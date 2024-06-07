@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2972.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README.md
 rating: 2152
+source: 第 120 场双周赛 Q3
 tags:
     - 数组
     - 双指针
     - 二分查找
 ---
+
+<!-- problem:start -->
 
 # [2972. 统计移除递增子数组的数目 II](https://leetcode.cn/problems/count-the-number-of-incremovable-subarrays-ii)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的 <b>正</b>&nbsp;整数数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -63,7 +66,11 @@ nums 中只有这 7 个移除递增子数组。
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -95,6 +102,8 @@ nums 中只有这 7 个移除递增子数组。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def incremovableSubarrayCount(self, nums: List[int]) -> int:
@@ -114,6 +123,8 @@ class Solution:
             j -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +150,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -166,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func incremovableSubarrayCount(nums []int) int64 {
 	i, n := 0, len(nums)
@@ -188,6 +203,8 @@ func incremovableSubarrayCount(nums []int) int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function incremovableSubarrayCount(nums: number[]): number {
@@ -215,4 +232,6 @@ function incremovableSubarrayCount(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

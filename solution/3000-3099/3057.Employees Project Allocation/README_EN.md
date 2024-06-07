@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3057. Employees Project Allocation 🔒](https://leetcode.com/problems/employees-project-allocation)
 
 [中文文档](/solution/3000-3099/3057.Employees%20Project%20Allocation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Project</code></p>
 
@@ -85,7 +89,11 @@ Employees table:
 Result table orderd by employee_id, project_id in ascending order.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping Statistics + Equi-Join
 
@@ -94,6 +102,8 @@ First, we join the `Project` table and the `Employees` table based on `employee_
 Then, we join the `Project` table and the `Employees` table again, and also join the `T` table, to find employees whose workload is greater than the average workload of the team. Finally, we sort by `employee_id` and `project_id`.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -118,6 +128,8 @@ WHERE workload > avg_workload
 ORDER BY 1, 2;
 ```
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -138,4 +150,6 @@ def employees_with_above_avg_workload(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

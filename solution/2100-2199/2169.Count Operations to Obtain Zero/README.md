@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2169.Count%20Operations%20to%20Obtain%20Zero/README.md
 rating: 1199
+source: 第 280 场周赛 Q1
 tags:
     - 数学
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [2169. 得到 0 的操作数](https://leetcode.cn/problems/count-operations-to-obtain-zero)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个 <strong>非负</strong> 整数 <code>num1</code> 和 <code>num2</code> 。</p>
 
@@ -60,11 +63,17 @@ tags:
 	<li><code>0 &lt;= num1, num2 &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +86,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countOperations(num1 int, num2 int) int {
 	ans := 0
@@ -124,6 +139,8 @@ func countOperations(num1 int, num2 int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countOperations(num1: number, num2: number): number {
     let ans = 0;
@@ -137,4 +154,6 @@ function countOperations(num1: number, num2: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 博弈
 ---
 
+<!-- problem:start -->
+
 # [375. 猜数字大小 II](https://leetcode.cn/problems/guess-number-higher-or-lower-ii)
 
 [English Version](/solution/0300-0399/0375.Guess%20Number%20Higher%20or%20Lower%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们正在玩一个猜数游戏，游戏规则如下：</p>
 
@@ -82,85 +84,115 @@ tags:
 	<li><code>1 &lt;= n &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：动态规划
+
+我们定义 $f[i][j]$ 表示在区间 $[i, j]$ 中猜中任意一个数最少需要花费的钱数。初始时 $f[i][i] = 0$，因为猜中了唯一的数不需要花费，对于 $i \gt j$ 的情况，也有 $f[i][j] = 0$。答案即为 $f[1][n]$。
+
+对于 $f[i][j]$，我们可以枚举 $[i, j]$ 中的任意一个数 $k$，将区间 $[i, j]$ 分为 $[i, k - 1]$ 和 $[k + 1, j]$ 两部分，选择其中的较大值加上 $k$ 的花费，即 $\max(f[i][k - 1], f[k + 1][j]) + k$ 的最小值。
+
+时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为猜测的数字范围。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def getMoneyAmount(self, n: int) -> int:
-        dp = [[0] * (n + 10) for _ in range(n + 10)]
-        for l in range(2, n + 1):
-            for i in range(1, n - l + 2):
-                j = i + l - 1
-                dp[i][j] = inf
-                for k in range(i, j + 1):
-                    t = max(dp[i][k - 1], dp[k + 1][j]) + k
-                    dp[i][j] = min(dp[i][j], t)
-        return dp[1][n]
+        f = [[0] * (n + 1) for _ in range(n + 1)]
+        for i in range(n - 1, 0, -1):
+            for j in range(i + 1, n + 1):
+                f[i][j] = j + f[i][j - 1]
+                for k in range(i, j):
+                    f[i][j] = min(f[i][j], max(f[i][k - 1], f[k + 1][j]) + k)
+        return f[1][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
     public int getMoneyAmount(int n) {
-        int[][] dp = new int[n + 10][n + 10];
-        for (int l = 2; l <= n; ++l) {
-            for (int i = 1; i + l - 1 <= n; ++i) {
-                int j = i + l - 1;
-                dp[i][j] = Integer.MAX_VALUE;
-                for (int k = i; k <= j; ++k) {
-                    int t = Math.max(dp[i][k - 1], dp[k + 1][j]) + k;
-                    dp[i][j] = Math.min(dp[i][j], t);
+        int[][] f = new int[n + 1][n + 1];
+        for (int i = n - 1; i > 0; --i) {
+            for (int j = i + 1; j <= n; ++j) {
+                f[i][j] = j + f[i][j - 1];
+                for (int k = i; k < j; ++k) {
+                    f[i][j] = Math.min(f[i][j], Math.max(f[i][k - 1], f[k + 1][j]) + k);
                 }
             }
         }
-        return dp[1][n];
+        return f[1][n];
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
 public:
     int getMoneyAmount(int n) {
-        vector<vector<int>> dp(n + 10, vector<int>(n + 10));
-        for (int l = 2; l <= n; ++l) {
-            for (int i = 1; i + l - 1 <= n; ++i) {
-                int j = i + l - 1;
-                dp[i][j] = INT_MAX;
-                for (int k = i; k <= j; ++k) {
-                    int t = max(dp[i][k - 1], dp[k + 1][j]) + k;
-                    dp[i][j] = min(dp[i][j], t);
+        int f[n + 1][n + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = n - 1; i; --i) {
+            for (int j = i + 1; j <= n; ++j) {
+                f[i][j] = j + f[i][j - 1];
+                for (int k = i; k < j; ++k) {
+                    f[i][j] = min(f[i][j], max(f[i][k - 1], f[k + 1][j]) + k);
                 }
             }
         }
-        return dp[1][n];
+        return f[1][n];
     }
 };
 ```
 
+#### Go
+
 ```go
 func getMoneyAmount(n int) int {
-	dp := make([][]int, n+10)
-	for i := 0; i < len(dp); i++ {
-		dp[i] = make([]int, n+10)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
 	}
-	for l := 2; l <= n; l++ {
-		for i := 1; i+l-1 <= n; i++ {
-			j := i + l - 1
-			dp[i][j] = math.MaxInt32
-			for k := i; k <= j; k++ {
-				t := max(dp[i][k-1], dp[k+1][j]) + k
-				dp[i][j] = min(dp[i][j], t)
+	for i := n - 1; i > 0; i-- {
+		for j := i + 1; j <= n; j++ {
+			f[i][j] = j + f[i][j-1]
+			for k := i; k < j; k++ {
+				f[i][j] = min(f[i][j], k+max(f[i][k-1], f[k+1][j]))
 			}
 		}
 	}
-	return dp[1][n]
+	return f[1][n]
+}
+```
+
+#### TypeScript
+
+```ts
+function getMoneyAmount(n: number): number {
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(n + 1).fill(0));
+    for (let i = n - 1; i; --i) {
+        for (let j = i + 1; j <= n; ++j) {
+            f[i][j] = j + f[i][j - 1];
+            for (let k = i; k < j; ++k) {
+                f[i][j] = Math.min(f[i][j], k + Math.max(f[i][k - 1], f[k + 1][j]));
+            }
+        }
+    }
+    return f[1][n];
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

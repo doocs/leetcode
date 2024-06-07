@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [748. 最短补全词](https://leetcode.cn/problems/shortest-completing-word)
 
 [English Version](/solution/0700-0799/0748.Shortest%20Completing%20Word/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>licensePlate</code> 和一个字符串数组 <code>words</code> ，请你找出&nbsp;<code>words</code> 中的 <strong>最短补全词</strong> 。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>words[i]</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -69,6 +75,8 @@ tags:
 时间复杂度 $O(n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$，其中 $n$ 是数组 `words` 的长度，而 $\Sigma$ 是字符集，这里字符集为所有小写字母，因此 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +91,8 @@ class Solution:
                 ans = w
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestCompletingWord(licensePlate string, words []string) (ans string) {
 	cnt := [26]int{}
@@ -184,6 +198,8 @@ func shortestCompletingWord(licensePlate string, words []string) (ans string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function shortestCompletingWord(licensePlate: string, words: string[]): string {
@@ -217,6 +233,8 @@ function shortestCompletingWord(licensePlate: string, words: string[]): string {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -254,4 +272,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

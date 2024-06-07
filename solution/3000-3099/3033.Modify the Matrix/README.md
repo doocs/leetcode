@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3033.Modify%20the%20Matrix/README.md
 rating: 1180
+source: 第 384 场周赛 Q1
 tags:
     - 数组
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [3033. 修改矩阵](https://leetcode.cn/problems/modify-the-matrix)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、大小为 <code>m x n</code> 的整数矩阵 <code>matrix</code> ，新建一个下标从 <strong>0</strong> 开始、名为 <code>answer</code> 的矩阵。使 <code>answer</code> 与 <code>matrix</code> 相等，接着将其中每个值为 <code>-1</code> 的元素替换为所在列的 <strong>最大</strong> 元素。</p>
 
@@ -52,7 +55,11 @@ tags:
 	<li>测试用例中生成的输入满足每列至少包含一个非负整数。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -61,6 +68,8 @@ tags:
 时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +82,8 @@ class Solution:
                     matrix[i][j] = mx
         return matrix
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func modifiedMatrix(matrix [][]int) [][]int {
 	m, n := len(matrix), len(matrix[0])
@@ -133,6 +148,8 @@ func modifiedMatrix(matrix [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function modifiedMatrix(matrix: number[][]): number[][] {
     const [m, n] = [matrix.length, matrix[0].length];
@@ -150,6 +167,8 @@ function modifiedMatrix(matrix: number[][]): number[][] {
     return matrix;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -173,4 +192,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

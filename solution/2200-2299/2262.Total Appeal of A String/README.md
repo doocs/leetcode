@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2262.Total%20Appeal%20of%20A%20String/README.md
 rating: 2033
+source: 第 291 场周赛 Q4
 tags:
     - 哈希表
     - 字符串
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2262. 字符串的总引力](https://leetcode.cn/problems/total-appeal-of-a-string)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>字符串的 <strong>引力</strong> 定义为：字符串中 <strong>不同</strong> 字符的数量。</p>
 
@@ -63,7 +66,11 @@ tags:
 	<li><code>s</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -82,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def appealSum(self, s: str) -> int:
@@ -94,6 +103,8 @@ class Solution:
             pos[c] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func appealSum(s string) int64 {
 	var ans, t int64
@@ -146,6 +161,8 @@ func appealSum(s string) int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function appealSum(s: string): number {
@@ -165,4 +182,6 @@ function appealSum(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

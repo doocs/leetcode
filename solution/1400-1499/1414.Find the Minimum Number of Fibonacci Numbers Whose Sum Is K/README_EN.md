@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1414.Find%20the%20Minimum%20Number%20of%20Fibonacci%20Numbers%20Whose%20Sum%20Is%20K/README_EN.md
 rating: 1465
+source: Biweekly Contest 24 Q2
 tags:
     - Greedy
     - Math
 ---
+
+<!-- problem:start -->
 
 # [1414. Find the Minimum Number of Fibonacci Numbers Whose Sum Is K](https://leetcode.com/problems/find-the-minimum-number-of-fibonacci-numbers-whose-sum-is-k)
 
 [中文文档](/solution/1400-1499/1414.Find%20the%20Minimum%20Number%20of%20Fibonacci%20Numbers%20Whose%20Sum%20Is%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer&nbsp;<code>k</code>, <em>return the minimum number of Fibonacci numbers whose sum is equal to </em><code>k</code>. The same Fibonacci number can be used multiple times.</p>
 
@@ -56,11 +61,17 @@ For k = 7 we can use 2 + 5 = 7.</pre>
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
 
         return dfs(k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMinFibonacciNumbers(k int) int {
 	if k < 2 {
@@ -120,6 +137,8 @@ func findMinFibonacciNumbers(k int) int {
 	return 1 + findMinFibonacciNumbers(k-a)
 }
 ```
+
+#### TypeScript
 
 ```ts
 const arr = [
@@ -143,6 +162,8 @@ function findMinFibonacciNumbers(k: number): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 const FIB: [i32; 45] = [
@@ -171,4 +192,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

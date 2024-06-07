@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README.md
 rating: 2556
+source: 第 388 场周赛 Q4
 tags:
     - 数组
     - 动态规划
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [3077. K 个不相交子数组的最大能量值](https://leetcode.cn/problems/maximum-strength-of-k-disjoint-subarrays)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;和一个 <strong>正奇数</strong>&nbsp;整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>k</code> 是奇数。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -85,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumStrength(self, nums: List[int], k: int) -> int:
@@ -102,6 +111,8 @@ class Solution:
                     )
         return max(f[n][k])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumStrength(nums []int, k int) int64 {
@@ -190,6 +205,8 @@ func maximumStrength(nums []int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumStrength(nums: number[], k: number): number {
     const n: number = nums.length;
@@ -215,4 +232,6 @@ function maximumStrength(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

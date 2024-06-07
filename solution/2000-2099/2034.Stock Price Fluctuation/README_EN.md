@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2034.Stock%20Price%20Fluctuation/README_EN.md
 rating: 1831
+source: Weekly Contest 262 Q3
 tags:
     - Design
     - Hash Table
@@ -11,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2034. Stock Price Fluctuation](https://leetcode.com/problems/stock-price-fluctuation)
 
 [中文文档](/solution/2000-2099/2034.Stock%20Price%20Fluctuation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a stream of <strong>records</strong> about a particular stock. Each record contains a <strong>timestamp</strong> and the corresponding <strong>price</strong> of the stock at that timestamp.</p>
 
@@ -72,7 +77,11 @@ stockPrice.minimum();     // return 2, the minimum price is 2 at timestamp 4.
 	<li><code>current</code>, <code>maximum</code>, and <code>minimum</code> will be called <strong>only after</strong> <code>update</code> has been called <strong>at least once</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Ordered Set
 
@@ -92,6 +101,8 @@ Then, we can perform the following operations:
 The space complexity is $O(n)$, where $n$ is the number of `update` operations.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -127,6 +138,8 @@ class StockPrice:
 # param_3 = obj.maximum()
 # param_4 = obj.minimum()
 ```
+
+#### Java
 
 ```java
 class StockPrice {
@@ -172,6 +185,8 @@ class StockPrice {
  */
 ```
 
+#### C++
+
 ```cpp
 class StockPrice {
 public:
@@ -214,6 +229,8 @@ private:
  * int param_4 = obj->minimum();
  */
 ```
+
+#### Go
 
 ```go
 type StockPrice struct {
@@ -275,4 +292,6 @@ func (this *StockPrice) Minimum() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

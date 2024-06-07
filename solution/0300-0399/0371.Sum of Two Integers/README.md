@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [371. 两整数之和](https://leetcode.cn/problems/sum-of-two-integers)
 
 [English Version](/solution/0300-0399/0371.Sum%20of%20Two%20Integers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数 <code>a</code> 和 <code>b</code> ，<strong>不使用 </strong>运算符&nbsp;<code>+</code> 和&nbsp;<code>-</code>&nbsp;​​​​​​​，计算并返回两整数之和。</p>
 
@@ -41,7 +43,11 @@ tags:
 	<li><code>-1000 &lt;= a, b &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -65,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getSum(self, a: int, b: int) -> int:
@@ -75,6 +83,8 @@ class Solution:
         return a if a < 0x80000000 else ~(a ^ 0xFFFFFFFF)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int getSum(int a, int b) {
@@ -82,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getSum(a int, b int) int {
 	for b != 0 {
@@ -110,4 +124,6 @@ func getSum(a int, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

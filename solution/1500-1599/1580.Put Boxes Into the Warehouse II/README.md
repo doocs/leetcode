@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1580. 把箱子放进仓库里 II 🔒](https://leetcode.cn/problems/put-boxes-into-the-warehouse-ii)
 
 [English Version](/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个正整数数组 <code>boxes</code> 和 <code>warehouse</code> ，分别包含单位宽度的箱子的高度，以及仓库中<code>n</code>个房间各自的高度。仓库的房间分别从<code>0</code> 到 <code>n - 1</code>自左向右编号，<code>warehouse[i]</code>（索引从 0 开始）是第 <code>i</code> 个房间的高度。</p>
 
@@ -81,7 +83,11 @@ tags:
 	<li><code>1 <= boxes[i], warehouse[i] <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理 + 排序 + 贪心
 
@@ -92,6 +98,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为仓库的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -117,6 +125,8 @@ class Solution:
             ans, i = ans + 1, i + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -189,6 +201,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxBoxesInWarehouse(boxes []int, warehouse []int) (ans int) {
@@ -226,4 +240,6 @@ func maxBoxesInWarehouse(boxes []int, warehouse []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9840.%20%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 40. 最小的 k 个数](https://leetcode.cn/problems/zui-xiao-de-kge-shu-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>输入整数数组 <code>arr</code> ，找出其中最小的 <code>k</code> 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。</p>
 
@@ -32,7 +36,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 	<li><code>0 &lt;= arr[i]&nbsp;&lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -42,12 +50,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
         arr.sort()
         return arr[:k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -62,6 +74,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -72,12 +86,16 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getLeastNumbers(arr []int, k int) []int {
 	sort.Ints(arr)
 	return arr[:k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getLeastNumbers(arr: number[], k: number): number[] {
@@ -106,6 +124,8 @@ function getLeastNumbers(arr: number[], k: number): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn get_least_numbers(mut arr: Vec<i32>, k: i32) -> Vec<i32> {
@@ -133,6 +153,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -175,6 +197,8 @@ var getLeastNumbers = function (arr, k) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int[] GetLeastNumbers(int[] arr, int k) {
@@ -184,7 +208,22 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func getLeastNumbers(_ arr: [Int], _ k: Int) -> [Int] {
+        let sortedArr = arr.sorted()
+        return Array(sortedArr.prefix(k))
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：优先队列（大根堆）
 
@@ -196,6 +235,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
@@ -206,6 +247,8 @@ class Solution:
                 heappop(h)
         return [-x for x in h]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -225,6 +268,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -246,6 +291,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getLeastNumbers(arr []int, k int) (ans []int) {
@@ -278,6 +325,10 @@ func (h *hp) pop() int   { return heap.Pop(h).(int) }
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法三：快排思想
 
 我们可以利用快速排序的思想，每次划分后判断划分点的位置是否为 $k$，如果是，就直接返回划分点左边的数即可，否则根据划分点的位置决定下一步划分的区间。
@@ -285,6 +336,8 @@ func (h *hp) pop() int   { return heap.Pop(h).(int) }
 时间复杂度 $O(n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `arr` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -307,6 +360,8 @@ class Solution:
         n = len(arr)
         return arr if k == n else quick_sort(0, n - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -349,6 +404,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -378,6 +435,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getLeastNumbers(arr []int, k int) []int {
@@ -412,4 +471,6 @@ func getLeastNumbers(arr []int, k int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

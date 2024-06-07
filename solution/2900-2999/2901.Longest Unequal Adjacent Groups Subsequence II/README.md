@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2901.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20II/README.md
 rating: 1898
+source: 第 115 场双周赛 Q3
 tags:
     - 数组
     - 字符串
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2901. 最长相邻不相等子序列 II](https://leetcode.cn/problems/longest-unequal-adjacent-groups-subsequence-ii)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;和一个下标从&nbsp;<strong>0</strong>&nbsp;开始的字符串数组&nbsp;<code>words</code>&nbsp;，和一个下标从&nbsp;<strong>0</strong>&nbsp;开始的数组&nbsp;<code>groups</code>&nbsp;，两个数组长度都是&nbsp;<code>n</code>&nbsp;。</p>
 
@@ -75,7 +78,11 @@ tags:
 	<li><code>words[i]</code> 只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -89,11 +96,9 @@ tags:
 
 时间复杂度 $O(n^2 \times L)$，空间复杂度 $O(n)$。其中 $L$ 表示单词的最大长度。
 
-**优化：空间换时间**
-
-**方法一**中，我们需要枚举所有的 $i$ 和 $j$ 组合, 这一步可以通过维护一个通配符哈希表来优化. 对于每个字符串 $word[i]$, 我们枚举它的每个字符, 将其替换为通配符, 然后将替换后的字符串作为键, 将其下标作为值存入哈希表中. 这样我们可以在 $O(L)$ 时间内找到所有距离 $word[i]$ 汉明距离为 1 的 $word[j]$. 尽管时间复杂度仍然是 $O(n^2 \times L)$, 但平均复杂度会有所降低.
-
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -122,6 +127,8 @@ class Solution:
                 break
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -168,6 +175,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -208,6 +217,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getWordsInLongestSubsequence(n int, words []string, groups []int) []string {
@@ -257,6 +268,8 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) []string 
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
     const f: number[] = Array(n).fill(1);
@@ -295,6 +308,8 @@ function getWordsInLongestSubsequence(n: number, words: string[], groups: number
     return ans.reverse();
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -352,9 +367,17 @@ impl Solution {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划 + 通配符哈希表
+
+在方法一中，我们需要枚举所有的 $i$ 和 $j$ 组合, 这一步可以通过维护一个通配符哈希表来优化. 对于每个字符串 $word[i]$, 我们枚举它的每个字符, 将其替换为通配符, 然后将替换后的字符串作为键, 将其下标作为值存入哈希表中. 这样我们可以在 $O(L)$ 时间内找到所有距离 $word[i]$ 汉明距离为 1 的 $word[j]$. 尽管时间复杂度仍然是 $O(n^2 \times L)$, 但平均复杂度会有所降低.
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -406,4 +429,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

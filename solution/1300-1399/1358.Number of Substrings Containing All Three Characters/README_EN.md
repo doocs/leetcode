@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1358.Number%20of%20Substrings%20Containing%20All%20Three%20Characters/README_EN.md
 rating: 1646
+source: Biweekly Contest 20 Q3
 tags:
     - Hash Table
     - String
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1358. Number of Substrings Containing All Three Characters](https://leetcode.com/problems/number-of-substrings-containing-all-three-characters)
 
 [中文文档](/solution/1300-1399/1358.Number%20of%20Substrings%20Containing%20All%20Three%20Characters/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>&nbsp;consisting only of characters <em>a</em>, <em>b</em> and <em>c</em>.</p>
 
@@ -51,7 +56,11 @@ tags:
 	<li><code>s</code>&nbsp;only consists of&nbsp;<em>a</em>, <em>b</em> or <em>c&nbsp;</em>characters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Pass
 
@@ -63,6 +72,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfSubstrings(self, s: str) -> int:
@@ -73,6 +84,8 @@ class Solution:
             ans += min(d["a"], d["b"], d["c"]) + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfSubstrings(s string) (ans int) {
 	d := [3]int{-1, -1, -1}
@@ -117,4 +134,6 @@ func numberOfSubstrings(s string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

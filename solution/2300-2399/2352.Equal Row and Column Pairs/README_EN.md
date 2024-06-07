@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README_EN.md
 rating: 1286
+source: Weekly Contest 303 Q2
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2352. Equal Row and Column Pairs](https://leetcode.com/problems/equal-row-and-column-pairs)
 
 [中文文档](/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>0-indexed</strong> <code>n x n</code> integer matrix <code>grid</code>, <em>return the number of pairs </em><code>(r<sub>i</sub>, c<sub>j</sub>)</code><em> such that row </em><code>r<sub>i</sub></code><em> and column </em><code>c<sub>j</sub></code><em> are equal</em>.</p>
 
@@ -50,7 +55,11 @@ tags:
 	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -59,6 +68,8 @@ We directly compare each row and column of the matrix $grid$. If they are equal,
 The time complexity is $O(n^3)$, where $n$ is the number of rows or columns in the matrix $grid$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +81,8 @@ class Solution:
                 ans += all(grid[i][k] == grid[k][j] for k in range(n))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func equalPairs(grid [][]int) (ans int) {
 	for i := range grid {
@@ -133,6 +150,8 @@ func equalPairs(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function equalPairs(grid: number[][]): number {
@@ -156,4 +175,6 @@ function equalPairs(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

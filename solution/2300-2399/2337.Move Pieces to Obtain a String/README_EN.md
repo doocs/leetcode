@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README_EN.md
 rating: 1693
+source: Weekly Contest 301 Q3
 tags:
     - Two Pointers
     - String
 ---
+
+<!-- problem:start -->
 
 # [2337. Move Pieces to Obtain a String](https://leetcode.com/problems/move-pieces-to-obtain-a-string)
 
 [中文文档](/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>start</code> and <code>target</code>, both of length <code>n</code>. Each string consists <strong>only</strong> of the characters <code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>, and <code>&#39;_&#39;</code> where:</p>
 
@@ -61,11 +66,17 @@ After that, no pieces can move anymore, so it is impossible to obtain the string
 	<li><code>start</code> and <code>target</code> consist of the characters <code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>, and <code>&#39;_&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +94,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using pii = pair<int, int>;
 
@@ -152,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canChange(start string, target string) bool {
@@ -186,6 +203,8 @@ func canChange(start string, target string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canChange(start: string, target: string): boolean {
@@ -223,9 +242,15 @@ function canChange(start: string, target: string): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -247,6 +272,8 @@ class Solution:
                 return False
             i, j = i + 1, j + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -276,6 +303,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -295,6 +324,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canChange(start string, target string) bool {
@@ -324,6 +355,8 @@ func canChange(start string, target string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canChange(start: string, target: string): boolean {
     const n = start.length;
@@ -352,4 +385,6 @@ function canChange(start: string, target: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

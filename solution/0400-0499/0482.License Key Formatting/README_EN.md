@@ -6,11 +6,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [482. License Key Formatting](https://leetcode.com/problems/license-key-formatting)
 
 [中文文档](/solution/0400-0499/0482.License%20Key%20Formatting/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a license key represented as a string <code>s</code> that consists of only alphanumeric characters and dashes. The string is separated into <code>n + 1</code> groups by <code>n</code> dashes. You are also given an integer <code>k</code>.</p>
 
@@ -45,11 +49,17 @@ Note that the two extra dashes are not needed and can be removed.
 	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +78,8 @@ class Solution:
                     res.append('-')
         return ''.join(res)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func licenseKeyFormatting(s string, k int) string {
 	s = strings.ReplaceAll(s, "-", "")
@@ -149,4 +165,6 @@ func licenseKeyFormatting(s string, k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

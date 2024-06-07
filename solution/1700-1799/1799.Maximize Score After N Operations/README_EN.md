@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1799.Maximize%20Score%20After%20N%20Operations/README_EN.md
 rating: 2072
+source: Biweekly Contest 48 Q4
 tags:
     - Bit Manipulation
     - Array
@@ -13,11 +14,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [1799. Maximize Score After N Operations](https://leetcode.com/problems/maximize-score-after-n-operations)
 
 [中文文档](/solution/1700-1799/1799.Maximize%20Score%20After%20N%20Operations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given <code>nums</code>, an array of positive integers of size <code>2 * n</code>. You must perform <code>n</code> operations on this array.</p>
 
@@ -70,7 +75,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression + Dynamic Programming
 
@@ -87,6 +96,8 @@ The final answer is $f[2^m - 1]$.
 The time complexity is $O(2^m \times m^2)$, and the space complexity is $O(2^m)$. Here, $m$ is the number of elements in the array `nums`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -109,6 +120,8 @@ class Solution:
                                 )
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +191,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxScore(nums []int) int {
@@ -211,6 +228,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxScore(nums: number[]): number {
@@ -256,4 +275,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

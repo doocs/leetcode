@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README_EN.md
 rating: 2171
+source: Weekly Contest 219 Q4
 tags:
     - Array
     - Dynamic Programming
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1691. Maximum Height by Stacking Cuboids](https://leetcode.com/problems/maximum-height-by-stacking-cuboids)
 
 [中文文档](/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given <code>n</code> <code>cuboids</code> where the dimensions of the <code>i<sup>th</sup></code> cuboid is <code>cuboids[i] = [width<sub>i</sub>, length<sub>i</sub>, height<sub>i</sub>]</code> (<strong>0-indexed</strong>). Choose a <strong>subset</strong> of <code>cuboids</code> and place them on each other.</p>
 
@@ -66,7 +71,11 @@ The maximum height of stacked cuboids is 6 * 17 = 102.
 	<li><code>1 &lt;= width<sub>i</sub>, length<sub>i</sub>, height<sub>i</sub> &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Dynamic Programming
 
@@ -92,6 +101,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxHeight(self, cuboids: List[List[int]]) -> int:
@@ -107,6 +118,8 @@ class Solution:
             f[i] += cuboids[i][2]
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxHeight(cuboids [][]int) int {
 	for _, c := range cuboids {
@@ -176,6 +193,8 @@ func maxHeight(cuboids [][]int) int {
 	return slices.Max(f)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxHeight(cuboids: number[][]): number {
@@ -203,6 +222,8 @@ function maxHeight(cuboids: number[][]): number {
     return Math.max(...f);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -237,4 +258,6 @@ var maxHeight = function (cuboids) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

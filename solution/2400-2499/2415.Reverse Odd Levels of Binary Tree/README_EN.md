@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/README_EN.md
 rating: 1431
+source: Weekly Contest 311 Q3
 tags:
     - Tree
     - Depth-First Search
@@ -10,11 +11,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2415. Reverse Odd Levels of Binary Tree](https://leetcode.com/problems/reverse-odd-levels-of-binary-tree)
 
 [中文文档](/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a <strong>perfect</strong> binary tree, reverse the node values at each <strong>odd</strong> level of the tree.</p>
 
@@ -68,7 +73,11 @@ The nodes at level 3 were 1, 1, 1, 1, 2, 2, 2, 2, and are 2, 2, 2, 2, 1, 1, 1, 1
 	<li><code>root</code> is a <strong>perfect</strong> binary tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -77,6 +86,8 @@ We can use the Breadth-First Search (BFS) method, using a queue $q$ to store the
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -103,6 +114,8 @@ class Solution:
             i += 1
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -147,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -185,6 +200,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -216,6 +233,8 @@ func reverseOddLevels(root *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -252,6 +271,8 @@ function reverseOddLevels(root: TreeNode | null): TreeNode | null {
     return root;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -324,4 +345,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

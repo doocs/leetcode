@@ -9,13 +9,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [723. 粉碎糖果 🔒](https://leetcode.cn/problems/candy-crush)
 
 [English Version](/solution/0700-0799/0723.Candy%20Crush/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>这个问题是实现一个简单的消除算法。</p>
 
@@ -63,11 +65,17 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -110,6 +118,8 @@ class Solution:
                         curr -= 1
         return board
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +213,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func candyCrush(board [][]int) [][]int {
@@ -255,4 +269,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

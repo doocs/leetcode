@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README_EN.md
 rating: 2032
+source: Weekly Contest 186 Q4
 tags:
     - Queue
     - Array
@@ -12,11 +13,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1425. Constrained Subsequence Sum](https://leetcode.com/problems/constrained-subsequence-sum)
 
 [中文文档](/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return the maximum sum of a <strong>non-empty</strong> subsequence of that array such that for every two <strong>consecutive</strong> integers in the subsequence, <code>nums[i]</code> and <code>nums[j]</code>, where <code>i &lt; j</code>, the condition <code>j - i &lt;= k</code> is satisfied.</p>
 
@@ -55,11 +60,17 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +89,8 @@ class Solution:
             ans = max(ans, dp[i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func constrainedSubsetSum(nums []int, k int) int {
@@ -148,4 +165,6 @@ func constrainedSubsetSum(nums []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

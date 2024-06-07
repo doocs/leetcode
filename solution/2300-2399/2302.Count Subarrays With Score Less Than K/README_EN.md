@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2302.Count%20Subarrays%20With%20Score%20Less%20Than%20K/README_EN.md
 rating: 1808
+source: Biweekly Contest 80 Q4
 tags:
     - Array
     - Binary Search
@@ -10,11 +11,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2302. Count Subarrays With Score Less Than K](https://leetcode.com/problems/count-subarrays-with-score-less-than-k)
 
 [中文文档](/solution/2300-2399/2302.Count%20Subarrays%20With%20Score%20Less%20Than%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>score</strong> of an array is defined as the <strong>product</strong> of its sum and its length.</p>
 
@@ -62,7 +67,11 @@ Thus, there are 5 subarrays having scores less than 5.
 	<li><code>1 &lt;= k &lt;= 10<sup>15</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Binary Search
 
@@ -73,6 +82,8 @@ Next, we enumerate each element of the array $nums$ as the last element of the s
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +101,8 @@ class Solution:
             ans += left
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubarrays(nums []int, k int64) (ans int64) {
 	n := len(nums)
@@ -170,6 +187,10 @@ func countSubarrays(nums []int, k int64) (ans int64) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Two Pointers
 
 We can use two pointers to maintain a sliding window, so that the sum of the elements in the window is less than $k$. The number of subarrays with the current element as the last element is the length of the window, and we add all window lengths to get the answer.
@@ -177,6 +198,8 @@ We can use two pointers to maintain a sliding window, so that the sum of the ele
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -190,6 +213,8 @@ class Solution:
             ans += i - j + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +231,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -224,6 +251,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubarrays(nums []int, k int64) (ans int64) {
 	s, j := 0, 0
@@ -241,4 +270,6 @@ func countSubarrays(nums []int, k int64) (ans int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

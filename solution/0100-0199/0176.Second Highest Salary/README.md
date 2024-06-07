@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [176. 第二高的薪水](https://leetcode.cn/problems/second-highest-salary)
 
 [English Version](/solution/0100-0199/0176.Second%20Highest%20Salary/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <code>Employee</code> 表：
 
@@ -77,13 +79,19 @@ Employee 表：
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用 LIMIT 语句和子查询
 
 我们可以按照薪水降序排列，然后使用 `LIMIT` 语句来获取第二高的薪水，如果不存在第二高的薪水，那么就返回 `null`。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -108,6 +116,8 @@ def second_highest_salary(employee: pd.DataFrame) -> pd.DataFrame:
     return result_df
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -121,11 +131,17 @@ SELECT
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：使用 MAX() 函数和子查询
 
 我们也可以使用 `MAX()` 函数，从小于 `MAX()` 的薪水中挑选一个最大的薪水即可。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -136,11 +152,17 @@ WHERE salary < (SELECT MAX(salary) FROM Employee);
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：使用 DISTINCT 和窗口函数
 
 我们还可以先通过 `DENSE_RANK()` 函数计算出每个员工的薪水排名，然后再筛选出排名为 $2$ 的员工薪水即可。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -150,4 +172,6 @@ SELECT (SELECT DISTINCT salary FROM T WHERE rk = 2) AS SecondHighestSalary;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

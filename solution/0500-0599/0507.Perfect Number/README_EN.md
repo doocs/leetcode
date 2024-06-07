@@ -6,11 +6,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [507. Perfect Number](https://leetcode.com/problems/perfect-number)
 
 [中文文档](/solution/0500-0599/0507.Perfect%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <a href="https://en.wikipedia.org/wiki/Perfect_number" target="_blank"><strong>perfect number</strong></a> is a <strong>positive integer</strong> that is equal to the sum of its <strong>positive divisors</strong>, excluding the number itself. A <strong>divisor</strong> of an integer <code>x</code> is an integer that can divide <code>x</code> evenly.</p>
 
@@ -40,11 +44,17 @@ tags:
 	<li><code>1 &lt;= num &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +70,8 @@ class Solution:
             i += 1
         return s == num
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -98,6 +112,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkPerfectNumber(num int) bool {
@@ -119,4 +135,6 @@ func checkPerfectNumber(num int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.08.Permutation%20II/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.08. 有重复字符串的排列组合](https://leetcode.cn/problems/permutation-ii-lcci)
 
 [English Version](/lcci/08.08.Permutation%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有重复字符串的排列组合。编写一种方法，计算某字符串的所有排列组合。</p>
 <p><strong>示例1:</strong></p>
@@ -27,7 +29,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.08.Permutation%20I
 	<li>字符串长度在[1, 9]之间。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 回溯
 
@@ -43,6 +49,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.08.Permutation%20I
 时间复杂度 $O(n \times n!)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。需要进行 $n!$ 次枚举，每次枚举需要 $O(n)$ 的时间来判断是否重复。另外，我们需要一个标记数组来标记每个位置是否被使用过，因此空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +75,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func permutation(S string) (ans []string) {
 	cs := []byte(S)
@@ -165,6 +179,8 @@ func permutation(S string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function permutation(S: string): string[] {
     const cs: string[] = S.split('').sort();
@@ -192,6 +208,8 @@ function permutation(S: string): string[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -224,6 +242,8 @@ var permutation = function (S) {
     return ans;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -263,4 +283,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

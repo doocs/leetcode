@@ -6,13 +6,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [482. 密钥格式化](https://leetcode.cn/problems/license-key-formatting)
 
 [English Version](/solution/0400-0499/0482.License%20Key%20Formatting/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个许可密钥字符串 <code>s</code>，仅由字母、数字字符和破折号组成。字符串由 <code>n</code> 个破折号分成 <code>n + 1</code> 组。你也会得到一个整数 <code>k</code> 。</p>
 
@@ -49,11 +51,17 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +80,8 @@ class Solution:
                     res.append('-')
         return ''.join(res)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func licenseKeyFormatting(s string, k int) string {
 	s = strings.ReplaceAll(s, "-", "")
@@ -153,4 +167,6 @@ func licenseKeyFormatting(s string, k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

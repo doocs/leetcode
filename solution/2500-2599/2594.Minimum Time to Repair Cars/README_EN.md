@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2594.Minimum%20Time%20to%20Repair%20Cars/README_EN.md
 rating: 1915
+source: Biweekly Contest 100 Q4
 tags:
     - Array
     - Binary Search
 ---
+
+<!-- problem:start -->
 
 # [2594. Minimum Time to Repair Cars](https://leetcode.com/problems/minimum-time-to-repair-cars)
 
 [中文文档](/solution/2500-2599/2594.Minimum%20Time%20to%20Repair%20Cars/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>ranks</code> representing the <strong>ranks</strong> of some mechanics. <font face="monospace">ranks<sub>i</sub></font> is the rank of the <font face="monospace">i<sup>th</sup></font> mechanic<font face="monospace">.</font> A mechanic with a rank <code>r</code> can repair <font face="monospace">n</font> cars in <code>r * n<sup>2</sup></code> minutes.</p>
 
@@ -57,7 +62,11 @@ It can be proved that the cars cannot be repaired in less than 16 minutes.​​
 	<li><code>1 &lt;= cars &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -71,6 +80,8 @@ The time complexity is $O(n \times \log M)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def repairCars(self, ranks: List[int], cars: int) -> int:
@@ -79,6 +90,8 @@ class Solution:
 
         return bisect_left(range(ranks[0] * cars * cars), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func repairCars(ranks []int, cars int) int64 {
 	return int64(sort.Search(ranks[0]*cars*cars, func(t int) bool {
@@ -134,6 +151,8 @@ func repairCars(ranks []int, cars int) int64 {
 	}))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function repairCars(ranks: number[], cars: number): number {
@@ -157,4 +176,6 @@ function repairCars(ranks: number[], cars: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

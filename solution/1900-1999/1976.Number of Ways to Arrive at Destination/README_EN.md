@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1976.Number%20of%20Ways%20to%20Arrive%20at%20Destination/README_EN.md
 rating: 2094
+source: Biweekly Contest 59 Q3
 tags:
     - Graph
     - Topological Sort
@@ -10,11 +11,15 @@ tags:
     - Shortest Path
 ---
 
+<!-- problem:start -->
+
 # [1976. Number of Ways to Arrive at Destination](https://leetcode.com/problems/number-of-ways-to-arrive-at-destination)
 
 [中文文档](/solution/1900-1999/1976.Number%20of%20Ways%20to%20Arrive%20at%20Destination/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are in a city that consists of <code>n</code> intersections numbered from <code>0</code> to <code>n - 1</code> with <strong>bi-directional</strong> roads between some intersections. The inputs are generated such that you can reach any intersection from any other intersection and that there is at most one road between any two intersections.</p>
 
@@ -58,7 +63,11 @@ The four ways to get there in 7 minutes are:
 	<li>You can reach any intersection from any other intersection.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Naive Dijkstra Algorithm
 
@@ -76,6 +85,8 @@ Finally, we return `f[n - 1]`. Since the answer may be very large, we need to ta
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of points.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -107,6 +118,8 @@ class Solution:
         mod = 10**9 + 7
         return f[-1] % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +167,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -209,6 +224,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPaths(n int, roads [][]int) int {
 	const inf = math.MaxInt64 / 2
@@ -261,6 +278,8 @@ func countPaths(n int, roads [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countPaths(n: number, roads: number[][]): number {
     const mod: number = 1e9 + 7;
@@ -305,4 +324,6 @@ function countPaths(n: number, roads: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

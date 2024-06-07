@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1075. Project Employees I](https://leetcode.com/problems/project-employees-i)
 
 [中文文档](/solution/1000-1099/1075.Project%20Employees%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Project</code></p>
 
@@ -84,11 +88,17 @@ Employee table:
 <strong>Explanation:</strong> The average experience years for the first project is (3 + 2 + 1) / 3 = 2.00 and for the second project is (3 + 2) / 2 = 2.50
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement
@@ -101,4 +111,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

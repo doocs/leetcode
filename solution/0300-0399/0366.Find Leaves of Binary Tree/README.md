@@ -8,13 +8,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [366. 寻找二叉树的叶子节点 🔒](https://leetcode.cn/problems/find-leaves-of-binary-tree)
 
 [English Version](/solution/0300-0399/0366.Find%20Leaves%20of%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵二叉树的 <code>root</code> 节点，请按照以下方式收集树的节点：</p>
 
@@ -51,11 +53,21 @@ tags:
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：DFS
+
+我们可以使用深度优先搜索的方法，递归遍历二叉树，将每个节点的高度作为索引，将节点的值添加到对应索引的数组中。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -65,27 +77,23 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findLeaves(self, root: TreeNode) -> List[List[int]]:
-        def dfs(root, prev, t):
+    def findLeaves(self, root: Optional[TreeNode]) -> List[List[int]]:
+        def dfs(root: Optional[TreeNode]) -> int:
             if root is None:
-                return
-            if root.left is None and root.right is None:
-                t.append(root.val)
-                if prev.left == root:
-                    prev.left = None
-                else:
-                    prev.right = None
-            dfs(root.left, root, t)
-            dfs(root.right, root, t)
+                return 0
+            l, r = dfs(root.left), dfs(root.right)
+            h = max(l, r)
+            if len(ans) == h:
+                ans.append([])
+            ans[h].append(root.val)
+            return h + 1
 
-        res = []
-        prev = TreeNode(left=root)
-        while prev.left:
-            t = []
-            dfs(prev.left, prev, t)
-            res.append(t)
-        return res
+        ans = []
+        dfs(root)
+        return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -104,34 +112,30 @@ class Solution:
  * }
  */
 class Solution {
+    private List<List<Integer>> ans = new ArrayList<>();
+
     public List<List<Integer>> findLeaves(TreeNode root) {
-        List<List<Integer>> res = new ArrayList<>();
-        TreeNode prev = new TreeNode(0, root, null);
-        while (prev.left != null) {
-            List<Integer> t = new ArrayList<>();
-            dfs(prev.left, prev, t);
-            res.add(t);
-        }
-        return res;
+        dfs(root);
+        return ans;
     }
 
-    private void dfs(TreeNode root, TreeNode prev, List<Integer> t) {
+    private int dfs(TreeNode root) {
         if (root == null) {
-            return;
+            return 0;
         }
-        if (root.left == null && root.right == null) {
-            t.add(root.val);
-            if (prev.left == root) {
-                prev.left = null;
-            } else {
-                prev.right = null;
-            }
+        int l = dfs(root.left);
+        int r = dfs(root.right);
+        int h = Math.max(l, r);
+        if (ans.size() == h) {
+            ans.add(new ArrayList<>());
         }
-        dfs(root.left, root, t);
-        dfs(root.right, root, t);
+        ans.get(h).add(root.val);
+        return h + 1;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -148,30 +152,27 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> findLeaves(TreeNode* root) {
-        vector<vector<int>> res;
-        TreeNode* prev = new TreeNode(0, root, nullptr);
-        while (prev->left) {
-            vector<int> t;
-            dfs(prev->left, prev, t);
-            res.push_back(t);
-        }
-        return res;
-    }
-
-    void dfs(TreeNode* root, TreeNode* prev, vector<int>& t) {
-        if (!root) return;
-        if (!root->left && !root->right) {
-            t.push_back(root->val);
-            if (prev->left == root)
-                prev->left = nullptr;
-            else
-                prev->right = nullptr;
-        }
-        dfs(root->left, root, t);
-        dfs(root->right, root, t);
+        vector<vector<int>> ans;
+        function<int(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root) {
+                return 0;
+            }
+            int l = dfs(root->left);
+            int r = dfs(root->right);
+            int h = max(l, r);
+            if (ans.size() == h) {
+                ans.push_back({});
+            }
+            ans[h].push_back(root->val);
+            return h + 1;
+        };
+        dfs(root);
+        return ans;
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -182,38 +183,104 @@ public:
  *     Right *TreeNode
  * }
  */
-func findLeaves(root *TreeNode) [][]int {
-	prev := &TreeNode{
-		Val:   0,
-		Left:  root,
-		Right: nil,
-	}
-	var res [][]int
-	for prev.Left != nil {
-		var t []int
-		dfs(prev.Left, prev, &t)
-		res = append(res, t)
-	}
-	return res
-}
-
-func dfs(root, prev *TreeNode, t *[]int) {
-	if root == nil {
-		return
-	}
-	if root.Left == nil && root.Right == nil {
-		*t = append(*t, root.Val)
-		if prev.Left == root {
-			prev.Left = nil
-		} else {
-			prev.Right = nil
+func findLeaves(root *TreeNode) (ans [][]int) {
+	var dfs func(*TreeNode) int
+	dfs = func(root *TreeNode) int {
+		if root == nil {
+			return 0
 		}
+		l, r := dfs(root.Left), dfs(root.Right)
+		h := max(l, r)
+		if len(ans) == h {
+			ans = append(ans, []int{})
+		}
+		ans[h] = append(ans[h], root.Val)
+		return h + 1
 	}
-	dfs(root.Left, root, t)
-	dfs(root.Right, root, t)
+	dfs(root)
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function findLeaves(root: TreeNode | null): number[][] {
+    const ans: number[][] = [];
+    const dfs = (root: TreeNode | null): number => {
+        if (root === null) {
+            return 0;
+        }
+        const l = dfs(root.left);
+        const r = dfs(root.right);
+        const h = Math.max(l, r);
+        if (ans.length === h) {
+            ans.push([]);
+        }
+        ans[h].push(root.val);
+        return h + 1;
+    };
+    dfs(root);
+    return ans;
+}
+```
+
+#### C#
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    public IList<IList<int>> FindLeaves(TreeNode root) {
+        var ans = new List<IList<int>>();
+
+        int Dfs(TreeNode node) {
+            if (node == null) {
+                return 0;
+            }
+            int l = Dfs(node.left);
+            int r = Dfs(node.right);
+            int h = Math.Max(l, r);
+            if (ans.Count == h) {
+                ans.Add(new List<int>());
+            }
+            ans[h].Add(node.val);
+            return h + 1;
+        }
+
+        Dfs(root);
+        return ans;
+    }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

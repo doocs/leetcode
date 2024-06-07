@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3120.Count%20the%20Number%20of%20Special%20Characters%20I/README_EN.md
 rating: 1205
+source: Weekly Contest 394 Q1
 tags:
     - Hash Table
     - String
 ---
+
+<!-- problem:start -->
 
 # [3120. Count the Number of Special Characters I](https://leetcode.com/problems/count-the-number-of-special-characters-i)
 
 [中文文档](/solution/3100-3199/3120.Count%20the%20Number%20of%20Special%20Characters%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>word</code>. A letter is called <strong>special</strong> if it appears <strong>both</strong> in lowercase and uppercase in <code>word</code>.</p>
 
@@ -63,7 +68,11 @@ tags:
 	<li><code>word</code> consists of only lowercase and uppercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -75,12 +84,16 @@ The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfSpecialChars(self, word: str) -> int:
         s = set(word)
         return sum(a in s and b in s for a, b in zip(ascii_lowercase, ascii_uppercase))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfSpecialChars(word string) (ans int) {
 	s := make([]bool, 'z'+1)
@@ -131,6 +148,8 @@ func numberOfSpecialChars(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfSpecialChars(word: string): number {
@@ -150,4 +169,6 @@ function numberOfSpecialChars(word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

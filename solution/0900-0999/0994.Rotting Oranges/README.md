@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [994. 腐烂的橘子](https://leetcode.cn/problems/rotting-oranges)
 
 [English Version](/solution/0900-0999/0994.Rotting%20Oranges/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在给定的&nbsp;<code>m x n</code>&nbsp;网格<meta charset="UTF-8" />&nbsp;<code>grid</code>&nbsp;中，每个单元格可以有以下三个值之一：</p>
 
@@ -66,7 +68,11 @@ tags:
 	<li><code>grid[i][j]</code> 仅为&nbsp;<code>0</code>、<code>1</code>&nbsp;或&nbsp;<code>2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -79,6 +85,8 @@ tags:
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +114,8 @@ class Solution:
                         cnt -= 1
         return -1 if cnt > 0 else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -179,6 +191,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func orangesRotting(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -215,6 +229,8 @@ func orangesRotting(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function orangesRotting(grid: number[][]): number {
     const m: number = grid.length;
@@ -249,6 +265,8 @@ function orangesRotting(grid: number[][]): number {
     return cnt > 0 ? -1 : ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -307,4 +325,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

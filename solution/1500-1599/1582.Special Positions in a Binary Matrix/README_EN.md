@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1582.Special%20Positions%20in%20a%20Binary%20Matrix/README_EN.md
 rating: 1321
+source: Weekly Contest 206 Q1
 tags:
     - Array
     - Matrix
 ---
+
+<!-- problem:start -->
 
 # [1582. Special Positions in a Binary Matrix](https://leetcode.com/problems/special-positions-in-a-binary-matrix)
 
 [中文文档](/solution/1500-1599/1582.Special%20Positions%20in%20a%20Binary%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> binary matrix <code>mat</code>, return <em>the number of special positions in </em><code>mat</code><em>.</em></p>
 
@@ -45,11 +50,17 @@ tags:
 	<li><code>mat[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +79,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSpecial(mat [][]int) int {
 	m, n := len(mat), len(mat[0])
@@ -140,6 +157,8 @@ func numSpecial(mat [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numSpecial(mat: number[][]): number {
@@ -169,6 +188,8 @@ function numSpecial(mat: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn num_special(mat: Vec<Vec<i32>>) -> i32 {
@@ -195,6 +216,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int numSpecial(int** mat, int matSize, int* matColSize) {
@@ -228,4 +251,6 @@ int numSpecial(int** mat, int matSize, int* matColSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

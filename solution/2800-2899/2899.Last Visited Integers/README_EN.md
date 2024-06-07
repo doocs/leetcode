@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2899.Last%20Visited%20Integers/README_EN.md
 rating: 1372
+source: Biweekly Contest 115 Q1
 tags:
     - Array
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [2899. Last Visited Integers](https://leetcode.com/problems/last-visited-integers)
 
 [中文文档](/solution/2800-2899/2899.Last%20Visited%20Integers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> where <code>nums[i]</code> is either a positive integer or <code>-1</code>. We need to find for each <code>-1</code> the respective positive integer, which we call the last visited integer.</p>
 
@@ -81,7 +86,11 @@ tags:
 	<li><code>nums[i] == -1</code> or <code>1 &lt;= nums[i]&nbsp;&lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -90,6 +99,8 @@ We can directly simulate according to the problem statement. In the implementati
 The time complexity is $O(n)$, where $n$ is the length of the array $words$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -107,6 +118,8 @@ class Solution:
                 nums.append(int(w))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastVisitedIntegers(words []string) (ans []int) {
@@ -174,6 +191,8 @@ func lastVisitedIntegers(words []string) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function lastVisitedIntegers(words: string[]): number[] {
     const nums: number[] = [];
@@ -192,6 +211,8 @@ function lastVisitedIntegers(words: string[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -218,4 +239,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

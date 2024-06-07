@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [861. 翻转矩阵后的得分](https://leetcode.cn/problems/score-after-flipping-matrix)
 
 [English Version](/solution/0800-0899/0861.Score%20After%20Flipping%20Matrix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> 的二元矩阵 <code>grid</code> ，矩阵中每个元素的值为 <code>0</code> 或 <code>1</code> 。</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li><code>grid[i][j]</code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -69,6 +75,8 @@ tags:
 时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$, $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +92,8 @@ class Solution:
             ans += max(cnt, m - cnt) * (1 << (n - j - 1))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func matrixScore(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -159,6 +173,8 @@ func matrixScore(grid [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function matrixScore(grid: number[][]): number {
     const m = grid.length;
@@ -181,6 +197,8 @@ function matrixScore(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -210,4 +228,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

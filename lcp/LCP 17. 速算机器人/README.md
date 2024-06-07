@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2017.%20%E9%80%9F%E7%AE%97%E6%9C%BA%E5%99%A8%E4%BA%BA/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 17. 速算机器人](https://leetcode.cn/problems/nGK0Fy)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 小扣在秋日市集发现了一款速算机器人。店家对机器人说出两个数字（记作 `x` 和 `y`），请小扣说出计算指令：
 
@@ -40,11 +42,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2017.%20%E9%80%9F%
 -   `0 <= s.length <= 10`
 -   `s` 由 `'A'` 和 `'B'` 组成
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -57,6 +65,8 @@ class Solution:
                 y = y * 2 + x
         return x + y
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +84,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -89,6 +101,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func calculate(s string) int {
@@ -106,4 +120,6 @@ func calculate(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

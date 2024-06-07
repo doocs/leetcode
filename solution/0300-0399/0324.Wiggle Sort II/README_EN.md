@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0324.Wiggle%20Sort%20II/README_EN.md
 tags:
+    - Greedy
     - Array
     - Divide and Conquer
     - Quickselect
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [324. Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii)
 
 [中文文档](/solution/0300-0399/0324.Wiggle%20Sort%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, reorder it such that <code>nums[0] &lt; nums[1] &gt; nums[2] &lt; nums[3]...</code>.</p>
 
@@ -47,11 +52,17 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow Up:</strong> Can you do it in <code>O(n)</code> time and/or <strong>in-place</strong> with <code>O(1)</code> extra space?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +82,8 @@ class Solution:
                 j -= 1
 ```
 
+#### Java
+
 ```java
 class Solution {
     public void wiggleSort(int[] nums) {
@@ -88,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func wiggleSort(nums []int) {
 	n := len(nums)
@@ -125,6 +142,8 @@ func wiggleSort(nums []int) {
 	}
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -157,9 +176,15 @@ var wiggleSort = function (nums) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -183,6 +208,8 @@ class Solution:
             nums[i] = j
             bucket[j] -= 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -211,6 +238,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -232,6 +261,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func wiggleSort(nums []int) {
@@ -259,4 +290,6 @@ func wiggleSort(nums []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

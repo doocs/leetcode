@@ -7,13 +7,15 @@ tags:
     - 分治
 ---
 
+<!-- problem:start -->
+
 # [558. 四叉树交集](https://leetcode.cn/problems/logical-or-of-two-binary-grids-represented-as-quad-trees)
 
 [English Version](/solution/0500-0599/0558.Logical%20OR%20of%20Two%20Binary%20Grids%20Represented%20as%20Quad-Trees/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>二进制矩阵中的所有元素不是 <strong>0</strong> 就是 <strong>1 </strong>。</p>
 
@@ -119,11 +121,17 @@ class Node {
 	<li><code>n == 2^x</code> ，其中 <code>0 <= x <= 9</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -171,6 +179,8 @@ class Solution:
 
         return dfs(quadTree1, quadTree2)
 ```
+
+#### Java
 
 ```java
 /*
@@ -223,6 +233,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -288,6 +300,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a QuadTree node.
@@ -338,4 +352,6 @@ func intersect(quadTree1 *Node, quadTree2 *Node) *Node {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

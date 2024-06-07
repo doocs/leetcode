@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [1794. 统计距离最小的子串对个数 🔒](https://leetcode.cn/problems/count-pairs-of-equal-substrings-with-minimum-difference)
 
 [English Version](/solution/1700-1799/1794.Count%20Pairs%20of%20Equal%20Substrings%20With%20Minimum%20Difference/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>输入数据为两个字符串<code>firstString</code> 和 <code>secondString</code>，两个字符串下标均从0开始，且均只包含小写的英文字符，请计算满足下列要求的下标四元组<code>(i,j,a,b)</code>的个数：</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li>两个输入字符串均只包含小写英文字符.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 哈希表
 
@@ -65,6 +71,8 @@ tags:
 时间复杂度 $O(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别是 $firstString$ 和 $secondString$ 的长度，而 $C$ 是字符集的大小。本题中 $C = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +89,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countQuadruples(firstString string, secondString string) (ans int) {
 	last := [26]int{}
@@ -155,6 +169,8 @@ func countQuadruples(firstString string, secondString string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countQuadruples(firstString: string, secondString: string): number {
@@ -181,4 +197,6 @@ function countQuadruples(firstString: string, secondString: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

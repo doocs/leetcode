@@ -8,11 +8,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [424. Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement)
 
 [中文文档](/solution/0400-0499/0424.Longest%20Repeating%20Character%20Replacement/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> and an integer <code>k</code>. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most <code>k</code> times.</p>
 
@@ -45,86 +49,117 @@ There may exists other ways to achieve this answer too.</pre>
 	<li><code>0 &lt;= k &lt;= s.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Two Pointers
+
+We use a hash table `cnt` to count the occurrence of each character in the string, and two pointers `l` and `r` to maintain a sliding window, such that the size of the window minus the count of the most frequent character does not exceed $k$.
+
+We iterate through the string, updating the right boundary `r` of the window each time, updating the count of characters within the window, and updating the maximum count `mx` of the characters that have appeared. When the size of the window minus `mx` is greater than $k$, we need to shrink the left boundary `l` of the window, updating the count of characters within the window, until the size of the window minus `mx` is no longer greater than $k$.
+
+Finally, the answer is $n - l$, where $n$ is the length of the string.
+
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string, and $|\Sigma|$ is the size of the character set. In this problem, the character set is uppercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        counter = [0] * 26
-        i = j = maxCnt = 0
-        while i < len(s):
-            counter[ord(s[i]) - ord('A')] += 1
-            maxCnt = max(maxCnt, counter[ord(s[i]) - ord('A')])
-            if i - j + 1 > maxCnt + k:
-                counter[ord(s[j]) - ord('A')] -= 1
-                j += 1
-            i += 1
-        return i - j
+        cnt = Counter()
+        l = mx = 0
+        for r, c in enumerate(s):
+            cnt[c] += 1
+            mx = max(mx, cnt[c])
+            if r - l + 1 - mx > k:
+                cnt[s[l]] -= 1
+                l += 1
+        return len(s) - l
 ```
+
+#### Java
 
 ```java
 class Solution {
     public int characterReplacement(String s, int k) {
-        int[] counter = new int[26];
-        int i = 0;
-        int j = 0;
-        for (int maxCnt = 0; i < s.length(); ++i) {
-            char c = s.charAt(i);
-            ++counter[c - 'A'];
-            maxCnt = Math.max(maxCnt, counter[c - 'A']);
-            if (i - j + 1 - maxCnt > k) {
-                --counter[s.charAt(j) - 'A'];
-                ++j;
+        int[] cnt = new int[26];
+        int l = 0, mx = 0;
+        int n = s.length();
+        for (int r = 0; r < n; ++r) {
+            mx = Math.max(mx, ++cnt[s.charAt(r) - 'A']);
+            if (r - l + 1 - mx > k) {
+                --cnt[s.charAt(l++) - 'A'];
             }
         }
-        return i - j;
+        return n - l;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
 public:
     int characterReplacement(string s, int k) {
-        vector<int> counter(26);
-        int i = 0, j = 0, maxCnt = 0;
-        for (char& c : s) {
-            ++counter[c - 'A'];
-            maxCnt = max(maxCnt, counter[c - 'A']);
-            if (i - j + 1 > maxCnt + k) {
-                --counter[s[j] - 'A'];
-                ++j;
+        int cnt[26]{};
+        int l = 0, mx = 0;
+        int n = s.length();
+        for (int r = 0; r < n; ++r) {
+            mx = max(mx, ++cnt[s[r] - 'A']);
+            if (r - l + 1 - mx > k) {
+                --cnt[s[l++] - 'A'];
             }
-            ++i;
         }
-        return i - j;
+        return n - l;
     }
 };
 ```
 
+#### Go
+
 ```go
 func characterReplacement(s string, k int) int {
-	counter := make([]int, 26)
-	j, maxCnt := 0, 0
-	for i := range s {
-		c := s[i] - 'A'
-		counter[c]++
-		if maxCnt < counter[c] {
-			maxCnt = counter[c]
-		}
-		if i-j+1 > maxCnt+k {
-			counter[s[j]-'A']--
-			j++
+	cnt := [26]int{}
+	l, mx := 0, 0
+	for r, c := range s {
+		cnt[c-'A']++
+		mx = max(mx, cnt[c-'A'])
+		if r-l+1-mx > k {
+			cnt[s[l]-'A']--
+			l++
 		}
 	}
-	return len(s) - j
+	return len(s) - l
+}
+```
+
+#### TypeScript
+
+```ts
+function characterReplacement(s: string, k: number): number {
+    const idx = (c: string) => c.charCodeAt(0) - 65;
+    const cnt: number[] = Array(26).fill(0);
+    const n = s.length;
+    let [l, mx] = [0, 0];
+    for (let r = 0; r < n; ++r) {
+        mx = Math.max(mx, ++cnt[idx(s[r])]);
+        if (r - l + 1 - mx > k) {
+            --cnt[idx(s[l++])];
+        }
+    }
+    return n - l;
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

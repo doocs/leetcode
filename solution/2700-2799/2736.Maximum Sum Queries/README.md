@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md
 rating: 2533
+source: 第 349 场周赛 Q4
 tags:
     - 栈
     - 树状数组
@@ -13,13 +14,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [2736. 最大和查询](https://leetcode.cn/problems/maximum-sum-queries)
 
 [English Version](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个长度为 <code>n</code> 、下标从 <strong>0</strong> 开始的整数数组 <code>nums1</code> 和 <code>nums2</code> ，另给你一个下标从 <strong>1</strong> 开始的二维数组 <code>queries</code> ，其中 <code>queries[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 。</p>
 
@@ -70,7 +73,11 @@ tags:
 	<li><code>1 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：树状数组
 
@@ -95,6 +102,8 @@ $$
 -   [2940. 找到 Alice 和 Bob 可以相遇的建筑](https://github.com/doocs/leetcode/blob/main/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -137,6 +146,8 @@ class Solution:
             ans[i] = tree.query(k)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -199,6 +210,8 @@ class Solution {
 }
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int[] maximumSumQueries(int[] nums1, int[] nums2, int[][] q) {
@@ -243,6 +256,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -303,6 +318,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -361,6 +378,8 @@ func maximumSumQueries(nums1 []int, nums2 []int, queries [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -432,4 +451,6 @@ function maximumSumQueries(nums1: number[], nums2: number[], queries: number[][]
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

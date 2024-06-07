@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [392. Is Subsequence](https://leetcode.com/problems/is-subsequence)
 
 [中文文档](/solution/0300-0399/0392.Is%20Subsequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code><em> if </em><code>s</code><em> is a <strong>subsequence</strong> of </em><code>t</code><em>, or </em><code>false</code><em> otherwise</em>.</p>
 
@@ -38,7 +42,11 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Suppose there are lots of incoming <code>s</code>, say <code>s<sub>1</sub>, s<sub>2</sub>, ..., s<sub>k</sub></code> where <code>k &gt;= 10<sup>9</sup></code>, and you want to check one by one to see if <code>t</code> has its subsequence. In this scenario, how would you change your code?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -47,6 +55,8 @@ We define two pointers $i$ and $j$ to point to the initial position of the strin
 The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the strings $s$ and $t$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -58,6 +68,8 @@ class Solution:
             j += 1
         return i == len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +87,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -91,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isSubsequence(s string, t string) bool {
 	i, j, m, n := 0, 0, len(s), len(t)
@@ -103,6 +119,8 @@ func isSubsequence(s string, t string) bool {
 	return i == m
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isSubsequence(s: string, t: string): boolean {
@@ -117,6 +135,8 @@ function isSubsequence(s: string, t: string): boolean {
     return i === m;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -138,6 +158,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsSubsequence(string s, string t) {
@@ -152,6 +174,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool isSubsequence(char* s, char* t) {
@@ -169,4 +193,6 @@ bool isSubsequence(char* s, char* t) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

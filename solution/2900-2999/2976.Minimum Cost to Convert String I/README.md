@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README.md
 rating: 1882
+source: 第 377 场周赛 Q3
 tags:
     - 图
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 最短路
 ---
 
+<!-- problem:start -->
+
 # [2976. 转换字符串的最小成本 I](https://leetcode.cn/problems/minimum-cost-to-convert-string-i)
 
 [English Version](/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong> 开始的字符串 <code>source</code> 和 <code>target</code> ，它们的长度均为 <code>n</code> 并且由 <strong>小写 </strong>英文字母组成。</p>
 
@@ -77,7 +80,11 @@ tags:
 	<li><code>original[i] != changed[i]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：Floyd 算法
 
@@ -92,6 +99,8 @@ tags:
 时间复杂度 $O(m + n + |\Sigma|^3)$，空间复杂度 $O(|\Sigma|^2)$。其中 $m$ 和 $n$ 分别是数组 $original$ 和 $source$ 的长度；而 $|\Sigma|$ 是字母表的大小，即 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -123,6 +132,8 @@ class Solution:
                 ans += g[x][y]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -163,6 +174,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -207,6 +220,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCost(source string, target string, original []byte, changed []byte, cost []int) (ans int64) {
 	const inf = 1 << 29
@@ -250,6 +265,8 @@ func minimumCost(source string, target string, original []byte, changed []byte, 
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCost(
@@ -296,4 +313,6 @@ function minimumCost(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

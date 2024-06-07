@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2363.Merge%20Similar%20Items/README_EN.md
 rating: 1270
+source: Biweekly Contest 84 Q1
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2363. Merge Similar Items](https://leetcode.com/problems/merge-similar-items)
 
 [中文文档](/solution/2300-2399/2363.Merge%20Similar%20Items/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two 2D integer arrays, <code>items1</code> and <code>items2</code>, representing two sets of items. Each array <code>items</code> has the following properties:</p>
 
@@ -74,7 +79,11 @@ Therefore, we return [[1,7],[2,4],[7,1]].
 	<li>Each <code>value<sub>i</sub></code> in <code>items2</code> is <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -83,6 +92,8 @@ We can use a hash table or array `cnt` to count the total weight of each item in
 The time complexity is $O(n + m)$ and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of `items1` and `items2` respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +105,8 @@ class Solution:
             cnt[v] += w
         return sorted(cnt.items())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mergeSimilarItems(items1 [][]int, items2 [][]int) (ans [][]int) {
 	cnt := [1010]int{}
@@ -156,6 +173,8 @@ func mergeSimilarItems(items1 [][]int, items2 [][]int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mergeSimilarItems(items1: number[][], items2: number[][]): number[][] {
     const count = new Array(1001).fill(0);
@@ -168,6 +187,8 @@ function mergeSimilarItems(items1: number[][], items2: number[][]): number[][] {
     return [...count.entries()].filter(v => v[1] !== 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -192,6 +213,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -227,4 +250,6 @@ int** mergeSimilarItems(int** items1, int items1Size, int* items1ColSize, int** 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

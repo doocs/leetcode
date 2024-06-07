@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README_EN.md
 rating: 1635
+source: Weekly Contest 388 Q3
 tags:
     - Trie
     - Array
@@ -10,11 +11,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [3076. Shortest Uncommon Substring in an Array](https://leetcode.com/problems/shortest-uncommon-substring-in-an-array)
 
 [中文文档](/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>arr</code> of size <code>n</code> consisting of <strong>non-empty</strong> strings.</p>
 
@@ -60,7 +65,11 @@ tags:
 	<li><code>arr[i]</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -71,6 +80,8 @@ Specifically, we first enumerate each string `arr[i]`, then enumerate the length
 The time complexity is $O(n^2 \times m^4)$, and the space complexity is $O(m)$. Where $n$ is the length of the string array `arr`, and $m$ is the maximum length of the string. In this problem, $m \le 20$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +99,8 @@ class Solution:
                     break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestSubstrings(arr []string) []string {
 	ans := make([]string, len(arr))
@@ -175,6 +192,8 @@ func shortestSubstrings(arr []string) []string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function shortestSubstrings(arr: string[]): string[] {
@@ -205,4 +224,6 @@ function shortestSubstrings(arr: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

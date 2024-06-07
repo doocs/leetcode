@@ -7,13 +7,15 @@ tags:
     - 字符串匹配
 ---
 
+<!-- problem:start -->
+
 # [686. 重复叠加字符串匹配](https://leetcode.cn/problems/repeated-string-match)
 
 [English Version](/solution/0600-0699/0686.Repeated%20String%20Match/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串&nbsp;<code>a</code> 和 <code>b</code>，寻找重复叠加字符串 <code>a</code> 的最小次数，使得字符串 <code>b</code> 成为叠加后的字符串 <code>a</code> 的子串，如果不存在则返回 <code>-1</code>。</p>
 
@@ -56,11 +58,17 @@ tags:
 	<li><code>a</code> 和 <code>b</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +83,8 @@ class Solution:
             t.append(a)
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func repeatedStringMatch(a string, b string) int {
 	m, n := len(a), len(b)
@@ -127,6 +141,8 @@ func repeatedStringMatch(a string, b string) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function repeatedStringMatch(a: string, b: string): number {
@@ -149,4 +165,6 @@ function repeatedStringMatch(a: string, b: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

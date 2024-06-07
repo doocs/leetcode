@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1249.Minimum%20Remove%20to%20Make%20Valid%20Parentheses/README_EN.md
 rating: 1657
+source: Weekly Contest 161 Q3
 tags:
     - Stack
     - String
 ---
+
+<!-- problem:start -->
 
 # [1249. Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses)
 
 [中文文档](/solution/1200-1299/1249.Minimum%20Remove%20to%20Make%20Valid%20Parentheses/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <font face="monospace">s</font> of <code>&#39;(&#39;</code> , <code>&#39;)&#39;</code> and lowercase English characters.</p>
 
@@ -58,7 +63,11 @@ tags:
 	<li><code>s[i]</code> is either&nbsp;<code>&#39;(&#39;</code> , <code>&#39;)&#39;</code>, or lowercase English letter.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Passes
 
@@ -72,6 +81,8 @@ Similar problems:
 -   [2116. Check if a Parentheses String Can Be Valid](https://github.com/doocs/leetcode/blob/main/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +109,8 @@ class Solution:
             ans.append(c)
         return ''.join(ans[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +181,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minRemoveToMakeValid(s string) string {
@@ -204,6 +221,8 @@ func minRemoveToMakeValid(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minRemoveToMakeValid(s: string): string {
     let left = 0;
@@ -239,6 +258,8 @@ function minRemoveToMakeValid(s: string): string {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -289,4 +310,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

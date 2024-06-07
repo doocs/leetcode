@@ -9,13 +9,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [435. 无重叠区间](https://leetcode.cn/problems/non-overlapping-intervals)
 
 [English Version](/solution/0400-0499/0435.Non-overlapping%20Intervals/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个区间的集合&nbsp;<code>intervals</code>&nbsp;，其中 <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>&nbsp;。返回 <em>需要移除区间的最小数量，使剩余区间互不重叠&nbsp;</em>。</p>
 
@@ -55,13 +57,19 @@ tags:
 	<li><code>-5 * 10<sup>4</sup>&nbsp;&lt;= start<sub>i</sub>&nbsp;&lt; end<sub>i</sub>&nbsp;&lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：转换为最长上升子序列问题
 
 最长上升子序列问题，动态规划的做法，时间复杂度是 $O(n^2)$，这里可以采用贪心优化，将复杂度降至 $O(n\log n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +83,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func eraseOverlapIntervals(intervals [][]int) int {
 	sort.Slice(intervals, func(i, j int) bool {
@@ -126,6 +140,8 @@ func eraseOverlapIntervals(intervals [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function eraseOverlapIntervals(intervals: number[][]): number {
@@ -146,6 +162,10 @@ function eraseOverlapIntervals(intervals: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序 + 贪心
 
 先按照区间右边界排序。优先选择最小的区间的右边界作为起始边界。遍历区间：
@@ -158,6 +178,8 @@ function eraseOverlapIntervals(intervals: number[][]): number {
 时间复杂度 $O(n\log n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -172,6 +194,8 @@ class Solution:
                 d[idx] = min(d[idx], e)
         return len(intervals) - len(d)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -210,4 +234,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

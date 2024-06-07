@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1413.Minimum%20Value%20to%20Get%20Positive%20Step%20by%20Step%20Sum/README_EN.md
 rating: 1212
+source: Biweekly Contest 24 Q1
 tags:
     - Array
     - Prefix Sum
 ---
+
+<!-- problem:start -->
 
 # [1413. Minimum Value to Get Positive Step by Step Sum](https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum)
 
 [中文文档](/solution/1400-1499/1413.Minimum%20Value%20to%20Get%20Positive%20Step%20by%20Step%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers&nbsp;<code>nums</code>, you start with an initial <strong>positive</strong> value <em>startValue</em><em>.</em></p>
 
@@ -59,11 +64,17 @@ tags:
 	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +85,8 @@ class Solution:
             t = min(t, s)
         return max(1, 1 - t)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minStartValue(nums []int) int {
@@ -119,6 +136,8 @@ func minStartValue(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minStartValue(nums: number[]): number {
     let sum = 0;
@@ -130,6 +149,8 @@ function minStartValue(nums: number[]): number {
     return Math.max(1, 1 - min);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -147,9 +168,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -160,4 +187,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

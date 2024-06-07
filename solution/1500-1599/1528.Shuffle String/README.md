@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1528.Shuffle%20String/README.md
 rating: 1193
+source: 第 199 场周赛 Q1
 tags:
     - 数组
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1528. 重新排列字符串](https://leetcode.cn/problems/shuffle-string)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> 和一个 <strong>长度相同</strong> 的整数数组 <code>indices</code> 。</p>
 
@@ -54,11 +57,17 @@ tags:
 	<li><code>indices</code> 的所有的值都是 <strong>唯一</strong> 的</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +77,8 @@ class Solution:
             ans[indices[i]] = c
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func restoreString(s string, indices []int) string {
 	ans := make([]rune, len(s))
@@ -105,6 +120,8 @@ func restoreString(s string, indices []int) string {
 	return string(ans)
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -123,4 +140,6 @@ var restoreString = function (s, indices) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1704.Determine%20if%20String%20Halves%20Are%20Alike/README_EN.md
 rating: 1207
+source: Weekly Contest 221 Q1
 tags:
     - String
     - Counting
 ---
+
+<!-- problem:start -->
 
 # [1704. Determine if String Halves Are Alike](https://leetcode.com/problems/determine-if-string-halves-are-alike)
 
 [中文文档](/solution/1700-1799/1704.Determine%20if%20String%20Halves%20Are%20Alike/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> of even length. Split this string into two halves of equal lengths, and let <code>a</code> be the first half and <code>b</code> be the second half.</p>
 
@@ -47,7 +52,11 @@ Notice that the vowel o is counted twice.
 	<li><code>s</code> consists of <strong>uppercase and lowercase</strong> letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -56,6 +65,8 @@ Traverse the string. If the number of vowels in the first half of the string is 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(C)$, where $C$ is the number of vowel characters.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +78,8 @@ class Solution:
             cnt -= s[i + n] in vowels
         return cnt == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -98,6 +113,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func halvesAreAlike(s string) bool {
@@ -118,6 +135,8 @@ func halvesAreAlike(s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function halvesAreAlike(s: string): boolean {
     const set = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
@@ -130,6 +149,8 @@ function halvesAreAlike(s: string): boolean {
     return count === 0;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -154,6 +175,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -169,6 +192,8 @@ var halvesAreAlike = function (s) {
     return cnt === 0;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -193,9 +218,15 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -207,4 +238,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

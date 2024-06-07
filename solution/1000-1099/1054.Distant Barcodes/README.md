@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1054.Distant%20Barcodes/README.md
 rating: 1701
+source: 第 138 场周赛 Q4
 tags:
     - 贪心
     - 数组
@@ -12,13 +13,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1054. 距离相等的条形码](https://leetcode.cn/problems/distant-barcodes)
 
 [English Version](/solution/1000-1099/1054.Distant%20Barcodes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一个仓库里，有一排条形码，其中第 <code>i</code> 个条形码为&nbsp;<code>barcodes[i]</code>。</p>
 
@@ -48,7 +51,11 @@ tags:
 	<li><code>1 &lt;= barcodes[i] &lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 排序
 
@@ -59,6 +66,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(M)$。其中 $n$ 和 $M$ 分别是数组 $barcodes$ 的长度以及数组 $barcodes$ 中的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +80,8 @@ class Solution:
         ans[1::2] = barcodes[(n + 1) // 2 :]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rearrangeBarcodes(barcodes []int) []int {
@@ -148,6 +163,8 @@ func rearrangeBarcodes(barcodes []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function rearrangeBarcodes(barcodes: number[]): number[] {
     const mx = Math.max(...barcodes);
@@ -169,4 +186,6 @@ function rearrangeBarcodes(barcodes: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

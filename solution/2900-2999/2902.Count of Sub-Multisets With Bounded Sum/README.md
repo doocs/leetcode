@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2902.Count%20of%20Sub-Multisets%20With%20Bounded%20Sum/README.md
 rating: 2758
+source: 第 115 场双周赛 Q4
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [2902. 和带限制的子多重集合的数目](https://leetcode.cn/problems/count-of-sub-multisets-with-bounded-sum)
 
 [English Version](/solution/2900-2999/2902.Count%20of%20Sub-Multisets%20With%20Bounded%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的非负整数数组&nbsp;<code>nums</code>&nbsp;和两个整数&nbsp;<code>l</code> 和&nbsp;<code>r</code>&nbsp;。</p>
 
@@ -69,11 +72,17 @@ tags:
 	<li><code>0 &lt;= l &lt;= r &lt;= 2 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +107,8 @@ class Solution:
 
         return (zeros + 1) * sum(dp[l : r + 1]) % kMod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -175,6 +188,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSubMultisets(nums []int, l int, r int) int {
@@ -210,6 +225,8 @@ func countSubMultisets(nums []int, l int, r int) int {
 var mod int = 1e9 + 7
 ```
 
+#### TypeScript
+
 ```ts
 function countSubMultisets(nums: number[], l: number, r: number): number {
     const cnt: number[] = Array(20001).fill(0);
@@ -243,4 +260,6 @@ function countSubMultisets(nums: number[], l: number, r: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

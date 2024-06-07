@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20016.%20%E4%B8%8D%E5%90%AB%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 016. 不含重复字符的最长子字符串](https://leetcode.cn/problems/wtcaE1)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的&nbsp;<strong>最长连续子字符串&nbsp;</strong>的长度。</p>
 
@@ -58,7 +60,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 3&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/">https://leetcode.cn/problems/longest-substring-without-repeating-characters/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针 + 哈希表
 
@@ -69,6 +75,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$，其中 $n$ 为字符串 $s$ 的长度，而 $\Sigma$ 表示字符集，本题中字符集为所有 ASCII 码在 $[0, 128)$ 内的字符，即 $|\Sigma|=128$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +91,8 @@ class Solution:
             ss.add(c)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lengthOfLongestSubstring(s string) (ans int) {
 	ss := make([]bool, 128)
@@ -137,6 +151,8 @@ func lengthOfLongestSubstring(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function lengthOfLongestSubstring(s: string): number {
@@ -155,9 +171,15 @@ function lengthOfLongestSubstring(s: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function lengthOfLongestSubstring(s: string): number {
@@ -175,6 +197,31 @@ function lengthOfLongestSubstring(s: string): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func lengthOfLongestSubstring(_ s: String) -> Int {
+        var ss = Array(repeating: false, count: 128)
+        var ans = 0
+        var j = s.startIndex
+
+        for i in s.indices {
+            let c = s[i]
+            while ss[Int(c.asciiValue!)] {
+                ss[Int(s[j].asciiValue!)] = false
+                j = s.index(after: j)
+            }
+            ans = max(ans, s.distance(from: j, to: i) + 1)
+            ss[Int(c.asciiValue!)] = true
+        }
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,11 +11,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [464. Can I Win](https://leetcode.com/problems/can-i-win)
 
 [中文文档](/solution/0400-0499/0464.Can%20I%20Win/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In the &quot;100 game&quot; two players take turns adding, to a running total, any integer from <code>1</code> to <code>10</code>. The player who first causes the running total to <strong>reach or exceed</strong> 100 wins.</p>
 
@@ -61,117 +65,166 @@ Same with other integers chosen by the first player, the second player will alwa
 	<li><code>0 &lt;= desiredTotal &lt;= 300</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: State Compression + Memoization
+
+First, we check if the sum of all selectable integers is less than the target value. If so, it means that we cannot win no matter what, so we directly return `false`.
+
+Then, we design a function `dfs(mask, s)`, where `mask` represents the current state of the selected integers, and `s` represents the current cumulative sum. The return value of the function is whether the current player can win.
+
+The execution process of the function `dfs(mask, s)` is as follows:
+
+We iterate through each integer `i` from `1` to `maxChoosableInteger`. If `i` has not been selected, we can choose `i`. If the cumulative sum `s + i` after choosing `i` is greater than or equal to the target value `desiredTotal`, or if the result of the opponent choosing `i` is losing, then the current player is winning, return `true`.
+
+If no choice can make the current player win, then the current player is losing, return `false`.
+
+To avoid repeated calculations, we use a hash table `f` to record the calculated states, where the key is `mask`, and the value is whether the current player can win.
+
+The time complexity is $O(2^n)$, and the space complexity is $O(2^n)$. Where $n$ is `maxChoosableInteger`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def canIWin(self, maxChoosableInteger: int, desiredTotal: int) -> bool:
         @cache
-        def dfs(state, t):
+        def dfs(mask: int, s: int) -> bool:
             for i in range(1, maxChoosableInteger + 1):
-                if (state >> i) & 1:
-                    continue
-                if t + i >= desiredTotal or not dfs(state | 1 << i, t + i):
-                    return True
+                if mask >> i & 1 ^ 1:
+                    if s + i >= desiredTotal or not dfs(mask | 1 << i, s + i):
+                        return True
             return False
 
-        s = (1 + maxChoosableInteger) * maxChoosableInteger // 2
-        if s < desiredTotal:
+        if (1 + maxChoosableInteger) * maxChoosableInteger // 2 < desiredTotal:
             return False
         return dfs(0, 0)
 ```
 
+#### Java
+
 ```java
 class Solution {
-    private Map<Integer, Boolean> memo = new HashMap<>();
+    private Map<Integer, Boolean> f = new HashMap<>();
+    private int maxChoosableInteger;
+    private int desiredTotal;
 
     public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
-        int s = (1 + maxChoosableInteger) * maxChoosableInteger / 2;
-        if (s < desiredTotal) {
+        if ((1 + maxChoosableInteger) * maxChoosableInteger / 2 < desiredTotal) {
             return false;
         }
-        return dfs(0, 0, maxChoosableInteger, desiredTotal);
+        this.maxChoosableInteger = maxChoosableInteger;
+        this.desiredTotal = desiredTotal;
+        return dfs(0, 0);
     }
 
-    private boolean dfs(int state, int t, int maxChoosableInteger, int desiredTotal) {
-        if (memo.containsKey(state)) {
-            return memo.get(state);
+    private boolean dfs(int mask, int s) {
+        if (f.containsKey(mask)) {
+            return f.get(mask);
         }
-        boolean res = false;
-        for (int i = 1; i <= maxChoosableInteger; ++i) {
-            if (((state >> i) & 1) == 0) {
-                if (t + i >= desiredTotal
-                    || !dfs(state | 1 << i, t + i, maxChoosableInteger, desiredTotal)) {
-                    res = true;
-                    break;
+        for (int i = 0; i < maxChoosableInteger; ++i) {
+            if ((mask >> i & 1) == 0) {
+                if (s + i + 1 >= desiredTotal || !dfs(mask | 1 << i, s + i + 1)) {
+                    f.put(mask, true);
+                    return true;
                 }
             }
         }
-        memo.put(state, res);
-        return res;
+        f.put(mask, false);
+        return false;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
 public:
     bool canIWin(int maxChoosableInteger, int desiredTotal) {
-        int s = (1 + maxChoosableInteger) * maxChoosableInteger / 2;
-        if (s < desiredTotal) return false;
-        unordered_map<int, bool> memo;
-        return dfs(0, 0, maxChoosableInteger, desiredTotal, memo);
-    }
-
-    bool dfs(int state, int t, int maxChoosableInteger, int desiredTotal, unordered_map<int, bool>& memo) {
-        if (memo.count(state)) return memo[state];
-        bool res = false;
-        for (int i = 1; i <= maxChoosableInteger; ++i) {
-            if ((state >> i) & 1) continue;
-            if (t + i >= desiredTotal || !dfs(state | 1 << i, t + i, maxChoosableInteger, desiredTotal, memo)) {
-                res = true;
-                break;
-            }
+        if ((1 + maxChoosableInteger) * maxChoosableInteger / 2 < desiredTotal) {
+            return false;
         }
-        memo[state] = res;
-        return res;
+        unordered_map<int, int> f;
+        function<bool(int, int)> dfs = [&](int mask, int s) {
+            if (f.contains(mask)) {
+                return f[mask];
+            }
+            for (int i = 0; i < maxChoosableInteger; ++i) {
+                if (mask >> i & 1 ^ 1) {
+                    if (s + i + 1 >= desiredTotal || !dfs(mask | 1 << i, s + i + 1)) {
+                        return f[mask] = true;
+                    }
+                }
+            }
+            return f[mask] = false;
+        };
+        return dfs(0, 0);
     }
 };
 ```
 
+#### Go
+
 ```go
 func canIWin(maxChoosableInteger int, desiredTotal int) bool {
-	s := (1 + maxChoosableInteger) * maxChoosableInteger / 2
-	if s < desiredTotal {
+	if (1+maxChoosableInteger)*maxChoosableInteger/2 < desiredTotal {
 		return false
 	}
-	memo := map[int]bool{}
+	f := map[int]bool{}
 	var dfs func(int, int) bool
-	dfs = func(state, t int) bool {
-		if v, ok := memo[state]; ok {
+	dfs = func(mask, s int) bool {
+		if v, ok := f[mask]; ok {
 			return v
 		}
-		res := false
 		for i := 1; i <= maxChoosableInteger; i++ {
-			if (state>>i)&1 == 1 {
-				continue
-			}
-			if t+i >= desiredTotal || !dfs(state|1<<i, t+i) {
-				res = true
-				break
+			if mask>>i&1 == 0 {
+				if s+i >= desiredTotal || !dfs(mask|1<<i, s+i) {
+					f[mask] = true
+					return true
+				}
 			}
 		}
-		memo[state] = res
-		return res
+		f[mask] = false
+		return false
 	}
 	return dfs(0, 0)
 }
 ```
 
+#### TypeScript
+
+```ts
+function canIWin(maxChoosableInteger: number, desiredTotal: number): boolean {
+    if (((1 + maxChoosableInteger) * maxChoosableInteger) / 2 < desiredTotal) {
+        return false;
+    }
+    const f: Record<string, boolean> = {};
+    const dfs = (mask: number, s: number): boolean => {
+        if (f.hasOwnProperty(mask)) {
+            return f[mask];
+        }
+        for (let i = 1; i <= maxChoosableInteger; ++i) {
+            if (((mask >> i) & 1) ^ 1) {
+                if (s + i >= desiredTotal || !dfs(mask ^ (1 << i), s + i)) {
+                    return (f[mask] = true);
+                }
+            }
+        }
+        return (f[mask] = false);
+    };
+    return dfs(0, 0);
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

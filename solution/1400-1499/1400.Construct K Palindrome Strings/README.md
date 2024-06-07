@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1400.Construct%20K%20Palindrome%20Strings/README.md
 rating: 1530
+source: 第 23 场双周赛 Q2
 tags:
     - 贪心
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [1400. 构造 K 个回文字符串](https://leetcode.cn/problems/construct-k-palindrome-strings)
 
 [English Version](/solution/1400-1499/1400.Construct%20K%20Palindrome%20Strings/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code>&nbsp;和一个整数 <code>k</code>&nbsp;。请你用 <code>s</code>&nbsp;字符串中 <strong>所有字符</strong>&nbsp;构造 <code>k</code>&nbsp;个非空 <strong>回文串</strong>&nbsp;。</p>
 
@@ -75,7 +78,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10^5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -87,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canConstruct(self, s: str, k: int) -> bool:
@@ -95,6 +104,8 @@ class Solution:
         cnt = Counter(s)
         return sum(v & 1 for v in cnt.values()) <= k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canConstruct(s string, k int) bool {
 	if len(s) < k {
@@ -152,6 +167,8 @@ func canConstruct(s string, k int) bool {
 	return x <= k
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canConstruct(s: string, k: number): boolean {
@@ -172,4 +189,6 @@ function canConstruct(s: string, k: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

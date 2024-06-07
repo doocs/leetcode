@@ -9,11 +9,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [811. Subdomain Visit Count](https://leetcode.com/problems/subdomain-visit-count)
 
 [中文文档](/solution/0800-0899/0811.Subdomain%20Visit%20Count/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A website domain <code>&quot;discuss.leetcode.com&quot;</code> consists of various subdomains. At the top level, we have <code>&quot;com&quot;</code>, at the next level, we have <code>&quot;leetcode.com&quot;</code>&nbsp;and at the lowest level, <code>&quot;discuss.leetcode.com&quot;</code>. When we visit a domain like <code>&quot;discuss.leetcode.com&quot;</code>, we will also visit the parent domains <code>&quot;leetcode.com&quot;</code> and <code>&quot;com&quot;</code> implicitly.</p>
 
@@ -55,11 +59,17 @@ For the subdomains, we will visit &quot;mail.com&quot; 900 + 1 = 901 times, &quo
 	<li><code>d1<sub>i</sub></code>, <code>d2<sub>i</sub></code>, and <code>d3<sub>i</sub></code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +82,8 @@ class Solution:
                     cnt[s[i + 1 :]] += v
         return [f'{v} {s}' for s, v in cnt.items()]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subdomainVisits(cpdomains []string) []string {
 	cnt := map[string]int{}
@@ -141,4 +157,6 @@ func subdomainVisits(cpdomains []string) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

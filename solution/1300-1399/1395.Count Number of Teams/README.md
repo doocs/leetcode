@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1395.Count%20Number%20of%20Teams/README.md
 rating: 1343
+source: 第 182 场周赛 Q2
 tags:
     - 树状数组
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [1395. 统计作战单位数](https://leetcode.cn/problems/count-number-of-teams)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p> <code>n</code> 名士兵站成一排。每个士兵都有一个 <strong>独一无二</strong> 的评分 <code>rating</code> 。</p>
 
@@ -64,7 +67,11 @@ tags:
 	<li><code>rating</code> 中的元素都是唯一的</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举中间元素
 
@@ -73,6 +80,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $rating$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +94,8 @@ class Solution:
             ans += (i - l) * (n - i - 1 - r)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numTeams(rating []int) (ans int) {
 	n := len(rating)
@@ -158,6 +173,8 @@ func numTeams(rating []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numTeams(rating: number[]): number {
@@ -185,6 +202,10 @@ function numTeams(rating: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：树状数组
 
 我们可以用两个树状数组分别维护数组 $rating$ 中每个元素的左边比它小的元素的个数 $l$，右边比它大的元素的个数 $r$，然后统计以该元素为中间元素的作战单位的个数为 $l \times r + (i - l) \times (n - i - 1 - r)$，累加到答案中即可。
@@ -192,6 +213,8 @@ function numTeams(rating: number[]): number {
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $rating$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -233,6 +256,8 @@ class Solution:
             ans += (i - l) * (n - i - 1 - r)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -307,6 +332,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -363,6 +390,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -421,6 +450,8 @@ func numTeams(rating []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -494,4 +525,6 @@ function numTeams(rating: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

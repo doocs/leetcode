@@ -8,11 +8,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists)
 
 [中文文档](/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the heads of two singly linked-lists <code>headA</code> and <code>headB</code>, return <em>the node at which the two lists intersect</em>. If the two linked lists have no intersection at all, return <code>null</code>.</p>
 
@@ -82,7 +86,11 @@ Explanation: The two lists do not intersect, so return null.
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you write a solution that runs in <code>O(m + n)</code> time and use only <code>O(1)</code> memory?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -95,6 +103,8 @@ If the two pointers meet, the node they point to is the first common node. If th
 The time complexity is $O(m+n)$, where $m$ and $n$ are the lengths of the linked lists $headA$ and $headB$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -112,6 +122,8 @@ class Solution:
             b = b.next if b else headA
         return a
 ```
+
+#### Java
 
 ```java
 /**
@@ -137,6 +149,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -158,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -185,6 +201,8 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -208,6 +226,8 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
     return a;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -233,6 +253,8 @@ var getIntersectionNode = function (headA, headB) {
     return a;
 };
 ```
+
+#### Swift
 
 ```swift
 /**
@@ -262,4 +284,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

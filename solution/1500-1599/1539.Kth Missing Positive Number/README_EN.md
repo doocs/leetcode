@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1539.Kth%20Missing%20Positive%20Number/README_EN.md
 rating: 1295
+source: Biweekly Contest 32 Q1
 tags:
     - Array
     - Binary Search
 ---
+
+<!-- problem:start -->
 
 # [1539. Kth Missing Positive Number](https://leetcode.com/problems/kth-missing-positive-number)
 
 [中文文档](/solution/1500-1599/1539.Kth%20Missing%20Positive%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>arr</code> of positive integers sorted in a <strong>strictly increasing order</strong>, and an integer <code>k</code>.</p>
 
@@ -50,11 +55,17 @@ tags:
 
 <p>Could you solve this problem in less than O(n) complexity?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +81,8 @@ class Solution:
                 left = mid + 1
         return arr[left - 1] + k - (arr[left - 1] - (left - 1) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findKthPositive(arr []int, k int) int {
@@ -129,4 +146,6 @@ func findKthPositive(arr []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [885. Spiral Matrix III](https://leetcode.com/problems/spiral-matrix-iii)
 
 [中文文档](/solution/0800-0899/0885.Spiral%20Matrix%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You start at the cell <code>(rStart, cStart)</code> of an <code>rows x cols</code> grid facing east. The northwest corner is at the first row and column in the grid, and the southeast corner is at the last row and column.</p>
 
@@ -44,11 +48,17 @@ tags:
 	<li><code>0 &lt;= cStart &lt; cols</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +80,8 @@ class Solution:
                             return ans
             k += 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func spiralMatrixIII(rows int, cols int, rStart int, cStart int) [][]int {
@@ -155,4 +171,6 @@ func spiralMatrixIII(rows int, cols int, rStart int, cStart int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

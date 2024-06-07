@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1812.Determine%20Color%20of%20a%20Chessboard%20Square/README_EN.md
 rating: 1328
+source: Biweekly Contest 49 Q1
 tags:
     - Math
     - String
 ---
+
+<!-- problem:start -->
 
 # [1812. Determine Color of a Chessboard Square](https://leetcode.com/problems/determine-color-of-a-chessboard-square)
 
 [中文文档](/solution/1800-1899/1812.Determine%20Color%20of%20a%20Chessboard%20Square/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given <code>coordinates</code>, a string that represents the coordinates of a square of the chessboard. Below is a chessboard for your reference.</p>
 
@@ -55,7 +60,11 @@ tags:
 	<li><code>&#39;1&#39; &lt;= coordinates[1] &lt;= &#39;8&#39;</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Find the Pattern
 
@@ -67,11 +76,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def squareIsWhite(self, coordinates: str) -> bool:
         return (ord(coordinates[0]) + ord(coordinates[1])) % 2 == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -90,17 +105,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func squareIsWhite(coordinates string) bool {
 	return (coordinates[0]+coordinates[1])%2 == 1
 }
 ```
 
+#### TypeScript
+
 ```ts
 function squareIsWhite(coordinates: string): boolean {
     return ((coordinates.charCodeAt(0) + coordinates.charCodeAt(1)) & 1) === 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -110,6 +131,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -123,6 +146,8 @@ var squareIsWhite = function (coordinates) {
 };
 ```
 
+#### C
+
 ```c
 bool squareIsWhite(char* coordinates) {
     return (coordinates[0] + coordinates[1]) & 1;
@@ -131,4 +156,6 @@ bool squareIsWhite(char* coordinates) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

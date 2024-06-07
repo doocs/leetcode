@@ -10,11 +10,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [116. Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node)
 
 [中文文档](/solution/0100-0199/0116.Populating%20Next%20Right%20Pointers%20in%20Each%20Node/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>perfect binary tree</strong> where all leaves are on the same level, and every parent has two children. The binary tree has the following definition:</p>
 
@@ -63,7 +67,11 @@ struct Node {
 	<li>The recursive approach is fine. You may assume implicit stack space does not count as extra space for this problem.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -72,6 +80,8 @@ Use a queue for level order traversal, and each time you traverse a level, conne
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -103,6 +113,8 @@ class Solution:
                     q.append(node.right)
         return root
 ```
+
+#### Java
 
 ```java
 /*
@@ -156,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -204,6 +218,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -241,6 +257,8 @@ func connect(root *Node) *Node {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for Node.
@@ -275,6 +293,10 @@ function connect(root: Node | null): Node | null {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: DFS
 
 Use recursion for preorder traversal, and each time you traverse to a node, connect its left and right child nodes in order.
@@ -284,6 +306,8 @@ Specifically, we design a function $dfs(left, right)$, which points the $next$ p
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -311,6 +335,8 @@ class Solution:
             dfs(root.left, root.right)
         return root
 ```
+
+#### Java
 
 ```java
 /*
@@ -356,6 +382,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -395,6 +423,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -423,6 +453,8 @@ func connect(root *Node) *Node {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -463,4 +495,6 @@ function connect(root: Node | null): Node | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

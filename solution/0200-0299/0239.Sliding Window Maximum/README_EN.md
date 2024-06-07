@@ -10,11 +10,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum)
 
 [中文文档](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of integers&nbsp;<code>nums</code>, there is a sliding window of size <code>k</code> which is moving from the very left of the array to the very right. You can only see the <code>k</code> numbers in the window. Each time the sliding window moves right by one position.</p>
 
@@ -53,11 +57,17 @@ Window position                Max
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +82,8 @@ class Solution:
             ans.append(-q[0][0])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxSlidingWindow(nums []int, k int) (ans []int) {
@@ -146,6 +162,8 @@ func (h hp) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -181,6 +199,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -205,6 +225,8 @@ var maxSlidingWindow = function (nums, k) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;
@@ -237,9 +259,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -256,6 +284,8 @@ class Solution:
                 ans.append(nums[q[0]])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -280,6 +310,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -303,6 +335,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSlidingWindow(nums []int, k int) (ans []int) {
 	q := []int{}
@@ -324,4 +358,6 @@ func maxSlidingWindow(nums []int, k int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

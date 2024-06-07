@@ -11,13 +11,15 @@ tags:
     - 博弈
 ---
 
+<!-- problem:start -->
+
 # [913. 猫和老鼠](https://leetcode.cn/problems/cat-and-mouse)
 
 [English Version](/solution/0900-0999/0913.Cat%20and%20Mouse/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>两位玩家分别扮演猫和老鼠，在一张 <strong>无向</strong> 图上进行游戏，两人轮流行动。</p>
 
@@ -73,7 +75,11 @@ tags:
 	<li>猫和老鼠在游戏中总是可以移动</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拓扑排序
 
@@ -101,6 +107,8 @@ tags:
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 是图中的结点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 HOLE, MOUSE_START, CAT_START = 0, 1, 2
@@ -160,6 +168,8 @@ class Solution:
                             q.append(prev_state)
         return res[MOUSE_START][CAT_START][MOUSE_TURN]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -245,6 +255,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 const int HOLE = 0;
 const int MOUSE_START = 1;
@@ -322,6 +334,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const (
@@ -404,4 +418,6 @@ func catMouseGame(graph [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

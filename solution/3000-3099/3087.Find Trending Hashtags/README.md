@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3087. 查找热门话题标签 🔒](https://leetcode.cn/problems/find-trending-hashtags)
 
 [English Version](/solution/3000-3099/3087.Find%20Trending%20Hashtags/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Tweets</code></p>
 
@@ -80,13 +82,19 @@ tweet_id 是这张表的主键 (值互不相同的列)。
 
 <p><b>注意：</b>输出表分别按 hashtag_count 和 hashtag 降序排序。</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：提取子串 + 分组
 
 我们可以查询得到 2024 年 2 月的所有 tweet，利用 `SUBSTRING_INDEX` 函数提取 Hashtag，然后使用 `GROUP BY` 和 `COUNT` 函数统计每个 Hashtag 出现的次数，最后按照出现次数降序、Hashtag 降序排序，取前三个热门 Hashtag。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -99,6 +107,8 @@ GROUP BY 1
 ORDER BY 2 DESC, 1 DESC
 LIMIT 3;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -128,4 +138,6 @@ def find_trending_hashtags(tweets: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

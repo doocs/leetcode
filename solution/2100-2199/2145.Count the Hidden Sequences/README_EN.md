@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2145.Count%20the%20Hidden%20Sequences/README_EN.md
 rating: 1614
+source: Biweekly Contest 70 Q2
 tags:
     - Array
     - Prefix Sum
 ---
+
+<!-- problem:start -->
 
 # [2145. Count the Hidden Sequences](https://leetcode.com/problems/count-the-hidden-sequences)
 
 [中文文档](/solution/2100-2199/2145.Count%20the%20Hidden%20Sequences/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of <code>n</code> integers <code>differences</code>, which describes the <strong>differences </strong>between each pair of <strong>consecutive </strong>integers of a <strong>hidden</strong> sequence of length <code>(n + 1)</code>. More formally, call the hidden sequence <code>hidden</code>, then we have that <code>differences[i] = hidden[i + 1] - hidden[i]</code>.</p>
 
@@ -75,11 +80,17 @@ Thus, we return 4.
 	<li><code>-10<sup>5</sup> &lt;= lower &lt;= upper &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +102,8 @@ class Solution:
             mx = max(mx, num)
         return max(0, upper - lower - (mx - mi) + 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfArrays(differences []int, lower int, upper int) int {
 	num, mi, mx := 0, 0, 0
@@ -135,4 +152,6 @@ func numberOfArrays(differences []int, lower int, upper int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

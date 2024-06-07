@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1743.Restore%20the%20Array%20From%20Adjacent%20Pairs/README_EN.md
 rating: 1579
+source: Weekly Contest 226 Q2
 tags:
     - Array
     - Hash Table
 ---
+
+<!-- problem:start -->
 
 # [1743. Restore the Array From Adjacent Pairs](https://leetcode.com/problems/restore-the-array-from-adjacent-pairs)
 
 [中文文档](/solution/1700-1799/1743.Restore%20the%20Array%20From%20Adjacent%20Pairs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an integer array <code>nums</code> that consists of <code>n</code> <strong>unique </strong>elements, but you have forgotten it. However, you do remember every pair of adjacent elements in <code>nums</code>.</p>
 
@@ -60,11 +65,17 @@ Another solution is [-3,1,4,-2], which would also be accepted.
 	<li>There exists some <code>nums</code> that has <code>adjacentPairs</code> as its pairs.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +96,8 @@ class Solution:
             ans[i] = v[0] if v[1] == ans[i - 2] else v[1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func restoreArray(adjacentPairs [][]int) []int {
 	n := len(adjacentPairs) + 1
@@ -168,6 +185,8 @@ func restoreArray(adjacentPairs [][]int) []int {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -209,9 +228,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -231,6 +256,8 @@ class Solution:
         dfs(i, 1e6)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -265,6 +292,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -296,6 +325,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func restoreArray(adjacentPairs [][]int) []int {
 	g := map[int][]int{}
@@ -326,4 +357,6 @@ func restoreArray(adjacentPairs [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

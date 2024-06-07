@@ -9,13 +9,15 @@ tags:
     - 随机化
 ---
 
+<!-- problem:start -->
+
 # [382. 链表随机节点](https://leetcode.cn/problems/linked-list-random-node)
 
 [English Version](/solution/0300-0399/0382.Linked%20List%20Random%20Node/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个单链表，随机选择链表的一个节点，并返回相应的节点值。每个节点<strong> 被选中的概率一样</strong> 。</p>
 
@@ -65,11 +67,17 @@ solution.getRandom(); // 返回 3
 	<li>你能否在不使用额外空间的情况下解决此问题？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -97,6 +105,8 @@ class Solution:
 # obj = Solution(head)
 # param_1 = obj.getRandom()
 ```
+
+#### Java
 
 ```java
 /**
@@ -137,6 +147,8 @@ class Solution {
  */
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -173,6 +185,8 @@ public:
  * int param_1 = obj->getRandom();
  */
 ```
+
+#### Go
 
 ```go
 /**
@@ -211,4 +225,6 @@ func (this *Solution) GetRandom() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

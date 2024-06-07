@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1581. 进店却未进行过交易的顾客](https://leetcode.cn/problems/customer-who-visited-but-did-not-make-any-transactions)
 
 [English Version](/solution/1500-1599/1581.Customer%20Who%20Visited%20but%20Did%20Not%20Make%20Any%20Transactions/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Visits</code></p>
 
@@ -95,13 +97,19 @@ ID = 54 的顾客三度造访了购物中心。在 2 次访问中，他们没有
 ID = 96 的顾客曾经去过购物中心，并且没有进行任何交易。
 如我们所见，ID 为 30 和 96 的顾客一次没有进行任何交易就去了购物中心。顾客 54 也两次访问了购物中心并且没有进行任何交易。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：子查询 + 分组统计
 
 我们可以使用子查询，先找出所有没有进行交易的 `visit_id`，然后按照 `customer_id` 进行分组，统计每个顾客的没有进行交易的次数。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -113,11 +121,17 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：左连接 + 分组统计
 
 我们也可以使用左连接，将 `Visits` 表和 `Transactions` 表按照 `visit_id` 进行连接，然后筛选出 `amount` 为 `NULL` 的记录，按照 `customer_id` 进行分组，统计每个顾客的没有进行交易的次数。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -131,4 +145,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

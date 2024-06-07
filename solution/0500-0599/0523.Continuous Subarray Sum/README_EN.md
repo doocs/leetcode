@@ -9,11 +9,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [523. Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum)
 
 [中文文档](/solution/0500-0599/0523.Continuous%20Subarray%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array nums and an integer k, return <code>true</code> <em>if </em><code>nums</code><em> has a <strong>good subarray</strong> or </em><code>false</code><em> otherwise</em>.</p>
 
@@ -66,11 +70,17 @@ tags:
 	<li><code>1 &lt;= k &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +96,8 @@ class Solution:
                 mp[r] = i
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkSubarraySum(nums []int, k int) bool {
@@ -146,4 +162,6 @@ func checkSubarraySum(nums []int, k int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

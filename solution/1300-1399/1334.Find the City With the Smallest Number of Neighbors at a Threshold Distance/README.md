@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1334.Find%20the%20City%20With%20the%20Smallest%20Number%20of%20Neighbors%20at%20a%20Threshold%20Distance/README.md
 rating: 1854
+source: 第 173 场周赛 Q3
 tags:
     - 图
     - 动态规划
     - 最短路
 ---
+
+<!-- problem:start -->
 
 # [1334. 阈值距离内邻居最少的城市](https://leetcode.cn/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有 <code>n</code> 个城市，按从 <code>0</code> 到 <code>n-1</code> 编号。给你一个边数组 <code>edges</code>，其中 <code>edges[i] = [from<sub>i</sub>, to<sub>i</sub>, weight<sub>i</sub>]</code> 代表 <code>from<sub>i</sub></code> 和 <code>to<sub>i</sub></code><sub> </sub>两个城市之间的双向加权边，距离阈值是一个整数 <code>distanceThreshold</code>。</p>
 
@@ -71,7 +74,11 @@ tags:
 	<li>所有 <code>(from<sub>i</sub>, to<sub>i</sub>)</code> 都是不同的。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：Dijkstra 算法
 
@@ -80,6 +87,8 @@ tags:
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为城市个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +120,8 @@ class Solution:
                 cnt, ans = t, i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -173,6 +184,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -215,6 +228,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findTheCity(n int, edges [][]int, distanceThreshold int) int {
@@ -270,6 +285,8 @@ func findTheCity(n int, edges [][]int, distanceThreshold int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findTheCity(n: number, edges: number[][], distanceThreshold: number): number {
     const g: number[][] = Array.from({ length: n }, () => Array(n).fill(Infinity));
@@ -314,6 +331,10 @@ function findTheCity(n: number, edges: number[][], distanceThreshold: number): n
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：Floyd 算法
 
 我们定义 $g[i][j]$ 表示城市 $i$ 到城市 $j$ 的最短距离，初始时 $g[i][j] = \infty$, $g[i][i] = 0$，然后我们遍历所有边，对于每条边 $(f, t, w)$，我们令 $g[f][t] = g[t][f] = w$。
@@ -325,6 +346,8 @@ function findTheCity(n: number, edges: number[][], distanceThreshold: number): n
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为城市个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -350,6 +373,8 @@ class Solution:
                 cnt, ans = t, i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -390,6 +415,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -420,6 +447,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findTheCity(n int, edges [][]int, distanceThreshold int) int {
@@ -463,6 +492,8 @@ func findTheCity(n int, edges [][]int, distanceThreshold int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findTheCity(n: number, edges: number[][], distanceThreshold: number): number {
     const g: number[][] = Array.from({ length: n }, () => Array(n).fill(Infinity));
@@ -493,4 +524,6 @@ function findTheCity(n: number, edges: number[][], distanceThreshold: number): n
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.05.Recursive%20Mulitply/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.05. 递归乘法](https://leetcode.cn/problems/recursive-mulitply-lcci)
 
 [English Version](/lcci/08.05.Recursive%20Mulitply/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>递归乘法。 写一个递归函数，不使用 * 运算符， 实现两个正整数的相乘。可以使用加号、减号、位移，但要吝啬一些。</p>
 <p> <strong>示例1:</strong></p>
 <pre>
@@ -27,7 +30,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.05.Recursive%20Mul
 <li>保证乘法范围不会溢出</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归 + 位运算
 
@@ -39,6 +46,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.05.Recursive%20Mul
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def multiply(self, A: int, B: int) -> int:
@@ -48,6 +57,8 @@ class Solution:
             return (self.multiply(A, B >> 1) << 1) + A
         return self.multiply(A, B >> 1) << 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -62,6 +73,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -78,6 +91,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func multiply(A int, B int) int {
 	if B == 1 {
@@ -90,6 +105,8 @@ func multiply(A int, B int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function multiply(A: number, B: number): number {
     if (B === 1) {
@@ -101,6 +118,8 @@ function multiply(A: number, B: number): number {
     return multiply(A, B >> 1) << 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -115,6 +134,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -132,4 +153,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

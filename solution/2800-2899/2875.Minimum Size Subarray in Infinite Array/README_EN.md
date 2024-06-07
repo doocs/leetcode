@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README_EN.md
 rating: 1913
+source: Weekly Contest 365 Q3
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2875. Minimum Size Subarray in Infinite Array](https://leetcode.com/problems/minimum-size-subarray-in-infinite-array)
 
 [中文文档](/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> and an integer <code>target</code>.</p>
 
@@ -61,7 +66,11 @@ It can be proven that there is no subarray with sum equal to target = 3.
 	<li><code>1 &lt;= target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
 
@@ -76,6 +85,8 @@ If we find such a subarray, the final answer is $a + b$. Otherwise, the answer i
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where n is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +111,8 @@ class Solution:
             pos[pre] = i
         return -1 if b == inf else a + b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSizeSubarray(nums []int, target int) int {
@@ -200,6 +217,8 @@ func minSizeSubarray(nums []int, target int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minSizeSubarray(nums: number[], target: number): number {
     const s = nums.reduce((a, b) => a + b);
@@ -232,58 +251,6 @@ function minSizeSubarray(nums: number[], target: number): number {
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```java
-class Solution {
-    public int shortestSubarray(int[] nums, int k) {
-        int n = nums.length;
-
-        int minLength = n * 2 + 1;
-        int l = 0;
-        int sum = 0;
-
-        for (int r = 0; r < n * 2; r++) {
-            int start = l % n;
-            int end = r % n;
-            sum += nums[end];
-
-            while (sum > k && l <= r) {
-                start = l % n;
-                sum -= nums[start];
-                l++;
-            }
-
-            if (sum == k) {
-                minLength = Math.min(minLength, r - l + 1);
-                start = l % n;
-                sum -= nums[start];
-                l++;
-            }
-        }
-
-        return minLength == n * 2 + 1 ? -1 : minLength;
-    }
-    public int minSizeSubarray(int[] nums, int target) {
-        int n = nums.length;
-        int sum = 0;
-
-        for (int num : nums) {
-            sum += num;
-        }
-        int k = target % sum;
-        int ans = target / sum * n;
-        if (k == 0) {
-            return ans;
-        }
-        int res = shortestSubarray(nums, k);
-        return res == -1 ? -1 : ans + res;
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

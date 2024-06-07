@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1610.Maximum%20Number%20of%20Visible%20Points/README_EN.md
 rating: 2147
+source: Weekly Contest 209 Q3
 tags:
     - Geometry
     - Array
@@ -11,11 +12,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1610. Maximum Number of Visible Points](https://leetcode.com/problems/maximum-number-of-visible-points)
 
 [中文文档](/solution/1600-1699/1610.Maximum%20Number%20of%20Visible%20Points/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>points</code>, an integer <code>angle</code>, and your <code>location</code>, where <code>location = [pos<sub>x</sub>, pos<sub>y</sub>]</code> and <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> both denote <strong>integral coordinates</strong> on the X-Y plane.</p>
 
@@ -67,11 +72,17 @@ tags:
 	<li><code>0 &lt;= pos<sub>x</sub>, pos<sub>y</sub>, x<sub>i</sub>, y<sub>i</sub> &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +104,8 @@ class Solution:
         mx = max((bisect_right(v, v[i] + t) - i for i in range(n)), default=0)
         return mx + same
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +169,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func visiblePoints(points [][]int, angle int, location []int) int {
@@ -185,4 +202,6 @@ func visiblePoints(points [][]int, angle int, location []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

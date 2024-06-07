@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 70. 沙地治理](https://leetcode.cn/problems/XxZZjK)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 在力扣城的沙漠分会场展示了一种沙柳树，这种沙柳树能够将沙地转化为坚实的绿地。
 展示的区域为正三角形，这片区域可以拆分为若干个子区域，每个子区域都是边长为 `1`  的小三角形，其中第  `i` 行有  `2i - 1`  个小三角形。
@@ -46,7 +48,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2070.%20%E6%B2%99%
 
 -   `1 <= size <= 1000`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：找规律
 
@@ -67,6 +73,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2070.%20%E6%B2%99%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sandyLandManagement(self, size: int) -> List[List[int]]:
@@ -86,6 +94,8 @@ class Solution:
             k = (k + 1) % 4
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sandyLandManagement(size int) (ans [][]int) {
 	ans = append(ans, []int{1, 1})
@@ -162,4 +176,6 @@ func sandyLandManagement(size int) (ans [][]int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

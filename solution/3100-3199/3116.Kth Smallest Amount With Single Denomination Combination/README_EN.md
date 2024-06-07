@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README_EN.md
 rating: 2387
+source: Weekly Contest 393 Q3
 tags:
     - Bit Manipulation
     - Array
@@ -12,11 +13,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [3116. Kth Smallest Amount With Single Denomination Combination](https://leetcode.com/problems/kth-smallest-amount-with-single-denomination-combination)
 
 [中文文档](/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>coins</code> representing coins of different denominations and an integer <code>k</code>.</p>
 
@@ -92,7 +97,11 @@ All of the coins combined produce: 2, 4, 5, 6, 8, 10, <u><strong>12</strong></u>
 	<li><code>coins</code> contains pairwise distinct integers.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search + Inclusion-Exclusion Principle
 
@@ -122,6 +131,8 @@ The time complexity is $O(n \times 2^n \times \log (k \times M))$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findKthSmallest(self, coins: List[int], k: int) -> int:
@@ -143,6 +154,8 @@ class Solution:
 
         return bisect_left(range(10**11), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -197,6 +210,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -240,6 +255,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKthSmallest(coins []int, k int) int64 {
 	var r int = 1e11
@@ -279,6 +296,8 @@ func lcm(a, b int) int {
 	return a * b / gcd(a, b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKthSmallest(coins: number[], k: number): number {
@@ -336,4 +355,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3084.Count%20Substrings%20Starting%20and%20Ending%20with%20Given%20Character/README_EN.md
 rating: 1323
+source: Weekly Contest 389 Q2
 tags:
     - Math
     - String
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [3084. Count Substrings Starting and Ending with Given Character](https://leetcode.com/problems/count-substrings-starting-and-ending-with-given-character)
 
 [中文文档](/solution/3000-3099/3084.Count%20Substrings%20Starting%20and%20Ending%20with%20Given%20Character/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> and a character <code>c</code>. Return <em>the total number of <span data-keyword="substring-nonempty">substrings</span> of </em><code>s</code><em> that start and end with </em><code>c</code><em>.</em></p>
 
@@ -46,7 +51,11 @@ tags:
 	<li><code>s</code> and <code>c</code> consist&nbsp;only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -60,12 +69,16 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubstrings(self, s: str, c: str) -> int:
         cnt = s.count(c)
         return cnt + cnt * (cnt - 1) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +88,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -86,12 +101,16 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubstrings(s string, c byte) int64 {
 	cnt := int64(strings.Count(s, string(c)))
 	return cnt + cnt*(cnt-1)/2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubstrings(s: string, c: string): number {
@@ -102,4 +121,6 @@ function countSubstrings(s: string, c: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

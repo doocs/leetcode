@@ -3,9 +3,12 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1761.Minimum%20Degree%20of%20a%20Connected%20Trio%20in%20a%20Graph/README.md
 rating: 2005
+source: 第 228 场周赛 Q4
 tags:
     - 图
 ---
+
+<!-- problem:start -->
 
 # [1761. 一个图中连通三元组的最小度数](https://leetcode.cn/problems/minimum-degree-of-a-connected-trio-in-a-graph)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个无向图，整数 <code>n</code> 表示图中节点的数目，<code>edges</code> 数组表示图中的边，其中 <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> ，表示 <code>u<sub>i</sub></code> 和 <code>v<sub>i</sub></code><sub> </sub>之间有一条无向边。</p>
 
@@ -57,7 +60,11 @@ tags:
 	<li>图中没有重复的边。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -70,6 +77,8 @@ tags:
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +99,8 @@ class Solution:
                             ans = min(ans, deg[i] + deg[j] + deg[k] - 6)
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minTrioDegree(n int, edges [][]int) int {
@@ -182,6 +197,8 @@ func minTrioDegree(n int, edges [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minTrioDegree(n: number, edges: number[][]): number {
     const g = Array.from({ length: n }, () => Array(n).fill(false));
@@ -211,4 +228,6 @@ function minTrioDegree(n: number, edges: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

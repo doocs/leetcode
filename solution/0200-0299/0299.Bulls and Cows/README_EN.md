@@ -8,11 +8,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows)
 
 [中文文档](/solution/0200-0299/0299.Bulls%20and%20Cows/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are playing the <strong><a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" target="_blank">Bulls and Cows</a></strong> game with your friend.</p>
 
@@ -59,7 +63,11 @@ Note that only one of the two unmatched 1s is counted as a cow since the non-bul
 	<li><code>secret</code> and <code>guess</code> consist of digits only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -75,6 +83,8 @@ The time complexity is $O(n)$, where $n$ is the length of the secret number and 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getHint(self, secret: str, guess: str) -> str:
@@ -89,6 +99,8 @@ class Solution:
         y = sum(min(cnt1[c], cnt2[c]) for c in cnt1)
         return f"{x}A{y}B"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getHint(secret string, guess string) string {
 	x, y := 0, 0
@@ -159,6 +175,8 @@ func getHint(secret string, guess string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getHint(secret: string, guess: string): string {
     const cnt1: number[] = Array(10).fill(0);
@@ -179,6 +197,8 @@ function getHint(secret: string, guess: string): string {
     return `${x}A${y}B`;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -210,4 +230,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

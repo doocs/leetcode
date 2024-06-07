@@ -7,11 +7,15 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [25. Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group)
 
 [中文文档](/solution/0000-0099/0025.Reverse%20Nodes%20in%20k-Group/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>head</code> of a linked list, reverse the nodes of the list <code>k</code> at a time, and return <em>the modified list</em>.</p>
 
@@ -46,13 +50,19 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Follow-up:</strong> Can you solve the problem in <code>O(1)</code> extra memory space?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Iteration
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the linked list.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -87,6 +97,8 @@ class Solution:
             cur = pre
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -134,6 +146,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -169,6 +183,8 @@ func reverse(start, end *ListNode) *ListNode {
 	return pre
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -220,6 +236,8 @@ function reverse(head: ListNode, tail: ListNode) {
     return [tail, head];
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -279,6 +297,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for singly-linked list.
@@ -329,6 +349,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 # Definition for singly-linked list.
@@ -386,11 +408,17 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Recursion
 
 The time complexity is $O(n)$, and the space complexity is $O(\log_k n)$. Here, $n$ is the length of the linked list.
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 /**
@@ -423,6 +451,8 @@ func reverse(start, end *ListNode) *ListNode {
 	return pre
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -475,4 +505,6 @@ function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1395.Count%20Number%20of%20Teams/README_EN.md
 rating: 1343
+source: Weekly Contest 182 Q2
 tags:
     - Binary Indexed Tree
     - Array
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1395. Count Number of Teams](https://leetcode.com/problems/count-number-of-teams)
 
 [中文文档](/solution/1300-1399/1395.Count%20Number%20of%20Teams/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> soldiers standing in a line. Each soldier is assigned a <strong>unique</strong> <code>rating</code> value.</p>
 
@@ -60,7 +65,11 @@ tags:
 	<li>All the integers in <code>rating</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumerate Middle Element
 
@@ -69,6 +78,8 @@ We can enumerate each element $rating[i]$ in the array $rating$ as the middle el
 The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Where $n$ is the length of the array $rating$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +92,8 @@ class Solution:
             ans += (i - l) * (n - i - 1 - r)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numTeams(rating []int) (ans int) {
 	n := len(rating)
@@ -154,6 +171,8 @@ func numTeams(rating []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numTeams(rating: number[]): number {
@@ -181,6 +200,10 @@ function numTeams(rating: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary Indexed Tree
 
 We can use two binary indexed trees to maintain the number of elements $l$ that are smaller than each element on the left in the array $rating$, and the number of elements $r$ that are larger than it on the right. Then count the number of combat units with this element as the middle element as $l \times r + (i - l) \times (n - i - 1 - r)$, and add this to the answer.
@@ -188,6 +211,8 @@ We can use two binary indexed trees to maintain the number of elements $l$ that 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $rating$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -229,6 +254,8 @@ class Solution:
             ans += (i - l) * (n - i - 1 - r)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -303,6 +330,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -359,6 +388,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -417,6 +448,8 @@ func numTeams(rating []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -490,4 +523,6 @@ function numTeams(rating: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2895.Minimum%20Processing%20Time/README_EN.md
 rating: 1351
+source: Weekly Contest 366 Q2
 tags:
     - Greedy
     - Array
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2895. Minimum Processing Time](https://leetcode.com/problems/minimum-processing-time)
 
 [中文文档](/solution/2800-2899/2895.Minimum%20Processing%20Time/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a certain number of processors, each having 4 cores. The number of tasks to be executed is four times the number of processors. Each task must be assigned to a unique core, and each core can only be used once.</p>
 
@@ -63,7 +68,11 @@ tags:
 	<li><code>tasks.length == 4 * n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -74,6 +83,8 @@ Therefore, we sort the processors by their idle time and sort the tasks by their
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of tasks.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +98,8 @@ class Solution:
             i -= 4
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minProcessingTime(processorTime []int, tasks []int) (ans int) {
 	sort.Ints(processorTime)
@@ -131,6 +148,8 @@ func minProcessingTime(processorTime []int, tasks []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minProcessingTime(processorTime: number[], tasks: number[]): number {
@@ -147,4 +166,6 @@ function minProcessingTime(processorTime: number[], tasks: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

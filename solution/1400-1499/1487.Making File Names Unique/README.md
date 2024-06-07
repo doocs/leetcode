@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1487.Making%20File%20Names%20Unique/README.md
 rating: 1696
+source: 第 194 场周赛 Q2
 tags:
     - 数组
     - 哈希表
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1487. 保证文件名唯一](https://leetcode.cn/problems/making-file-names-unique)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的字符串数组 <code>names</code> 。你将会在文件系统中创建 <code>n</code> 个文件夹：在第 <code>i</code> 分钟，新建名为 <code>names[i]</code> 的文件夹。</p>
 
@@ -77,7 +80,11 @@ tags:
 	<li><code>names[i]</code> 由小写英文字母、数字和/或圆括号组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -97,6 +104,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getFolderNames(self, names: List[str]) -> List[str]:
@@ -111,6 +120,8 @@ class Solution:
             d[names[i]] = 1
         return names
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -153,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getFolderNames(names []string) []string {
 	d := map[string]int{}
@@ -174,6 +189,8 @@ func getFolderNames(names []string) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getFolderNames(names: string[]): string[] {
     let d: Map<string, number> = new Map();
@@ -194,4 +211,6 @@ function getFolderNames(names: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

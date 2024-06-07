@@ -7,13 +7,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [40. 组合总和 II](https://leetcode.cn/problems/combination-sum-ii)
 
 [English Version](/solution/0000-0099/0040.Combination%20Sum%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个候选人编号的集合&nbsp;<code>candidates</code>&nbsp;和一个目标数&nbsp;<code>target</code>&nbsp;，找出&nbsp;<code>candidates</code>&nbsp;中所有可以使数字和为&nbsp;<code>target</code>&nbsp;的组合。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>1 &lt;= target &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 剪枝 + 回溯
 
@@ -79,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -101,6 +109,8 @@ class Solution:
         dfs(0, target)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combinationSum2(candidates []int, target int) (ans [][]int) {
 	sort.Ints(candidates)
@@ -192,6 +206,8 @@ func combinationSum2(candidates []int, target int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combinationSum2(candidates: number[], target: number): number[][] {
     candidates.sort((a, b) => a - b);
@@ -218,6 +234,8 @@ function combinationSum2(candidates: number[], target: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -247,6 +265,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -279,6 +299,8 @@ var combinationSum2 = function (candidates, target) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -315,6 +337,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序 + 剪枝 + 回溯（写法二）
 
 我们也可以将函数 $dfs(i, s)$ 的实现逻辑改为另一种写法。如果我们选择当前数字，那么我们将当前数字加入搜索路径 $t$ 中，然后递归调用函数 $dfs(i + 1, s - candidates[i])$，然后将当前数字从搜索路径 $t$ 中移除。如果我们不选择当前数字，那么我们可以跳过与当前数字相同的所有数字，然后递归调用函数 $dfs(j, s)$，其中 $j$ 为第一个与当前数字不同的数字的下标。
@@ -322,6 +348,8 @@ public class Solution {
 时间复杂度 $O(2^n \times n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $candidates$ 的长度。由于剪枝，实际的时间复杂度要远小于 $O(2^n \times n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -346,6 +374,8 @@ class Solution:
         dfs(0, target)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -380,6 +410,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -410,6 +442,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combinationSum2(candidates []int, target int) (ans [][]int) {
 	sort.Ints(candidates)
@@ -437,6 +471,8 @@ func combinationSum2(candidates []int, target int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combinationSum2(candidates: number[], target: number): number[][] {
     candidates.sort((a, b) => a - b);
@@ -463,6 +499,8 @@ function combinationSum2(candidates: number[], target: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -492,6 +530,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -525,6 +565,8 @@ var combinationSum2 = function (candidates, target) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     private List<IList<int>> ans = new List<IList<int>>();
@@ -557,6 +599,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -608,4 +652,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

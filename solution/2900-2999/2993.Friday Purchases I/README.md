@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2993. 发生在周五的交易 I 🔒](https://leetcode.cn/problems/friday-purchases-i)
 
 [English Version](/solution/2900-2999/2993.Friday%20Purchases%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Purchases</code></p>
 
@@ -68,7 +70,11 @@ Purchases table:
 - 在 2023 年 11 月的第四周，于 2023-11-24 星期五发生了两笔交易，分别为 $12,000 和 $9,692，总计为 $21,692。
 输出表按照 week_of_month 升序排列。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：日期函数
 
@@ -81,6 +87,8 @@ Purchases table:
 我们先用 `DATE_FORMAT` 函数将日期格式化为 `YYYYMM` 的形式，然后筛选出 2023 年 11 月且是星期五的记录，然后将记录按照 `purchase_date` 分组，计算出每个星期五的总消费金额。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -96,4 +104,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

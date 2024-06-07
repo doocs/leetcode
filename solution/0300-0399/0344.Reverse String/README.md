@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [344. 反转字符串](https://leetcode.cn/problems/reverse-string)
 
 [English Version](/solution/0300-0399/0344.Reverse%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 <code>s</code> 的形式给出。</p>
 
@@ -43,7 +45,11 @@ tags:
 	<li><code>s[i]</code> 都是 <a href="https://baike.baidu.com/item/ASCII" target="_blank">ASCII</a> 码表中的可打印字符</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -53,6 +59,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseString(self, s: List[str]) -> None:
@@ -61,6 +69,8 @@ class Solution:
             s[i], s[j] = s[j], s[i]
             i, j = i + 1, j - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +84,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -85,6 +97,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseString(s []byte) {
 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
@@ -92,6 +106,8 @@ func reverseString(s []byte) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -103,6 +119,8 @@ function reverseString(s: string[]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -118,6 +136,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {character[]} s
@@ -132,25 +152,6 @@ var reverseString = function (s) {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def reverseString(self, s: List[str]) -> None:
-        s[:] = s[::-1]
-```
-
-```ts
-/**
- Do not return anything, modify s in-place instead.
- */
-function reverseString(s: string[]): void {
-    s.reverse();
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

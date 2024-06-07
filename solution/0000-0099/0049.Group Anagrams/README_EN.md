@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [49. Group Anagrams](https://leetcode.com/problems/group-anagrams)
 
 [中文文档](/solution/0000-0099/0049.Group%20Anagrams/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of strings <code>strs</code>, group <strong>the anagrams</strong> together. You can return the answer in <strong>any order</strong>.</p>
 
@@ -39,7 +43,11 @@ tags:
 	<li><code>strs[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -61,6 +69,8 @@ The time complexity is $O(n\times k\times \log k)$, where $n$ and $k$ are the le
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
@@ -70,6 +80,8 @@ class Solution:
             d[k].append(s)
         return list(d.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func groupAnagrams(strs []string) (ans [][]string) {
 	d := map[string][]string{}
@@ -119,6 +135,8 @@ func groupAnagrams(strs []string) (ans [][]string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function groupAnagrams(strs: string[]): string[][] {
     const d: Map<string, string[]> = new Map();
@@ -132,6 +150,8 @@ function groupAnagrams(strs: string[]): string[][] {
     return Array.from(d.values());
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -154,6 +174,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;
@@ -215,6 +237,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Counting
 
 We can also change the sorting part in Solution 1 to counting, that is, use the characters in each string $s$ and their occurrence times as `key`, and use the string $s$ as `value` to store in the hash table.
@@ -222,6 +248,8 @@ We can also change the sorting part in Solution 1 to counting, that is, use the 
 The time complexity is $O(n\times (k + C))$, where $n$ and $k$ are the lengths of the string array and the maximum length of the string, respectively, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -234,6 +262,8 @@ class Solution:
             d[tuple(cnt)].append(s)
         return list(d.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -257,6 +287,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -282,6 +314,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func groupAnagrams(strs []string) (ans [][]string) {
 	d := map[[26]int][]string{}
@@ -299,6 +333,8 @@ func groupAnagrams(strs []string) (ans [][]string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function groupAnagrams(strs: string[]): string[][] {
     const map = new Map<string, string[]>();
@@ -312,4 +348,6 @@ function groupAnagrams(strs: string[]): string[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

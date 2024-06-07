@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1359.Count%20All%20Valid%20Pickup%20and%20Delivery%20Options/README_EN.md
 rating: 1722
+source: Biweekly Contest 20 Q4
 tags:
     - Math
     - Dynamic Programming
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [1359. Count All Valid Pickup and Delivery Options](https://leetcode.com/problems/count-all-valid-pickup-and-delivery-options)
 
 [中文文档](/solution/1300-1399/1359.Count%20All%20Valid%20Pickup%20and%20Delivery%20Options/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given <code>n</code> orders, each order consists of a pickup and a delivery service.</p>
 
@@ -54,7 +59,11 @@ This is an invalid order (P1,D2,P2,D1) because Pickup 2 is after of Delivery 2.
 	<li><code>1 &lt;= n &lt;= 500</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -74,6 +83,8 @@ The time complexity is $O(n)$, where $n$ is the number of orders. The space comp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countOrders(self, n: int) -> int:
@@ -83,6 +94,8 @@ class Solution:
             f = (f * i * (2 * i - 1)) % mod
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countOrders(n int) int {
 	const mod = 1e9 + 7
@@ -121,6 +138,8 @@ func countOrders(n int) int {
 	return f
 }
 ```
+
+#### Rust
 
 ```rust
 const MOD: i64 = (1e9 as i64) + 7;
@@ -139,4 +158,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

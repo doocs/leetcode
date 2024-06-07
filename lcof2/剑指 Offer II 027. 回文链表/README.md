@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20027.%20%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 027. 回文链表](https://leetcode.cn/problems/aMhZSa)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个链表的 <strong>头节点&nbsp;</strong><code>head</code><strong>&nbsp;，</strong>请判断其是否为回文链表。</p>
 
@@ -49,11 +51,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 234&nbsp;题相同：<a href="https://leetcode.cn/problems/palindrome-linked-list/">https://leetcode.cn/problems/palindrome-linked-list/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -79,6 +87,8 @@ class Solution:
             pre, head = pre.next, head.next
         return True
 ```
+
+#### Java
 
 ```java
 /**
@@ -123,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -162,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -195,6 +209,8 @@ func isPalindrome(head *ListNode) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -238,6 +254,8 @@ function isPalindrome(head: ListNode | null): boolean {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -279,6 +297,8 @@ var isPalindrome = function (head) {
     return true;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -329,6 +349,57 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     var val: Int
+ *     var next: ListNode?
+ *     init() { self.val = 0; self.next = nil; }
+ *     init(_ val: Int) { self.val = val; self.next = nil; }
+ *     init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
+ * }
+ */
+
+class Solution {
+    func isPalindrome(_ head: ListNode?) -> Bool {
+        guard let head = head else { return true }
+
+        var slow = head
+        var fast = head.next
+        while fast != nil && fast?.next != nil {
+            slow = slow.next!
+            fast = fast?.next?.next
+        }
+
+        var cur = slow.next
+
+        var prev: ListNode? = nil
+        while cur != nil {
+            let nextTemp = cur?.next
+            cur?.next = prev
+            prev = cur
+            cur = nextTemp
+        }
+
+        var left = head
+        var right = prev
+        while right != nil {
+            if left.val != right?.val {
+                return false
+            }
+            left = left.next!
+            right = right?.next
+        }
+        return true
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

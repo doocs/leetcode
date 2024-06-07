@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README_EN.md
 rating: 1601
+source: Weekly Contest 386 Q2
 tags:
     - Geometry
     - Array
     - Math
 ---
 
+<!-- problem:start -->
+
 # [3047. Find the Largest Area of Square Inside Two Rectangles](https://leetcode.com/problems/find-the-largest-area-of-square-inside-two-rectangles)
 
 [中文文档](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There exist <code>n</code> rectangles in a 2D plane. You are given two <strong>0-indexed</strong> 2D integer arrays <code>bottomLeft</code> and <code>topRight</code>, both of size <code>n x 2</code>, where <code>bottomLeft[i]</code> and <code>topRight[i]</code> represent the <strong>bottom-left</strong> and <strong>top-right</strong> coordinates of the <code>i<sup>th</sup></code> rectangle respectively.</p>
 
@@ -62,7 +67,11 @@ Note that the region can be formed by the intersection of more than 2 rectangles
 	<li><code>bottomLeft[i][1] &lt; topRight[i][1]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -81,6 +90,8 @@ The time complexity is $O(n^2)$, where $n$ is the number of rectangles. The spac
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestSquareArea(
@@ -97,6 +108,8 @@ class Solution:
                 ans = max(ans, e * e)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestSquareArea(bottomLeft [][]int, topRight [][]int) (ans int64) {
 	for i, b1 := range bottomLeft {
@@ -165,6 +182,8 @@ func largestSquareArea(bottomLeft [][]int, topRight [][]int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestSquareArea(bottomLeft: number[][], topRight: number[][]): number {
@@ -189,4 +208,6 @@ function largestSquareArea(bottomLeft: number[][], topRight: number[][]): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

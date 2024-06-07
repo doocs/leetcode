@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [948. Bag of Tokens](https://leetcode.com/problems/bag-of-tokens)
 
 [中文文档](/solution/0900-0999/0948.Bag%20of%20Tokens/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You start with an initial <strong>power</strong> of <code>power</code>, an initial <strong>score</strong> of <code>0</code>, and a bag of tokens given as an integer array <code>tokens</code>, where each&nbsp;<code>tokens[i]</code> denotes the value of token<em><sub>i</sub></em>.</p>
 
@@ -121,11 +125,17 @@ tags:
 	<li><code>0 &lt;= tokens[i], power &lt; 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -145,6 +155,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +181,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -191,6 +205,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func bagOfTokensScore(tokens []int, power int) int {
@@ -215,4 +231,6 @@ func bagOfTokensScore(tokens []int, power int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

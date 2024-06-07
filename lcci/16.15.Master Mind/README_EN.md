@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.15.Master%20Mind/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.15. Master Mind](https://leetcode.cn/problems/master-mind-lcci)
 
 [中文文档](/lcci/16.15.Master%20Mind/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The Game of Master Mind is played as follows:</p>
 <p>The computer has four slots, and each slot will contain a ball that is red (R). yellow (Y). green (G) or blue (B). For example, the computer might have RGGB (Slot #1 is red, Slots #2 and #3 are green, Slot #4 is blue).</p>
@@ -32,7 +36,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.15.Master%20Mind/R
 	<li>There are only <code>&quot;R&quot;</code>,<code>&quot;G&quot;</code>,<code>&quot;B&quot;</code>,<code>&quot;Y&quot;</code> in <code>solution</code>&nbsp;and&nbsp;<code>guess</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -44,6 +52,8 @@ The time complexity is $O(C)$, and the space complexity is $O(C)$. Here, $C=4$ f
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def masterMind(self, solution: str, guess: str) -> List[int]:
@@ -51,6 +61,8 @@ class Solution:
         y = sum((Counter(solution) & Counter(guess)).values())
         return [x, y - x]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +84,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -89,6 +103,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func masterMind(solution string, guess string) []int {
@@ -109,6 +125,8 @@ func masterMind(solution string, guess string) []int {
 	return []int{x, y - x}
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -134,6 +152,8 @@ var masterMind = function (solution, guess) {
     return [res1, res2];
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -166,4 +186,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

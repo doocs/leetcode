@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1768.Merge%20Strings%20Alternately/README_EN.md
 rating: 1166
+source: Weekly Contest 229 Q1
 tags:
     - Two Pointers
     - String
 ---
+
+<!-- problem:start -->
 
 # [1768. Merge Strings Alternately](https://leetcode.com/problems/merge-strings-alternately)
 
 [中文文档](/solution/1700-1799/1768.Merge%20Strings%20Alternately/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>word1</code> and <code>word2</code>. Merge the strings by adding letters in alternating order, starting with <code>word1</code>. If a string is longer than the other, append the additional letters onto the end of the merged string.</p>
 
@@ -86,7 +91,11 @@ merged: a p b q c   d
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Direct Simulation
 
@@ -96,11 +105,15 @@ The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
         return ''.join(a + b for a, b in zip_longest(word1, word2, fillvalue=''))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mergeAlternately(word1 string, word2 string) string {
@@ -151,6 +168,8 @@ func mergeAlternately(word1 string, word2 string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mergeAlternately(word1: string, word2: string): string {
     const ans: string[] = [];
@@ -166,6 +185,8 @@ function mergeAlternately(word1: string, word2: string): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -186,6 +207,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* mergeAlternately(char* word1, char* word2) {
@@ -211,4 +234,6 @@ char* mergeAlternately(char* word1, char* word2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

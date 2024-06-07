@@ -10,13 +10,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [894. 所有可能的真二叉树](https://leetcode.cn/problems/all-possible-full-binary-trees)
 
 [English Version](/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，请你找出所有可能含 <code>n</code> 个节点的 <strong>真二叉树</strong> ，并以列表形式返回。答案中每棵树的每个节点都必须符合 <code>Node.val == 0</code> 。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -61,6 +67,8 @@ tags:
 时间复杂度 $O(\frac{2^n}{\sqrt{n}})$，空间复杂度 $O(\frac{2^n}{\sqrt{n}})$。其中 $n$ 是节点数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -85,6 +93,8 @@ class Solution:
 
         return dfs(n)
 ```
+
+#### Java
 
 ```java
 /**
@@ -131,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -170,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -204,6 +218,8 @@ func allPossibleFBT(n int) []*TreeNode {
 	return dfs(n)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -244,6 +260,8 @@ function allPossibleFBT(n: number): Array<TreeNode | null> {
     return dfs(n);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -309,6 +327,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for a binary tree node.
@@ -357,4 +377,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

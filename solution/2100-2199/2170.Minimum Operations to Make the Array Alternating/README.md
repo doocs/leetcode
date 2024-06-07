@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2170.Minimum%20Operations%20to%20Make%20the%20Array%20Alternating/README.md
 rating: 1662
+source: 第 280 场周赛 Q2
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2170. 使数组变成交替数组的最少操作数](https://leetcode.cn/problems/minimum-operations-to-make-the-array-alternating)
 
 [English Version](/solution/2100-2199/2170.Minimum%20Operations%20to%20Make%20the%20Array%20Alternating/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的数组 <code>nums</code> ，该数组由 <code>n</code> 个正整数组成。</p>
 
@@ -63,11 +66,17 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +92,8 @@ class Solution:
         n = len(nums)
         return min(n - (n1 + n2) for a, n1 in get(0) for b, n2 in get(1) if a != b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef pair<int, int> PII;
 
@@ -165,6 +178,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperations(nums []int) int {
 	n := len(nums)
@@ -194,6 +209,8 @@ func minimumOperations(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperations(nums: number[]): number {
@@ -226,4 +243,6 @@ function minimumOperations(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

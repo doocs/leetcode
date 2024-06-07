@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/README_EN.md
 rating: 1533
+source: Weekly Contest 381 Q3
 tags:
     - Greedy
     - Hash Table
@@ -11,11 +12,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3016. Minimum Number of Pushes to Type Word II](https://leetcode.com/problems/minimum-number-of-pushes-to-type-word-ii)
 
 [中文文档](/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>word</code> containing lowercase English letters.</p>
 
@@ -84,7 +89,11 @@ It can be shown that no other mapping can provide a lower cost.
 	<li><code>word</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm + Sorting
 
@@ -93,6 +102,8 @@ We use a hash table or array $cnt$ to count the number of occurrences of each le
 The time complexity is $O(n + |\Sigma| \times \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string $word$, and $\Sigma$ is the set of letters that appear in the string $word$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -103,6 +114,8 @@ class Solution:
             ans += (i // 8 + 1) * x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumPushes(word string) (ans int) {
 	cnt := make([]int, 26)
@@ -152,6 +169,8 @@ func minimumPushes(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumPushes(word: string): number {
@@ -170,4 +189,6 @@ function minimumPushes(word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [41. 缺失的第一个正数](https://leetcode.cn/problems/first-missing-positive)
 
 [English Version](/solution/0000-0099/0041.First%20Missing%20Positive/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个未排序的整数数组 <code>nums</code> ，请你找出其中没有出现的最小的正整数。</p>
 请你实现时间复杂度为 <code>O(n)</code> 并且只使用常数级别额外空间的解决方案。
@@ -50,7 +52,11 @@ tags:
 	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：原地交换
 
@@ -61,6 +67,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +85,8 @@ class Solution:
                 return i + 1
         return n + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func firstMissingPositive(nums []int) int {
 	n := len(nums)
@@ -139,6 +153,8 @@ func firstMissingPositive(nums []int) int {
 	return n + 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function firstMissingPositive(nums: number[]): number {
@@ -157,6 +173,8 @@ function firstMissingPositive(nums: number[]): number {
     return (res === -1 ? n : res) + 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -181,6 +199,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -207,6 +227,8 @@ public class Solution {
 }
 ```
 
+#### C
+
 ```c
 int firstMissingPositive(int* nums, int numsSize) {
     for (int i = 0; i < numsSize; ++i) {
@@ -228,6 +250,8 @@ void swap(int* a, int* b) {
     *b = t;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -265,4 +289,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1962.Remove%20Stones%20to%20Minimize%20the%20Total/README_EN.md
 rating: 1418
+source: Weekly Contest 253 Q2
 tags:
     - Greedy
     - Array
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1962. Remove Stones to Minimize the Total](https://leetcode.com/problems/remove-stones-to-minimize-the-total)
 
 [中文文档](/solution/1900-1999/1962.Remove%20Stones%20to%20Minimize%20the%20Total/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>piles</code>, where <code>piles[i]</code> represents the number of stones in the <code>i<sup>th</sup></code> pile, and an integer <code>k</code>. You should apply the following operation <strong>exactly</strong> <code>k</code> times:</p>
 
@@ -60,7 +65,11 @@ The total number of stones in [2,3,3,4] is 12.
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Max Heap)
 
@@ -76,6 +85,8 @@ The time complexity is $O(n + k \times \log n)$, and the space complexity is $O(
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minStoneSum(self, piles: List[int], k: int) -> int:
@@ -85,6 +96,8 @@ class Solution:
             heapreplace(pq, pq[0] // 2)
         return -sum(pq)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minStoneSum(piles []int, k int) (ans int) {
@@ -157,6 +174,8 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
+#### TypeScript
+
 ```ts
 function minStoneSum(piles: number[], k: number): number {
     const pq = new MaxPriorityQueue();
@@ -177,4 +196,6 @@ function minStoneSum(piles: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

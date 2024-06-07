@@ -10,13 +10,15 @@ tags:
     - 哈希函数
 ---
 
+<!-- problem:start -->
+
 # [711. 不同岛屿的数量 II 🔒](https://leetcode.cn/problems/number-of-distinct-islands-ii)
 
 [English Version](/solution/0700-0799/0711.Number%20of%20Distinct%20Islands%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个&nbsp;<code>m x n</code>&nbsp;二进制数组表示的网格&nbsp;<code>grid</code> ，一个岛屿由 <strong>四连通</strong> （上、下、左、右四个方向）的 <code>1</code> 组成（代表陆地）。你可以认为网格的四周被海水包围。</p>
 
@@ -56,11 +58,17 @@ tags:
 	<li><code>grid[i][j]</code>&nbsp;不是&nbsp;<code>0</code>&nbsp;就是&nbsp;<code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +110,8 @@ class Solution:
                     s.add(normalize(shape))
         return len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -199,6 +209,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef pair<int, int> PII;
 
@@ -257,4 +269,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1949. 坚定的友谊 🔒](https://leetcode.cn/problems/strong-friendship)
 
 [English Version](/solution/1900-1999/1949.Strong%20Friendship/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表名: <code>Friendship</code></p>
 
@@ -76,11 +78,17 @@ Friendship table:
 但这里不包括用户 2 和 3 的友谊，因为他们只有两个共同的朋友（1 和 6）。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -110,4 +118,6 @@ HAVING COUNT(1) >= 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,13 +12,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [973. 最接近原点的 K 个点](https://leetcode.cn/problems/k-closest-points-to-origin)
 
 [English Version](/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数组 <code>points</code>&nbsp;，其中&nbsp;<code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>&nbsp;表示 <strong>X-Y</strong> 平面上的一个点，并且是一个整数 <code>k</code> ，返回离原点 <code>(0,0)</code> 最近的 <code>k</code> 个点。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>-10<sup>4</sup>&nbsp;&lt; x<sub>i</sub>, y<sub>i</sub>&nbsp;&lt; 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：自定义排序
 
@@ -69,12 +75,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         points.sort(key=lambda p: p[0] * p[0] + p[1] * p[1])
         return points[:k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kClosest(points [][]int, k int) [][]int {
 	sort.Slice(points, func(i, j int) bool {
@@ -111,11 +125,15 @@ func kClosest(points [][]int, k int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function kClosest(points: number[][], k: number): number[][] {
     return points.sort((a, b) => a[0] ** 2 + a[1] ** 2 - (b[0] ** 2 + b[1] ** 2)).slice(0, k);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -130,4 +148,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

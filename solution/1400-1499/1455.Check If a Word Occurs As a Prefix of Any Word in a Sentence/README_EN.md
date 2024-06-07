@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1455.Check%20If%20a%20Word%20Occurs%20As%20a%20Prefix%20of%20Any%20Word%20in%20a%20Sentence/README_EN.md
 rating: 1125
+source: Weekly Contest 190 Q1
 tags:
     - Two Pointers
     - String
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence](https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence)
 
 [中文文档](/solution/1400-1499/1455.Check%20If%20a%20Word%20Occurs%20As%20a%20Prefix%20of%20Any%20Word%20in%20a%20Sentence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>sentence</code> that consists of some words separated by a <strong>single space</strong>, and a <code>searchWord</code>, check if <code>searchWord</code> is a prefix of any word in <code>sentence</code>.</p>
 
@@ -56,11 +61,17 @@ tags:
 	<li><code>searchWord</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +81,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPrefixOfWord(sentence string, searchWord string) int {
 	for i, s := range strings.Split(sentence, " ") {
@@ -111,6 +128,8 @@ func isPrefixOfWord(sentence string, searchWord string) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isPrefixOfWord(sentence: string, searchWord: string): number {
@@ -125,6 +144,8 @@ function isPrefixOfWord(sentence: string, searchWord: string): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn is_prefix_of_word(sentence: String, search_word: String) -> i32 {
@@ -138,6 +159,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -160,4 +183,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

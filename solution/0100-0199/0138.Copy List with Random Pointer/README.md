@@ -7,13 +7,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [138. 随机链表的复制](https://leetcode.cn/problems/copy-list-with-random-pointer)
 
 [English Version](/solution/0100-0199/0138.Copy%20List%20with%20Random%20Pointer/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的链表，每个节点包含一个额外增加的随机指针 <code>random</code> ，该指针可以指向链表中的任何节点或空节点。</p>
 
@@ -34,7 +36,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0138.Copy%20List%20with%20Random%20Pointer/images/e1.png" style="height: 142px; width: 700px;" /></p>
 
@@ -43,7 +45,7 @@ tags:
 <strong>输出：</strong>[[7,null],[13,0],[11,4],[10,2],[1,0]]
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0138.Copy%20List%20with%20Random%20Pointer/images/e2.png" style="height: 114px; width: 700px;" /></p>
 
@@ -52,7 +54,7 @@ tags:
 <strong>输出：</strong>[[1,1],[2,1]]
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0138.Copy%20List%20with%20Random%20Pointer/images/e3.png" style="height: 122px; width: 700px;" /></strong></p>
 
@@ -73,7 +75,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -84,6 +90,8 @@ tags:
 时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -114,6 +122,8 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /*
@@ -149,6 +159,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -187,6 +199,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -214,6 +228,8 @@ func copyRandomList(head *Node) *Node {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -247,6 +263,8 @@ function copyRandomList(head: Node | null): Node | null {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * // Definition for a Node.
@@ -278,6 +296,8 @@ var copyRandomList = function (head) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /*
@@ -317,6 +337,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：拼接 + 拆分
 
 遍历链表，将链表中的每个节点都复制一份，然后将复制节点插入到原节点的后面。
@@ -328,6 +352,8 @@ public class Solution {
 时间复杂度为 $O(n)$，空间复杂度为 $O(1)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -365,6 +391,8 @@ class Solution:
             cur = nxt
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -408,6 +436,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -455,6 +485,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -490,6 +522,8 @@ func copyRandomList(head *Node) *Node {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -530,6 +564,8 @@ var copyRandomList = function (head) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 /*
@@ -577,4 +613,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

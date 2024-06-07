@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [2330. 验证回文串 IV 🔒](https://leetcode.cn/problems/valid-palindrome-iv)
 
 [English Version](/solution/2300-2399/2330.Valid%20Palindrome%20IV/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、仅由小写英文字母组成的字符串 <code>s</code> 。在一步操作中，你可以将 <code>s</code> 中的任一字符更改为其他任何字符。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>s</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -68,6 +74,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +87,8 @@ class Solution:
             i, j = i + 1, j - 1
         return cnt <= 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makePalindrome(s string) bool {
 	cnt := 0
@@ -121,6 +135,8 @@ func makePalindrome(s string) bool {
 	return cnt <= 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function makePalindrome(s: string): boolean {
@@ -138,4 +154,6 @@ function makePalindrome(s: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

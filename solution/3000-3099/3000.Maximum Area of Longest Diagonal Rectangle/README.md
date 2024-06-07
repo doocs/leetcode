@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3000.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README.md
 rating: 1249
+source: 第 379 场周赛 Q1
 tags:
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [3000. 对角线最长的矩形的面积](https://leetcode.cn/problems/maximum-area-of-longest-diagonal-rectangle)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从<strong> 0</strong> 开始的二维整数数组 <code>dimensions</code>。</p>
 
@@ -52,11 +55,17 @@ tags:
 	<li><code>1 &lt;= dimensions[i][0], dimensions[i][1] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +80,8 @@ class Solution:
                 ans = max(ans, l * w)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func areaOfMaxDiagonal(dimensions [][]int) (ans int) {
 	mx := 0
@@ -127,6 +142,8 @@ func areaOfMaxDiagonal(dimensions [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function areaOfMaxDiagonal(dimensions: number[][]): number {
@@ -146,4 +163,6 @@ function areaOfMaxDiagonal(dimensions: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README.md
 rating: 1911
+source: 第 264 场周赛 Q3
 tags:
     - 树
     - 深度优先搜索
@@ -10,13 +11,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [2049. 统计最高分的节点数目](https://leetcode.cn/problems/count-nodes-with-the-highest-score)
 
 [English Version](/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵根节点为 <code>0</code> 的&nbsp;<strong>二叉树</strong>&nbsp;，它总共有 <code>n</code>&nbsp;个节点，节点编号为&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n - 1</code>&nbsp;。同时给你一个下标从&nbsp;<strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>parents</code>&nbsp;表示这棵树，其中&nbsp;<code>parents[i]</code>&nbsp;是节点 <code>i</code>&nbsp;的父节点。由于节点 <code>0</code>&nbsp;是根，所以&nbsp;<code>parents[0] == -1</code>&nbsp;。</p>
 
@@ -66,7 +69,11 @@ tags:
 	<li><code>parents</code>&nbsp;表示一棵二叉树。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -91,6 +98,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点数目。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -120,6 +129,8 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -163,6 +174,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +214,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countHighestScoreNodes(parents []int) (ans int) {
 	n := len(parents)
@@ -235,6 +250,8 @@ func countHighestScoreNodes(parents []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countHighestScoreNodes(parents: number[]): number {
     const n = parents.length;
@@ -267,6 +284,8 @@ function countHighestScoreNodes(parents: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -319,4 +338,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

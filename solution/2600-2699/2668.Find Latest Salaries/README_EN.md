@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2668. Find Latest Salaries 🔒](https://leetcode.com/problems/find-latest-salaries)
 
 [中文文档](/solution/2600-2699/2668.Find%20Latest%20Salaries/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code><font face="monospace">Salary</font></code></p>
 
@@ -75,11 +79,17 @@ Each row contains employees details and their yearly salaries, however, some of 
 - emp_id 6&nbsp;has two records with a salary of 79632, 90000 out&nbsp;of these 90000 is an updated salary.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -96,4 +106,6 @@ ORDER BY emp_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

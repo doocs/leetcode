@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2036.%20%E6%9C%80%E5%A4%9A%E7%89%8C%E7%BB%84%E6%95%B0/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 36. 最多牌组数](https://leetcode.cn/problems/Up5XYM)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 麻将的游戏规则中，共有两种方式凑成「一组牌」：
 
@@ -40,6 +42,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2036.%20%E6%9C%80%
 -   `1 <= tiles.length <= 10^5`
 -   `1 <= tiles[i] <= 10^9`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

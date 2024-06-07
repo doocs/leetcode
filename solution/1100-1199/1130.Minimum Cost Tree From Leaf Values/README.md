@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1130.Minimum%20Cost%20Tree%20From%20Leaf%20Values/README.md
 rating: 1919
+source: 第 146 场周赛 Q3
 tags:
     - 栈
     - 贪心
@@ -11,13 +12,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [1130. 叶值的最小代价生成树](https://leetcode.cn/problems/minimum-cost-tree-from-leaf-values)
 
 [English Version](/solution/1100-1199/1130.Minimum%20Cost%20Tree%20From%20Leaf%20Values/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数数组&nbsp;<code>arr</code>，考虑所有满足以下条件的二叉树：</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li>答案保证是一个 32 位带符号整数，即小于&nbsp;<code>2<sup>31</sup></code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -95,6 +102,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mctFromLeafValues(self, arr: List[int]) -> int:
@@ -114,6 +123,8 @@ class Solution:
 
         return dfs(0, len(arr) - 1)[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mctFromLeafValues(arr []int) int {
 	n := len(arr)
@@ -212,6 +227,8 @@ func mctFromLeafValues(arr []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mctFromLeafValues(arr: number[]): number {
     const n = arr.length;
@@ -242,6 +259,10 @@ function mctFromLeafValues(arr: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们可以将方法一中的记忆化搜索改为动态规划的方式进行求解。
@@ -260,6 +281,8 @@ $$
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -281,6 +304,8 @@ class Solution:
         return dfs(0, n - 1)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int mctFromLeafValues(int[] arr) {
@@ -301,6 +326,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -325,6 +352,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mctFromLeafValues(arr []int) int {
 	n := len(arr)
@@ -348,6 +377,8 @@ func mctFromLeafValues(arr []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mctFromLeafValues(arr: number[]): number {
     const n = arr.length;
@@ -369,9 +400,15 @@ function mctFromLeafValues(arr: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -391,4 +428,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

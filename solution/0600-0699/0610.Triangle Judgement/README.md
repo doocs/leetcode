@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [610. 判断三角形](https://leetcode.cn/problems/triangle-judgement)
 
 [English Version](/solution/0600-0699/0610.Triangle%20Judgement/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表:&nbsp;<code>Triangle</code></p>
 
@@ -57,13 +59,19 @@ Triangle 表:
 | 10 | 20 | 15 | Yes      |
 +----+----+----+----------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：IF 语句 + 三角形判断条件
 
 三条边能否构成三角形的条件是：任意两边之和大于第三边。因此，我们可以使用 `IF` 语句来判断是否满足这个条件，如果满足则返回 `Yes`，否则返回 `No`。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -75,4 +83,6 @@ FROM Triangle;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

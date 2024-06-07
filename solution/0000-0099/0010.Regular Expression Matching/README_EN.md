@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [10. Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching)
 
 [中文文档](/solution/0000-0099/0010.Regular%20Expression%20Matching/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an input string <code>s</code>&nbsp;and a pattern <code>p</code>, implement regular expression matching with support for <code>&#39;.&#39;</code> and <code>&#39;*&#39;</code> where:</p>
 
@@ -59,7 +63,11 @@ tags:
 	<li>It is guaranteed for each appearance of the character <code>&#39;*&#39;</code>, there will be a previous valid character to match.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -77,6 +85,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
@@ -93,6 +103,8 @@ class Solution:
         m, n = len(s), len(p)
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isMatch(s string, p string) bool {
 	m, n := len(s), len(p)
@@ -189,6 +205,8 @@ func isMatch(s string, p string) bool {
 	return dfs(0, 0)
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -231,6 +249,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -262,6 +282,8 @@ var isMatch = function (s, p) {
     return dfs(0, 0);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -303,6 +325,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can convert the memoization search in Solution 1 into dynamic programming.
@@ -317,6 +343,8 @@ Similar to Solution 1, we can discuss different cases.
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of $s$ and $p$ respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -334,6 +362,8 @@ class Solution:
                     f[i][j] = f[i - 1][j - 1]
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -358,6 +388,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -384,6 +416,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isMatch(s string, p string) bool {
 	m, n := len(s), len(p)
@@ -407,6 +441,8 @@ func isMatch(s string, p string) bool {
 	return f[m][n]
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -435,6 +471,8 @@ var isMatch = function (s, p) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsMatch(string s, string p) {
@@ -457,6 +495,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -501,4 +541,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

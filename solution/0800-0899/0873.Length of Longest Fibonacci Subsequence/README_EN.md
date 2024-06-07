@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [873. Length of Longest Fibonacci Subsequence](https://leetcode.com/problems/length-of-longest-fibonacci-subsequence)
 
 [中文文档](/solution/0800-0899/0873.Length%20of%20Longest%20Fibonacci%20Subsequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A sequence <code>x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub></code> is <em>Fibonacci-like</em> if:</p>
 
@@ -48,11 +52,17 @@ tags:
 	<li><code>1 &lt;= arr[i] &lt; arr[i + 1] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +82,8 @@ class Solution:
                     ans = max(ans, dp[j][i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lenLongestFibSubseq(arr []int) int {
 	n := len(arr)
@@ -162,6 +178,8 @@ func lenLongestFibSubseq(arr []int) int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -197,4 +215,6 @@ var lenLongestFibSubseq = function (arr) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

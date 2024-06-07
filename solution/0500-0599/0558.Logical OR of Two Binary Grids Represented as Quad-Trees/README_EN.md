@@ -7,11 +7,15 @@ tags:
     - Divide and Conquer
 ---
 
+<!-- problem:start -->
+
 # [558. Logical OR of Two Binary Grids Represented as Quad-Trees](https://leetcode.com/problems/logical-or-of-two-binary-grids-represented-as-quad-trees)
 
 [中文文档](/solution/0500-0599/0558.Logical%20OR%20of%20Two%20Binary%20Grids%20Represented%20as%20Quad-Trees/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A Binary Matrix is a matrix in which all the elements are either <strong>0</strong> or <strong>1</strong>.</p>
 
@@ -86,11 +90,17 @@ The resulting matrix is of size 1*1 with also zero.
 	<li><code>n == 2<sup>x</sup></code> where <code>0 &lt;= x &lt;= 9</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -138,6 +148,8 @@ class Solution:
 
         return dfs(quadTree1, quadTree2)
 ```
+
+#### Java
 
 ```java
 /*
@@ -190,6 +202,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -255,6 +269,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a QuadTree node.
@@ -305,4 +321,6 @@ func intersect(quadTree1 *Node, quadTree2 *Node) *Node {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

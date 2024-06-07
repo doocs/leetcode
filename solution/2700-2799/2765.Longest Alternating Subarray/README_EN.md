@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2765.Longest%20Alternating%20Subarray/README_EN.md
 rating: 1580
+source: Biweekly Contest 108 Q1
 tags:
     - Array
     - Enumeration
 ---
+
+<!-- problem:start -->
 
 # [2765. Longest Alternating Subarray](https://leetcode.com/problems/longest-alternating-subarray)
 
 [中文文档](/solution/2700-2799/2765.Longest%20Alternating%20Subarray/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. A subarray <code>s</code> of length <code>m</code> is called <strong>alternating</strong> if:</p>
 
@@ -51,7 +56,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -60,6 +69,8 @@ We can enumerate the left endpoint $i$ of the subarray, and for each $i$, we nee
 The time complexity is $O(n^2)$, where $n$ is the length of the array. We need to enumerate the left endpoint $i$ of the subarray, and for each $i$, we need $O(n)$ time to find the longest subarray that satisfies the condition. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
                 ans = max(ans, j - i + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func alternatingSubarray(nums []int) int {
 	ans, n := -1, len(nums)
@@ -131,6 +148,8 @@ func alternatingSubarray(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function alternatingSubarray(nums: number[]): number {
@@ -152,4 +171,6 @@ function alternatingSubarray(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

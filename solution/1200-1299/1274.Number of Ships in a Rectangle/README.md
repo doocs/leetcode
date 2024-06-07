@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1274.Number%20of%20Ships%20in%20a%20Rectangle/README.md
 rating: 1997
+source: 第 14 场双周赛 Q4
 tags:
     - 数组
     - 分治
     - 交互
 ---
+
+<!-- problem:start -->
 
 # [1274. 矩形内船只的数目 🔒](https://leetcode.cn/problems/number-of-ships-in-a-rectangle)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><em>(此题是 <strong>交互式问题&nbsp;</strong>)</em></p>
 
@@ -60,7 +63,11 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归 + 分治
 
@@ -69,6 +76,8 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 时间复杂度 $O(C \times \log \max(m, n))$，空间复杂度 $O(\log \max(m, n))$。其中 $C$ 为船只的数目，而 $m$ 和 $n$ 分别为矩形的长和宽。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -106,6 +115,8 @@ class Solution:
         return dfs(topRight, bottomLeft)
 ```
 
+#### Java
+
 ```java
 /**
  * // This is Sea's API interface.
@@ -138,6 +149,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -174,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is Sea's API interface.
@@ -205,6 +220,8 @@ func countShips(sea Sea, topRight, bottomLeft []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * // This is the Sea's API interface.
@@ -235,4 +252,6 @@ function countShips(sea: Sea, topRight: number[], bottomLeft: number[]): number 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

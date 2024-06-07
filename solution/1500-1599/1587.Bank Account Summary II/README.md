@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1587. 银行账户概要 II](https://leetcode.cn/problems/bank-account-summary-ii)
 
 [English Version](/solution/1500-1599/1587.Bank%20Account%20Summary%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Users</code></p>
 
@@ -94,13 +96,19 @@ Bob 的余额为1000.
 Charlie 的余额为(6000 + 6000 - 4000) = 8000.
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：等值连接 + 分组求和
 
 我们可以使用等值连接，将 `Users` 和 `Transactions` 表按照 `account` 列连接起来，然后按照 `account` 列分组求和，最后筛选出余额大于 $10000$ 的用户。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -116,4 +124,6 @@ HAVING balance > 10000;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

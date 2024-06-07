@@ -8,13 +8,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [383. 赎金信](https://leetcode.cn/problems/ransom-note)
 
 [English Version](/solution/0300-0399/0383.Ransom%20Note/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串：<code>ransomNote</code> 和 <code>magazine</code> ，判断 <code>ransomNote</code> 能不能由 <code>magazine</code> 里面的字符构成。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>ransomNote</code> 和 <code>magazine</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表或数组
 
@@ -66,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
@@ -76,6 +84,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canConstruct(ransomNote string, magazine string) bool {
 	cnt := [26]int{}
@@ -128,6 +142,8 @@ func canConstruct(ransomNote string, magazine string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canConstruct(ransomNote: string, magazine: string): boolean {
     const cnt: number[] = Array(26).fill(0);
@@ -142,6 +158,8 @@ function canConstruct(ransomNote: string, magazine: string): boolean {
     return true;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -159,6 +177,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -186,4 +206,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

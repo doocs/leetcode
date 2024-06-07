@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2888.Reshape%20Data%20Concatenate/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2888. Reshape Data Concatenate](https://leetcode.com/problems/reshape-data-concatenate)
 
 [中文文档](/solution/2800-2899/2888.Reshape%20Data%20Concatenate/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <pre>
 DataFrame <code>df1</code>
@@ -70,11 +74,17 @@ df1</strong>
 <strong>Explanation:
 </strong>The two DataFramess are stacked vertically, and their rows are combined.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -86,4 +96,6 @@ def concatenateTables(df1: pd.DataFrame, df2: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

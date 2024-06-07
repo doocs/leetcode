@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README_EN.md
 rating: 1084
+source: Weekly Contest 144 Q1
 tags:
     - String
 ---
+
+<!-- problem:start -->
 
 # [1108. Defanging an IP Address](https://leetcode.com/problems/defanging-an-ip-address)
 
 [中文文档](/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a valid (IPv4) IP <code>address</code>, return a defanged version of that IP address.</p>
 
@@ -43,7 +48,11 @@ tags:
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Direct Replacement
 
@@ -53,11 +62,15 @@ The time complexity is $O(n)$, where $n$ is the length of the string. Ignoring t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def defangIPaddr(self, address: str) -> str:
         return address.replace('.', '[.]')
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -66,6 +79,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -81,11 +96,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func defangIPaddr(address string) string {
 	return strings.Replace(address, ".", "[.]", -1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function defangIPaddr(address: string): string {
@@ -95,4 +114,6 @@ function defangIPaddr(address: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

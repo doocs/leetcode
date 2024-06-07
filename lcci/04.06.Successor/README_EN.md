@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.06.Successor/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [04.06. Successor](https://leetcode.cn/problems/successor-lcci)
 
 [中文文档](/lcci/04.06.Successor/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write an algorithm to find the &quot;next&quot; node (i.e., in-order successor) of a given node in a binary search tree.</p>
 
@@ -58,7 +62,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.06.Successor/READM
 
 <strong>Output:</strong> null</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -74,6 +82,8 @@ Therefore, for the current node $root$, if $root.val > p.val$, then $root$ could
 The time complexity is $O(h)$, where $h$ is the height of the binary search tree. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -95,6 +105,8 @@ class Solution:
                 root = root.right
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -121,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -149,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -170,6 +186,8 @@ func inorderSuccessor(root *TreeNode, p *TreeNode) (ans *TreeNode) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -200,6 +218,8 @@ function inorderSuccessor(root: TreeNode | null, p: TreeNode | null): TreeNode |
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -226,6 +246,8 @@ var inorderSuccessor = function (root, p) {
     return ans;
 };
 ```
+
+#### Swift
 
 ```swift
 /* class TreeNode {
@@ -261,4 +283,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

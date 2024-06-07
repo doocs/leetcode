@@ -12,13 +12,15 @@ tags:
     - 归并排序
 ---
 
+<!-- problem:start -->
+
 # [493. 翻转对](https://leetcode.cn/problems/reverse-pairs)
 
 [English Version](/solution/0400-0499/0493.Reverse%20Pairs/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数组&nbsp;<code>nums</code>&nbsp;，如果&nbsp;<code>i &lt; j</code>&nbsp;且&nbsp;<code>nums[i] &gt; 2*nums[j]</code>&nbsp;我们就将&nbsp;<code>(i, j)</code>&nbsp;称作一个<strong><em>重要翻转对</em></strong>。</p>
 
@@ -45,7 +47,11 @@ tags:
 	<li>输入数组中的所有数字都在32位整数的表示范围内。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：归并排序
 
@@ -54,6 +60,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +94,8 @@ class Solution:
 
         return merge_sort(0, len(nums) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -182,6 +194,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reversePairs(nums []int) int {
@@ -230,6 +244,10 @@ func reversePairs(nums []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：树状数组
 
 树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
@@ -246,6 +264,8 @@ func reversePairs(nums []int) int {
 解决方案是直接遍历数组，每个位置先求出 `query(a[i])`，然后再修改树状数组 `update(a[i], 1)` 即可。当数的范围比较大时，需要进行离散化，即先进行去重并排序，然后对每个数字进行编号。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -285,6 +305,8 @@ class Solution:
             tree.update(m[num * 2], 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -341,6 +363,8 @@ class BinaryIndexedTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -393,6 +417,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -452,6 +478,10 @@ func reversePairs(nums []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：线段树
 
 线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 `log(width)`。更新某个元素的值，只需要更新 `log(width)` 个区间，并且这些区间都包含在一个包含该元素的大区间内。
@@ -462,6 +492,8 @@ func reversePairs(nums []int) int {
 -   对于每个内部节点 `[l, r]`，它的左儿子是 `[l, mid]`，右儿子是 `[mid + 1, r]`, 其中 `mid = ⌊(l + r) / 2⌋` (即向下取整)。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -527,6 +559,8 @@ class Solution:
             tree.modify(1, m[v * 2], 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -615,6 +649,8 @@ class SegmentTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -693,4 +729,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

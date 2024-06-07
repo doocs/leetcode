@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1760.Minimum%20Limit%20of%20Balls%20in%20a%20Bag/README_EN.md
 rating: 1939
+source: Weekly Contest 228 Q3
 tags:
     - Array
     - Binary Search
 ---
+
+<!-- problem:start -->
 
 # [1760. Minimum Limit of Balls in a Bag](https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag)
 
 [中文文档](/solution/1700-1799/1760.Minimum%20Limit%20of%20Balls%20in%20a%20Bag/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> where the <code>i<sup>th</sup></code> bag contains <code>nums[i]</code> balls. You are also given an integer <code>maxOperations</code>.</p>
 
@@ -65,11 +70,17 @@ The bag with the most number of balls has 2 balls, so your penalty is 2, and you
 	<li><code>1 &lt;= maxOperations, nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +90,8 @@ class Solution:
 
         return bisect_left(range(1, max(nums)), True, key=check) + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSize(nums []int, maxOperations int) int {
 	r := slices.Max(nums)
@@ -139,6 +156,8 @@ func minimumSize(nums []int, maxOperations int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSize(nums: number[], maxOperations: number): number {
@@ -159,6 +178,8 @@ function minimumSize(nums: number[], maxOperations: number): number {
     return left;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -187,4 +208,6 @@ var minimumSize = function (nums, maxOperations) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

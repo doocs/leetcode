@@ -10,13 +10,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [308. 二维区域和检索 - 可变 🔒](https://leetcode.cn/problems/range-sum-query-2d-mutable)
 
 [English Version](/solution/0300-0399/0308.Range%20Sum%20Query%202D%20-%20Mutable/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二维矩阵 <code>matrix</code> ，处理以下类型的多个查询:</p>
 
@@ -69,7 +71,11 @@ numMatrix.sumRegion(2, 1, 4, 3); // 返回 10 (即，右侧红色矩形的和)
 	<li>最多调用<code>10<sup>4</sup></code> 次&nbsp;<code>sumRegion</code> 和 <code>update</code> 方法</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：树状数组
 
@@ -83,6 +89,8 @@ numMatrix.sumRegion(2, 1, 4, 3); // 返回 10 (即，右侧红色矩形的和)
 对于本题，可以构建二维树状数组。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -134,6 +142,8 @@ class NumMatrix:
 # obj.update(row,col,val)
 # param_2 = obj.sumRegion(row1,col1,row2,col2)
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -206,6 +216,8 @@ class NumMatrix {
  */
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -275,6 +287,8 @@ public:
  * int param_2 = obj->sumRegion(row1,col1,row2,col2);
  */
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -349,6 +363,10 @@ func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：线段树
 
 线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 `log(width)`。更新某个元素的值，只需要更新 `log(width)` 个区间，并且这些区间都包含在一个包含该元素的大区间内。
@@ -359,6 +377,8 @@ func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
 -   对于每个内部节点 `[l, r]`，它的左儿子是 `[l, mid]`，右儿子是 `[mid + 1, r]`, 其中 `mid = ⌊(l + r) / 2⌋` (即向下取整)。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -432,6 +452,8 @@ class NumMatrix:
 # obj.update(row,col,val)
 # param_2 = obj.sumRegion(row1,col1,row2,col2)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -535,6 +557,8 @@ class NumMatrix {
  */
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -628,4 +652,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

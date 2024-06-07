@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README.md
 rating: 1355
+source: 第 54 场双周赛 Q2
 tags:
     - 数组
     - 二分查找
@@ -10,13 +11,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [1894. 找到需要补充粉笔的学生编号](https://leetcode.cn/problems/find-the-student-that-will-replace-the-chalk)
 
 [English Version](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个班级里有&nbsp;<code>n</code>&nbsp;个学生，编号为 <code>0</code>&nbsp;到 <code>n - 1</code>&nbsp;。每个学生会依次回答问题，编号为 <code>0</code>&nbsp;的学生先回答，然后是编号为 <code>1</code>&nbsp;的学生，以此类推，直到编号为 <code>n - 1</code>&nbsp;的学生，然后老师会重复这个过程，重新从编号为 <code>0</code>&nbsp;的学生开始回答问题。</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：求和取余 + 模拟
 
@@ -81,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def chalkReplacer(self, chalk: List[int], k: int) -> int:
@@ -91,6 +100,8 @@ class Solution:
                 return i
             k -= x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func chalkReplacer(chalk []int, k int) int {
@@ -142,6 +157,8 @@ func chalkReplacer(chalk []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function chalkReplacer(chalk: number[], k: number): number {
     let s = 0;
@@ -157,6 +174,8 @@ function chalkReplacer(chalk: number[], k: number): number {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -179,4 +198,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

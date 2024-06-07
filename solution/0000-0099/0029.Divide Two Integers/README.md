@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [29. 两数相除](https://leetcode.cn/problems/divide-two-integers)
 
 [English Version](/solution/0000-0099/0029.Divide%20Two%20Integers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数，被除数&nbsp;<code>dividend</code>&nbsp;和除数&nbsp;<code>divisor</code>。将两数相除，要求 <strong>不使用</strong> 乘法、除法和取余运算。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li><code>divisor != 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟 + 快速幂
 
@@ -59,6 +65,8 @@ tags:
 假设被除数为 $a$，除数为 $b$，则时间复杂度为 $O(\log a \times \log b)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +89,8 @@ class Solution:
             ans += cnt
         return ans if sign else -ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func divide(a int, b int) int {
@@ -175,6 +189,8 @@ func divide(a int, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function divide(a: number, b: number): number {
     if (b === 1) {
@@ -206,6 +222,8 @@ function divide(a: number, b: number): number {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int Divide(int a, int b) {
@@ -233,6 +251,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -274,4 +294,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

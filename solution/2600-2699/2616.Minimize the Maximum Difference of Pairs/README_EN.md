@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README_EN.md
 rating: 2155
+source: Weekly Contest 340 Q3
 tags:
     - Greedy
     - Array
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2616. Minimize the Maximum Difference of Pairs](https://leetcode.com/problems/minimize-the-maximum-difference-of-pairs)
 
 [中文文档](/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>p</code>. Find <code>p</code> pairs of indices of <code>nums</code> such that the <strong>maximum</strong> difference amongst all the pairs is <strong>minimized</strong>. Also, ensure no index appears more than once amongst the <code>p</code> pairs.</p>
 
@@ -48,7 +53,11 @@ The maximum difference is max(|nums[1] - nums[4]|, |nums[2] - nums[5]|) = max(0,
 	<li><code>0 &lt;= p &lt;= (nums.length)/2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary search + Greedy
 
@@ -61,6 +70,8 @@ Determine whether there are $p$ index pairs, where each index pair corresponds t
 The time complexity is $O(n \times (\log n + \log m))$, where $n$ is the length of the array `nums`, and $m$ is the difference between the maximum value and the minimum value in the array `nums`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +89,8 @@ class Solution:
         nums.sort()
         return bisect_left(range(nums[-1] - nums[0] + 1), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimizeMax(nums []int, p int) int {
 	sort.Ints(nums)
@@ -159,4 +176,6 @@ func minimizeMax(nums []int, p int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

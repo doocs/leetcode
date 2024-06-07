@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20064.%20%E7%A5%9E%E5%A5%87%E7%9A%84%E5%AD%97%E5%85%B8/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 064. 神奇的字典](https://leetcode.cn/problems/US1pGT)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个使用单词列表进行初始化的数据结构，单词列表中的单词 <strong>互不相同</strong> 。 如果给出一个单词，请判定能否只将这个单词中<strong>一个</strong>字母换成另一个字母，使得所形成的新单词存在于已构建的神奇字典中。</p>
 
@@ -64,11 +66,17 @@ magicDictionary.search(&quot;leetcoded&quot;); // 返回 False
 
 <p><meta charset="UTF-8" />注意：本题与主站 676&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/implement-magic-dictionary/">https://leetcode.cn/problems/implement-magic-dictionary/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MagicDictionary:
@@ -98,6 +106,8 @@ class MagicDictionary:
 # obj.buildDict(dictionary)
 # param_2 = obj.search(searchWord)
 ```
+
+#### Java
 
 ```java
 class MagicDictionary {
@@ -150,6 +160,8 @@ class MagicDictionary {
  */
 ```
 
+#### C++
+
 ```cpp
 class MagicDictionary {
 public:
@@ -194,6 +206,8 @@ private:
  * bool param_2 = obj->search(searchWord);
  */
 ```
+
+#### Go
 
 ```go
 type MagicDictionary struct {
@@ -245,4 +259,6 @@ func patterns(word string) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

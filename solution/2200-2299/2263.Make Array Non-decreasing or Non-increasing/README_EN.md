@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2263. Make Array Non-decreasing or Non-increasing 🔒](https://leetcode.com/problems/make-array-non-decreasing-or-non-increasing)
 
 [中文文档](/solution/2200-2299/2263.Make%20Array%20Non-decreasing%20or%20Non-increasing/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. In one operation, you can:</p>
 
@@ -65,11 +69,17 @@ It can be proven that 4 is the minimum number of operations needed.
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you solve it in <code>O(n*log(n))</code> time complexity?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +97,8 @@ class Solution:
 
         return min(solve(nums), solve(nums[::-1]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func convertArray(nums []int) int {
@@ -187,4 +203,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

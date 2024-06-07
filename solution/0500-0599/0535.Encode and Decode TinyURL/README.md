@@ -9,13 +9,15 @@ tags:
     - 哈希函数
 ---
 
+<!-- problem:start -->
+
 # [535. TinyURL 的加密与解密](https://leetcode.cn/problems/encode-and-decode-tinyurl)
 
 [English Version](/solution/0500-0599/0535.Encode%20and%20Decode%20TinyURL/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>TinyURL 是一种 URL 简化服务， 比如：当你输入一个 URL&nbsp;<code>https://leetcode.com/problems/design-tinyurl</code>&nbsp;时，它将返回一个简化的URL&nbsp;<code>http://tinyurl.com/4e9iAk</code> 。请你设计一个类来加密与解密 TinyURL 。</p>
 
@@ -56,11 +58,17 @@ string ans = obj.decode(tiny); // 返回解密后得到的原本的 URL 。
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Codec:
@@ -86,6 +94,8 @@ class Codec:
 # codec.decode(codec.encode(url))
 ```
 
+#### Java
+
 ```java
 public class Codec {
     private Map<String, String> m = new HashMap<>();
@@ -110,6 +120,8 @@ public class Codec {
 // Codec codec = new Codec();
 // codec.decode(codec.encode(url));
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +149,8 @@ private:
 // Solution solution;
 // solution.decode(solution.encode(url));
 ```
+
+#### Go
 
 ```go
 type Codec struct {
@@ -173,4 +187,6 @@ func (this *Codec) decode(shortUrl string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

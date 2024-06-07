@@ -10,11 +10,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [294. Flip Game II 🔒](https://leetcode.com/problems/flip-game-ii)
 
 [中文文档](/solution/0200-0299/0294.Flip%20Game%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are playing a Flip Game with your friend.</p>
 
@@ -49,11 +53,17 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Derive your algorithm&#39;s runtime complexity.
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +84,8 @@ class Solution:
                 mask |= 1 << i
         return dfs(mask)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -140,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canWin(currentState string) bool {
@@ -175,9 +191,15 @@ func canWin(currentState string) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -206,6 +228,8 @@ class Solution:
             i = j + 1
         return ans > 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -248,6 +272,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -276,6 +302,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canWin(currentState string) bool {
@@ -316,4 +344,6 @@ func canWin(currentState string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

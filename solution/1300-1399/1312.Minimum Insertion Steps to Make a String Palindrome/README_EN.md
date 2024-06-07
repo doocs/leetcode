@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1312.Minimum%20Insertion%20Steps%20to%20Make%20a%20String%20Palindrome/README_EN.md
 rating: 1786
+source: Weekly Contest 170 Q4
 tags:
     - String
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [1312. Minimum Insertion Steps to Make a String Palindrome](https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome)
 
 [中文文档](/solution/1300-1399/1312.Minimum%20Insertion%20Steps%20to%20Make%20a%20String%20Palindrome/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>. In one step you can insert any character at any index of the string.</p>
 
@@ -53,11 +58,17 @@ tags:
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +83,8 @@ class Solution:
 
         return dfs(0, len(s) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minInsertions(s string) int {
@@ -163,9 +180,15 @@ func minInsertions(s string) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -180,6 +203,8 @@ class Solution:
                     f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -199,6 +224,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -220,6 +247,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minInsertions(s string) int {
@@ -243,9 +272,15 @@ func minInsertions(s string) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -261,6 +296,8 @@ class Solution:
                     f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1
         return f[0][n - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -281,6 +318,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -303,6 +342,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minInsertions(s string) int {
@@ -327,4 +368,6 @@ func minInsertions(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [521. Longest Uncommon Subsequence I](https://leetcode.com/problems/longest-uncommon-subsequence-i)
 
 [中文文档](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>a</code> and <code>b</code>, return <em>the length of the <strong>longest uncommon subsequence</strong> between </em><code>a</code> <em>and</em> <code>b</code>. <em>If no such uncommon subsequence exists, return</em> <code>-1</code><em>.</em></p>
 
@@ -50,17 +54,25 @@ Note that &quot;cdc&quot; is also a longest uncommon subsequence.
 	<li><code>a</code> and <code>b</code> consist of lower-case English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def findLUSlength(self, a: str, b: str) -> int:
         return -1 if a == b else max(len(a), len(b))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +82,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -78,6 +92,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLUSlength(a string, b string) int {
@@ -91,11 +107,15 @@ func findLUSlength(a string, b string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLUSlength(a: string, b: string): number {
     return a != b ? Math.max(a.length, b.length) : -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -110,4 +130,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

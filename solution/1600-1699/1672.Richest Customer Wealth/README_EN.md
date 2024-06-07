@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1672.Richest%20Customer%20Wealth/README_EN.md
 rating: 1182
+source: Weekly Contest 217 Q1
 tags:
     - Array
     - Matrix
 ---
+
+<!-- problem:start -->
 
 # [1672. Richest Customer Wealth](https://leetcode.com/problems/richest-customer-wealth)
 
 [中文文档](/solution/1600-1699/1672.Richest%20Customer%20Wealth/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> integer grid <code>accounts</code> where <code>accounts[i][j]</code> is the amount of money the <code>i​​​​​<sup>​​​​​​th</sup>​​​​</code> customer has in the <code>j​​​​​<sup>​​​​​​th</sup></code>​​​​ bank. Return<em> the <strong>wealth</strong> that the richest customer has.</em></p>
 
@@ -58,7 +63,11 @@ The 2nd customer is the richest with a wealth of 10.</pre>
 	<li><code>1 &lt;= accounts[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Summation
 
@@ -68,11 +77,15 @@ The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumWealth(self, accounts: List[List[int]]) -> int:
         return max(sum(v) for v in accounts)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +118,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumWealth(accounts [][]int) int {
@@ -120,6 +137,8 @@ func maximumWealth(accounts [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumWealth(accounts: number[][]): number {
     return accounts.reduce(
@@ -133,6 +152,8 @@ function maximumWealth(accounts: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn maximum_wealth(accounts: Vec<Vec<i32>>) -> i32 {
@@ -144,6 +165,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -167,6 +190,8 @@ class Solution {
 }
 ```
 
+#### C
+
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
@@ -182,6 +207,8 @@ int maximumWealth(int** accounts, int accountsSize, int* accountsColSize) {
     return ans;
 }
 ```
+
+#### Kotlin
 
 ```kotlin
 class Solution {
@@ -200,4 +227,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

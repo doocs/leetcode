@@ -9,13 +9,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2819. 购买巧克力后的最小相对损失 🔒](https://leetcode.cn/problems/minimum-relative-loss-after-buying-chocolates)
 
 [English Version](/solution/2800-2899/2819.Minimum%20Relative%20Loss%20After%20Buying%20Chocolates/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现给定一个整数数组 <code>prices</code>，表示巧克力的价格；以及一个二维整数数组 <code>queries</code>，其中 <code>queries[i] = [ki, mi]</code>。</p>
 
@@ -79,7 +81,11 @@ tags:
 	<li><code>1 &lt;= m<sub>i</sub> &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 二分查找 + 前缀和
 
@@ -98,6 +104,8 @@ tags:
 时间复杂度 $O((n + m) \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 $prices$ 和 $queries$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -126,6 +134,8 @@ class Solution:
             ans.append(loss)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -171,6 +181,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -208,6 +220,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumRelativeLosses(prices []int, queries [][]int) []int64 {
 	n := len(prices)
@@ -242,6 +256,8 @@ func minimumRelativeLosses(prices []int, queries [][]int) []int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumRelativeLosses(prices: number[], queries: number[][]): number[] {
@@ -292,4 +308,6 @@ function minimumRelativeLosses(prices: number[], queries: number[][]): number[] 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

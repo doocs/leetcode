@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [508. Most Frequent Subtree Sum](https://leetcode.com/problems/most-frequent-subtree-sum)
 
 [中文文档](/solution/0500-0599/0508.Most%20Frequent%20Subtree%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, return the most frequent <strong>subtree sum</strong>. If there is a tie, return all the values with the highest frequency in any order.</p>
 
@@ -42,11 +46,17 @@ tags:
 	<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -70,6 +80,8 @@ class Solution:
         mx = max(counter.values())
         return [k for k, v in counter.items() if v == mx]
 ```
+
+#### Java
 
 ```java
 /**
@@ -120,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -157,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -191,6 +207,8 @@ func findFrequentTreeSum(root *TreeNode) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -230,6 +248,8 @@ function findFrequentTreeSum(root: TreeNode | null): number[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -286,4 +306,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README_EN.md
 rating: 1775
+source: Weekly Contest 327 Q3
 tags:
     - Hash Table
     - String
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2531. Make Number of Distinct Characters Equal](https://leetcode.com/problems/make-number-of-distinct-characters-equal)
 
 [中文文档](/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> strings <code>word1</code> and <code>word2</code>.</p>
 
@@ -54,11 +59,17 @@ tags:
 	<li><code>word1</code> and <code>word2</code> consist of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +91,8 @@ class Solution:
                     cnt1[j], cnt2[i] = cnt1[j] - 1, cnt2[i] - 1
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -166,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isItPossible(word1 string, word2 string) bool {
 	cnt1 := [26]int{}
@@ -204,4 +221,6 @@ func isItPossible(word1 string, word2 string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Probability and Statistics
 ---
 
+<!-- problem:start -->
+
 # [808. Soup Servings](https://leetcode.com/problems/soup-servings)
 
 [中文文档](/solution/0800-0899/0808.Soup%20Servings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are two types of soup: <strong>type A</strong> and <strong>type B</strong>. Initially, we have <code>n</code> ml of each type of soup. There are four kinds of operations:</p>
 
@@ -55,11 +59,17 @@ So the total probability of A becoming empty first plus half the probability tha
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +91,8 @@ class Solution:
 
         return 1 if n > 4800 else dfs((n + 24) // 25, (n + 24) // 25)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func soupServings(n int) float64 {
@@ -158,6 +174,8 @@ func soupServings(n int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function soupServings(n: number): number {
     const f = new Array(200).fill(0).map(() => new Array(200).fill(-1));
@@ -184,4 +202,6 @@ function soupServings(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

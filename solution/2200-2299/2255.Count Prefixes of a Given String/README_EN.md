@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2255.Count%20Prefixes%20of%20a%20Given%20String/README_EN.md
 rating: 1260
+source: Biweekly Contest 77 Q1
 tags:
     - Array
     - String
 ---
+
+<!-- problem:start -->
 
 # [2255. Count Prefixes of a Given String](https://leetcode.com/problems/count-prefixes-of-a-given-string)
 
 [中文文档](/solution/2200-2299/2255.Count%20Prefixes%20of%20a%20Given%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string array <code>words</code> and a string <code>s</code>, where <code>words[i]</code> and <code>s</code> comprise only of <strong>lowercase English letters</strong>.</p>
 
@@ -49,7 +54,11 @@ Note that the same string can occur multiple times in words, and it should be co
 	<li><code>words[i]</code> and <code>s</code> consist of lowercase English letters <strong>only</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal Counting
 
@@ -61,11 +70,15 @@ The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of the
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPrefixes(self, words: List[str], s: str) -> int:
         return sum(s.startswith(w) for w in words)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPrefixes(words []string, s string) (ans int) {
 	for _, w := range words {
@@ -105,6 +122,8 @@ func countPrefixes(words []string, s string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countPrefixes(words: string[], s: string): number {
     return words.filter(w => s.startsWith(w)).length;
@@ -113,4 +132,6 @@ function countPrefixes(words: string[], s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

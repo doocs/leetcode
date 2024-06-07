@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2991. 最好的三家酒庄 🔒](https://leetcode.cn/problems/top-three-wineries)
 
 [English Version](/solution/2900-2999/2991.Top%20Three%20Wineries/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Wineries</code></p>
 
@@ -80,7 +82,11 @@ Wineries table:
 输出表按国家首字母升序排列。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组 + 窗口函数 + 左连接
 
@@ -100,6 +106,8 @@ Wineries table:
 接下来，我们只需要筛选出 `rk = 1` 的数据，然后再将 `T` 表自连接两次，分别连接 `rk = 2` 和 `rk = 3` 的数据，即可得到最终结果。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -129,4 +137,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1356.Sort%20Integers%20by%20The%20Number%20of%201%20Bits/README_EN.md
 rating: 1257
+source: Biweekly Contest 20 Q1
 tags:
     - Bit Manipulation
     - Array
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1356. Sort Integers by The Number of 1 Bits](https://leetcode.com/problems/sort-integers-by-the-number-of-1-bits)
 
 [中文文档](/solution/1300-1399/1356.Sort%20Integers%20by%20The%20Number%20of%201%20Bits/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>arr</code>. Sort the integers in the array&nbsp;in ascending order by the number of <code>1</code>&#39;s&nbsp;in their binary representation and in case of two or more integers have the same number of <code>1</code>&#39;s you have to sort them in ascending order.</p>
 
@@ -49,7 +54,11 @@ The sorted array by bits is [0,1,2,4,8,3,5,6,7]
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Custom Sorting
 
@@ -59,11 +68,15 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Where 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortByBits(self, arr: List[int]) -> List[int]:
         return sorted(arr, key=lambda x: (x.bit_count(), x))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -97,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortByBits(arr []int) []int {
 	for i, v := range arr {
@@ -109,6 +126,8 @@ func sortByBits(arr []int) []int {
 	return arr
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sortByBits(arr: number[]): number[] {
@@ -124,6 +143,8 @@ function sortByBits(arr: number[]): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn sort_by_bits(mut arr: Vec<i32>) -> Vec<i32> {
@@ -138,6 +159,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -171,9 +194,15 @@ int* sortByBits(int* arr, int arrSize, int* returnSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -195,6 +224,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -208,6 +239,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortByBits(arr []int) []int {
 	sort.Slice(arr, func(i, j int) bool {
@@ -220,4 +253,6 @@ func sortByBits(arr []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

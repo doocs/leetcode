@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3033.Modify%20the%20Matrix/README_EN.md
 rating: 1180
+source: Weekly Contest 384 Q1
 tags:
     - Array
     - Matrix
 ---
+
+<!-- problem:start -->
 
 # [3033. Modify the Matrix](https://leetcode.com/problems/modify-the-matrix)
 
 [中文文档](/solution/3000-3099/3033.Modify%20the%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>0-indexed</strong> <code>m x n</code> integer matrix <code>matrix</code>, create a new <strong>0-indexed</strong> matrix called <code>answer</code>. Make <code>answer</code> equal to <code>matrix</code>, then replace each element with the value <code>-1</code> with the <strong>maximum</strong> element in its respective column.</p>
 
@@ -48,7 +53,11 @@ tags:
 	<li>The input is generated such that each column contains at least one non-negative integer.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -57,6 +66,8 @@ We can follow the problem description, traverse each column, find the maximum va
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +80,8 @@ class Solution:
                     matrix[i][j] = mx
         return matrix
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func modifiedMatrix(matrix [][]int) [][]int {
 	m, n := len(matrix), len(matrix[0])
@@ -129,6 +146,8 @@ func modifiedMatrix(matrix [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function modifiedMatrix(matrix: number[][]): number[][] {
     const [m, n] = [matrix.length, matrix[0].length];
@@ -146,6 +165,8 @@ function modifiedMatrix(matrix: number[][]): number[][] {
     return matrix;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -169,4 +190,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

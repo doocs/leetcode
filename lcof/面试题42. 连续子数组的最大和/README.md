@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9842.%20%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 42. 连续子数组的最大和](https://leetcode.cn/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。</p>
 
@@ -33,7 +37,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -57,9 +65,11 @@ $$
 
 我们可以不用开一个数组来存储所有的计算结果，而是只用两个变量 $f$ 和 $ans$ 来维护对于每一个位置 $i$ 我们的最大值，这样我们可以省去空间复杂度的开销。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +80,8 @@ class Solution:
             ans = max(ans, f)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSubArray(nums []int) int {
 	ans, f := -1000000000, 0
@@ -111,6 +127,8 @@ func maxSubArray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSubArray(nums: number[]): number {
     let res = nums[0];
@@ -121,6 +139,8 @@ function maxSubArray(nums: number[]): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -134,6 +154,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -151,6 +173,8 @@ var maxSubArray = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MaxSubArray(int[] nums) {
@@ -165,6 +189,26 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func maxSubArray(_ nums: [Int]) -> Int {
+        var ans = Int.min
+        var currentSum = 0
+
+        for x in nums {
+            currentSum = max(currentSum, 0) + x
+            ans = max(ans, currentSum)
+        }
+
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

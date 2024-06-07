@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1326.Minimum%20Number%20of%20Taps%20to%20Open%20to%20Water%20a%20Garden/README.md
 rating: 1885
+source: 第 172 场周赛 Q4
 tags:
     - 贪心
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [1326. 灌溉花园的最少水龙头数目](https://leetcode.cn/problems/minimum-number-of-taps-to-open-to-water-a-garden)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在 x 轴上有一个一维的花园。花园长度为&nbsp;<code>n</code>，从点&nbsp;<code>0</code>&nbsp;开始，到点&nbsp;<code>n</code>&nbsp;结束。</p>
 
@@ -62,7 +65,11 @@ tags:
 	<li><code>0 &lt;= ranges[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -93,6 +100,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minTaps(self, n: int, ranges: List[int]) -> int:
@@ -111,6 +120,8 @@ class Solution:
                 pre = mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +146,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -161,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minTaps(n int, ranges []int) (ans int) {
 	last := make([]int, n+1)
@@ -182,6 +197,8 @@ func minTaps(n int, ranges []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minTaps(n: number, ranges: number[]): number {
@@ -207,6 +224,8 @@ function minTaps(n: number, ranges: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -247,4 +266,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

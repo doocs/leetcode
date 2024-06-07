@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1927.Sum%20Game/README.md
 rating: 2004
+source: 第 56 场双周赛 Q3
 tags:
     - 贪心
     - 数学
@@ -10,13 +11,15 @@ tags:
     - 博弈
 ---
 
+<!-- problem:start -->
+
 # [1927. 求和游戏](https://leetcode.cn/problems/sum-game)
 
 [English Version](/solution/1900-1999/1927.Sum%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 玩一个游戏，两人轮流行动，<strong>Alice 先手</strong> 。</p>
 
@@ -79,7 +82,11 @@ Bob 获胜，因为 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7 。
 	<li><code>num</code> 只包含数字字符和 <code>'?'</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分类讨论
 
@@ -101,6 +108,8 @@ Bob 获胜，因为 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumGame(self, num: str) -> bool:
@@ -111,6 +120,8 @@ class Solution:
         s2 = sum(int(x) for x in num[n // 2 :] if x != "?")
         return (cnt1 + cnt2) % 2 == 1 or s1 - s2 != 9 * (cnt2 - cnt1) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +147,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -163,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumGame(num string) bool {
 	n := len(num)
@@ -184,6 +199,8 @@ func sumGame(num string) bool {
 	return (cnt1+cnt2)%2 == 1 || s1-s2 != (cnt2-cnt1)*9/2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumGame(num: string): boolean {
@@ -209,4 +226,6 @@ function sumGame(num: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

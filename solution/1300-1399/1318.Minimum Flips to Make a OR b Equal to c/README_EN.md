@@ -3,15 +3,20 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1318.Minimum%20Flips%20to%20Make%20a%20OR%20b%20Equal%20to%20c/README_EN.md
 rating: 1382
+source: Weekly Contest 171 Q2
 tags:
     - Bit Manipulation
 ---
+
+<!-- problem:start -->
 
 # [1318. Minimum Flips to Make a OR b Equal to c](https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c)
 
 [中文文档](/solution/1300-1399/1318.Minimum%20Flips%20to%20Make%20a%20OR%20b%20Equal%20to%20c/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given 3 positives numbers <code>a</code>, <code>b</code> and <code>c</code>. Return the minimum flips required in some bits of <code>a</code> and <code>b</code> to make (&nbsp;<code>a</code> OR <code>b</code> == <code>c</code>&nbsp;). (bitwise OR operation).<br />
 
@@ -65,7 +70,11 @@ Flip operation&nbsp;consists of change&nbsp;<strong>any</strong>&nbsp;single bit
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -74,6 +83,8 @@ We can enumerate each bit of the binary representation of $a$, $b$, and $c$, den
 The time complexity is $O(\log M)$, where $M$ is the maximum value of the numbers in the problem. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +95,8 @@ class Solution:
             ans += x + y if z == 0 else int(x == 0 and y == 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minFlips(a int, b int, c int) (ans int) {
 	for i := 0; i < 32; i++ {
@@ -126,6 +143,8 @@ func minFlips(a int, b int, c int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minFlips(a: number, b: number, c: number): number {
     let ans = 0;
@@ -139,4 +158,6 @@ function minFlips(a: number, b: number, c: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

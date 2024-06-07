@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3028.Ant%20on%20the%20Boundary/README.md
 rating: 1115
+source: 第 383 场周赛 Q1
 tags:
     - 数组
     - 前缀和
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [3028. 边界上的蚂蚁](https://leetcode.cn/problems/ant-on-the-boundary)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>边界上有一只蚂蚁，它有时向 <strong>左 </strong>走，有时向 <strong>右 </strong>走。</p>
 
@@ -70,7 +73,11 @@ tags:
 	<li><code>nums[i] != 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和
 
@@ -80,11 +87,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def returnToBoundaryCount(self, nums: List[int]) -> int:
         return sum(s == 0 for s in accumulate(nums))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func returnToBoundaryCount(nums []int) (ans int) {
 	s := 0
@@ -127,6 +142,8 @@ func returnToBoundaryCount(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function returnToBoundaryCount(nums: number[]): number {
@@ -141,4 +158,6 @@ function returnToBoundaryCount(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

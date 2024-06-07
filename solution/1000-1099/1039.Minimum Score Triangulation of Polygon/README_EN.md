@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/README_EN.md
 rating: 2130
+source: Weekly Contest 135 Q3
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [1039. Minimum Score Triangulation of Polygon](https://leetcode.com/problems/minimum-score-triangulation-of-polygon)
 
 [中文文档](/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a convex <code>n</code>-sided polygon where each vertex has an integer value. You are given an integer array <code>values</code> where <code>values[i]</code> is the value of the <code>i<sup>th</sup></code> vertex (i.e., <strong>clockwise order</strong>).</p>
 
@@ -55,11 +60,17 @@ The minimum score is 144.
 	<li><code>1 &lt;= values[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
 
         return dfs(0, len(values) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minScoreTriangulation(values []int) int {
 	n := len(values)
@@ -151,6 +168,8 @@ func minScoreTriangulation(values []int) int {
 	return dfs(0, n-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minScoreTriangulation(values: number[]): number {
@@ -176,9 +195,15 @@ function minScoreTriangulation(values: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -193,6 +218,8 @@ class Solution:
                 )
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -212,6 +239,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -233,6 +262,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minScoreTriangulation(values []int) int {
 	n := len(values)
@@ -248,6 +279,8 @@ func minScoreTriangulation(values []int) int {
 	return f[0][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minScoreTriangulation(values: number[]): number {
@@ -267,9 +300,15 @@ function minScoreTriangulation(values: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -285,6 +324,8 @@ class Solution:
                 )
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -305,6 +346,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -327,6 +370,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minScoreTriangulation(values []int) int {
 	n := len(values)
@@ -343,6 +388,8 @@ func minScoreTriangulation(values []int) int {
 	return f[0][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minScoreTriangulation(values: number[]): number {
@@ -363,4 +410,6 @@ function minScoreTriangulation(values: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

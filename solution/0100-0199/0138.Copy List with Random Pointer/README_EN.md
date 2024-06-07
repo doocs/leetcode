@@ -7,11 +7,15 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [138. Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer)
 
 [中文文档](/solution/0100-0199/0138.Copy%20List%20with%20Random%20Pointer/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A linked list of length <code>n</code> is given such that each node contains an additional random pointer, which could point to any node in the list, or <code>null</code>.</p>
 
@@ -63,11 +67,17 @@ tags:
 	<li><code>Node.random</code> is <code>null</code> or is pointing to some node in the linked list.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -98,6 +108,8 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /*
@@ -133,6 +145,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -171,6 +185,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -198,6 +214,8 @@ func copyRandomList(head *Node) *Node {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -231,6 +249,8 @@ function copyRandomList(head: Node | null): Node | null {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * // Definition for a Node.
@@ -262,6 +282,8 @@ var copyRandomList = function (head) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /*
@@ -301,9 +323,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -341,6 +369,8 @@ class Solution:
             cur = nxt
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -384,6 +414,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -431,6 +463,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -466,6 +500,8 @@ func copyRandomList(head *Node) *Node {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -506,6 +542,8 @@ var copyRandomList = function (head) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 /*
@@ -553,4 +591,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

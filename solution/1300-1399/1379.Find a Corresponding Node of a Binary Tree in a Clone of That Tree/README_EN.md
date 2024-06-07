@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1379. Find a Corresponding Node of a Binary Tree in a Clone of That Tree](https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree)
 
 [中文文档](/solution/1300-1399/1379.Find%20a%20Corresponding%20Node%20of%20a%20Binary%20Tree%20in%20a%20Clone%20of%20That%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two binary trees <code>original</code> and <code>cloned</code> and given a reference to a node <code>target</code> in the original tree.</p>
 
@@ -58,7 +62,11 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve the problem if repeated values on the tree are allowed?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -67,6 +75,8 @@ We design a function $dfs(root1, root2)$, which performs DFS traversal simultane
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -90,6 +100,8 @@ class Solution:
 
         return dfs(original, cloned)
 ```
+
+#### Java
 
 ```java
 /**
@@ -124,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -152,6 +166,8 @@ public:
     }
 };
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -185,6 +201,8 @@ function getTargetCopy(
     return dfs(original, cloned);
 }
 ```
+
+#### C#
 
 ```cs
 /**
@@ -220,4 +238,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

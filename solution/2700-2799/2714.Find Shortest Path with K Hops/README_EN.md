@@ -8,11 +8,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2714. Find Shortest Path with K Hops 🔒](https://leetcode.com/problems/find-shortest-path-with-k-hops)
 
 [中文文档](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer <code>n</code> which is the number of nodes of a <strong>0-indexed undirected weighted connected</strong> graph and a <strong>0-indexed</strong> <strong>2D array</strong> <code>edges</code> where <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>, w<sub>i</sub>]</code> indicates that there is an edge between nodes <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code> with weight <code>w<sub>i</sub></code>.</p>
 
@@ -65,7 +69,11 @@ tags:
 	<li>The input is generated such that the graph is <strong>connected</strong> and has <strong>no</strong>&nbsp;<strong>repeated edges</strong>&nbsp;or&nbsp;<strong>self-loops</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dijkstra Algorithm
 
@@ -81,6 +89,8 @@ Finally, we only need to return the minimum value in $dist[d][0..k]$.
 The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n \times k)$, where $n$ represents the number of nodes and $k$ represents the maximum number of edges crossed.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +115,8 @@ class Solution:
                     heappush(pq, (dis + w, v, t))
         return int(min(dist[d]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +195,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestPathWithHops(n int, edges [][]int, s int, d int, k int) int {
@@ -229,4 +245,6 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1595.Minimum%20Cost%20to%20Connect%20Two%20Groups%20of%20Points/README.md
 rating: 2537
+source: 第 207 场周赛 Q4
 tags:
     - 位运算
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [1595. 连通两组点的最小成本](https://leetcode.cn/problems/minimum-cost-to-connect-two-groups-of-points)
 
 [English Version](/solution/1500-1599/1595.Minimum%20Cost%20to%20Connect%20Two%20Groups%20of%20Points/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两组点，其中第一组中有 <code>size<sub>1</sub></code> 个点，第二组中有 <code>size<sub>2</sub></code> 个点，且 <code>size<sub>1</sub> &gt;= size<sub>2</sub></code> 。</p>
 
@@ -71,7 +74,11 @@ tags:
 	<li><code>0 &lt;= cost[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩 + 动态规划
 
@@ -100,6 +107,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def connectTwoGroups(self, cost: List[List[int]]) -> int:
@@ -116,6 +125,8 @@ class Solution:
                     f[i][j] = min(f[i][j], x)
         return f[m][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +180,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func connectTwoGroups(cost [][]int) int {
@@ -196,6 +211,8 @@ func connectTwoGroups(cost [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function connectTwoGroups(cost: number[][]): number {
     const m = cost.length;
@@ -223,9 +240,15 @@ function connectTwoGroups(cost: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -246,6 +269,8 @@ class Solution:
             f = g[:]
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -275,6 +300,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -301,6 +328,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func connectTwoGroups(cost [][]int) int {
@@ -330,6 +359,8 @@ func connectTwoGroups(cost [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function connectTwoGroups(cost: number[][]): number {
     const m = cost.length;
@@ -358,4 +389,6 @@ function connectTwoGroups(cost: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

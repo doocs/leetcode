@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9841.%20%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 41. 数据流中的中位数](https://leetcode.cn/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数值排序之后中间两个数的平均值。</p>
 
@@ -50,7 +52,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p>注意：本题与主站 295 题相同：<a href="https://leetcode.cn/problems/find-median-from-data-stream/">https://leetcode.cn/problems/find-median-from-data-stream/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（大小根堆）
 
@@ -63,6 +69,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 时间复杂度方面，添加元素的时间复杂度为 $O(\log n)$，查找中位数的时间复杂度为 $O(1)$。空间复杂度为 $O(n)$。其中 $n$ 为数据流中元素的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MedianFinder:
@@ -90,6 +98,8 @@ class MedianFinder:
 # obj.addNum(num)
 # param_2 = obj.findMedian()
 ```
+
+#### Java
 
 ```java
 class MedianFinder {
@@ -125,6 +135,8 @@ class MedianFinder {
  * double param_2 = obj.findMedian();
  */
 ```
+
+#### C++
 
 ```cpp
 class MedianFinder {
@@ -164,6 +176,8 @@ private:
  * double param_2 = obj->findMedian();
  */
 ```
+
+#### Go
 
 ```go
 type MedianFinder struct {
@@ -211,6 +225,8 @@ func (h *hp) Pop() any {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MedianFinder {
     private nums: number[];
@@ -251,6 +267,8 @@ class MedianFinder {
  * var param_2 = obj.findMedian()
  */
 ```
+
+#### Rust
 
 ```rust
 struct MedianFinder {
@@ -296,6 +314,8 @@ impl MedianFinder {
  */
 ```
 
+#### JavaScript
+
 ```js
 /**
  * initialize your data structure here.
@@ -330,6 +350,8 @@ MedianFinder.prototype.findMedian = function () {
     return this.val.length % 2 ? this.val[mid] : (this.val[mid - 1] + this.val[mid]) / 2;
 };
 ```
+
+#### C#
 
 ```cs
 public class MedianFinder {
@@ -390,11 +412,138 @@ public class MedianFinder {
  */
 ```
 
+#### Swift
+
+```swift
+class MedianFinder {
+    private var lowerHalf = Heap<Int>(sort: >)
+    private var upperHalf = Heap<Int>(sort: <)
+
+    init() {}
+
+    func addNum(_ num: Int) {
+        if lowerHalf.count == 0 || num <= lowerHalf.peek()! {
+            lowerHalf.insert(num)
+        } else {
+            upperHalf.insert(num)
+        }
+
+        if lowerHalf.count > upperHalf.count + 1 {
+            upperHalf.insert(lowerHalf.remove()!)
+        } else if upperHalf.count > lowerHalf.count {
+            lowerHalf.insert(upperHalf.remove()!)
+        }
+    }
+
+    func findMedian() -> Double {
+        if lowerHalf.count > upperHalf.count {
+            return Double(lowerHalf.peek()!)
+        } else {
+            return (Double(lowerHalf.peek()!) + Double(upperHalf.peek()!)) / 2.0
+        }
+    }
+}
+
+struct Heap<T> {
+    var elements: [T]
+    let sort: (T, T) -> Bool
+
+    init(sort: @escaping (T, T) -> Bool) {
+        self.sort = sort
+        self.elements = []
+    }
+
+    var count: Int {
+        return elements.count
+    }
+
+    func peek() -> T? {
+        return elements.first
+    }
+
+    mutating func insert(_ value: T) {
+        elements.append(value)
+        siftUp(from: elements.count - 1)
+    }
+
+    mutating func remove() -> T? {
+        guard !elements.isEmpty else { return nil }
+        if elements.count == 1 {
+            return elements.removeLast()
+        } else {
+            let value = elements[0]
+            elements[0] = elements.removeLast()
+            siftDown(from: 0)
+            return value
+        }
+    }
+
+    private mutating func siftUp(from index: Int) {
+        var child = index
+        var parent = parentIndex(of: child)
+        while child > 0 && sort(elements[child], elements[parent]) {
+            elements.swapAt(child, parent)
+            child = parent
+            parent = self.parentIndex(of: child)
+        }
+    }
+
+    private mutating func siftDown(from index: Int) {
+        var parent = index
+        while true {
+            let left = leftChildIndex(of: parent)
+            let right = rightChildIndex(of: parent)
+            var candidate = parent
+            if left < elements.count && sort(elements[left], elements[candidate]) {
+                candidate = left
+            }
+            if right < elements.count && sort(elements[right], elements[candidate]) {
+                candidate = right
+            }
+            if candidate == parent {
+                return
+            }
+            elements.swapAt(parent, candidate)
+            parent = candidate
+        }
+    }
+
+    private func parentIndex(of index: Int) -> Int {
+        return (index - 1) / 2
+    }
+
+    private func leftChildIndex(of index: Int) -> Int {
+        return 2 * index + 1
+    }
+
+    private func rightChildIndex(of index: Int) -> Int {
+        return 2 * index + 2
+    }
+}
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * let obj = MedianFinder();
+ * obj.addNum(num);
+ * let param_2 = obj.findMedian();
+ */
+```
+
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
+
+<!-- solution:start-->
+
+### 方法二：有序列表
+
+我们也可以使用一个有序列表来维护数据流中的元素，这样我们就可以直接通过索引来获取中位数。
+
+时间复杂度方面，添加元素的时间复杂度为 $O(\log n)$，查找中位数的时间复杂度为 $O(1)$。空间复杂度为 $O(n)$。其中 $n$ 为数据流中元素的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -425,4 +574,6 @@ class MedianFinder:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

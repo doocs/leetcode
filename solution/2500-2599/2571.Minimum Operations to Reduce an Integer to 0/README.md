@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README.md
 rating: 1649
+source: 第 333 场周赛 Q2
 tags:
     - 贪心
     - 位运算
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2571. 将整数减少到零需要的最少操作数](https://leetcode.cn/problems/minimum-operations-to-reduce-an-integer-to-0)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数 <code>n</code> ，你可以执行下述操作 <strong>任意</strong> 次：</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 位运算
 
@@ -75,6 +82,8 @@ tags:
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为题目给定的整数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +102,8 @@ class Solution:
             ans += 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +145,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(n int) (ans int) {
@@ -157,6 +172,8 @@ func minOperations(n int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(n: number): number {
     let [ans, cnt] = [0, 0];
@@ -179,4 +196,6 @@ function minOperations(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

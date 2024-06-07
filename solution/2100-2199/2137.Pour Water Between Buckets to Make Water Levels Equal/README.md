@@ -7,13 +7,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [2137. 通过倒水操作让所有的水桶所含水量相等 🔒](https://leetcode.cn/problems/pour-water-between-buckets-to-make-water-levels-equal)
 
 [English Version](/solution/2100-2199/2137.Pour%20Water%20Between%20Buckets%20to%20Make%20Water%20Levels%20Equal/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有 <code>n</code> 个水桶，每个水桶中所含的水量用一个 <b>下标从 0 开始</b>&nbsp;的数组 <code>buckets</code> 给出，第 <code>i</code> 个水桶中有 <code>buckets[i]</code> 升水。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li><code>0 &lt;= loss &lt;= 99</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找（浮点数二分）
 
@@ -74,6 +80,8 @@ tags:
 时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组 $buckets$ 的长度和最大值。二分查找的时间复杂度为 $O(\log M)$，每次二分查找需要遍历数组 $buckets$，时间复杂度为 $O(n)$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +104,8 @@ class Solution:
                 r = mid
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func equalizeWater(buckets []int, loss int) float64 {
 	check := func(v float64) bool {
@@ -182,6 +196,8 @@ func equalizeWater(buckets []int, loss int) float64 {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function equalizeWater(buckets: number[], loss: number): number {
@@ -212,4 +228,6 @@ function equalizeWater(buckets: number[], loss: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

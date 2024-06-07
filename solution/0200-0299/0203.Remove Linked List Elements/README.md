@@ -7,13 +7,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [203. 移除链表元素](https://leetcode.cn/problems/remove-linked-list-elements)
 
 [English Version](/solution/0200-0299/0203.Remove%20Linked%20List%20Elements/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你一个链表的头节点 <code>head</code> 和一个整数 <code>val</code> ，请你删除链表中所有满足 <code>Node.val == val</code> 的节点，并返回 <strong>新的头节点</strong> 。
 
@@ -50,11 +52,17 @@ tags:
 	<li><code>0 <= val <= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -73,6 +81,8 @@ class Solution:
                 pre.next = pre.next.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -100,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeElements(head *ListNode, val int) *ListNode {
 	dummy := new(ListNode)
@@ -134,6 +148,8 @@ func removeElements(head *ListNode, val int) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -161,6 +177,8 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
     return dummy.next;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -196,6 +214,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public ListNode RemoveElements(ListNode head, int val) {
@@ -226,4 +246,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

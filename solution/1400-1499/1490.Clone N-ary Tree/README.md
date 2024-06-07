@@ -9,13 +9,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [1490. 克隆 N 叉树 🔒](https://leetcode.cn/problems/clone-n-ary-tree)
 
 [English Version](/solution/1400-1499/1490.Clone%20N-ary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一棵 N 叉树的根节点&nbsp;<code>root</code>&nbsp;，返回该树的<a href="https://baike.baidu.com/item/深拷贝/22785317?fr=aladdin"><strong>深拷贝</strong></a>（克隆）。</p>
 
@@ -63,7 +65,11 @@ class Node {
 
 <p><strong>进阶：</strong>你的解决方案可以适用于<a href="https://leetcode.cn/problems/clone-graph/">克隆图</a>问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -74,6 +80,8 @@ class Node {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 N 叉树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -92,6 +100,8 @@ class Solution:
         children = [self.cloneTree(child) for child in root.children]
         return Node(root.val, children)
 ```
+
+#### Java
 
 ```java
 /*
@@ -131,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -167,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -190,4 +204,6 @@ func cloneTree(root *Node) *Node {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

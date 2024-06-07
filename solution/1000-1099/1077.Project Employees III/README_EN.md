@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1077. Project Employees III 🔒](https://leetcode.com/problems/project-employees-iii)
 
 [中文文档](/solution/1000-1099/1077.Project%20Employees%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Project</code></p>
 
@@ -85,13 +89,19 @@ Employee table:
 <strong>Explanation:</strong> Both employees with id 1 and 3 have the most experience among the employees of the first project. For the second project, the employee with id 1 has the most experience.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Inner Join + Window Function
 
 We can first perform an inner join between the `Project` table and the `Employee` table, and then use the window function `rank()` to group the `Project` table, sort it in descending order by `experience_years`, and finally select the most experienced employee for each project.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -114,4 +124,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

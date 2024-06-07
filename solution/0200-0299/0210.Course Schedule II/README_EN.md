@@ -9,11 +9,15 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii)
 
 [中文文档](/solution/0200-0299/0210.Course%20Schedule%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are a total of <code>numCourses</code> courses you have to take, labeled from <code>0</code> to <code>numCourses - 1</code>. You are given an array <code>prerequisites</code> where <code>prerequisites[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that you <strong>must</strong> take course <code>b<sub>i</sub></code> first if you want to take course <code>a<sub>i</sub></code>.</p>
 
@@ -60,11 +64,17 @@ So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3].
 	<li>All the pairs <code>[a<sub>i</sub>, b<sub>i</sub>]</code> are <strong>distinct</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +95,8 @@ class Solution:
                     q.append(j)
         return ans if len(ans) == numCourses else []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findOrder(numCourses int, prerequisites [][]int) []int {
@@ -186,6 +202,8 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findOrder(numCourses: number, prerequisites: number[][]): number[] {
     const g: number[][] = Array.from({ length: numCourses }, () => []);
@@ -213,6 +231,8 @@ function findOrder(numCourses: number, prerequisites: number[][]): number[] {
     return ans.length === numCourses ? ans : [];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -255,6 +275,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int[] FindOrder(int numCourses, int[][] prerequisites) {
@@ -292,4 +314,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1685.Sum%20of%20Absolute%20Differences%20in%20a%20Sorted%20Array/README_EN.md
 rating: 1495
+source: Biweekly Contest 41 Q2
 tags:
     - Array
     - Math
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1685. Sum of Absolute Differences in a Sorted Array](https://leetcode.com/problems/sum-of-absolute-differences-in-a-sorted-array)
 
 [中文文档](/solution/1600-1699/1685.Sum%20of%20Absolute%20Differences%20in%20a%20Sorted%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> sorted in <strong>non-decreasing</strong> order.</p>
 
@@ -48,7 +53,11 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5.
 	<li><code>1 &lt;= nums[i] &lt;= nums[i + 1] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Summation + Enumeration
 
@@ -59,6 +68,8 @@ Next, we enumerate $nums[i]$. Then $ans[i] = nums[i] \times i - t + s - t - nums
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +82,8 @@ class Solution:
             t += x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getSumAbsoluteDifferences(nums []int) (ans []int) {
 	var s, t int
@@ -124,6 +141,8 @@ func getSumAbsoluteDifferences(nums []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getSumAbsoluteDifferences(nums: number[]): number[] {
     const s = nums.reduce((a, b) => a + b);
@@ -138,6 +157,8 @@ function getSumAbsoluteDifferences(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -157,6 +178,8 @@ var getSumAbsoluteDifferences = function (nums) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -179,4 +202,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

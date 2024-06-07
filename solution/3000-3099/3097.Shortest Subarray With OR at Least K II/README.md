@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README.md
 rating: 1891
+source: 第 127 场双周赛 Q3
 tags:
     - 位运算
     - 数组
     - 滑动窗口
 ---
+
+<!-- problem:start -->
 
 # [3097. 或值至少为 K 的最短子数组 II](https://leetcode.cn/problems/shortest-subarray-with-or-at-least-k-ii)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>非负</strong>&nbsp;整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -71,7 +74,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针 + 计数
 
@@ -85,7 +92,13 @@ tags:
 
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(\log M)$，其中 $n$ 和 $M$ 分别是数组的长度和数组中元素的最大值。
 
+相似题目：
+
+-   [3171. 找到按位与最接近 K 的子数组](https://github.com/doocs/leetcode/blob/main/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README.md)
+
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -110,6 +123,8 @@ class Solution:
                 i += 1
         return -1 if ans > n else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -169,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumSubarrayLength(nums []int, k int) int {
@@ -202,6 +221,8 @@ func minimumSubarrayLength(nums []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumSubarrayLength(nums: number[], k: number): number {
     const n = nums.length;
@@ -229,4 +250,6 @@ function minimumSubarrayLength(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

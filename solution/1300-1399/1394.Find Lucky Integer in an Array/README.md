@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1394.Find%20Lucky%20Integer%20in%20an%20Array/README.md
 rating: 1118
+source: 第 182 场周赛 Q1
 tags:
     - 数组
     - 哈希表
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [1394. 找出数组中的幸运数](https://leetcode.cn/problems/find-lucky-integer-in-an-array)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在整数数组中，如果一个整数的出现频次和它的数值大小相等，我们就称这个整数为「幸运数」。</p>
 
@@ -70,7 +73,11 @@ tags:
 	<li><code>1 &lt;= arr[i] &lt;= 500</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -79,6 +86,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $arr$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +99,8 @@ class Solution:
                 ans = x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLucky(arr []int) int {
 	cnt := [510]int{}
@@ -145,6 +160,8 @@ func findLucky(arr []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLucky(arr: number[]): number {
     const cnt = new Array(510).fill(0);
@@ -160,6 +177,8 @@ function findLucky(arr: number[]): number {
     return ans;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -185,4 +204,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

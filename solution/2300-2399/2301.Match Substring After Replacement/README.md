@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README.md
 rating: 1860
+source: 第 80 场双周赛 Q3
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 字符串匹配
 ---
 
+<!-- problem:start -->
+
 # [2301. 替换字符后匹配](https://leetcode.cn/problems/match-substring-after-replacement)
 
 [English Version](/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串&nbsp;<code>s</code> 和&nbsp;<code>sub</code>&nbsp;。同时给你一个二维字符数组&nbsp;<code>mappings</code> ，其中&nbsp;<code>mappings[i] = [old<sub>i</sub>, new<sub>i</sub>]</code>&nbsp;表示你可以将&nbsp;<code>sub</code>&nbsp;中任意数目的&nbsp;<code>old<sub>i</sub></code>&nbsp;字符替换为&nbsp;<code>new<sub>i</sub></code>&nbsp;。<code>sub</code>&nbsp;中每个字符 <b>不能</b>&nbsp;被替换超过一次。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>old<sub>i</sub></code> 和&nbsp;<code>new<sub>i</sub></code>&nbsp;是大写、小写字母或者是个数字。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -79,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def matchReplacement(self, s: str, sub: str, mappings: List[List[str]]) -> bool:
@@ -90,6 +99,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func matchReplacement(s string, sub string, mappings [][]byte) bool {
@@ -169,6 +184,10 @@ func matchReplacement(s string, sub string, mappings [][]byte) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：数组 + 枚举
 
 由于字符集只包含大写和小写英文字母和数字，因此我们可以直接用一个 $128 \times 128$ 的数组 $d$ 记录每个字符可以替换成的字符集合。
@@ -176,6 +195,8 @@ func matchReplacement(s string, sub string, mappings [][]byte) bool {
 时间复杂度 $O(m \times n)$，空间复杂度 $O(C^2)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -190,6 +211,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -215,6 +238,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -242,6 +267,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func matchReplacement(s string, sub string, mappings [][]byte) bool {
 	d := [128][128]bool{}
@@ -266,4 +293,6 @@ func matchReplacement(s string, sub string, mappings [][]byte) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

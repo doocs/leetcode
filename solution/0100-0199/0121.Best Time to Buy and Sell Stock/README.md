@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock)
 
 [English Version](/solution/0100-0199/0121.Best%20Time%20to%20Buy%20and%20Sell%20Stock/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数组 <code>prices</code> ，它的第 <code>i</code> 个元素 <code>prices[i]</code> 表示一支给定股票第 <code>i</code> 天的价格。</p>
 
@@ -49,7 +51,11 @@ tags:
 	<li><code>0 <= prices[i] <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 维护前缀最小值
 
@@ -63,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -72,6 +80,8 @@ class Solution:
             mi = min(mi, v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int) (ans int) {
 	mi := prices[0]
@@ -110,6 +124,8 @@ func maxProfit(prices []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfit(prices: number[]): number {
@@ -122,6 +138,8 @@ function maxProfit(prices: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -136,6 +154,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -153,6 +173,8 @@ var maxProfit = function (prices) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
@@ -165,6 +187,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -187,4 +211,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

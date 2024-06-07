@@ -7,11 +7,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [370. Range Addition 🔒](https://leetcode.com/problems/range-addition)
 
 [中文文档](/solution/0300-0399/0370.Range%20Addition/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>length</code> and an array <code>updates</code> where <code>updates[i] = [startIdx<sub>i</sub>, endIdx<sub>i</sub>, inc<sub>i</sub>]</code>.</p>
 
@@ -44,11 +48,17 @@ tags:
 	<li><code>-1000 &lt;= inc<sub>i</sub> &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +70,8 @@ class Solution:
                 d[r + 1] -= c
         return list(accumulate(d))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -95,6 +109,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getModifiedArray(length int, updates [][]int) []int {
@@ -112,6 +128,8 @@ func getModifiedArray(length int, updates [][]int) []int {
 	return d
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -136,9 +154,15 @@ var getModifiedArray = function (length, updates) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -171,6 +195,8 @@ class Solution:
             tree.update(end + 2, -inc)
         return [tree.query(i + 1) for i in range(length)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -220,6 +246,8 @@ class BinaryIndexedTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -266,6 +294,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -315,4 +345,6 @@ func getModifiedArray(length int, updates [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

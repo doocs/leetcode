@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README.md
 rating: 1266
+source: 第 109 场双周赛 Q2
 tags:
     - 字符串
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [2785. 将字符串中的元音字母排序](https://leetcode.cn/problems/sort-vowels-in-a-string)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的字符串&nbsp;<code>s</code>&nbsp;，将&nbsp;<code>s</code>&nbsp;中的元素重新 <b>排列</b>&nbsp;得到新的字符串&nbsp;<code>t</code>&nbsp;，它满足：</p>
 
@@ -54,7 +57,11 @@ tags:
 	<li><code>s</code>&nbsp;只包含英语字母表中的 <strong>大写&nbsp;</strong>和 <strong>小写&nbsp;</strong>字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -65,6 +72,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +88,8 @@ class Solution:
                 j += 1
         return "".join(cs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sortVowels(s string) string {
@@ -149,6 +164,8 @@ func sortVowels(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sortVowels(s: string): string {
     const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
@@ -164,6 +181,8 @@ function sortVowels(s: string): string {
     return ans.join('');
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -193,4 +212,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

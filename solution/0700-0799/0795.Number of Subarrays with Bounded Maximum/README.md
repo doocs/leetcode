@@ -7,13 +7,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [795. 区间子数组个数](https://leetcode.cn/problems/number-of-subarrays-with-bounded-maximum)
 
 [English Version](/solution/0700-0799/0795.Number%20of%20Subarrays%20with%20Bounded%20Maximum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 和两个整数：<code>left</code> 及 <code>right</code> 。找出 <code>nums</code> 中连续、非空且其中最大元素在范围&nbsp;<code>[left, right]</code> 内的子数组，并返回满足条件的子数组的个数。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>0 &lt;= left &lt;= right &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：区间计数
 
@@ -68,6 +74,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSubarrayBoundedMax(self, nums: List[int], left: int, right: int) -> int:
@@ -80,6 +88,8 @@ class Solution:
 
         return f(right) - f(left - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSubarrayBoundedMax(nums []int, left int, right int) int {
@@ -134,6 +148,10 @@ func numSubarrayBoundedMax(nums []int, left int, right int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：单调栈 + 枚举元素计算贡献
 
 我们还可以枚举数组中每个元素 $nums[i]$ 作为子数组的最大值，然后统计以该元素为最大值的子数组的个数。问题转化为求出每个元素 $nums[i]$ 左侧第一个大于该元素的下标 $l[i]$，右侧第一个大于等于该元素的下标 $r[i]$，则以该元素为最大值的子数组的个数为 $(i - l[i]) \times (r[i] - i)$。
@@ -147,6 +165,8 @@ func numSubarrayBoundedMax(nums []int, left int, right int) int {
 -   [907. 子数组的最小值之和](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -171,6 +191,8 @@ class Solution:
             (i - l[i]) * (r[i] - i) for i, v in enumerate(nums) if left <= v <= right
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -213,6 +235,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -244,6 +268,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSubarrayBoundedMax(nums []int, left int, right int) (ans int) {
@@ -285,4 +311,6 @@ func numSubarrayBoundedMax(nums []int, left int, right int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [650. 2 Keys Keyboard](https://leetcode.com/problems/2-keys-keyboard)
 
 [中文文档](/solution/0600-0699/0650.2%20Keys%20Keyboard/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is only one character <code>&#39;A&#39;</code> on the screen of a notepad. You can perform one of two operations on this notepad for each step:</p>
 
@@ -48,11 +52,17 @@ In step 3, we use Paste operation to get &#39;AAA&#39;.
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +80,8 @@ class Solution:
 
         return dfs(n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSteps(n int) int {
@@ -153,9 +169,15 @@ func minSteps(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -170,6 +192,8 @@ class Solution:
                 j += 1
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -191,6 +215,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -209,6 +235,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSteps(n int) int {
@@ -230,9 +258,15 @@ func minSteps(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -251,4 +285,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2193.Minimum%20Number%20of%20Moves%20to%20Make%20Palindrome/README.md
 rating: 2090
+source: 第 73 场双周赛 Q4
 tags:
     - 贪心
     - 树状数组
@@ -10,13 +11,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [2193. 得到回文串的最少操作次数](https://leetcode.cn/problems/minimum-number-of-moves-to-make-palindrome)
 
 [English Version](/solution/2100-2199/2193.Minimum%20Number%20of%20Moves%20to%20Make%20Palindrome/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个只包含小写英文字母的字符串&nbsp;<code>s</code>&nbsp;。</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li><code>s</code>&nbsp;可以通过有限次操作得到一个回文串。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -84,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMovesToMakePalindrome(self, s: str) -> int:
@@ -106,6 +115,8 @@ class Solution:
             i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +175,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minMovesToMakePalindrome(s string) int {
@@ -190,4 +205,6 @@ func minMovesToMakePalindrome(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

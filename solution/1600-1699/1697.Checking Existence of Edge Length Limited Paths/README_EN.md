@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1697.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths/README_EN.md
 rating: 2300
+source: Weekly Contest 220 Q4
 tags:
     - Union Find
     - Graph
@@ -11,11 +12,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1697. Checking Existence of Edge Length Limited Paths](https://leetcode.com/problems/checking-existence-of-edge-length-limited-paths)
 
 [中文文档](/solution/1600-1699/1697.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An undirected graph of <code>n</code> nodes is defined by <code>edgeList</code>, where <code>edgeList[i] = [u<sub>i</sub>, v<sub>i</sub>, dis<sub>i</sub>]</code> denotes an edge between nodes <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code> with distance <code>dis<sub>i</sub></code>. Note that there may be <strong>multiple</strong> edges between two nodes.</p>
 
@@ -57,7 +62,11 @@ For the second query, there is a path (0 -&gt; 1 -&gt; 2) of two edges with dist
 	<li>There may be <strong>multiple</strong> edges between two nodes.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Offline Queries + Union-Find
 
@@ -70,6 +79,8 @@ Then for each query, we start from the edge with the smallest weight, add all ed
 The time complexity is $O(m \times \log m + q \times \log q)$, where $m$ and $q$ are the number of edges and queries, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +104,8 @@ class Solution:
             ans[i] = find(a) == find(b)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +178,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool {
@@ -198,6 +215,8 @@ func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool 
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -293,6 +312,8 @@ Below is a common template for Union-Find, which needs to be mastered proficient
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 p = list(range(n))
 size = [1] * n
@@ -310,6 +331,8 @@ def union(a, b):
     p[pa] = pb
     size[pb] += size[pa]
 ```
+
+#### Java
 
 ```java
 int[] p = new int[n];
@@ -336,6 +359,8 @@ void union(int a, int b) {
 }
 ```
 
+#### C++
+
 ```cpp
 vector<int> p(n);
 iota(p.begin(), p.end(), 0);
@@ -355,6 +380,8 @@ void unite(int a, int b) {
     size[pb] += size[pa];
 }
 ```
+
+#### Go
 
 ```go
 p := make([]int, n)
@@ -383,4 +410,6 @@ func union(a, b int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

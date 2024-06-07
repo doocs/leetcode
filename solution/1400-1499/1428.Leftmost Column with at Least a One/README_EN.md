@@ -9,11 +9,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1428. Leftmost Column with at Least a One 🔒](https://leetcode.com/problems/leftmost-column-with-at-least-a-one)
 
 [中文文档](/solution/1400-1499/1428.Leftmost%20Column%20with%20at%20Least%20a%20One/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>row-sorted binary matrix</strong> means that all elements are <code>0</code> or <code>1</code> and each row of the matrix is sorted in non-decreasing order.</p>
 
@@ -63,7 +67,11 @@ tags:
 	<li><code>mat[i]</code> is sorted in non-decreasing order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -72,6 +80,8 @@ First, we call `BinaryMatrix.dimensions()` to get the number of rows $m$ and col
 The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. We need to traverse each row, and use binary search within each row, which has a time complexity of $O(\log n)$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -92,6 +102,8 @@ class Solution:
             ans = min(ans, j)
         return -1 if ans >= n else ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -124,6 +136,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -159,6 +173,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is the BinaryMatrix's API interface.
@@ -192,6 +208,8 @@ func leftMostColumnWithOne(binaryMatrix BinaryMatrix) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * // This is the BinaryMatrix's API interface.
@@ -221,6 +239,8 @@ function leftMostColumnWithOne(binaryMatrix: BinaryMatrix) {
     return ans >= n ? -1 : ans;
 }
 ```
+
+#### Rust
 
 ```rust
 /**
@@ -262,6 +282,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 /**
  * // This is BinaryMatrix's API interface.
@@ -296,4 +318,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

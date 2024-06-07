@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1167.Minimum%20Cost%20to%20Connect%20Sticks/README_EN.md
 rating: 1481
+source: Biweekly Contest 7 Q3
 tags:
     - Greedy
     - Array
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1167. Minimum Cost to Connect Sticks 🔒](https://leetcode.com/problems/minimum-cost-to-connect-sticks)
 
 [中文文档](/solution/1100-1199/1167.Minimum%20Cost%20to%20Connect%20Sticks/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have some number of sticks with positive integer lengths. These lengths are given as an array&nbsp;<code>sticks</code>, where&nbsp;<code>sticks[i]</code>&nbsp;is the length of the&nbsp;<code>i<sup>th</sup></code>&nbsp;stick.</p>
 
@@ -61,7 +66,11 @@ There is only one stick left, so you are done. The total cost is 4 + 9 + 17 = 30
 	<li><code><span>1 &lt;= sticks[i] &lt;= 10<sup>4</sup></span></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Min Heap)
 
@@ -72,6 +81,8 @@ Therefore, we can use a priority queue (min heap) to maintain the current stick 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `sticks`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +95,8 @@ class Solution:
             heappush(sticks, z)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func connectSticks(sticks []int) (ans int) {
 	hp := &hp{sticks}
@@ -149,6 +166,8 @@ func (h *hp) Pop() any {
 	return v
 }
 ```
+
+#### TypeScript
 
 ```ts
 function connectSticks(sticks: number[]): number {
@@ -232,4 +251,6 @@ class Heap<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

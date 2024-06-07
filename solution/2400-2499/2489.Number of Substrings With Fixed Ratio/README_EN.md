@@ -9,11 +9,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2489. Number of Substrings With Fixed Ratio 🔒](https://leetcode.com/problems/number-of-substrings-with-fixed-ratio)
 
 [中文文档](/solution/2400-2499/2489.Number%20of%20Substrings%20With%20Fixed%20Ratio/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a binary string <code>s</code>, and two integers <code>num1</code> and <code>num2</code>. <code>num1</code> and <code>num2</code> are coprime numbers.</p>
 
@@ -63,7 +67,11 @@ It can be shown that there are no more ratio substrings.
 	<li><code>num1</code> and <code>num2</code> are coprime integers.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Counting
 
@@ -87,6 +95,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fixedRatio(self, s: str, num1: int, num2: int) -> int:
@@ -101,6 +111,8 @@ class Solution:
             cnt[x] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using ll = long long;
@@ -143,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fixedRatio(s string, num1 int, num2 int) int64 {
 	n0, n1 := 0, 0
@@ -164,4 +180,6 @@ func fixedRatio(s string, num1 int, num2 int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

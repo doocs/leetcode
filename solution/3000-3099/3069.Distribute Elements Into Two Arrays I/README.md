@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README.md
 rating: 1203
+source: 第 387 场周赛 Q1
 tags:
     - 数组
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [3069. 将元素分配到两个数组中 I](https://leetcode.cn/problems/distribute-elements-into-two-arrays-i)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>1</strong> 开始、包含<strong> 不同 </strong>整数的数组 <code>nums</code> ，数组长度为 <code>n</code> 。</p>
 
@@ -63,7 +66,11 @@ tags:
 	<li><code>nums</code>中的所有元素都互不相同。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -77,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def resultArray(self, nums: List[int]) -> List[int]:
@@ -89,6 +98,8 @@ class Solution:
                 arr2.append(x)
         return arr1 + arr2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func resultArray(nums []int) []int {
 	arr1 := []int{nums[0]}
@@ -148,6 +163,8 @@ func resultArray(nums []int) []int {
 	return append(arr1, arr2...)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function resultArray(nums: number[]): number[] {
@@ -166,4 +183,6 @@ function resultArray(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2618.Check%20if%20Object%20Instance%20of%20Class/README.md
 ---
 
+<!-- problem:start -->
+
 # [2618. 检查是否是类的对象实例](https://leetcode.cn/problems/check-if-object-instance-of-class)
 
 [English Version](/solution/2600-2699/2618.Check%20if%20Object%20Instance%20of%20Class/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你编写一个函数，检查给定的值是否是给定类或超类的实例。</p>
 
@@ -53,11 +55,17 @@ Dog 是 Animal 的子类。因此，Dog 对象同时是 Dog 和 Animal 的实例
 <b>输出：</b>true
 <strong>解释：</strong>5 是一个 Number。注意，"instanceof" 关键字将返回 false。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function checkIfInstanceOf(obj: any, classFunction: any): boolean {
@@ -81,4 +89,6 @@ function checkIfInstanceOf(obj: any, classFunction: any): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2835.Minimum%20Operations%20to%20Form%20Subsequence%20With%20Target%20Sum/README.md
 rating: 2207
+source: 第 360 场周赛 Q3
 tags:
     - 贪心
     - 位运算
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [2835. 使子序列的和等于目标的最少操作次数](https://leetcode.cn/problems/minimum-operations-to-form-subsequence-with-target-sum)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的数组&nbsp;<code>nums</code>&nbsp;，它包含 <strong>非负</strong>&nbsp;整数，且全部为 <code>2</code>&nbsp;的幂，同时给你一个整数&nbsp;<code>target</code>&nbsp;。</p>
 
@@ -72,7 +75,11 @@ tags:
 	<li><code>1 &lt;= target &lt; 2<sup>31</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 位运算
 
@@ -87,6 +94,8 @@ tags:
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(\log M)$。其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -119,6 +128,8 @@ class Solution:
             i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -162,6 +173,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -207,6 +220,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(nums []int, target int) (ans int) {
 	s := 0
@@ -246,6 +261,8 @@ func minOperations(nums []int, target int) (ans int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(nums: number[], target: number): number {
@@ -289,4 +306,6 @@ function minOperations(nums: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

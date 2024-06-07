@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README_EN.md
 rating: 1376
+source: Biweekly Contest 109 Q1
 tags:
     - Array
     - Hash Table
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2784. Check if Array is Good](https://leetcode.com/problems/check-if-array-is-good)
 
 [中文文档](/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>. We consider an array <strong>good </strong>if it is a permutation of an array <code>base[n]</code>.</p>
 
@@ -62,7 +67,11 @@ tags:
 	<li><code>1 &lt;= num[i] &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -77,6 +86,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isGood(self, nums: List[int]) -> bool:
@@ -84,6 +95,8 @@ class Solution:
         n = len(nums) - 1
         return cnt[n] == 2 and all(cnt[i] for i in range(1, n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isGood(nums []int) bool {
 	n := len(nums) - 1
@@ -147,6 +164,8 @@ func isGood(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isGood(nums: number[]): boolean {
     const n = nums.length - 1;
@@ -165,6 +184,8 @@ function isGood(nums: number[]): boolean {
     return true;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -189,4 +210,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

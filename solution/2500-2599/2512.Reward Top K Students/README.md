@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2512.Reward%20Top%20K%20Students/README.md
 rating: 1636
+source: 第 94 场双周赛 Q2
 tags:
     - 数组
     - 哈希表
@@ -11,13 +12,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [2512. 奖励最顶尖的 K 名学生](https://leetcode.cn/problems/reward-top-k-students)
 
 [English Version](/solution/2500-2599/2512.Reward%20Top%20K%20Students/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串数组&nbsp;<code>positive_feedback</code> 和&nbsp;<code>negative_feedback</code>&nbsp;，分别包含表示正面的和负面的词汇。<strong>不会</strong>&nbsp;有单词同时是正面的和负面的。</p>
 
@@ -66,7 +69,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 排序
 
@@ -79,6 +86,8 @@ tags:
 时间复杂度 $O(n \times \log n + (|ps| + |ns| + n) \times |s|)$，空间复杂度 $O((|ps|+|ns|) \times |s| + n)$。其中 $n$ 为学生数量，$|ps|$ 和 $|ns|$ 分别为正面和负面单词的数量，$|s|$ 为单词的平均长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -104,6 +113,8 @@ class Solution:
         arr.sort(key=lambda x: (-x[0], x[1]))
         return [v[1] for v in arr[:k]]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -182,6 +195,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func topStudents(positive_feedback []string, negative_feedback []string, report []string, student_id []int, k int) (ans []int) {
 	ps := map[string]bool{}
@@ -211,6 +226,8 @@ func topStudents(positive_feedback []string, negative_feedback []string, report 
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function topStudents(
@@ -249,6 +266,8 @@ function topStudents(
         .slice(0, k);
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::{ HashMap, HashSet };
@@ -294,4 +313,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

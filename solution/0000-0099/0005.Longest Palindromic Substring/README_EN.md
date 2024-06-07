@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring)
 
 [中文文档](/solution/0000-0099/0005.Longest%20Palindromic%20Substring/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, return <em>the longest</em> <span data-keyword="palindromic-string"><em>palindromic</em></span> <span data-keyword="substring-nonempty"><em>substring</em></span> in <code>s</code>.</p>
 
@@ -40,7 +44,11 @@ tags:
 	<li><code>s</code> consist of only digits and English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -55,6 +63,8 @@ Since $f[i][j]$ depends on $f[i + 1][j - 1]$, we need to ensure that $i + 1$ is 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +81,8 @@ class Solution:
                         k, mx = i, j - i + 1
         return s[k : k + mx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestPalindrome(s string) string {
@@ -149,6 +165,8 @@ func longestPalindrome(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestPalindrome(s: string): string {
     const n = s.length;
@@ -173,6 +191,8 @@ function longestPalindrome(s: string): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn longest_palindrome(s: String) -> String {
@@ -194,6 +214,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -223,6 +245,8 @@ var longestPalindrome = function (s) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string LongestPalindrome(string s) {
@@ -251,6 +275,8 @@ public class Solution {
 }
 ```
 
+#### Nim
+
 ```nim
 import std/sequtils
 
@@ -277,6 +303,10 @@ proc longestPalindrome(s: string): string =
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Enumerate Palindrome Midpoint
 
 We can enumerate the midpoint of the palindrome, spread to both sides, and find the longest palindrome.
@@ -284,6 +314,8 @@ We can enumerate the midpoint of the palindrome, spread to both sides, and find 
 The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -304,6 +336,8 @@ class Solution:
                 start = i - ((t - 1) >> 1)
         return s[start : start + mx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -336,6 +370,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -362,6 +398,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestPalindrome(s string) string {
 	n := len(s)
@@ -383,6 +421,8 @@ func longestPalindrome(s string) string {
 	return s[start : start+mx]
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -413,6 +453,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -452,4 +494,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

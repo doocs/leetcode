@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.16.The%20Masseuse/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.16. 按摩师](https://leetcode.cn/problems/the-masseuse-lcci)
 
 [English Version](/lcci/17.16.The%20Masseuse/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>一个有名的按摩师会收到源源不断的预约请求，每个预约都可以选择接或不接。在每次预约服务之间要有休息时间，因此她不能接受相邻的预约。给定一个预约请求序列，替按摩师找到最优的预约集合（总预约时间最长），返回总的分钟数。</p>
 
 <p><strong>注意：</strong>本题相对原题稍作改动</p>
@@ -38,7 +41,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.16.The%20Masseuse/
 <strong>解释：</strong> 选择 1 号预约、 3 号预约、 5 号预约和 8 号预约，总时长 = 2 + 4 + 3 + 3 = 12。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -61,6 +68,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def massage(self, nums: List[int]) -> int:
@@ -69,6 +78,8 @@ class Solution:
             f, g = g + x, max(f, g)
         return max(f, g)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func massage(nums []int) int {
 	f, g := 0, 0
@@ -110,6 +125,8 @@ func massage(nums []int) int {
 	return max(f, g)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function massage(nums: number[]): number {
@@ -124,6 +141,8 @@ function massage(nums: number[]): number {
     return Math.max(f, g);
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -145,4 +164,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [633. 平方数之和](https://leetcode.cn/problems/sum-of-square-numbers)
 
 [English Version](/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个非负整数&nbsp;<code>c</code>&nbsp;，你要判断是否存在两个整数 <code>a</code> 和 <code>b</code>，使得&nbsp;<code>a<sup>2</sup> + b<sup>2</sup> = c</code> 。</p>
 
@@ -43,7 +45,11 @@ tags:
 	<li><code>0 &lt;= c &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学 + 双指针
 
@@ -52,6 +58,8 @@ tags:
 时间复杂度 $O(\sqrt{c})$，其中 $c$ 是给定的非负整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +75,8 @@ class Solution:
                 b -= 1
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func judgeSquareSum(c int) bool {
 	a, b := 0, int(math.Sqrt(float64(c)))
@@ -127,6 +141,8 @@ func judgeSquareSum(c int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function judgeSquareSum(c: number): boolean {
     let [a, b] = [0, Math.floor(Math.sqrt(c))];
@@ -144,6 +160,8 @@ function judgeSquareSum(c: number): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -173,4 +191,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2093. Minimum Cost to Reach City With Discounts 🔒](https://leetcode.com/problems/minimum-cost-to-reach-city-with-discounts)
 
 [中文文档](/solution/2000-2099/2093.Minimum%20Cost%20to%20Reach%20City%20With%20Discounts/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A series of highways connect <code>n</code> cities numbered from <code>0</code> to <code>n - 1</code>. You are given a 2D integer array <code>highways</code> where <code>highways[i] = [city1<sub>i</sub>, city2<sub>i</sub>, toll<sub>i</sub>]</code> indicates that there is a highway that connects <code>city1<sub>i</sub></code> and <code>city2<sub>i</sub></code>, allowing a car to go from <code>city1<sub>i</sub></code> to <code>city2<sub>i</sub></code> <strong>and vice versa</strong> for a cost of <code>toll<sub>i</sub></code>.</p>
 
@@ -70,11 +74,17 @@ It is impossible to go from 0 to 3 so return -1.
 	<li>There are no duplicate highways.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +108,8 @@ class Solution:
                     heappush(q, (cost + v // 2, j, k + 1))
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -169,4 +183,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.04.Partition%20List/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 02.04. 分割链表](https://leetcode.cn/problems/partition-list-lcci)
 
 [English Version](/lcci/02.04.Partition%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个链表的头节点 <code>head</code> 和一个特定值<em> </em><code>x</code> ，请你对链表进行分隔，使得所有 <strong>小于</strong> <code>x</code> 的节点都出现在 <strong>大于或等于</strong> <code>x</code> 的节点之前。</p>
 
@@ -44,7 +46,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.04.Partition%20Lis
     <li><code>-200 &lt;= x &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拼接链表
 
@@ -61,6 +67,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.04.Partition%20Lis
 时间复杂度 $O(n)$，其中 $n$ 是链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -86,6 +94,8 @@ class Solution:
         p2.next = None
         return left.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -117,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -150,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -175,6 +189,8 @@ func partition(head *ListNode, x int) *ListNode {
 	return left.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -206,6 +222,8 @@ function partition(head: ListNode | null, x: number): ListNode | null {
     return left.next;
 }
 ```
+
+#### Swift
 
 ```swift
 /** public class ListNode {
@@ -247,4 +265,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

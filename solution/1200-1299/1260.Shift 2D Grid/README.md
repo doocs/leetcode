@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1260.Shift%202D%20Grid/README.md
 rating: 1337
+source: 第 163 场周赛 Q1
 tags:
     - 数组
     - 矩阵
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1260. 二维网格迁移](https://leetcode.cn/problems/shift-2d-grid)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>m</code> 行 <code>n</code> 列的二维网格 <code>grid</code> 和一个整数 <code>k</code>。你需要将 <code>grid</code> 迁移 <code>k</code> 次。</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li><code>0 <= k <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二维数组展开
 
@@ -80,6 +87,8 @@ tags:
 时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是二维数组 `grid` 的行数和列数。需要遍历二维数组 `grid` 一次，计算每个元素在最后的位置。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +101,8 @@ class Solution:
                 ans[x][y] = v
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shiftGrid(grid [][]int, k int) [][]int {
@@ -153,6 +168,8 @@ func shiftGrid(grid [][]int, k int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shiftGrid(grid: number[][], k: number): number[][] {
     const [m, n] = [grid.length, grid[0].length];
@@ -170,4 +187,6 @@ function shiftGrid(grid: number[][], k: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

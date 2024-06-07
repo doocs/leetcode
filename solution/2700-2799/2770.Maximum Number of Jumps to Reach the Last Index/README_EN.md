@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2770.Maximum%20Number%20of%20Jumps%20to%20Reach%20the%20Last%20Index/README_EN.md
 rating: 1533
+source: Weekly Contest 353 Q2
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [2770. Maximum Number of Jumps to Reach the Last Index](https://leetcode.com/problems/maximum-number-of-jumps-to-reach-the-last-index)
 
 [中文文档](/solution/2700-2799/2770.Maximum%20Number%20of%20Jumps%20to%20Reach%20the%20Last%20Index/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of <code>n</code> integers and an integer <code>target</code>.</p>
 
@@ -69,7 +74,11 @@ It can be proven that there is no other jumping sequence that goes from 0 to n -
 	<li><code>0 &lt;= target &lt;= 2 * 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization
 
@@ -88,6 +97,8 @@ Time complexity $O(n^2)$, space complexity $O(n)$. where $n$ is the length of ar
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumJumps(self, nums: List[int], target: int) -> int:
@@ -105,6 +116,8 @@ class Solution:
         ans = dfs(0)
         return -1 if ans < 0 else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumJumps(nums []int, target int) int {
@@ -206,6 +223,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumJumps(nums: number[], target: number): number {
     const n = nums.length;
@@ -232,4 +251,6 @@ function maximumJumps(nums: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1786.Number%20of%20Restricted%20Paths%20From%20First%20to%20Last%20Node/README_EN.md
 rating: 2078
+source: Weekly Contest 231 Q3
 tags:
     - Graph
     - Topological Sort
@@ -11,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1786. Number of Restricted Paths From First to Last Node](https://leetcode.com/problems/number-of-restricted-paths-from-first-to-last-node)
 
 [中文文档](/solution/1700-1799/1786.Number%20of%20Restricted%20Paths%20From%20First%20to%20Last%20Node/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an undirected weighted connected graph. You are given a positive integer <code>n</code> which denotes that the graph has <code>n</code> nodes labeled from <code>1</code> to <code>n</code>, and an array <code>edges</code> where each <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>, weight<sub>i</sub>]</code> denotes that there is an edge between nodes <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code> with weight equal to <code>weight<sub>i</sub></code>.</p>
 
@@ -59,11 +64,17 @@ tags:
 	<li>There is at least one path between any two nodes.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +105,8 @@ class Solution:
                     heappush(q, (dist[v], v))
         return dfs(1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -156,6 +169,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using pii = pair<int, int>;
 
@@ -208,6 +223,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const inf = math.MaxInt32
@@ -280,9 +297,15 @@ func countRestrictedPaths(n int, edges [][]int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -311,6 +334,8 @@ class Solution:
                     f[i] = (f[i] + f[j]) % mod
         return f[1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -363,4 +388,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

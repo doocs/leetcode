@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1207.Unique%20Number%20of%20Occurrences/README_EN.md
 rating: 1195
+source: Weekly Contest 156 Q1
 tags:
     - Array
     - Hash Table
 ---
+
+<!-- problem:start -->
 
 # [1207. Unique Number of Occurrences](https://leetcode.com/problems/unique-number-of-occurrences)
 
 [中文文档](/solution/1200-1299/1207.Unique%20Number%20of%20Occurrences/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>arr</code>, return <code>true</code> <em>if the number of occurrences of each value in the array is <strong>unique</strong> or </em><code>false</code><em> otherwise</em>.</p>
 
@@ -46,7 +51,11 @@ tags:
 	<li><code>-1000 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -56,12 +65,16 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uniqueOccurrences(self, arr: List[int]) -> bool:
         cnt = Counter(arr)
         return len(set(cnt.values())) == len(cnt)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniqueOccurrences(arr []int) bool {
 	cnt := map[int]int{}
@@ -112,6 +129,8 @@ func uniqueOccurrences(arr []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniqueOccurrences(arr: number[]): boolean {
     const cnt: Map<number, number> = new Map();
@@ -124,4 +143,6 @@ function uniqueOccurrences(arr: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

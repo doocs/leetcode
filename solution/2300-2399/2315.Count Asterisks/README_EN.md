@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2315.Count%20Asterisks/README_EN.md
 rating: 1250
+source: Biweekly Contest 81 Q1
 tags:
     - String
 ---
+
+<!-- problem:start -->
 
 # [2315. Count Asterisks](https://leetcode.com/problems/count-asterisks)
 
 [中文文档](/solution/2300-2399/2315.Count%20Asterisks/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code>, where every <strong>two</strong> consecutive vertical bars <code>&#39;|&#39;</code> are grouped into a <strong>pair</strong>. In other words, the 1<sup>st</sup> and 2<sup>nd</sup> <code>&#39;|&#39;</code> make a pair, the 3<sup>rd</sup> and 4<sup>th</sup> <code>&#39;|&#39;</code> make a pair, and so forth.</p>
 
@@ -54,11 +59,17 @@ There are 2 asterisks considered. Therefore, we return 2.</pre>
 	<li><code>s</code> contains an <strong>even</strong> number of vertical bars <code>&#39;|&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +82,8 @@ class Solution:
                 ok ^= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countAsterisks(s string) (ans int) {
 	ok := 1
@@ -119,6 +136,8 @@ func countAsterisks(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countAsterisks(s: string): number {
@@ -134,6 +153,8 @@ function countAsterisks(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -152,6 +173,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int CountAsterisks(string s) {
@@ -167,6 +190,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int countAsterisks(char* s) {
@@ -185,4 +210,6 @@ int countAsterisks(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

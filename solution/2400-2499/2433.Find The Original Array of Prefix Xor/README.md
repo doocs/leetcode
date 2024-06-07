@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README.md
 rating: 1366
+source: 第 314 场周赛 Q2
 tags:
     - 位运算
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [2433. 找出前缀异或的原始数组](https://leetcode.cn/problems/find-the-original-array-of-prefix-xor)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的 <strong>整数</strong> 数组 <code>pref</code> 。找出并返回满足下述条件且长度为 <code>n</code> 的数组<em> </em><code>arr</code> ：</p>
 
@@ -56,7 +59,11 @@ tags:
 	<li><code>0 &lt;= pref[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -84,11 +91,15 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findArray(self, pref: List[int]) -> List[int]:
         return [a ^ b for a, b in pairwise([0] + pref)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findArray(pref []int) []int {
 	n := len(pref)
@@ -129,6 +144,8 @@ func findArray(pref []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findArray(pref: number[]): number[] {
     let ans = pref.slice();
@@ -138,6 +155,8 @@ function findArray(pref: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -152,6 +171,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -170,4 +191,6 @@ int* findArray(int* pref, int prefSize, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

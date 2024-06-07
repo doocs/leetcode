@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3050. Pizza Toppings Cost Analysis 🔒](https://leetcode.com/problems/pizza-toppings-cost-analysis)
 
 [中文文档](/solution/3000-3099/3050.Pizza%20Toppings%20Cost%20Analysis/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code><font face="monospace">Toppings</font></code></p>
 
@@ -69,7 +73,11 @@ There are only four different combinations possible with the three topings:
 - Chicken, Extra Cheese, Pepperoni: Total cost is $1.45 (Chicken $0.55, Extra Cheese $0.40, Pepperoni $0.50).
 Output table is ordered by the total cost in descending order.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Window Function + Conditional Join
 
@@ -78,6 +86,8 @@ First, we use a window function to sort the table by the `topping_name` field an
 Then we use conditional join to join the table `T` three times, named as `t1`, `t2`, `t3` respectively. The join conditions are `t1.rk < t2.rk` and `t2.rk < t3.rk`. After that, we calculate the total price of the three toppings, sort by total price in descending order, and then sort by topping name in ascending order.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -98,4 +108,6 @@ ORDER BY 2 DESC, 1 ASC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

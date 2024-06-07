@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2865.Beautiful%20Towers%20I/README_EN.md
 rating: 1519
+source: Weekly Contest 364 Q2
 tags:
     - Stack
     - Array
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2865. Beautiful Towers I](https://leetcode.com/problems/beautiful-towers-i)
 
 [中文文档](/solution/2800-2899/2865.Beautiful%20Towers%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>heights</code> of <code>n</code> integers representing the number of bricks in <code>n</code> consecutive towers. Your task is to remove some bricks to form a <strong>mountain-shaped</strong> tower arrangement. In this arrangement, the tower heights are non-decreasing, reaching a maximum peak value with one or multiple consecutive towers and then non-increasing.</p>
 
@@ -64,7 +69,11 @@ tags:
 	<li><code>1 &lt;= heights[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -73,6 +82,8 @@ We can enumerate each tower as the tallest tower, each time expanding to the lef
 The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $maxHeights$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +101,8 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSumOfHeights(maxHeights []int) (ans int64) {
 	n := len(maxHeights)
@@ -159,6 +176,8 @@ func maximumSumOfHeights(maxHeights []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumSumOfHeights(maxHeights: number[]): number {
@@ -184,6 +203,10 @@ function maximumSumOfHeights(maxHeights: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming + Monotonic Stack
 
 Solution 1 is sufficient to pass this problem, but the time complexity is relatively high. We can use "Dynamic Programming + Monotonic Stack" to optimize the enumeration process.
@@ -205,6 +228,8 @@ We can use a similar method to find $g[i]$, which represents the height sum of t
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $maxHeights$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -243,6 +268,8 @@ class Solution:
                 g[i] = maxHeights[i] * (j - i) + (g[j] if j != n else 0)
         return max(a + b - c for a, b, c in zip(f, g, maxHeights))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -303,6 +330,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -359,6 +388,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumSumOfHeights(maxHeights []int) (ans int64) {
@@ -422,6 +453,8 @@ func maximumSumOfHeights(maxHeights []int) (ans int64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumSumOfHeights(maxHeights: number[]): number {
     const n = maxHeights.length;
@@ -479,4 +512,6 @@ function maximumSumOfHeights(maxHeights: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

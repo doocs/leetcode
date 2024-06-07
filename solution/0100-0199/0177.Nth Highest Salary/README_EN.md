@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [177. Nth Highest Salary](https://leetcode.com/problems/nth-highest-salary)
 
 [中文文档](/solution/0100-0199/0177.Nth%20Highest%20Salary/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employee</code></p>
 
@@ -72,11 +76,17 @@ n = 2
 +------------------------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -90,6 +100,8 @@ def nth_highest_salary(employee: pd.DataFrame, N: int) -> pd.DataFrame:
         salary = sorted(unique_salaries, reverse=True)[N - 1]
         return pd.DataFrame([salary], columns=[f"getNthHighestSalary({N})"])
 ```
+
+#### MySQL
 
 ```sql
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
@@ -109,4 +121,6 @@ END
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1624.Largest%20Substring%20Between%20Two%20Equal%20Characters/README.md
 rating: 1281
+source: 第 211 场周赛 Q1
 tags:
     - 哈希表
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1624. 两个相同字符之间的最长子字符串](https://leetcode.cn/problems/largest-substring-between-two-equal-characters)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code>，请你返回 <strong>两个相同字符之间的最长子字符串的长度</strong> <em>，</em>计算长度时不含这两个字符。如果不存在这样的子字符串，返回 <code>-1</code> 。</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>s</code> 只含小写英文字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表
 
@@ -69,6 +76,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串长度，而 $C$ 为字符串 $s$ 的字符集大小，本题 $C=26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +91,8 @@ class Solution:
                 d[c] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +133,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxLengthBetweenEqualCharacters(s string) int {
@@ -140,6 +155,8 @@ func maxLengthBetweenEqualCharacters(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxLengthBetweenEqualCharacters(s: string): number {
     const n = s.length;
@@ -156,6 +173,8 @@ function maxLengthBetweenEqualCharacters(s: string): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -177,6 +196,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -201,4 +222,6 @@ int maxLengthBetweenEqualCharacters(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

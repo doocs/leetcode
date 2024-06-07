@@ -3,15 +3,20 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3021.Alice%20and%20Bob%20Playing%20Flower%20Game/README_EN.md
 rating: 1581
+source: Weekly Contest 382 Q3
 tags:
     - Math
 ---
+
+<!-- problem:start -->
 
 # [3021. Alice and Bob Playing Flower Game](https://leetcode.com/problems/alice-and-bob-playing-flower-game)
 
 [中文文档](/solution/3000-3099/3021.Alice%20and%20Bob%20Playing%20Flower%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob are playing a turn-based game on a circular field surrounded by flowers. The circle represents the field, and there are <code>x</code> flowers in the clockwise direction between Alice and Bob, and <code>y</code> flowers in the anti-clockwise direction between them.</p>
 
@@ -57,7 +62,11 @@ tags:
 	<li><code>1 &lt;= n, m &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -79,6 +88,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def flowerGame(self, n: int, m: int) -> int:
@@ -88,6 +99,8 @@ class Solution:
         b2 = m // 2
         return a1 * b2 + a2 * b1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func flowerGame(n int, m int) int64 {
 	a1, b1 := (n+1)/2, (m+1)/2
@@ -121,6 +138,8 @@ func flowerGame(n int, m int) int64 {
 	return int64(a1*b2 + a2*b1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function flowerGame(n: number, m: number): number {
@@ -131,6 +150,10 @@ function flowerGame(n: number, m: number): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Mathematics (Optimized)
 
@@ -150,11 +173,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def flowerGame(self, n: int, m: int) -> int:
         return (n * m) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -163,6 +190,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -173,11 +202,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func flowerGame(n int, m int) int64 {
 	return int64((n * m) / 2)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function flowerGame(n: number, m: number): number {
@@ -187,4 +220,6 @@ function flowerGame(n: number, m: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

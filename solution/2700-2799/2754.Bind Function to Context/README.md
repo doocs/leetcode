@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2754.Bind%20Function%20to%20Context/README.md
 ---
 
+<!-- problem:start -->
+
 # [2754. 将函数绑定到上下文 🔒](https://leetcode.cn/problems/bind-function-to-context)
 
 [English Version](/solution/2700-2799/2754.Bind%20Function%20to%20Context/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个所有函数都支持的方法&nbsp;<code>bindPolyfill</code> 。当 <code>bindPolyfill</code> 方法被调用并传递了一个对象 <code>obj</code> 时，该对象将成为函数的 <code>this</code> 上下文。</p>
 
@@ -85,11 +87,17 @@ boundFunc(); // "My name is Kathy"
 <p>&nbsp;</p>
 <b>你能在不使用任何内置方法的情况下解决这个问题吗？</b>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 type Fn = (...args) => any;
@@ -109,4 +117,6 @@ Function.prototype.bindPolyfill = function (obj) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

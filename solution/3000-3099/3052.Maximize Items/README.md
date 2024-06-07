@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3052. 最大化商品 🔒](https://leetcode.cn/problems/maximize-items)
 
 [English Version](/solution/3000-3099/3052.Maximize%20Items/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<font face="monospace"><code>Inventory</code></font></p>
 
@@ -77,7 +79,11 @@ Inventory 表：
 - 对于 not_prime 分类，共有 4 件商品，总面积为 128.50 平方英尺。在减去 prime-eligible 商品使用的空间之后 (500,000 - 499,680 = 320)，还有放 2 件 non-prime 商品的空间，在320平方英尺的面积内，共容纳 8 个 non-prime 商品。
 输出表以商品数量降序排序。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：连接查询 + 合并
 
@@ -86,6 +92,8 @@ Inventory 表：
 接下来，我们分别计算 prime_eligible 和 not_prime 类型的物品的数量。对于 prime_eligible 类型的物品，我们可以存储的份数是 $\lfloor \frac{500000}{s} \rfloor$，对于 not_prime 类型的物品，我们可以存储的份数是 $\lfloor \frac{500000 \mod s}{\sum \text{s1}} \rfloor$。其中 $\sum \text{s1}$ 是所有 not_prime 类型的物品的总面积。再分别乘上 prime_eligible 和 not_prime 类型的物品的数量，就是我们的结果。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -114,4 +122,6 @@ WHERE item_type = 'not_prime';
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

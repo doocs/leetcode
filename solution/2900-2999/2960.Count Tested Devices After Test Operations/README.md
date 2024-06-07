@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2960.Count%20Tested%20Devices%20After%20Test%20Operations/README.md
 rating: 1169
+source: 第 375 场周赛 Q1
 tags:
     - 数组
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [2960. 统计已测试设备](https://leetcode.cn/problems/count-tested-devices-after-test-operations)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 、下标从<strong> 0 </strong>开始的整数数组 <code>batteryPercentages</code> ，表示 <code>n</code> 个设备的电池百分比。</p>
 
@@ -72,7 +75,11 @@ tags:
 	<li><code>0 &lt;= batteryPercentages[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -84,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countTestedDevices(self, batteryPercentages: List[int]) -> int:
@@ -92,6 +101,8 @@ class Solution:
             ans += x > ans
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countTestedDevices(batteryPercentages []int) (ans int) {
 	for _, x := range batteryPercentages {
@@ -129,6 +144,8 @@ func countTestedDevices(batteryPercentages []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countTestedDevices(batteryPercentages: number[]): number {
     let ans = 0;
@@ -138,6 +155,8 @@ function countTestedDevices(batteryPercentages: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -153,4 +172,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [910. Smallest Range II](https://leetcode.com/problems/smallest-range-ii)
 
 [中文文档](/solution/0900-0999/0910.Smallest%20Range%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>
 
@@ -57,7 +61,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Enumeration
 
@@ -68,6 +76,8 @@ Therefore, we can first sort the array, then enumerate each element in the array
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +90,8 @@ class Solution:
             ans = min(ans, mx - mi)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestRangeII(nums []int, k int) int {
 	sort.Ints(nums)
@@ -127,6 +143,8 @@ func smallestRangeII(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestRangeII(nums: number[], k: number): number {
@@ -143,4 +161,6 @@ function smallestRangeII(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

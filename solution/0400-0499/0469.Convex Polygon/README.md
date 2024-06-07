@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [469. 凸多边形 🔒](https://leetcode.cn/problems/convex-polygon)
 
 [English Version](/solution/0400-0499/0469.Convex%20Polygon/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定 <strong>X-Y</strong> 平面上的一组点&nbsp;<code>points</code>&nbsp;，其中&nbsp;<code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 。这些点按顺序连成一个多边形。</p>
 
@@ -52,7 +54,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学（向量叉积）
 
@@ -63,6 +69,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是顶点的数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +89,8 @@ class Solution:
                 pre = cur
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isConvex(points [][]int) bool {
 	n := len(points)
@@ -155,4 +169,6 @@ func isConvex(points [][]int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

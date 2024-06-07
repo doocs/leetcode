@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2966.Divide%20Array%20Into%20Arrays%20With%20Max%20Difference/README.md
 rating: 1395
+source: 第 376 场周赛 Q2
 tags:
     - 贪心
     - 数组
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [2966. 划分数组并满足最大差限制](https://leetcode.cn/problems/divide-array-into-arrays-with-max-difference)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的整数数组 <code>nums</code>，以及一个正整数 <code>k</code> 。</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -69,6 +76,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +92,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func divideArray(nums []int, k int) [][]int {
 	sort.Ints(nums)
@@ -135,6 +150,8 @@ func divideArray(nums []int, k int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function divideArray(nums: number[], k: number): number[][] {
@@ -153,4 +170,6 @@ function divideArray(nums: number[], k: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

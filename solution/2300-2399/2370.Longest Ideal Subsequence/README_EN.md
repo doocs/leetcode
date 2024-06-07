@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README_EN.md
 rating: 1834
+source: Weekly Contest 305 Q4
 tags:
     - Hash Table
     - String
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2370. Longest Ideal Subsequence](https://leetcode.com/problems/longest-ideal-subsequence)
 
 [中文文档](/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> consisting of lowercase letters and an integer <code>k</code>. We call a string <code>t</code> <strong>ideal</strong> if the following conditions are satisfied:</p>
 
@@ -54,11 +59,17 @@ Note that &quot;acfgbd&quot; is not ideal because &#39;c&#39; and &#39;f&#39; ha
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +88,8 @@ class Solution:
             d[s[i]] = i
         return max(dp)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestIdealString(s string, k int) int {
@@ -154,6 +171,8 @@ func longestIdealString(s string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestIdealString(s: string, k: number): number {
     const dp = new Array(26).fill(0);
@@ -174,4 +193,6 @@ function longestIdealString(s: string, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

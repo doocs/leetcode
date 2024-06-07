@@ -2,7 +2,13 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3141.Maximum%20Hamming%20Distances/README.md
+tags:
+    - 位运算
+    - 广度优先搜索
+    - 数组
 ---
+
+<!-- problem:start -->
 
 # [3141. 最大汉明距离 🔒](https://leetcode.cn/problems/maximum-hamming-distances)
 
@@ -10,7 +16,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3141.Ma
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>m</code>，每个元素&nbsp;<code>nums[i]</code>&nbsp;满足&nbsp;<code>0 &lt;= nums[i] &lt; 2<sup>m</sup></code>，返回数组&nbsp;<code>answer</code>。<code>answer</code>&nbsp;数组应该与&nbsp;<code>nums</code>&nbsp; 有相同的长度，每个元素&nbsp;<code>answer[i]</code>&nbsp;表示&nbsp;<code>nums[i]</code>&nbsp;和数组中其它任何元素&nbsp;<code>nums[j]</code>&nbsp;的最大 <strong>汉明距离</strong>。</p>
 
@@ -70,7 +76,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3141.Ma
 	<li><code>0 &lt;= nums[i] &lt; 2<sup>m</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：逆向思维 + BFS
 
@@ -90,6 +100,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3141.Ma
 时间复杂度 $O(2^m)$，空间复杂度 $O(2^m)$。其中 $m$ 为题目给定的整数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +123,8 @@ class Solution:
             k += 1
         return [m - dist[x ^ ((1 << m) - 1)] for x in nums]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +155,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -174,6 +190,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxHammingDistances(nums []int, m int) []int {
 	dist := make([]int, 1<<m)
@@ -205,6 +223,8 @@ func maxHammingDistances(nums []int, m int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxHammingDistances(nums: number[], m: number): number[] {
     const dist: number[] = Array.from({ length: 1 << m }, () => -1);
@@ -235,4 +255,6 @@ function maxHammingDistances(nums: number[], m: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

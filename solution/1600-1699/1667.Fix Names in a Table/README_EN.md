@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1667. Fix Names in a Table](https://leetcode.com/problems/fix-names-in-a-table)
 
 [中文文档](/solution/1600-1699/1667.Fix%20Names%20in%20a%20Table/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Users</code></p>
 
@@ -54,11 +58,17 @@ Users table:
 +---------+-------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -72,9 +82,15 @@ ORDER BY
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -91,4 +107,6 @@ ORDER BY
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

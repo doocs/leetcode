@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2891.Method%20Chaining/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2891. Method Chaining](https://leetcode.com/problems/method-chaining)
 
 [中文文档](/solution/2800-2899/2891.Method%20Chaining/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <pre>
 DataFrame <code>animals</code>
@@ -63,11 +67,17 @@ The results should be sorted in descending order of weight.</pre>
 
 <p>Can you complete this&nbsp;task in just <strong>one line </strong>of code using method chaining?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -81,4 +91,6 @@ def findHeavyAnimals(animals: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

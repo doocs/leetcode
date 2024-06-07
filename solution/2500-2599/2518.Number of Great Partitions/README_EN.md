@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README_EN.md
 rating: 2414
+source: Weekly Contest 325 Q4
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [2518. Number of Great Partitions](https://leetcode.com/problems/number-of-great-partitions)
 
 [中文文档](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> consisting of <strong>positive</strong> integers and an integer <code>k</code>.</p>
 
@@ -56,11 +61,17 @@ The great partitions will be ([6], [6]) and ([6], [6]).
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +91,8 @@ class Solution:
                     f[i][j] = (f[i][j] + f[i - 1][j - nums[i - 1]]) % mod
         return (ans - sum(f[-1]) * 2 + mod) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countPartitions(nums []int, k int) int {
@@ -182,4 +199,6 @@ func countPartitions(nums []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

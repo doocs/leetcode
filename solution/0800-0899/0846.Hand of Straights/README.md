@@ -9,13 +9,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [846. 一手顺子](https://leetcode.cn/problems/hand-of-straights)
 
 [English Version](/solution/0800-0899/0846.Hand%20of%20Straights/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 手中有一把牌，她想要重新排列这些牌，分成若干组，使每一组的牌数都是 <code>groupSize</code> ，并且由 <code>groupSize</code> 张连续的牌组成。</p>
 
@@ -54,7 +56,11 @@ tags:
 
 <p><strong>注意：</strong>此题目与 1296 重复：<a href="https://leetcode.cn/problems/divide-array-in-sets-of-k-consecutive-numbers/" target="_blank">https://leetcode.cn/problems/divide-array-in-sets-of-k-consecutive-numbers/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 排序
 
@@ -65,6 +71,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `hand` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +88,8 @@ class Solution:
                         cnt.pop(x)
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isNStraightHand(hand []int, groupSize int) bool {
@@ -155,7 +169,36 @@ func isNStraightHand(hand []int, groupSize int) bool {
 }
 ```
 
+#### TypeScript
+
+```ts
+function isNStraightHand(hand: number[], groupSize: number) {
+    const cnt: Record<number, number> = {};
+    for (const i of hand) {
+        cnt[i] = (cnt[i] ?? 0) + 1;
+    }
+
+    const keys = Object.keys(cnt).map(Number);
+    for (const i of keys) {
+        while (cnt[i]) {
+            for (let j = i; j < groupSize + i; j++) {
+                if (!cnt[j]) {
+                    return false;
+                }
+                cnt[j]--;
+            }
+        }
+    }
+
+    return true;
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：有序集合
 
@@ -166,6 +209,8 @@ func isNStraightHand(hand []int, groupSize int) bool {
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `hand` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedDict
@@ -192,6 +237,8 @@ class Solution:
                     sd[i] -= 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -221,6 +268,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -242,6 +291,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isNStraightHand(hand []int, groupSize int) bool {
@@ -273,6 +324,42 @@ func isNStraightHand(hand []int, groupSize int) bool {
 }
 ```
 
+#### TypeScript
+
+```ts
+function isNStraightHand(hand: number[], groupSize: number): boolean {
+    const n = hand.length;
+    if (n % groupSize) {
+        return false;
+    }
+
+    const groups: number[][] = Array.from({ length: n / groupSize }, () => []);
+    hand.sort((a, b) => a - b);
+
+    for (let i = 0; i < n; i++) {
+        let isPushed = false;
+
+        for (const g of groups) {
+            if (g.length === groupSize || (g.length && hand[i] - g.at(-1)! !== 1)) {
+                continue;
+            }
+
+            g.push(hand[i]);
+            isPushed = true;
+            break;
+        }
+
+        if (!isPushed) {
+            return false;
+        }
+    }
+
+    return true;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

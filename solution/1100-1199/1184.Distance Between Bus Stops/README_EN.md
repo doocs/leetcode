@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/README_EN.md
 rating: 1234
+source: Weekly Contest 153 Q1
 tags:
     - Array
 ---
+
+<!-- problem:start -->
 
 # [1184. Distance Between Bus Stops](https://leetcode.com/problems/distance-between-bus-stops)
 
 [中文文档](/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A bus&nbsp;has <code>n</code> stops numbered from <code>0</code> to <code>n - 1</code> that form&nbsp;a circle. We know the distance between all pairs of neighboring stops where <code>distance[i]</code> is the distance between the stops number&nbsp;<code>i</code> and <code>(i + 1) % n</code>.</p>
 
@@ -81,7 +86,11 @@ tags:
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -90,6 +99,8 @@ First, we can calculate the total distance $s$ that the bus travels. Then, we si
 The time complexity is $O(n)$, where $n$ is the number of bus stops. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +113,8 @@ class Solution:
             start = (start + 1) % n
         return min(a, sum(distance) - a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func distanceBetweenBusStops(distance []int, start int, destination int) int {
@@ -148,6 +165,8 @@ func distanceBetweenBusStops(distance []int, start int, destination int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distanceBetweenBusStops(distance: number[], start: number, destination: number): number {
     const s = distance.reduce((a, b) => a + b, 0);
@@ -160,6 +179,8 @@ function distanceBetweenBusStops(distance: number[], start: number, destination:
     return Math.min(a, s - a);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -182,4 +203,6 @@ var distanceBetweenBusStops = function (distance, start, destination) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

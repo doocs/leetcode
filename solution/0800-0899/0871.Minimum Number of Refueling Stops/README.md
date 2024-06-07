@@ -9,13 +9,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [871. 最低加油次数](https://leetcode.cn/problems/minimum-number-of-refueling-stops)
 
 [English Version](/solution/0800-0899/0871.Minimum%20Number%20of%20Refueling%20Stops/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>汽车从起点出发驶向目的地，该目的地位于出发位置东面 <code>target</code>&nbsp;英里处。</p>
 
@@ -69,7 +71,11 @@ tags:
 	<li><code>1 &lt;= fuel<sub>i</sub> &lt; 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 优先队列（大根堆）
 
@@ -78,6 +84,8 @@ tags:
 时间复杂度 $O(nlogn)$。其中 $n$ 表示数组 `stations` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +107,8 @@ class Solution:
             prev = a
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minRefuelStops(target int, startFuel int, stations [][]int) int {
@@ -188,4 +202,6 @@ func (h *hp) pop() int   { return heap.Pop(h).(int) }
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

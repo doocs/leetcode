@@ -10,11 +10,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [488. Zuma Game](https://leetcode.com/problems/zuma-game)
 
 [中文文档](/solution/0400-0499/0488.Zuma%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are playing a variation of the game Zuma.</p>
 
@@ -78,11 +82,17 @@ There are still balls remaining on the board, and you are out of balls to insert
 	<li>The initial row of balls on the board will <strong>not</strong> have any groups of three or more consecutive balls of the same color.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +121,8 @@ class Solution:
                         q.append((s, b))
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -280,4 +292,6 @@ record Zuma(long board, long hand) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

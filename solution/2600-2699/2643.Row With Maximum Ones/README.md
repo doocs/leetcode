@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README.md
 rating: 1174
+source: 第 341 场周赛 Q1
 tags:
     - 数组
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [2643. 一最多的行](https://leetcode.cn/problems/row-with-maximum-ones)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> 的二进制矩阵 <code>mat</code> ，请你找出包含最多 <strong>1</strong> 的行的下标（从 <strong>0</strong> 开始）以及这一行中 <strong>1</strong> 的数目。</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>mat[i][j]</code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -67,6 +74,8 @@ tags:
 时间复杂度 $(m \times n)$，其中 $m$ 和 $n$ 分别为矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +87,8 @@ class Solution:
                 ans = [i, cnt]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rowAndMaximumOnes(mat [][]int) []int {
 	ans := make([]int, 2)
@@ -138,6 +153,8 @@ func rowAndMaximumOnes(mat [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function rowAndMaximumOnes(mat: number[][]): number[] {
     const ans: number[] = [0, 0];
@@ -151,6 +168,8 @@ function rowAndMaximumOnes(mat: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,4 +194,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

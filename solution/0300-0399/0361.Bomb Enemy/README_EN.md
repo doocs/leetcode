@@ -8,11 +8,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [361. Bomb Enemy 🔒](https://leetcode.com/problems/bomb-enemy)
 
 [中文文档](/solution/0300-0399/0361.Bomb%20Enemy/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> matrix <code>grid</code> where each cell is either a wall <code>&#39;W&#39;</code>, an enemy <code>&#39;E&#39;</code> or empty <code>&#39;0&#39;</code>, return <em>the maximum enemies you can kill using one bomb</em>. You can only place the bomb in an empty cell.</p>
 
@@ -43,11 +47,17 @@ tags:
 	<li><code>grid[i][j]</code> is either <code>&#39;W&#39;</code>, <code>&#39;E&#39;</code>, or <code>&#39;0&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +99,8 @@ class Solution:
             default=0,
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +215,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxKilledEnemies(grid [][]byte) int {
@@ -263,4 +279,6 @@ func maxKilledEnemies(grid [][]byte) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

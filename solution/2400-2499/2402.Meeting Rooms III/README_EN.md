@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2402.Meeting%20Rooms%20III/README_EN.md
 rating: 2092
+source: Weekly Contest 309 Q4
 tags:
     - Array
     - Hash Table
@@ -11,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2402. Meeting Rooms III](https://leetcode.com/problems/meeting-rooms-iii)
 
 [中文文档](/solution/2400-2499/2402.Meeting%20Rooms%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code>. There are <code>n</code> rooms numbered from <code>0</code> to <code>n - 1</code>.</p>
 
@@ -76,7 +81,11 @@ Room 0 held 1 meeting while rooms 1 and 2 each held 2 meetings, so we return 1.
 	<li>All the values of <code>start<sub>i</sub></code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min Heap)
 
@@ -95,6 +104,8 @@ Similar problems:
 -   [1882. Process Tasks Using Servers](https://github.com/doocs/leetcode/blob/main/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -121,6 +132,8 @@ class Solution:
                 ans = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +172,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using ll = long long;
@@ -201,6 +216,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mostBooked(n int, meetings [][]int) int {
@@ -261,4 +278,6 @@ func (h *hp2) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

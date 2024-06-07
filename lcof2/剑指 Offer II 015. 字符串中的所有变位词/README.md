@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20015.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%8F%98%E4%BD%8D%E8%AF%8D/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 015. 字符串中的所有变位词](https://leetcode.cn/problems/VabMRr)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串&nbsp;<code>s</code>&nbsp;和<b>&nbsp;</b><code>p</code>，找到&nbsp;<code>s</code><strong>&nbsp;</strong>中所有 <code>p</code> 的&nbsp;<strong>变位词&nbsp;</strong>的子串，返回这些子串的起始索引。不考虑答案输出的顺序。</p>
 
@@ -49,7 +51,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p>注意：本题与主站 438&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/find-all-anagrams-in-a-string/" style="background-color: rgb(255, 255, 255);">https://leetcode.cn/problems/find-all-anagrams-in-a-string/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口
 
@@ -64,6 +70,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 时间复杂度 $(m + n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $m$ 和 $n$ 分别为字符串 $s$ 和 $p$ 的长度；而 $|\Sigma|$ 为字符集的大小，本题中 $|\Sigma|=26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +91,8 @@ class Solution:
                 ans.append(i - n + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findAnagrams(s string, p string) (ans []int) {
 	m, n := len(s), len(p)
@@ -168,6 +182,8 @@ func findAnagrams(s string, p string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findAnagrams(s: string, p: string): number[] {
@@ -197,7 +213,56 @@ function findAnagrams(s: string, p: string): number[] {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func findAnagrams(_ s: String, _ p: String) -> [Int] {
+        let m = s.count
+        let n = p.count
+        var ans = [Int]()
+
+        if m < n {
+            return ans
+        }
+
+        var cnt1 = Array(repeating: 0, count: 26)
+        var cnt2 = Array(repeating: 0, count: 26)
+
+        let aAsciiValue = Character("a").asciiValue!
+
+        for i in 0..<n {
+            let sIdx = Int(s.utf8[s.utf8.index(s.utf8.startIndex, offsetBy: i)] - aAsciiValue)
+            let pIdx = Int(p.utf8[p.utf8.index(p.utf8.startIndex, offsetBy: i)] - aAsciiValue)
+            cnt1[sIdx] += 1
+            cnt2[pIdx] += 1
+        }
+
+        if cnt1 == cnt2 {
+            ans.append(0)
+        }
+
+        for i in n..<m {
+            let sIdxNew = Int(s.utf8[s.utf8.index(s.utf8.startIndex, offsetBy: i)] - aAsciiValue)
+            let sIdxOld = Int(s.utf8[s.utf8.index(s.utf8.startIndex, offsetBy: i - n)] - aAsciiValue)
+            cnt1[sIdxNew] += 1
+            cnt1[sIdxOld] -= 1
+
+            if cnt1 == cnt2 {
+                ans.append(i - n + 1)
+            }
+        }
+
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：滑动窗口优化
 
@@ -206,6 +271,8 @@ function findAnagrams(s: string, p: string): number[] {
 时间复杂度 $O(m + n + |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $m$ 和 $n$ 分别为字符串 $s$ 和 $p$ 的长度；而 $|\Sigma|$ 为字符集的大小，本题中 $|\Sigma|=26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -237,6 +304,8 @@ class Solution:
                 ans.append(i - n + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -287,6 +356,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -336,6 +407,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findAnagrams(s string, p string) (ans []int) {
 	m, n := len(s), len(p)
@@ -379,6 +452,8 @@ func findAnagrams(s string, p string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findAnagrams(s: string, p: string): number[] {
@@ -427,4 +502,6 @@ function findAnagrams(s: string, p: string): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

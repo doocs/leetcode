@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README_EN.md
 rating: 1426
+source: Biweekly Contest 89 Q1
 tags:
     - String
     - Enumeration
 ---
+
+<!-- problem:start -->
 
 # [2437. Number of Valid Clock Times](https://leetcode.com/problems/number-of-valid-clock-times)
 
 [中文文档](/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string of length <code>5</code> called <code>time</code>, representing the current time on a digital clock in the format <code>&quot;hh:mm&quot;</code>. The <strong>earliest</strong> possible time is <code>&quot;00:00&quot;</code> and the <strong>latest</strong> possible time is <code>&quot;23:59&quot;</code>.</p>
 
@@ -55,7 +60,11 @@ tags:
 	<li>Some of the digits might be replaced with <code>&#39;?&#39;</code> and need to be replaced with digits from <code>0</code> to <code>9</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -67,6 +76,8 @@ The time complexity is $O(24 \times 60)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countTime(self, time: str) -> int:
@@ -77,6 +88,8 @@ class Solution:
             check(f'{h:02d}:{m:02d}', time) for h in range(24) for m in range(60)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countTime(time string) int {
 	ans := 0
@@ -144,6 +161,8 @@ func countTime(time string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countTime(time: string): number {
     let ans = 0;
@@ -163,6 +182,8 @@ function countTime(time: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -193,6 +214,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Optimized Enumeration
 
 We can separately enumerate hours and minutes, count how many hours and minutes meet the condition, and then multiply them together.
@@ -200,6 +225,8 @@ We can separately enumerate hours and minutes, count how many hours and minutes 
 The time complexity is $O(24 + 60)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -214,6 +241,8 @@ class Solution:
 
         return f(time[:2], 24) * f(time[3:], 60)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -233,6 +262,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -251,6 +282,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countTime(time string) int {
 	f := func(s string, m int) (cnt int) {
@@ -266,6 +299,8 @@ func countTime(time string) int {
 	return f(time[:2], 24) * f(time[3:], 60)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countTime(time: string): number {
@@ -283,6 +318,8 @@ function countTime(time: string): number {
     return f(time.slice(0, 2), 24) * f(time.slice(3), 60);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -312,4 +349,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

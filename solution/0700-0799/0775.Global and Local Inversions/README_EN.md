@@ -7,11 +7,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [775. Global and Local Inversions](https://leetcode.com/problems/global-and-local-inversions)
 
 [中文文档](/solution/0700-0799/0775.Global%20and%20Local%20Inversions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> of length <code>n</code> which represents a permutation of all the integers in the range <code>[0, n - 1]</code>.</p>
 
@@ -59,11 +63,17 @@ tags:
 	<li><code>nums</code> is a permutation of all the numbers in the range <code>[0, n - 1]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +84,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isIdealPermutation(nums []int) bool {
@@ -119,9 +135,15 @@ func isIdealPermutation(nums []int) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -155,6 +177,8 @@ class Solution:
             tree.update(v + 1, 1)
         return True
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -197,6 +221,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -241,6 +267,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isIdealPermutation(nums []int) bool {
@@ -289,4 +317,6 @@ func (this BinaryIndexedTree) query(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

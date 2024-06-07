@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1101.The%20Earliest%20Moment%20When%20Everyone%20Become%20Friends/README.md
 rating: 1558
+source: 第 3 场双周赛 Q3
 tags:
     - 并查集
     - 数组
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [1101. 彼此熟识的最早时间 🔒](https://leetcode.cn/problems/the-earliest-moment-when-everyone-become-friends)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一个社交圈子当中，有&nbsp;<code>n</code>&nbsp;个人。每个人都有一个从&nbsp;<code>0</code> 到&nbsp;<code>n - 1</code>&nbsp;的唯一编号。我们有一份日志列表&nbsp;<code>logs</code>，其中&nbsp;<code>logs[i] = [timestamp<sub>i</sub>, x<sub>i</sub>, y<sub>i</sub>]</code>&nbsp;表示 <code>x<sub>i</sub></code>&nbsp;和&nbsp;<code>y<sub>i</sub></code>&nbsp;将在同一时间&nbsp;<code>timestamp<sub>i</sub></code><sub>&nbsp;</sub>成为朋友。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li>所有的对 <code>(xi, yi)</code> 在输入中最多出现一次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 并查集
 
@@ -72,6 +79,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为日志的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +100,8 @@ class Solution:
                 return t
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func earliestAcq(logs [][]int, n int) int {
@@ -179,6 +194,8 @@ func earliestAcq(logs [][]int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function earliestAcq(logs: number[][], n: number): number {
     const p: number[] = Array(n)
@@ -204,6 +221,8 @@ function earliestAcq(logs: number[][], n: number): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 struct UnionFind {
@@ -266,9 +285,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -306,6 +331,8 @@ class Solution:
                     return t
         return -1
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -359,6 +386,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -409,6 +438,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -463,6 +494,8 @@ func earliestAcq(logs [][]int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class UnionFind {
     private p: number[];
@@ -513,4 +546,6 @@ function earliestAcq(logs: number[][], n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

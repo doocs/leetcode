@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1758.Minimum%20Changes%20To%20Make%20Alternating%20Binary%20String/README.md
 rating: 1353
+source: 第 228 场周赛 Q1
 tags:
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1758. 生成交替二进制字符串的最少操作数](https://leetcode.cn/problems/minimum-changes-to-make-alternating-binary-string)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个仅由字符 <code>'0'</code> 和 <code>'1'</code> 组成的字符串 <code>s</code> 。一步操作中，你可以将任一 <code>'0'</code> 变成 <code>'1'</code> ，或者将 <code>'1'</code> 变成 <code>'0'</code> 。</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>s[i]</code> 是 <code>'0'</code> 或 <code>'1'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -65,12 +72,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, s: str) -> int:
         cnt = sum(c != '01'[i & 1] for i, c in enumerate(s))
         return min(cnt, len(s) - cnt)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +107,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(s string) int {
@@ -107,6 +122,8 @@ func minOperations(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(s: string): number {
     const n = s.length;
@@ -117,6 +134,8 @@ function minOperations(s: string): number {
     return Math.min(count, n - count);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -133,6 +152,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 
@@ -148,4 +169,6 @@ int minOperations(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

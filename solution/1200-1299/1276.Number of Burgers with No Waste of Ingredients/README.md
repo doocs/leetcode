@@ -3,9 +3,12 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1276.Number%20of%20Burgers%20with%20No%20Waste%20of%20Ingredients/README.md
 rating: 1386
+source: 第 165 场周赛 Q2
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1276. 不浪费原料的汉堡制作方案](https://leetcode.cn/problems/number-of-burgers-with-no-waste-of-ingredients)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>圣诞活动预热开始啦，汉堡店推出了全新的汉堡套餐。为了避免浪费原料，请你帮他们制定合适的制作计划。</p>
 
@@ -72,7 +75,11 @@ tags:
 	<li><code>0 &lt;= cheeseSlices &lt;= 10^7</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -100,6 +107,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfBurgers(self, tomatoSlices: int, cheeseSlices: int) -> List[int]:
@@ -108,6 +117,8 @@ class Solution:
         x = cheeseSlices - y
         return [] if k % 2 or y < 0 or x < 0 else [x, y]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfBurgers(tomatoSlices int, cheeseSlices int) []int {
 	k := 4*cheeseSlices - tomatoSlices
@@ -144,6 +159,8 @@ func numOfBurgers(tomatoSlices int, cheeseSlices int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numOfBurgers(tomatoSlices: number, cheeseSlices: number): number[] {
     const k = 4 * cheeseSlices - tomatoSlices;
@@ -152,6 +169,8 @@ function numOfBurgers(tomatoSlices: number, cheeseSlices: number): number[] {
     return k % 2 || y < 0 || x < 0 ? [] : [x, y];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -170,4 +189,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -73,6 +73,8 @@ void mergeSort(int[] nums, int left, int right) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 N = int(input())
 nums = list(map(int, input().split()))
@@ -109,6 +111,8 @@ def merge_sort(nums, left, right):
 merge_sort(nums, 0, N - 1)
 print(' '.join(list(map(str, nums))))
 ```
+
+#### Java
 
 ```java
 import java.util.Scanner;
@@ -157,6 +161,8 @@ public class Main {
 }
 ```
 
+#### C++
+
 ```cpp
 #include <iostream>
 
@@ -193,6 +199,8 @@ int main() {
     for (int i = 0; i < n; ++i) printf("%d ", nums[i]);
 }
 ```
+
+#### Go
 
 ```go
 package main
@@ -245,6 +253,8 @@ func main() {
 	}
 }
 ```
+
+#### Rust
 
 ```rust
 use std::io;
@@ -306,6 +316,8 @@ fn main() -> io::Result<()> {
 }
 ```
 
+#### JavaScript
+
 ```js
 var buf = '';
 
@@ -362,5 +374,3 @@ process.stdin.on('end', function () {
 ```
 
 <!-- tabs:end -->
-
-<!-- end -->

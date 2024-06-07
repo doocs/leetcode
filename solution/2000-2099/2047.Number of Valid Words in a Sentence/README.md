@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2047.Number%20of%20Valid%20Words%20in%20a%20Sentence/README.md
 rating: 1471
+source: 第 264 场周赛 Q1
 tags:
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2047. 句子中的有效单词数](https://leetcode.cn/problems/number-of-valid-words-in-a-sentence)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>句子仅由小写字母（<code>'a'</code> 到 <code>'z'</code>）、数字（<code>'0'</code> 到 <code>'9'</code>）、连字符（<code>'-'</code>）、标点符号（<code>'!'</code>、<code>'.'</code> 和 <code>','</code>）以及空格（<code>' '</code>）组成。每个句子可以根据空格分解成 <strong>一个或者多个 token</strong> ，这些 token 之间由一个或者多个空格 <code>' '</code> 分隔。</p>
 
@@ -68,11 +71,17 @@ tags:
 	<li>句子中至少有 <code>1</code> 个 token</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +105,8 @@ class Solution:
 
         return sum(check(token) for token in sentence.split())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countValidWords(sentence: string): number {
@@ -174,4 +187,6 @@ function isValied(str: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

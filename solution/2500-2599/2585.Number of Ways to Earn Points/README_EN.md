@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README_EN.md
 rating: 1909
+source: Weekly Contest 335 Q4
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [2585. Number of Ways to Earn Points](https://leetcode.com/problems/number-of-ways-to-earn-points)
 
 [中文文档](/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a test that has <code>n</code> types of questions. You are given an integer <code>target</code> and a <strong>0-indexed</strong> 2D integer array <code>types</code> where <code>types[i] = [count<sub>i</sub>, marks<sub>i</sub>]</code> indicates that there are <code>count<sub>i</sub></code> questions of the <code>i<sup>th</sup></code> type, and each one of them is worth <code>marks<sub>i</sub></code> points.</p>
 
@@ -74,7 +79,11 @@ tags:
 	<li><code>1 &lt;= count<sub>i</sub>, marks<sub>i</sub> &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -94,6 +103,8 @@ The time complexity is $O(n \times target \times count)$ and the space complexit
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToReachTarget(self, target: int, types: List[List[int]]) -> int:
@@ -109,6 +120,8 @@ class Solution:
                         f[i][j] = (f[i][j] + f[i - 1][j - k * marks]) % mod
         return f[n][target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -156,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToReachTarget(target int, types [][]int) int {
 	n := len(types)
@@ -179,6 +196,8 @@ func waysToReachTarget(target int, types [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function waysToReachTarget(target: number, types: number[][]): number {
     const n = types.length;
@@ -201,4 +220,6 @@ function waysToReachTarget(target: number, types: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

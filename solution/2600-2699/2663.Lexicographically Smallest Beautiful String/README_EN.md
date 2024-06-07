@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README_EN.md
 rating: 2415
+source: Weekly Contest 343 Q4
 tags:
     - Greedy
     - String
 ---
+
+<!-- problem:start -->
 
 # [2663. Lexicographically Smallest Beautiful String](https://leetcode.com/problems/lexicographically-smallest-beautiful-string)
 
 [中文文档](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A string is <strong>beautiful</strong> if:</p>
 
@@ -58,7 +63,11 @@ It can be proven that there is no string that is lexicographically larger than t
 	<li><code>s</code> is a beautiful string.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -72,6 +81,8 @@ We can greedily search backwards from the last index of the string, find an inde
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +106,8 @@ class Solution:
                 return ''.join(cs)
         return ''
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -158,6 +173,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestBeautifulString(s string, k int) string {
 	cs := []byte(s)
@@ -186,6 +203,8 @@ func smallestBeautifulString(s string, k int) string {
 	return ""
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestBeautifulString(s: string, k: number): string {
@@ -218,4 +237,6 @@ function smallestBeautifulString(s: string, k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

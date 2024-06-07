@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.04.Closed%20Number/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [05.04. Closed Number](https://leetcode.cn/problems/closed-number-lcci)
 
 [中文文档](/lcci/05.04.Closed%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a positive integer, print the next smallest and the next largest number that have the same number of 1 bits in their binary representation.</p>
 <p><strong>Example1:</strong></p>
@@ -33,7 +37,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.04.Closed%20Number
 	<li>If there is no next smallest or next largest number, output -1.</li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -50,6 +58,8 @@ In implementation, we can use a piece of code to handle the above two situations
 The time complexity is $O(\log n)$, where $n$ is the size of $num$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +86,8 @@ class Solution:
                     break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findClosedNumbers(num int) []int {
 	ans := []int{-1, -1}
@@ -181,6 +197,8 @@ func findClosedNumbers(num int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findClosedNumbers(num: number): number[] {
     const ans: number[] = [-1, -1];
@@ -213,6 +231,8 @@ function findClosedNumbers(num: number): number[] {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -260,4 +280,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

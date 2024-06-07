@@ -11,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [451. Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency)
 
 [中文文档](/solution/0400-0499/0451.Sort%20Characters%20By%20Frequency/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, sort it in <strong>decreasing order</strong> based on the <strong>frequency</strong> of the characters. The <strong>frequency</strong> of a character is the number of times it appears in the string.</p>
 
@@ -57,11 +61,17 @@ Note that &#39;A&#39; and &#39;a&#39; are treated as two different characters.
 	<li><code>s</code> consists of uppercase and lowercase English letters and digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +79,8 @@ class Solution:
         cnt = Counter(s)
         return ''.join(c * v for c, v in sorted(cnt.items(), key=lambda x: -x[1]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func frequencySort(s string) string {
 	cnt := map[byte]int{}
@@ -133,6 +149,8 @@ func frequencySort(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function frequencySort(s: string): string {
     const cnt: Map<string, number> = new Map();
@@ -147,6 +165,8 @@ function frequencySort(s: string): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -164,6 +184,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -187,4 +209,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

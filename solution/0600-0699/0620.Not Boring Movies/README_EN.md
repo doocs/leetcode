@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [620. Not Boring Movies](https://leetcode.com/problems/not-boring-movies)
 
 [中文文档](/solution/0600-0699/0620.Not%20Boring%20Movies/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Cinema</code></p>
 
@@ -62,13 +66,19 @@ Cinema table:
 We have three movies with odd-numbered IDs: 1, 3, and 5. The movie with ID = 3 is boring so we do not include it in the answer.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Conditional Filtering + Sorting
 
 We can use the `WHERE` clause to filter out the records where `description` is not `boring` and `id` is odd, and then use the `ORDER BY` clause to sort the result in descending order by `rating`.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -80,4 +90,6 @@ ORDER BY 4 DESC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

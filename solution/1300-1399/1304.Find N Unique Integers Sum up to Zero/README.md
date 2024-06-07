@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1304.Find%20N%20Unique%20Integers%20Sum%20up%20to%20Zero/README.md
 rating: 1167
+source: 第 169 场周赛 Q1
 tags:
     - 数组
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1304. 和为零的 N 个不同整数](https://leetcode.cn/problems/find-n-unique-integers-sum-up-to-zero)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>，请你返回 <strong>任意&nbsp;</strong>一个由 <code>n</code>&nbsp;个 <strong>各不相同&nbsp;</strong>的整数组成的数组，并且这 <code>n</code> 个数相加和为 <code>0</code> 。</p>
 
@@ -47,7 +50,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：构造
 
@@ -56,6 +63,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为给定的整数。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +78,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int[] sumZero(int n) {
@@ -81,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumZero(n int) []int {
 	ans := make([]int, n)
@@ -107,6 +122,8 @@ func sumZero(n int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumZero(n: number): number[] {
@@ -121,6 +138,10 @@ function sumZero(n: number): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：构造 + 数学
 
 我们也可以将 $1$ 到 $n-1$ 的所有整数放入结果数组中，最后再把前 $n-1$ 个整数的和 $\frac{n(n-1)}{2}$ 的相反数放入结果数组中。
@@ -129,6 +150,8 @@ function sumZero(n: number): number[] {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumZero(self, n: int) -> List[int]:
@@ -136,6 +159,8 @@ class Solution:
         ans.append(-sum(ans))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +175,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +189,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumZero(n int) []int {
 	ans := make([]int, n)
@@ -172,6 +201,8 @@ func sumZero(n int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumZero(n: number): number[] {
@@ -186,4 +217,6 @@ function sumZero(n: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

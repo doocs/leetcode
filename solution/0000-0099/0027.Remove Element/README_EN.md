@@ -7,11 +7,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [27. Remove Element](https://leetcode.com/problems/remove-element)
 
 [中文文档](/solution/0000-0099/0027.Remove%20Element/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> and an integer <code>val</code>, remove all occurrences of <code>val</code> in <code>nums</code> <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank"><strong>in-place</strong></a>. The order of the elements may be changed. Then return <em>the number of elements in </em><code>nums</code><em> which are not equal to </em><code>val</code>.</p>
 
@@ -72,7 +76,11 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 	<li><code>0 &lt;= val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: One Pass
 
@@ -86,6 +94,8 @@ The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
@@ -96,6 +106,8 @@ class Solution:
                 k += 1
         return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeElement(nums []int, val int) int {
 	k := 0
@@ -139,6 +155,8 @@ func removeElement(nums []int, val int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function removeElement(nums: number[], val: number): number {
     let k: number = 0;
@@ -150,6 +168,8 @@ function removeElement(nums: number[], val: number): number {
     return k;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -165,6 +185,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -182,6 +204,8 @@ var removeElement = function (nums, val) {
     return k;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -202,4 +226,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

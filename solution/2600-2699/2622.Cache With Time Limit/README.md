@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2622.Cache%20With%20Time%20Limit/README.md
 ---
 
+<!-- problem:start -->
+
 # [2622. 有时间限制的缓存](https://leetcode.cn/problems/cache-with-time-limit)
 
 [English Version](/solution/2600-2699/2622.Cache%20With%20Time%20Limit/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个类，它允许获取和设置键-值对，并且每个键都有一个&nbsp;<strong>过期时间</strong>&nbsp;。</p>
 
@@ -75,7 +77,11 @@ timeDelays = [0, 0, 40, 50, 120, 200, 250]
 	<li>第一个操作始终是 "TimeLimitedCache" 而且一定会以 0 毫秒的延迟立即执行</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -87,41 +93,36 @@ timeDelays = [0, 0, 40, 50, 120, 200, 250]
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 class TimeLimitedCache {
-    private cache: Map<number, [value: number, expire: number]> = new Map();
-
-    constructor() {}
+    #cache: Map<number, [value: number, expire: number]> = new Map();
 
     set(key: number, value: number, duration: number): boolean {
-        this.removeExpire();
-        const ans = this.cache.has(key);
-        this.cache.set(key, [value, this.now() + duration]);
-        return ans;
+        const isExist = this.#cache.has(key);
+
+        if (!this.#isExpired(key)) {
+            this.#cache.set(key, [value, Date.now() + duration]);
+        }
+
+        return isExist;
     }
 
     get(key: number): number {
-        this.removeExpire();
-        return this.cache.get(key)?.[0] ?? -1;
+        if (this.#isExpired(key)) return -1;
+        const res = this.#cache.get(key)?.[0] ?? -1;
+        return res;
     }
 
     count(): number {
-        this.removeExpire();
-        return this.cache.size;
+        const xs = Array.from(this.#cache).filter(([key]) => !this.#isExpired(key));
+        return xs.length;
     }
 
-    private now(): number {
-        return new Date().getTime();
-    }
-
-    private removeExpire(): void {
-        const now = this.now();
-        for (const [key, [, expire]] of this.cache) {
-            if (expire <= now) {
-                this.cache.delete(key);
-            }
-        }
-    }
+    #isExpired = (key: number) =>
+        this.#cache.has(key) &&
+        (this.#cache.get(key)?.[1] ?? Number.NEGATIVE_INFINITY) < Date.now();
 }
 
 /**
@@ -135,4 +136,6 @@ class TimeLimitedCache {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

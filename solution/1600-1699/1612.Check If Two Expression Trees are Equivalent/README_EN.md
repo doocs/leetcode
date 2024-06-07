@@ -8,11 +8,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1612. Check If Two Expression Trees are Equivalent 🔒](https://leetcode.com/problems/check-if-two-expression-trees-are-equivalent)
 
 [中文文档](/solution/1600-1699/1612.Check%20If%20Two%20Expression%20Trees%20are%20Equivalent/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong><a href="https://en.wikipedia.org/wiki/Binary_expression_tree" target="_blank">binary expression tree</a></strong> is a kind of binary tree used to represent arithmetic expressions. Each node of a binary expression tree has either zero or two children. Leaf nodes (nodes with 0 children) correspond to operands (variables), and internal nodes (nodes with two children) correspond to the operators. In this problem, we only consider the <code>&#39;+&#39;</code> operator (i.e. addition).</p>
 
@@ -59,11 +63,17 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What will you change in your solution if the tree also supports the <code>&#39;-&#39;</code> operator (i.e. subtraction)?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -87,6 +97,8 @@ class Solution:
         dfs(root2, -1)
         return all(x == 0 for x in cnt.values())
 ```
+
+#### Java
 
 ```java
 /**
@@ -131,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -168,6 +182,8 @@ public:
     }
 };
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -208,9 +224,15 @@ var checkEquivalence = function (root1, root2) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -236,6 +258,8 @@ class Solution:
 
         return dfs(root1) == dfs(root2)
 ```
+
+#### Java
 
 ```java
 /**
@@ -285,6 +309,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -321,6 +347,8 @@ public:
     }
 };
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -367,4 +395,6 @@ var checkEquivalence = function (root1, root2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

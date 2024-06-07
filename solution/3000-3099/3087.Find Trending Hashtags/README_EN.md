@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3087. Find Trending Hashtags 🔒](https://leetcode.com/problems/find-trending-hashtags)
 
 [中文文档](/solution/3000-3099/3087.Find%20Trending%20Hashtags/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Tweets</code></p>
 
@@ -79,13 +83,19 @@ Each row of this table contains user_id, tweet_id, tweet_date and tweet.
 <p><b>Note:</b> Output table is sorted in descending order by hashtag_count and hashtag respectively.</p>
 </div>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Extract Substring + Grouping
 
 We can query all tweets from February 2024, use the `SUBSTRING_INDEX` function to extract Hashtags, then use the `GROUP BY` and `COUNT` functions to count the occurrences of each Hashtag. Finally, we sort by the number of occurrences in descending order and by Hashtag in descending order, and take the top three popular Hashtags.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -98,6 +108,8 @@ GROUP BY 1
 ORDER BY 2 DESC, 1 DESC
 LIMIT 3;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -117,4 +129,6 @@ def find_trending_hashtags(tweets: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

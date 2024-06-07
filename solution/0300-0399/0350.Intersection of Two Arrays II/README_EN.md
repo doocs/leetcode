@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [350. Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii)
 
 [中文文档](/solution/0300-0399/0350.Intersection%20of%20Two%20Arrays%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integer arrays <code>nums1</code> and <code>nums2</code>, return <em>an array of their intersection</em>. Each element in the result must appear as many times as it shows in both arrays and you may return the result in <strong>any order</strong>.</p>
 
@@ -51,11 +55,17 @@ tags:
 	<li>What if elements of <code>nums2</code> are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +78,8 @@ class Solution:
                 counter[num] -= 1
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func intersect(nums1 []int, nums2 []int) []int {
 	counter := make(map[int]int)
@@ -126,6 +142,8 @@ func intersect(nums1 []int, nums2 []int) []int {
 	return res
 }
 ```
+
+#### TypeScript
 
 ```ts
 function intersect(nums1: number[], nums2: number[]): number[] {
@@ -144,6 +162,8 @@ function intersect(nums1: number[], nums2: number[]): number[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -166,6 +186,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums1
@@ -187,6 +209,8 @@ var intersect = function (nums1, nums2) {
     return res;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -219,6 +243,8 @@ public class Solution {
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -244,4 +270,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2057.%20%E6%89%93%E5%9C%B0%E9%BC%A0/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 57. 打地鼠](https://leetcode.cn/problems/ZbAuEH)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 欢迎各位勇者来到力扣城，本次试炼主题为「打地鼠」。
 ![middle_img_v2_d5d09656-0616-4a80-845e-ece461c5ba9g.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2057.%20%E6%89%93%E5%9C%B0%E9%BC%A0/images/1650273183-nZIijm-middle_img_v2_d5d09656-0616-4a80-845e-ece461c5ba9g.png){:height="200px"}
@@ -70,6 +72,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2057.%20%E6%89%93%
 -   `0 <= moles[i][0] <= 10^9`
 -   `0 <= moles[i][1], moles[i][2] < 3`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

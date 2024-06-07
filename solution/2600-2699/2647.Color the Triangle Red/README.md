@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [2647. 把三角形染成红色 🔒](https://leetcode.cn/problems/color-the-triangle-red)
 
 [English Version](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现给定你一个整数 <code>n</code> 。考虑一个边长为 <code>n</code> 的等边三角形，被分成 <code>n<sup>2</sup></code> 个单位等边三角形。这个三角形有 <code>n</code> 个 <strong>从 1 开始编号</strong> 的行，其中第 <code>i</code> 行有 <code>2i - 1</code> 个单位等边三角形。</p>
 
@@ -77,7 +79,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：找规律
 
@@ -98,6 +104,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def colorRed(self, n: int) -> List[List[int]]:
@@ -117,6 +125,8 @@ class Solution:
             k = (k + 1) % 4
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +152,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func colorRed(n int) (ans [][]int) {
 	ans = append(ans, []int{1, 1})
@@ -190,6 +204,8 @@ func colorRed(n int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function colorRed(n: number): number[][] {
@@ -215,4 +231,6 @@ function colorRed(n: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

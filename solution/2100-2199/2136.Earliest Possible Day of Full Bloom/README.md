@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2136.Earliest%20Possible%20Day%20of%20Full%20Bloom/README.md
 rating: 2033
+source: 第 275 场周赛 Q4
 tags:
     - 贪心
     - 数组
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [2136. 全部开花的最早一天](https://leetcode.cn/problems/earliest-possible-day-of-full-bloom)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有 <code>n</code> 枚花的种子。每枚种子必须先种下，才能开始生长、开花。播种需要时间，种子的生长也是如此。给你两个下标从 <strong>0</strong> 开始的整数数组 <code>plantTime</code> 和 <code>growTime</code> ，每个数组的长度都是 <code>n</code> ：</p>
 
@@ -73,7 +76,11 @@ tags:
 	<li><code>1 &lt;= plantTime[i], growTime[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -82,6 +89,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是种子的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +101,8 @@ class Solution:
             ans = max(ans, t + gt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func earliestFullBloom(plantTime []int, growTime []int) (ans int) {
 	n := len(plantTime)
@@ -147,6 +162,8 @@ func earliestFullBloom(plantTime []int, growTime []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function earliestFullBloom(plantTime: number[], growTime: number[]): number {
     const n = plantTime.length;
@@ -160,6 +177,8 @@ function earliestFullBloom(plantTime: number[], growTime: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -179,4 +198,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

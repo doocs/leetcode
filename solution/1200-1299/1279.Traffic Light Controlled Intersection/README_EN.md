@@ -6,11 +6,15 @@ tags:
     - Concurrency
 ---
 
+<!-- problem:start -->
+
 # [1279. Traffic Light Controlled Intersection 🔒](https://leetcode.com/problems/traffic-light-controlled-intersection)
 
 [中文文档](/solution/1200-1299/1279.Traffic%20Light%20Controlled%20Intersection/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an intersection of two roads. First road is road A where cars travel&nbsp;from North to South in direction 1 and from South to North in direction 2. Second road is road B where cars travel from West to East in direction 3 and from East to West in direction 4.</p>
 
@@ -85,11 +89,17 @@ tags:
 	<li><code>arrivalTimes</code> is non-decreasing</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from threading import Lock
@@ -119,6 +129,8 @@ class TrafficLight:
         self.lock.release()
 ```
 
+#### Java
+
 ```java
 class TrafficLight {
     private int road = 1;
@@ -143,4 +155,6 @@ class TrafficLight {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

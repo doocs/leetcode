@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README_EN.md
 rating: 1216
+source: Weekly Contest 380 Q1
 tags:
     - Array
     - Hash Table
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [3005. Count Elements With Maximum Frequency](https://leetcode.com/problems/count-elements-with-maximum-frequency)
 
 [中文文档](/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> consisting of <strong>positive</strong> integers.</p>
 
@@ -48,7 +53,11 @@ So the number of elements in the array with maximum frequency is 5.
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -60,6 +69,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxFrequencyElements(self, nums: List[int]) -> int:
@@ -67,6 +78,8 @@ class Solution:
         mx = max(cnt.values())
         return sum(x for x in cnt.values() if x == mx)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxFrequencyElements(nums []int) (ans int) {
 	cnt := [101]int{}
@@ -128,6 +145,8 @@ func maxFrequencyElements(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxFrequencyElements(nums: number[]): number {
@@ -150,4 +169,6 @@ function maxFrequencyElements(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

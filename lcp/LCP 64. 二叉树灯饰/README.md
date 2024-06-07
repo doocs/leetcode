@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2064.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%81%AF%E9%A5%B0/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 64. 二叉树灯饰](https://leetcode.cn/problems/U7WvvU)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>「力扣嘉年华」的中心广场放置了一个巨型的二叉树形状的装饰树。每个节点上均有一盏灯和三个开关。节点值为&nbsp;<code>0</code> 表示灯处于「关闭」状态，节点值为 <code>1</code>&nbsp;表示灯处于「开启」状态。每个节点上的三个开关各自功能如下：</p>
 
@@ -53,7 +55,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2064.%20%E4%BA%8C%
 	<li><code>0 &lt;= Node.val &lt;= 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -88,6 +94,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2064.%20%E4%BA%8C%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -117,6 +125,8 @@ class Solution:
 
         return dfs(root)[0]
 ```
+
+#### Java
 
 ```java
 /**
@@ -166,6 +176,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -207,6 +219,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -246,4 +260,6 @@ func closeLampInTree(root *TreeNode) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

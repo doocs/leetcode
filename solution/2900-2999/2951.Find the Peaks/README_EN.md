@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2951.Find%20the%20Peaks/README_EN.md
 rating: 1189
+source: Weekly Contest 374 Q1
 tags:
     - Array
     - Enumeration
 ---
+
+<!-- problem:start -->
 
 # [2951. Find the Peaks](https://leetcode.com/problems/find-the-peaks)
 
 [中文文档](/solution/2900-2999/2951.Find%20the%20Peaks/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>mountain</code>. Your task is to find all the <strong>peaks</strong> in the <code>mountain</code> array.</p>
 
@@ -55,7 +60,11 @@ So the answer is [1,3].
 	<li><code>1 &lt;= mountain[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Direct Traversal
 
@@ -67,6 +76,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. Ignoring th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findPeaks(self, mountain: List[int]) -> List[int]:
@@ -76,6 +87,8 @@ class Solution:
             if mountain[i - 1] < mountain[i] > mountain[i + 1]
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findPeaks(mountain []int) (ans []int) {
 	for i := 1; i < len(mountain)-1; i++ {
@@ -116,6 +133,8 @@ func findPeaks(mountain []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findPeaks(mountain: number[]): number[] {
@@ -131,4 +150,6 @@ function findPeaks(mountain: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

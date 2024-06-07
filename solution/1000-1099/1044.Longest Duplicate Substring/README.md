@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README.md
 rating: 2428
+source: 第 136 场周赛 Q4
 tags:
     - 字符串
     - 二分查找
@@ -12,13 +13,15 @@ tags:
     - 滚动哈希
 ---
 
+<!-- problem:start -->
+
 # [1044. 最长重复子串](https://leetcode.cn/problems/longest-duplicate-substring)
 
 [English Version](/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> ，考虑其所有 <em>重复子串</em> ：即&nbsp;<code>s</code> 的（连续）子串，在 <code>s</code> 中出现 2 次或更多次。这些出现之间可能存在重叠。</p>
 
@@ -49,7 +52,11 @@ tags:
 	<li><code>s</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符串哈希 + 二分查找
 
@@ -70,6 +77,8 @@ tags:
 -   [1062. 最长重复子串](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1062.Longest%20Repeating%20Substring/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +105,8 @@ class Solution:
                 right = mid - 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef unsigned long long ULL;
 
@@ -186,6 +199,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestDupSubstring(s string) string {
 	base, n := 131, len(s)
@@ -226,4 +241,6 @@ func longestDupSubstring(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

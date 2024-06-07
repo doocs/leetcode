@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README_EN.md
 rating: 2681
+source: Weekly Contest 333 Q4
 tags:
     - Greedy
     - Union Find
@@ -12,11 +13,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2573. Find the String with LCP](https://leetcode.com/problems/find-the-string-with-lcp)
 
 [中文文档](/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We define the <code>lcp</code> matrix of any <strong>0-indexed</strong> string <code>word</code> of <code>n</code> lowercase English letters as an <code>n x n</code> grid such that:</p>
 
@@ -61,7 +66,11 @@ tags:
 	<li><code><font face="monospace">0 &lt;= lcp[i][j] &lt;= n</font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Construction
 
@@ -81,6 +90,8 @@ If every position in the string meets the above conditions, then we can construc
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -110,6 +121,8 @@ class Solution:
                     return ""
         return "".join(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -155,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -197,6 +212,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheString(lcp [][]int) string {
 	i, n := 0, len(lcp)
@@ -235,6 +252,8 @@ func findTheString(lcp [][]int) string {
 	return string(s)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheString(lcp: number[][]): string {
@@ -279,4 +298,6 @@ function findTheString(lcp: number[][]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

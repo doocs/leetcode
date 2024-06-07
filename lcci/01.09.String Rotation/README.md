@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.09.String%20Rotation/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 01.09. 字符串轮转](https://leetcode.cn/problems/string-rotation-lcci)
 
 [English Version](/lcci/01.09.String%20Rotation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>字符串轮转。给定两个字符串<code>s1</code>和<code>s2</code>，请编写代码检查<code>s2</code>是否为<code>s1</code>旋转而成（比如，<code>waterbottle</code>是<code>erbottlewat</code>旋转后的字符串）。</p>
 
 <p><strong>示例1:</strong></p>
@@ -40,7 +43,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.09.String%20Rotati
 	<li>你能只调用一次检查子串的方法吗？</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符串匹配
 
@@ -65,11 +72,15 @@ s1 + s1 = "abaaba"
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isFlipedString(self, s1: str, s2: str) -> bool:
         return len(s1) == len(s2) and s2 in s1 * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -88,17 +101,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isFlipedString(s1 string, s2 string) bool {
 	return len(s1) == len(s2) && strings.Contains(s1+s1, s2)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isFlipedString(s1: string, s2: string): boolean {
     return s1.length === s2.length && (s2 + s2).indexOf(s1) !== -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -107,6 +126,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -118,4 +139,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

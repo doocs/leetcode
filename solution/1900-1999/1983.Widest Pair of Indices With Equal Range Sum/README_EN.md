@@ -8,11 +8,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1983. Widest Pair of Indices With Equal Range Sum 🔒](https://leetcode.com/problems/widest-pair-of-indices-with-equal-range-sum)
 
 [中文文档](/solution/1900-1999/1983.Widest%20Pair%20of%20Indices%20With%20Equal%20Range%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> binary arrays <code>nums1</code> and <code>nums2</code>. Find the <strong>widest</strong> pair of indices <code>(i, j)</code> such that <code>i &lt;= j</code> and <code>nums1[i] + nums1[i+1] + ... + nums1[j] == nums2[i] + nums2[i+1] + ... + nums2[j]</code>.</p>
 
@@ -64,7 +68,11 @@ There are no pairs of indices that meet the requirements.
 	<li><code>nums2[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
 
@@ -80,6 +88,8 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def widestPairOfIndices(self, nums1: List[int], nums2: List[int]) -> int:
@@ -93,6 +103,8 @@ class Solution:
                 d[s] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func widestPairOfIndices(nums1 []int, nums2 []int) (ans int) {
 	d := map[int]int{0: -1}
@@ -151,6 +167,8 @@ func widestPairOfIndices(nums1 []int, nums2 []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function widestPairOfIndices(nums1: number[], nums2: number[]): number {
@@ -173,4 +191,6 @@ function widestPairOfIndices(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

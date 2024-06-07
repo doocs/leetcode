@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1205. Monthly Transactions II 🔒](https://leetcode.com/problems/monthly-transactions-ii)
 
 [中文文档](/solution/1200-1299/1205.Monthly%20Transactions%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Transactions</code></p>
 
@@ -85,11 +89,17 @@ Chargebacks table:
 +---------+---------+----------------+-----------------+------------------+-------------------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -116,4 +126,6 @@ HAVING approved_amount OR chargeback_amount;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

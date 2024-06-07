@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [394. 字符串解码](https://leetcode.cn/problems/decode-string)
 
 [English Version](/solution/0300-0399/0394.Decode%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个经过编码的字符串，返回它解码后的字符串。</p>
 
@@ -65,11 +67,17 @@ tags:
 	<li><code>s</code>&nbsp;中所有整数的取值范围为<meta charset="UTF-8" />&nbsp;<code>[1, 300]</code>&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +97,8 @@ class Solution:
                 res += c
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +130,8 @@ class Solution {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function decodeString(s: string): string {
     let ans = '';
@@ -147,4 +159,6 @@ function decodeString(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

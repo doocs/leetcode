@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [262. 行程和用户](https://leetcode.cn/problems/trips-and-users)
 
 [English Version](/solution/0200-0299/0262.Trips%20and%20Users/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 表：<code>Trips</code>
 
@@ -127,11 +129,17 @@ Users 表：
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -179,6 +187,8 @@ def trips_and_users(trips: pd.DataFrame, users: pd.DataFrame) -> pd.DataFrame:
     return df[["Day", "Cancellation Rate"]]
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -194,4 +204,6 @@ GROUP BY request_at;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

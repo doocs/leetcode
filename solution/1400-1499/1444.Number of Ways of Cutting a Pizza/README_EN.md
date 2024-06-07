@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/README_EN.md
 rating: 2126
+source: Weekly Contest 188 Q4
 tags:
     - Memoization
     - Array
@@ -10,11 +11,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1444. Number of Ways of Cutting a Pizza](https://leetcode.com/problems/number-of-ways-of-cutting-a-pizza)
 
 [中文文档](/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a rectangular pizza represented as a <code>rows x cols</code>&nbsp;matrix containing the following characters: <code>&#39;A&#39;</code> (an apple) and <code>&#39;.&#39;</code> (empty cell) and given the integer <code>k</code>. You have to cut the pizza into <code>k</code> pieces using <code>k-1</code> cuts.&nbsp;</p>
 
@@ -58,11 +63,17 @@ tags:
 	<li><code>pizza</code> consists of characters <code>&#39;A&#39;</code>&nbsp;and <code>&#39;.&#39;</code> only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +99,8 @@ class Solution:
                 s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + int(c == 'A')
         return dfs(0, 0, k - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func ways(pizza []string, k int) int {
@@ -228,6 +245,8 @@ func ways(pizza []string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function ways(pizza: string[], k: number): number {
     const mod = 1e9 + 7;
@@ -267,4 +286,6 @@ function ways(pizza: string[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

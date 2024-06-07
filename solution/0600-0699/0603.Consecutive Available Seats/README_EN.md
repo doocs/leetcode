@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [603. Consecutive Available Seats 🔒](https://leetcode.com/problems/consecutive-available-seats)
 
 [中文文档](/solution/0600-0699/0603.Consecutive%20Available%20Seats/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Cinema</code></p>
 
@@ -60,13 +64,19 @@ Cinema table:
 +---------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Self-Join
 
 We can use a self-join to join the `Seat` table with itself, and then filter out the records where the `id` of the left seat is equal to the `id` of the right seat minus $1$, and where both seats are empty.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -79,11 +89,17 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Window Function
 
 We can use the `LAG` and `LEAD` functions (or `SUM() OVER(ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING)`) to obtain the information of adjacent seats, and then filter out the consecutive empty seats and sort them in a unique way.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -102,9 +118,15 @@ WHERE a = 2 OR b = 2;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -126,4 +148,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

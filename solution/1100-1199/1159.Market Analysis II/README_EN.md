@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1159. Market Analysis II 🔒](https://leetcode.com/problems/market-analysis-ii)
 
 [中文文档](/solution/1100-1199/1159.Market%20Analysis%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Users</code></p>
 
@@ -116,11 +120,17 @@ The answer for the users with id 2 and 3 is yes because the brands of their seco
 The answer for the user with id 4 is no because the brand of their second sold item is not their favorite brand.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -149,4 +159,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

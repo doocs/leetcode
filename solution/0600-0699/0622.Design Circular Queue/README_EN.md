@@ -9,11 +9,15 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [622. Design Circular Queue](https://leetcode.com/problems/design-circular-queue)
 
 [中文文档](/solution/0600-0699/0622.Design%20Circular%20Queue/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design your implementation of the circular queue. The circular queue is a linear data structure in which the operations are performed based on FIFO (First In First Out) principle, and the last position is connected back to the first position to make a circle. It is also called &quot;Ring Buffer&quot;.</p>
 
@@ -65,11 +69,17 @@ myCircularQueue.Rear();     // return 4
 	<li>At most <code>3000</code> calls will be made to&nbsp;<code>enQueue</code>, <code>deQueue</code>,&nbsp;<code>Front</code>,&nbsp;<code>Rear</code>,&nbsp;<code>isEmpty</code>, and&nbsp;<code>isFull</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyCircularQueue:
@@ -119,6 +129,8 @@ class MyCircularQueue:
 # param_5 = obj.isEmpty()
 # param_6 = obj.isFull()
 ```
+
+#### Java
 
 ```java
 class MyCircularQueue {
@@ -187,6 +199,8 @@ class MyCircularQueue {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyCircularQueue {
 private:
@@ -248,6 +262,8 @@ public:
  * bool param_6 = obj->isFull();
  */
 ```
+
+#### Go
 
 ```go
 type MyCircularQueue struct {
@@ -316,6 +332,8 @@ func (this *MyCircularQueue) IsFull() bool {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MyCircularQueue {
     private queue: number[];
@@ -381,6 +399,8 @@ class MyCircularQueue {
  * var param_6 = obj.isFull()
  */
 ```
+
+#### Rust
 
 ```rust
 struct MyCircularQueue {
@@ -457,4 +477,6 @@ impl MyCircularQueue {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

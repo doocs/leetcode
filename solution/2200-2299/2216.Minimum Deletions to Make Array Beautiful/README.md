@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2216.Minimum%20Deletions%20to%20Make%20Array%20Beautiful/README.md
 rating: 1509
+source: 第 286 场周赛 Q2
 tags:
     - 栈
     - 贪心
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [2216. 美化数组的最少删除数](https://leetcode.cn/problems/minimum-deletions-to-make-array-beautiful)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> ，如果满足下述条件，则认为数组 <code>nums</code> 是一个 <strong>美丽数组</strong> ：</p>
 
@@ -54,7 +57,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -67,6 +74,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。我们只需要遍历数组一次。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +91,8 @@ class Solution:
         ans += (n - ans) % 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minDeletion(nums []int) (ans int) {
 	n := len(nums)
@@ -134,6 +149,8 @@ func minDeletion(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minDeletion(nums: number[]): number {
@@ -150,6 +167,8 @@ function minDeletion(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,9 +192,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -191,6 +216,8 @@ class Solution:
         ans += (n - ans) % 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -210,6 +237,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -231,6 +260,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minDeletion(nums []int) (ans int) {
 	n := len(nums)
@@ -245,6 +276,8 @@ func minDeletion(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minDeletion(nums: number[]): number {
@@ -261,6 +294,8 @@ function minDeletion(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -284,4 +319,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

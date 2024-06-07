@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [2143. 在两个数组的区间中选取数字 🔒](https://leetcode.cn/problems/choose-numbers-from-two-arrays-in-range)
 
 [English Version](/solution/2100-2199/2143.Choose%20Numbers%20From%20Two%20Arrays%20in%20Range/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个 <strong>下标从 0 开始</strong>，长度为 <code>n</code> 的整数数组 <code>nums1</code> 和 <code>nums2</code>。</p>
 
@@ -78,7 +80,11 @@ tags:
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -91,6 +97,8 @@ tags:
 时间复杂度 $O(n \times M)$，空间复杂度 $O(n \times M)$。其中 $n$ 和 $M$ 分别为数组 $nums1$ 的长度以及数字和的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -112,6 +120,8 @@ class Solution:
             ans = (ans + f[i][s2]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +152,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -174,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSubranges(nums1 []int, nums2 []int) (ans int) {
@@ -211,6 +225,8 @@ func sum(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countSubranges(nums1: number[], nums2: number[]): number {
     const n = nums1.length;
@@ -243,4 +259,6 @@ function countSubranges(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

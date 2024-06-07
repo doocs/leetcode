@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1489.Find%20Critical%20and%20Pseudo-Critical%20Edges%20in%20Minimum%20Spanning%20Tree/README.md
 rating: 2571
+source: 第 194 场周赛 Q4
 tags:
     - 并查集
     - 图
@@ -11,13 +12,15 @@ tags:
     - 强连通分量
 ---
 
+<!-- problem:start -->
+
 # [1489. 找到最小生成树里的关键边和伪关键边](https://leetcode.cn/problems/find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree)
 
 [English Version](/solution/1400-1499/1489.Find%20Critical%20and%20Pseudo-Critical%20Edges%20in%20Minimum%20Spanning%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>n</code>&nbsp;个点的带权无向连通图，节点编号为 <code>0</code>&nbsp;到 <code>n-1</code>&nbsp;，同时还有一个数组 <code>edges</code>&nbsp;，其中 <code>edges[i] = [from</code><code><sub>i</sub>, to<sub>i</sub>, weight<sub>i</sub>]</code>&nbsp;表示在&nbsp;<code>from<sub>i</sub></code>&nbsp;和&nbsp;<code>to<sub>i</sub></code>&nbsp;节点之间有一条带权无向边。最小生成树&nbsp;(MST) 是给定图中边的一个子集，它连接了所有节点且没有环，而且这些边的权值和最小。</p>
 
@@ -62,13 +65,19 @@ tags:
 	<li>所有 <code>(from<sub>i</sub>, to<sub>i</sub>)</code>&nbsp;数对都是互不相同的。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：Kruskal 算法
 
 先利用 Kruskal 算法，得出最小生成树的权值 v。然后依次枚举每条边，按上面的方法，判断是否是关键边；如果不是关键边，再判断是否是伪关键边。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -113,6 +122,8 @@ class Solution:
                 ans[1].append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -202,6 +213,8 @@ class UnionFind {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -265,6 +278,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -345,4 +360,6 @@ func findCriticalAndPseudoCriticalEdges(n int, edges [][]int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

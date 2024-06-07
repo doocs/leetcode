@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README_EN.md
 rating: 1876
+source: Weekly Contest 238 Q2
 tags:
     - Greedy
     - Array
@@ -12,11 +13,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1838. Frequency of the Most Frequent Element](https://leetcode.com/problems/frequency-of-the-most-frequent-element)
 
 [中文文档](/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>frequency</strong> of an element is the number of times it occurs in an array.</p>
 
@@ -60,7 +65,11 @@ Explanation:</strong> Increment the first element three times and the second ele
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Prefix Sum + Binary Search
 
@@ -79,6 +88,8 @@ Finally, return the left boundary $l$.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +112,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxFrequency(nums []int, k int) int {
 	n := len(nums)
@@ -201,6 +218,8 @@ func maxFrequency(nums []int, k int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxFrequency(nums: number[], k: number): number {
@@ -233,6 +252,10 @@ function maxFrequency(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Two Pointers
 
 We can also use two pointers to maintain a sliding window, where all elements in the window can be changed to the maximum value in the window. The number of operations for the elements in the window is $s$, and $s \leq k$.
@@ -242,6 +265,8 @@ Initially, we set the left pointer $j$ to point to the first element of the arra
 The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -257,6 +282,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -275,6 +302,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -295,6 +324,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxFrequency(nums []int, k int) int {
 	sort.Ints(nums)
@@ -310,6 +341,8 @@ func maxFrequency(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxFrequency(nums: number[], k: number): number {
@@ -329,4 +362,6 @@ function maxFrequency(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

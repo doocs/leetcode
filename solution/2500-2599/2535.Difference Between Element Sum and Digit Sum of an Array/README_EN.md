@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2535.Difference%20Between%20Element%20Sum%20and%20Digit%20Sum%20of%20an%20Array/README_EN.md
 rating: 1222
+source: Weekly Contest 328 Q1
 tags:
     - Array
     - Math
 ---
+
+<!-- problem:start -->
 
 # [2535. Difference Between Element Sum and Digit Sum of an Array](https://leetcode.com/problems/difference-between-element-sum-and-digit-sum-of-an-array)
 
 [中文文档](/solution/2500-2599/2535.Difference%20Between%20Element%20Sum%20and%20Digit%20Sum%20of%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer array <code>nums</code>.</p>
 
@@ -56,7 +61,11 @@ The absolute difference between the element sum and digit sum is |10 - 10| = 0.
 	<li><code>1 &lt;= nums[i] &lt;= 2000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -65,6 +74,8 @@ We traverse the array $nums$, calculate the sum of elements $a$ and the sum of d
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +87,8 @@ class Solution:
                 x //= 10
         return abs(a - b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func differenceOfSum(nums []int) int {
@@ -128,6 +145,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function differenceOfSum(nums: number[]): number {
     return nums.reduce((r, v) => {
@@ -140,6 +159,8 @@ function differenceOfSum(nums: number[]): number {
     }, 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -158,6 +179,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int differenceOfSum(int* nums, int numsSize) {
     int ans = 0;
@@ -174,9 +197,15 @@ int differenceOfSum(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -199,4 +228,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

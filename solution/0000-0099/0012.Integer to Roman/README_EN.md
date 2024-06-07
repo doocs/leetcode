@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman)
 
 [中文文档](/solution/0000-0099/0012.Integer%20to%20Roman/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Seven different symbols represent Roman numerals with the following values:</p>
 
@@ -123,7 +127,11 @@ Note: 49 is not 1 (I) less of 50 (L) because the conversion is based on decimal 
 	<li><code>1 &lt;= num &lt;= 3999</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -132,6 +140,8 @@ We can first list all possible symbols $cs$ and their corresponding values $vs$,
 The time complexity is $O(m)$, and the space complexity is $O(m)$. Here, $m$ is the number of symbols.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -145,6 +155,8 @@ class Solution:
                 ans.append(c)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +176,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -182,6 +196,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func intToRoman(num int) string {
 	cs := []string{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"}
@@ -197,6 +213,8 @@ func intToRoman(num int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function intToRoman(num: number): string {
     const cs: string[] = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
@@ -211,6 +229,8 @@ function intToRoman(num: number): string {
     return ans.join('');
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -228,6 +248,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -269,4 +291,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

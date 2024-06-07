@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1432.Max%20Difference%20You%20Can%20Get%20From%20Changing%20an%20Integer/README.md
 rating: 1426
+source: 第 25 场双周赛 Q2
 tags:
     - 贪心
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1432. 改变一个整数能得到的最大差值](https://leetcode.cn/problems/max-difference-you-can-get-from-changing-an-integer)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>num</code>&nbsp;。你可以对它进行如下步骤恰好 <strong>两次</strong>&nbsp;：</p>
 
@@ -75,7 +78,11 @@ tags:
 	<li><code>1 &lt;= num &lt;= 10^8</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -90,6 +97,8 @@ tags:
 时间复杂度 $O(\log num)$，空间复杂度 $O(\log num)$。其中 $num$ 为给定整数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -108,6 +117,8 @@ class Solution:
                     break
         return int(a) - int(b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +145,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDiff(num int) int {
 	a, b := num, num
@@ -195,4 +210,6 @@ func maxDiff(num int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

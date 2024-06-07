@@ -9,11 +9,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [1554. Strings Differ by One Character 🔒](https://leetcode.com/problems/strings-differ-by-one-character)
 
 [中文文档](/solution/1500-1599/1554.Strings%20Differ%20by%20One%20Character/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a list of strings <code>dict</code> where all the strings are of the same length.</p>
 
@@ -55,11 +59,17 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve this problem in <code>O(n * m)</code> where n is the length of <code>dict</code> and <code>m</code> is the length of each string.</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +83,8 @@ class Solution:
                 s.add(t)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func differByOne(dict []string) bool {
@@ -128,4 +144,6 @@ func differByOne(dict []string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

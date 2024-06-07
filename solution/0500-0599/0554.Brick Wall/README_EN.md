@@ -7,11 +7,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [554. Brick Wall](https://leetcode.com/problems/brick-wall)
 
 [中文文档](/solution/0500-0599/0554.Brick%20Wall/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a rectangular brick wall in front of you with <code>n</code> rows of bricks. The <code>i<sup>th</sup></code> row has some number of bricks each of the same height (i.e., one unit) but they can be of different widths. The total width of each row is the same.</p>
 
@@ -46,11 +50,17 @@ tags:
 	<li><code>1 &lt;= wall[i][j] &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +75,8 @@ class Solution:
             return len(wall)
         return len(wall) - cnt[max(cnt, key=cnt.get)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func leastBricks(wall [][]int) int {
@@ -102,6 +116,8 @@ func leastBricks(wall [][]int) int {
 	return len(wall) - max
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -127,4 +143,6 @@ var leastBricks = function (wall) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9843.%201%EF%BD%9En%E6%95%B4%E6%95%B0%E4%B8%AD1%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 43. 1 ～ n 整数中 1 出现的次数](https://leetcode.cn/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>输入一个整数 <code>n</code> ，求1～n这n个整数的十进制表示中1出现的次数。</p>
 
@@ -39,7 +41,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p>注意：本题与主站 233 题相同：<a href="https://leetcode.cn/problems/number-of-digit-one/">https://leetcode.cn/problems/number-of-digit-one/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数位 DP
 
@@ -81,6 +87,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countDigitOne(self, n: int) -> int:
@@ -100,6 +108,8 @@ class Solution:
             n //= 10
         return dfs(len(a) - 1, 0, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countDigitOne(n int) int {
@@ -202,6 +216,8 @@ func countDigitOne(n int) int {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -230,6 +246,8 @@ var countDigitOne = function (n) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int CountDigitOne(int n) {
@@ -244,6 +262,46 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    private var digits = [Int](repeating: 0, count: 12)
+    private var memo = [[Int?]](repeating: [Int?](repeating: nil, count: 12), count: 12)
+
+    func countDigitOne(_ n: Int) -> Int {
+        var n = n
+        var i = 0
+        while n > 0 {
+            digits[i] = n % 10
+            n /= 10
+            i += 1
+        }
+        return dfs(i - 1, 0, true)
+    }
+
+    private func dfs(_ pos: Int, _ count: Int, _ limit: Bool) -> Int {
+        if pos < 0 {
+            return count
+        }
+        if !limit && memo[pos][count] != nil {
+            return memo[pos][count]!
+        }
+        let upperLimit = limit ? digits[pos] : 9
+        var ans = 0
+        for i in 0...upperLimit {
+            ans += dfs(pos - 1, count + (i == 1 ? 1 : 0), limit && i == upperLimit)
+        }
+        if !limit {
+            memo[pos][count] = ans
+        }
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

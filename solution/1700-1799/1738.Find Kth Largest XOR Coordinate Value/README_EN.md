@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1738.Find%20Kth%20Largest%20XOR%20Coordinate%20Value/README_EN.md
 rating: 1671
+source: Weekly Contest 225 Q3
 tags:
     - Bit Manipulation
     - Array
@@ -14,11 +15,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1738. Find Kth Largest XOR Coordinate Value](https://leetcode.com/problems/find-kth-largest-xor-coordinate-value)
 
 [中文文档](/solution/1700-1799/1738.Find%20Kth%20Largest%20XOR%20Coordinate%20Value/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D <code>matrix</code> of size <code>m x n</code>, consisting of non-negative integers. You are also given an integer <code>k</code>.</p>
 
@@ -61,7 +66,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= m * n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two-dimensional Prefix XOR + Sorting or Quick Selection
 
@@ -83,6 +92,8 @@ The time complexity is $O(m \times n \times \log (m \times n))$ or $O(m \times n
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kthLargestValue(self, matrix: List[List[int]], k: int) -> int:
@@ -95,6 +106,8 @@ class Solution:
                 ans.append(s[i + 1][j + 1])
         return nlargest(k, ans)[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kthLargestValue(matrix [][]int, k int) int {
 	m, n := len(matrix), len(matrix[0])
@@ -151,6 +168,8 @@ func kthLargestValue(matrix [][]int, k int) int {
 	return ans[len(ans)-k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function kthLargestValue(matrix: number[][], k: number): number {
@@ -171,4 +190,6 @@ function kthLargestValue(matrix: number[][], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

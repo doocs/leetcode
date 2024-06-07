@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README_EN.md
 rating: 2419
+source: Weekly Contest 333 Q3
 tags:
     - Bit Manipulation
     - Array
@@ -11,11 +12,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [2572. Count the Number of Square-Free Subsets](https://leetcode.com/problems/count-the-number-of-square-free-subsets)
 
 [中文文档](/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer <strong>0-indexed</strong>&nbsp;array <code>nums</code>.</p>
 
@@ -57,7 +62,11 @@ It can be proven that there is no more than 1 square-free subset in the given ar
 	<li><code>1 &lt;= nums[i] &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression Dynamic Programming
 
@@ -78,6 +87,8 @@ Similar problems:
 -   [1994. The Number of Good Subsets](https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +111,8 @@ class Solution:
                     f[state] = (f[state] + cnt[x] * f[state ^ mask]) % mod
         return sum(v for v in f) % mod - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +198,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func squareFreeSubsets(nums []int) (ans int) {
 	primes := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29}
@@ -220,6 +237,8 @@ func squareFreeSubsets(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function squareFreeSubsets(nums: number[]): number {
@@ -262,4 +281,6 @@ function squareFreeSubsets(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

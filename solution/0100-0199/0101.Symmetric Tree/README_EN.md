@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree)
 
 [中文文档](/solution/0100-0199/0101.Symmetric%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, <em>check whether it is a mirror of itself</em> (i.e., symmetric around its center).</p>
 
@@ -43,7 +47,11 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve it both recursively and iteratively?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -58,6 +66,8 @@ The logic of the function $dfs(root1, root2)$ is as follows:
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -77,6 +87,8 @@ class Solution:
 
         return dfs(root, root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -111,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -136,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -159,6 +175,8 @@ func isSymmetric(root *TreeNode) bool {
 	return dfs(root, root)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -189,6 +207,8 @@ function isSymmetric(root: TreeNode | null): boolean {
     return dfs(root.left, root.right);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -233,6 +253,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -258,9 +280,15 @@ var isSymmetric = function (root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -314,4 +342,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

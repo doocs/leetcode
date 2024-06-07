@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1842. Next Palindrome Using Same Digits 🔒](https://leetcode.com/problems/next-palindrome-using-same-digits)
 
 [中文文档](/solution/1800-1899/1842.Next%20Palindrome%20Using%20Same%20Digits/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a numeric string <code>num</code>, representing a very large <strong>palindrome</strong>.</p>
 
@@ -52,7 +56,11 @@ tags:
 	<li><code>num</code> is a <strong>palindrome</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Find the Next Permutation of the First Half
 
@@ -61,6 +69,8 @@ According to the problem description, we only need to find the next permutation 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +97,8 @@ class Solution:
             nums[n - i - 1] = nums[i]
         return "".join(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nextPalindrome(num string) string {
@@ -181,6 +197,8 @@ func nextPermutation(nums []byte) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function nextPalindrome(num: string): string {
@@ -218,4 +236,6 @@ function nextPermutation(nums: string[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

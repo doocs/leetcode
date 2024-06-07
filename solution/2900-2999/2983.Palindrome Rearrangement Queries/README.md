@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README.md
 rating: 2779
+source: 第 378 场周赛 Q4
 tags:
     - 哈希表
     - 字符串
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [2983. 回文串重新排列查询](https://leetcode.cn/problems/palindrome-rearrangement-queries)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <strong>偶数</strong>&nbsp;<code>n</code>&nbsp;，下标从 <strong>0</strong>&nbsp;开始的字符串&nbsp;<code>s</code>&nbsp;。</p>
 
@@ -98,7 +101,11 @@ a<sub>0</sub> = 1, b<sub>0</sub> = 2, c<sub>0</sub> = 4, d<sub>0</sub> = 5.
 	<li><code>s</code> 只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 分类讨论
 
@@ -122,6 +129,8 @@ a<sub>0</sub> = 1, b<sub>0</sub> = 2, c<sub>0</sub> = 4, d<sub>0</sub> = 5.
 时间复杂度 $O((n + q) \times |\Sigma|)$，空间复杂度 $O(n \times |\Sigma|)$。其中 $n$ 和 $q$ 分别是字符串 $s$ 的长度和查询数组 $queries$ 的长度；而 $|\Sigma|$ 是字符集的大小，本题中字符集为小写英文字母，因此 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -178,6 +187,8 @@ class Solution:
             ans.append(ok)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -245,6 +256,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -317,6 +330,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canMakePalindromeQueries(s string, queries [][]int) (ans []bool) {
@@ -399,6 +414,8 @@ func reverse(s string) string {
 	return string(runes)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canMakePalindromeQueries(s: string, queries: number[][]): boolean[] {
@@ -485,4 +502,6 @@ function arraysEqual(arr1: number[], arr2: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

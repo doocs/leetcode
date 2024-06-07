@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.05.Sum%20Lists/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [02.05. Sum Lists](https://leetcode.cn/problems/sum-lists-lcci)
 
 [中文文档](/lcci/02.05.Sum%20Lists/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have two numbers represented by a linked list, where each node contains a single digit. The digits are stored in reverse order, such that the 1&#39;s digit is at the head of the list. Write a function that adds the two numbers and returns the sum as a linked list.</p>
 
@@ -36,7 +40,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.05.Sum%20Lists/REA
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -49,6 +57,8 @@ Finally, we return the head node of the answer linked list.
 The time complexity is $O(\max(m, n))$, where $m$ and $n$ are the lengths of the two linked lists respectively. We need to traverse all positions of the two linked lists, and it only takes $O(1)$ time to process each position. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -71,6 +81,8 @@ class Solution:
             l2 = l2.next if l2 else None
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -98,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -127,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -155,6 +171,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -200,6 +218,8 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn add_two_numbers(
@@ -238,6 +258,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -266,6 +288,8 @@ var addTwoNumbers = function (l1, l2) {
     return dummy.next;
 };
 ```
+
+#### Swift
 
 ```swift
 /**
@@ -303,4 +327,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

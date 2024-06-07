@@ -10,13 +10,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [85. 最大矩形](https://leetcode.cn/problems/maximal-rectangle)
 
 [English Version](/solution/0000-0099/0085.Maximal%20Rectangle/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个仅包含&nbsp;<code>0</code> 和 <code>1</code> 、大小为 <code>rows x cols</code> 的二维二进制矩阵，找出只包含 <code>1</code> 的最大矩形，并返回其面积。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>matrix[i][j]</code> 为 <code>'0'</code> 或 <code>'1'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -64,6 +70,8 @@ tags:
 时间复杂度 $O(m \times n)$，其中 $m$ 表示 $matrix$ 的行数，$n$ 表示 $matrix$ 的列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +108,8 @@ class Solution:
             stk.append(i)
         return max(h * (right[i] - left[i] - 1) for i, h in enumerate(heights))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -179,6 +191,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximalRectangle(matrix [][]byte) int {
@@ -223,6 +237,8 @@ func largestRectangleArea(heights []int) int {
 	return res
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -302,6 +318,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 using System;
 using System.Collections.Generic;
@@ -357,4 +375,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

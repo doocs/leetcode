@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20002.%20%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%8A%A0%E6%B3%95/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 002. 二进制加法](https://leetcode.cn/problems/JFETK5)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个 01 字符串&nbsp;<code>a</code>&nbsp;和&nbsp;<code>b</code>&nbsp;，请计算它们的和，并以二进制字符串的形式输出。</p>
 
@@ -41,7 +43,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 67&nbsp;题相同：<a href="https://leetcode.cn/problems/add-binary/">https://leetcode.cn/problems/add-binary/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -51,11 +57,22 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
-        return bin(int(a, 2) + int(b, 2))[2:]
+        ans = []
+        i, j, carry = len(a) - 1, len(b) - 1, 0
+        while i >= 0 or j >= 0 or carry:
+            carry += (0 if i < 0 else int(a[i])) + (0 if j < 0 else int(b[j]))
+            carry, v = divmod(carry, 2)
+            ans.append(str(v))
+            i, j = i - 1, j - 1
+        return ''.join(ans[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -71,6 +88,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -88,6 +107,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func addBinary(a string, b string) string {
@@ -110,11 +131,24 @@ func addBinary(a string, b string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function addBinary(a: string, b: string): string {
-    return (BigInt('0b' + a) + BigInt('0b' + b)).toString(2);
+    let i = a.length - 1;
+    let j = b.length - 1;
+    let ans: number[] = [];
+    for (let carry = 0; i >= 0 || j >= 0 || carry; --i, --j) {
+        carry += (i >= 0 ? a[i] : '0').charCodeAt(0) - '0'.charCodeAt(0);
+        carry += (j >= 0 ? b[j] : '0').charCodeAt(0) - '0'.charCodeAt(0);
+        ans.push(carry % 2);
+        carry >>= 1;
+    }
+    return ans.reverse().join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -142,6 +176,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string AddBinary(string a, string b) {
@@ -161,11 +197,46 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func addBinary(_ a: String, _ b: String) -> String {
+        var result = ""
+        var carry = 0
+        var i = a.count - 1, j = b.count - 1
+
+        let aChars = Array(a)
+        let bChars = Array(b)
+
+        while i >= 0 || j >= 0 || carry > 0 {
+            let digitA = i >= 0 ? Int(String(aChars[i]))! : 0
+            let digitB = j >= 0 ? Int(String(bChars[j]))! : 0
+
+            carry += digitA + digitB
+            result = "\(carry % 2)" + result
+            carry /= 2
+
+            i -= 1
+            j -= 1
+        }
+
+        return result
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -179,6 +250,8 @@ class Solution:
             i, j = i - 1, j - 1
         return ''.join(ans[::-1])
 ```
+
+#### TypeScript
 
 ```ts
 function addBinary(a: string, b: string): string {
@@ -197,4 +270,6 @@ function addBinary(a: string, b: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

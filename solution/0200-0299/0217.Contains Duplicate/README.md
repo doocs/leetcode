@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [217. 存在重复元素](https://leetcode.cn/problems/contains-duplicate)
 
 [English Version](/solution/0200-0299/0217.Contains%20Duplicate/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你一个整数数组 <code>nums</code> 。如果任一值在数组中出现 <strong>至少两次</strong> ，返回 <code>true</code> ；如果数组中每个元素互不相同，返回 <code>false</code> 。
 
@@ -47,7 +49,11 @@ tags:
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -61,11 +67,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         return any(a == b for a, b in pairwise(sorted(nums)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +108,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func containsDuplicate(nums []int) bool {
 	sort.Ints(nums)
@@ -107,6 +121,8 @@ func containsDuplicate(nums []int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function containsDuplicate(nums: number[]): boolean {
@@ -120,6 +136,8 @@ function containsDuplicate(nums: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -136,6 +154,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -146,6 +166,8 @@ var containsDuplicate = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool ContainsDuplicate(int[] nums) {
@@ -153,6 +175,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -166,6 +190,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -185,6 +211,10 @@ bool containsDuplicate(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：哈希表
 
 遍历数组，将出现过的元素记录在哈希表 $s$ 中。若元素第二次出现时，说明数组中存在重复元素，直接返回 `true`。
@@ -193,11 +223,15 @@ bool containsDuplicate(int* nums, int numsSize) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         return len(set(nums)) < len(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -213,6 +247,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -222,6 +258,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func containsDuplicate(nums []int) bool {
@@ -236,11 +274,15 @@ func containsDuplicate(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function containsDuplicate(nums: number[]): boolean {
     return new Set<number>(nums).size !== nums.length;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -253,4 +295,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

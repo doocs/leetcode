@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2140.Solving%20Questions%20With%20Brainpower/README_EN.md
 rating: 1709
+source: Weekly Contest 276 Q3
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [2140. Solving Questions With Brainpower](https://leetcode.com/problems/solving-questions-with-brainpower)
 
 [中文文档](/solution/2100-2199/2140.Solving%20Questions%20With%20Brainpower/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>questions</code> where <code>questions[i] = [points<sub>i</sub>, brainpower<sub>i</sub>]</code>.</p>
 
@@ -66,11 +71,17 @@ Total points earned: 2 + 5 = 7. There is no other way to earn 7 or more points.
 	<li><code>1 &lt;= points<sub>i</sub>, brainpower<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +95,8 @@ class Solution:
 
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostPoints(questions [][]int) int64 {
 	n := len(questions)
@@ -152,6 +169,8 @@ func mostPoints(questions [][]int) int64 {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mostPoints(questions: number[][]): number {
@@ -173,9 +192,15 @@ function mostPoints(questions: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -188,6 +213,8 @@ class Solution:
             f[i] = max(f[i + 1], p + (0 if j > n else f[j]))
         return f[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -203,6 +230,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -221,6 +250,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostPoints(questions [][]int) int64 {
 	n := len(questions)
@@ -235,6 +266,8 @@ func mostPoints(questions [][]int) int64 {
 	return f[0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mostPoints(questions: number[][]): number {
@@ -251,4 +284,6 @@ function mostPoints(questions: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

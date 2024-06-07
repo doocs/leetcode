@@ -9,13 +9,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [1265. 逆序打印不可变链表 🔒](https://leetcode.cn/problems/print-immutable-linked-list-in-reverse)
 
 [English Version](/solution/1200-1299/1265.Print%20Immutable%20Linked%20List%20in%20Reverse/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给您一个不可变的链表，使用下列接口逆序打印每个节点的值：</p>
 
@@ -78,7 +80,11 @@ tags:
 	<li>使用线性级时间复杂度和低于线性级空间复杂度解决问题？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -87,6 +93,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -104,6 +112,8 @@ class Solution:
             self.printLinkedListInReverse(head.getNext())
             head.printValue()
 ```
+
+#### Java
 
 ```java
 /**
@@ -124,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -146,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /*   Below is the interface for ImmutableListNode, which is already defined for you.
@@ -171,6 +185,8 @@ func printLinkedListInReverse(head ImmutableListNode) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * // This is the ImmutableListNode's API interface.
@@ -189,6 +205,8 @@ function printLinkedListInReverse(head: ImmutableListNode) {
     }
 }
 ```
+
+#### C#
 
 ```cs
 /**
@@ -212,4 +230,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

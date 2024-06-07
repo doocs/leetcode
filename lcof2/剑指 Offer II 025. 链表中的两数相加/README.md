@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20025.%20%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 025. 链表中的两数相加](https://leetcode.cn/problems/lMSNwu)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个 <strong>非空链表</strong> <code>l1</code>和 <code>l2</code>&nbsp;来代表两个非负整数。数字最高位位于链表开始位置。它们的每个节点只存储一位数字。将这两数相加会返回一个新的链表。</p>
 
@@ -56,11 +58,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 445&nbsp;题相同：<a href="https://leetcode.cn/problems/add-two-numbers-ii/">https://leetcode.cn/problems/add-two-numbers-ii/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -86,6 +94,8 @@ class Solution:
             carry //= 10
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -120,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -159,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -195,6 +209,56 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 
+#### Swift
+
+```swift
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     var val: Int
+ *     var next: ListNode?
+ *     init() { self.val = 0; self.next = nil; }
+ *     init(_ val: Int) { self.val = val; self.next = nil; }
+ *     init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
+ * }
+ */
+
+class Solution {
+    func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        var s1: [Int] = []
+        var s2: [Int] = []
+
+        var node1 = l1
+        var node2 = l2
+
+        while let n1 = node1 {
+            s1.append(n1.val)
+            node1 = n1.next
+        }
+
+        while let n2 = node2 {
+            s2.append(n2.val)
+            node2 = n2.next
+        }
+
+        var carry = 0
+        let dummy: ListNode? = ListNode(0)
+
+        while !s1.isEmpty || !s2.isEmpty || carry != 0 {
+            carry += (s1.isEmpty ? 0 : s1.removeLast()) + (s2.isEmpty ? 0 : s2.removeLast())
+            let node = ListNode(carry % 10)
+            node.next = dummy?.next
+            dummy?.next = node
+            carry /= 10
+        }
+
+        return dummy?.next
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

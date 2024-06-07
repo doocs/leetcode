@@ -10,11 +10,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [2992. Number of Self-Divisible Permutations 🔒](https://leetcode.com/problems/number-of-self-divisible-permutations)
 
 [中文文档](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, return <em>the number of <strong>permutations</strong> of the <strong>1-indexed</strong> array</em> <code>nums = [1, 2, ..., n]</code><em>, such that it&#39;s <strong>self-divisible</strong></em>.</p>
 
@@ -66,7 +70,11 @@ It can be shown that the other 3 permutations are not self-divisible. Hence the 
 	<li><code>1 &lt;= n &lt;= 12</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression + Memoization Search
 
@@ -86,6 +94,8 @@ The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def selfDivisiblePermutationCount(self, n: int) -> int:
@@ -102,6 +112,8 @@ class Solution:
 
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func selfDivisiblePermutationCount(n int) int {
 	f := make([]int, 1<<(n+1))
@@ -186,6 +202,8 @@ func selfDivisiblePermutationCount(n int) int {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function selfDivisiblePermutationCount(n: number): number {
@@ -221,6 +239,10 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: State Compression + Dynamic Programming
 
 We can rewrite the memoization search in Solution 1 into the form of dynamic programming, define $f[mask]$ to represent the number of permutations that the current permutation state is $mask$ and meet the requirements of the problem. Initially, $f[0]=1$, and the rest are $0$.
@@ -232,6 +254,8 @@ Finally, we can get the value of $f[2^n - 1]$, which is the answer.
 The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Where $n$ is the length of the permutation.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -245,6 +269,8 @@ class Solution:
                     f[mask] += f[mask ^ (1 << (j - 1))]
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -263,6 +289,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -284,6 +312,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func selfDivisiblePermutationCount(n int) int {
 	f := make([]int, 1<<n)
@@ -299,6 +329,8 @@ func selfDivisiblePermutationCount(n int) int {
 	return f[(1<<n)-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function selfDivisiblePermutationCount(n: number): number {
@@ -327,4 +359,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

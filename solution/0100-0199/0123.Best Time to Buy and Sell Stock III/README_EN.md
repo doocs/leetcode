@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [123. Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii)
 
 [中文文档](/solution/0100-0199/0123.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>prices</code> where <code>prices[i]</code> is the price of a given stock on the <code>i<sup>th</sup></code> day.</p>
 
@@ -53,7 +57,11 @@ Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are 
 	<li><code>0 &lt;= prices[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -72,6 +80,8 @@ The time complexity is $O(n)$, where $n$ is the length of the `prices` array. Th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -84,6 +94,8 @@ class Solution:
             f4 = max(f4, f3 + price)
         return f4
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int) int {
 	f1, f2, f3, f4 := -prices[0], 0, -prices[0], 0
@@ -130,6 +146,8 @@ func maxProfit(prices []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(prices: number[]): number {
     let [f1, f2, f3, f4] = [-prices[0], 0, -prices[0], 0];
@@ -142,6 +160,8 @@ function maxProfit(prices: number[]): number {
     return f4;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -165,6 +185,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
@@ -182,4 +204,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

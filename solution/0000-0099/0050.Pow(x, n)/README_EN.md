@@ -7,11 +7,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [50. Pow(x, n)](https://leetcode.com/problems/powx-n)
 
 [中文文档](/solution/0000-0099/0050.Pow%28x%2C%20n%29/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement <a href="http://www.cplusplus.com/reference/valarray/pow/" target="_blank">pow(x, n)</a>, which calculates <code>x</code> raised to the power <code>n</code> (i.e., <code>x<sup>n</sup></code>).</p>
 
@@ -49,7 +53,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= x<sup>n</sup> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics (Fast Powering)
 
@@ -58,6 +66,8 @@ The core idea of the fast powering algorithm is to decompose the exponent $n$ in
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the exponent.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +83,8 @@ class Solution:
 
         return qpow(x, n) if n >= 0 else 1 / qpow(x, -n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func myPow(x float64, n int) float64 {
@@ -131,6 +147,8 @@ func myPow(x float64, n int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function myPow(x: number, n: number): number {
     const qpow = (a: number, n: number): number => {
@@ -146,6 +164,8 @@ function myPow(x: number, n: number): number {
     return n >= 0 ? qpow(x, n) : 1 / qpow(x, -n);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -176,6 +196,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} x
@@ -196,6 +218,8 @@ var myPow = function (x, n) {
     return n >= 0 ? qpow(x, n) : 1 / qpow(x, -n);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -218,4 +242,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

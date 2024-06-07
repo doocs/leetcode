@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1830.Minimum%20Number%20of%20Operations%20to%20Make%20String%20Sorted/README.md
 rating: 2620
+source: 第 50 场双周赛 Q4
 tags:
     - 数学
     - 字符串
     - 组合数学
 ---
+
+<!-- problem:start -->
 
 # [1830. 使字符串有序的最少操作次数](https://leetcode.cn/problems/minimum-number-of-operations-to-make-string-sorted)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> （<strong>下标从 0 开始</strong>）。你需要对 <code>s</code> 执行以下操作直到它变为一个有序字符串：</p>
 
@@ -71,7 +74,11 @@ tags:
 	<li><code>s</code>​ 只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 排列组合 + 预处理
 
@@ -90,6 +97,8 @@ tags:
 时间复杂度 $O(n \times k)$，空间复杂度 $O(n)$。其中 $n$ 和 $k$ 分别为字符串的长度和字母的种类数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 n = 3010
@@ -117,6 +126,8 @@ class Solution:
                 cnt.pop(c)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +180,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 const int N = 3010;
@@ -223,6 +236,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 const n = 3010
 const mod = 1e9 + 7
@@ -273,4 +288,6 @@ func makeStringSorted(s string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

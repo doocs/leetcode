@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer)
 
 [中文文档](/solution/0000-0099/0013.Roman%20to%20Integer/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Roman numerals are represented by seven different symbols:&nbsp;<code>I</code>, <code>V</code>, <code>X</code>, <code>L</code>, <code>C</code>, <code>D</code> and <code>M</code>.</p>
 
@@ -72,7 +76,11 @@ M             1000</pre>
 	<li>It is <strong>guaranteed</strong>&nbsp;that <code>s</code> is a valid roman numeral in the range <code>[1, 3999]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
 
@@ -82,12 +90,16 @@ The time complexity is $O(n)$, and the space complexity is $O(m)$. Here, $n$ and
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def romanToInt(self, s: str) -> int:
         d = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
         return sum((-1 if d[a] < d[b] else 1) * d[a] for a, b in pairwise(s)) + d[s[-1]]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func romanToInt(s string) (ans int) {
 	d := map[byte]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
@@ -146,6 +162,8 @@ func romanToInt(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function romanToInt(s: string): number {
@@ -167,6 +185,8 @@ function romanToInt(s: string): number {
 }
 ```
 
+#### JavaScript
+
 ```js
 const romanToInt = function (s) {
     const d = {
@@ -186,6 +206,8 @@ const romanToInt = function (s) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -207,6 +229,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -238,6 +262,8 @@ class Solution {
     }
 }
 ```
+
+#### Ruby
 
 ```rb
 # @param {String} s
@@ -276,4 +302,6 @@ end
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

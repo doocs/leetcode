@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3010.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20I/README_EN.md
 rating: 1291
+source: Biweekly Contest 122 Q1
 tags:
     - Array
     - Enumeration
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3010. Divide an Array Into Subarrays With Minimum Cost I](https://leetcode.com/problems/divide-an-array-into-subarrays-with-minimum-cost-i)
 
 [中文文档](/solution/3000-3099/3010.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of integers <code>nums</code> of length <code>n</code>.</p>
 
@@ -61,7 +66,11 @@ It can be shown that 12 is the minimum cost achievable.
 	<li><code>1 &lt;= nums[i] &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traverse to Find the Smallest and Second Smallest Values
 
@@ -70,6 +79,8 @@ We set the first element of the array $nums$ as $a$, the smallest element among 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +93,8 @@ class Solution:
                 c = x
         return a + b + c
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCost(nums []int) int {
 	a, b, c := nums[0], 100, 100
@@ -131,6 +148,8 @@ func minimumCost(nums []int) int {
 	return a + b + c
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCost(nums: number[]): number {
@@ -148,4 +167,6 @@ function minimumCost(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

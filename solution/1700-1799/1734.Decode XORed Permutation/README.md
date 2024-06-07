@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1734.Decode%20XORed%20Permutation/README.md
 rating: 2024
+source: 第 44 场双周赛 Q3
 tags:
     - 位运算
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [1734. 解码异或后的排列](https://leetcode.cn/problems/decode-xored-permutation)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>perm</code> ，它是前 <code>n</code> 个正整数的排列，且 <code>n</code> 是个 <strong>奇数</strong> 。</p>
 
@@ -47,7 +50,11 @@ tags:
 	<li><code>encoded.length == n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -56,6 +63,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为数组 $perm$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +81,8 @@ class Solution:
             perm[i] = encoded[i] ^ perm[i + 1]
         return perm
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func decode(encoded []int) []int {
 	n := len(encoded) + 1
@@ -137,4 +152,6 @@ func decode(encoded []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

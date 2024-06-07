@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1811. Find Interview Candidates 🔒](https://leetcode.com/problems/find-interview-candidates)
 
 [中文文档](/solution/1800-1899/1811.Find%20Interview%20Candidates/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Contests</code></p>
 
@@ -108,11 +112,17 @@ Quarz won a medal in 5 consecutive contests (190, 191, 192, 193, and 194), so we
 	<li>Some users may not participate in every contest but still perform well in the ones they do. How would you change your solution to only consider contests where the user <strong>was a participant</strong>? Suppose the registered users for each contest are given in another table.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -158,4 +168,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

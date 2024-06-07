@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1803.Count%20Pairs%20With%20XOR%20in%20a%20Range/README.md
 rating: 2479
+source: 第 233 场周赛 Q4
 tags:
     - 位运算
     - 字典树
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [1803. 统计异或值在范围内的数对有多少](https://leetcode.cn/problems/count-pairs-with-xor-in-a-range)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> （下标 <strong>从 0 开始</strong> 计数）以及两个整数：<code>low</code> 和 <code>high</code> ，请返回 <strong>漂亮数对</strong> 的数目。</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li><code>1 &lt;= low &lt;= high &lt;= 2 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：0-1 字典树
 
@@ -88,6 +95,8 @@ tags:
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n \times \log M)$。其中 $n$ 为数组 `nums` 的长度，而 $M$ 为数组 `nums` 中的最大值。本题中我们直接取 $\log M = 16$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -129,6 +138,8 @@ class Solution:
             tree.insert(x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -177,6 +188,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -233,6 +246,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -283,4 +298,6 @@ func countPairs(nums []int, low int, high int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

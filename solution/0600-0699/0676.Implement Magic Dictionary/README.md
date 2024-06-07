@@ -10,13 +10,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [676. 实现一个魔法字典](https://leetcode.cn/problems/implement-magic-dictionary)
 
 [English Version](/solution/0600-0699/0676.Implement%20Magic%20Dictionary/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个使用单词列表进行初始化的数据结构，单词列表中的单词 <strong>互不相同</strong> 。 如果给出一个单词，请判定能否只将这个单词中<strong>一个</strong>字母换成另一个字母，使得所形成的新单词存在于你构建的字典中。</p>
 
@@ -69,7 +71,11 @@ magicDictionary.search("leetcoded"); // 返回 False
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树 + DFS
 
@@ -78,6 +84,8 @@ magicDictionary.search("leetcoded"); // 返回 False
 时间复杂度 $O(n \times l + q \times l \times |\Sigma|)$，空间复杂度 $O(n \times l)$，其中 $n$ 和 $l$ 分别是字典中的单词数量和单词的平均长度，而 $q$ 是搜索的单词数量。另外 $|\Sigma|$ 表示字符集的大小，这里字符集为小写英文字母，因此 $|\Sigma|=26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -125,6 +133,8 @@ class MagicDictionary:
 # obj.buildDict(dictionary)
 # param_2 = obj.search(searchWord)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -194,6 +204,8 @@ class MagicDictionary {
  * boolean param_2 = obj.search(searchWord);
  */
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -270,6 +282,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -340,6 +354,8 @@ func (md *MagicDictionary) Search(searchWord string) bool {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class Trie {
     private children: Trie[] = Array(26).fill(null);
@@ -406,6 +422,8 @@ class MagicDictionary {
  * var param_2 = obj.search(searchWord)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -496,9 +514,15 @@ impl MagicDictionary {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -553,4 +577,6 @@ class MagicDictionary:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2231.Largest%20Number%20After%20Digit%20Swaps%20by%20Parity/README_EN.md
 rating: 1365
+source: Weekly Contest 288 Q1
 tags:
     - Sorting
     - Heap (Priority Queue)
 ---
+
+<!-- problem:start -->
 
 # [2231. Largest Number After Digit Swaps by Parity](https://leetcode.com/problems/largest-number-after-digit-swaps-by-parity)
 
 [中文文档](/solution/2200-2299/2231.Largest%20Number%20After%20Digit%20Swaps%20by%20Parity/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer <code>num</code>. You may swap any two digits of <code>num</code> that have the same <strong>parity</strong> (i.e. both odd digits or both even digits).</p>
 
@@ -47,11 +52,17 @@ Note that there may be other sequences of swaps but it can be shown that 87655 i
 	<li><code>1 &lt;= num &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +85,8 @@ class Solution:
                     break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestInteger(num int) int {
 	cnt := make([]int, 10)
@@ -160,6 +177,8 @@ func largestInteger(num int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function largestInteger(num: number): number {
     const arrs: number[] = String(num).split('').map(Number);
@@ -184,4 +203,6 @@ function largestInteger(num: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

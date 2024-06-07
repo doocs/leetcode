@@ -3,15 +3,20 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2466.Count%20Ways%20To%20Build%20Good%20Strings/README_EN.md
 rating: 1694
+source: Biweekly Contest 91 Q2
 tags:
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [2466. Count Ways To Build Good Strings](https://leetcode.com/problems/count-ways-to-build-good-strings)
 
 [中文文档](/solution/2400-2499/2466.Count%20Ways%20To%20Build%20Good%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the integers <code>zero</code>, <code>one</code>, <code>low</code>, and <code>high</code>, we can construct a string by starting with an empty string, and then at each step perform either of the following:</p>
 
@@ -54,7 +59,11 @@ All binary strings from &quot;000&quot; to &quot;111&quot; are good strings in t
 	<li><code>1 &lt;= zero, one &lt;= low</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -70,6 +79,8 @@ During the process, we need to take the modulus of the answer, and we can use me
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n = high$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +98,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countGoodStrings(low int, high int, zero int, one int) int {
@@ -177,4 +194,6 @@ func countGoodStrings(low int, high int, zero int, one int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

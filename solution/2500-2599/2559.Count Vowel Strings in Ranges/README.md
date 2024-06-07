@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README.md
 rating: 1435
+source: 第 331 场周赛 Q2
 tags:
     - 数组
     - 字符串
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [2559. 统计范围内的元音字符串数](https://leetcode.cn/problems/count-vowel-strings-in-ranges)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的字符串数组 <code>words</code> 以及一个二维整数数组 <code>queries</code> 。</p>
 
@@ -59,7 +62,11 @@ tags:
 	<li><code>0 &lt;= queries[j][0] &lt;= queries[j][1] &lt;&nbsp;words.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理 + 二分查找
 
@@ -71,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
@@ -78,6 +87,8 @@ class Solution:
         nums = [i for i, w in enumerate(words) if w[0] in vowels and w[-1] in vowels]
         return [bisect_right(nums, r) - bisect_left(nums, l) for l, r in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func vowelStrings(words []string, queries [][]int) []int {
 	vowels := map[byte]bool{'a': true, 'e': true, 'i': true, 'o': true, 'u': true}
@@ -155,6 +170,8 @@ func vowelStrings(words []string, queries [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function vowelStrings(words: string[], queries: number[][]): number[] {
@@ -184,6 +201,10 @@ function vowelStrings(words: string[], queries: number[][]): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：前缀和
 
 我们可以创建一个长度为 $n+1$ 的前缀和数组 $s$，其中 $s[i]$ 表示数组 $words$ 的前 $i$ 个字符串中以元音开头和结尾的字符串的数目。初始时 $s[0] = 0$。
@@ -196,6 +217,8 @@ function vowelStrings(words: string[], queries: number[][]): number[] {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
@@ -207,6 +230,8 @@ class Solution:
         )
         return [s[r + 1] - s[l] for l, r in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -228,6 +253,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -251,6 +278,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func vowelStrings(words []string, queries [][]int) []int {
 	vowels := map[byte]bool{'a': true, 'e': true, 'i': true, 'o': true, 'u': true}
@@ -272,6 +301,8 @@ func vowelStrings(words []string, queries [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function vowelStrings(words: string[], queries: number[][]): number[] {
     const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
@@ -290,4 +321,6 @@ function vowelStrings(words: string[], queries: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

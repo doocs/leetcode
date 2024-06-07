@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1861.Rotating%20the%20Box/README_EN.md
 rating: 1536
+source: Biweekly Contest 52 Q3
 tags:
     - Array
     - Two Pointers
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1861. Rotating the Box](https://leetcode.com/problems/rotating-the-box)
 
 [中文文档](/solution/1800-1899/1861.Rotating%20the%20Box/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> matrix of characters <code>box</code> representing a side-view of a box. Each cell of the box is one of the following:</p>
 
@@ -113,7 +118,11 @@ tags:
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Queue Simulation
 
@@ -122,6 +131,8 @@ First, we rotate the matrix 90 degrees clockwise, then simulate the falling proc
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -144,6 +155,8 @@ class Solution:
                     q.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -173,6 +186,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -205,6 +220,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rotateTheBox(box [][]byte) [][]byte {
@@ -239,4 +256,6 @@ func rotateTheBox(box [][]byte) [][]byte {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

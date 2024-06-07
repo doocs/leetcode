@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README_EN.md
 rating: 1633
+source: Weekly Contest 138 Q3
 tags:
     - Greedy
     - Array
 ---
+
+<!-- problem:start -->
 
 # [1053. Previous Permutation With One Swap](https://leetcode.com/problems/previous-permutation-with-one-swap)
 
 [中文文档](/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of positive integers <code>arr</code> (not necessarily distinct), return <em>the </em><span data-keyword="lexicographically-smaller-array"><em>lexicographically</em></span><em> largest permutation that is smaller than</em> <code>arr</code>, that can be <strong>made with exactly one swap</strong>. If it cannot be done, then return the same array.</p>
 
@@ -51,7 +56,11 @@ tags:
 	<li><code>1 &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -62,6 +71,8 @@ If we traverse the entire array and do not find an index $i$ that meets the cond
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
                         return arr
         return arr
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func prevPermOpt1(arr []int) []int {
 	n := len(arr)
@@ -133,6 +150,8 @@ func prevPermOpt1(arr []int) []int {
 	return arr
 }
 ```
+
+#### TypeScript
 
 ```ts
 function prevPermOpt1(arr: number[]): number[] {
@@ -155,4 +174,6 @@ function prevPermOpt1(arr: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

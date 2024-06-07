@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README.md
 rating: 2214
+source: 第 244 场周赛 Q4
 tags:
     - 数组
     - 二分查找
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1889. 装包裹的最小浪费空间](https://leetcode.cn/problems/minimum-space-wasted-from-packaging)
 
 [English Version](/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你 <code>n</code> 个包裹，你需要把它们装在箱子里，<strong>每个箱子装一个包裹</strong>。总共有 <code>m</code> 个供应商提供 <strong>不同尺寸</strong> 的箱子（每个规格都有无数个箱子）。如果一个包裹的尺寸 <strong>小于等于</strong> 一个箱子的尺寸，那么这个包裹就可以放入这个箱子之中。</p>
 
@@ -74,7 +77,11 @@ tags:
 	<li><code>boxes[j]</code> 中的元素 <strong>互不相同</strong> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 二分查找
 
@@ -91,6 +98,8 @@ tags:
 时间复杂度 $O(n \times \log n + l \times \log l + l \times \log n)$，空间复杂度 $O(\log n + \log l)$。其中 $n$ 是包裹的数量，而 $l$ 是所有箱子的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -112,6 +121,8 @@ class Solution:
             return -1
         return (ans - sum(packages)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +171,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -187,6 +200,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minWastedSpace(packages []int, boxes [][]int) int {
@@ -218,6 +233,8 @@ func minWastedSpace(packages []int, boxes [][]int) int {
 	return (ans - s) % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minWastedSpace(packages: number[], boxes: number[][]): number {
@@ -262,4 +279,6 @@ function search(nums: number[], x: number, l: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

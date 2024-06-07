@@ -7,13 +7,15 @@ tags:
     - 交互
 ---
 
+<!-- problem:start -->
+
 # [489. 扫地机器人 🔒](https://leetcode.cn/problems/robot-room-cleaner)
 
 [English Version](/solution/0400-0499/0489.Robot%20Room%20Cleaner/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>房间中的某个位置上有一个机器人，你需要控制它清扫房间。房间被建模为一个 <code>m x n</code> 的二进制网格，其中 <code>0</code> 表示单元格中有障碍物，<code>1</code> 表示空单元格。</p>
 
@@ -89,7 +91,11 @@ interface Robot {
 <ol>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -98,6 +104,8 @@ interface Robot {
 时间复杂度 $O(4^{n-m})$，空间复杂度 $O(n-m)$。其中 $n$ 和 $m$ 分别是房间的数量以及障碍物的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -160,6 +168,8 @@ class Solution:
         dfs(0, 0, 0)
 ```
 
+#### Java
+
 ```java
 /**
  * // This is the robot's control interface.
@@ -209,6 +219,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * // This is the robot's control interface.
@@ -256,6 +268,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is the robot's control interface.
@@ -300,6 +314,8 @@ func cleanRoom(robot *Robot) {
 	dfs(0, 0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -347,4 +363,6 @@ function cleanRoom(robot: Robot) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

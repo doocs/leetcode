@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.08.Draw%20Line/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [05.08. Draw Line](https://leetcode.cn/problems/draw-line-lcci)
 
 [中文文档](/lcci/05.08.Draw%20Line/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A monochrome screen is stored as a single array of int, allowing 32 consecutive pixels to be stored in one int. The screen has width <code>w</code>, where <code>w</code> is divisible by 32&nbsp;(that is, no byte will be split across rows). The height of the screen, of course, can be derived from the length of the array and the width. Implement a function that draws a horizontal line from <code>(x1, y)</code> to <code>(x2, y)</code>.</p>
 <p>Given the length of the array, the width of the array (in bit), start position <code>x1</code>&nbsp;(in bit) of the line, end position <code>x2</code> (in bit) of the line and the row number&nbsp;<code>y</code> of the line, return the array after drawing.</p>
@@ -31,7 +35,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.08.Draw%20Line/REA
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -45,6 +53,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def drawLine(self, length: int, w: int, x1: int, x2: int, y: int) -> List[int]:
@@ -57,6 +67,8 @@ class Solution:
         ans[j] &= -0x80000000 >> (x2 % 32)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -73,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -93,4 +107,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

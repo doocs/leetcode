@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1673.Find%20the%20Most%20Competitive%20Subsequence/README_EN.md
 rating: 1802
+source: Weekly Contest 217 Q2
 tags:
     - Stack
     - Greedy
@@ -10,11 +11,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [1673. Find the Most Competitive Subsequence](https://leetcode.com/problems/find-the-most-competitive-subsequence)
 
 [中文文档](/solution/1600-1699/1673.Find%20the%20Most%20Competitive%20Subsequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> and a positive integer <code>k</code>, return <em>the most<strong> competitive</strong> subsequence of </em><code>nums</code> <em>of size </em><code>k</code>.</p>
 
@@ -47,11 +52,23 @@ tags:
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Stack
+
+We traverse the array `nums` from left to right, maintaining a stack `stk`. During the traversal, if the current element `nums[i]` is less than the top element of the stack, and the number of elements in the stack plus $n-i$ is greater than $k$, then we pop the top element of the stack until the above condition is no longer satisfied. At this point, if the number of elements in the stack is less than $k$, then we push the current element into the stack.
+
+After the traversal, the elements in the stack are the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(k)$. Where $n$ is the length of the array `nums`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +82,8 @@ class Solution:
                 stk.append(v)
         return stk
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostCompetitive(nums []int, k int) []int {
 	stk := []int{}
@@ -123,12 +146,14 @@ func mostCompetitive(nums []int, k int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mostCompetitive(nums: number[], k: number): number[] {
     const stk: number[] = [];
     const n = nums.length;
     for (let i = 0; i < n; ++i) {
-        while (stk.length && stk.at(-1) > nums[i] && stk.length + n - i > k) {
+        while (stk.length && stk.at(-1)! > nums[i] && stk.length + n - i > k) {
             stk.pop();
         }
         if (stk.length < k) {
@@ -141,4 +166,6 @@ function mostCompetitive(nums: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

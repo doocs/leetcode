@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2389.Longest%20Subsequence%20With%20Limited%20Sum/README_EN.md
 rating: 1387
+source: Weekly Contest 308 Q1
 tags:
     - Greedy
     - Array
@@ -11,11 +12,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2389. Longest Subsequence With Limited Sum](https://leetcode.com/problems/longest-subsequence-with-limited-sum)
 
 [中文文档](/solution/2300-2399/2389.Longest%20Subsequence%20With%20Limited%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> of length <code>n</code>, and an integer array <code>queries</code> of length <code>m</code>.</p>
 
@@ -52,11 +57,17 @@ tags:
 	<li><code>1 &lt;= nums[i], queries[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +76,8 @@ class Solution:
         s = list(accumulate(nums))
         return [bisect_right(s, q) for q in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func answerQueries(nums []int, queries []int) (ans []int) {
 	sort.Ints(nums)
@@ -125,6 +142,8 @@ func answerQueries(nums []int, queries []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function answerQueries(nums: number[], queries: number[]): number[] {
@@ -153,6 +172,8 @@ function answerQueries(nums: number[], queries: number[]): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn answer_queries(mut nums: Vec<i32>, queries: Vec<i32>) -> Vec<i32> {
@@ -174,6 +195,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -202,9 +225,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -221,6 +250,8 @@ class Solution:
             ans[i] = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -244,6 +275,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -269,6 +302,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func answerQueries(nums []int, queries []int) (ans []int) {
 	sort.Ints(nums)
@@ -290,6 +325,8 @@ func answerQueries(nums []int, queries []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function answerQueries(nums: number[], queries: number[]): number[] {
@@ -315,4 +352,6 @@ function answerQueries(nums: number[], queries: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

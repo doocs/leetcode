@@ -9,13 +9,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [264. 丑数 II](https://leetcode.cn/problems/ugly-number-ii)
 
 [English Version](/solution/0200-0299/0264.Ugly%20Number%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，请你找出并返回第 <code>n</code> 个 <strong>丑数</strong> 。</p>
 
@@ -47,7 +49,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 1690</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（最小堆）
 
@@ -56,6 +62,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +80,8 @@ class Solution:
                     heappush(h, nxt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nthUglyNumber(n int) int {
@@ -158,6 +172,8 @@ func (h *IntHeap) Pop() any {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -181,6 +197,8 @@ var nthUglyNumber = function (n) {
     return dp[n - 1];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -208,6 +226,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 定义数组 $dp$，其中 $dp[i-1]$ 表示第 $i$ 个丑数，那么第 $n$ 个丑数就是 $dp[n - 1]$。最小的丑数是 $1$，所以 $dp[0]=1$。
@@ -221,6 +243,8 @@ public class Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -238,6 +262,8 @@ class Solution:
                 p5 += 1
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -257,6 +283,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -275,6 +303,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nthUglyNumber(n int) int {
@@ -300,4 +330,6 @@ func nthUglyNumber(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

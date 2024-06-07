@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2731.Movement%20of%20Robots/README_EN.md
 rating: 1922
+source: Biweekly Contest 106 Q3
 tags:
     - Brainteaser
     - Array
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2731. Movement of Robots](https://leetcode.com/problems/movement-of-robots)
 
 [中文文档](/solution/2700-2799/2731.Movement%20of%20Robots/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Some robots are standing on an infinite number line with their initial coordinates given by a <strong>0-indexed</strong> integer array <code>nums</code> and will start moving once given the command to move. The robots will move a unit distance each second.</p>
 
@@ -76,7 +81,11 @@ The distance between the two robots is abs(-2 - 3) = 5.
 	<li><code>nums[i]</code>&nbsp;will be unique.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Quick thinking + Sorting
 
@@ -87,6 +96,8 @@ Next, we enumerate the position of each robot from small to large, and calculate
 The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of robots.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +112,8 @@ class Solution:
             s += x
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumDistance(nums []int, s string, d int) (ans int) {
 	for i, c := range s {
@@ -163,6 +180,8 @@ func sumDistance(nums []int, s string, d int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumDistance(nums: number[], s: string, d: number): number {
@@ -184,4 +203,6 @@ function sumDistance(nums: number[], s: string, d: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2760.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README_EN.md
 rating: 1420
+source: Weekly Contest 352 Q1
 tags:
     - Array
     - Sliding Window
 ---
+
+<!-- problem:start -->
 
 # [2760. Longest Even Odd Subarray With Threshold](https://leetcode.com/problems/longest-even-odd-subarray-with-threshold)
 
 [中文文档](/solution/2700-2799/2760.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>threshold</code>.</p>
 
@@ -65,7 +70,11 @@ Hence, the answer is the length of the subarray, 3. We can show that 3 is the ma
 	<li><code>1 &lt;= threshold &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -74,6 +83,8 @@ We enumerate all $l$ in the range $[0,..n-1]$. If $nums[l]$ satisfies $nums[l] \
 The time complexity is $O(n^2)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +98,8 @@ class Solution:
                 ans = max(ans, r - l)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestAlternatingSubarray(nums []int, threshold int) (ans int) {
 	n := len(nums)
@@ -140,6 +157,8 @@ func longestAlternatingSubarray(nums []int, threshold int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestAlternatingSubarray(nums: number[], threshold: number): number {
@@ -160,6 +179,10 @@ function longestAlternatingSubarray(nums: number[], threshold: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Optimized Enumeration
 
 We notice that the problem actually divides the array into several disjoint subarrays that meet the condition. We only need to find the longest one among these subarrays. Therefore, when enumerating $l$ and $r$, we don't need to backtrack, we just need to traverse from left to right once.
@@ -167,6 +190,8 @@ We notice that the problem actually divides the array into several disjoint suba
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -183,6 +208,8 @@ class Solution:
                 l += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -204,6 +231,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -227,6 +256,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestAlternatingSubarray(nums []int, threshold int) (ans int) {
 	for l, n := 0, len(nums); l < n; {
@@ -244,6 +275,8 @@ func longestAlternatingSubarray(nums []int, threshold int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestAlternatingSubarray(nums: number[], threshold: number): number {
@@ -267,4 +300,6 @@ function longestAlternatingSubarray(nums: number[], threshold: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

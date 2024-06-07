@@ -10,13 +10,15 @@ tags:
     - 哈希函数
 ---
 
+<!-- problem:start -->
+
 # [706. 设计哈希映射](https://leetcode.cn/problems/design-hashmap)
 
 [English Version](/solution/0700-0799/0706.Design%20HashMap/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>不使用任何内建的哈希表库设计一个哈希映射（HashMap）。</p>
 
@@ -61,7 +63,11 @@ myHashMap.get(2);    // 返回 -1（未找到），myHashMap 现在为 [[1,1]]
 	<li>最多调用 <code>10<sup>4</sup></code> 次 <code>put</code>、<code>get</code> 和 <code>remove</code> 方法</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：静态数组实现
 
@@ -72,6 +78,8 @@ myHashMap.get(2);    // 返回 -1（未找到），myHashMap 现在为 [[1,1]]
 以上操作，时间复杂度均为 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyHashMap:
@@ -94,6 +102,8 @@ class MyHashMap:
 # param_2 = obj.get(key)
 # obj.remove(key)
 ```
+
+#### Java
 
 ```java
 class MyHashMap {
@@ -125,6 +135,8 @@ class MyHashMap {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyHashMap {
 public:
@@ -155,6 +167,8 @@ public:
  * obj->remove(key);
  */
 ```
+
+#### Go
 
 ```go
 type MyHashMap struct {
@@ -190,6 +204,8 @@ func (this *MyHashMap) Remove(key int) {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MyHashMap {
     data: Array<number>;
@@ -221,4 +237,6 @@ class MyHashMap {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

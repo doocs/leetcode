@@ -7,13 +7,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [47. 全排列 II](https://leetcode.cn/problems/permutations-ii)
 
 [English Version](/solution/0000-0099/0047.Permutations%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个可包含重复数字的序列 <code>nums</code> ，<em><strong>按任意顺序</strong></em> 返回所有不重复的全排列。</p>
 
@@ -45,7 +47,11 @@ tags:
 	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 回溯
 
@@ -65,6 +71,8 @@ tags:
 -   [46. 全排列](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0046.Permutations/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +97,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func permuteUnique(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -181,6 +195,8 @@ func permuteUnique(nums []int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function permuteUnique(nums: number[]): number[][] {
     nums.sort((a, b) => a - b);
@@ -207,6 +223,8 @@ function permuteUnique(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -236,6 +254,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -274,4 +294,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

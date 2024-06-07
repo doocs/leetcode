@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20085.%20%E7%94%9F%E6%88%90%E5%8C%B9%E9%85%8D%E7%9A%84%E6%8B%AC%E5%8F%B7/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 085. 生成匹配的括号](https://leetcode.cn/problems/IDBivT)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>正整数&nbsp;<code>n</code>&nbsp;代表生成括号的对数，请设计一个函数，用于能够生成所有可能的并且 <strong>有效的 </strong>括号组合。</p>
 
@@ -39,11 +41,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 22&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/generate-parentheses/">https://leetcode.cn/problems/generate-parentheses/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +69,8 @@ class Solution:
         dfs(0, 0, '')
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +116,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func generateParenthesis(n int) []string {
@@ -126,6 +140,8 @@ func generateParenthesis(n int) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function generateParenthesis(n: number): string[] {
     let ans = [];
@@ -145,6 +161,8 @@ function generateParenthesis(n: number): string[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -172,4 +190,6 @@ var generateParenthesis = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

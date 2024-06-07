@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3045.Count%20Prefix%20and%20Suffix%20Pairs%20II/README_EN.md
 rating: 2327
+source: Weekly Contest 385 Q4
 tags:
     - Trie
     - Array
@@ -12,11 +13,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [3045. Count Prefix and Suffix Pairs II](https://leetcode.com/problems/count-prefix-and-suffix-pairs-ii)
 
 [中文文档](/solution/3000-3099/3045.Count%20Prefix%20and%20Suffix%20Pairs%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string array <code>words</code>.</p>
 
@@ -71,7 +76,11 @@ Therefore, the answer is 0.</pre>
 	<li>The sum of the lengths of all <code>words[i]</code> does not exceed <code>5 * 10<sup>5</sup></code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Trie
 
@@ -82,6 +91,8 @@ We can use a trie to store all the character pairs, and then for each string $s$
 The time complexity is $O(n \times m)$, and the space complexity is $O(n \times m)$. Here, $n$ and $m$ are the lengths of `words` and the maximum length of the strings, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -106,6 +117,8 @@ class Solution:
             node.cnt += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -132,6 +145,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -166,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Node struct {
 	children map[int]*Node
@@ -190,6 +207,8 @@ func countPrefixSuffixPairs(words []string) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Node {
@@ -219,4 +238,6 @@ function countPrefixSuffixPairs(words: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

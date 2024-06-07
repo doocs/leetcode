@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.09.String%20Rotation/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [01.09. String Rotation](https://leetcode.cn/problems/string-rotation-lcci)
 
 [中文文档](/lcci/01.09.String%20Rotation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings, <code>s1</code>&nbsp;and <code>s2</code>, write code to check if <code>s2</code> is a rotation of <code>s1</code> (e.g.,&quot;waterbottle&quot; is a rotation of&quot;erbottlewat&quot;).&nbsp;Can you use&nbsp;only one call to the method that&nbsp;checks if one word is a substring of another?</p>
 
@@ -40,7 +44,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.09.String%20Rotati
 	<li><code><font face="monospace">0 &lt;= s1.length, s1.length &lt;=&nbsp;</font>100000</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: String Matching
 
@@ -65,11 +73,15 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isFlipedString(self, s1: str, s2: str) -> bool:
         return len(s1) == len(s2) and s2 in s1 * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -88,17 +102,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isFlipedString(s1 string, s2 string) bool {
 	return len(s1) == len(s2) && strings.Contains(s1+s1, s2)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isFlipedString(s1: string, s2: string): boolean {
     return s1.length === s2.length && (s2 + s2).indexOf(s1) !== -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -107,6 +127,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -118,4 +140,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

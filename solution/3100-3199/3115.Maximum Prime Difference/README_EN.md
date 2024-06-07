@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3115.Maximum%20Prime%20Difference/README_EN.md
 rating: 1294
+source: Weekly Contest 393 Q2
 tags:
     - Array
     - Math
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [3115. Maximum Prime Difference](https://leetcode.com/problems/maximum-prime-difference)
 
 [中文文档](/solution/3100-3199/3115.Maximum%20Prime%20Difference/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>.</p>
 
@@ -49,7 +54,11 @@ tags:
 	<li>The input is generated such that the number of prime numbers in the <code>nums</code> is at least one.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal
 
@@ -60,6 +69,8 @@ Therefore, we can traverse the array from left to right to find the index $i$ of
 The time complexity is $O(n \times \sqrt{M})$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in the array, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
                     if is_prime(nums[j]):
                         return j - i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumPrimeDifference(nums []int) int {
 	for i := 0; ; i++ {
@@ -158,6 +175,8 @@ func isPrime(n int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumPrimeDifference(nums: number[]): number {
@@ -186,4 +205,6 @@ function maximumPrimeDifference(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

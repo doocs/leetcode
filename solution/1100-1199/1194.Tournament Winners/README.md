@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1194. 锦标赛优胜者 🔒](https://leetcode.cn/problems/tournament-winners)
 
 [English Version](/solution/1100-1199/1194.Tournament%20Winners/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>Players</code>&nbsp;玩家表</p>
 
@@ -94,11 +96,17 @@ Players 表</code>:
 | 3         | 40         |
 +-----------+------------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -136,4 +144,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

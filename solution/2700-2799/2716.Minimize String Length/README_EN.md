@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2716.Minimize%20String%20Length/README_EN.md
 rating: 1242
+source: Weekly Contest 348 Q1
 tags:
     - Hash Table
     - String
 ---
+
+<!-- problem:start -->
 
 # [2716. Minimize String Length](https://leetcode.com/problems/minimize-string-length)
 
 [中文文档](/solution/2700-2799/2716.Minimize%20String%20Length/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>0-indexed</strong> string <code>s</code>, repeatedly perform the following operation <strong>any</strong> number of times:</p>
 
@@ -58,7 +63,11 @@ tags:
 	<li><code>s</code> contains only lowercase English letters</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -68,11 +77,15 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimizedStringLength(self, s: str) -> int:
         return len(set(s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -95,6 +110,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimizedStringLength(s string) int {
@@ -106,11 +123,15 @@ func minimizedStringLength(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimizedStringLength(s: string): number {
     return new Set(s.split('')).size;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -130,9 +151,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -152,4 +179,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2680.Maximum%20OR/README.md
 rating: 1912
+source: 第 104 场双周赛 Q3
 tags:
     - 贪心
     - 位运算
@@ -10,13 +11,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [2680. 最大或值](https://leetcode.cn/problems/maximum-or)
 
 [English Version](/solution/2600-2699/2680.Maximum%20OR/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始长度为 <code>n</code>&nbsp;的整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>k</code> 。每一次操作中，你可以选择一个数并将它乘&nbsp;<code>2</code>&nbsp;。</p>
 
@@ -52,7 +55,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 15</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 预处理
 
@@ -65,6 +72,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +88,8 @@ class Solution:
             pre |= x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumOr(nums []int, k int) int64 {
 	n := len(nums)
@@ -134,6 +149,8 @@ func maximumOr(nums []int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumOr(nums: number[], k: number): number {
     const n = nums.length;
@@ -149,6 +166,8 @@ function maximumOr(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,4 +194,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

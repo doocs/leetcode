@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [874. Walking Robot Simulation](https://leetcode.com/problems/walking-robot-simulation)
 
 [中文文档](/solution/0800-0899/0874.Walking%20Robot%20Simulation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A robot on an infinite XY-plane starts at point <code>(0, 0)</code> facing north. The robot can receive a sequence of these three possible types of <code>commands</code>:</p>
 
@@ -87,7 +91,11 @@ The furthest point the robot ever gets from the origin is (0, 6), which squared 
 	<li>The answer is guaranteed to be less than <code>2<sup>31</sup></code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash table + simulation
 
@@ -108,6 +116,8 @@ Finally return the answer $ans$.
 Time complexity is $O(C \times n + m)$, space complexity is $O(m)$. Where $C$ represents the maximum number of steps that can be moved each time, and $n$ and $m$ respectively represent the lengths of arrays $commands$ and arrays $obstacles$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -130,6 +140,8 @@ class Solution:
                     ans = max(ans, x * x + y * y)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +179,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -203,6 +217,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func robotSim(commands []int, obstacles [][]int) (ans int) {
 	dirs := [5]int{0, 1, 0, -1, 0}
@@ -228,6 +244,8 @@ func robotSim(commands []int, obstacles [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function robotSim(commands: number[], obstacles: number[][]): number {
@@ -260,4 +278,6 @@ function robotSim(commands: number[], obstacles: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

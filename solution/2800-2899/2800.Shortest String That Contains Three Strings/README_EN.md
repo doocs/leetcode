@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README_EN.md
 rating: 1855
+source: Weekly Contest 356 Q3
 tags:
     - Greedy
     - String
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2800. Shortest String That Contains Three Strings](https://leetcode.com/problems/shortest-string-that-contains-three-strings)
 
 [中文文档](/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 Given three strings <code>a</code>, <code>b</code>, and <code>c</code>, your task is to find a string that has the<strong> minimum</strong> length and contains all three strings as <strong>substrings</strong>.
 
@@ -52,7 +57,11 @@ Given three strings <code>a</code>, <code>b</code>, and <code>c</code>, your tas
 	<li><code>a</code>, <code>b</code>, <code>c</code> consist only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -61,6 +70,8 @@ We enumerate all permutations of the three strings, and for each permutation, we
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the maximum length of the three strings.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +94,8 @@ class Solution:
                 ans = s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumString(a string, b string, c string) string {
 	f := func(s, t string) string {
@@ -183,6 +200,8 @@ func minimumString(a string, b string, c string) string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumString(a: string, b: string, c: string): string {
@@ -221,6 +240,8 @@ function minimumString(a: string, b: string, c: string): string {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -265,4 +286,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

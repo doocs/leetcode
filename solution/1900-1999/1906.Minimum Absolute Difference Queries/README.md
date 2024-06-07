@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1906.Minimum%20Absolute%20Difference%20Queries/README.md
 rating: 2146
+source: 第 246 场周赛 Q4
 tags:
     - 数组
     - 哈希表
 ---
+
+<!-- problem:start -->
 
 # [1906. 查询差绝对值的最小值](https://leetcode.cn/problems/minimum-absolute-difference-queries)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个数组 <code>a</code> 的 <strong>差绝对值的最小值</strong> 定义为：<code>0 <= i < j < a.length</code> 且 <code>a[i] != a[j]</code> 的<strong> </strong><code><span style="">|a[i] - a[j]|</span></code> 的 <strong>最小值</strong>。如果 <code>a</code> 中所有元素都 <strong>相同</strong> ，那么差绝对值的最小值为 <code>-1</code> 。</p>
 
@@ -72,11 +75,17 @@ tags:
 	<li><code>0 <= l<sub>i</sub> < r<sub>i</sub> < nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -103,6 +112,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -174,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minDifference(nums []int, queries [][]int) []int {
@@ -212,6 +227,8 @@ func minDifference(nums []int, queries [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minDifference(nums: number[], queries: number[][]): number[] {
     let m = nums.length,
@@ -246,4 +263,6 @@ function minDifference(nums: number[], queries: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.17.Contiguous%20Sequence/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.17. Contiguous Sequence](https://leetcode.cn/problems/contiguous-sequence-lcci)
 
 [中文文档](/lcci/16.17.Contiguous%20Sequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of integers (both positive and negative). Find the contiguous sequence with the largest sum. Return the sum.</p>
 
@@ -36,7 +40,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.17.Contiguous%20Se
 
 <p>If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -56,6 +64,8 @@ We notice that $f[i]$ only depends on $f[i-1]$, so we can use a variable $f$ to 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -65,6 +75,8 @@ class Solution:
             ans = max(ans, f)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -93,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSubArray(nums []int) int {
 	ans, f := math.MinInt32, math.MinInt32
@@ -104,6 +120,8 @@ func maxSubArray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSubArray(nums: number[]): number {
     let [ans, f] = [-Infinity, -Infinity];
@@ -114,6 +132,8 @@ function maxSubArray(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -129,6 +149,8 @@ var maxSubArray = function (nums) {
     return ans;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -148,4 +170,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

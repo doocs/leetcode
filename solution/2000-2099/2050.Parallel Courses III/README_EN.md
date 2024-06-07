@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2050.Parallel%20Courses%20III/README_EN.md
 rating: 2084
+source: Weekly Contest 264 Q4
 tags:
     - Graph
     - Topological Sort
@@ -10,11 +11,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2050. Parallel Courses III](https://leetcode.com/problems/parallel-courses-iii)
 
 [中文文档](/solution/2000-2099/2050.Parallel%20Courses%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code>, which indicates that there are <code>n</code> courses labeled from <code>1</code> to <code>n</code>. You are also given a 2D integer array <code>relations</code> where <code>relations[j] = [prevCourse<sub>j</sub>, nextCourse<sub>j</sub>]</code> denotes that course <code>prevCourse<sub>j</sub></code> has to be completed <strong>before</strong> course <code>nextCourse<sub>j</sub></code> (prerequisite relationship). Furthermore, you are given a <strong>0-indexed</strong> integer array <code>time</code> where <code>time[i]</code> denotes how many <strong>months</strong> it takes to complete the <code>(i+1)<sup>th</sup></code> course.</p>
 
@@ -71,7 +76,11 @@ Thus, the minimum time needed to complete all the courses is 7 + 5 = 12 months.
 	<li>The given graph is a directed acyclic graph.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Topological Sorting + Dynamic Programming
 
@@ -91,6 +100,8 @@ Finally, return $ans$.
 The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$. Where $m$ is the length of the array $relations$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -118,6 +129,8 @@ class Solution:
                     q.append(j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -155,6 +168,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -194,6 +209,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTime(n int, relations [][]int, time []int) int {
 	g := make([][]int, n)
@@ -228,6 +245,8 @@ func minimumTime(n int, relations [][]int, time []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTime(n: number, relations: number[][], time: number[]): number {
@@ -265,4 +284,6 @@ function minimumTime(n: number, relations: number[][], time: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

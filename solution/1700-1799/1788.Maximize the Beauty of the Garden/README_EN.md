@@ -8,11 +8,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1788. Maximize the Beauty of the Garden 🔒](https://leetcode.com/problems/maximize-the-beauty-of-the-garden)
 
 [中文文档](/solution/1700-1799/1788.Maximize%20the%20Beauty%20of%20the%20Garden/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a garden of <code>n</code> flowers, and each flower has an integer beauty value. The flowers are arranged in a line. You are given an integer array <code>flowers</code> of size <code>n</code> and each <code>flowers[i]</code> represents the beauty of the <code>i<sup>th</sup></code> flower.</p>
 
@@ -80,7 +84,11 @@ tags:
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Prefix Sum
 
@@ -91,6 +99,8 @@ After traversing all the aesthetic values, we can get the answer.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of flowers.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +116,8 @@ class Solution:
             s[i + 1] = s[i] + max(v, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -150,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumBeauty(flowers []int) int {
 	n := len(flowers)
@@ -167,6 +183,8 @@ func maximumBeauty(flowers []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumBeauty(flowers: number[]): number {
@@ -186,6 +204,8 @@ function maximumBeauty(flowers: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -212,4 +232,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

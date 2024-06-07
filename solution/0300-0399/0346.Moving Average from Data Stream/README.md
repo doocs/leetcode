@@ -9,13 +9,15 @@ tags:
     - 数据流
 ---
 
+<!-- problem:start -->
+
 # [346. 数据流中的移动平均值 🔒](https://leetcode.cn/problems/moving-average-from-data-stream)
 
 [English Version](/solution/0300-0399/0346.Moving%20Average%20from%20Data%20Stream/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数据流和一个窗口大小，根据该滑动窗口的大小，计算其所有整数的移动平均值。</p>
 
@@ -55,11 +57,17 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 	<li>最多调用 <code>next</code> 方法 <code>10<sup>4</sup></code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：循环数组
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MovingAverage:
@@ -80,6 +88,8 @@ class MovingAverage:
 # obj = MovingAverage(size)
 # param_1 = obj.next(val)
 ```
+
+#### Java
 
 ```java
 class MovingAverage {
@@ -106,6 +116,8 @@ class MovingAverage {
  * double param_1 = obj.next(val);
  */
 ```
+
+#### C++
 
 ```cpp
 class MovingAverage {
@@ -134,6 +146,8 @@ private:
  * double param_1 = obj->next(val);
  */
 ```
+
+#### Go
 
 ```go
 type MovingAverage struct {
@@ -164,9 +178,15 @@ func (this *MovingAverage) Next(val int) float64 {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：队列
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MovingAverage:
@@ -187,6 +207,8 @@ class MovingAverage:
 # obj = MovingAverage(size)
 # param_1 = obj.next(val)
 ```
+
+#### Java
 
 ```java
 class MovingAverage {
@@ -214,6 +236,8 @@ class MovingAverage {
  * double param_1 = obj.next(val);
  */
 ```
+
+#### C++
 
 ```cpp
 class MovingAverage {
@@ -245,6 +269,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MovingAverage struct {
 	q []int
@@ -275,4 +301,6 @@ func (this *MovingAverage) Next(val int) float64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

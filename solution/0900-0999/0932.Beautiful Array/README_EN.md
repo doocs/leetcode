@@ -8,11 +8,15 @@ tags:
     - Divide and Conquer
 ---
 
+<!-- problem:start -->
+
 # [932. Beautiful Array](https://leetcode.com/problems/beautiful-array)
 
 [中文文档](/solution/0900-0999/0932.Beautiful%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An array <code>nums</code> of length <code>n</code> is <strong>beautiful</strong> if:</p>
 
@@ -38,11 +42,17 @@ tags:
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -55,6 +65,8 @@ class Solution:
         right = [x * 2 for x in right]
         return left + right
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +89,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -92,6 +106,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func beautifulArray(n int) []int {
@@ -113,4 +129,6 @@ func beautifulArray(n int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [660. Remove 9 🔒](https://leetcode.com/problems/remove-9)
 
 [中文文档](/solution/0600-0699/0660.Remove%209/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Start from integer <code>1</code>, remove any integer that contains <code>9</code> such as <code>9</code>, <code>19</code>, <code>29</code>...</p>
 
@@ -40,6 +44,42 @@ tags:
 	<li><code>1 &lt;= n &lt;= 8 * 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

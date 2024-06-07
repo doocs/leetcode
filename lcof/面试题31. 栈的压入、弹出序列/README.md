@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9831.%20%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 31. 栈的压入、弹出序列](https://leetcode.cn/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如，序列 {1,2,3,4,5} 是某栈的压栈序列，序列 {4,5,3,2,1} 是该压栈序列对应的一个弹出序列，但 {4,3,5,1,2} 就不可能是该压栈序列的弹出序列。</p>
 
@@ -42,7 +44,11 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 
 <p>注意：本题与主站 946 题相同：<a href="https://leetcode.cn/problems/validate-stack-sequences/">https://leetcode.cn/problems/validate-stack-sequences/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈模拟
 
@@ -53,6 +59,8 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是 `pushed` 序列的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +73,8 @@ class Solution:
                 j += 1
         return j == len(pushed)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validateStackSequences(pushed []int, popped []int) bool {
 	stk := []int{}
@@ -116,6 +130,8 @@ func validateStackSequences(pushed []int, popped []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function validateStackSequences(pushed: number[], popped: number[]): boolean {
     const stk = [];
@@ -130,6 +146,8 @@ function validateStackSequences(pushed: number[], popped: number[]): boolean {
     return j == pushed.length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -147,6 +165,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -168,6 +188,8 @@ var validateStackSequences = function (pushed, popped) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool ValidateStackSequences(int[] pushed, int[] popped) {
@@ -186,6 +208,29 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func validateStackSequences(_ pushed: [Int], _ popped: [Int]) -> Bool {
+        var stack = [Int]()
+        var j = 0
+
+        for v in pushed {
+            stack.append(v)
+            while !stack.isEmpty && stack.last == popped[j] {
+                stack.removeLast()
+                j += 1
+            }
+        }
+
+        return j == pushed.count
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

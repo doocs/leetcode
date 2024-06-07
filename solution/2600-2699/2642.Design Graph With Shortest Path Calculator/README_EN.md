@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README_EN.md
 rating: 1810
+source: Biweekly Contest 102 Q4
 tags:
     - Graph
     - Design
@@ -10,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2642. Design Graph With Shortest Path Calculator](https://leetcode.com/problems/design-graph-with-shortest-path-calculator)
 
 [中文文档](/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a <strong>directed weighted</strong> graph that consists of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>. The edges of the graph are initially represented by the given array <code>edges</code> where <code>edges[i] = [from<sub>i</sub>, to<sub>i</sub>, edgeCost<sub>i</sub>]</code> meaning that there is an edge from <code>from<sub>i</sub></code> to <code>to<sub>i</sub></code> with the cost <code>edgeCost<sub>i</sub></code>.</p>
 
@@ -59,7 +64,11 @@ g.shortestPath(0, 3); // return 6. The shortest path from 0 to 3 now is 0 -&gt; 
 	<li>At most <code>100</code> calls will be made for <code>shortestPath</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dijsktra's Algorithm
 
@@ -72,6 +81,8 @@ In the `shortestPath` function, we use Dijsktra's algorithm to find the shortest
 The time complexity is $O(n^2 \times q)$, and the space complexity is $O(n^2)$. Where $n$ is the number of nodes, and $q$ is the number of calls to the `shortestPath` function.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Graph:
@@ -105,6 +116,8 @@ class Graph:
 # obj.addEdge(edge)
 # param_2 = obj.shortestPath(node1,node2)
 ```
+
+#### Java
 
 ```java
 class Graph {
@@ -158,6 +171,8 @@ class Graph {
  */
 ```
 
+#### C++
+
 ```cpp
 class Graph {
 public:
@@ -207,6 +222,8 @@ private:
  * int param_2 = obj->shortestPath(node1,node2);
  */
 ```
+
+#### Go
 
 ```go
 const inf = 1 << 29
@@ -269,6 +286,8 @@ func (this *Graph) ShortestPath(node1 int, node2 int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class Graph {
     private g: number[][] = [];
@@ -314,6 +333,8 @@ class Graph {
  * var param_2 = obj.shortestPath(node1,node2)
  */
 ```
+
+#### C#
 
 ```cs
 public class Graph {
@@ -371,4 +392,6 @@ public class Graph {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

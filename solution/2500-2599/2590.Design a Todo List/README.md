@@ -10,13 +10,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2590. 设计一个待办事项清单 🔒](https://leetcode.cn/problems/design-a-todo-list)
 
 [English Version](/solution/2500-2599/2590.Design%20a%20Todo%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个待办事项清单，用户可以添加 <strong>任务</strong> ，标记任务为 <strong>完成状态</strong> ，或获取待办任务列表。用户还可以为任务添加 <strong>标签</strong> ，并可以按照特定标签筛选任务。</p>
 
@@ -71,7 +73,11 @@ todoList.getAllTasks(1); // 返回["Task3", "Task1"]。用户1现在有两个未
 	<li>每个方法最多被调用 <code>100</code> 次。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 有序集合
 
@@ -88,6 +94,8 @@ todoList.getAllTasks(1); // 返回["Task3", "Task1"]。用户1现在有两个未
 空间复杂度 $O(n)$。其中 $n$ 为所有任务的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -126,6 +134,8 @@ class TodoList:
 # param_3 = obj.getTasksForTag(userId,tag)
 # obj.completeTask(userId,taskId)
 ```
+
+#### Java
 
 ```java
 class Task {
@@ -202,6 +212,8 @@ class TodoList {
  * obj.completeTask(userId,taskId);
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::{ HashMap, HashSet };
@@ -319,4 +331,6 @@ impl TodoList {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

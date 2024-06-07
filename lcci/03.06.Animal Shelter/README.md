@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.06.Animal%20Shelter/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 03.06. 动物收容所](https://leetcode.cn/problems/animal-shelter-lcci)
 
 [English Version](/lcci/03.06.Animal%20Shelter/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>动物收容所。有家动物收容所只收容狗与猫，且严格遵守&ldquo;先进先出&rdquo;的原则。在收养该收容所的动物时，收养人只能收养所有动物中&ldquo;最老&rdquo;（由其进入收容所的时间长短而定）的动物，或者可以挑选猫或狗（同时必须收养此类动物中&ldquo;最老&rdquo;的）。换言之，收养人不能自由挑选想收养的对象。请创建适用于这个系统的数据结构，实现各种操作方法，比如<code>enqueue</code>、<code>dequeueAny</code>、<code>dequeueDog</code>和<code>dequeueCat</code>。允许使用Java内置的LinkedList数据结构。</p>
 
 <p><code>enqueue</code>方法有一个<code>animal</code>参数，<code>animal[0]</code>代表动物编号，<code>animal[1]</code>代表动物种类，其中 0 代表猫，1 代表狗。</p>
@@ -41,7 +44,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.06.Animal%20Shelte
 	<li>收纳所的最大容量为20000</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组嵌套队列
 
@@ -58,6 +65,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.06.Animal%20Shelte
 以上操作的时间复杂度均为 $O(1)$，空间复杂度为 $O(n)$，其中 $n$ 为动物收容所中动物的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class AnimalShelf:
@@ -88,6 +97,8 @@ class AnimalShelf:
 # param_3 = obj.dequeueDog()
 # param_4 = obj.dequeueCat()
 ```
+
+#### Java
 
 ```java
 class AnimalShelf {
@@ -126,6 +137,8 @@ class AnimalShelf {
  * int[] param_4 = obj.dequeueCat();
  */
 ```
+
+#### C++
 
 ```cpp
 class AnimalShelf {
@@ -176,6 +189,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type AnimalShelf struct {
 	q [2][]int
@@ -224,6 +239,8 @@ func (this *AnimalShelf) DequeueCat() []int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class AnimalShelf {
     private q: number[][] = [[], []];
@@ -265,6 +282,8 @@ class AnimalShelf {
  * var param_4 = obj.dequeueCat()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -322,6 +341,8 @@ impl AnimalShelf {
  */
 ```
 
+#### Swift
+
 ```swift
 class AnimalShelf {
     private var q: [[Int]] = Array(repeating: [], count: 2)
@@ -361,4 +382,6 @@ class AnimalShelf {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

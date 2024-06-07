@@ -7,11 +7,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [153. Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array)
 
 [中文文档](/solution/0100-0199/0153.Find%20Minimum%20in%20Rotated%20Sorted%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Suppose an array of length <code>n</code> sorted in ascending order is <strong>rotated</strong> between <code>1</code> and <code>n</code> times. For example, the array <code>nums = [0,1,2,4,5,6,7]</code> might become:</p>
 
@@ -62,11 +66,17 @@ tags:
 	<li><code>nums</code> is sorted and rotated between <code>1</code> and <code>n</code> times.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +92,8 @@ class Solution:
                 right = mid
         return nums[left]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMin(nums []int) int {
@@ -142,6 +158,8 @@ func findMin(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMin(nums: number[]): number {
     let left = 0;
@@ -157,6 +175,8 @@ function findMin(nums: number[]): number {
     return nums[left];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,6 +195,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -196,4 +218,6 @@ var findMin = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

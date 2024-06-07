@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README.md
 rating: 1916
+source: 第 136 场周赛 Q3
 tags:
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [1043. 分隔数组以得到最大和](https://leetcode.cn/problems/partition-array-for-maximum-sum)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>arr</code>，请你将该数组分隔为长度 <strong>最多 </strong>为 k 的一些（连续）子数组。分隔完成后，每个子数组的中的所有值都会变为该子数组中的最大值。</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= arr.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -73,6 +80,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSumAfterPartitioning(self, arr: List[int], k: int) -> int:
@@ -85,6 +94,8 @@ class Solution:
                 f[i] = max(f[i], f[j - 1] + mx * (i - j + 1))
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSumAfterPartitioning(arr []int, k int) int {
 	n := len(arr)
@@ -136,6 +151,8 @@ func maxSumAfterPartitioning(arr []int, k int) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSumAfterPartitioning(arr: number[], k: number): number {
@@ -154,4 +171,6 @@ function maxSumAfterPartitioning(arr: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

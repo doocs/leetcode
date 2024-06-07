@@ -8,11 +8,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2921. Maximum Profitable Triplets With Increasing Prices II 🔒](https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-ii)
 
 [中文文档](/solution/2900-2999/2921.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <strong>0-indexed</strong> arrays <code>prices</code> and <code>profits</code> of length <code>n</code>. There are <code>n</code> items in an store where the <code>i<sup>th</sup></code> item has a price of <code>prices[i]</code> and a profit of <code>profits[i]</code>.</p>
 
@@ -62,7 +66,11 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 	<li><code>1 &lt;= profits[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
 
@@ -71,6 +79,8 @@ We can use two Binary Indexed Trees (BITs) to maintain the maximum profit on the
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array $prices$, and $M$ is the maximum value in the array $prices$. In this problem, $M \le 5000$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -113,6 +123,8 @@ class Solution:
             (l + x + r for l, x, r in zip(left, profits, right) if l and r), default=-1
         )
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -173,6 +185,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -231,6 +245,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -291,6 +307,8 @@ func maxProfit(prices []int, profits []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class BinaryIndexedTree {
     private n: number;
@@ -350,6 +368,8 @@ function maxProfit(prices: number[], profits: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 struct BinaryIndexedTree {
@@ -420,4 +440,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

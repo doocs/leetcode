@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README.md
 rating: 2588
+source: 第 327 场周赛 Q4
 tags:
     - 数组
     - 模拟
     - 堆（优先队列）
 ---
+
+<!-- problem:start -->
 
 # [2532. 过桥的时间](https://leetcode.cn/problems/time-to-cross-a-bridge)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>共有 <code>k</code> 位工人计划将 <code>n</code> 个箱子从旧仓库移动到新仓库。给你两个整数 <code>n</code> 和 <code>k</code>，以及一个二维整数数组 <code>time</code> ，数组的大小为 <code>k x 4</code> ，其中 <code>time[i] = [leftToRight<sub>i</sub>, pickOld<sub>i</sub>, rightToLeft<sub>i</sub>, putNew<sub>i</sub>]</code> 。</p>
 
@@ -92,7 +95,11 @@ tags:
 	<li><code>1 &lt;= leftToRight<sub>i</sub>, pickOld<sub>i</sub>, rightToLeft<sub>i</sub>, putNew<sub>i</sub> &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（大小根堆） + 模拟
 
@@ -120,6 +127,8 @@ tags:
 时间复杂度 $O(n \times \log k)$，空间复杂度 $O(k)$。其中 $n$ 和 $k$ 分别为工人数量和箱子数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -165,6 +174,8 @@ class Solution:
                 n -= 1
                 heappush(work_in_right, (cur + time[i][1], i))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -231,6 +242,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -299,6 +312,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findCrossingTime(n int, k int, time [][]int) int {
@@ -376,4 +391,6 @@ func (h *hp2) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1];
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

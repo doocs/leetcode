@@ -7,13 +7,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [657. 机器人能否返回原点](https://leetcode.cn/problems/robot-return-to-origin)
 
 [English Version](/solution/0600-0699/0657.Robot%20Return%20to%20Origin/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在二维平面上，有一个机器人从原点 <code>(0, 0)</code> 开始。给出它的移动顺序，判断这个机器人在完成移动后是否在<strong>&nbsp;<code>(0, 0)</code> 处结束</strong>。</p>
 
@@ -48,11 +50,17 @@ tags:
 	<li><code>moves</code>&nbsp;只包含字符&nbsp;<code>'U'</code>,&nbsp;<code>'D'</code>,&nbsp;<code>'L'</code>&nbsp;和&nbsp;<code>'R'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +77,8 @@ class Solution:
                 y -= 1
         return x == 0 and y == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 function judgeCircle(moves: string): boolean {
@@ -111,4 +123,6 @@ function judgeCircle(moves: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

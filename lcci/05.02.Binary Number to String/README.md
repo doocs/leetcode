@@ -3,13 +3,15 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.02.Binary%20Number%20to%20String/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 05.02. 二进制数转字符串](https://leetcode.cn/problems/binary-number-to-string-lcci)
 
 [English Version](/lcci/05.02.Binary%20Number%20to%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>二进制数转字符串。给定一个介于0和1之间的实数（如0.72），类型为double，打印它的二进制表达式。如果该数字不在0和1之间，<strong>或者</strong>无法精确地用32位以内的二进制表示，则打印&ldquo;ERROR&rdquo;。</p>
 <p><strong>示例1:</strong></p>
@@ -26,7 +28,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.02.Binary%20Number
 	<li>32位包括输出中的&quot;0.&quot;这两位。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：十进制小数转二进制小数
 
@@ -53,6 +59,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def printBin(self, num: float) -> str:
@@ -64,6 +72,8 @@ class Solution:
             num -= x
         return 'ERROR' if num else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +108,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func printBin(num float64) string {
 	ans := &strings.Builder{}
@@ -112,6 +126,8 @@ func printBin(num float64) string {
 	return ans.String()
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -133,4 +149,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

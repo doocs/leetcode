@@ -7,13 +7,15 @@ tags:
     - 分治
 ---
 
+<!-- problem:start -->
+
 # [191. 位 1 的个数](https://leetcode.cn/problems/number-of-1-bits)
 
 [English Version](/solution/0100-0199/0191.Number%20of%201%20Bits/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中 <span data-keyword="set-bit">设置位</span> 的个数（也被称为<a href="https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E9%87%8D%E9%87%8F" target="_blank">汉明重量</a>）。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li>如果多次调用这个函数，你将如何优化你的算法？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -90,6 +96,8 @@ HAMMING-WEIGHT(n)
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hammingWeight(self, n: int) -> int:
@@ -99,6 +107,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -114,6 +124,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hammingWeight(num uint32) int {
 	ans := 0
@@ -138,6 +152,8 @@ func hammingWeight(num uint32) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hammingWeight(n: number): number {
@@ -150,6 +166,8 @@ function hammingWeight(n: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn hammingWeight(n: u32) -> i32 {
@@ -157,6 +175,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -173,6 +193,8 @@ var hammingWeight = function (n) {
 };
 ```
 
+#### C
+
 ```c
 int hammingWeight(uint32_t n) {
     int ans = 0;
@@ -186,6 +208,10 @@ int hammingWeight(uint32_t n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：lowbit
 
 `x -= (x & -x)` 可以消除二进制形式的最后一位 1。
@@ -193,6 +219,8 @@ int hammingWeight(uint32_t n) {
 同 [剑指 Offer 15. 二进制中 1 的个数](https://github.com/doocs/leetcode/blob/main/lcof/面试题15.%20二进制中1的个数/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -203,6 +231,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -218,6 +248,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -232,6 +264,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hammingWeight(num uint32) int {
 	ans := 0
@@ -242,6 +276,8 @@ func hammingWeight(num uint32) int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -258,4 +294,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

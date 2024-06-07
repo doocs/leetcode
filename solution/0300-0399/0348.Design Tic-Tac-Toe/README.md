@@ -10,13 +10,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [348. 设计井字棋 🔒](https://leetcode.cn/problems/design-tic-tac-toe)
 
 [English Version](/solution/0300-0399/0348.Design%20Tic-Tac-Toe/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请在 n &times;&nbsp;n 的棋盘上，实现一个判定井字棋（Tic-Tac-Toe）胜负的神器，判断每一次玩家落子后，是否有胜出的玩家。</p>
 
@@ -77,45 +79,41 @@ toe.move(2, 1, 1); -&gt; 函数返回 1 (此时，玩家 1 赢得了该场比赛
 <p><strong>进阶:</strong><br>
 您有没有可能将每一步的&nbsp;<code>move()</code>&nbsp;操作优化到比&nbsp;O(<em>n</em><sup>2</sup>) 更快吗?</p>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：计数
+
+我们可以使用一个长度为 $n \times 2 + 2$ 的数组来记录每个玩家在每一行、每一列、两条对角线上的棋子数。我们需要两个这样的数组，分别记录两个玩家的棋子数。
+
+当一个玩家在某一行、某一列、某一对角线上的棋子数等于 $n$ 时，该玩家获胜。
+
+时间复杂度方面，每次落子的时间复杂度为 $O(1)$。空间复杂度为 $O(n)$，其中 $n$ 为棋盘的边长。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class TicTacToe:
+
     def __init__(self, n: int):
-        """
-        Initialize your data structure here.
-        """
         self.n = n
-        self.counter = [[0] * ((n << 1) + 2) for _ in range(2)]
+        self.cnt = [defaultdict(int), defaultdict(int)]
 
     def move(self, row: int, col: int, player: int) -> int:
-        """
-        Player {player} makes a move at ({row}, {col}).
-        @param row The row of the board.
-        @param col The column of the board.
-        @param player The player, can be either 1 or 2.
-        @return The current winning condition, can be either:
-                0: No one wins.
-                1: Player 1 wins.
-                2: Player 2 wins.
-        """
+        cur = self.cnt[player - 1]
         n = self.n
-        self.counter[player - 1][row] += 1
-        self.counter[player - 1][col + n] += 1
+        cur[row] += 1
+        cur[n + col] += 1
         if row == col:
-            self.counter[player - 1][n << 1] += 1
+            cur[n << 1] += 1
         if row + col == n - 1:
-            self.counter[player - 1][(n << 1) + 1] += 1
-        if (
-            self.counter[player - 1][row] == n
-            or self.counter[player - 1][col + n] == n
-            or self.counter[player - 1][n << 1] == n
-            or self.counter[player - 1][(n << 1) + 1] == n
-        ):
+            cur[n << 1 | 1] += 1
+        if any(cur[i] == n for i in (row, n + col, n << 1, n << 1 | 1)):
             return player
         return 0
 
@@ -125,38 +123,29 @@ class TicTacToe:
 # param_1 = obj.move(row,col,player)
 ```
 
+#### Java
+
 ```java
 class TicTacToe {
     private int n;
-    private int[][] counter;
+    private int[][] cnt;
 
-    /** Initialize your data structure here. */
     public TicTacToe(int n) {
-        counter = new int[2][(n << 1) + 2];
         this.n = n;
+        cnt = new int[2][(n << 1) + 2];
     }
 
-    /**
-       Player {player} makes a move at ({row}, {col}).
-        @param row The row of the board.
-        @param col The column of the board.
-        @param player The player, can be either 1 or 2.
-        @return The current winning condition, can be either:
-                0: No one wins.
-                1: Player 1 wins.
-                2: Player 2 wins.
-     */
     public int move(int row, int col, int player) {
-        counter[player - 1][row] += 1;
-        counter[player - 1][col + n] += 1;
+        int[] cur = cnt[player - 1];
+        ++cur[row];
+        ++cur[n + col];
         if (row == col) {
-            counter[player - 1][n << 1] += 1;
+            ++cur[n << 1];
         }
         if (row + col == n - 1) {
-            counter[player - 1][(n << 1) + 1] += 1;
+            ++cur[n << 1 | 1];
         }
-        if (counter[player - 1][row] == n || counter[player - 1][col + n] == n
-            || counter[player - 1][n << 1] == n || counter[player - 1][(n << 1) + 1] == n) {
+        if (cur[row] == n || cur[n + col] == n || cur[n << 1] == n || cur[n << 1 | 1] == n) {
             return player;
         }
         return 0;
@@ -170,6 +159,126 @@ class TicTacToe {
  */
 ```
 
+#### C++
+
+```cpp
+class TicTacToe {
+private:
+    int n;
+    vector<vector<int>> cnt;
+
+public:
+    TicTacToe(int n)
+        : n(n)
+        , cnt(2, vector<int>((n << 1) + 2, 0)) {
+    }
+
+    int move(int row, int col, int player) {
+        vector<int>& cur = cnt[player - 1];
+        ++cur[row];
+        ++cur[n + col];
+        if (row == col) {
+            ++cur[n << 1];
+        }
+        if (row + col == n - 1) {
+            ++cur[n << 1 | 1];
+        }
+        if (cur[row] == n || cur[n + col] == n || cur[n << 1] == n || cur[n << 1 | 1] == n) {
+            return player;
+        }
+        return 0;
+    }
+};
+
+/**
+ * Your TicTacToe object will be instantiated and called as such:
+ * TicTacToe* obj = new TicTacToe(n);
+ * int param_1 = obj->move(row,col,player);
+ */
+```
+
+#### Go
+
+```go
+type TicTacToe struct {
+	n   int
+	cnt [][]int
+}
+
+func Constructor(n int) TicTacToe {
+	cnt := make([][]int, 2)
+	for i := range cnt {
+		cnt[i] = make([]int, (n<<1)+2)
+	}
+	return TicTacToe{n, cnt}
+}
+
+func (this *TicTacToe) Move(row int, col int, player int) int {
+	cur := this.cnt[player-1]
+	cur[row]++
+	cur[this.n+col]++
+	if row == col {
+		cur[this.n<<1]++
+	}
+	if row+col == this.n-1 {
+		cur[this.n<<1|1]++
+	}
+	if cur[row] == this.n || cur[this.n+col] == this.n || cur[this.n<<1] == this.n || cur[this.n<<1|1] == this.n {
+		return player
+	}
+	return 0
+}
+
+/**
+ * Your TicTacToe object will be instantiated and called as such:
+ * obj := Constructor(n);
+ * param_1 := obj.Move(row,col,player);
+ */
+```
+
+#### TypeScript
+
+```ts
+class TicTacToe {
+    private n: number;
+    private cnt: number[][];
+
+    constructor(n: number) {
+        this.n = n;
+        this.cnt = [Array((n << 1) + 2).fill(0), Array((n << 1) + 2).fill(0)];
+    }
+
+    move(row: number, col: number, player: number): number {
+        const cur = this.cnt[player - 1];
+        cur[row]++;
+        cur[this.n + col]++;
+        if (row === col) {
+            cur[this.n << 1]++;
+        }
+        if (row + col === this.n - 1) {
+            cur[(this.n << 1) | 1]++;
+        }
+        if (
+            cur[row] === this.n ||
+            cur[this.n + col] === this.n ||
+            cur[this.n << 1] === this.n ||
+            cur[(this.n << 1) | 1] === this.n
+        ) {
+            return player;
+        }
+        return 0;
+    }
+}
+
+/**
+ * Your TicTacToe object will be instantiated and called as such:
+ * var obj = new TicTacToe(n)
+ * var param_1 = obj.move(row,col,player)
+ */
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

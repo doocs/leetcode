@@ -7,13 +7,15 @@ tags:
     - 字典树
 ---
 
+<!-- problem:start -->
+
 # [386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers)
 
 [English Version](/solution/0300-0399/0386.Lexicographical%20Numbers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，按字典序返回范围 <code>[1, n]</code> 内所有整数。</p>
 
@@ -43,142 +45,44 @@ tags:
 	<li><code>1 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一：DFS
+<!-- solution:start -->
+
+### 方法一：迭代
+
+我们首先定义一个变量 $v$，初始时 $v = 1$。然后我们从 $1$ 开始迭代，每次迭代都将 $v$ 添加到答案数组中。然后，如果 $v \times 10 \leq n$，我们将 $v$ 更新为 $v \times 10$；否则，如果 $v \bmod 10 = 9$ 或者 $v + 1 > n$，我们就循环将 $v$ 除以 $10$。循环结束后，我们将 $v$ 加一。继续迭代，直到我们添加了 $n$ 个数到答案数组中。
+
+时间复杂度 $O(n)$，其中 $n$ 是给定的整数 $n$。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def lexicalOrder(self, n: int) -> List[int]:
-        def dfs(u):
-            if u > n:
-                return
-            ans.append(u)
-            for i in range(10):
-                dfs(u * 10 + i)
-
         ans = []
-        for i in range(1, 10):
-            dfs(i)
+        v = 1
+        for _ in range(n):
+            ans.append(v)
+            if v * 10 <= n:
+                v *= 10
+            else:
+                while v % 10 == 9 or v + 1 > n:
+                    v //= 10
+                v += 1
         return ans
 ```
 
-```java
-class Solution {
-    public List<Integer> lexicalOrder(int n) {
-        List<Integer> ans = new ArrayList<>();
-        for (int i = 1; i < 10; ++i) {
-            dfs(i, n, ans);
-        }
-        return ans;
-    }
-
-    private void dfs(int u, int n, List<Integer> ans) {
-        if (u > n) {
-            return;
-        }
-        ans.add(u);
-        for (int i = 0; i < 10; ++i) {
-            dfs(u * 10 + i, n, ans);
-        }
-    }
-}
-```
-
-```cpp
-class Solution {
-public:
-    vector<int> lexicalOrder(int n) {
-        vector<int> ans;
-        for (int i = 1; i < 10; ++i) dfs(i, n, ans);
-        return ans;
-    }
-
-    void dfs(int u, int n, vector<int>& ans) {
-        if (u > n) return;
-        ans.push_back(u);
-        for (int i = 0; i < 10; ++i) dfs(u * 10 + i, n, ans);
-    }
-};
-```
-
-```go
-func lexicalOrder(n int) []int {
-	var ans []int
-	var dfs func(u int)
-	dfs = func(u int) {
-		if u > n {
-			return
-		}
-		ans = append(ans, u)
-		for i := 0; i < 10; i++ {
-			dfs(u*10 + i)
-		}
-	}
-	for i := 1; i < 10; i++ {
-		dfs(i)
-	}
-	return ans
-}
-```
-
-```rust
-impl Solution {
-    fn dfs(mut num: i32, n: i32, res: &mut Vec<i32>) {
-        if num > n {
-            return;
-        }
-        res.push(num);
-        for i in 0..10 {
-            Self::dfs(num * 10 + i, n, res);
-        }
-    }
-
-    pub fn lexical_order(n: i32) -> Vec<i32> {
-        let mut res = vec![];
-        for i in 1..10 {
-            Self::dfs(i, n, &mut res);
-        }
-        res
-    }
-}
-```
-
-```js
-/**
- * @param {number} n
- * @return {number[]}
- */
-var lexicalOrder = function (n) {
-    let ans = [];
-    function dfs(u) {
-        if (u > n) {
-            return;
-        }
-        ans.push(u);
-        for (let i = 0; i < 10; ++i) {
-            dfs(u * 10 + i);
-        }
-    }
-    for (let i = 1; i < 10; ++i) {
-        dfs(i);
-    }
-    return ans;
-};
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
+#### Java
 
 ```java
 class Solution {
     public List<Integer> lexicalOrder(int n) {
-        List<Integer> ans = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>(n);
         int v = 1;
         for (int i = 0; i < n; ++i) {
             ans.add(v);
@@ -196,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -204,10 +110,12 @@ public:
         int v = 1;
         for (int i = 0; i < n; ++i) {
             ans.push_back(v);
-            if (v * 10 <= n)
+            if (v * 10 <= n) {
                 v *= 10;
-            else {
-                while (v % 10 == 9 || v + 1 > n) v /= 10;
+            } else {
+                while (v % 10 == 9 || v + 1 > n) {
+                    v /= 10;
+                }
                 ++v;
             }
         }
@@ -216,9 +124,10 @@ public:
 };
 ```
 
+#### Go
+
 ```go
-func lexicalOrder(n int) []int {
-	var ans []int
+func lexicalOrder(n int) (ans []int) {
 	v := 1
 	for i := 0; i < n; i++ {
 		ans = append(ans, v)
@@ -231,10 +140,81 @@ func lexicalOrder(n int) []int {
 			v++
 		}
 	}
-	return ans
+	return
 }
+```
+
+#### TypeScript
+
+```ts
+function lexicalOrder(n: number): number[] {
+    const ans: number[] = [];
+    let v = 1;
+    for (let i = 0; i < n; ++i) {
+        ans.push(v);
+        if (v * 10 <= n) {
+            v *= 10;
+        } else {
+            while (v % 10 === 9 || v === n) {
+                v = Math.floor(v / 10);
+            }
+            ++v;
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn lexical_order(n: i32) -> Vec<i32> {
+        let mut ans = Vec::with_capacity(n as usize);
+        let mut v = 1;
+        for _ in 0..n {
+            ans.push(v);
+            if v * 10 <= n {
+                v *= 10;
+            } else {
+                while v % 10 == 9 || v + 1 > n {
+                    v /= 10;
+                }
+                v += 1;
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @return {number[]}
+ */
+var lexicalOrder = function (n) {
+    const ans = [];
+    let v = 1;
+    for (let i = 0; i < n; ++i) {
+        ans.push(v);
+        if (v * 10 <= n) {
+            v *= 10;
+        } else {
+            while (v % 10 === 9 || v === n) {
+                v = Math.floor(v / 10);
+            }
+            ++v;
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

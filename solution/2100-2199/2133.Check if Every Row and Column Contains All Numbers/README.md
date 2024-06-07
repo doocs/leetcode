@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2133.Check%20if%20Every%20Row%20and%20Column%20Contains%20All%20Numbers/README.md
 rating: 1264
+source: 第 275 场周赛 Q1
 tags:
     - 数组
     - 哈希表
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [2133. 检查是否每一行每一列都包含全部整数](https://leetcode.cn/problems/check-if-every-row-and-column-contains-all-numbers)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>对一个大小为 <code>n x n</code> 的矩阵而言，如果其每一行和每一列都包含从 <code>1</code> 到 <code>n</code> 的 <strong>全部</strong> 整数（含 <code>1</code> 和 <code>n</code>），则认为该矩阵是一个 <strong>有效</strong> 矩阵。</p>
 
@@ -55,11 +58,17 @@ tags:
 	<li><code>1 &lt;= matrix[i][j] &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +90,8 @@ class Solution:
                 seen[v] = True
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkValid(matrix [][]int) bool {
@@ -164,6 +179,8 @@ func checkValid(matrix [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkValid(matrix: number[][]): boolean {
     const n = matrix.length;
@@ -183,4 +200,6 @@ function checkValid(matrix: number[][]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

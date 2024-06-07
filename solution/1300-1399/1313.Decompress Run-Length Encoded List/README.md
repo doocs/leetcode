@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1313.Decompress%20Run-Length%20Encoded%20List/README.md
 rating: 1317
+source: 第 17 场双周赛 Q1
 tags:
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [1313. 解压缩编码列表](https://leetcode.cn/problems/decompress-run-length-encoded-list)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个以行程长度编码压缩的整数列表 <code>nums</code> 。</p>
 
@@ -49,11 +52,17 @@ tags:
 	<li><code>1 <= nums[i] <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +72,8 @@ class Solution:
             res.extend([nums[i]] * nums[i - 1])
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +93,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -97,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func decompressRLElist(nums []int) []int {
 	var res []int
@@ -108,6 +123,8 @@ func decompressRLElist(nums []int) []int {
 	return res
 }
 ```
+
+#### TypeScript
 
 ```ts
 function decompressRLElist(nums: number[]): number[] {
@@ -121,6 +138,8 @@ function decompressRLElist(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -136,6 +155,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -159,4 +180,6 @@ int* decompressRLElist(int* nums, int numsSize, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

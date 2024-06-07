@@ -7,13 +7,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [147. 对链表进行插入排序](https://leetcode.cn/problems/insertion-sort-list)
 
 [English Version](/solution/0100-0199/0147.Insertion%20Sort%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定单个链表的头<meta charset="UTF-8" />&nbsp;<code>head</code>&nbsp;，使用 <strong>插入排序</strong> 对链表进行排序，并返回&nbsp;<em>排序后链表的头</em>&nbsp;。</p>
 
@@ -60,11 +62,17 @@ tags:
 	<li><code>-5000 &lt;= Node.val &lt;= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -92,6 +100,8 @@ class Solution:
             cur = t
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -132,6 +142,8 @@ class Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -171,4 +183,6 @@ var insertionSortList = function (head) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

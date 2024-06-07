@@ -10,13 +10,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal)
 
 [English Version](/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个整数数组&nbsp;<code>preorder</code> 和 <code>inorder</code>&nbsp;，其中&nbsp;<code>preorder</code> 是二叉树的<strong>先序遍历</strong>， <code>inorder</code>&nbsp;是同一棵树的<strong>中序遍历</strong>，请构造二叉树并返回其根节点。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>inorder</code>&nbsp;<strong>保证</strong> 为二叉树的中序遍历序列</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 递归
 
@@ -70,6 +76,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -92,6 +100,8 @@ class Solution:
         d = {v: i for i, v in enumerate(inorder)}
         return dfs(0, 0, len(preorder))
 ```
+
+#### Java
 
 ```java
 /**
@@ -135,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -170,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -198,6 +212,8 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 	return dfs(0, 0, len(preorder))
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -233,6 +249,8 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     return dfs(0, 0, n);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -285,6 +303,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -325,6 +345,8 @@ var buildTree = function (preorder, inorder) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getBinaryTrees(self, preOrder: List[int], inOrder: List[int]) -> List[TreeNode]:
@@ -345,6 +367,8 @@ class Solution:
             d[x].append(i)
         return dfs(0, 0, len(preOrder))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -380,6 +404,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -426,6 +452,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getBinaryTrees(preOrder []int, inOrder []int) []*TreeNode {
 	n := len(preOrder)
@@ -460,4 +488,6 @@ func getBinaryTrees(preOrder []int, inOrder []int) []*TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

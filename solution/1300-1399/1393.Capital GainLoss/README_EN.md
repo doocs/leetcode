@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1393. Capital GainLoss](https://leetcode.com/problems/capital-gainloss)
 
 [中文文档](/solution/1300-1399/1393.Capital%20GainLoss/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Stocks</code></p>
 
@@ -73,13 +77,19 @@ Handbags stock was bought at day 17 for 30000$ and was sold at day 29 for 7000$.
 Corona Masks stock was bought at day 1 for 10$ and was sold at day 3 for 1010$. It was bought again at day 4 for 1000$ and was sold at day 5 for 500$. At last, it was bought at day 6 for 1000$ and was sold at day 10 for 10000$. Capital gain/loss is the sum of capital gains/losses for each (&#39;Buy&#39; --&gt; &#39;Sell&#39;) operation = (1010 - 10) + (500 - 1000) + (10000 - 1000) = 1000 - 500 + 9000 = 9500$.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: GROUP BY + SUM(IF())
 
 We use `GROUP BY` to group the buy and sell operations of the same stock, and then use `SUM(IF())` to calculate the capital gains and losses of each stock.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -92,4 +102,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1692. 计算分配糖果的不同方式 🔒](https://leetcode.cn/problems/count-ways-to-distribute-candies)
 
 [English Version](/solution/1600-1699/1692.Count%20Ways%20to%20Distribute%20Candies/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现有 <code>n</code> 颗 <strong>不同</strong> 糖果（分别标记为 <code>1</code> 到 <code>n</code> ）和 <code>k</code> 个相同的手袋。请把糖果分配到各个手袋中并保证每个手袋里至少有一颗糖果。</p>
 
@@ -68,7 +70,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -86,6 +92,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToDistribute(self, n: int, k: int) -> int:
@@ -97,6 +105,8 @@ class Solution:
                 f[i][j] = (f[i - 1][j] * j + f[i - 1][j - 1]) % mod
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToDistribute(n int, k int) int {
 	f := make([][]int, n+1)
@@ -148,6 +162,8 @@ func waysToDistribute(n int, k int) int {
 	return f[n][k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function waysToDistribute(n: number, k: number): number {
@@ -167,4 +183,6 @@ function waysToDistribute(n: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

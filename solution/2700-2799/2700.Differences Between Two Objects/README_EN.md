@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2700. Differences Between Two Objects 🔒](https://leetcode.com/problems/differences-between-two-objects)
 
 [中文文档](/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a function that accepts two deeply nested objects or arrays&nbsp;<code>obj1</code> and&nbsp;<code>obj2</code>&nbsp;and returns a new&nbsp;object representing their differences.</p>
 
@@ -133,11 +137,17 @@ obj2 = { &nbsp;
 	<li><code>2 &lt;= JSON.stringify(obj2).length &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function objDiff(obj1: any, obj2: any): any {
@@ -163,4 +173,6 @@ function isObject(obj: unknown): obj is Record<string, unknown> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

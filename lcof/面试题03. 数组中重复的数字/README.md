@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9803.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 03. 数组中重复的数字](https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>找出数组中重复的数字。</p>
 
@@ -26,7 +30,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p><code>2 &lt;= n &lt;= 100000</code></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -36,6 +44,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRepeatNumber(self, nums: List[int]) -> int:
@@ -43,6 +53,8 @@ class Solution:
             if a == b:
                 return a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -56,6 +68,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -71,6 +85,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findRepeatNumber(nums []int) int {
 	sort.Ints(nums)
@@ -81,6 +97,8 @@ func findRepeatNumber(nums []int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findRepeatNumber(nums: number[]): number {
@@ -95,6 +113,8 @@ function findRepeatNumber(nums: number[]): number {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -112,6 +132,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -131,6 +153,8 @@ var findRepeatNumber = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int FindRepeatNumber(int[] nums) {
@@ -148,6 +172,8 @@ public class Solution {
     }
 }
 ```
+
+#### Kotlin
 
 ```kotlin
 class Solution {
@@ -171,7 +197,27 @@ class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func findRepeatNumber(_ nums: [Int]) -> Int {
+        let sortedNums = nums.sorted()
+        for i in 0..<sortedNums.count - 1 {
+            if sortedNums[i] == sortedNums[i + 1] {
+                return sortedNums[i]
+            }
+        }
+        return -1
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：哈希表
 
@@ -180,6 +226,8 @@ class Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -190,6 +238,8 @@ class Solution:
                 return v
             vis.add(v)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -203,6 +253,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -219,6 +271,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findRepeatNumber(nums []int) int {
 	vis := map[int]bool{}
@@ -233,6 +287,10 @@ func findRepeatNumber(nums []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法三：原地交换
 
 我们可以遍历数组 `nums`，对于遍历到的每个元素 `nums[i]`，判断 `nums[i]` 是否等于 `i`，如果是，则继续遍历下一个元素；如果不是，则将 `nums[i]` 与 `nums[nums[i]]` 进行交换，交换之后，`nums[i]` 的值和下标都发生了改变，如果 `nums[i]` 与 `nums[nums[i]]` 相等，即找到了一个重复的数字，返回该数字即可；如果 `nums[i]` 与 `nums[nums[i]]` 不相等，继续遍历，直到找到一个重复的数字。
@@ -240,6 +298,8 @@ func findRepeatNumber(nums []int) int {
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `nums` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -251,6 +311,8 @@ class Solution:
                 nums[i], nums[v] = nums[v], nums[i]
                 v = nums[i]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -270,6 +332,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -287,6 +351,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findRepeatNumber(nums []int) int {
 	for i := 0; ; i++ {
@@ -303,4 +369,6 @@ func findRepeatNumber(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1749.Maximum%20Absolute%20Sum%20of%20Any%20Subarray/README_EN.md
 rating: 1541
+source: Biweekly Contest 45 Q2
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [1749. Maximum Absolute Sum of Any Subarray](https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray)
 
 [中文文档](/solution/1700-1799/1749.Maximum%20Absolute%20Sum%20of%20Any%20Subarray/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>. The <strong>absolute sum</strong> of a subarray <code>[nums<sub>l</sub>, nums<sub>l+1</sub>, ..., nums<sub>r-1</sub>, nums<sub>r</sub>]</code> is <code>abs(nums<sub>l</sub> + nums<sub>l+1</sub> + ... + nums<sub>r-1</sub> + nums<sub>r</sub>)</code>.</p>
 
@@ -50,7 +55,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -71,6 +80,8 @@ Time complexity $O(n)$, space complexity $O(1)$, where $n$ is the length of the 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxAbsoluteSum(self, nums: List[int]) -> int:
@@ -82,6 +93,8 @@ class Solution:
             ans = max(ans, f, abs(g))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxAbsoluteSum(nums []int) (ans int) {
@@ -133,6 +150,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxAbsoluteSum(nums: number[]): number {
     let f = 0;
@@ -146,6 +165,8 @@ function maxAbsoluteSum(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -165,4 +186,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

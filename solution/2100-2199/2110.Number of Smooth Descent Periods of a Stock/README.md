@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2110.Number%20of%20Smooth%20Descent%20Periods%20of%20a%20Stock/README.md
 rating: 1408
+source: 第 272 场周赛 Q3
 tags:
     - 数组
     - 数学
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2110. 股票平滑下跌阶段的数目](https://leetcode.cn/problems/number-of-smooth-descent-periods-of-a-stock)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>prices</code>&nbsp;，表示一支股票的历史每日股价，其中&nbsp;<code>prices[i]</code>&nbsp;是这支股票第&nbsp;<code>i</code>&nbsp;天的价格。</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>1 &lt;= prices[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -74,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getDescentPeriods(self, prices: List[int]) -> int:
@@ -88,6 +97,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getDescentPeriods(prices []int) (ans int64) {
 	n := len(prices)
@@ -140,6 +155,8 @@ func getDescentPeriods(prices []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getDescentPeriods(prices: number[]): number {
@@ -159,4 +176,6 @@ function getDescentPeriods(prices: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

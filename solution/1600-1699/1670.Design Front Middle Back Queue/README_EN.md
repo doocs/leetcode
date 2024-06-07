@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1670.Design%20Front%20Middle%20Back%20Queue/README_EN.md
 rating: 1610
+source: Biweekly Contest 40 Q3
 tags:
     - Design
     - Queue
@@ -11,11 +12,15 @@ tags:
     - Data Stream
 ---
 
+<!-- problem:start -->
+
 # [1670. Design Front Middle Back Queue](https://leetcode.com/problems/design-front-middle-back-queue)
 
 [中文文档](/solution/1600-1699/1670.Design%20Front%20Middle%20Back%20Queue/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a queue that supports <code>push</code> and <code>pop</code> operations in the front, middle, and back.</p>
 
@@ -69,7 +74,11 @@ q.popFront();     // return -1 -&gt; [] (The queue is empty)
 	<li>At most&nbsp;<code>1000</code>&nbsp;calls will be made to&nbsp;<code>pushFront</code>,&nbsp;<code>pushMiddle</code>,&nbsp;<code>pushBack</code>, <code>popFront</code>, <code>popMiddle</code>, and <code>popBack</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Deques
 
@@ -86,6 +95,8 @@ For the `popBack` function, we only need to check whether $q_2$ is empty. If it 
 The time complexity of the above operations is $O(1)$, and the space complexity is $O(n)$, where $n$ is the number of elements in the queue.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class FrontMiddleBackQueue:
@@ -148,6 +159,8 @@ class FrontMiddleBackQueue:
 # param_5 = obj.popMiddle()
 # param_6 = obj.popBack()
 ```
+
+#### Java
 
 ```java
 class FrontMiddleBackQueue {
@@ -220,6 +233,8 @@ class FrontMiddleBackQueue {
  * int param_6 = obj.popBack();
  */
 ```
+
+#### C++
 
 ```cpp
 class FrontMiddleBackQueue {
@@ -305,6 +320,8 @@ private:
  * int param_6 = obj->popBack();
  */
 ```
+
+#### Go
 
 ```go
 type FrontMiddleBackQueue struct {
@@ -445,6 +462,8 @@ func (q Deque) Get(i int) int {
  * param_6 := obj.PopBack();
  */
 ```
+
+#### TypeScript
 
 ```ts
 class FrontMiddleBackQueue {
@@ -617,6 +636,8 @@ class Deque<T> {
  */
 ```
 
+#### JavaScript
+
 ```js
 class FrontMiddleBackQueue {
     constructor() {
@@ -779,4 +800,6 @@ class Deque {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

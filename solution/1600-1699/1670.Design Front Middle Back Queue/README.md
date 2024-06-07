@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1670.Design%20Front%20Middle%20Back%20Queue/README.md
 rating: 1610
+source: 第 40 场双周赛 Q3
 tags:
     - 设计
     - 队列
@@ -11,13 +12,15 @@ tags:
     - 数据流
 ---
 
+<!-- problem:start -->
+
 # [1670. 设计前中后队列](https://leetcode.cn/problems/design-front-middle-back-queue)
 
 [English Version](/solution/1600-1699/1670.Design%20Front%20Middle%20Back%20Queue/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你设计一个队列，支持在前，中，后三个位置的 <code>push</code> 和 <code>pop</code> 操作。</p>
 
@@ -73,7 +76,11 @@ q.popFront();     // 返回 -1 -> [] （队列为空）
 	<li>最多调用 <code>1000</code> 次 <code>pushFront</code>， <code>pushMiddle</code>， <code>pushBack</code>， <code>popFront</code>， <code>popMiddle</code> 和 <code>popBack</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两个双端队列
 
@@ -90,6 +97,8 @@ q.popFront();     // 返回 -1 -> [] （队列为空）
 以上操作的时间复杂度均为 $O(1)$，空间复杂度为 $O(n)$，其中 $n$ 是队列中的元素数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class FrontMiddleBackQueue:
@@ -152,6 +161,8 @@ class FrontMiddleBackQueue:
 # param_5 = obj.popMiddle()
 # param_6 = obj.popBack()
 ```
+
+#### Java
 
 ```java
 class FrontMiddleBackQueue {
@@ -224,6 +235,8 @@ class FrontMiddleBackQueue {
  * int param_6 = obj.popBack();
  */
 ```
+
+#### C++
 
 ```cpp
 class FrontMiddleBackQueue {
@@ -309,6 +322,8 @@ private:
  * int param_6 = obj->popBack();
  */
 ```
+
+#### Go
 
 ```go
 type FrontMiddleBackQueue struct {
@@ -449,6 +464,8 @@ func (q Deque) Get(i int) int {
  * param_6 := obj.PopBack();
  */
 ```
+
+#### TypeScript
 
 ```ts
 class FrontMiddleBackQueue {
@@ -621,6 +638,8 @@ class Deque<T> {
  */
 ```
 
+#### JavaScript
+
 ```js
 class FrontMiddleBackQueue {
     constructor() {
@@ -783,4 +802,6 @@ class Deque {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

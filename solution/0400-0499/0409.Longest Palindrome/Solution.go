@@ -4,10 +4,10 @@ func longestPalindrome(s string) (ans int) {
 		cnt[c]++
 	}
 	for _, v := range cnt {
-		ans += v - (v & 1)
-		if ans&1 == 0 && v&1 == 1 {
-			ans++
-		}
+		ans += v / 2 * 2
+	}
+	if ans < len(s) {
+		ans++
 	}
 	return
 }

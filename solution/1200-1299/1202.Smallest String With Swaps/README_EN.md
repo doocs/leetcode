@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README_EN.md
 rating: 1855
+source: Weekly Contest 155 Q3
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -13,11 +14,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1202. Smallest String With Swaps](https://leetcode.com/problems/smallest-string-with-swaps)
 
 [中文文档](/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code>, and an array of pairs of indices in the string&nbsp;<code>pairs</code>&nbsp;where&nbsp;<code>pairs[i] =&nbsp;[a, b]</code>&nbsp;indicates 2 indices(0-indexed) of the string.</p>
 
@@ -67,7 +72,11 @@ Swap s[0] and s[1], s = &quot;abc&quot;
 	<li><code>s</code>&nbsp;only contains lower case English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find
 
@@ -78,6 +87,8 @@ Finally, we traverse the string. For the character at the current position, we r
 The time complexity is $O(n \times \log n + m \times \alpha(m))$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the length of the string and the number of index pairs, respectively, and $\alpha$ is the inverse Ackermann function.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +109,8 @@ class Solution:
             d[i].sort(reverse=True)
         return "".join(d[find(i)].pop() for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestStringWithSwaps(s string, pairs [][]int) string {
@@ -208,6 +225,8 @@ func smallestStringWithSwaps(s string, pairs [][]int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function smallestStringWithSwaps(s: string, pairs: number[][]): string {
     const n = s.length;
@@ -235,6 +254,8 @@ function smallestStringWithSwaps(s: string, pairs: number[][]): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -297,4 +318,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

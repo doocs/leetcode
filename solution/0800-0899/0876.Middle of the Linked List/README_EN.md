@@ -7,11 +7,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list)
 
 [中文文档](/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>head</code> of a singly linked list, return <em>the middle node of the linked list</em>.</p>
 
@@ -42,11 +46,17 @@ tags:
 	<li><code>1 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -61,6 +71,8 @@ class Solution:
             slow, fast = slow.next, fast.next.next
         return slow
 ```
+
+#### Java
 
 ```java
 /**
@@ -84,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -109,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -125,6 +141,8 @@ func middleNode(head *ListNode) *ListNode {
 	return slow
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -149,6 +167,8 @@ function middleNode(head: ListNode | null): ListNode | null {
     return slow;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -179,6 +199,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 /**
@@ -214,6 +236,8 @@ class Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for singly-linked list.
@@ -236,4 +260,6 @@ struct ListNode* middleNode(struct ListNode* head) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

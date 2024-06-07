@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1292.Maximum%20Side%20Length%20of%20a%20Square%20with%20Sum%20Less%20than%20or%20Equal%20to%20Threshold/README_EN.md
 rating: 1734
+source: Weekly Contest 167 Q3
 tags:
     - Array
     - Binary Search
@@ -10,11 +11,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1292. Maximum Side Length of a Square with Sum Less than or Equal to Threshold](https://leetcode.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold)
 
 [中文文档](/solution/1200-1299/1292.Maximum%20Side%20Length%20of%20a%20Square%20with%20Sum%20Less%20than%20or%20Equal%20to%20Threshold/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>m x n</code> matrix <code>mat</code> and an integer <code>threshold</code>, return <em>the maximum side-length of a square with a sum less than or equal to </em><code>threshold</code><em> or return </em><code>0</code><em> if there is no such square</em>.</p>
 
@@ -45,11 +50,17 @@ tags:
 	<li><code>0 &lt;= threshold &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +87,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSideLength(mat [][]int, threshold int) int {
 	m, n := len(mat), len(mat[0])
@@ -189,6 +206,8 @@ func maxSideLength(mat [][]int, threshold int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSideLength(mat: number[][], threshold: number): number {
@@ -229,4 +248,6 @@ function maxSideLength(mat: number[][], threshold: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

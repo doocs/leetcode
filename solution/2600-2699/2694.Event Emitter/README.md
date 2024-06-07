@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2694.Event%20Emitter/README.md
 ---
 
+<!-- problem:start -->
+
 # [2694. 事件发射器](https://leetcode.cn/problems/event-emitter)
 
 [English Version](/solution/2600-2699/2694.Event%20Emitter/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个 <code>EventEmitter</code> 类。这个接口与 Node.js 或 DOM 的 Event Target 接口相似，但有一些差异。<code>EventEmitter</code> 应该允许订阅事件和触发事件。</p>
 
@@ -96,11 +98,17 @@ emitter.emit("firstEvent", [5]); // [7]</pre>
 	<li><code>unsubscribe</code> 操作接收一个参数，即之前进行订阅的顺序（从 0 开始）。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 type Callback = (...args: any[]) => any;
@@ -144,4 +152,6 @@ class EventEmitter {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

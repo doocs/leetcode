@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.08.Permutation%20II/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.08. Permutation II](https://leetcode.cn/problems/permutation-ii-lcci)
 
 [中文文档](/lcci/08.08.Permutation%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a method to compute all permutations of a string whose charac&shy; ters are not necessarily unique. The list of permutations should not have duplicates.</p>
 <p><strong>Example1:</strong></p>
@@ -33,7 +37,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.08.Permutation%20I
 	<li><code>1 &lt;= S.length &lt;= 9</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Backtracking
 
@@ -49,6 +57,8 @@ In the main function, we first sort the string, then call $dfs(0)$, that is, sta
 The time complexity is $O(n \times n!)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$. $n!$ enumerations need to be performed, and each enumeration requires $O(n)$ time to determine whether it is repeated. In addition, we need a marker array to mark whether each position has been used, so the space complexity is $O(n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +83,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func permutation(S string) (ans []string) {
 	cs := []byte(S)
@@ -171,6 +187,8 @@ func permutation(S string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function permutation(S: string): string[] {
     const cs: string[] = S.split('').sort();
@@ -198,6 +216,8 @@ function permutation(S: string): string[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -230,6 +250,8 @@ var permutation = function (S) {
     return ans;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -269,4 +291,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

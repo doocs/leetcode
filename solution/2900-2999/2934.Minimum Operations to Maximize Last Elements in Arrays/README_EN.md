@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README_EN.md
 rating: 1802
+source: Weekly Contest 371 Q3
 tags:
     - Array
     - Enumeration
 ---
+
+<!-- problem:start -->
 
 # [2934. Minimum Operations to Maximize Last Elements in Arrays](https://leetcode.com/problems/minimum-operations-to-maximize-last-elements-in-arrays)
 
 [中文文档](/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> integer arrays, <code>nums1</code> and <code>nums2</code>, both having length <code>n</code>.</p>
 
@@ -75,7 +80,11 @@ So, the answer is -1.
 	<li><code>1 &lt;= nums2[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case Discussion + Greedy
 
@@ -91,6 +100,8 @@ We denote the number of swaps in the two cases as $a$ and $b$, respectively. If 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -108,6 +119,8 @@ class Solution:
         a, b = f(nums1[-1], nums2[-1]), f(nums2[-1], nums1[-1])
         return -1 if a + b == -2 else min(a, b + 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(nums1 []int, nums2 []int) int {
 	n := len(nums1)
@@ -184,6 +201,8 @@ func minOperations(nums1 []int, nums2 []int) int {
 	return min(a, b+1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(nums1: number[], nums2: number[]): number {
@@ -209,4 +228,6 @@ function minOperations(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

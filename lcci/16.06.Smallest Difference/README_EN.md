@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.06.Smallest%20Difference/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.06. Smallest Difference](https://leetcode.cn/problems/smallest-difference-lcci)
 
 [中文文档](/lcci/16.06.Smallest%20Difference/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two arrays of integers, compute the pair of values (one value in each array) with the smallest (non-negative) difference. Return the difference.</p>
 
@@ -30,7 +34,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.06.Smallest%20Diff
 	<li>The result is in the range [-2147483648, 2147483647]</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
 
@@ -39,6 +47,8 @@ We can sort the array $b$, and for each element $x$ in array $a$, perform a bina
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of array $b$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -54,6 +64,8 @@ class Solution:
                 ans = min(ans, x - b[j - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestDifference(a []int, b []int) int {
 	sort.Ints(b)
@@ -123,6 +139,8 @@ func smallestDifference(a []int, b []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestDifference(a: number[], b: number[]): number {
@@ -152,6 +170,8 @@ function smallestDifference(a: number[], b: number[]): number {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -190,6 +210,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Two Pointers
 
 We can sort both arrays $a$ and $b$, and use two pointers $i$ and $j$ to maintain the current positions in the two arrays. Initially, $i$ and $j$ point to the beginning of arrays $a$ and $b$, respectively. At each step, we calculate the absolute difference between $a[i]$ and $b[j]$, and update the answer. If one of the elements pointed to by $i$ and $j$ is smaller than the other, we move the pointer pointing to the smaller element forward by one step. The traversal ends when at least one of the pointers goes beyond the array range.
@@ -197,6 +221,8 @@ We can sort both arrays $a$ and $b$, and use two pointers $i$ and $j$ to maintai
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of arrays $a$ and $b$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -213,6 +239,8 @@ class Solution:
                 j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -234,6 +262,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -254,6 +284,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestDifference(a []int, b []int) int {
@@ -280,6 +312,8 @@ func abs(a int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function smallestDifference(a: number[], b: number[]): number {
     a.sort((a, b) => a - b);
@@ -300,4 +334,6 @@ function smallestDifference(a: number[], b: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

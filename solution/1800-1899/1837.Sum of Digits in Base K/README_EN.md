@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1837.Sum%20of%20Digits%20in%20Base%20K/README_EN.md
 rating: 1282
+source: Weekly Contest 238 Q1
 tags:
     - Math
 ---
+
+<!-- problem:start -->
 
 # [1837. Sum of Digits in Base K](https://leetcode.com/problems/sum-of-digits-in-base-k)
 
 [中文文档](/solution/1800-1899/1837.Sum%20of%20Digits%20in%20Base%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code> (in base <code>10</code>) and a base <code>k</code>, return <em>the <strong>sum</strong> of the digits of </em><code>n</code><em> <strong>after</strong> converting </em><code>n</code><em> from base </em><code>10</code><em> to base </em><code>k</code>.</p>
 
@@ -42,7 +47,11 @@ tags:
 	<li><code>2 &lt;= k &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -51,6 +60,8 @@ We divide $n$ by $k$ and take the remainder until it is $0$. The sum of the rema
 The time complexity is $O(\log_{k}n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +72,8 @@ class Solution:
             n //= k
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -89,6 +104,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumBase(n int, k int) (ans int) {
 	for n > 0 {
@@ -98,6 +115,8 @@ func sumBase(n int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumBase(n: number, k: number): number {
@@ -109,6 +128,8 @@ function sumBase(n: number, k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -122,6 +143,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -139,6 +162,8 @@ var sumBase = function (n, k) {
 };
 ```
 
+#### C
+
 ```c
 int sumBase(int n, int k) {
     int ans = 0;
@@ -152,4 +177,6 @@ int sumBase(int n, int k) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

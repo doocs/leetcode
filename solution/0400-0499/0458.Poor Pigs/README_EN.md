@@ -8,11 +8,15 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [458. Poor Pigs](https://leetcode.com/problems/poor-pigs)
 
 [中文文档](/solution/0400-0499/0458.Poor%20Pigs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>buckets</code> buckets of liquid, where <strong>exactly one</strong> of the buckets is poisonous. To figure out which one is poisonous, you feed some number of (poor) pigs the liquid to see whether they will die or not. Unfortunately, you only have <code>minutesToTest</code> minutes to determine which bucket is poisonous.</p>
 
@@ -64,11 +68,17 @@ At time 30, one of the two pigs must die, and the poisonous bucket is the one it
 	<li><code>1 &lt;=&nbsp;minutesToDie &lt;=&nbsp;minutesToTest &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +90,8 @@ class Solution:
             res += 1
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +119,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func poorPigs(buckets int, minutesToDie int, minutesToTest int) int {
@@ -119,4 +135,6 @@ func poorPigs(buckets int, minutesToDie int, minutesToTest int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

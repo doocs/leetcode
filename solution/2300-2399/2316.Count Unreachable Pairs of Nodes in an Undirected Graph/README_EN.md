@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2316.Count%20Unreachable%20Pairs%20of%20Nodes%20in%20an%20Undirected%20Graph/README_EN.md
 rating: 1604
+source: Biweekly Contest 81 Q2
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -10,11 +11,15 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [2316. Count Unreachable Pairs of Nodes in an Undirected Graph](https://leetcode.com/problems/count-unreachable-pairs-of-nodes-in-an-undirected-graph)
 
 [中文文档](/solution/2300-2399/2316.Count%20Unreachable%20Pairs%20of%20Nodes%20in%20an%20Undirected%20Graph/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code>. There is an <strong>undirected</strong> graph with <code>n</code> nodes, numbered from <code>0</code> to <code>n - 1</code>. You are given a 2D integer array <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> denotes that there exists an <strong>undirected</strong> edge connecting nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code>.</p>
 
@@ -51,7 +56,11 @@ Therefore, we return 14.
 	<li>There are no repeated edges.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -62,6 +71,8 @@ Therefore, we can use depth-first search to find the number of nodes $t$ in each
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +95,8 @@ class Solution:
             s += t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPairs(n int, edges [][]int) (ans int64) {
 	g := make([][]int, n)
@@ -187,6 +204,8 @@ func countPairs(n int, edges [][]int) (ans int64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countPairs(n: number, edges: number[][]): number {
     const g: number[][] = Array.from({ length: n }, () => []);
@@ -215,6 +234,8 @@ function countPairs(n: number, edges: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -255,4 +276,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

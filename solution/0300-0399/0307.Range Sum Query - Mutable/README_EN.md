@@ -9,11 +9,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [307. Range Sum Query - Mutable](https://leetcode.com/problems/range-sum-query-mutable)
 
 [中文文档](/solution/0300-0399/0307.Range%20Sum%20Query%20-%20Mutable/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, handle multiple queries of the following types:</p>
 
@@ -59,11 +63,17 @@ numArray.sumRange(0, 2); // return 1 + 2 + 5 = 8
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>update</code> and <code>sumRange</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -107,6 +117,8 @@ class NumArray:
 # obj.update(index,val)
 # param_2 = obj.sumRange(left,right)
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -164,6 +176,8 @@ class NumArray {
  */
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -219,6 +233,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -271,6 +287,8 @@ func (t *NumArray) SumRange(left int, right int) int {
  * param_2 := obj.SumRange(left,right);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -327,6 +345,8 @@ class NumArray {
  * var param_2 = obj.sumRange(left,right)
  */
 ```
+
+#### C#
 
 ```cs
 class BinaryIndexedTree {
@@ -386,9 +406,15 @@ public class NumArray {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -461,6 +487,8 @@ class NumArray:
 # obj.update(index,val)
 # param_2 = obj.sumRange(left,right)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -554,6 +582,8 @@ class NumArray {
  */
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -639,6 +669,8 @@ public:
  * int param_2 = obj->sumRange(left,right);
  */
 ```
+
+#### Go
 
 ```go
 type Node struct {
@@ -734,6 +766,8 @@ func (this *NumArray) SumRange(left int, right int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class Node {
     l: number;
@@ -825,6 +859,8 @@ class NumArray {
  * var param_2 = obj.sumRange(left,right)
  */
 ```
+
+#### C#
 
 ```cs
 public class Node {
@@ -920,4 +956,6 @@ public class NumArray {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

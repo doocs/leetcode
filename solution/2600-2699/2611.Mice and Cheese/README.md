@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2611.Mice%20and%20Cheese/README.md
 rating: 1663
+source: 第 339 场周赛 Q3
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [2611. 老鼠和奶酪](https://leetcode.cn/problems/mice-and-cheese)
 
 [English Version](/solution/2600-2699/2611.Mice%20and%20Cheese/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有两只老鼠和&nbsp;<code>n</code>&nbsp;块不同类型的奶酪，每块奶酪都只能被其中一只老鼠吃掉。</p>
 
@@ -63,7 +66,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -81,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def miceAndCheese(self, reward1: List[int], reward2: List[int], k: int) -> int:
@@ -88,6 +97,8 @@ class Solution:
         idx = sorted(range(n), key=lambda i: reward1[i] - reward2[i], reverse=True)
         return sum(reward1[i] for i in idx[:k]) + sum(reward2[i] for i in idx[k:])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
@@ -151,6 +166,8 @@ func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function miceAndCheese(reward1: number[], reward2: number[], k: number): number {
     const n = reward1.length;
@@ -169,9 +186,15 @@ function miceAndCheese(reward1: number[], reward2: number[], k: number): number 
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -181,6 +204,8 @@ class Solution:
         reward1.sort(reverse=True)
         return sum(reward2) + sum(reward1[:k])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -200,6 +225,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -217,6 +244,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
 	for i, x := range reward2 {
@@ -231,6 +260,8 @@ func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function miceAndCheese(reward1: number[], reward2: number[], k: number): number {
@@ -250,4 +281,6 @@ function miceAndCheese(reward1: number[], reward2: number[], k: number): number 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

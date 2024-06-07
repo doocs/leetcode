@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2029.Stone%20Game%20IX/README.md
 rating: 2277
+source: 第 261 场周赛 Q3
 tags:
     - 贪心
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 博弈
 ---
 
+<!-- problem:start -->
+
 # [2029. 石子游戏 IX](https://leetcode.cn/problems/stone-game-ix)
 
 [English Version](/solution/2000-2099/2029.Stone%20Game%20IX/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 再次设计了一款新的石子游戏。现有一行 n 个石子，每个石子都有一个关联的数字表示它的价值。给你一个整数数组 <code>stones</code> ，其中 <code>stones[i]</code> 是第 <code>i</code> 个石子的价值。</p>
 
@@ -75,11 +78,17 @@ Alice 输掉游戏，因为已移除石子值总和（15）可以被 3 整除，
 	<li><code>1 &lt;= stones[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +109,8 @@ class Solution:
         c1 = [c[0], c[2], c[1]]
         return check(c) or check(c1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func stoneGameIX(stones []int) bool {
@@ -174,4 +189,6 @@ func stoneGameIX(stones []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

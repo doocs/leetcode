@@ -7,11 +7,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [593. Valid Square](https://leetcode.com/problems/valid-square)
 
 [中文文档](/solution/0500-0599/0593.Valid%20Square/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the coordinates of four points in 2D space <code>p1</code>, <code>p2</code>, <code>p3</code> and <code>p4</code>, return <code>true</code> <em>if the four points construct a square</em>.</p>
 
@@ -49,11 +53,17 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +90,8 @@ class Solution:
             and check(p1, p2, p4)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validSquare(p1 []int, p2 []int, p3 []int, p4 []int) bool {
@@ -156,4 +172,6 @@ func validSquare(p1 []int, p2 []int, p3 []int, p4 []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

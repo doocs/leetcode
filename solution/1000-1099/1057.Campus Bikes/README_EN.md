@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1057. Campus Bikes 🔒](https://leetcode.com/problems/campus-bikes)
 
 [中文文档](/solution/1000-1099/1057.Campus%20Bikes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>On a campus represented on the X-Y plane, there are <code>n</code> workers and <code>m</code> bikes, with <code>n &lt;= m</code>.</p>
 
@@ -56,11 +60,17 @@ tags:
 	<li>All worker and bike locations are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +92,8 @@ class Solution:
                 ans[i] = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func assignBikes(workers [][]int, bikes [][]int) []int {
@@ -190,4 +206,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

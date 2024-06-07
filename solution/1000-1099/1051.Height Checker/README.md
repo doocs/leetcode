@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1051.Height%20Checker/README.md
 rating: 1303
+source: 第 138 场周赛 Q1
 tags:
     - 数组
     - 计数排序
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [1051. 高度检查器](https://leetcode.cn/problems/height-checker)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>学校打算为全体学生拍一张年度纪念照。根据要求，学生需要按照 <strong>非递减</strong> 的高度顺序排成一行。</p>
 
@@ -66,7 +69,11 @@ tags:
 	<li><code>1 &lt;= heights[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -76,12 +83,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def heightChecker(self, heights: List[int]) -> int:
         expected = sorted(heights)
         return sum(a != b for a, b in zip(heights, expected))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +124,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func heightChecker(heights []int) int {
@@ -129,6 +144,10 @@ func heightChecker(heights []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：计数排序
 
 由于题目中学生高度不超过 $100$，因此可以使用计数排序。这里我们用一个长度 $101$ 的数组 $cnt$ 统计每个高度 $h_i$ 出现的次数。
@@ -136,6 +155,8 @@ func heightChecker(heights []int) int {
 时间复杂度 $(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -152,6 +173,8 @@ class Solution:
                 i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -174,6 +197,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -191,6 +216,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func heightChecker(heights []int) int {
@@ -214,4 +241,6 @@ func heightChecker(heights []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

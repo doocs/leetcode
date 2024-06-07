@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2296.Design%20a%20Text%20Editor/README.md
 rating: 1911
+source: 第 296 场周赛 Q4
 tags:
     - 栈
     - 设计
@@ -12,13 +13,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [2296. 设计一个文本编辑器](https://leetcode.cn/problems/design-a-text-editor)
 
 [English Version](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你设计一个带光标的文本编辑器，它可以实现以下功能：</p>
 
@@ -91,7 +94,11 @@ textEditor.cursorRight(6); // 返回 "practi"
 
 <p><strong>进阶：</strong>你能设计并实现一个每次调用时间复杂度为 <code>O(k)</code> 的解决方案吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：左右栈
 
@@ -103,6 +110,8 @@ textEditor.cursorRight(6); // 返回 "practi"
 -   当调用 `cursorRight` 方法时，我们将 `right` 中的字符出栈最多 $k$ 次，然后将出栈的字符依次入栈 `left`，最后返回 `left` 栈最多 $10$ 个字符。时间复杂度 $O(k)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class TextEditor:
@@ -139,6 +148,8 @@ class TextEditor:
 # param_3 = obj.cursorLeft(k)
 # param_4 = obj.cursorRight(k)
 ```
+
+#### Java
 
 ```java
 class TextEditor {
@@ -187,6 +198,8 @@ class TextEditor {
  */
 ```
 
+#### C++
+
 ```cpp
 class TextEditor {
 public:
@@ -234,6 +247,8 @@ private:
  * string param_4 = obj->cursorRight(k);
  */
 ```
+
+#### Go
 
 ```go
 type TextEditor struct {
@@ -288,4 +303,6 @@ func (this *TextEditor) CursorRight(k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

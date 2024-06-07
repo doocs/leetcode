@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1616.Split%20Two%20Strings%20to%20Make%20Palindrome/README_EN.md
 rating: 1868
+source: Weekly Contest 210 Q3
 tags:
     - Two Pointers
     - String
 ---
+
+<!-- problem:start -->
 
 # [1616. Split Two Strings to Make Palindrome](https://leetcode.com/problems/split-two-strings-to-make-palindrome)
 
 [中文文档](/solution/1600-1699/1616.Split%20Two%20Strings%20to%20Make%20Palindrome/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>a</code> and <code>b</code> of the same length. Choose an index and split both strings <strong>at the same index</strong>, splitting <code>a</code> into two strings: <code>a<sub>prefix</sub></code> and <code>a<sub>suffix</sub></code> where <code>a = a<sub>prefix</sub> + a<sub>suffix</sub></code>, and splitting <code>b</code> into two strings: <code>b<sub>prefix</sub></code> and <code>b<sub>suffix</sub></code> where <code>b = b<sub>prefix</sub> + b<sub>suffix</sub></code>. Check if <code>a<sub>prefix</sub> + b<sub>suffix</sub></code> or <code>b<sub>prefix</sub> + a<sub>suffix</sub></code> forms a palindrome.</p>
 
@@ -61,11 +66,17 @@ Then, a<sub>prefix</sub> + b<sub>suffix</sub> = &quot;ula&quot; + &quot;alu&quot
 	<li><code>a</code> and <code>b</code> consist of lowercase English letters</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +92,8 @@ class Solution:
 
         return check1(a, b) or check1(b, a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +150,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func checkPalindromeFormation(a string, b string) bool {
 	return check1(a, b) || check1(b, a)
@@ -158,6 +175,8 @@ func check2(a string, i, j int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkPalindromeFormation(a: string, b: string): boolean {
     const check1 = (a: string, b: string) => {
@@ -180,6 +199,8 @@ function checkPalindromeFormation(a: string, b: string): boolean {
     return check1(a, b) || check1(b, a);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -213,4 +234,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

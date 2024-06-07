@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/README_EN.md
 rating: 1680
+source: Weekly Contest 294 Q3
 tags:
     - Geometry
     - Array
@@ -11,11 +12,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2280. Minimum Lines to Represent a Line Chart](https://leetcode.com/problems/minimum-lines-to-represent-a-line-chart)
 
 [中文文档](/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D integer array <code>stockPrices</code> where <code>stockPrices[i] = [day<sub>i</sub>, price<sub>i</sub>]</code> indicates the price of the stock on day <code>day<sub>i</sub></code> is <code>price<sub>i</sub></code>. A <strong>line chart</strong> is created from the array by plotting the points on an XY plane with the X-axis representing the day and the Y-axis representing the price and connecting adjacent points. One such example is shown below:</p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/images/1920px-pushkin_population_historysvg.png" style="width: 500px; height: 313px;" />
@@ -55,11 +60,17 @@ As shown in the diagram above, the line chart can be represented with a single l
 	<li>All <code>day<sub>i</sub></code> are <strong>distinct</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +85,8 @@ class Solution:
             dx, dy = dx1, dy1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumLines(stockPrices [][]int) int {
 	ans := 0
@@ -132,6 +149,8 @@ func minimumLines(stockPrices [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumLines(stockPrices: number[][]): number {
@@ -153,4 +172,6 @@ function minimumLines(stockPrices: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

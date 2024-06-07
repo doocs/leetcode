@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2167.Minimum%20Time%20to%20Remove%20All%20Cars%20Containing%20Illegal%20Goods/README.md
 rating: 2219
+source: 第 279 场周赛 Q4
 tags:
     - 字符串
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2167. 移除所有载有违禁货物车厢所需的最少时间](https://leetcode.cn/problems/minimum-time-to-remove-all-cars-containing-illegal-goods)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的二进制字符串 <code>s</code> ，表示一个列车车厢序列。<code>s[i] = '0'</code> 表示第 <code>i</code> 节车厢 <strong>不</strong> 含违禁货物，而 <code>s[i] = '1'</code> 表示第 <code>i</code> 节车厢含违禁货物。</p>
 
@@ -82,11 +85,17 @@ tags:
 	<li><code>s[i]</code> 为 <code>'0'</code> 或 <code>'1'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +109,8 @@ class Solution:
             suf[i] = suf[i + 1] if s[i] == '0' else min(suf[i + 1] + 2, n - i)
         return min(a + b for a, b in zip(pre[1:], suf[1:]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumTime(s string) int {
@@ -165,4 +180,6 @@ func minimumTime(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1054.Distant%20Barcodes/README_EN.md
 rating: 1701
+source: Weekly Contest 138 Q4
 tags:
     - Greedy
     - Array
@@ -12,11 +13,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1054. Distant Barcodes](https://leetcode.com/problems/distant-barcodes)
 
 [中文文档](/solution/1000-1099/1054.Distant%20Barcodes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In a warehouse, there is a row of barcodes, where the <code>i<sup>th</sup></code> barcode is <code>barcodes[i]</code>.</p>
 
@@ -38,7 +43,11 @@ tags:
 	<li><code>1 &lt;= barcodes[i] &lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Sorting
 
@@ -49,6 +58,8 @@ Next, we create an answer array $ans$ of length $n$. We traverse the sorted $bar
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(M)$. Where $n$ and $M$ are the length of the array $barcodes$ and the maximum value in the array $barcodes$, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +72,8 @@ class Solution:
         ans[1::2] = barcodes[(n + 1) // 2 :]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +127,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rearrangeBarcodes(barcodes []int) []int {
@@ -138,6 +155,8 @@ func rearrangeBarcodes(barcodes []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function rearrangeBarcodes(barcodes: number[]): number[] {
     const mx = Math.max(...barcodes);
@@ -159,4 +178,6 @@ function rearrangeBarcodes(barcodes: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

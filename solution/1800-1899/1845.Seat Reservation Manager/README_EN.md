@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1845.Seat%20Reservation%20Manager/README_EN.md
 rating: 1428
+source: Biweekly Contest 51 Q2
 tags:
     - Design
     - Heap (Priority Queue)
 ---
+
+<!-- problem:start -->
 
 # [1845. Seat Reservation Manager](https://leetcode.com/problems/seat-reservation-manager)
 
 [中文文档](/solution/1800-1899/1845.Seat%20Reservation%20Manager/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a system that manages the reservation state of <code>n</code> seats that are numbered from <code>1</code> to <code>n</code>.</p>
 
@@ -57,7 +62,11 @@ seatManager.unreserve(5); // Unreserve seat 5, so now the available seats are [5
 	<li>At most <code>10<sup>5</sup></code> calls <strong>in total</strong> will be made to <code>reserve</code> and <code>unreserve</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min Heap)
 
@@ -72,6 +81,8 @@ When the `unreserve` method is called, put the seat number back into the priorit
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of seats.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class SeatManager:
@@ -91,6 +102,8 @@ class SeatManager:
 # param_1 = obj.reserve()
 # obj.unreserve(seatNumber)
 ```
+
+#### Java
 
 ```java
 class SeatManager {
@@ -118,6 +131,8 @@ class SeatManager {
  * obj.unreserve(seatNumber);
  */
 ```
+
+#### C++
 
 ```cpp
 class SeatManager {
@@ -149,6 +164,8 @@ private:
  * obj->unreserve(seatNumber);
  */
 ```
+
+#### Go
 
 ```go
 type SeatManager struct {
@@ -190,6 +207,8 @@ func (h *hp) Pop() any {
  */
 ```
 
+#### C#
+
 ```cs
 public class SeatManager {
     private SortedSet<int> availableSeats;
@@ -222,4 +241,6 @@ public class SeatManager {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

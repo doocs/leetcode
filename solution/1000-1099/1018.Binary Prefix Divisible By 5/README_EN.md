@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README_EN.md
 rating: 1376
+source: Weekly Contest 130 Q1
 tags:
     - Bit Manipulation
     - Array
 ---
+
+<!-- problem:start -->
 
 # [1018. Binary Prefix Divisible By 5](https://leetcode.com/problems/binary-prefix-divisible-by-5)
 
 [中文文档](/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a binary array <code>nums</code> (<strong>0-indexed</strong>).</p>
 
@@ -49,11 +54,17 @@ Only the first number is divisible by 5, so answer[0] is true.
 	<li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +76,8 @@ class Solution:
             ans.append(x == 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func prefixesDivBy5(nums []int) (ans []bool) {
 	x := 0
@@ -105,6 +122,8 @@ func prefixesDivBy5(nums []int) (ans []bool) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function prefixesDivBy5(nums: number[]): boolean[] {
@@ -120,4 +139,6 @@ function prefixesDivBy5(nums: number[]): boolean[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

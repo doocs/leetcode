@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2132.Stamping%20the%20Grid/README_EN.md
 rating: 2364
+source: Biweekly Contest 69 Q4
 tags:
     - Greedy
     - Array
@@ -10,11 +11,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2132. Stamping the Grid](https://leetcode.com/problems/stamping-the-grid)
 
 [中文文档](/solution/2100-2199/2132.Stamping%20the%20Grid/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> binary matrix <code>grid</code> where each cell is either <code>0</code> (empty) or <code>1</code> (occupied).</p>
 
@@ -60,7 +65,11 @@ tags:
 	<li><code>1 &lt;= stampHeight, stampWidth &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two-Dimensional Prefix Sum + Two-Dimensional Difference
 
@@ -84,6 +93,8 @@ Finally, we perform a prefix sum operation on the two-dimensional difference arr
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the height and width of the two-dimensional matrix, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +122,8 @@ class Solution:
                     return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +159,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -184,6 +199,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func possibleToStamp(grid [][]int, stampHeight int, stampWidth int) bool {
@@ -227,6 +244,8 @@ func possibleToStamp(grid [][]int, stampHeight int, stampWidth int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function possibleToStamp(grid: number[][], stampHeight: number, stampWidth: number): boolean {
     const m = grid.length;
@@ -262,6 +281,8 @@ function possibleToStamp(grid: number[][], stampHeight: number, stampWidth: numb
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -332,6 +353,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} grid
@@ -376,4 +399,6 @@ var possibleToStamp = function (grid, stampHeight, stampWidth) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

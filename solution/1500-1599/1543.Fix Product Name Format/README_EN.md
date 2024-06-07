@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1543. Fix Product Name Format 🔒](https://leetcode.com/problems/fix-product-name-format)
 
 [中文文档](/solution/1500-1599/1543.Fix%20Product%20Name%20Format/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Sales</code></p>
 
@@ -73,11 +77,17 @@ In February, 2 LCKeychains and 1 LCPhone were sold.
 In March, one matryoshka was sold.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -96,4 +106,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

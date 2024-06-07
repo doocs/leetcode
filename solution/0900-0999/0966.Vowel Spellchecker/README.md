@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [966. 元音拼写检查器](https://leetcode.cn/problems/vowel-spellchecker)
 
 [English Version](/solution/0900-0999/0966.Vowel%20Spellchecker/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在给定单词列表&nbsp;<code>wordlist</code>&nbsp;的情况下，我们希望实现一个拼写检查器，将查询单词转换为正确的单词。</p>
 
@@ -75,7 +77,11 @@ tags:
 	<li><code>wordlist[i]</code>&nbsp;和&nbsp;<code>queries[i]</code>&nbsp;只包含英文字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -88,6 +94,8 @@ tags:
 时间复杂度 $O(n+m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为 `wordlist` 和 `queries` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -121,6 +129,8 @@ class Solution:
             ans.append("")
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +179,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -222,6 +234,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func spellchecker(wordlist []string, queries []string) (ans []string) {
 	s := map[string]bool{}
@@ -269,4 +283,6 @@ func spellchecker(wordlist []string, queries []string) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [483. Smallest Good Base](https://leetcode.com/problems/smallest-good-base)
 
 [中文文档](/solution/0400-0499/0483.Smallest%20Good%20Base/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code> represented as a string, return <em>the smallest <strong>good base</strong> of</em> <code>n</code>.</p>
 
@@ -50,11 +54,17 @@ tags:
 	<li><code>n</code> does not contain any leading zeros.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +89,8 @@ class Solution:
                 return str(l)
         return str(num - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,4 +162,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

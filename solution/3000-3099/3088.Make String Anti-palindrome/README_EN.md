@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3088. Make String Anti-palindrome 🔒](https://leetcode.com/problems/make-string-anti-palindrome)
 
 [中文文档](/solution/3000-3099/3088.Make%20String%20Anti-palindrome/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We call a string <code>s</code> of <strong>even</strong> length <code>n</code> an <strong>anti-palindrome</strong> if for each index <code>0 &lt;= i &lt; n</code>, <code>s[i] != s[n - i - 1]</code>.</p>
 
@@ -68,7 +72,11 @@ tags:
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -79,6 +87,8 @@ Next, we only need to compare whether the two middle characters $s[m]$ and $s[m-
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +108,8 @@ class Solution:
                 i, j = i + 1, j + 1
         return "".join(cs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makeAntiPalindrome(s string) string {
 	cs := []byte(s)
@@ -171,6 +187,8 @@ func makeAntiPalindrome(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function makeAntiPalindrome(s: string): string {
     const cs: string[] = s.split('').sort();
@@ -192,4 +210,6 @@ function makeAntiPalindrome(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

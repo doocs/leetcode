@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3107.Minimum%20Operations%20to%20Make%20Median%20of%20Array%20Equal%20to%20K/README_EN.md
 rating: 1604
+source: Weekly Contest 392 Q3
 tags:
     - Greedy
     - Array
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3107. Minimum Operations to Make Median of Array Equal to K](https://leetcode.com/problems/minimum-operations-to-make-median-of-array-equal-to-k)
 
 [中文文档](/solution/3100-3199/3107.Minimum%20Operations%20to%20Make%20Median%20of%20Array%20Equal%20to%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> and a <strong>non-negative</strong> integer <code>k</code>. In one operation, you can increase or decrease any element by 1.</p>
 
@@ -67,7 +72,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -81,6 +90,8 @@ Next, we discuss in two cases:
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +112,8 @@ class Solution:
                 ans += k - nums[i]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperationsToMakeMedianK(nums []int, k int) (ans int64) {
@@ -171,6 +188,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperationsToMakeMedianK(nums: number[], k: number): number {
     nums.sort((a, b) => a - b);
@@ -192,4 +211,6 @@ function minOperationsToMakeMedianK(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

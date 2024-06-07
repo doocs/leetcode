@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README_EN.md
 rating: 1502
+source: Weekly Contest 343 Q2
 tags:
     - Array
     - Hash Table
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2661. First Completely Painted Row or Column](https://leetcode.com/problems/first-completely-painted-row-or-column)
 
 [中文文档](/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>arr</code>, and an <code>m x n</code> integer <strong>matrix</strong> <code>mat</code>. <code>arr</code> and <code>mat</code> both contain <strong>all</strong> the integers in the range <code>[1, m * n]</code>.</p>
 
@@ -52,7 +57,11 @@ tags:
 	<li>All the integers of <code>mat</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Array Counting
 
@@ -63,6 +72,8 @@ Traverse the array $arr$. For each element $arr[k]$, we find its position $(i, j
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here $m$ and $n$ are the number of rows and columns of the matrix $mat$ respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +92,8 @@ class Solution:
             if row[i] == n or col[j] == m:
                 return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func firstCompleteIndex(arr []int, mat [][]int) int {
 	m, n := len(mat), len(mat[0])
@@ -154,6 +171,8 @@ func firstCompleteIndex(arr []int, mat [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function firstCompleteIndex(arr: number[], mat: number[][]): number {
     const m = mat.length;
@@ -176,6 +195,8 @@ function firstCompleteIndex(arr: number[], mat: number[][]): number {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -211,4 +232,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

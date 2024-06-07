@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.09.Sorted%20Matrix%20Search/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [10.09. Sorted Matrix Search](https://leetcode.cn/problems/sorted-matrix-search-lcci)
 
 [中文文档](/lcci/10.09.Sorted%20Matrix%20Search/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an M x N matrix in which each row and each column is sorted in ascending order, write a method to find an element.</p>
 
@@ -38,7 +42,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.09.Sorted%20Matrix
 
 <p>Given target&nbsp;=&nbsp;20, return&nbsp;<code>false.</code></p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -50,6 +58,8 @@ The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the number of
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
@@ -59,6 +69,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -73,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -89,6 +103,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchMatrix(matrix [][]int, target int) bool {
 	for _, row := range matrix {
@@ -100,6 +116,8 @@ func searchMatrix(matrix [][]int, target int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function searchMatrix(matrix: number[][], target: number): boolean {
@@ -122,6 +140,8 @@ function searchMatrix(matrix: number[][], target: number): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -150,6 +170,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -177,6 +199,8 @@ var searchMatrix = function (matrix, target) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool SearchMatrix(int[][] matrix, int target) {
@@ -190,6 +214,8 @@ public class Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -224,6 +250,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Search from the Bottom Left or Top Right
 
 Here, we start searching from the bottom left corner and move towards the top right direction, comparing the current element `matrix[i][j]` with `target`:
@@ -237,6 +267,8 @@ If the search ends and the `target` is still not found, return `false`.
 The time complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -254,6 +286,8 @@ class Solution:
                 j += 1
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -277,6 +311,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -302,6 +338,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchMatrix(matrix [][]int, target int) bool {
 	if len(matrix) == 0 {
@@ -323,6 +361,8 @@ func searchMatrix(matrix [][]int, target int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function searchMatrix(matrix: number[][], target: number): boolean {
     if (matrix.length === 0) {
@@ -343,6 +383,8 @@ function searchMatrix(matrix: number[][], target: number): boolean {
     return false;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -369,4 +411,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,13 +10,15 @@ tags:
     - 随机化
 ---
 
+<!-- problem:start -->
+
 # [380. O(1) 时间插入、删除和获取随机元素](https://leetcode.cn/problems/insert-delete-getrandom-o1)
 
 [English Version](/solution/0300-0399/0380.Insert%20Delete%20GetRandom%20O%281%29/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实现<code>RandomizedSet</code> 类：</p>
 
@@ -65,7 +67,11 @@ randomizedSet.getRandom(); // 由于 2 是集合中唯一的数字，getRandom �
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 动态列表
 
@@ -80,6 +86,8 @@ randomizedSet.getRandom(); // 由于 2 是集合中唯一的数字，getRandom �
 时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 为集合中元素的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class RandomizedSet:
@@ -114,6 +122,8 @@ class RandomizedSet:
 # param_2 = obj.remove(val)
 # param_3 = obj.getRandom()
 ```
+
+#### Java
 
 ```java
 class RandomizedSet {
@@ -158,6 +168,8 @@ class RandomizedSet {
  * int param_3 = obj.getRandom();
  */
 ```
+
+#### C++
 
 ```cpp
 class RandomizedSet {
@@ -204,6 +216,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type RandomizedSet struct {
 	d map[int]int
@@ -248,6 +262,8 @@ func (this *RandomizedSet) GetRandom() int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class RandomizedSet {
     private d: Map<number, number> = new Map();
@@ -290,6 +306,8 @@ class RandomizedSet {
  */
 ```
 
+#### Rust
+
 ```rust
 use std::collections::HashSet;
 use rand::Rng;
@@ -329,6 +347,8 @@ impl RandomizedSet {
  * let ret_3: i32 = obj.get_random();
  */
 ```
+
+#### C#
 
 ```cs
 public class RandomizedSet {
@@ -376,4 +396,6 @@ public class RandomizedSet {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

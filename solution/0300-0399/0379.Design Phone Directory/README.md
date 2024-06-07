@@ -10,13 +10,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [379. 电话目录管理系统 🔒](https://leetcode.cn/problems/design-phone-directory)
 
 [English Version](/solution/0300-0399/0379.Design%20Phone%20Directory/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个电话目录管理系统，让它支持以下功能：</p>
 
@@ -65,43 +67,44 @@ directory.check(2);
 	<li>调用方法的总数处于区间 <code>[0 - 20000]</code> 之内</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：哈希表
+
+我们可以使用一个哈希集合 `available` 来存储未被分配的电话号码，初始时，哈希表中存储的是 `[0, 1, 2, ..., maxNumbers - 1]`。
+
+调用 `get` 方法时，我们从 `available` 中取出一个未被分配的电话号码，如果 `available` 为空，则返回 `-1`。时间复杂度 $O(1)$。
+
+调用 `check` 方法时，我们只需要判断 `number` 是否在 `available` 中即可。时间复杂度 $O(1)$。
+
+调用 `release` 方法时，我们将 `number` 添加到 `available` 中。时间复杂度 $O(1)$。
+
+空间复杂度 $O(n)$，其中 $n$ 是 `maxNumbers` 的值。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class PhoneDirectory:
+
     def __init__(self, maxNumbers: int):
-        """
-        Initialize your data structure here
-        @param maxNumbers - The maximum numbers that can be stored in the phone directory.
-        """
-        self.provided = [False] * maxNumbers
+        self.available = set(range(maxNumbers))
 
     def get(self) -> int:
-        """
-        Provide a number which is not assigned to anyone.
-        @return - Return an available number. Return -1 if none is available.
-        """
-        for i in range(len(self.provided)):
-            if not self.provided[i]:
-                self.provided[i] = True
-                return i
-        return -1
+        if not self.available:
+            return -1
+        return self.available.pop()
 
     def check(self, number: int) -> bool:
-        """
-        Check if a number is available or not.
-        """
-        return not self.provided[number]
+        return number in self.available
 
     def release(self, number: int) -> None:
-        """
-        Recycle or release a number.
-        """
-        self.provided[number] = False
+        self.available.add(number)
 
 
 # Your PhoneDirectory object will be instantiated and called as such:
@@ -111,41 +114,33 @@ class PhoneDirectory:
 # obj.release(number)
 ```
 
+#### Java
+
 ```java
 class PhoneDirectory {
+    private Set<Integer> available = new HashSet<>();
 
-    private boolean[] provided;
-
-    /**
-       Initialize your data structure here
-        @param maxNumbers - The maximum numbers that can be stored in the phone directory.
-     */
     public PhoneDirectory(int maxNumbers) {
-        provided = new boolean[maxNumbers];
-    }
-
-    /**
-       Provide a number which is not assigned to anyone.
-        @return - Return an available number. Return -1 if none is available.
-     */
-    public int get() {
-        for (int i = 0; i < provided.length; ++i) {
-            if (!provided[i]) {
-                provided[i] = true;
-                return i;
-            }
+        for (int i = 0; i < maxNumbers; ++i) {
+            available.add(i);
         }
-        return -1;
     }
 
-    /** Check if a number is available or not. */
+    public int get() {
+        if (available.isEmpty()) {
+            return -1;
+        }
+        int x = available.iterator().next();
+        available.remove(x);
+        return x;
+    }
+
     public boolean check(int number) {
-        return !provided[number];
+        return available.contains(number);
     }
 
-    /** Recycle or release a number. */
     public void release(int number) {
-        provided[number] = false;
+        available.add(number);
     }
 }
 
@@ -158,6 +153,129 @@ class PhoneDirectory {
  */
 ```
 
+#### C++
+
+```cpp
+class PhoneDirectory {
+public:
+    PhoneDirectory(int maxNumbers) {
+        for (int i = 0; i < maxNumbers; ++i) {
+            available.insert(i);
+        }
+    }
+
+    int get() {
+        if (available.empty()) {
+            return -1;
+        }
+        int x = *available.begin();
+        available.erase(x);
+        return x;
+    }
+
+    bool check(int number) {
+        return available.contains(number);
+    }
+
+    void release(int number) {
+        available.insert(number);
+    }
+
+private:
+    unordered_set<int> available;
+};
+
+/**
+ * Your PhoneDirectory object will be instantiated and called as such:
+ * PhoneDirectory* obj = new PhoneDirectory(maxNumbers);
+ * int param_1 = obj->get();
+ * bool param_2 = obj->check(number);
+ * obj->release(number);
+ */
+```
+
+#### Go
+
+```go
+type PhoneDirectory struct {
+	available map[int]bool
+}
+
+func Constructor(maxNumbers int) PhoneDirectory {
+	available := make(map[int]bool)
+	for i := 0; i < maxNumbers; i++ {
+		available[i] = true
+	}
+	return PhoneDirectory{available}
+}
+
+func (this *PhoneDirectory) Get() int {
+	for k := range this.available {
+		delete(this.available, k)
+		return k
+	}
+	return -1
+}
+
+func (this *PhoneDirectory) Check(number int) bool {
+	_, ok := this.available[number]
+	return ok
+}
+
+func (this *PhoneDirectory) Release(number int) {
+	this.available[number] = true
+}
+
+/**
+ * Your PhoneDirectory object will be instantiated and called as such:
+ * obj := Constructor(maxNumbers);
+ * param_1 := obj.Get();
+ * param_2 := obj.Check(number);
+ * obj.Release(number);
+ */
+```
+
+#### TypeScript
+
+```ts
+class PhoneDirectory {
+    private available: Set<number> = new Set();
+
+    constructor(maxNumbers: number) {
+        for (let i = 0; i < maxNumbers; ++i) {
+            this.available.add(i);
+        }
+    }
+
+    get(): number {
+        const [x] = this.available;
+        if (x === undefined) {
+            return -1;
+        }
+        this.available.delete(x);
+        return x;
+    }
+
+    check(number: number): boolean {
+        return this.available.has(number);
+    }
+
+    release(number: number): void {
+        this.available.add(number);
+    }
+}
+
+/**
+ * Your PhoneDirectory object will be instantiated and called as such:
+ * var obj = new PhoneDirectory(maxNumbers)
+ * var param_1 = obj.get()
+ * var param_2 = obj.check(number)
+ * obj.release(number)
+ */
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

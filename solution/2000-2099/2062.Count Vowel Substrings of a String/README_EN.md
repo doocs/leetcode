@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2062.Count%20Vowel%20Substrings%20of%20a%20String/README_EN.md
 rating: 1458
+source: Weekly Contest 266 Q1
 tags:
     - Hash Table
     - String
 ---
+
+<!-- problem:start -->
 
 # [2062. Count Vowel Substrings of a String](https://leetcode.com/problems/count-vowel-substrings-of-a-string)
 
 [中文文档](/solution/2000-2099/2062.Count%20Vowel%20Substrings%20of%20a%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>substring</strong> is a contiguous (non-empty) sequence of characters within a string.</p>
 
@@ -62,11 +67,17 @@ tags:
 	<li><code>word</code> consists of lowercase English letters only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
         s = set('aeiou')
         return sum(set(word[i:j]) == s for i in range(n) for j in range(i + 1, n + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countVowelSubstrings(word string) int {
 	ans, n := 0, len(word)
@@ -146,6 +163,8 @@ func countVowelSubstrings(word string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countVowelSubstrings(word: string): number {
@@ -170,9 +189,15 @@ function countVowelSubstrings(word: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -191,4 +216,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

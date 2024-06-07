@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README_EN.md
 rating: 2333
+source: Weekly Contest 217 Q3
 tags:
     - Array
     - Hash Table
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1674. Minimum Moves to Make Array Complementary](https://leetcode.com/problems/minimum-moves-to-make-array-complementary)
 
 [中文文档](/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> of <strong>even</strong> length <code>n</code> and an integer <code>limit</code>. In one move, you can replace any integer from <code>nums</code> with another integer between <code>1</code> and <code>limit</code>, inclusive.</p>
 
@@ -61,7 +66,11 @@ Therefore, nums[i] + nums[n-1-i] = 4 for every i, so nums is complementary.
 	<li><code>n</code> is even.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Difference Array
 
@@ -89,6 +98,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMoves(self, nums: List[int], limit: int) -> int:
@@ -114,6 +125,8 @@ class Solution:
                 ans = s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +157,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -176,6 +191,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMoves(nums []int, limit int) int {
 	d := make([]int, limit*2+2)
@@ -201,6 +218,8 @@ func minMoves(nums []int, limit int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minMoves(nums: number[], limit: number): number {
@@ -233,4 +252,6 @@ function minMoves(nums: number[], limit: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

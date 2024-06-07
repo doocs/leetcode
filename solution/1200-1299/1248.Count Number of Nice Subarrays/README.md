@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README.md
 rating: 1623
+source: 第 161 场周赛 Q2
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [1248. 统计「优美子数组」](https://leetcode.cn/problems/count-number-of-nice-subarrays)
 
 [English Version](/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code> 和一个整数 <code>k</code>。如果某个连续子数组中恰好有 <code>k</code> 个奇数数字，我们就认为这个子数组是「<strong>优美子数组</strong>」。</p>
 
@@ -57,7 +60,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 数组或哈希表
 
@@ -66,6 +73,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +87,8 @@ class Solution:
             cnt[t] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfSubarrays(nums []int, k int) (ans int) {
 	n := len(nums)
@@ -134,6 +149,8 @@ func numberOfSubarrays(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfSubarrays(nums: number[], k: number): number {
@@ -155,4 +172,6 @@ function numberOfSubarrays(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README.md
 rating: 1203
+source: 第 305 场周赛 Q1
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [2367. 算术三元组的数目](https://leetcode.cn/problems/number-of-arithmetic-triplets)
 
 [English Version](/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、<strong>严格递增</strong> 的整数数组 <code>nums</code> 和一个正整数 <code>diff</code> 。如果满足下述全部条件，则三元组 <code>(i, j, k)</code> 就是一个 <strong>算术三元组</strong> ：</p>
 
@@ -59,7 +62,11 @@ tags:
 	<li><code>nums</code> <strong>严格</strong> 递增</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -69,11 +76,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
         return sum(b - a == diff and c - b == diff for a, b, c in combinations(nums, 3))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arithmeticTriplets(nums []int, diff int) (ans int) {
 	n := len(nums)
@@ -129,6 +144,8 @@ func arithmeticTriplets(nums []int, diff int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function arithmeticTriplets(nums: number[], diff: number): number {
@@ -149,6 +166,10 @@ function arithmeticTriplets(nums: number[], diff: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：数组或哈希表
 
 我们可以先将 $nums$ 中的元素存入哈希表或数组 $vis$ 中，然后枚举 $nums$ 中的每个元素 $x$，判断 $x+diff$, $x+diff+diff$ 是否也在 $vis$ 中，若是，累加三元组数目。
@@ -159,12 +180,16 @@ function arithmeticTriplets(nums: number[], diff: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
         vis = set(nums)
         return sum(x + diff in vis and x + diff * 2 in vis for x in nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -184,6 +209,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +228,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arithmeticTriplets(nums []int, diff int) (ans int) {
 	vis := [301]bool{}
@@ -215,6 +244,8 @@ func arithmeticTriplets(nums []int, diff int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function arithmeticTriplets(nums: number[], diff: number): number {
@@ -234,4 +265,6 @@ function arithmeticTriplets(nums: number[], diff: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

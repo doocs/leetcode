@@ -6,13 +6,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [58. 最后一个单词的长度](https://leetcode.cn/problems/length-of-last-word)
 
 [English Version](/solution/0000-0099/0058.Length%20of%20Last%20Word/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code>，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 <strong>最后一个</strong> 单词的长度。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>s</code> 中至少存在一个单词</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：逆向遍历 + 双指针
 
@@ -63,6 +69,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +83,8 @@ class Solution:
             j -= 1
         return i - j
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lengthOfLastWord(s string) int {
 	i := len(s) - 1
@@ -122,6 +136,8 @@ func lengthOfLastWord(s string) int {
 	return i - j
 }
 ```
+
+#### TypeScript
 
 ```ts
 function lengthOfLastWord(s: string): number {
@@ -137,6 +153,8 @@ function lengthOfLastWord(s: string): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn length_of_last_word(s: String) -> i32 {
@@ -151,6 +169,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -170,6 +190,8 @@ var lengthOfLastWord = function (s) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int LengthOfLastWord(string s) {
@@ -185,6 +207,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -208,4 +232,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

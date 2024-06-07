@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1662.Check%20If%20Two%20String%20Arrays%20are%20Equivalent/README.md
 rating: 1217
+source: 第 216 场周赛 Q1
 tags:
     - 数组
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1662. 检查两个字符串数组是否相等](https://leetcode.cn/problems/check-if-two-string-arrays-are-equivalent)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串数组 <code>word1</code> 和 <code>word2</code> 。如果两个数组表示的字符串相同，返回<em> </em><code>true</code><em> </em>；否则，返回 <code>false</code><em> 。</em></p>
 
@@ -57,7 +60,11 @@ word2 表示的字符串为 "a" + "bc" -> "abc"
 	<li><code>word1[i]</code> 和 <code>word2[i]</code> 由小写字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符串拼接
 
@@ -67,11 +74,15 @@ word2 表示的字符串为 "a" + "bc" -> "abc"
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
         return ''.join(word1) == ''.join(word2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -90,17 +103,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arrayStringsAreEqual(word1 []string, word2 []string) bool {
 	return strings.Join(word1, "") == strings.Join(word2, "")
 }
 ```
 
+#### TypeScript
+
 ```ts
 function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
     return word1.join('') === word2.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -109,6 +128,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool arrayStringsAreEqual(char** word1, int word1Size, char** word2, int word2Size) {
@@ -136,6 +157,10 @@ bool arrayStringsAreEqual(char** word1, int word1Size, char** word2, int word2Si
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：直接遍历
 
 方法一中，我们是将两个数组中的字符串拼接成两个新的字符串，有额外的空间开销。我们也可以直接遍历两个数组，逐个字符比较。
@@ -149,6 +174,8 @@ bool arrayStringsAreEqual(char** word1, int word1Size, char** word2, int word2Si
 时间复杂度 $O(m)$，空间复杂度 $O(1)$。其中 $m$ 为数组中字符串的总长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -164,6 +191,8 @@ class Solution:
                 y, j = 0, j + 1
         return i == len(word1) and j == len(word2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -188,6 +217,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -202,6 +233,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func arrayStringsAreEqual(word1 []string, word2 []string) bool {
@@ -222,6 +255,8 @@ func arrayStringsAreEqual(word1 []string, word2 []string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
     let [i, j, x, y] = [0, 0, 0, 0];
@@ -241,6 +276,8 @@ function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
     return i === word1.length && j === word2.length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -269,4 +306,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

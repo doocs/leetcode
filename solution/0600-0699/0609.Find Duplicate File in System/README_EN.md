@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [609. Find Duplicate File in System](https://leetcode.com/problems/find-duplicate-file-in-system)
 
 [中文文档](/solution/0600-0699/0609.Find%20Duplicate%20File%20in%20System/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a list <code>paths</code> of directory info, including the directory path, and all the files with contents in this directory, return <em>all the duplicate files in the file system in terms of their paths</em>. You may return the answer in <strong>any order</strong>.</p>
 
@@ -63,11 +67,17 @@ tags:
 	<li>How to make sure the duplicated files you find are not false positive?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +91,8 @@ class Solution:
                 d[content].append(ps[0] + '/' + name)
         return [v for v in d.values() if len(v) > 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDuplicate(paths []string) [][]string {
 	d := map[string][]string{}
@@ -163,6 +179,8 @@ func findDuplicate(paths []string) [][]string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findDuplicate(paths: string[]): string[][] {
     const d = new Map<string, string[]>();
@@ -181,4 +199,6 @@ function findDuplicate(paths: string[]): string[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

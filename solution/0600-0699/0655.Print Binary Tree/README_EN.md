@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [655. Print Binary Tree](https://leetcode.com/problems/print-binary-tree)
 
 [中文文档](/solution/0600-0699/0655.Print%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, construct a <strong>0-indexed</strong> <code>m x n</code> string matrix <code>res</code> that represents a <strong>formatted layout</strong> of the tree. The formatted layout matrix should be constructed using the following rules:</p>
 
@@ -57,11 +61,17 @@ tags:
 	<li>The depth of the tree will be in the range <code>[1, 10]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -90,6 +100,8 @@ class Solution:
         dfs(root, 0, (n - 1) // 2)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -141,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -176,6 +190,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -218,6 +234,8 @@ func printTree(root *TreeNode) [][]string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -258,6 +276,8 @@ function printTree(root: TreeNode | null): string[][] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -318,9 +338,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -357,6 +383,8 @@ class Solution:
                 q.append((node.right, r + 1, c + 2 ** (h - r - 1)))
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -436,6 +464,8 @@ class Tuple {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -484,6 +514,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -549,4 +581,6 @@ type tuple struct {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

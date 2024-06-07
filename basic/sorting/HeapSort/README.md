@@ -71,7 +71,7 @@ for (int i = n / 2; i > 0; --i) {
 
 <!-- tabs:start -->
 
-### **Python3**
+#### Python3
 
 ```python
 n, m = list(map(int, input().split(" ")))
@@ -110,7 +110,7 @@ for i in range(m):
 print(' '.join(list(map(str, res))))
 ```
 
-### **Java**
+#### Java
 
 ```java
 import java.util.Scanner;
@@ -165,7 +165,7 @@ public class Main {
 }
 ```
 
-### **Rust**
+#### Rust
 
 ```rust
 use std::io;
@@ -230,7 +230,7 @@ fn main() -> io::Result<()> {
 }
 ```
 
-### **Go**
+#### Go
 
 ```go
 package main
@@ -286,11 +286,15 @@ func main() {
 }
 ```
 
-<!-- tabs:end -->## 解法
+<!-- tabs:end -->
+
+## 解法
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 n, m = list(map(int, input().split(" ")))
@@ -328,6 +332,8 @@ for i in range(m):
 
 print(' '.join(list(map(str, res))))
 ```
+
+#### Java
 
 ```java
 import java.util.Scanner;
@@ -382,6 +388,8 @@ public class Main {
 }
 ```
 
+#### Go
+
 ```go
 package main
 
@@ -435,6 +443,8 @@ func main() {
 	}
 }
 ```
+
+#### Rust
 
 ```rust
 use std::io;
@@ -500,5 +510,3 @@ fn main() -> io::Result<()> {
 ```
 
 <!-- tabs:end -->
-
-<!-- end -->

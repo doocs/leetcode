@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.12.BiNode/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.12. BiNode](https://leetcode.cn/problems/binode-lcci)
 
 [中文文档](/lcci/17.12.BiNode/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The data structure&nbsp;<code>TreeNode</code>&nbsp;is used for binary tree, but it can also used to represent a single linked list (where left is null, and right is the next node in the list). Implement a method to convert a binary search tree (implemented with <code>TreeNode</code>) into a single&nbsp;linked list. The values should be kept in order and the operation should be performed in place (that is, on the original data structure).</p>
 
@@ -34,11 +38,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.12.BiNode/README_E
 	<li>The number of nodes will not exceed&nbsp;100000.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -66,6 +76,8 @@ class Solution:
         dfs(root)
         return dummy.right
 ```
+
+#### Java
 
 ```java
 /**
@@ -100,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -132,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -160,6 +176,8 @@ func convertBiNode(root *TreeNode) *TreeNode {
 }
 ```
 
+#### JavaScript
+
 ```js
 const convertBiNode = root => {
     const dfs = root => {
@@ -181,4 +199,6 @@ const convertBiNode = root => {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [702. Search in a Sorted Array of Unknown Size 🔒](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size)
 
 [中文文档](/solution/0700-0799/0702.Search%20in%20a%20Sorted%20Array%20of%20Unknown%20Size/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>This is an <strong><em>interactive problem</em></strong>.</p>
 
@@ -55,11 +59,17 @@ tags:
 	<li><code>secret</code> is sorted in a strictly increasing order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -87,6 +97,8 @@ class Solution:
         return left if reader.get(left) == target else -1
 ```
 
+#### Java
+
 ```java
 /**
  * // This is ArrayReader's API interface.
@@ -111,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -138,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -168,4 +184,6 @@ func search(reader ArrayReader, target int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

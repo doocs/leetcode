@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1639.Number%20of%20Ways%20to%20Form%20a%20Target%20String%20Given%20a%20Dictionary/README_EN.md
 rating: 2081
+source: Biweekly Contest 38 Q4
 tags:
     - Array
     - String
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1639. Number of Ways to Form a Target String Given a Dictionary](https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary)
 
 [中文文档](/solution/1600-1699/1639.Number%20of%20Ways%20to%20Form%20a%20Target%20String%20Given%20a%20Dictionary/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a list of strings of the <strong>same length</strong> <code>words</code> and a string <code>target</code>.</p>
 
@@ -68,7 +73,11 @@ tags:
 	<li><code>words[i]</code> and <code>target</code> contain only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Memory Search
 
@@ -87,6 +96,8 @@ Finally, we return $dfs(0, 0)$. Note that the answer is taken in modulo operatio
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ is the length of the string $target$, and $n$ is the length of each string in the string array $words$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -109,6 +120,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numWays(words []string, target string) int {
@@ -221,6 +238,8 @@ func numWays(words []string, target string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numWays(words: string[], target: string): number {
     const m = target.length;
@@ -248,6 +267,10 @@ function numWays(words: string[], target: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Preprocessing + Dynamic Programming
 
 Similar to Solution 1, we can first preprocess a two-dimensional array $cnt$, where $cnt[j][c]$ represents the number of characters $c$ in the $j$-th position of the string array $words$.
@@ -261,6 +284,8 @@ Finally, we return $f[m][n]$. Note the mod operation of the answer.
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ is the length of the string $target$, and $n$ is the length of each string in the string array $words$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -282,6 +307,8 @@ class Solution:
                 f[i][j] %= mod
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -308,6 +335,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -333,6 +362,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numWays(words []string, target string) int {
@@ -363,4 +394,6 @@ func numWays(words []string, target string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

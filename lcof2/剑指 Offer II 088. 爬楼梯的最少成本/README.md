@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20088.%20%E7%88%AC%E6%A5%BC%E6%A2%AF%E7%9A%84%E6%9C%80%E5%B0%91%E6%88%90%E6%9C%AC/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 088. 爬楼梯的最少成本](https://leetcode.cn/problems/GzCJIP)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>数组的每个下标作为一个阶梯，第 <code>i</code> 个阶梯对应着一个非负数的体力花费值&nbsp;<code>cost[i]</code>（下标从 <code>0</code> 开始）。</p>
 
@@ -46,7 +48,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 746&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/min-cost-climbing-stairs/">https://leetcode.cn/problems/min-cost-climbing-stairs/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -66,6 +72,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
@@ -75,6 +83,8 @@ class Solution:
             dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCostClimbingStairs(cost []int) int {
 	n := len(cost)
@@ -113,6 +127,8 @@ func minCostClimbingStairs(cost []int) int {
 	return dp[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCostClimbingStairs(cost: number[]): number {
@@ -127,9 +143,15 @@ function minCostClimbingStairs(cost: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -139,6 +161,8 @@ class Solution:
             a, b = b, min(a + cost[i - 1], b + cost[i])
         return b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +177,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +195,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCostClimbingStairs(cost []int) int {
 	a, b := 0, 0
@@ -178,6 +206,8 @@ func minCostClimbingStairs(cost []int) int {
 	return b
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCostClimbingStairs(cost: number[]): number {
@@ -192,4 +222,6 @@ function minCostClimbingStairs(cost: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

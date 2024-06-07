@@ -8,13 +8,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [84. 柱状图中最大的矩形](https://leetcode.cn/problems/largest-rectangle-in-histogram)
 
 [English Version](/solution/0000-0099/0084.Largest%20Rectangle%20in%20Histogram/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定 <em>n</em> 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。</p>
 
@@ -49,7 +51,11 @@ tags:
 	<li><code>0 <= heights[i] <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -69,6 +75,8 @@ for i in range(n):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
@@ -85,6 +93,8 @@ class Solution:
             stk.append(i)
         return max(h * (right[i] - left[i] - 1) for i, h in enumerate(heights))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestRectangleArea(heights []int) int {
@@ -158,6 +172,8 @@ func largestRectangleArea(heights []int) int {
 	return res
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -207,6 +223,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 using System;
 using System.Collections.Generic;
@@ -239,9 +257,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -269,4 +293,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

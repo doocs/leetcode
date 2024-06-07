@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2037.Minimum%20Number%20of%20Moves%20to%20Seat%20Everyone/README_EN.md
 rating: 1356
+source: Biweekly Contest 63 Q1
 tags:
     - Greedy
     - Array
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2037. Minimum Number of Moves to Seat Everyone](https://leetcode.com/problems/minimum-number-of-moves-to-seat-everyone)
 
 [中文文档](/solution/2000-2099/2037.Minimum%20Number%20of%20Moves%20to%20Seat%20Everyone/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> seats and <code>n</code> students in a room. You are given an array <code>seats</code> of length <code>n</code>, where <code>seats[i]</code> is the position of the <code>i<sup>th</sup></code> seat. You are also given the array <code>students</code> of length <code>n</code>, where <code>students[j]</code> is the position of the <code>j<sup>th</sup></code> student.</p>
 
@@ -76,7 +81,11 @@ In total, 1 + 3 + 0 + 0 = 4 moves were used.
 	<li><code>1 &lt;= seats[i], students[j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -86,6 +95,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMovesToSeat(self, seats: List[int], students: List[int]) -> int:
@@ -93,6 +104,8 @@ class Solution:
         students.sort()
         return sum(abs(a - b) for a, b in zip(seats, students))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minMovesToSeat(seats []int, students []int) (ans int) {
@@ -142,6 +159,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minMovesToSeat(seats: number[], students: number[]): number {
     seats.sort((a, b) => a - b);
@@ -154,6 +173,8 @@ function minMovesToSeat(seats: number[], students: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -169,6 +190,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -188,4 +211,6 @@ int minMovesToSeat(int* seats, int seatsSize, int* students, int studentsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

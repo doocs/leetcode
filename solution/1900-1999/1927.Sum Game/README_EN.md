@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1927.Sum%20Game/README_EN.md
 rating: 2004
+source: Biweekly Contest 56 Q3
 tags:
     - Greedy
     - Math
@@ -10,11 +11,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [1927. Sum Game](https://leetcode.com/problems/sum-game)
 
 [中文文档](/solution/1900-1999/1927.Sum%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob take turns playing a game, with <strong>Alice</strong><strong>&nbsp;starting first</strong>.</p>
 
@@ -75,11 +80,17 @@ Bob wins because 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7.
 	<li><code>num</code> consists of only digits and <code>&#39;?&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +102,8 @@ class Solution:
         s2 = sum(int(x) for x in num[n // 2 :] if x != "?")
         return (cnt1 + cnt2) % 2 == 1 or s1 - s2 != 9 * (cnt2 - cnt1) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumGame(num string) bool {
 	n := len(num)
@@ -164,6 +181,8 @@ func sumGame(num string) bool {
 	return (cnt1+cnt2)%2 == 1 || s1-s2 != (cnt2-cnt1)*9/2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumGame(num: string): boolean {
@@ -189,4 +208,6 @@ function sumGame(num: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

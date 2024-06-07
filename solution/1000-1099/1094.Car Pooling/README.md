@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1094.Car%20Pooling/README.md
 rating: 1441
+source: 第 142 场周赛 Q2
 tags:
     - 数组
     - 前缀和
@@ -11,13 +12,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1094. 拼车](https://leetcode.cn/problems/car-pooling)
 
 [English Version](/solution/1000-1099/1094.Car%20Pooling/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>车上最初有&nbsp;<code>capacity</code>&nbsp;个空座位。车&nbsp;<strong>只能&nbsp;</strong>向一个方向行驶（也就是说，<strong>不允许掉头或改变方向</strong>）</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>1 &lt;= capacity &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
@@ -62,6 +69,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(M)$。其中 $n$ 是行程数，而 $M$ 是行程中最大的终点，本题中 $M \le 1000$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +82,8 @@ class Solution:
             d[t] -= x
         return all(s <= capacity for s in accumulate(d))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func carPooling(trips [][]int, capacity int) bool {
 	d := [1001]int{}
@@ -136,6 +151,8 @@ func carPooling(trips [][]int, capacity int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function carPooling(trips: number[][], capacity: number): boolean {
     const mx = Math.max(...trips.map(([, , t]) => t));
@@ -154,6 +171,8 @@ function carPooling(trips: number[][], capacity: number): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -179,6 +198,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} trips
@@ -202,6 +223,8 @@ var carPooling = function (trips, capacity) {
     return true;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -227,4 +250,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

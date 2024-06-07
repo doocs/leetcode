@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2062.Count%20Vowel%20Substrings%20of%20a%20String/README.md
 rating: 1458
+source: 第 266 场周赛 Q1
 tags:
     - 哈希表
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2062. 统计字符串中的元音子字符串](https://leetcode.cn/problems/count-vowel-substrings-of-a-string)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>子字符串</strong> 是字符串中的一个连续（非空）的字符序列。</p>
 
@@ -73,7 +76,11 @@ tags:
 	<li><code>word</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举 + 哈希表
 
@@ -83,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countVowelSubstrings(self, word: str) -> int:
@@ -90,6 +99,8 @@ class Solution:
         s = set('aeiou')
         return sum(set(word[i:j]) == s for i in range(n) for j in range(i + 1, n + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countVowelSubstrings(word string) int {
 	ans, n := 0, len(word)
@@ -161,6 +176,8 @@ func countVowelSubstrings(word string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countVowelSubstrings(word: string): number {
@@ -185,9 +202,15 @@ function countVowelSubstrings(word: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -206,4 +229,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

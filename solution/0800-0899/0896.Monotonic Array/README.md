@@ -6,13 +6,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [896. 单调数列](https://leetcode.cn/problems/monotonic-array)
 
 [English Version](/solution/0800-0899/0896.Monotonic%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果数组是单调递增或单调递减的，那么它是&nbsp;<strong>单调 </strong><em>的</em>。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>-10<sup>5</sup>&nbsp;&lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -67,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isMonotonic(self, nums: List[int]) -> bool:
@@ -74,6 +82,8 @@ class Solution:
         desc = all(a >= b for a, b in pairwise(nums))
         return asc or desc
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isMonotonic(nums []int) bool {
 	asc, desc := false, false
@@ -131,6 +145,8 @@ func isMonotonic(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isMonotonic(nums: number[]): boolean {
     let [asc, desc] = [false, false];
@@ -147,6 +163,8 @@ function isMonotonic(nums: number[]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -167,6 +185,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -191,4 +211,6 @@ var isMonotonic = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

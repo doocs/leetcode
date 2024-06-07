@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1221.Split%20a%20String%20in%20Balanced%20Strings/README_EN.md
 rating: 1219
+source: Weekly Contest 158 Q1
 tags:
     - Greedy
     - String
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1221. Split a String in Balanced Strings](https://leetcode.com/problems/split-a-string-in-balanced-strings)
 
 [中文文档](/solution/1200-1299/1221.Split%20a%20String%20in%20Balanced%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p><strong>Balanced</strong> strings are those that have an equal quantity of <code>&#39;L&#39;</code> and <code>&#39;R&#39;</code> characters.</p>
 
@@ -59,7 +64,11 @@ Note that s cannot be split into &quot;RL&quot;, &quot;RR&quot;, &quot;RL&quot;,
 	<li><code>s</code> is a <strong>balanced</strong> string.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -70,6 +79,8 @@ We traverse the string $s$. When we traverse to the $i$-th character, if $s[i] =
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +95,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func balancedStringSplit(s string) int {
 	ans, l := 0, 0
@@ -137,6 +154,8 @@ func balancedStringSplit(s string) int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -162,4 +181,6 @@ var balancedStringSplit = function (s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

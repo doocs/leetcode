@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1298.Maximum%20Candies%20You%20Can%20Get%20from%20Boxes/README_EN.md
 rating: 1824
+source: Weekly Contest 168 Q4
 tags:
     - Breadth-First Search
     - Graph
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1298. Maximum Candies You Can Get from Boxes](https://leetcode.com/problems/maximum-candies-you-can-get-from-boxes)
 
 [中文文档](/solution/1200-1299/1298.Maximum%20Candies%20You%20Can%20Get%20from%20Boxes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code> boxes labeled from <code>0</code> to <code>n - 1</code>. You are given four arrays: <code>status</code>, <code>candies</code>, <code>keys</code>, and <code>containedBoxes</code> where:</p>
 
@@ -68,11 +73,17 @@ The total number of candies will be 6.
 	<li><code>0 &lt;= initialBoxes[i] &lt; n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +116,8 @@ class Solution:
                     q.append(j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +159,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -189,6 +204,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxCandies(status []int, candies []int, keys [][]int, containedBoxes [][]int, initialBoxes []int) int {
 	ans := 0
@@ -230,4 +247,6 @@ func maxCandies(status []int, candies []int, keys [][]int, containedBoxes [][]in
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

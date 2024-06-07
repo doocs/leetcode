@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1590.Make%20Sum%20Divisible%20by%20P/README.md
 rating: 2038
+source: 第 35 场双周赛 Q3
 tags:
     - 数组
     - 哈希表
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [1590. 使数组和能被 P 整除](https://leetcode.cn/problems/make-sum-divisible-by-p)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数数组&nbsp;<code>nums</code>，请你移除 <strong>最短</strong>&nbsp;子数组（可以为 <strong>空</strong>），使得剩余元素的 <strong>和</strong>&nbsp;能被 <code>p</code>&nbsp;整除。 <strong>不允许</strong>&nbsp;将整个数组都移除。</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li><code>1 &lt;= p &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 哈希表
 
@@ -86,6 +93,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -104,6 +113,8 @@ class Solution:
             last[cur] = i
         return -1 if ans == len(nums) else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -162,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSubarray(nums []int, p int) int {
 	k := 0
@@ -189,6 +204,8 @@ func minSubarray(nums []int, p int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minSubarray(nums: number[], p: number): number {
@@ -219,4 +236,6 @@ function minSubarray(nums: number[], p: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

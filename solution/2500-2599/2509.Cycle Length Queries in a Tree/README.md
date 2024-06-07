@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2509.Cycle%20Length%20Queries%20in%20a%20Tree/README.md
 rating: 1948
+source: 第 324 场周赛 Q4
 tags:
     - 树
     - 数组
     - 二叉树
 ---
+
+<!-- problem:start -->
 
 # [2509. 查询树中环的长度](https://leetcode.cn/problems/cycle-length-queries-in-a-tree)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;，表示你有一棵含有&nbsp;<code>2<sup>n</sup> - 1</code>&nbsp;个节点的 <strong>完全二叉树</strong>&nbsp;。根节点的编号是&nbsp;<code>1</code>&nbsp;，树中编号在<code>[1, 2<sup>n - 1</sup> - 1]</code>&nbsp;之间，编号为&nbsp;<code>val</code>&nbsp;的节点都有两个子节点，满足：</p>
 
@@ -81,7 +84,11 @@ tags:
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：求最近公共祖先
 
@@ -92,6 +99,8 @@ tags:
 时间复杂度 $O(n \times m)$。其中 $m$ 为数组 `queries` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -108,6 +117,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func cycleLengthQueries(n int, queries [][]int) []int {
 	ans := []int{}
@@ -177,4 +192,6 @@ func cycleLengthQueries(n int, queries [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

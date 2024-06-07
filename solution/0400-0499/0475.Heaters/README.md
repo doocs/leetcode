@@ -9,13 +9,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [475. 供暖器](https://leetcode.cn/problems/heaters)
 
 [English Version](/solution/0400-0499/0475.Heaters/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>冬季已经来临。&nbsp;你的任务是设计一个有固定加热半径的供暖器向所有房屋供暖。</p>
 
@@ -59,11 +61,17 @@ tags:
 	<li><code>1 &lt;= houses[i], heaters[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +105,8 @@ class Solution:
         return left
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int findRadius(int[] houses, int[] heaters) {
@@ -115,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -150,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findRadius(houses []int, heaters []int) int {
@@ -188,6 +202,8 @@ func findRadius(houses []int, heaters []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findRadius(houses: number[], heaters: number[]): number {
     houses.sort((a, b) => a - b);
@@ -211,4 +227,6 @@ function findRadius(houses: number[], heaters: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

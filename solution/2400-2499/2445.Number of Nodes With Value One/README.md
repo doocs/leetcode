@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [2445. 值为 1 的节点数 🔒](https://leetcode.cn/problems/number-of-nodes-with-value-one)
 
 [English Version](/solution/2400-2499/2445.Number%20of%20Nodes%20With%20Value%20One/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个&nbsp;<strong>无向&nbsp;</strong>树，有 <code>n</code> 个节点，节点标记为从 <code>1</code> 到 <code>n</code>&nbsp;，还有&nbsp;<code>n - 1</code> 条边。给定整数 <code>n</code>。标记为 <code>v</code> 的节点的父节点是标记为&nbsp;<code>floor (v / 2)</code>&nbsp;的节点。树的根节点是标记为 <code>1</code> 的节点。</p>
 
@@ -64,7 +66,11 @@ tags:
 	<li><code>1 &lt;= queries[i] &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -75,6 +81,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +101,8 @@ class Solution:
                 dfs(i)
         return sum(tree)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfNodes(n int, queries []int) int {
@@ -181,4 +195,6 @@ func numberOfNodes(n int, queries []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.12.Paths%20with%20Sum/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [04.12. Paths with Sum](https://leetcode.cn/problems/paths-with-sum-lcci)
 
 [中文文档](/lcci/04.12.Paths%20with%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a binary tree in which each node contains an integer value (which might be positive or negative). Design an algorithm to count the number of paths that sum to a given value. The path does not need to start or end at the root or a leaf, but it must go downwards (traveling only from parent nodes to child nodes).</p>
 
@@ -48,7 +52,11 @@ Given the following tree and &nbsp;<code>sum = 22,</code></p>
 	<li><code>node number &lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Prefix Sum + Recursion
 
@@ -69,6 +77,8 @@ The recursive process of the function $dfs(node, s)$ is as follows:
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -95,6 +105,8 @@ class Solution:
         cnt = Counter({0: 1})
         return dfs(root, 0)
 ```
+
+#### Java
 
 ```java
 /**
@@ -131,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -163,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -190,6 +206,8 @@ func pathSum(root *TreeNode, sum int) int {
 	return dfs(root, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -224,6 +242,8 @@ function pathSum(root: TreeNode | null, sum: number): number {
     return dfs(root, 0);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -275,6 +295,8 @@ impl Solution {
 }
 ```
 
+#### Swift
+
 ```swift
 /* class TreeNode {
 *    var val: Int
@@ -318,4 +340,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

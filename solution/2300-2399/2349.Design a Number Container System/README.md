@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README.md
 rating: 1540
+source: 第 83 场双周赛 Q3
 tags:
     - 设计
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [2349. 设计数字容器系统](https://leetcode.cn/problems/design-a-number-container-system)
 
 [English Version](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个数字容器系统，可以实现以下功能：</p>
 
@@ -65,11 +68,17 @@ nc.find(10); // 数字 10 所在下标为 2 ，3 和 5 。最小下标为 2 ，�
 	<li>调用&nbsp;<code>change</code> 和&nbsp;<code>find</code>&nbsp;的&nbsp;<strong>总次数</strong>&nbsp;不超过&nbsp;<code>10<sup>5</sup></code> 次。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedSet
@@ -97,6 +106,8 @@ class NumberContainers:
 # obj.change(index,number)
 # param_2 = obj.find(number)
 ```
+
+#### Java
 
 ```java
 class NumberContainers {
@@ -131,6 +142,8 @@ class NumberContainers {
  */
 ```
 
+#### C++
+
 ```cpp
 class NumberContainers {
 public:
@@ -163,6 +176,8 @@ public:
  * int param_2 = obj->find(number);
  */
 ```
+
+#### Go
 
 ```go
 type NumberContainers struct {
@@ -203,4 +218,6 @@ func (this *NumberContainers) Find(number int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

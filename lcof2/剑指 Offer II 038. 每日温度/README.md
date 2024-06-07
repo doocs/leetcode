@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20038.%20%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 038. 每日温度](https://leetcode.cn/problems/iIQa4I)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请根据每日 <code>气温</code> 列表 <code>temperatures</code>&nbsp;，重新生成一个列表，要求其对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用&nbsp;<code>0</code> 来代替。</p>
 
@@ -46,7 +48,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 739&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/daily-temperatures/">https://leetcode.cn/problems/daily-temperatures/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -62,6 +68,8 @@ for i in range(n):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
@@ -74,6 +82,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dailyTemperatures(temperatures []int) []int {
 	ans := make([]int, len(temperatures))
@@ -128,6 +142,8 @@ func dailyTemperatures(temperatures []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function dailyTemperatures(temperatures: number[]): number[] {
     const n = temperatures.length;
@@ -143,6 +159,8 @@ function dailyTemperatures(temperatures: number[]): number[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -162,11 +180,39 @@ impl Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func dailyTemperatures(_ temperatures: [Int]) -> [Int] {
+        let n = temperatures.count
+        var ans = [Int](repeating: 0, count: n)
+        var stack = [Int]()
+
+        for i in 0..<n {
+            while !stack.isEmpty && temperatures[stack.last!] < temperatures[i] {
+                let j = stack.removeLast()
+                ans[j] = i - j
+            }
+            stack.append(i)
+        }
+
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -182,6 +228,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -203,6 +251,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -219,6 +269,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func dailyTemperatures(temperatures []int) []int {
@@ -238,6 +290,8 @@ func dailyTemperatures(temperatures []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function dailyTemperatures(temperatures: number[]): number[] {
     const n = temperatures.length;
@@ -254,6 +308,8 @@ function dailyTemperatures(temperatures: number[]): number[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -275,4 +331,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

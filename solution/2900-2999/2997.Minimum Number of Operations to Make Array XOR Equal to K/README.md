@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2997.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README.md
 rating: 1524
+source: 第 121 场双周赛 Q2
 tags:
     - 位运算
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [2997. 使数组异或和等于 K 的最少操作次数](https://leetcode.cn/problems/minimum-number-of-operations-to-make-array-xor-equal-to-k)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;和一个正整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -70,11 +77,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
         return reduce(xor, nums, k).bit_count()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(nums []int, k int) (ans int) {
 	for _, x := range nums {
@@ -107,6 +122,8 @@ func minOperations(nums []int, k int) (ans int) {
 	return bits.OnesCount(uint(k))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(nums: number[], k: number): number {
@@ -128,4 +145,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

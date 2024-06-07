@@ -8,11 +8,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [457. Circular Array Loop](https://leetcode.com/problems/circular-array-loop)
 
 [中文文档](/solution/0400-0499/0457.Circular%20Array%20Loop/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are playing a game involving a <strong>circular</strong> array of non-zero integers <code>nums</code>. Each <code>nums[i]</code> denotes the number of indices forward/backward you must move if you are located at index <code>i</code>:</p>
 
@@ -74,11 +78,17 @@ We can see the cycle 3 --&gt; 4 --&gt; 3 --&gt; ..., and all of its nodes are wh
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it in <code>O(n)</code> time complexity and <code>O(1)</code> extra space complexity?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -104,6 +114,8 @@ class Solution:
                 j = next(j)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -174,6 +188,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func circularArrayLoop(nums []int) bool {
@@ -208,4 +224,6 @@ func next(nums []int, i int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [980. Unique Paths III](https://leetcode.com/problems/unique-paths-iii)
 
 [中文文档](/solution/0900-0999/0980.Unique%20Paths%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> integer array <code>grid</code> where <code>grid[i][j]</code> could be:</p>
 
@@ -70,7 +74,11 @@ Note that the starting and ending square can be anywhere in the grid.
 	<li>There is exactly one starting cell and one ending cell.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Backtracking
 
@@ -87,6 +95,8 @@ Finally, we return the path number from the starting point, that is, $dfs(x, y, 
 The time complexity is $O(3^{m \times n})$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -110,6 +120,8 @@ class Solution:
         vis = {start}
         return dfs(*start, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -200,6 +214,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniquePathsIII(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -240,6 +256,8 @@ func uniquePathsIII(grid [][]int) int {
 	return dfs(x, y, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function uniquePathsIII(grid: number[][]): number {
@@ -282,4 +300,6 @@ function uniquePathsIII(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

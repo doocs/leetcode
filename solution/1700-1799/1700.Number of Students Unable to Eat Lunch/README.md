@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1700.Number%20of%20Students%20Unable%20to%20Eat%20Lunch/README.md
 rating: 1404
+source: 第 42 场双周赛 Q1
 tags:
     - 栈
     - 队列
@@ -10,13 +11,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [1700. 无法吃午餐的学生数量](https://leetcode.cn/problems/number-of-students-unable-to-eat-lunch)
 
 [English Version](/solution/1700-1799/1700.Number%20of%20Students%20Unable%20to%20Eat%20Lunch/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>学校的自助午餐提供圆形和方形的三明治，分别用数字 <code>0</code> 和 <code>1</code> 表示。所有学生站在一个队列里，每个学生要么喜欢圆形的要么喜欢方形的。<br>
 餐厅里三明治的数量与学生的数量相同。所有三明治都放在一个 <strong>栈</strong> 里，每一轮：</p>
@@ -65,7 +68,11 @@ tags:
 	<li><code>students[i]</code> 要么是 <code>0</code> ，要么是 <code>1</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -81,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
@@ -91,6 +100,8 @@ class Solution:
             cnt[v] -= 1
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countStudents(students []int, sandwiches []int) int {
@@ -141,6 +156,8 @@ func countStudents(students []int, sandwiches []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countStudents(students: number[], sandwiches: number[]): number {
     const count = [0, 0];
@@ -156,6 +173,8 @@ function countStudents(students: number[], sandwiches: number[]): number {
     return 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -176,6 +195,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int countStudents(int* students, int studentsSize, int* sandwiches, int sandwichesSize) {
     int count[2] = {0};
@@ -195,4 +216,6 @@ int countStudents(int* students, int studentsSize, int* sandwiches, int sandwich
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [477. Total Hamming Distance](https://leetcode.com/problems/total-hamming-distance)
 
 [中文文档](/solution/0400-0499/0477.Total%20Hamming%20Distance/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <a href="https://en.wikipedia.org/wiki/Hamming_distance" target="_blank">Hamming distance</a> between two integers is the number of positions at which the corresponding bits are different.</p>
 
@@ -46,7 +50,11 @@ HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 
 	<li>The answer for the given input will fit in a <strong>32-bit</strong> integer.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -55,6 +63,8 @@ We enumerate each bit in the range $[0, 31]$. For the current enumerated bit $i$
 The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array and the maximum value in the array, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +76,8 @@ class Solution:
             ans += a * b
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func totalHammingDistance(nums []int) (ans int) {
 	for i := 0; i < 32; i++ {
@@ -116,6 +132,8 @@ func totalHammingDistance(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function totalHammingDistance(nums: number[]): number {
     let ans = 0;
@@ -127,6 +145,8 @@ function totalHammingDistance(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -147,4 +167,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

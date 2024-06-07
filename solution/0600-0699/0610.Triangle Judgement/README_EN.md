@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [610. Triangle Judgement](https://leetcode.com/problems/triangle-judgement)
 
 [中文文档](/solution/0600-0699/0610.Triangle%20Judgement/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Triangle</code></p>
 
@@ -55,13 +59,19 @@ Triangle table:
 +----+----+----+----------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: IF Statement + Triangle Inequality
 
 The condition for whether three sides can form a triangle is that the sum of any two sides is greater than the third side. Therefore, we can use an `IF` statement to determine whether this condition is satisfied. If it is satisfied, we return `Yes`, otherwise we return `No`.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -73,4 +83,6 @@ FROM Triangle;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

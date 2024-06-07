@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1465.Maximum%20Area%20of%20a%20Piece%20of%20Cake%20After%20Horizontal%20and%20Vertical%20Cuts/README.md
 rating: 1444
+source: 第 191 场周赛 Q2
 tags:
     - 贪心
     - 数组
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [1465. 切割后面积最大的蛋糕](https://leetcode.cn/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>矩形蛋糕的高度为 <code>h</code> 且宽度为 <code>w</code>，给你两个整数数组 <code>horizontalCuts</code> 和 <code>verticalCuts</code>，其中：</p>
 
@@ -68,7 +71,11 @@ tags:
 	<li>题目数据保证 <code>verticalCuts</code>&nbsp;中的所有元素各不相同</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -79,6 +86,8 @@ tags:
 时间复杂度 $O(m\log m + n\log n)$，空间复杂度 $(\log m + \log n)$。其中 $m$ 和 $n$ 分别为 `horizontalCuts` 和 `verticalCuts` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +102,8 @@ class Solution:
         y = max(b - a for a, b in pairwise(verticalCuts))
         return (x * y) % (10**9 + 7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
 	horizontalCuts = append(horizontalCuts, []int{0, h}...)
@@ -156,6 +171,8 @@ func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxArea(h: number, w: number, horizontalCuts: number[], verticalCuts: number[]): number {
     const mod = 1e9 + 7;
@@ -173,6 +190,8 @@ function maxArea(h: number, w: number, horizontalCuts: number[], verticalCuts: n
     return Number((BigInt(x) * BigInt(y)) % BigInt(mod));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -211,4 +230,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

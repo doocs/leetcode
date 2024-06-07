@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1733.Minimum%20Number%20of%20People%20to%20Teach/README_EN.md
 rating: 1983
+source: Biweekly Contest 44 Q2
 tags:
     - Greedy
     - Array
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1733. Minimum Number of People to Teach](https://leetcode.com/problems/minimum-number-of-people-to-teach)
 
 [中文文档](/solution/1700-1799/1733.Minimum%20Number%20of%20People%20to%20Teach/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>On a social network consisting of <code>m</code> users and some friendships between users, two users can communicate with each other if they know a common language.</p>
 
@@ -59,7 +64,11 @@ Note that friendships are not transitive, meaning if <code>x</code> is a friend 
 	<li><code>languages[i]</code> contains only unique values</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation + Statistics
 
@@ -70,6 +79,8 @@ Then in this set $s$, we count the number of people who know each language, and 
 The time complexity is $O(m^2 \times k)$. Here, $m$ is the number of languages, and $k$ is the number of friendships.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +105,8 @@ class Solution:
                 cnt[l] += 1
         return len(s) - max(cnt.values(), default=0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTeachings(n int, languages [][]int, friendships [][]int) int {
 	check := func(u, v int) bool {
@@ -206,4 +223,6 @@ func minimumTeachings(n int, languages [][]int, friendships [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

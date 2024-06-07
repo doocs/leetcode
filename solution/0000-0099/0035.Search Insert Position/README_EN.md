@@ -7,11 +7,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [35. Search Insert Position](https://leetcode.com/problems/search-insert-position)
 
 [中文文档](/solution/0000-0099/0035.Search%20Insert%20Position/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p>
 
@@ -49,7 +53,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -58,6 +66,8 @@ Since the array $nums$ is already sorted, we can use the binary search method to
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +81,8 @@ class Solution:
                 left = mid + 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchInsert(nums []int, target int) int {
 	left, right := 0, len(nums)
@@ -120,6 +136,8 @@ func searchInsert(nums []int, target int) int {
 	return left
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -146,6 +164,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -169,6 +189,10 @@ var searchInsert = function (nums, target) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary Search (Built-in Function)
 
 We can also directly use the built-in function for binary search.
@@ -177,11 +201,15 @@ The time complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         return bisect_left(nums, target)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -192,6 +220,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,11 +231,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchInsert(nums []int, target int) int {
 	return sort.SearchInts(nums, target)
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -230,4 +264,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

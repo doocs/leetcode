@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3034.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20I/README.md
 rating: 1383
+source: 第 384 场周赛 Q2
 tags:
     - 数组
     - 字符串匹配
@@ -10,13 +11,15 @@ tags:
     - 滚动哈希
 ---
 
+<!-- problem:start -->
+
 # [3034. 匹配模式数组的子数组数目 I](https://leetcode.cn/problems/number-of-subarrays-that-match-a-pattern-i)
 
 [English Version](/solution/3000-3099/3034.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始长度为 <code>n</code>&nbsp;的整数数组&nbsp;<code>nums</code>&nbsp;，和一个下标从 <code>0</code>&nbsp;开始长度为 <code>m</code>&nbsp;的整数数组&nbsp;<code>pattern</code>&nbsp;，<code>pattern</code>&nbsp;数组只包含整数&nbsp;<code>-1</code>&nbsp;，<code>0</code>&nbsp;和&nbsp;<code>1</code>&nbsp;。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>-1 &lt;= pattern[i] &lt;= 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -70,6 +77,8 @@ tags:
 时间复杂度 $O(n \times m)$，其中 $n$ 和 $m$ 分别是数组 `nums` 和 `pattern` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +93,8 @@ class Solution:
             )
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countMatchingSubarrays(nums []int, pattern []int) (ans int) {
@@ -156,6 +171,8 @@ func countMatchingSubarrays(nums []int, pattern []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countMatchingSubarrays(nums: number[], pattern: number[]): number {
     const f = (a: number, b: number) => (a === b ? 0 : a < b ? 1 : -1);
@@ -174,6 +191,8 @@ function countMatchingSubarrays(nums: number[], pattern: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -200,4 +219,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

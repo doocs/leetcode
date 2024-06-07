@@ -7,11 +7,15 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs)
 
 [中文文档](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a&nbsp;linked list, swap every two adjacent nodes and return its head. You must solve the problem without&nbsp;modifying the values in the list&#39;s nodes (i.e., only nodes themselves may be changed.)</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>0 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -58,6 +66,8 @@ Otherwise, we recursively swap the linked list $head.next.next$, and let the swa
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the linked list.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -75,6 +85,8 @@ class Solution:
         head.next = t
         return p
 ```
+
+#### Java
 
 ```java
 /**
@@ -100,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -127,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -146,6 +162,8 @@ func swapPairs(head *ListNode) *ListNode {
 	return p
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -171,6 +189,8 @@ function swapPairs(head: ListNode | null): ListNode | null {
     return p;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -208,6 +228,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -231,6 +253,8 @@ var swapPairs = function (head) {
     return p;
 };
 ```
+
+#### Ruby
 
 ```rb
 # Definition for singly-linked list.
@@ -261,6 +285,10 @@ end
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Iteration
 
 We set a dummy head node $dummy$, initially pointing to $head$, and then set two pointers $pre$ and $cur$, initially $pre$ points to $dummy$, and $cur$ points to $head$.
@@ -270,6 +298,8 @@ Next, we traverse the linked list. Each time we need to swap the two nodes after
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the linked list.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -289,6 +319,8 @@ class Solution:
             pre, cur = cur, cur.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -318,6 +350,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -349,6 +383,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -370,6 +406,8 @@ func swapPairs(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -398,6 +436,8 @@ function swapPairs(head: ListNode | null): ListNode | null {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -423,6 +463,8 @@ var swapPairs = function (head) {
     return dummy.next;
 };
 ```
+
+#### PHP
 
 ```php
 # Definition for singly-linked list.
@@ -466,4 +508,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

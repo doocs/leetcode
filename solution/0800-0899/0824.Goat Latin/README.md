@@ -6,13 +6,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [824. 山羊拉丁文](https://leetcode.cn/problems/goat-latin)
 
 [English Version](/solution/0800-0899/0824.Goat%20Latin/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由若干单词组成的句子&nbsp;<code>sentence</code> ，单词间由空格分隔。每个单词仅由大写和小写英文字母组成。</p>
 
@@ -67,11 +69,17 @@ tags:
 	<li><code>sentence</code> 中的所有单词由单个空格分隔</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +93,8 @@ class Solution:
             ans.append(word)
         return ' '.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +123,8 @@ class Solution {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function toGoatLatin(sentence: string): string {
     return sentence
@@ -129,6 +141,8 @@ function toGoatLatin(sentence: string): string {
         .join(' ');
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -158,4 +172,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

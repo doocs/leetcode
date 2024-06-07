@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.04.Power%20Set/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.04. 幂集](https://leetcode.cn/problems/power-set-lcci)
 
 [English Version](/lcci/08.04.Power%20Set/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>幂集。编写一种方法，返回某集合的所有子集。集合中<strong>不包含重复的元素</strong>。</p>
 
 <p>说明：解集不能包含重复的子集。</p>
@@ -31,7 +34,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.04.Power%20Set/REA
 ]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归枚举
 
@@ -42,6 +49,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.04.Power%20Set/REA
 时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。数组中每个元素有两种状态，即选择或不选择，共 $2^n$ 种状态，每种状态需要 $O(n)$ 的时间来构造子集。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +68,8 @@ class Solution:
         dfs(0, [])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsets(nums []int) [][]int {
 	var ans [][]int
@@ -127,6 +142,8 @@ func subsets(nums []int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subsets(nums: number[]): number[][] {
     const res = [[]];
@@ -138,6 +155,8 @@ function subsets(nums: number[]): number[][] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -153,6 +172,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -176,6 +197,8 @@ function dfs(nums, depth, prev, res) {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -203,6 +226,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：二进制枚举
 
 我们可以将方法一中的递归过程改写成迭代的形式，即使用二进制枚举的方法来枚举所有的子集。
@@ -212,6 +239,8 @@ class Solution {
 时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。一共有 $2^n$ 个子集，每个子集需要 $O(n)$ 的时间来构造。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -225,6 +254,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -244,6 +275,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -266,6 +299,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsets(nums []int) [][]int {
 	var ans [][]int
@@ -282,6 +317,8 @@ func subsets(nums []int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subsets(nums: number[]): number[][] {
@@ -302,6 +339,8 @@ function subsets(nums: number[]): number[][] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -326,4 +365,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

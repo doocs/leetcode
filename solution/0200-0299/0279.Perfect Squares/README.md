@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [279. 完全平方数](https://leetcode.cn/problems/perfect-squares)
 
 [English Version](/solution/0200-0299/0279.Perfect%20Squares/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，返回 <em>和为 <code>n</code> 的完全平方数的最少数量</em> 。</p>
 
@@ -44,7 +46,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划(完全背包)
 
@@ -82,6 +88,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSquares(self, n: int) -> int:
@@ -95,6 +103,8 @@ class Solution:
                     f[i][j] = min(f[i][j], f[i][j - i * i] + 1)
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSquares(n int) int {
@@ -163,6 +177,8 @@ func numSquares(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numSquares(n: number): number {
     const m = Math.floor(Math.sqrt(n));
@@ -181,6 +197,8 @@ function numSquares(n: number): number {
     return f[m][n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -203,9 +221,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -217,6 +241,8 @@ class Solution:
                 f[j] = min(f[j], f[j - i * i] + 1)
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -234,6 +260,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -253,6 +281,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSquares(n int) int {
 	m := int(math.Sqrt(float64(n)))
@@ -270,6 +300,8 @@ func numSquares(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numSquares(n: number): number {
     const m = Math.floor(Math.sqrt(n));
@@ -283,6 +315,8 @@ function numSquares(n: number): number {
     return f[n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -302,4 +336,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

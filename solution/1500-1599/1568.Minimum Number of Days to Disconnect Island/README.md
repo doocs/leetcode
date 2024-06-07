@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1568.Minimum%20Number%20of%20Days%20to%20Disconnect%20Island/README.md
 rating: 2208
+source: 第 204 场周赛 Q3
 tags:
     - 深度优先搜索
     - 广度优先搜索
@@ -11,13 +12,15 @@ tags:
     - 强连通分量
 ---
 
+<!-- problem:start -->
+
 # [1568. 使陆地分离的最少天数](https://leetcode.cn/problems/minimum-number-of-days-to-disconnect-island)
 
 [English Version](/solution/1500-1599/1568.Minimum%20Number%20of%20Days%20to%20Disconnect%20Island/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> ，由若干 <code>0</code> 和 <code>1</code> 组成的二维网格 <code>grid</code> ，其中 <code>1</code> 表示陆地， <code>0</code> 表示水。<strong>岛屿</strong> 由水平方向或竖直方向上相邻的 <code>1</code> （陆地）连接形成。</p>
 
@@ -56,7 +59,11 @@ tags:
 	<li><code>grid[i][j]</code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯
 
@@ -71,6 +78,8 @@ tags:
 时间复杂度 $O(m^2\times n^2)$，其中 $m$ 和 $n$ 分别是 `grid` 的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -108,6 +117,8 @@ class Solution:
                     grid[i][j] = 1
         return cnt
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +180,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -226,6 +239,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minDays(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -282,4 +297,6 @@ func minDays(grid [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [822. 翻转卡片游戏](https://leetcode.cn/problems/card-flipping-game)
 
 [English Version](/solution/0800-0899/0822.Card%20Flipping%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在桌子上有 <code>n</code> 张卡片，每张卡片的正面和背面都写着一个正数（正面与背面上的数有可能不一样）。</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li><code>1 &lt;= fronts[i], backs[i] &lt;= 2000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -72,12 +78,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def flipgame(self, fronts: List[int], backs: List[int]) -> int:
         s = {a for a, b in zip(fronts, backs) if a == b}
         return min((x for x in chain(fronts, backs) if x not in s), default=0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func flipgame(fronts []int, backs []int) int {
 	s := map[int]struct{}{}
@@ -154,6 +168,8 @@ func flipgame(fronts []int, backs []int) int {
 	return ans % 9999
 }
 ```
+
+#### TypeScript
 
 ```ts
 function flipgame(fronts: number[], backs: number[]): number {
@@ -178,6 +194,8 @@ function flipgame(fronts: number[], backs: number[]): number {
     return ans % 9999;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -205,4 +223,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

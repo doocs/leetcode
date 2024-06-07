@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README.md
 rating: 2405
+source: 第 107 场双周赛 Q4
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [2747. 统计没有收到请求的服务器数目](https://leetcode.cn/problems/count-zero-request-servers)
 
 [English Version](/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;，表示服务器的总数目，再给你一个下标从 <strong>0</strong>&nbsp;开始的 <strong>二维</strong>&nbsp;整数数组&nbsp;<code>logs</code>&nbsp;，其中&nbsp;<code>logs[i] = [server_id, time]</code>&nbsp;表示 id 为&nbsp;<code>server_id</code>&nbsp;的服务器在&nbsp;<code>time</code>&nbsp;时收到了一个请求。</p>
 
@@ -63,7 +66,11 @@ tags:
 	<li><code>x &lt;&nbsp;queries[i]&nbsp;&lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：离线查询 + 排序 + 双指针
 
@@ -74,6 +81,8 @@ tags:
 时间复杂度 $O(l \times \log l + m \times \log m + n)$，空间复杂度 $O(l + m)$。其中 $l$ 和 $n$ 分别是数组 $logs$ 的长度和服务器的数量，而 $m$ 是数组 $queries$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +106,8 @@ class Solution:
             ans[i] = n - len(cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -164,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countServers(n int, logs [][]int, x int, queries []int) []int {
 	sort.Slice(logs, func(i, j int) bool { return logs[i][1] < logs[j][1] })
@@ -195,6 +210,8 @@ func countServers(n int, logs [][]int, x int, queries []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countServers(n: number, logs: number[][], x: number, queries: number[]): number[] {
@@ -230,4 +247,6 @@ function countServers(n: number, logs: number[][], x: number, queries: number[])
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

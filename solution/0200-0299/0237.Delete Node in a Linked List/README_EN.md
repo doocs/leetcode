@@ -6,11 +6,15 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [237. Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list)
 
 [中文文档](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a singly-linked list <code>head</code> and we want to delete a node <code>node</code> in it.</p>
 
@@ -62,7 +66,11 @@ tags:
 	<li>The <code>node</code> to be deleted is <strong>in the list</strong> and is <strong>not a tail</strong> node.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Node assignment
 
@@ -71,6 +79,8 @@ We can replace the value of the current node with the value of the next node, an
 Time complexity $O(1)$, space complexity $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -90,6 +100,8 @@ class Solution:
         node.next = node.next.next
 ```
 
+#### Java
+
 ```java
 /**
  * Definition for singly-linked list.
@@ -106,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -125,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -138,6 +154,8 @@ func deleteNode(node *ListNode) {
 	node.Next = node.Next.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -161,6 +179,8 @@ function deleteNode(node: ListNode | null): void {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -179,6 +199,8 @@ var deleteNode = function (node) {
 };
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for singly-linked list.
@@ -196,6 +218,8 @@ public class Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for singly-linked list.
@@ -212,4 +236,6 @@ void deleteNode(struct ListNode* node) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

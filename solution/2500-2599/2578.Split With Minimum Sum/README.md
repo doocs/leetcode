@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2578.Split%20With%20Minimum%20Sum/README.md
 rating: 1350
+source: 第 99 场双周赛 Q1
 tags:
     - 贪心
     - 数学
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [2578. 最小和分割](https://leetcode.cn/problems/split-with-minimum-sum)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数&nbsp;<code>num</code>&nbsp;，请你将它分割成两个非负整数&nbsp;<code>num1</code> 和&nbsp;<code>num2</code>&nbsp;，满足：</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>10 &lt;= num &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 贪心
 
@@ -76,6 +83,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为 $num$ 的位数；而 $C$ 为 $num$ 中不同数字的个数，本题中 $C \leq 10$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +104,8 @@ class Solution:
             ans[i & 1] = ans[i & 1] * 10 + j
         return sum(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func splitNum(num int) int {
 	cnt := [10]int{}
@@ -161,6 +176,8 @@ func splitNum(num int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function splitNum(num: number): number {
     const cnt: number[] = Array(10).fill(0);
@@ -180,6 +197,8 @@ function splitNum(num: number): number {
     return ans[0] + ans[1];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -211,6 +230,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序 + 贪心
 
 我们可以将 $num$ 转换成字符串或者字符数组，然后对其进行排序，接下来将排序后的数组中的数字按照从小到大的顺序交替地分配给 $num1$ 和 $num2$，最后返回 $num1$ 和 $num2$ 的和即可。
@@ -219,12 +242,16 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def splitNum(self, num: int) -> int:
         s = sorted(str(num))
         return int(''.join(s[::2])) + int(''.join(s[1::2]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -239,6 +266,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -255,6 +284,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func splitNum(num int) int {
 	s := []byte(strconv.Itoa(num))
@@ -267,6 +298,8 @@ func splitNum(num int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function splitNum(num: number): number {
     const s: string[] = String(num).split('');
@@ -278,6 +311,8 @@ function splitNum(num: number): number {
     return ans[0] + ans[1];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -297,4 +332,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

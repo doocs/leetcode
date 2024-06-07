@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1706.Where%20Will%20the%20Ball%20Fall/README.md
 rating: 1764
+source: 第 221 场周赛 Q3
 tags:
     - 数组
     - 矩阵
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1706. 球会落何处](https://leetcode.cn/problems/where-will-the-ball-fall)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>用一个大小为 <code>m x n</code> 的二维网格 <code>grid</code> 表示一个箱子。你有 <code>n</code> 颗球。箱子的顶部和底部都是开着的。</p>
 
@@ -73,7 +76,11 @@ b4 球开始放在第 4 列上，会卡在第 2、3 列和第 1 行之间的 "V"
 	<li><code>grid[i][j]</code> 为 <code>1</code> 或 <code>-1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分情况讨论 + DFS
 
@@ -89,6 +96,8 @@ b4 球开始放在第 4 列上，会卡在第 2、3 列和第 1 行之间的 "V"
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是数组 $grid$ 的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -109,6 +118,8 @@ class Solution:
         m, n = len(grid), len(grid[0])
         return [dfs(0, j) for j in range(n)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +159,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -179,6 +192,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findBall(grid [][]int) (ans []int) {
@@ -212,6 +227,8 @@ func findBall(grid [][]int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findBall(grid: number[][]): number[] {
     const m = grid.length;
@@ -239,6 +256,8 @@ function findBall(grid: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -273,4 +292,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

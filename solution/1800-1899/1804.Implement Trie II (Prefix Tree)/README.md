@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [1804. 实现 Trie （前缀树） II 🔒](https://leetcode.cn/problems/implement-trie-ii-prefix-tree)
 
 [English Version](/solution/1800-1899/1804.Implement%20Trie%20II%20%28Prefix%20Tree%29/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>前缀树（<strong><a href="https://en.wikipedia.org/wiki/Trie" target="_blank">trie</a></strong> ，发音为 "try"）是一个树状的数据结构，用于高效地存储和检索一系列字符串的前缀。前缀树有许多应用，如自动补全和拼写检查。</p>
 
@@ -63,7 +65,11 @@ trie.countWordsStartingWith("app"); // 返回 0
 	<li>保证每次调用 <code>erase</code> 时，字符串 <code>word</code> 总是存在于前缀树中。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组实现前缀树
 
@@ -102,6 +108,8 @@ trie.countWordsStartingWith("app"); // 返回 0
 时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -152,6 +160,8 @@ class Trie:
 # param_3 = obj.countWordsStartingWith(prefix)
 # obj.erase(word)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -217,6 +227,8 @@ class Trie {
  * obj.erase(word);
  */
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -286,6 +298,8 @@ private:
  * obj->erase(word);
  */
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -359,4 +373,6 @@ func (this *Trie) search(word string) *Trie {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

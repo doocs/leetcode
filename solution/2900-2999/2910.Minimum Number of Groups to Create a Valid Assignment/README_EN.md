@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2910.Minimum%20Number%20of%20Groups%20to%20Create%20a%20Valid%20Assignment/README_EN.md
 rating: 2132
+source: Weekly Contest 368 Q3
 tags:
     - Greedy
     - Array
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2910. Minimum Number of Groups to Create a Valid Assignment](https://leetcode.com/problems/minimum-number-of-groups-to-create-a-valid-assignment)
 
 [中文文档](/solution/2900-2999/2910.Minimum%20Number%20of%20Groups%20to%20Create%20a%20Valid%20Assignment/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a collection of numbered <code>balls</code>&nbsp;and instructed to sort them into boxes for a nearly balanced distribution. There are two rules you must follow:</p>
 
@@ -76,7 +81,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
 
@@ -87,6 +96,8 @@ For the current group size $k$ being enumerated, we traverse each occurrence $v$
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +113,8 @@ class Solution:
             if ans:
                 return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -160,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minGroupsForValidAssignment(nums []int) int {
 	cnt := map[int]int{}
@@ -186,6 +203,8 @@ func minGroupsForValidAssignment(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minGroupsForValidAssignment(nums: number[]): number {
     const cnt: Map<number, number> = new Map();
@@ -207,6 +226,8 @@ function minGroupsForValidAssignment(nums: number[]): number {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -250,4 +271,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

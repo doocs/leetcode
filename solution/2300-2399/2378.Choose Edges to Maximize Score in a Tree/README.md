@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [2378. 选择边来最大化树的得分 🔒](https://leetcode.cn/problems/choose-edges-to-maximize-score-in-a-tree)
 
 [English Version](/solution/2300-2399/2378.Choose%20Edges%20to%20Maximize%20Score%20in%20a%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个&nbsp;<strong>加权&nbsp;</strong>树，由 <code>n</code> 个节点组成，从 <code>0</code> 到 <code>n - 1</code>。</p>
 
@@ -73,7 +75,11 @@ tags:
 	<li><code>edges</code> 表示有效的树。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：树形 DP
 
@@ -89,6 +95,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -108,6 +116,8 @@ class Solution:
             g[p].append((i, w))
         return dfs(0)[1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxScore(edges [][]int) int64 {
 	n := len(edges)
@@ -194,4 +208,6 @@ func maxScore(edges [][]int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

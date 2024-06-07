@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1872.Stone%20Game%20VIII/README.md
 rating: 2439
+source: 第 242 场周赛 Q4
 tags:
     - 数组
     - 数学
@@ -11,13 +12,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [1872. 石子游戏 VIII](https://leetcode.cn/problems/stone-game-viii)
 
 [English Version](/solution/1800-1899/1872.Stone%20Game%20VIII/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 玩一个游戏，两人轮流操作， <strong>Alice 先手</strong> 。</p>
 
@@ -75,7 +78,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= stones[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 记忆化搜索
 
@@ -98,6 +105,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameVIII(self, stones: List[int]) -> int:
@@ -110,6 +119,8 @@ class Solution:
         s = list(accumulate(stones))
         return dfs(1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +175,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func stoneGameVIII(stones []int) int {
@@ -187,6 +202,8 @@ func stoneGameVIII(stones []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function stoneGameVIII(stones: number[]): number {
     const n = stones.length;
@@ -208,6 +225,10 @@ function stoneGameVIII(stones: number[]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：前缀和 + 动态规划
 
@@ -235,6 +256,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameVIII(self, stones: List[int]) -> int:
@@ -244,6 +267,8 @@ class Solution:
             f = max(f, s[i] - f)
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -260,6 +285,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -278,6 +305,8 @@ public:
 };
 ```
 
+#### TypeScript
+
 ```ts
 function stoneGameVIII(stones: number[]): number {
     const n = stones.length;
@@ -294,4 +323,6 @@ function stoneGameVIII(stones: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1704.Determine%20if%20String%20Halves%20Are%20Alike/README.md
 rating: 1207
+source: 第 221 场周赛 Q1
 tags:
     - 字符串
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [1704. 判断字符串的两半是否相似](https://leetcode.cn/problems/determine-if-string-halves-are-alike)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个偶数长度的字符串 <code>s</code> 。将其拆分成长度相同的两半，前一半为 <code>a</code> ，后一半为 <code>b</code> 。</p>
 
@@ -51,7 +54,11 @@ tags:
 	<li><code>s</code> 由 <strong>大写和小写</strong> 字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -60,6 +67,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。空间复杂度 $O(C)$，其中 $C$ 为元音字母的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +80,8 @@ class Solution:
             cnt -= s[i + n] in vowels
         return cnt == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func halvesAreAlike(s string) bool {
@@ -122,6 +137,8 @@ func halvesAreAlike(s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function halvesAreAlike(s: string): boolean {
     const set = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
@@ -134,6 +151,8 @@ function halvesAreAlike(s: string): boolean {
     return count === 0;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -158,6 +177,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -173,6 +194,8 @@ var halvesAreAlike = function (s) {
     return cnt === 0;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -197,9 +220,15 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -211,4 +240,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

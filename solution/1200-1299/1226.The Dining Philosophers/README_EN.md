@@ -6,11 +6,15 @@ tags:
     - Concurrency
 ---
 
+<!-- problem:start -->
+
 # [1226. The Dining Philosophers](https://leetcode.com/problems/the-dining-philosophers)
 
 [中文文档](/solution/1200-1299/1226.The%20Dining%20Philosophers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Five silent philosophers&nbsp;sit at a round table with bowls of spaghetti. Forks are placed between each pair of adjacent philosophers.</p>
 
@@ -59,11 +63,17 @@ output[i] = [a, b, c] (three integers)
 	<li><code>1 &lt;= n &lt;= 60</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### C++
 
 ```cpp
 class DiningPhilosophers {
@@ -89,4 +99,6 @@ private:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

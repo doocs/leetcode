@@ -6,11 +6,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [6. Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion)
 
 [中文文档](/solution/0000-0099/0006.Zigzag%20Conversion/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The string <code>&quot;PAYPALISHIRING&quot;</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
 
@@ -64,7 +68,11 @@ P     I
 	<li><code>1 &lt;= numRows &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -75,6 +83,8 @@ We traverse the string $s$ from left to right. Each time we traverse to a charac
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +100,8 @@ class Solution:
             i += k
         return ''.join(chain(*g))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func convert(s string, numRows int) string {
 	if numRows == 1 {
@@ -154,6 +170,8 @@ func convert(s string, numRows int) string {
 	return string(bytes.Join(g, nil))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function convert(s: string, numRows: number): string {
@@ -173,6 +191,8 @@ function convert(s: string, numRows: number): string {
     return g.flat().join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -204,6 +224,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -227,6 +249,8 @@ var convert = function (s, numRows) {
     return g.flat().join('');
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -258,9 +282,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -280,6 +310,8 @@ class Solution:
                     interval = group
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -306,6 +338,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -327,6 +361,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func convert(s string, numRows int) string {
@@ -351,6 +387,8 @@ func convert(s string, numRows int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function convert(s: string, numRows: number): string {
     if (numRows === 1) {
@@ -374,6 +412,8 @@ function convert(s: string, numRows: number): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn convert(s: String, num_rows: i32) -> String {
@@ -385,6 +425,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -414,6 +456,8 @@ var convert = function (s, numRows) {
     return ans.join('');
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -449,4 +493,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

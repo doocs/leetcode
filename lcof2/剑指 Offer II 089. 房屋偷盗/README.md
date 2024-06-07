@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20089.%20%E6%88%BF%E5%B1%8B%E5%81%B7%E7%9B%97/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 089. 房屋偷盗](https://leetcode.cn/problems/Gu0c2T)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响小偷偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，<strong>如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警</strong>。</p>
 
@@ -45,7 +47,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 198&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/house-robber/">https://leetcode.cn/problems/house-robber/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -71,9 +77,9 @@ $$
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组长度。
 
-注意到当 $i \gt 2$ 时，$f[i]$ 只和 $f[i-1]$ 与 $f[i-2]$ 有关，因此我们可以使用两个变量代替数组，将空间复杂度降到 $O(1)$。
-
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +91,8 @@ class Solution:
             f[i] = max(f[i - 1], f[i - 2] + nums[i - 1])
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rob(nums []int) int {
 	n := len(nums)
@@ -128,6 +140,8 @@ func rob(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function rob(nums: number[]): number {
     const n = nums.length;
@@ -139,6 +153,8 @@ function rob(nums: number[]): number {
     return f[n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -154,9 +170,17 @@ impl Solution {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
+
+<!-- solution:start-->
+
+### 方法二：动态规划（空间优化）
+
+我们注意到，当 $i \gt 2$ 时，$f[i]$ 只和 $f[i-1]$ 与 $f[i-2]$ 有关，因此我们可以使用两个变量代替数组，将空间复杂度降到 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -166,6 +190,8 @@ class Solution:
             f, g = max(f, g), f + x
         return max(f, g)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -180,6 +206,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -196,6 +224,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rob(nums []int) int {
 	f, g := 0, 0
@@ -205,6 +235,8 @@ func rob(nums []int) int {
 	return max(f, g)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function rob(nums: number[]): number {
@@ -218,4 +250,6 @@ function rob(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

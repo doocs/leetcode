@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1074.Number%20of%20Submatrices%20That%20Sum%20to%20Target/README.md
 rating: 2189
+source: 第 139 场周赛 Q4
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [1074. 元素和为目标值的子矩阵数量](https://leetcode.cn/problems/number-of-submatrices-that-sum-to-target)
 
 [English Version](/solution/1000-1099/1074.Number%20of%20Submatrices%20That%20Sum%20to%20Target/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出矩阵&nbsp;<code>matrix</code>&nbsp;和目标值&nbsp;<code>target</code>，返回元素总和等于目标值的非空子矩阵的数量。</p>
 
@@ -62,7 +65,11 @@ tags:
 	<li><code>-10^8 &lt;= target &lt;= 10^8</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举上下边界 + 前缀和 + 哈希表
 
@@ -80,6 +87,8 @@ tags:
 时间复杂度 $O(m^2 \times n)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -104,6 +113,8 @@ class Solution:
                 ans += f(col)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +146,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSubmatrixSumTarget(matrix [][]int, target int) (ans int) {
 	m, n := len(matrix), len(matrix[0])
@@ -197,6 +212,8 @@ func f(nums []int, target int) (cnt int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numSubmatrixSumTarget(matrix: number[][], target: number): number {
@@ -233,4 +250,6 @@ function f(nums: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

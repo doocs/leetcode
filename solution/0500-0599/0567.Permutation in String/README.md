@@ -9,13 +9,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string)
 
 [English Version](/solution/0500-0599/0567.Permutation%20in%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串&nbsp;<code>s1</code>&nbsp;和&nbsp;<code>s2</code> ，写一个函数来判断 <code>s2</code> 是否包含 <code>s1</code><strong>&nbsp;</strong>的排列。如果是，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
@@ -47,7 +49,11 @@ tags:
 	<li><code>s1</code> 和 <code>s2</code> 仅包含小写字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口
 
@@ -60,6 +66,8 @@ tags:
 时间复杂度 $(n + m \times C)$，空间复杂度 $O(C)$。其中 $n$ 和 $m$ 分别为字符串 $s1$ 和 $s2$ 的长度；而 $C$ 为字符集的大小，本题中 $C=26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +84,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkInclusion(s1 string, s2 string) bool {
 	n, m := len(s1), len(s2)
@@ -159,6 +173,8 @@ func checkInclusion(s1 string, s2 string) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkInclusion(s1: string, s2: string): boolean {
@@ -205,6 +221,8 @@ function checkInclusion(s1: string, s2: string): boolean {
     return isMatch();
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -257,6 +275,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：滑动窗口优化
 
 在方法一中，我们每次加入和移除一个字符时，都需要比较两个哈希表或数组，时间复杂度较高。我们可以维护一个变量 $diff$，表示两个大小为 $n$ 的字符串中，有多少种字符出现的个数不同。当 $diff=0$ 时，说明两个字符串中的字符个数相同。
@@ -264,6 +286,8 @@ impl Solution {
 时间复杂度 $O(n + m)$，空间复杂度 $O(C)$。其中 $n$ 和 $m$ 分别为字符串 $s1$ 和 $s2$ 的长度；而 $C$ 为字符集的大小，本题中 $C=26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -297,6 +321,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -344,6 +370,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -389,6 +417,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkInclusion(s1 string, s2 string) bool {
@@ -436,9 +466,15 @@ func checkInclusion(s1 string, s2 string) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func checkInclusion(s1 string, s2 string) bool {
@@ -471,4 +507,6 @@ func checkInclusion(s1 string, s2 string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [99. Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree)
 
 [中文文档](/solution/0000-0099/0099.Recover%20Binary%20Search%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>root</code> of a binary search tree (BST), where the values of <strong>exactly</strong> two nodes of the tree were swapped by mistake. <em>Recover the tree without changing its structure</em>.</p>
 
@@ -45,7 +49,11 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> A solution using <code>O(n)</code> space is pretty straight-forward. Could you devise a constant <code>O(1)</code> space solution?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: In-order Traversal
 
@@ -54,6 +62,8 @@ In-order traversal of a binary search tree results in an increasing sequence. If
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -84,6 +94,8 @@ class Solution:
         dfs(root)
         first.val, second.val = second.val, first.val
 ```
+
+#### Java
 
 ```java
 /**
@@ -130,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -164,6 +178,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -194,6 +210,8 @@ func recoverTree(root *TreeNode) {
 	first.Val, second.Val = second.Val, first.Val
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -232,6 +250,8 @@ var recoverTree = function (root) {
     second.val = t;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -276,4 +296,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

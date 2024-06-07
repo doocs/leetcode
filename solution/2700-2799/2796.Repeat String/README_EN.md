@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2796.Repeat%20String/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2796. Repeat String 🔒](https://leetcode.com/problems/repeat-string)
 
 [中文文档](/solution/2700-2799/2796.Repeat%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write code that enhances all strings such that you can call the&nbsp;<code>string.replicate(x)</code>&nbsp;method on any string and it will return repeated string <code>x</code> times.</p>
 
@@ -50,11 +54,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2796.Re
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Let&#39;s assume, for the sake of simplifying analysis, that concatenating strings is a constant time operation <code>O(1)</code>. With this assumption in mind, can you write an algorithm with a runtime complexity of <code>O(log n)</code>?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 declare global {
@@ -68,6 +78,8 @@ String.prototype.replicate = function (times: number) {
 };
 ```
 
+#### JavaScript
+
 ```js
 String.prototype.replicate = function (times) {
     return Array(times).fill(this).join('');
@@ -76,4 +88,6 @@ String.prototype.replicate = function (times) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2440.Create%20Components%20With%20Same%20Value/README_EN.md
 rating: 2460
+source: Biweekly Contest 89 Q4
 tags:
     - Tree
     - Depth-First Search
@@ -11,11 +12,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2440. Create Components With Same Value](https://leetcode.com/problems/create-components-with-same-value)
 
 [中文文档](/solution/2400-2499/2440.Create%20Components%20With%20Same%20Value/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an undirected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>.</p>
 
@@ -55,7 +60,11 @@ tags:
 	<li><code>edges</code> represents a valid tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration of Connected Blocks
 
@@ -70,6 +79,8 @@ Here we use the `dfs` function to judge. We recursively traverse from top to bot
 The time complexity is $O(n \times \sqrt{s})$, where $n$ and $s$ are the length of $nums$ and the sum of the values of all nodes in $nums$, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +111,8 @@ class Solution:
                     return k - 1
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +177,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -202,6 +217,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func componentValue(nums []int, edges [][]int) int {
@@ -251,4 +268,6 @@ func componentValue(nums []int, edges [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

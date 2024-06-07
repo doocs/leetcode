@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README.md
 rating: 1886
+source: 第 297 场周赛 Q3
 tags:
     - 位运算
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [2305. 公平分发饼干](https://leetcode.cn/problems/fair-distribution-of-cookies)
 
 [English Version](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>cookies</code> ，其中 <code>cookies[i]</code> 表示在第 <code>i</code> 个零食包中的饼干数量。另给你一个整数 <code>k</code> 表示等待分发零食包的孩子数量，<strong>所有</strong> 零食包都需要分发。在同一个零食包中的所有饼干都必须分发给同一个孩子，不能分开。</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li><code>2 &lt;= k &lt;= cookies.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：回溯 + 剪枝
 
@@ -71,6 +78,8 @@ tags:
 最后，我们返回 $ans$ 即可。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +102,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distributeCookies(cookies []int, k int) int {
 	sort.Sort(sort.Reverse(sort.IntSlice(cookies)))
@@ -188,6 +203,8 @@ func distributeCookies(cookies []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function distributeCookies(cookies: number[], k: number): number {
@@ -214,4 +231,6 @@ function distributeCookies(cookies: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

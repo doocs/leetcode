@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2176.Count%20Equal%20and%20Divisible%20Pairs%20in%20an%20Array/README_EN.md
 rating: 1215
+source: Biweekly Contest 72 Q1
 tags:
     - Array
 ---
+
+<!-- problem:start -->
 
 # [2176. Count Equal and Divisible Pairs in an Array](https://leetcode.com/problems/count-equal-and-divisible-pairs-in-an-array)
 
 [中文文档](/solution/2100-2199/2176.Count%20Equal%20and%20Divisible%20Pairs%20in%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 Given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code> and an integer <code>k</code>, return <em>the <strong>number of pairs</strong></em> <code>(i, j)</code> <em>where</em> <code>0 &lt;= i &lt; j &lt; n</code>, <em>such that</em> <code>nums[i] == nums[j]</code> <em>and</em> <code>(i \* j)</code> <em>is divisible by</em> <code>k</code>.
 
@@ -45,11 +50,17 @@ There are 4 pairs that meet all the requirements:
 	<li><code>1 &lt;= nums[i], k &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +72,8 @@ class Solution:
             for j in range(i + 1, n)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -95,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPairs(nums []int, k int) int {
 	n := len(nums)
@@ -110,6 +127,8 @@ func countPairs(nums []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countPairs(nums: number[], k: number): number {
     const n = nums.length;
@@ -124,6 +143,8 @@ function countPairs(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -143,6 +164,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int countPairs(int* nums, int numsSize, int k) {
     int ans = 0;
@@ -159,4 +182,6 @@ int countPairs(int* nums, int numsSize, int k) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -13,24 +13,24 @@
  */
 
 function pathSum(root: TreeNode | null, target: number): number[][] {
-    const res: number[][] = [];
-    if (root == null) {
-        return res;
-    }
-    const paths: number[] = [];
-    const dfs = ({ val, right, left }: TreeNode, target: number) => {
-        paths.push(val);
-        target -= val;
-        if (left == null && right == null) {
-            if (target === 0) {
-                res.push([...paths]);
-            }
-        } else {
-            left && dfs(left, target);
-            right && dfs(right, target);
+    const ans: number[][] = [];
+    const t: number[] = [];
+
+    const dfs = (root: TreeNode | null, s: number): void => {
+        if (!root) {
+            return;
         }
-        paths.pop();
+        const { val, left, right } = root;
+        t.push(val);
+        s -= val;
+        if (!left && !right && s === 0) {
+            ans.push([...t]);
+        }
+        dfs(left, s);
+        dfs(right, s);
+        t.pop();
     };
+
     dfs(root, target);
-    return res;
+    return ans;
 }

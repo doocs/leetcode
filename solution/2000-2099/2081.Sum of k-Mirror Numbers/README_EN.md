@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README_EN.md
 rating: 2209
+source: Weekly Contest 268 Q4
 tags:
     - Math
     - Enumeration
 ---
+
+<!-- problem:start -->
 
 # [2081. Sum of k-Mirror Numbers](https://leetcode.com/problems/sum-of-k-mirror-numbers)
 
 [中文文档](/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>k-mirror number</strong> is a <strong>positive</strong> integer <strong>without leading zeros</strong> that reads the same both forward and backward in base-10 <strong>as well as</strong> in base-k.</p>
 
@@ -75,11 +80,17 @@ Their sum = 1 + 2 + 4 + 8 + 121 + 151 + 212 = 499.
 	<li><code>1 &lt;= n &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -117,4 +128,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

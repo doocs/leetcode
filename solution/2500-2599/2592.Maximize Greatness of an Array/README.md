@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2592.Maximize%20Greatness%20of%20an%20Array/README.md
 rating: 1569
+source: 第 100 场双周赛 Q2
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2592. 最大化数组的伟大值](https://leetcode.cn/problems/maximize-greatness-of-an-array)
 
 [English Version](/solution/2500-2599/2592.Maximize%20Greatness%20of%20an%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 0 开始的整数数组&nbsp;<code>nums</code>&nbsp;。你需要将&nbsp;<code>nums</code>&nbsp;重新排列成一个新的数组&nbsp;<code>perm</code>&nbsp;。</p>
 
@@ -50,7 +53,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -64,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximizeGreatness(self, nums: List[int]) -> int:
@@ -73,6 +82,8 @@ class Solution:
             i += x > nums[i]
         return i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximizeGreatness(nums []int) int {
 	sort.Ints(nums)
@@ -115,6 +130,8 @@ func maximizeGreatness(nums []int) int {
 	return i
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximizeGreatness(nums: number[]): number {
@@ -131,4 +148,6 @@ function maximizeGreatness(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

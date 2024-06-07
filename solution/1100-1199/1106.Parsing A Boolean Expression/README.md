@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1106.Parsing%20A%20Boolean%20Expression/README.md
 rating: 1880
+source: 第 143 场周赛 Q4
 tags:
     - 栈
     - 递归
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1106. 解析布尔表达式](https://leetcode.cn/problems/parsing-a-boolean-expression)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>布尔表达式</strong> 是计算结果不是 <code>true</code> 就是 <code>false</code> 的表达式。有效的表达式需遵循以下约定：</p>
 
@@ -71,7 +74,11 @@ tags:
 	<li><code>expression[i]</code> 为 <code>'('</code>、<code>')'</code>、<code>'&amp;'</code>、<code>'|'</code>、<code>'!'</code>、<code>'t'</code>、<code>'f'</code> 和 <code>','</code> 之一</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈
 
@@ -87,6 +94,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是表达式 `expression` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +120,8 @@ class Solution:
                 stk.append(c)
         return stk[0] == 't'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +149,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -167,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func parseBoolExpr(expression string) bool {
 	stk := []rune{}
@@ -195,6 +210,8 @@ func parseBoolExpr(expression string) bool {
 	return stk[0] == 't'
 }
 ```
+
+#### TypeScript
 
 ```ts
 function parseBoolExpr(expression: string): boolean {
@@ -226,6 +243,8 @@ function parseBoolExpr(expression: string): boolean {
     return dfs()[0];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -278,4 +297,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2291. Maximum Profit From Trading Stocks 🔒](https://leetcode.com/problems/maximum-profit-from-trading-stocks)
 
 [中文文档](/solution/2200-2299/2291.Maximum%20Profit%20From%20Trading%20Stocks/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> integer arrays of the same length <code>present</code> and <code>future</code> where <code>present[i]</code> is the current price of the <code>i<sup>th</sup></code> stock and <code>future[i]</code> is the price of the <code>i<sup>th</sup></code> stock a year in the future. You may buy each stock at most <strong>once</strong>. You are also given an integer <code>budget</code> representing the amount of money you currently have.</p>
 
@@ -60,11 +64,17 @@ It can be shown that the maximum profit you can make is 0.
 	<li><code>0 &lt;= budget &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +87,8 @@ class Solution:
                     f[i][j] = max(f[i][j], f[i - 1][j - w] + future[i - 1] - w)
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumProfit(present []int, future []int, budget int) int {
 	n := len(present)
@@ -136,6 +152,8 @@ func maximumProfit(present []int, future []int, budget int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumProfit(present: number[], future: number[], budget: number): number {
     const f = new Array(budget + 1).fill(0);
@@ -151,9 +169,15 @@ function maximumProfit(present: number[], future: number[], budget: number): num
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -164,6 +188,8 @@ class Solution:
                 f[j] = max(f[j], f[j - a] + b - a)
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -180,6 +206,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -199,6 +227,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumProfit(present []int, future []int, budget int) int {
 	f := make([]int, budget+1)
@@ -213,4 +243,6 @@ func maximumProfit(present []int, future []int, budget int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

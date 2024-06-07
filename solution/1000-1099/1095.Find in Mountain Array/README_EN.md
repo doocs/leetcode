@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README_EN.md
 rating: 1827
+source: Weekly Contest 142 Q3
 tags:
     - Array
     - Binary Search
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [1095. Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array)
 
 [中文文档](/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p><em>(This problem is an <strong>interactive problem</strong>.)</em></p>
 
@@ -65,11 +70,17 @@ tags:
 	<li><code>0 &lt;= mountain_arr.get(index) &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -103,6 +114,8 @@ class Solution:
         ans = search(0, l, 1)
         return search(l + 1, n - 1, -1) if ans == -1 else ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -149,6 +162,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * // This is the MountainArray's API interface.
@@ -189,6 +204,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -234,6 +251,8 @@ func findInMountainArray(target int, mountainArr *MountainArray) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * // This is the MountainArray's API interface.
@@ -272,6 +291,8 @@ function findInMountainArray(target: number, mountainArr: MountainArray) {
     return ans === -1 ? search(l + 1, n - 1, -1) : ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -325,4 +346,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

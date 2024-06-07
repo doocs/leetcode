@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20032.%20%E6%9C%89%E6%95%88%E7%9A%84%E5%8F%98%E4%BD%8D%E8%AF%8D/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 032. 有效的变位词](https://leetcode.cn/problems/dKk3P7)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串 <code>s</code> 和 <code>t</code> ，编写一个函数来判断它们是不是一组变位词（字母异位词）。</p>
 
@@ -51,7 +53,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 242&nbsp;题相似（字母异位词定义不同）：<a href="https://leetcode.cn/problems/valid-anagram/">https://leetcode.cn/problems/valid-anagram/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -63,6 +69,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
@@ -70,6 +78,8 @@ class Solution:
             return False
         return Counter(s) == Counter(t)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isAnagram(s string, t string) bool {
 	m, n := len(s), len(t)
@@ -138,6 +152,8 @@ func isAnagram(s string, t string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isAnagram(s: string, t: string): boolean {
     const m = s.length;
@@ -154,6 +170,37 @@ function isAnagram(s: string, t: string): boolean {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func isAnagram(_ s: String, _ t: String) -> Bool {
+        let m = s.count
+        let n = t.count
+        if m != n || s == t {
+            return false
+        }
+
+        var cnt = [Int](repeating: 0, count: 26)
+
+        for (sc, tc) in zip(s, t) {
+            cnt[Int(sc.asciiValue! - Character("a").asciiValue!)] += 1
+            cnt[Int(tc.asciiValue! - Character("a").asciiValue!)] -= 1
+        }
+
+        for x in cnt {
+            if x != 0 {
+                return false
+            }
+        }
+
+        return true
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

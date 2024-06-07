@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3000.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README_EN.md
 rating: 1249
+source: Weekly Contest 379 Q1
 tags:
     - Array
 ---
+
+<!-- problem:start -->
 
 # [3000. Maximum Area of Longest Diagonal Rectangle](https://leetcode.com/problems/maximum-area-of-longest-diagonal-rectangle)
 
 [中文文档](/solution/3000-3099/3000.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D <strong>0-indexed </strong>integer array <code>dimensions</code>.</p>
 
@@ -48,11 +53,17 @@ So, the rectangle at index 1 has a greater diagonal length therefore we return a
 	<li><code><font face="monospace">1 &lt;= dimensions[i][0], dimensions[i][1] &lt;= 100</font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +78,8 @@ class Solution:
                 ans = max(ans, l * w)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func areaOfMaxDiagonal(dimensions [][]int) (ans int) {
 	mx := 0
@@ -123,6 +140,8 @@ func areaOfMaxDiagonal(dimensions [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function areaOfMaxDiagonal(dimensions: number[][]): number {
@@ -142,4 +161,6 @@ function areaOfMaxDiagonal(dimensions: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

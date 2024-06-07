@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1492.The%20kth%20Factor%20of%20n/README.md
 rating: 1231
+source: 第 29 场双周赛 Q2
 tags:
     - 数学
     - 数论
 ---
+
+<!-- problem:start -->
 
 # [1492. n 的第 k 个因子](https://leetcode.cn/problems/the-kth-factor-of-n)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数&nbsp;<code>n</code> 和&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -62,7 +65,11 @@ tags:
 
 <p>你可以设计时间复杂度小于 O(n) 的算法来解决此问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -71,6 +78,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +91,8 @@ class Solution:
                     return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kthFactor(n int, k int) int {
 	for i := 1; i <= n; i++ {
@@ -124,6 +139,8 @@ func kthFactor(n int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function kthFactor(n: number, k: number): number {
     for (let i = 1; i <= n; ++i) {
@@ -137,6 +154,10 @@ function kthFactor(n: number, k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：枚举优化
 
 我们可以发现，如果 $n$ 有一个因子 $x$，那么 $n$ 一定也有一个因子 $n/x$。
@@ -146,6 +167,8 @@ function kthFactor(n: number, k: number): number {
 时间复杂度 $O(\sqrt{n})$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -168,6 +191,8 @@ class Solution:
         return -1
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int kthFactor(int n, int k) {
@@ -189,6 +214,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -212,6 +239,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kthFactor(n int, k int) int {
@@ -239,6 +268,8 @@ func kthFactor(n int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function kthFactor(n: number, k: number): number {
     let i: number = 1;
@@ -261,4 +292,6 @@ function kthFactor(n: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

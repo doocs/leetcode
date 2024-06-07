@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2625.Flatten%20Deeply%20Nested%20Array/README.md
 ---
 
+<!-- problem:start -->
+
 # [2625. 扁平化嵌套数组](https://leetcode.cn/problems/flatten-deeply-nested-array)
 
 [English Version](/solution/2600-2699/2625.Flatten%20Deeply%20Nested%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你编写一个函数，它接收一个&nbsp;<strong>多维数组&nbsp;</strong><code>arr</code> 和它的深度 <code>n</code> ，并返回该数组的&nbsp;<strong>扁平化&nbsp;</strong>后的结果。</p>
 
@@ -71,28 +73,34 @@ n = 2
 	<li><code><font face="monospace">0 &lt;= n &lt;= 1000</font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
 我们可以使用递归的方法，将多维数组扁平化。
 
-在函数中，我们首先判断 $n$ 是否小于等于 $0$，如果是，直接返回原数组。否则，我们遍历数组的每个元素 $x$，如果 $x$ 是数组，我们递归调用函数，将 $x$ 作为参数，$n - 1$ 作为深度，将返回值添加到结果数组中；否则，将 $x$ 添加到结果数组中。最后返回结果数组。
+在函数中，我们首先判断 $n$ 是否小于等于 $0$，如果是，直接返回原数组。否则，我们遍历数组的每个元素 $x$，如果 $x$ 是数组，我们递归调用函数，参数为 $(x, n - 1)$，将返回值添加到结果数组中；否则，将 $x$ 添加到结果数组中。最后返回结果数组。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的元素个数。
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type MultiDimensionalArray = (number | MultiDimensionalArray)[];
 
 var flat = function (arr: MultiDimensionalArray, n: number): MultiDimensionalArray {
-    if (n <= 0) {
+    if (!n) {
         return arr;
     }
     const ans: MultiDimensionalArray = [];
     for (const x of arr) {
-        if (Array.isArray(x)) {
+        if (Array.isArray(x) && n) {
             ans.push(...flat(x, n - 1));
         } else {
             ans.push(x);
@@ -104,4 +112,6 @@ var flat = function (arr: MultiDimensionalArray, n: number): MultiDimensionalArr
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

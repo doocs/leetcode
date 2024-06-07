@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README.md
 rating: 2042
+source: 第 330 场周赛 Q3
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [2551. 将珠子放入背包中](https://leetcode.cn/problems/put-marbles-in-bags)
 
 [English Version](/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有&nbsp;<code>k</code>&nbsp;个背包。给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>weights</code>&nbsp;，其中&nbsp;<code>weights[i]</code>&nbsp;是第&nbsp;<code>i</code>&nbsp;个珠子的重量。同时给你整数 <code>k</code>&nbsp;。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>1 &lt;= weights[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：问题转化 + 排序
 
@@ -73,12 +80,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def putMarbles(self, weights: List[int], k: int) -> int:
         arr = sorted(a + b for a, b in pairwise(weights))
         return sum(arr[len(arr) - k + 1 :]) - sum(arr[: k - 1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func putMarbles(weights []int, k int) (ans int64) {
 	n := len(weights)
@@ -133,6 +148,8 @@ func putMarbles(weights []int, k int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function putMarbles(weights: number[], k: number): number {
@@ -152,4 +169,6 @@ function putMarbles(weights: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

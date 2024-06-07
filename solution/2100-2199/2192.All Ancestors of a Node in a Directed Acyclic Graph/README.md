@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2192.All%20Ancestors%20of%20a%20Node%20in%20a%20Directed%20Acyclic%20Graph/README.md
 rating: 1787
+source: 第 73 场双周赛 Q3
 tags:
     - 深度优先搜索
     - 广度优先搜索
@@ -10,13 +11,15 @@ tags:
     - 拓扑排序
 ---
 
+<!-- problem:start -->
+
 # [2192. 有向无环图中一个节点的所有祖先](https://leetcode.cn/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph)
 
 [English Version](/solution/2100-2199/2192.All%20Ancestors%20of%20a%20Node%20in%20a%20Directed%20Acyclic%20Graph/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数&nbsp;<code>n</code>&nbsp;，它表示一个 <strong>有向无环图</strong>&nbsp;中节点的数目，节点编号为&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n - 1</code>&nbsp;（包括两者）。</p>
 
@@ -73,7 +76,11 @@ tags:
 	<li>图是 <strong>有向</strong> 且 <strong>无环</strong> 的。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -84,6 +91,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -107,6 +116,8 @@ class Solution:
             bfs(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -185,6 +198,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getAncestors(n int, edges [][]int) [][]int {
 	g := make([][]int, n)
@@ -215,6 +230,8 @@ func getAncestors(n int, edges [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getAncestors(n: number, edges: number[][]): number[][] {
     const g: number[][] = Array.from({ length: n }, () => []);
@@ -243,6 +260,8 @@ function getAncestors(n: number, edges: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -290,4 +309,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README_EN.md
 rating: 2779
+source: Weekly Contest 378 Q4
 tags:
     - Hash Table
     - String
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2983. Palindrome Rearrangement Queries](https://leetcode.com/problems/palindrome-rearrangement-queries)
 
 [中文文档](/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> having an <strong>even</strong> length <code>n</code>.</p>
 
@@ -94,7 +99,11 @@ Now, s is a palindrome. So, answer[0] = true.</pre>
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Case Discussion
 
@@ -118,6 +127,8 @@ Based on the above analysis, we iterate through each query $[a_i, b_i, c_i, d_i]
 The time complexity is $O((n + q) \times |\Sigma|)$, and the space complexity is $O(n \times |\Sigma|)$. Where $n$ and $q$ are the lengths of string $s$ and the query array $queries$ respectively; and $|\Sigma|$ is the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -174,6 +185,8 @@ class Solution:
             ans.append(ok)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -241,6 +254,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -313,6 +328,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canMakePalindromeQueries(s string, queries [][]int) (ans []bool) {
@@ -395,6 +412,8 @@ func reverse(s string) string {
 	return string(runes)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canMakePalindromeQueries(s: string, queries: number[][]): boolean[] {
@@ -481,4 +500,6 @@ function arraysEqual(arr1: number[], arr2: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

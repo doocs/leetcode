@@ -8,13 +8,15 @@ tags:
     - 深度优先搜索
 ---
 
+<!-- problem:start -->
+
 # [590. N 叉树的后序遍历](https://leetcode.cn/problems/n-ary-tree-postorder-traversal)
 
 [English Version](/solution/0500-0599/0590.N-ary%20Tree%20Postorder%20Traversal/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 n&nbsp;叉树的根节点<meta charset="UTF-8" />&nbsp;<code>root</code>&nbsp;，返回 <em>其节点值的<strong> 后序遍历</strong></em> 。</p>
 
@@ -22,7 +24,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0590.N-ary%20Tree%20Postorder%20Traversal/images/narytreeexample.png" style="height: 193px; width: 300px;" /></p>
 
@@ -31,7 +33,7 @@ tags:
 <strong>输出：</strong>[5,6,3,2,4,1]
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0590.N-ary%20Tree%20Postorder%20Traversal/images/sample_4_964.png" style="height: 269px; width: 296px;" /></p>
 
@@ -54,7 +56,11 @@ tags:
 
 <p><strong>进阶：</strong>递归法很简单，你可以使用迭代法完成此题吗?</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -63,6 +69,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -87,6 +95,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -128,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -168,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -192,6 +206,8 @@ func postorder(root *Node) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -224,6 +240,10 @@ function postorder(root: Node | null): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：迭代（栈实现）
 
 我们也可以用迭代的方法来解决这个问题。
@@ -233,6 +253,8 @@ function postorder(root: Node | null): number[] {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -257,6 +279,8 @@ class Solution:
                 stk.append(child)
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 /*
@@ -297,6 +321,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -341,6 +367,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -367,6 +395,8 @@ func postorder(root *Node) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -398,4 +428,6 @@ function postorder(root: Node | null): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

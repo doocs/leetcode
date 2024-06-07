@@ -3,15 +3,20 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1375.Number%20of%20Times%20Binary%20String%20Is%20Prefix-Aligned/README_EN.md
 rating: 1438
+source: Weekly Contest 179 Q2
 tags:
     - Array
 ---
+
+<!-- problem:start -->
 
 # [1375. Number of Times Binary String Is Prefix-Aligned](https://leetcode.com/problems/number-of-times-binary-string-is-prefix-aligned)
 
 [中文文档](/solution/1300-1399/1375.Number%20of%20Times%20Binary%20String%20Is%20Prefix-Aligned/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a <strong>1-indexed</strong> binary string of length <code>n</code> where all the bits are <code>0</code> initially. We will flip all the bits of this binary string (i.e., change them from <code>0</code> to <code>1</code>) one by one. You are given a <strong>1-indexed</strong> integer array <code>flips</code> where <code>flips[i]</code> indicates that the bit at index <code>i</code> will be flipped in the <code>i<sup>th</sup></code> step.</p>
 
@@ -56,7 +61,11 @@ We can see that the string was prefix-aligned 1 time, so we return 1.
 	<li><code>flips</code> is a permutation of the integers in the range <code>[1, n]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Direct Traversal
 
@@ -68,6 +77,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $flips$. The
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numTimesAllBlue(self, flips: List[int]) -> int:
@@ -77,6 +88,8 @@ class Solution:
             ans += mx == i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numTimesAllBlue(flips []int) (ans int) {
 	mx := 0
@@ -119,6 +136,8 @@ func numTimesAllBlue(flips []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numTimesAllBlue(flips: number[]): number {
@@ -136,4 +155,6 @@ function numTimesAllBlue(flips: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

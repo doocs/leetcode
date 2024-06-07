@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2057.Smallest%20Index%20With%20Equal%20Value/README.md
 rating: 1167
+source: 第 265 场周赛 Q1
 tags:
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [2057. 值相等的最小索引](https://leetcode.cn/problems/smallest-index-with-equal-value)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 0 开始的整数数组 <code>nums</code> ，返回 <code>nums</code> 中满足<em> </em><code>i mod 10 == nums[i]</code><em> </em>的最小下标 <code>i</code> ；如果不存在这样的下标，返回<em> </em><code>-1</code><em> </em>。</p>
 
@@ -67,11 +70,17 @@ i=3: 3 mod 10 = 3 != nums[3].
 	<li><code>0 &lt;= nums[i] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +90,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestEqual(nums []int) int {
 	for i, v := range nums {
@@ -117,6 +132,8 @@ func smallestEqual(nums []int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestEqual(nums: number[]): number {
@@ -129,4 +146,6 @@ function smallestEqual(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

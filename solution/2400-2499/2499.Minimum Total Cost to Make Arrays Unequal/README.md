@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2499.Minimum%20Total%20Cost%20to%20Make%20Arrays%20Unequal/README.md
 rating: 2633
+source: 第 93 场双周赛 Q4
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2499. 让数组不相等的最小总代价](https://leetcode.cn/problems/minimum-total-cost-to-make-arrays-unequal)
 
 [English Version](/solution/2400-2499/2499.Minimum%20Total%20Cost%20to%20Make%20Arrays%20Unequal/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums1</code>&nbsp;和&nbsp;<code>nums2</code>&nbsp;，两者长度都为&nbsp;<code>n</code>&nbsp;。</p>
 
@@ -74,7 +77,11 @@ tags:
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -87,6 +94,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums1` 或 `nums2` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +120,8 @@ class Solution:
                 m -= 1
         return -1 if m else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +156,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -182,6 +195,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTotalCost(nums1 []int, nums2 []int) (ans int64) {
 	same, n := 0, len(nums1)
@@ -218,4 +233,6 @@ func minimumTotalCost(nums1 []int, nums2 []int) (ans int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

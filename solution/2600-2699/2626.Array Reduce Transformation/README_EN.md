@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2626.Array%20Reduce%20Transformation/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2626. Array Reduce Transformation](https://leetcode.com/problems/array-reduce-transformation)
 
 [中文文档](/solution/2600-2699/2626.Array%20Reduce%20Transformation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, a reducer function <code>fn</code>, and an initial value <code>init</code>, return the final result obtained by executing the <code>fn</code> function on each element of the array, sequentially, passing in the return value from the calculation on the preceding element.</p>
 
@@ -73,11 +77,17 @@ init = 25
 	<li><code>0 &lt;= init &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 type Fn = (accum: number, curr: number) => number;
@@ -93,4 +103,6 @@ function reduce(nums: number[], fn: Fn, init: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

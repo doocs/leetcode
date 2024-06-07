@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2423.Remove%20Letter%20To%20Equalize%20Frequency/README.md
 rating: 1648
+source: 第 88 场双周赛 Q1
 tags:
     - 哈希表
     - 字符串
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [2423. 删除字符使频率相同](https://leetcode.cn/problems/remove-letter-to-equalize-frequency)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的字符串&nbsp;<code>word</code>&nbsp;，字符串只包含小写英文字母。你需要选择 <strong>一个</strong>&nbsp;下标并 <strong>删除</strong>&nbsp;下标处的字符，使得 <code>word</code>&nbsp;中剩余每个字母出现 <strong>频率</strong>&nbsp;相同。</p>
 
@@ -55,7 +58,11 @@ tags:
 	<li><code>word</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 枚举
 
@@ -69,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def equalFrequency(self, word: str) -> bool:
@@ -80,6 +89,8 @@ class Solution:
             cnt[c] += 1
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func equalFrequency(word string) bool {
 	cnt := [26]int{}
@@ -178,6 +193,8 @@ func equalFrequency(word string) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function equalFrequency(word: string): boolean {
@@ -212,4 +229,6 @@ function equalFrequency(word: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

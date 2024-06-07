@@ -9,11 +9,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [1570. Dot Product of Two Sparse Vectors 🔒](https://leetcode.com/problems/dot-product-of-two-sparse-vectors)
 
 [中文文档](/solution/1500-1599/1570.Dot%20Product%20of%20Two%20Sparse%20Vectors/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two sparse vectors, compute their dot product.</p>
 
@@ -63,11 +67,17 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 	<li><code>0 &lt;= nums1[i], nums2[i]&nbsp;&lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class SparseVector:
@@ -87,6 +97,8 @@ class SparseVector:
 # v2 = SparseVector(nums2)
 # ans = v1.dotProduct(v2)
 ```
+
+#### Java
 
 ```java
 class SparseVector {
@@ -124,6 +136,8 @@ class SparseVector {
 // int ans = v1.dotProduct(v2);
 ```
 
+#### C++
+
 ```cpp
 class SparseVector {
 public:
@@ -159,6 +173,8 @@ public:
 // SparseVector v2(nums2);
 // int ans = v1.dotProduct(v2);
 ```
+
+#### Go
 
 ```go
 type SparseVector struct {
@@ -196,6 +212,8 @@ func (this *SparseVector) dotProduct(vec SparseVector) (ans int) {
  * ans := v1.dotProduct(v2);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class SparseVector {
@@ -237,4 +255,6 @@ class SparseVector {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

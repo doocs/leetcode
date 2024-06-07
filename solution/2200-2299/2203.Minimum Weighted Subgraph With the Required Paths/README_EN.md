@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2203.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths/README_EN.md
 rating: 2364
+source: Weekly Contest 284 Q4
 tags:
     - Graph
     - Shortest Path
 ---
+
+<!-- problem:start -->
 
 # [2203. Minimum Weighted Subgraph With the Required Paths](https://leetcode.com/problems/minimum-weighted-subgraph-with-the-required-paths)
 
 [中文文档](/solution/2200-2299/2203.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code> denoting the number of nodes of a <strong>weighted directed</strong> graph. The nodes are numbered from <code>0</code> to <code>n - 1</code>.</p>
 
@@ -59,11 +64,17 @@ It can be seen that there does not exist any path from node 1 to node 2, hence t
 	<li><code>1 &lt;= weight[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +106,8 @@ class Solution:
         ans = min(sum(v) for v in zip(d1, d2, d3))
         return -1 if ans >= inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,4 +173,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

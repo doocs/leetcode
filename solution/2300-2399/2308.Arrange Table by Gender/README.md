@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2308. 按性别排列表格 🔒](https://leetcode.cn/problems/arrange-table-by-gender)
 
 [English Version](/solution/2300-2399/2308.Arrange%20Table%20by%20Gender/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Genders</code></p>
 
@@ -77,11 +79,17 @@ Genders 表:
 注意，每种性别都是按 user_id 升序排序的。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -107,9 +115,15 @@ ORDER BY rk1, rk2;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -128,4 +142,6 @@ ORDER BY
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

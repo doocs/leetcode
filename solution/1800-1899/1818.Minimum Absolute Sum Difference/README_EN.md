@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1818.Minimum%20Absolute%20Sum%20Difference/README_EN.md
 rating: 1934
+source: Weekly Contest 235 Q3
 tags:
     - Array
     - Binary Search
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1818. Minimum Absolute Sum Difference](https://leetcode.com/problems/minimum-absolute-sum-difference)
 
 [中文文档](/solution/1800-1899/1818.Minimum%20Absolute%20Sum%20Difference/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two positive integer arrays <code>nums1</code> and <code>nums2</code>, both of length <code>n</code>.</p>
 
@@ -71,7 +76,11 @@ This yields an absolute sum difference of <code>|10-9| + |10-3| + |4-5| + |4-1| 
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
 
@@ -84,6 +93,8 @@ Finally, we subtract $mx$ from $s$, which is the answer. Note the modulus operat
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `nums1`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +113,8 @@ class Solution:
             mx = max(mx, d1 - d2)
         return (s - mx + mod) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minAbsoluteSumDiff(nums1 []int, nums2 []int) int {
@@ -207,6 +224,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minAbsoluteSumDiff(nums1: number[], nums2: number[]): number {
@@ -248,6 +267,8 @@ function search(nums: number[], x: number): number {
     return left;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -297,4 +318,6 @@ function search(nums, x) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README.md
 rating: 2615
+source: 第 301 场周赛 Q4
 tags:
     - 数学
     - 动态规划
@@ -10,13 +11,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [2338. 统计理想数组的数目](https://leetcode.cn/problems/count-the-number-of-ideal-arrays)
 
 [English Version](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数 <code>n</code> 和 <code>maxValue</code> ，用于描述一个 <strong>理想数组</strong> 。</p>
 
@@ -67,11 +70,17 @@ tags:
 	<li><code>1 &lt;= maxValue &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索 + 组合计数
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +105,8 @@ class Solution:
             ans = (ans + dfs(i, 1)) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func idealArrays(n int, maxValue int) int {
@@ -222,6 +237,10 @@ func idealArrays(n int, maxValue int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 设 $dp[i][j]$ 表示以 $i$ 结尾，且由 $j$ 个不同元素构成的序列的方案数。初始值 $dp[i][1]=1$。
@@ -233,6 +252,8 @@ func idealArrays(n int, maxValue int) int {
 最终的答案为 $\sum\limits_{i=1}^{k}\sum\limits_{j=1}^{\log_2 k + 1}dp[i][j] \times C_{n-1}^{j-1}$ 。其中 $k$ 表示数组的最大值，即 $maxValue$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -257,6 +278,8 @@ class Solution:
                 ans = (ans + dp[i][j] * c[-1][j - 1]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -292,6 +315,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -320,6 +345,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func idealArrays(n int, maxValue int) int {
@@ -362,4 +389,6 @@ func idealArrays(n int, maxValue int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

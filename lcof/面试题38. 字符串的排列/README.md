@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9838.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 38. 字符串的排列](https://leetcode.cn/problems/zi-fu-chuan-de-pai-lie-lcof/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>输入一个字符串，打印出该字符串中字符的所有排列。</p>
 
@@ -30,7 +32,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p><code>1 &lt;= s 的长度 &lt;= 8</code></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：回溯 + 哈希表
 
@@ -48,6 +54,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 时间复杂度 $O(n! \times n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。需要进行 $n!$ 次排列，每次排列需要 $O(n)$ 的时间复制字符串。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +77,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func permutation(s string) (ans []string) {
 	cs := []byte(s)
@@ -154,6 +168,8 @@ func permutation(s string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function permutation(s: string): string[] {
     const n = s.length;
@@ -175,6 +191,8 @@ function permutation(s: string): string[] {
     return [...set];
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -203,6 +221,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -233,6 +253,8 @@ var permutation = function (s) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     private char[] cs;
@@ -261,6 +283,45 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    private var ans: [String] = []
+    private var cs: [Character] = []
+
+    func permutation(_ s: String) -> [String] {
+        cs = Array(s)
+        dfs(0)
+        return ans
+    }
+
+    private func dfs(_ i: Int) {
+        if i == cs.count - 1 {
+            ans.append(String(cs))
+            return
+        }
+        var vis: Set<Character> = []
+        for j in i..<cs.count {
+            if !vis.contains(cs[j]) {
+                vis.insert(cs[j])
+                swap(i, j)
+                dfs(i + 1)
+                swap(i, j)
+            }
+        }
+    }
+
+    private func swap(_ i: Int, _ j: Int) {
+        let t = cs[i]
+        cs[i] = cs[j]
+        cs[j] = t
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

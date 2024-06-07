@@ -8,11 +8,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2979. Most Expensive Item That Can Not Be Bought 🔒](https://leetcode.com/problems/most-expensive-item-that-can-not-be-bought)
 
 [中文文档](/solution/2900-2999/2979.Most%20Expensive%20Item%20That%20Can%20Not%20Be%20Bought/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>distinct</strong> <strong>prime</strong> numbers <code>primeOne</code> and <code>primeTwo</code>.</p>
 
@@ -46,7 +50,11 @@ tags:
 	<li><code>primeOne * primeTwo &lt; 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Chicken McNugget Theorem
 
@@ -56,11 +64,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mostExpensiveItem(self, primeOne: int, primeTwo: int) -> int:
         return primeOne * primeTwo - primeOne - primeTwo
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -69,6 +81,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -79,17 +93,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostExpensiveItem(primeOne int, primeTwo int) int {
 	return primeOne*primeTwo - primeOne - primeTwo
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mostExpensiveItem(primeOne: number, primeTwo: number): number {
     return primeOne * primeTwo - primeOne - primeTwo;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -101,4 +121,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

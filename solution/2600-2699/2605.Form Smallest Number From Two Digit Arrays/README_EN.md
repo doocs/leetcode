@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README_EN.md
 rating: 1241
+source: Biweekly Contest 101 Q1
 tags:
     - Array
     - Hash Table
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2605. Form Smallest Number From Two Digit Arrays](https://leetcode.com/problems/form-smallest-number-from-two-digit-arrays)
 
 [中文文档](/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 Given two arrays of <strong>unique</strong> digits <code>nums1</code> and <code>nums2</code>, return <em>the <strong>smallest</strong> number that contains <strong>at least</strong> one digit from each array</em>.
 
@@ -43,7 +48,11 @@ Given two arrays of <strong>unique</strong> digits <code>nums1</code> and <code>
 	<li>All digits in each array are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -52,6 +61,8 @@ We observe that if there are the same numbers in the arrays $nums1$ and $nums2$,
 The time complexity is $O(m \times n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the arrays $nums1$ and $nums2$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +76,8 @@ class Solution:
                     ans = min(ans, 10 * a + b, 10 * b + a)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumber(nums1 []int, nums2 []int) int {
 	ans := 100
@@ -119,6 +136,8 @@ func minNumber(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minNumber(nums1: number[], nums2: number[]): number {
     let ans = 100;
@@ -134,6 +153,8 @@ function minNumber(nums1: number[], nums2: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -157,6 +178,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Hash Table or Array + Enumeration
 
 We can use a hash table or array to record the numbers in the arrays $nums1$ and $nums2$, and then enumerate $1 \sim 9$. If $i$ appears in both arrays, then $i$ is the smallest number. Otherwise, we take the number $a$ in the array $nums1$ and the number $b$ in the array $nums2$, and concatenate the two numbers $a$ and $b$ into two numbers, and take the smaller number.
@@ -164,6 +189,8 @@ We can use a hash table or array to record the numbers in the arrays $nums1$ and
 The time complexity is $(m + n)$, and the space complexity is $O(C)$. Where $m$ and $n$ are the lengths of the arrays $nums1$ and $nums2$ respectively; and $C$ is the range of the numbers in the arrays $nums1$ and $nums2$, and the range in this problem is $C = 10$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -174,6 +201,8 @@ class Solution:
         a, b = min(nums1), min(nums2)
         return min(a * 10 + b, b * 10 + a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -202,6 +231,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -232,6 +263,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumber(nums1 []int, nums2 []int) int {
 	s1 := [10]bool{}
@@ -257,6 +290,8 @@ func minNumber(nums1 []int, nums2 []int) int {
 	return min(a*10+b, b*10+a)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minNumber(nums1: number[], nums2: number[]): number {
@@ -284,6 +319,8 @@ function minNumber(nums1: number[], nums2: number[]): number {
     return Math.min(a * 10 + b, b * 10 + a);
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -324,6 +361,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3: Bit Operation
 
 Since the range of the numbers is $1 \sim 9$, we can use a binary number with a length of $10$ to represent the numbers in the arrays $nums1$ and $nums2$. We use $mask1$ to represent the numbers in the array $nums1$, and use $mask2$ to represent the numbers in the array $nums2$.
@@ -335,6 +376,8 @@ Otherwise, we extract the position of the last $1$ in $mask1$ and $mask2$ respec
 The time complexity is $O(m + n)$, and the space complexity is $O(1)$. Where $m$ and $n$ are the lengths of the arrays $nums1$ and $nums2$ respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -351,6 +394,8 @@ class Solution:
         b = (mask2 & -mask2).bit_length() - 1
         return min(a * 10 + b, b * 10 + a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -372,6 +417,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -395,6 +442,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumber(nums1 []int, nums2 []int) int {
 	var mask1, mask2 uint
@@ -411,6 +460,8 @@ func minNumber(nums1 []int, nums2 []int) int {
 	return min(a*10+b, b*10+a)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minNumber(nums1: number[], nums2: number[]): number {
@@ -463,4 +514,6 @@ function numberOfTrailingZeros(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

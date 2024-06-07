@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1537.Get%20the%20Maximum%20Score/README.md
 rating: 1961
+source: 第 200 场周赛 Q4
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1537. 最大得分](https://leetcode.cn/problems/get-the-maximum-score)
 
 [English Version](/solution/1500-1599/1537.Get%20the%20Maximum%20Score/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有两个 <strong>有序</strong>&nbsp;且数组内元素互不相同的数组&nbsp;<code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;。</p>
 
@@ -74,11 +77,17 @@ tags:
 	<li><code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;都是严格递增的数组。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -107,6 +116,8 @@ class Solution:
         return max(f, g) % mod
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int maxSum(int[] nums1, int[] nums2) {
@@ -133,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -161,6 +174,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxSum(nums1 []int, nums2 []int) int {
@@ -192,6 +207,8 @@ func maxSum(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSum(nums1: number[], nums2: number[]): number {
     const mod = 1e9 + 7;
@@ -220,4 +237,6 @@ function maxSum(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

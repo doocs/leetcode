@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2507.Smallest%20Value%20After%20Replacing%20With%20Sum%20of%20Prime%20Factors/README_EN.md
 rating: 1499
+source: Weekly Contest 324 Q2
 tags:
     - Math
     - Number Theory
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2507. Smallest Value After Replacing With Sum of Prime Factors](https://leetcode.com/problems/smallest-value-after-replacing-with-sum-of-prime-factors)
 
 [中文文档](/solution/2500-2599/2507.Smallest%20Value%20After%20Replacing%20With%20Sum%20of%20Prime%20Factors/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer <code>n</code>.</p>
 
@@ -54,11 +59,17 @@ tags:
 	<li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +87,8 @@ class Solution:
                 return t
             n = s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestValue(n int) int {
@@ -143,4 +160,6 @@ func smallestValue(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

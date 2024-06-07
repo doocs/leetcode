@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [516. Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence)
 
 [中文文档](/solution/0500-0599/0516.Longest%20Palindromic%20Subsequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, find <em>the longest palindromic <strong>subsequence</strong>&#39;s length in</em> <code>s</code>.</p>
 
@@ -42,7 +46,11 @@ tags:
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -57,6 +65,8 @@ The answer is $f[0][n - 1]$.
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +83,8 @@ class Solution:
                     f[i][j] = max(f[i + 1][j], f[i][j - 1])
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestPalindromeSubseq(s string) int {
 	n := len(s)
@@ -140,6 +156,8 @@ func longestPalindromeSubseq(s string) int {
 	return f[0][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestPalindromeSubseq(s: string): number {
@@ -163,4 +181,6 @@ function longestPalindromeSubseq(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

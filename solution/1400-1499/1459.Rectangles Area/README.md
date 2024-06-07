@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1459. 矩形面积 🔒](https://leetcode.cn/problems/rectangles-area)
 
 [English Version](/solution/1400-1499/1459.Rectangles%20Area/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Points</code></p>
 
@@ -71,11 +73,17 @@ p1 = 1 且 p2 = 2 时, 面积等于 ||2-4| * |7-8| = 2
 p1 = 1 且 p2 = 3 时, 是不可能为矩形的, 面积等于 0
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -92,4 +100,6 @@ ORDER BY area DESC, p1, p2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

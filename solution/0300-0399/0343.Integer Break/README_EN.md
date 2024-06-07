@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [343. Integer Break](https://leetcode.com/problems/integer-break)
 
 [中文文档](/solution/0300-0399/0343.Integer%20Break/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, break it into the sum of <code>k</code> <strong>positive integers</strong>, where <code>k &gt;= 2</code>, and maximize the product of those integers.</p>
 
@@ -41,11 +45,17 @@ tags:
 	<li><code>2 &lt;= n &lt;= 58</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -56,6 +66,8 @@ class Solution:
                 dp[i] = max(dp[i], dp[i - j] * j, (i - j) * j)
         return dp[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -71,6 +83,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -88,6 +102,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func integerBreak(n int) int {
 	dp := make([]int, n+1)
@@ -101,6 +117,8 @@ func integerBreak(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function integerBreak(n: number): number {
     let dp = new Array(n + 1).fill(1);
@@ -112,6 +130,8 @@ function integerBreak(n: number): number {
     return dp.pop();
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -125,6 +145,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int integerBreak(int n) {
     if (n < 4) {
@@ -137,9 +159,15 @@ int integerBreak(int n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -152,6 +180,8 @@ class Solution:
             return pow(3, n // 3 - 1) * 4
         return pow(3, n // 3) * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +199,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -188,6 +220,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func integerBreak(n int) int {
 	if n < 4 {
@@ -202,6 +236,8 @@ func integerBreak(n int) int {
 	return int(math.Pow(3, float64(n/3))) * 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function integerBreak(n: number): number {
@@ -221,4 +257,6 @@ function integerBreak(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

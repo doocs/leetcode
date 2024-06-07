@@ -6,13 +6,15 @@ tags:
     - 位运算
 ---
 
+<!-- problem:start -->
+
 # [476. 数字的补数](https://leetcode.cn/problems/number-complement)
 
 [English Version](/solution/0400-0499/0476.Number%20Complement/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>对整数的二进制表示取反（<code>0</code> 变 <code>1</code> ，<code>1</code> 变 <code>0</code>）后，再转换为十进制表示，可以得到这个整数的补数。</p>
 
@@ -55,7 +57,11 @@ tags:
 
 <p><strong>注意：</strong>本题与 1009 <a href="https://leetcode.cn/problems/complement-of-base-10-integer/">https://leetcode.cn/problems/complement-of-base-10-integer/</a> 相同</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -71,11 +77,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findComplement(self, num: int) -> int:
         return num ^ ((1 << num.bit_length()) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -94,11 +106,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findComplement(num int) int {
 	return num ^ ((1 << bits.Len(uint(num))) - 1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findComplement(num: number): number {
@@ -108,4 +124,6 @@ function findComplement(num: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

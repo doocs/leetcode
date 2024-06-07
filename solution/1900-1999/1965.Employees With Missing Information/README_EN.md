@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1965. Employees With Missing Information](https://leetcode.com/problems/employees-with-missing-information)
 
 [中文文档](/solution/1900-1999/1965.Employees%20With%20Missing%20Information/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employees</code></p>
 
@@ -87,13 +91,19 @@ The name of employee 1 is missing.
 The salary of employee 2 is missing.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Subquery + Union
 
 We can first find all `employee_id` that are not in the `Salaries` table from the `Employees` table, and then find all `employee_id` that are not in the `Employees` table from the `Salaries` table. Finally, we can combine the two results using the `UNION` operator, and sort the result by `employee_id`.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -109,4 +119,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

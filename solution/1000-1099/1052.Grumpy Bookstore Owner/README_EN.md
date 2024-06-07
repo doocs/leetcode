@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README_EN.md
 rating: 1418
+source: Weekly Contest 138 Q2
 tags:
     - Array
     - Sliding Window
 ---
+
+<!-- problem:start -->
 
 # [1052. Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner)
 
 [中文文档](/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a bookstore owner that has a store open for <code>n</code> minutes. Every minute, some number of customers enter the store. You are given an integer array <code>customers</code> of length <code>n</code> where <code>customers[i]</code> is the number of the customer that enters the store at the start of the <code>i<sup>th</sup></code> minute and all those customers leave after the end of that minute.</p>
 
@@ -51,7 +56,11 @@ The maximum number of customers that can be satisfied = 1 + 1 + 1 + 1 + 7 + 5 = 
 	<li><code>grumpy[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -65,6 +74,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array `customers`.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSatisfied(
@@ -77,6 +88,8 @@ class Solution:
             mx = max(mx, cnt)
         return sum(c * (g ^ 1) for c, g in zip(customers, grumpy)) + mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSatisfied(customers []int, grumpy []int, minutes int) int {
 	var cnt, tot int
@@ -141,6 +158,8 @@ func maxSatisfied(customers []int, grumpy []int, minutes int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSatisfied(customers: number[], grumpy: number[], minutes: number): number {
     let [cnt, tot] = [0, 0];
@@ -158,6 +177,8 @@ function maxSatisfied(customers: number[], grumpy: number[], minutes: number): n
     return tot + mx;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -184,4 +205,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

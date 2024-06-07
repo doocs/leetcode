@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2703.Return%20Length%20of%20Arguments%20Passed/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2703. Return Length of Arguments Passed](https://leetcode.com/problems/return-length-of-arguments-passed)
 
 [中文文档](/solution/2700-2799/2703.Return%20Length%20of%20Arguments%20Passed/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 Write a function&nbsp;<code>argumentsLength</code> that returns the count of arguments passed to it.
 
@@ -43,11 +47,17 @@ Three values were passed to the function so it should return 3.
 	<li><code>0 &lt;= args.length &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function argumentsLength(...args: any[]): number {
@@ -61,4 +71,6 @@ function argumentsLength(...args: any[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

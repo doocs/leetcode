@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2441.Largest%20Positive%20Integer%20That%20Exists%20With%20Its%20Negative/README.md
 rating: 1167
+source: 第 315 场周赛 Q1
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2441. 与对应负数同时存在的最大正整数](https://leetcode.cn/problems/largest-positive-integer-that-exists-with-its-negative)
 
 [English Version](/solution/2400-2499/2441.Largest%20Positive%20Integer%20That%20Exists%20With%20Its%20Negative/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>不包含</strong> 任何零的整数数组 <code>nums</code> ，找出自身与对应的负数都在数组中存在的最大正整数 <code>k</code> 。</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>nums[i] != 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -72,12 +79,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxK(self, nums: List[int]) -> int:
         s = set(nums)
         return max((x for x in s if -x in s), default=-1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMaxK(nums []int) int {
@@ -129,6 +144,8 @@ func findMaxK(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMaxK(nums: number[]): number {
     let ans = -1;
@@ -141,6 +158,8 @@ function findMaxK(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -160,9 +179,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -189,4 +214,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

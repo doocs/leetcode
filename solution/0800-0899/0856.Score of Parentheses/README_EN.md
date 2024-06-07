@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [856. Score of Parentheses](https://leetcode.com/problems/score-of-parentheses)
 
 [中文文档](/solution/0800-0899/0856.Score%20of%20Parentheses/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a balanced parentheses string <code>s</code>, return <em>the <strong>score</strong> of the string</em>.</p>
 
@@ -54,7 +58,11 @@ tags:
 	<li><code>s</code> is a balanced parentheses string.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -85,6 +93,8 @@ Related problems about parentheses:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def scoreOfParentheses(self, s: str) -> int:
@@ -98,6 +108,8 @@ class Solution:
                     ans += 1 << d
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func scoreOfParentheses(s string) int {
 	ans, d := 0, 0
@@ -157,4 +173,6 @@ func scoreOfParentheses(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

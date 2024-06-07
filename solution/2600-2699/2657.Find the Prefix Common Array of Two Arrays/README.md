@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2657.Find%20the%20Prefix%20Common%20Array%20of%20Two%20Arrays/README.md
 rating: 1304
+source: 第 103 场双周赛 Q2
 tags:
     - 位运算
     - 数组
     - 哈希表
 ---
+
+<!-- problem:start -->
 
 # [2657. 找到两个数组的前缀公共数组](https://leetcode.cn/problems/find-the-prefix-common-array-of-two-arrays)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong>&nbsp;开始长度为 <code>n</code>&nbsp;的整数排列&nbsp;<code>A</code> 和&nbsp;<code>B</code>&nbsp;。</p>
 
@@ -56,7 +59,11 @@ i = 2：1，2 和 3 是两个数组的前缀公共元素，所以 C[2] = 3 。
 	<li>题目保证&nbsp;<code>A</code>&nbsp;和&nbsp;<code>B</code>&nbsp;两个数组都是&nbsp;<code>n</code>&nbsp;个元素的排列。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -69,6 +76,8 @@ i = 2：1，2 和 3 是两个数组的前缀公共元素，所以 C[2] = 3 。
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $A$ 和 $B$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +92,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findThePrefixCommonArray(A []int, B []int) []int {
 	n := len(A)
@@ -139,6 +154,8 @@ func findThePrefixCommonArray(A []int, B []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findThePrefixCommonArray(A: number[], B: number[]): number[] {
@@ -159,6 +176,10 @@ function findThePrefixCommonArray(A: number[], B: number[]): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：位运算（异或运算）
 
 我们可以使用一个长度为 $n+1$ 的数组 $vis$ 记录数组 $A$ 和 $B$ 中每个元素的出现情况，数组 $vis$ 的初始值为 $1$。另外，我们用一个变量 $s$ 记录当前公共元素的个数。
@@ -172,6 +193,8 @@ function findThePrefixCommonArray(A: number[], B: number[]): number[] {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $A$ 和 $B$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -187,6 +210,8 @@ class Solution:
             ans.append(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -208,6 +233,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -228,6 +255,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findThePrefixCommonArray(A []int, B []int) (ans []int) {
 	vis := make([]int, len(A)+1)
@@ -246,6 +275,8 @@ func findThePrefixCommonArray(A []int, B []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findThePrefixCommonArray(A: number[], B: number[]): number[] {
@@ -267,4 +298,6 @@ function findThePrefixCommonArray(A: number[], B: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3020.Find%20the%20Maximum%20Number%20of%20Elements%20in%20Subset/README_EN.md
 rating: 1741
+source: Weekly Contest 382 Q2
 tags:
     - Array
     - Hash Table
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [3020. Find the Maximum Number of Elements in Subset](https://leetcode.com/problems/find-the-maximum-number-of-elements-in-subset)
 
 [中文文档](/solution/3000-3099/3020.Find%20the%20Maximum%20Number%20of%20Elements%20in%20Subset/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <strong>positive</strong> integers <code>nums</code>.</p>
 
@@ -50,7 +55,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
 
@@ -61,6 +70,8 @@ Note that we need to handle the case of $x = 1$ specially.
 The time complexity is $O(n \times \log \log M)$, and the space complexity is $O(n)$. Here, $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +88,8 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumLength(nums []int) (ans int) {
 	cnt := map[int]int{}
@@ -151,6 +168,8 @@ func maximumLength(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumLength(nums: number[]): number {
     const cnt: Map<number, number> = new Map();
@@ -174,4 +193,6 @@ function maximumLength(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

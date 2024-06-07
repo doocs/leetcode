@@ -10,11 +10,15 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [758. Bold Words in String 🔒](https://leetcode.com/problems/bold-words-in-string)
 
 [中文文档](/solution/0700-0799/0758.Bold%20Words%20in%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of keywords <code>words</code> and a string <code>s</code>, make all appearances of all keywords <code>words[i]</code> in <code>s</code> bold. Any letters between <code>&lt;b&gt;</code> and <code>&lt;/b&gt;</code> tags become bold.</p>
 
@@ -49,11 +53,17 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as 616: <a href="https://leetcode.com/problems/add-bold-tag-in-string/" target="_blank">https://leetcode.com/problems/add-bold-tag-in-string/</a></p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -116,6 +126,8 @@ class Solution:
 
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -194,6 +206,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Trie {
 public:
@@ -262,6 +276,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -341,4 +357,6 @@ func boldWords(words []string, s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.01.Swap%20Numbers/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.01. 交换数字](https://leetcode.cn/problems/swap-numbers-lcci)
 
 [English Version](/lcci/16.01.Swap%20Numbers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>编写一个函数，不用临时变量，直接交换<code>numbers = [a, b]</code>中<code>a</code>与<code>b</code>的值。</p>
 <p><strong>示例：</strong></p>
 <pre><strong>输入:</strong> numbers = [1,2]
@@ -21,7 +24,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.01.Swap%20Numbers/
 <li><code>numbers.length == 2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -45,6 +52,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.01.Swap%20Numbers/
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def swapNumbers(self, numbers: List[int]) -> List[int]:
@@ -53,6 +62,8 @@ class Solution:
         numbers[0] ^= numbers[1]
         return numbers
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -64,6 +75,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -77,6 +90,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func swapNumbers(numbers []int) []int {
 	numbers[0] ^= numbers[1]
@@ -86,6 +101,8 @@ func swapNumbers(numbers []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function swapNumbers(numbers: number[]): number[] {
     numbers[0] ^= numbers[1];
@@ -94,6 +111,8 @@ function swapNumbers(numbers: number[]): number[] {
     return numbers;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -109,4 +128,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

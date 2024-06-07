@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [165. 比较版本号](https://leetcode.cn/problems/compare-version-numbers)
 
 [English Version](/solution/0100-0199/0165.Compare%20Version%20Numbers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个 <strong>版本号字符串</strong>&nbsp;<code>version1</code> 和 <code>version2</code> ，请你比较它们。版本号由被点&nbsp;<code>'.'</code> 分开的修订号组成。<strong>修订号的值</strong> 是它 <strong>转换为整数</strong> 并忽略前导零。</p>
 
@@ -76,7 +78,11 @@ tags:
 	<li><code>version1</code> 和 <code>version2</code> 的所有修订号都可以存储在 <strong>32 位整数</strong> 中</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -87,6 +93,8 @@ tags:
 时间复杂度 $O(\max(m, n))$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是两个字符串的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +114,8 @@ class Solution:
             i, j = i + 1, j + 1
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func compareVersion(version1 string, version2 string) int {
@@ -174,6 +188,8 @@ func compareVersion(version1 string, version2 string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function compareVersion(version1: string, version2: string): number {
     const v1 = version1.split('.');
@@ -190,6 +206,8 @@ function compareVersion(version1: string, version2: string): number {
     return 0;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -214,4 +232,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

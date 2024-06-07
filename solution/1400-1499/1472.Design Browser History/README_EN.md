@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1472.Design%20Browser%20History/README_EN.md
 rating: 1453
+source: Weekly Contest 192 Q3
 tags:
     - Stack
     - Design
@@ -12,11 +13,15 @@ tags:
     - Doubly-Linked List
 ---
 
+<!-- problem:start -->
+
 # [1472. Design Browser History](https://leetcode.com/problems/design-browser-history)
 
 [中文文档](/solution/1400-1499/1472.Design%20Browser%20History/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a <strong>browser</strong> of one tab where you start on the <code>homepage</code> and you can visit another <code>url</code>, get back in the history number of <code>steps</code> or move forward in the history number of <code>steps</code>.</p>
 
@@ -64,11 +69,17 @@ browserHistory.back(7);                   // You are in &quot;google.com&quot;, 
 	<li>At most <code>5000</code>&nbsp;calls will be made to <code>visit</code>, <code>back</code>, and <code>forward</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BrowserHistory:
@@ -100,6 +111,8 @@ class BrowserHistory:
 # param_2 = obj.back(steps)
 # param_3 = obj.forward(steps)
 ```
+
+#### Java
 
 ```java
 class BrowserHistory {
@@ -138,6 +151,8 @@ class BrowserHistory {
  * String param_3 = obj.forward(steps);
  */
 ```
+
+#### C++
 
 ```cpp
 class BrowserHistory {
@@ -179,6 +194,8 @@ public:
  * string param_3 = obj->forward(steps);
  */
 ```
+
+#### Go
 
 ```go
 type BrowserHistory struct {
@@ -224,4 +241,6 @@ func (this *BrowserHistory) Forward(steps int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

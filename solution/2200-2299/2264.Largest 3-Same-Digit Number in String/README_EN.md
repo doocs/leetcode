@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2264.Largest%203-Same-Digit%20Number%20in%20String/README_EN.md
 rating: 1308
+source: Weekly Contest 292 Q1
 tags:
     - String
 ---
+
+<!-- problem:start -->
 
 # [2264. Largest 3-Same-Digit Number in String](https://leetcode.com/problems/largest-3-same-digit-number-in-string)
 
 [中文文档](/solution/2200-2299/2264.Largest%203-Same-Digit%20Number%20in%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>num</code> representing a large integer. An integer is <strong>good</strong> if it meets the following conditions:</p>
 
@@ -63,7 +68,11 @@ tags:
 	<li><code>num</code> only consists of digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -75,6 +84,8 @@ The time complexity is $O(10 \times n)$, where $n$ is the length of the string $
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestGoodInteger(self, num: str) -> str:
@@ -83,6 +94,8 @@ class Solution:
                 return s
         return ""
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestGoodInteger(num string) string {
 	for c := '9'; c >= '0'; c-- {
@@ -123,6 +140,8 @@ func largestGoodInteger(num string) string {
 	return ""
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestGoodInteger(num: string): string {
@@ -138,4 +157,6 @@ function largestGoodInteger(num: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

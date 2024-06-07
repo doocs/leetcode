@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.19.Pond%20Sizes/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.19. Pond Sizes](https://leetcode.cn/problems/pond-sizes-lcci)
 
 [中文文档](/lcci/16.19.Pond%20Sizes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have an integer matrix representing a plot of land, where the value at that loca&shy;tion represents the height above sea level. A value of zero indicates water. A pond is a region of water connected vertically, horizontally, or diagonally. The size of the pond is the total number of connected water cells. Write a method to compute the sizes of all ponds in the matrix.</p>
 
@@ -41,7 +45,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.19.Pond%20Sizes/RE
 	<li><code>0 &lt; len(land[i]) &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -54,6 +62,8 @@ Finally, we sort the answer array to obtain the final answer.
 The time complexity is $O(m \times n \times \log (m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the matrix $land$, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +80,8 @@ class Solution:
         m, n = len(land), len(land[0])
         return sorted(dfs(i, j) for i in range(m) for j in range(n) if land[i][j] == 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pondSizes(land [][]int) (ans []int) {
 	m, n := len(land), len(land[0])
@@ -165,6 +181,8 @@ func pondSizes(land [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function pondSizes(land: number[][]): number[] {
@@ -194,6 +212,8 @@ function pondSizes(land: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -234,4 +254,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README_EN.md
 rating: 2344
+source: Weekly Contest 320 Q4
 tags:
     - String
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [2478. Number of Beautiful Partitions](https://leetcode.com/problems/number-of-beautiful-partitions)
 
 [中文文档](/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> that consists of the digits <code>&#39;1&#39;</code> to <code>&#39;9&#39;</code> and two integers <code>k</code> and <code>minLength</code>.</p>
 
@@ -64,7 +69,11 @@ tags:
 	<li><code>s</code> consists of the digits <code>&#39;1&#39;</code> to <code>&#39;9&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -93,6 +102,8 @@ The time complexity is $O(n \times k)$, and the space complexity is $O(n \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def beautifulPartitions(self, s: str, k: int, minLength: int) -> int:
@@ -112,6 +123,8 @@ class Solution:
                 g[i][j] = (g[i - 1][j] + f[i][j]) % mod
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func beautifulPartitions(s string, k int, minLength int) int {
@@ -202,6 +219,8 @@ func beautifulPartitions(s string, k int, minLength int) int {
 	return f[n][k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function beautifulPartitions(s: string, k: number, minLength: number): number {
@@ -235,4 +254,6 @@ function beautifulPartitions(s: string, k: number, minLength: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

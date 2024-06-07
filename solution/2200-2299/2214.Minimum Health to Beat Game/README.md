@@ -7,13 +7,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [2214. 通关游戏所需的最低生命值 🔒](https://leetcode.cn/problems/minimum-health-to-beat-game)
 
 [English Version](/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你正在玩一个有 <code>n</code> 个关卡的游戏，从 <code>0</code> 到 <code>n - 1</code>。给你一个&nbsp;<strong>下标从 0&nbsp;开始&nbsp;</strong>的整数数组 <code>damage</code>，其中 <code>damage[i]</code> 是你完成第 <code>i</code> 个关卡所损失的生命值。</p>
 
@@ -73,7 +75,11 @@ tags:
 	<li><code>0 &lt;= armor &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -83,11 +89,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumHealth(self, damage: List[int], armor: int) -> int:
         return sum(damage) - min(max(damage), armor) + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumHealth(damage []int, armor int) int64 {
 	var s int64
@@ -129,6 +143,8 @@ func minimumHealth(damage []int, armor int) int64 {
 	return s - int64(min(mx, armor)) + 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumHealth(damage: number[], armor: number): number {
@@ -144,4 +160,6 @@ function minimumHealth(damage: number[], armor: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

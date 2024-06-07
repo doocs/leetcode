@@ -8,11 +8,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [909. Snakes and Ladders](https://leetcode.com/problems/snakes-and-ladders)
 
 [中文文档](/solution/0900-0999/0909.Snakes%20and%20Ladders/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>n x n</code> integer matrix <code>board</code> where the cells are labeled from <code>1</code> to <code>n<sup>2</sup></code> in a <a href="https://en.wikipedia.org/wiki/Boustrophedon" target="_blank"><strong>Boustrophedon style</strong></a> starting from the bottom left of the board (i.e. <code>board[n - 1][0]</code>) and alternating direction each row.</p>
 
@@ -72,11 +76,17 @@ This is the lowest possible number of moves to reach the last square, so return 
 	<li>The squares labeled <code>1</code> and <code>n<sup>2</sup></code> do not have any ladders or snakes.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +116,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -191,6 +205,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func snakesAndLadders(board [][]int) int {
@@ -234,4 +250,6 @@ func snakesAndLadders(board [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

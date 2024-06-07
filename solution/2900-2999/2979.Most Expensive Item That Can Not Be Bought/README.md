@@ -8,13 +8,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [2979. 最贵的无法购买的商品 🔒](https://leetcode.cn/problems/most-expensive-item-that-can-not-be-bought)
 
 [English Version](/solution/2900-2999/2979.Most%20Expensive%20Item%20That%20Can%20Not%20Be%20Bought/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个 <strong>不同的质数</strong>&nbsp;<code>primeOne</code>&nbsp;和&nbsp;<code>primeTwo</code>。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>primeOne * primeTwo &lt; 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：Chicken McNugget 定理
 
@@ -60,11 +66,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mostExpensiveItem(self, primeOne: int, primeTwo: int) -> int:
         return primeOne * primeTwo - primeOne - primeTwo
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -73,6 +83,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -83,17 +95,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostExpensiveItem(primeOne int, primeTwo int) int {
 	return primeOne*primeTwo - primeOne - primeTwo
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mostExpensiveItem(primeOne: number, primeTwo: number): number {
     return primeOne * primeTwo - primeOne - primeTwo;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -105,4 +123,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

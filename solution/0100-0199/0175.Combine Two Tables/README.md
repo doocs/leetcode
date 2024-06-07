@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [175. 组合两个表](https://leetcode.cn/problems/combine-two-tables)
 
 [English Version](/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Person</code></p>
 
@@ -84,13 +86,19 @@ Address表:
 地址表中没有 personId = 1 的地址，所以它们的城市和州返回 null。
 addressId = 1 包含了 personId = 2 的地址信息。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：左连接
 
 我们可以使用左连接，将 `Person` 表左连接 `Address` 表，连接条件为 `Person.personId = Address.personId`，这样就可以得到每个人的姓、名、城市和州。如果 `personId` 的地址不在 `Address` 表中，则报告为空 `null`。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -102,6 +110,8 @@ def combine_two_tables(person: pd.DataFrame, address: pd.DataFrame) -> pd.DataFr
     ]
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT firstName, lastName, city, state
@@ -112,4 +122,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

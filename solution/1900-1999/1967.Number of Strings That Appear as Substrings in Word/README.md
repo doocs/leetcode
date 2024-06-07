@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1967.Number%20of%20Strings%20That%20Appear%20as%20Substrings%20in%20Word/README.md
 rating: 1231
+source: 第 254 场周赛 Q1
 tags:
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1967. 作为子字符串出现在单词中的字符串数目](https://leetcode.cn/problems/number-of-strings-that-appear-as-substrings-in-word)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>patterns</code> 和一个字符串 <code>word</code> ，统计 <code>patterns</code> 中有多少个字符串是 <code>word</code> 的子字符串。返回字符串数目。</p>
 
@@ -65,7 +68,11 @@ patterns 中有 2 个字符串作为子字符串出现在 word 中。
 	<li><code>patterns[i]</code> 和 <code>word</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -77,11 +84,15 @@ patterns 中有 2 个字符串作为子字符串出现在 word 中。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfStrings(self, patterns: List[str], word: str) -> int:
         return sum(p in word for p in patterns)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfStrings(patterns []string, word string) (ans int) {
 	for _, p := range patterns {
@@ -120,6 +135,8 @@ func numOfStrings(patterns []string, word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numOfStrings(patterns: string[], word: string): number {
@@ -135,4 +152,6 @@ function numOfStrings(patterns: string[], word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

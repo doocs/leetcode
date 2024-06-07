@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3137.Minimum%20Number%20of%20Operations%20to%20Make%20Word%20K-Periodic/README_EN.md
 rating: 1491
+source: Weekly Contest 396 Q2
 tags:
     - Hash Table
     - String
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [3137. Minimum Number of Operations to Make Word K-Periodic](https://leetcode.com/problems/minimum-number-of-operations-to-make-word-k-periodic)
 
 [中文文档](/solution/3100-3199/3137.Minimum%20Number%20of%20Operations%20to%20Make%20Word%20K-Periodic/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>word</code> of size <code>n</code>, and an integer <code>k</code> such that <code>k</code> divides <code>n</code>.</p>
 
@@ -99,7 +104,11 @@ font-size: 0.85rem;
 	<li><code>word</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -109,12 +118,16 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperationsToMakeKPeriodic(self, word: str, k: int) -> int:
         n = len(word)
         return n // k - max(Counter(word[i : i + k] for i in range(0, n, k)).values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperationsToMakeKPeriodic(word string, k int) int {
 	cnt := map[string]int{}
@@ -158,6 +175,8 @@ func minimumOperationsToMakeKPeriodic(word string, k int) int {
 	return n/k - mx
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperationsToMakeKPeriodic(word: string, k: number): number {
@@ -175,4 +194,6 @@ function minimumOperationsToMakeKPeriodic(word: string, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

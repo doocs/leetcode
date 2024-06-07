@@ -8,13 +8,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [141. 环形链表](https://leetcode.cn/problems/linked-list-cycle)
 
 [English Version](/solution/0100-0199/0141.Linked%20List%20Cycle/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个链表的头节点 <code>head</code> ，判断链表中是否有环。</p>
 
@@ -68,7 +70,11 @@ tags:
 
 <p><strong>进阶：</strong>你能用 <code>O(1)</code>（即，常量）内存解决此问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -77,6 +83,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是链表中的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -96,6 +104,8 @@ class Solution:
             head = head.next
         return False
 ```
+
+#### Java
 
 ```java
 /**
@@ -122,6 +132,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -146,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -165,6 +179,8 @@ func hasCycle(head *ListNode) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -193,6 +209,10 @@ function hasCycle(head: ListNode | null): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：快慢指针
 
 我们定义快慢指针 $fast$ 和 $slow$，初始时均指向 $head$。
@@ -202,6 +222,8 @@ function hasCycle(head: ListNode | null): boolean {
 时间复杂度 $O(n)$，其中 $n$ 是链表中的节点数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -220,6 +242,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 /**
@@ -249,6 +273,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -275,6 +301,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -294,6 +322,8 @@ func hasCycle(head *ListNode) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -322,6 +352,8 @@ function hasCycle(head: ListNode | null): boolean {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -348,6 +380,8 @@ var hasCycle = function (head) {
     return false;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -379,4 +413,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

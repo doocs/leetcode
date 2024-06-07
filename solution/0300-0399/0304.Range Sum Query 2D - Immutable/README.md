@@ -9,13 +9,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [304. 二维区域和检索 - 矩阵不可变](https://leetcode.cn/problems/range-sum-query-2d-immutable)
 
 [English Version](/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><big><small>给定一个二维矩阵 <code>matrix</code>，</small></big>以下类型的多个请求：</p>
 
@@ -64,7 +66,11 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (蓝色矩形框的元素总和)
 	<li><meta charset="UTF-8" />最多调用 <code>10<sup>4</sup></code> 次&nbsp;<code>sumRegion</code> 方法</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二维前缀和
 
@@ -85,6 +91,8 @@ $$
 初始化的时间复杂度为 $O(m \times n)$，查询的时间复杂度为 $O(1)$。空间复杂度为 $O(m \times n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class NumMatrix:
@@ -110,6 +118,8 @@ class NumMatrix:
 # obj = NumMatrix(matrix)
 # param_1 = obj.sumRegion(row1,col1,row2,col2)
 ```
+
+#### Java
 
 ```java
 class NumMatrix {
@@ -137,6 +147,8 @@ class NumMatrix {
  */
 ```
 
+#### C++
+
 ```cpp
 class NumMatrix {
 public:
@@ -163,6 +175,8 @@ public:
  * int param_1 = obj->sumRegion(row1,col1,row2,col2);
  */
 ```
+
+#### Go
 
 ```go
 type NumMatrix struct {
@@ -193,6 +207,8 @@ func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
  * param_1 := obj.SumRegion(row1,col1,row2,col2);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class NumMatrix {
@@ -227,7 +243,10 @@ class NumMatrix {
  */
 ```
 
+#### Rust
+
 ```rust
+
 /**
  * Your NumMatrix object will be instantiated and called as such:
  * let obj = NumMatrix::new(matrix);
@@ -290,6 +309,8 @@ impl NumMatrix {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -331,4 +352,6 @@ NumMatrix.prototype.sumRegion = function (row1, col1, row2, col2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

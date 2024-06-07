@@ -3,9 +3,12 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README.md
 rating: 1607
+source: 第 299 场周赛 Q2
 tags:
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2320. 统计放置房子的方式数](https://leetcode.cn/problems/count-number-of-ways-to-place-houses)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一条街道上共有 <code>n * 2</code> 个 <strong>地块</strong> ，街道的两侧各有 <code>n</code> 个地块。每一边的地块都按从 <code>1</code> 到 <code>n</code> 编号。每个地块上都可以放置一所房子。</p>
 
@@ -50,7 +53,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -69,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countHousePlacements(self, n: int) -> int:
@@ -81,6 +90,8 @@ class Solution:
         v = f[-1] + g[-1]
         return v * v % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countHousePlacements(n int) int {
 	const mod = 1e9 + 7
@@ -132,6 +147,8 @@ func countHousePlacements(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countHousePlacements(n: number): number {
     const f = new Array(n);
@@ -146,6 +163,8 @@ function countHousePlacements(n: number): number {
     return Number(v ** 2n % mod);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -166,4 +185,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

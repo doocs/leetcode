@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1352.Product%20of%20the%20Last%20K%20Numbers/README_EN.md
 rating: 1473
+source: Weekly Contest 176 Q2
 tags:
     - Design
     - Queue
@@ -11,11 +12,15 @@ tags:
     - Data Stream
 ---
 
+<!-- problem:start -->
+
 # [1352. Product of the Last K Numbers](https://leetcode.com/problems/product-of-the-last-k-numbers)
 
 [中文文档](/solution/1300-1399/1352.Product%20of%20the%20Last%20K%20Numbers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design an algorithm that accepts a stream of integers and retrieves the product of the last <code>k</code> integers of the stream.</p>
 
@@ -64,7 +69,11 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 	<li>The product of the stream at any point in time will fit in a <strong>32-bit</strong> integer.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Product
 
@@ -77,6 +86,8 @@ When calling `getProduct(k)`, we now judge whether the length of $s$ is less tha
 The time complexity is $O(1)$, and the space complexity is $O(n)$. Where $n$ is the number of times `add` is called.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class ProductOfNumbers:
@@ -98,6 +109,8 @@ class ProductOfNumbers:
 # obj.add(num)
 # param_2 = obj.getProduct(k)
 ```
+
+#### Java
 
 ```java
 class ProductOfNumbers {
@@ -129,6 +142,8 @@ class ProductOfNumbers {
  * int param_2 = obj.getProduct(k);
  */
 ```
+
+#### C++
 
 ```cpp
 class ProductOfNumbers {
@@ -162,6 +177,8 @@ private:
  * int param_2 = obj->getProduct(k);
  */
 ```
+
+#### Go
 
 ```go
 type ProductOfNumbers struct {
@@ -198,4 +215,6 @@ func (this *ProductOfNumbers) GetProduct(k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

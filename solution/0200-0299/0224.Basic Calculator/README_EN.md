@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [224. Basic Calculator](https://leetcode.com/problems/basic-calculator)
 
 [中文文档](/solution/0200-0299/0224.Basic%20Calculator/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> representing a valid expression, implement a basic calculator to evaluate it, and return <em>the result of the evaluation</em>.</p>
 
@@ -54,7 +58,11 @@ tags:
 	<li>Every number and running calculation will fit in a signed 32-bit integer.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack
 
@@ -73,6 +81,8 @@ After traversing the string $s$, we return $ans$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +112,8 @@ class Solution:
             i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +150,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -177,6 +191,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func calculate(s string) (ans int) {
 	stk := []int{}
@@ -211,6 +227,8 @@ func calculate(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function calculate(s: string): number {
@@ -247,6 +265,8 @@ function calculate(s: string): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -288,4 +308,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

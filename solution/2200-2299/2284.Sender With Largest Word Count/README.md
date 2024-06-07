@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2284.Sender%20With%20Largest%20Word%20Count/README.md
 rating: 1346
+source: 第 79 场双周赛 Q2
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2284. 最多单词数的发件人](https://leetcode.cn/problems/sender-with-largest-word-count)
 
 [English Version](/solution/2200-2299/2284.Sender%20With%20Largest%20Word%20Count/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个聊天记录，共包含 <code>n</code>&nbsp;条信息。给你两个字符串数组&nbsp;<code>messages</code> 和&nbsp;<code>senders</code>&nbsp;，其中&nbsp;<code>messages[i]</code>&nbsp;是&nbsp;<code>senders[i]</code>&nbsp;发出的一条&nbsp;<strong>信息</strong>&nbsp;。</p>
 
@@ -66,7 +69,11 @@ Charlie 总共发出了 5 个单词。
 	<li><code>senders[i]</code>&nbsp;只包含大写英文字母和小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -75,6 +82,8 @@ Charlie 总共发出了 5 个单词。
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `messages` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +97,8 @@ class Solution:
                 ans = sender
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestWordCount(messages []string, senders []string) (ans string) {
 	cnt := map[string]int{}
@@ -155,4 +170,6 @@ func largestWordCount(messages []string, senders []string) (ans string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

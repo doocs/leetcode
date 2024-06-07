@@ -10,11 +10,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2969. Minimum Number of Coins for Fruits II 🔒](https://leetcode.com/problems/minimum-number-of-coins-for-fruits-ii)
 
 [中文文档](/solution/2900-2999/2969.Minimum%20Number%20of%20Coins%20for%20Fruits%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are at a fruit market with different types of exotic fruits on display.</p>
 
@@ -65,7 +69,11 @@ It can be proven that 2 is the minimum number of coins needed to acquire all the
 	<li><code>1 &lt;= prices[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -85,6 +93,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCoins(self, prices: List[int]) -> int:
@@ -100,6 +110,8 @@ class Solution:
             q.append(i)
         return prices[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumCoins(prices []int) int {
@@ -223,6 +239,8 @@ func (q Deque) Get(i int) int {
 	return q.r[i-len(q.l)]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCoins(prices: number[]): number {
@@ -342,4 +360,6 @@ class Deque<T> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

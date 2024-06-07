@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1175.Prime%20Arrangements/README.md
 rating: 1489
+source: 第 152 场周赛 Q1
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1175. 质数排列](https://leetcode.cn/problems/prime-arrangements)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你帮忙给从 <code>1</code> 到 <code>n</code>&nbsp;的数设计排列方案，使得所有的「质数」都应该被放在「质数索引」（索引从 1 开始）上；你需要返回可能的方案总数。</p>
 
@@ -44,7 +47,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -61,6 +68,8 @@ tags:
 时间复杂度 $O(n \times \log \log n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +88,8 @@ class Solution:
         ans = factorial(cnt) * factorial(n - cnt)
         return ans % (10**9 + 7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 const int MOD = 1e9 + 7;
@@ -146,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numPrimeArrangements(n int) int {
@@ -183,4 +198,6 @@ func numPrimeArrangements(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

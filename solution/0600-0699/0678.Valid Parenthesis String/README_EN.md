@@ -9,11 +9,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [678. Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string)
 
 [中文文档](/solution/0600-0699/0678.Valid%20Parenthesis%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> containing only three types of characters: <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code> and <code>&#39;*&#39;</code>, return <code>true</code> <em>if</em> <code>s</code> <em>is <strong>valid</strong></em>.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>s[i]</code> is <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code> or <code>&#39;*&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -58,6 +66,8 @@ Let `dp[i][j]` be true if and only if the interval `s[i], s[i+1], ..., s[j]` can
 -   Space Complexity: $O(n^2)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +86,8 @@ class Solution:
                 )
         return dp[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkValidString(s string) bool {
@@ -146,6 +162,10 @@ func checkValidString(s string) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Greedy
 
 Scan twice, first from left to right to make sure that each of the closing brackets is matched successfully, and second from right to left to make sure that each of the opening brackets is matched successfully.
@@ -154,6 +174,8 @@ Scan twice, first from left to right to make sure that each of the closing brack
 -   Space Complexity: $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -176,6 +198,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +230,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -235,6 +261,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkValidString(s string) bool {
 	x := 0
@@ -263,4 +291,6 @@ func checkValidString(s string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

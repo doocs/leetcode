@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README_EN.md
 rating: 1168
+source: Weekly Contest 342 Q1
 tags:
     - Math
 ---
+
+<!-- problem:start -->
 
 # [2651. Calculate Delayed Arrival Time](https://leetcode.com/problems/calculate-delayed-arrival-time)
 
 [中文文档](/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer <code>arrivalTime</code> denoting the arrival time of a train in hours, and another positive integer <code>delayedTime</code> denoting the amount of delay in hours.</p>
 
@@ -44,17 +49,25 @@ tags:
 	<li><code>1 &lt;= delayedTime &lt;= 24</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def findDelayedArrivalTime(self, arrivalTime: int, delayedTime: int) -> int:
         return (arrivalTime + delayedTime) % 24
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -63,6 +76,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -73,17 +88,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDelayedArrivalTime(arrivalTime int, delayedTime int) int {
 	return (arrivalTime + delayedTime) % 24
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findDelayedArrivalTime(arrivalTime: number, delayedTime: number): number {
     return (arrivalTime + delayedTime) % 24;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -95,4 +116,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

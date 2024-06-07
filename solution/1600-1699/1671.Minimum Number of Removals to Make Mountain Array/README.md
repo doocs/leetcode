@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1671.Minimum%20Number%20of%20Removals%20to%20Make%20Mountain%20Array/README.md
 rating: 1912
+source: 第 40 场双周赛 Q4
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1671. 得到山形数组的最少删除次数](https://leetcode.cn/problems/minimum-number-of-removals-to-make-mountain-array)
 
 [English Version](/solution/1600-1699/1671.Minimum%20Number%20of%20Removals%20to%20Make%20Mountain%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们定义&nbsp;<code>arr</code>&nbsp;是 <b>山形数组</b>&nbsp;当且仅当它满足：</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li>题目保证&nbsp;<code>nums</code> 删除一些元素后一定能得到山形数组。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -73,6 +80,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +99,8 @@ class Solution:
                     right[i] = max(right[i], right[j] + 1)
         return n - max(a + b - 1 for a, b in zip(left, right) if a > 1 and b > 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumMountainRemovals(nums []int) int {
@@ -186,6 +201,8 @@ func minimumMountainRemovals(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumMountainRemovals(nums: number[]): number {
     const n = nums.length;
@@ -214,6 +231,8 @@ function minimumMountainRemovals(nums: number[]): number {
     return n - ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -250,4 +269,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

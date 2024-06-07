@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2560.House%20Robber%20IV/README_EN.md
 rating: 2081
+source: Weekly Contest 331 Q3
 tags:
     - Array
     - Binary Search
 ---
+
+<!-- problem:start -->
 
 # [2560. House Robber IV](https://leetcode.com/problems/house-robber-iv)
 
 [中文文档](/solution/2500-2599/2560.House%20Robber%20IV/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are several consecutive houses along a street, each of which has some money inside. There is also a robber, who wants to steal money from the homes, but he <strong>refuses to steal from adjacent homes</strong>.</p>
 
@@ -55,7 +60,11 @@ Therefore, we return min(5, 9, 9) = 5.
 	<li><code>1 &lt;= k &lt;= (nums.length + 1)/2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search + Greedy
 
@@ -64,6 +73,8 @@ The problem is asking for the minimum stealing ability of the thief. We can use 
 The time complexity is $O(n \times \log m)$, and the space complexity is $O(1)$. Where $n$ and $m$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +90,8 @@ class Solution:
 
         return bisect_left(range(max(nums) + 1), True, key=f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCapability(nums []int, k int) int {
 	return sort.Search(1e9+1, func(x int) bool {
@@ -153,6 +170,8 @@ func minCapability(nums []int, k int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCapability(nums: number[], k: number): number {
@@ -184,4 +203,6 @@ function minCapability(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

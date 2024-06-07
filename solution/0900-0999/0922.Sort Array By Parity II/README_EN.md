@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [922. Sort Array By Parity II](https://leetcode.com/problems/sort-array-by-parity-ii)
 
 [中文文档](/solution/0900-0999/0922.Sort%20Array%20By%20Parity%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>nums</code>, half of the integers in <code>nums</code> are <strong>odd</strong>, and the other half are <strong>even</strong>.</p>
 
@@ -49,7 +53,11 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Follow Up:</strong> Could you solve it in-place?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -60,6 +68,8 @@ When $i$ points to an even index, if $nums[i]$ is odd, then we need to find an o
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +82,8 @@ class Solution:
                 nums[i], nums[j] = nums[j], nums[i]
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortArrayByParityII(nums []int) []int {
 	for i, j := 0, 1; i < len(nums); i += 2 {
@@ -122,6 +138,8 @@ func sortArrayByParityII(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sortArrayByParityII(nums: number[]): number[] {
     for (let i = 0, j = 1; i < nums.length; i += 2) {
@@ -135,6 +153,8 @@ function sortArrayByParityII(nums: number[]): number[] {
     return nums;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -156,4 +176,6 @@ var sortArrayByParityII = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

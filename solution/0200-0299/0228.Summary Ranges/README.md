@@ -6,13 +6,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [228. 汇总区间](https://leetcode.cn/problems/summary-ranges)
 
 [English Version](/solution/0200-0299/0228.Summary%20Ranges/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 &nbsp;<strong>无重复元素</strong> 的&nbsp;<strong>有序</strong> 整数数组 <code>nums</code> 。</p>
 
@@ -27,7 +29,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>nums = [0,1,2,4,5,7]
@@ -38,7 +40,7 @@ tags:
 [7,7] --&gt; "7"
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>nums = [0,2,3,4,6,8,9]
@@ -61,7 +63,11 @@ tags:
 	<li><code>nums</code> 按升序排列</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -72,6 +78,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +98,8 @@ class Solution:
             i = j + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func summaryRanges(nums []int) (ans []string) {
 	f := func(i, j int) string {
@@ -150,6 +164,8 @@ func summaryRanges(nums []int) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function summaryRanges(nums: number[]): string[] {
     const f = (i: number, j: number): string => {
@@ -167,6 +183,8 @@ function summaryRanges(nums: number[]): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -208,6 +226,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public IList<string> SummaryRanges(int[] nums) {
@@ -230,4 +250,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

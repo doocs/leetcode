@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1929.Concatenation%20of%20Array/README_EN.md
 rating: 1132
+source: Weekly Contest 249 Q1
 tags:
     - Array
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [1929. Concatenation of Array](https://leetcode.com/problems/concatenation-of-array)
 
 [中文文档](/solution/1900-1999/1929.Concatenation%20of%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> of length <code>n</code>, you want to create an array <code>ans</code> of length <code>2n</code> where <code>ans[i] == nums[i]</code> and <code>ans[i + n] == nums[i]</code> for <code>0 &lt;= i &lt; n</code> (<strong>0-indexed</strong>).</p>
 
@@ -49,17 +54,25 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def getConcatenation(self, nums: List[int]) -> List[int]:
         return nums + nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +87,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -86,17 +101,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getConcatenation(nums []int) []int {
 	return append(nums, nums...)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getConcatenation(nums: number[]): number[] {
     return [...nums, ...nums];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -105,6 +126,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -117,6 +140,8 @@ var getConcatenation = function (nums) {
     return ans;
 };
 ```
+
+#### C
 
 ```c
 /**
@@ -134,4 +159,6 @@ int* getConcatenation(int* nums, int numsSize, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

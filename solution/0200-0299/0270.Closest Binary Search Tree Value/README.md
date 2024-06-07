@@ -10,13 +10,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [270. 最接近的二叉搜索树值 🔒](https://leetcode.cn/problems/closest-binary-search-tree-value)
 
 [English Version](/solution/0200-0299/0270.Closest%20Binary%20Search%20Tree%20Value/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你二叉搜索树的根节点 <code>root</code> 和一个目标值 <code>target</code> ，请在该二叉搜索树中找到最接近目标值 <code>target</code> 的数值。如果有多个答案，返回最小的那个。
 
@@ -46,17 +48,21 @@ tags:
 	<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一：中序遍历
+<!-- solution:start -->
 
-我们用一个变量 $mi$ 维护最小的差值，用一个变量 $ans$ 维护答案。初始时 $mi=\infty$, $ans=root.val$。
+### 方法一：递归
 
-接下来，进行中序遍历，每次计算当前节点与目标值 $target$ 的差的绝对值 $t$。如果 $t \lt mi$，或者 $t = mi$ 且当前节点的值小于 $ans$，则更新 $mi$ 和 $ans$。
+我们定义一个递归函数 $\text{dfs}(node)$，表示从当前节点 $node$ 开始，寻找最接近目标值 $target$ 的节点。我们可以通过比较当前节点的值与目标值的差的绝对值，来更新答案，如果目标值小于当前节点的值，我们就递归地搜索左子树，否则我们递归地搜索右子树。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉搜索树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -67,21 +73,24 @@ tags:
 #         self.right = right
 class Solution:
     def closestValue(self, root: Optional[TreeNode], target: float) -> int:
-        def dfs(root):
-            if root is None:
+        def dfs(node: Optional[TreeNode]):
+            if node is None:
                 return
-            dfs(root.left)
-            nonlocal ans, mi
-            t = abs(root.val - target)
-            if t < mi:
-                mi = t
-                ans = root.val
-            dfs(root.right)
+            nxt = abs(target - node.val)
+            nonlocal ans, diff
+            if nxt < diff or (nxt == diff and node.val < ans):
+                diff = nxt
+                ans = node.val
+            node = node.left if target < node.val else node.right
+            dfs(node)
 
-        ans, mi = root.val, inf
+        ans = 0
+        diff = inf
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -102,7 +111,7 @@ class Solution:
 class Solution {
     private int ans;
     private double target;
-    private double mi = Double.MAX_VALUE;
+    private double diff = Double.MAX_VALUE;
 
     public int closestValue(TreeNode root, double target) {
         this.target = target;
@@ -110,20 +119,22 @@ class Solution {
         return ans;
     }
 
-    private void dfs(TreeNode root) {
-        if (root == null) {
+    private void dfs(TreeNode node) {
+        if (node == null) {
             return;
         }
-        dfs(root.left);
-        double t = Math.abs(root.val - target);
-        if (t < mi) {
-            mi = t;
-            ans = root.val;
+        double nxt = Math.abs(node.val - target);
+        if (nxt < diff || (nxt == diff && node.val < ans)) {
+            diff = nxt;
+            ans = node.val;
         }
-        dfs(root.right);
+        node = target < node.val ? node.left : node.right;
+        dfs(node);
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -141,24 +152,26 @@ class Solution {
 public:
     int closestValue(TreeNode* root, double target) {
         int ans = root->val;
-        double mi = INT_MAX;
-        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
-            if (!root) {
+        double diff = INT_MAX;
+        function<void(TreeNode*)> dfs = [&](TreeNode* node) {
+            if (!node) {
                 return;
             }
-            dfs(root->left);
-            double t = abs(root->val - target);
-            if (t < mi) {
-                mi = t;
-                ans = root->val;
+            double nxt = abs(node->val - target);
+            if (nxt < diff || (nxt == diff && node->val < ans)) {
+                diff = nxt;
+                ans = node->val;
             }
-            dfs(root->right);
+            node = target < node->val ? node->left : node->right;
+            dfs(node);
         };
         dfs(root);
         return ans;
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -171,24 +184,70 @@ public:
  */
 func closestValue(root *TreeNode, target float64) int {
 	ans := root.Val
-	mi := math.MaxFloat64
+	diff := math.MaxFloat64
 	var dfs func(*TreeNode)
-	dfs = func(root *TreeNode) {
-		if root == nil {
+	dfs = func(node *TreeNode) {
+		if node == nil {
 			return
 		}
-		dfs(root.Left)
-		t := math.Abs(float64(root.Val) - target)
-		if t < mi {
-			mi = t
-			ans = root.Val
+		nxt := math.Abs(float64(node.Val) - target)
+		if nxt < diff || (nxt == diff && node.Val < ans) {
+			diff = nxt
+			ans = node.Val
 		}
-		dfs(root.Right)
+		if target < float64(node.Val) {
+			dfs(node.Left)
+		} else {
+			dfs(node.Right)
+		}
 	}
 	dfs(root)
 	return ans
 }
 ```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function closestValue(root: TreeNode | null, target: number): number {
+    let ans = 0;
+    let diff = Number.POSITIVE_INFINITY;
+
+    const dfs = (node: TreeNode | null): void => {
+        if (!node) {
+            return;
+        }
+
+        const nxt = Math.abs(target - node.val);
+        if (nxt < diff || (nxt === diff && node.val < ans)) {
+            diff = nxt;
+            ans = node.val;
+        }
+
+        node = target < node.val ? node.left : node.right;
+        dfs(node);
+    };
+
+    dfs(root);
+    return ans;
+}
+```
+
+#### JavaScript
 
 ```js
 /**
@@ -205,20 +264,24 @@ func closestValue(root *TreeNode, target float64) int {
  * @return {number}
  */
 var closestValue = function (root, target) {
-    let mi = Infinity;
-    let ans = root.val;
-    const dfs = root => {
-        if (!root) {
+    let ans = 0;
+    let diff = Infinity;
+
+    const dfs = node => {
+        if (!node) {
             return;
         }
-        dfs(root.left);
-        const t = Math.abs(root.val - target);
-        if (t < mi) {
-            mi = t;
-            ans = root.val;
+
+        const nxt = Math.abs(target - node.val);
+        if (nxt < diff || (nxt === diff && node.val < ans)) {
+            diff = nxt;
+            ans = node.val;
         }
-        dfs(root.right);
+
+        node = target < node.val ? node.left : node.right;
+        dfs(node);
     };
+
     dfs(root);
     return ans;
 };
@@ -226,15 +289,19 @@ var closestValue = function (root, target) {
 
 <!-- tabs:end -->
 
-### 方法二：二分查找
+<!-- solution:end -->
 
-与方法一类似，我们用一个变量 $mi$ 维护最小的差值，用一个变量 $ans$ 维护答案。初始时 $mi=\infty$, $ans=root.val$。
+<!-- solution:start -->
 
-接下来，进行二分查找，每次计算当前节点与目标值 $target$ 的差的绝对值 $t$。如果 $t \lt mi$，或者 $t = mi$ 且当前节点的值小于 $ans$，则更新 $mi$ 和 $ans$。如果当前节点的值大于 $target$，则查找左子树，否则查找右子树。当我们遍历到叶子节点时，就可以结束二分查找了。
+### 方法二：迭代
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是二叉搜索树的节点数。
+我们可以将递归函数改写为迭代的形式，使用一个循环来模拟递归的过程。我们从根节点开始，判断当前节点的值与目标值的差的绝对值是否小于当前的最小差，如果是，我们就更新答案。然后根据目标值与当前节点的值的大小关系，决定向左子树还是右子树移动。当我们遍历到空节点时，循环结束。
+
+时间复杂度 $O(n)$，其中 $n$ 是二叉搜索树的节点数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -245,18 +312,17 @@ var closestValue = function (root, target) {
 #         self.right = right
 class Solution:
     def closestValue(self, root: Optional[TreeNode], target: float) -> int:
-        ans, mi = root.val, inf
+        ans, diff = root.val, inf
         while root:
-            t = abs(root.val - target)
-            if t < mi or (t == mi and root.val < ans):
-                mi = t
+            nxt = abs(root.val - target)
+            if nxt < diff or (nxt == diff and root.val < ans):
+                diff = nxt
                 ans = root.val
-            if root.val > target:
-                root = root.left
-            else:
-                root = root.right
+            root = root.left if target < root.val else root.right
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -277,23 +343,21 @@ class Solution:
 class Solution {
     public int closestValue(TreeNode root, double target) {
         int ans = root.val;
-        double mi = Double.MAX_VALUE;
+        double diff = Double.MAX_VALUE;
         while (root != null) {
-            double t = Math.abs(root.val - target);
-            if (t < mi || (t == mi && root.val < ans)) {
-                mi = t;
+            double nxt = Math.abs(root.val - target);
+            if (nxt < diff || (nxt == diff && root.val < ans)) {
+                diff = nxt;
                 ans = root.val;
             }
-            if (root.val > target) {
-                root = root.left;
-            } else {
-                root = root.right;
-            }
+            root = target < root.val ? root.left : root.right;
         }
         return ans;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -311,23 +375,21 @@ class Solution {
 public:
     int closestValue(TreeNode* root, double target) {
         int ans = root->val;
-        double mi = INT_MAX;
+        double diff = INT_MAX;
         while (root) {
-            double t = abs(root->val - target);
-            if (t < mi || (t == mi && root->val < ans)) {
-                mi = t;
+            double nxt = abs(root->val - target);
+            if (nxt < diff || (nxt == diff && root->val < ans)) {
+                diff = nxt;
                 ans = root->val;
             }
-            if (root->val > target) {
-                root = root->left;
-            } else {
-                root = root->right;
-            }
+            root = target < root->val ? root->left : root->right;
         }
         return ans;
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -340,11 +402,11 @@ public:
  */
 func closestValue(root *TreeNode, target float64) int {
 	ans := root.Val
-	mi := math.MaxFloat64
+	diff := math.MaxFloat64
 	for root != nil {
-		t := math.Abs(float64(root.Val) - target)
-		if t < mi || (t == mi && root.Val < ans) {
-			mi = t
+		nxt := math.Abs(float64(root.Val) - target)
+		if nxt < diff || (nxt == diff && root.Val < ans) {
+			diff = nxt
 			ans = root.Val
 		}
 		if float64(root.Val) > target {
@@ -356,6 +418,41 @@ func closestValue(root *TreeNode, target float64) int {
 	return ans
 }
 ```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function closestValue(root: TreeNode | null, target: number): number {
+    let ans = 0;
+    let diff = Number.POSITIVE_INFINITY;
+
+    while (root) {
+        const nxt = Math.abs(root.val - target);
+        if (nxt < diff || (nxt === diff && root.val < ans)) {
+            diff = nxt;
+            ans = root.val;
+        }
+        root = target < root.val ? root.left : root.right;
+    }
+    return ans;
+}
+```
+
+#### JavaScript
 
 ```js
 /**
@@ -373,18 +470,14 @@ func closestValue(root *TreeNode, target float64) int {
  */
 var closestValue = function (root, target) {
     let ans = root.val;
-    let mi = Number.MAX_VALUE;
+    let diff = Infinity;
     while (root) {
-        const t = Math.abs(root.val - target);
-        if (t < mi || (t === mi && root.val < ans)) {
-            mi = t;
+        const nxt = Math.abs(root.val - target);
+        if (nxt < diff || (nxt === diff && root.val < ans)) {
+            diff = nxt;
             ans = root.val;
         }
-        if (root.val > target) {
-            root = root.left;
-        } else {
-            root = root.right;
-        }
+        root = target < root.val ? root.left : root.right;
     }
     return ans;
 };
@@ -392,4 +485,6 @@ var closestValue = function (root, target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

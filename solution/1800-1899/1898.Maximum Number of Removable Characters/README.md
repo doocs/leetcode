@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md
 rating: 1912
+source: 第 245 场周赛 Q2
 tags:
     - 数组
     - 双指针
@@ -10,13 +11,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [1898. 可移除字符的最大数目](https://leetcode.cn/problems/maximum-number-of-removable-characters)
 
 [English Version](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串 <code>s</code> 和 <code>p</code> ，其中 <code>p</code> 是 <code>s</code> 的一个 <strong>子序列</strong> 。同时，给你一个元素 <strong>互不相同</strong> 且下标 <strong>从 0 开始</strong> 计数的整数数组 <code>removable</code> ，该数组是 <code>s</code> 中下标的一个子集（<code>s</code> 的下标也 <strong>从 0 开始</strong> 计数）。</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li><code>removable</code> 中的元素 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找 + 判断子序列
 
@@ -128,6 +135,8 @@ int search(int left, int right) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumRemovals(self, s: str, p: str, removable: List[int]) -> int:
@@ -150,6 +159,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -182,6 +193,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -216,6 +229,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumRemovals(s string, p string, removable []int) int {
 	check := func(k int) bool {
@@ -246,6 +261,8 @@ func maximumRemovals(s string, p string, removable []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumRemovals(s: string, p: string, removable: number[]): number {
     let left = 0,
@@ -275,6 +292,8 @@ function isSub(str: string, sub: string, idxes: Set<number>): boolean {
     return j == n;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -320,4 +339,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

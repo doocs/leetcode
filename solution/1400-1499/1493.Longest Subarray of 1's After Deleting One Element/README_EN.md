@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1493.Longest%20Subarray%20of%201%27s%20After%20Deleting%20One%20Element/README_EN.md
 rating: 1423
+source: Biweekly Contest 29 Q3
 tags:
     - Array
     - Dynamic Programming
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1493. Longest Subarray of 1's After Deleting One Element](https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element)
 
 [中文文档](/solution/1400-1499/1493.Longest%20Subarray%20of%201%27s%20After%20Deleting%20One%20Element/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a binary array <code>nums</code>, you should delete one element from it.</p>
 
@@ -52,7 +57,11 @@ tags:
 	<li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -65,6 +74,8 @@ The final answer is $\max_{0 \leq i < n} \{left[i] + right[i+1]\}$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +91,8 @@ class Solution:
                 right[i] = right[i + 1] + 1
         return max(left[i] + right[i + 1] for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestSubarray(nums []int) (ans int) {
 	n := len(nums)
@@ -153,6 +170,8 @@ func longestSubarray(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestSubarray(nums: number[]): number {
@@ -179,6 +198,10 @@ function longestSubarray(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Two Pointers
 
 The problem is actually asking us to find the longest subarray that contains at most one $0$. The remaining length after deleting one element from this subarray is the answer.
@@ -190,6 +213,8 @@ Next, we move the right pointer $i$. If $nums[i] = 0$, then $cnt$ is incremented
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -204,6 +229,8 @@ class Solution:
             ans = max(ans, i - j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -220,6 +247,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -238,6 +267,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestSubarray(nums []int) (ans int) {
 	cnt, j := 0, 0
@@ -251,6 +282,8 @@ func longestSubarray(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestSubarray(nums: number[]): number {
@@ -268,4 +301,6 @@ function longestSubarray(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

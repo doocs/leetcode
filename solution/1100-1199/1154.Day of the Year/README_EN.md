@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1154.Day%20of%20the%20Year/README_EN.md
 rating: 1199
+source: Weekly Contest 149 Q1
 tags:
     - Math
     - String
 ---
+
+<!-- problem:start -->
 
 # [1154. Day of the Year](https://leetcode.com/problems/day-of-the-year)
 
 [中文文档](/solution/1100-1199/1154.Day%20of%20the%20Year/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>date</code> representing a <a href="https://en.wikipedia.org/wiki/Gregorian_calendar" target="_blank">Gregorian calendar</a> date formatted as <code>YYYY-MM-DD</code>, return <em>the day number of the year</em>.</p>
 
@@ -41,7 +46,11 @@ tags:
 	<li><code>date</code> represents a calendar date between Jan 1<sup>st</sup>, 1900 and Dec 31<sup>th</sup>, 2019.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Direct Calculation
 
@@ -59,6 +68,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dayOfYear(self, date: str) -> int:
@@ -67,6 +78,8 @@ class Solution:
         days = [31, v, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         return sum(days[: m - 1]) + d
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dayOfYear(date string) (ans int) {
 	var y, m, d int
@@ -118,6 +135,8 @@ func dayOfYear(date string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function dayOfYear(date: string): number {
     const y = +date.slice(0, 4);
@@ -128,6 +147,8 @@ function dayOfYear(date: string): number {
     return days.slice(0, m - 1).reduce((a, b) => a + b, d);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -146,4 +167,6 @@ var dayOfYear = function (date) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

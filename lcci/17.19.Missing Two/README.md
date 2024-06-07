@@ -4,13 +4,16 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.19.Missing%20Two/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.19. 消失的两个数字](https://leetcode.cn/problems/missing-two-lcci)
 
 [English Version](/lcci/17.19.Missing%20Two/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定一个数组，包含从 1 到 N 所有的整数，但其中缺了两个数字。你能在 O(N) 时间内只用 O(1) 的空间找到它们吗？</p>
 
 <p>以任意顺序返回这两个数字均可。</p>
@@ -31,7 +34,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.19.Missing%20Two/R
 	<li><code>nums.length &lt;=&nbsp;30000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -48,6 +55,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.19.Missing%20Two/R
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +79,8 @@ class Solution:
         b = xor ^ a
         return [a, b]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +133,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func missingTwo(nums []int) []int {
@@ -147,6 +162,8 @@ func missingTwo(nums []int) []int {
 	return []int{a, b}
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -186,4 +203,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

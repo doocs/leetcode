@@ -10,13 +10,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [889. 根据前序和后序遍历构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-postorder-traversal)
 
 [English Version](/solution/0800-0899/0889.Construct%20Binary%20Tree%20from%20Preorder%20and%20Postorder%20Traversal/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个整数数组，<code>preorder</code>&nbsp;和 <code>postorder</code> ，其中 <code>preorder</code> 是一个具有 <strong>无重复</strong> 值的二叉树的前序遍历，<code>postorder</code> 是同一棵树的后序遍历，重构并返回二叉树。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li>保证 <code>preorder</code>&nbsp;和 <code>postorder</code>&nbsp;是同一棵二叉树的前序遍历和后序遍历</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -82,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -108,6 +116,8 @@ class Solution:
         pos = {x: i for i, x in enumerate(postorder)}
         return dfs(0, len(preorder) - 1, 0, len(postorder) - 1)
 ```
+
+#### Java
 
 ```java
 /**
@@ -154,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -193,6 +205,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -225,6 +239,8 @@ func constructFromPrePost(preorder []int, postorder []int) *TreeNode {
 	return dfs(0, len(preorder)-1, 0, len(postorder)-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -267,6 +283,10 @@ function constructFromPrePost(preorder: number[], postorder: number[]): TreeNode
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：递归的另一种写法
 
 我们也可以设计一个递归函数 $dfs(i, j, n)$，其中 $i$ 和 $j$ 表示前序遍历和后序遍历的起点，而 $n$ 表示节点个数。这个函数的功能是根据前序遍历 $[i, i + n - 1]$ 和后序遍历 $[j, j + n - 1]$ 构造出二叉树的根节点。那么答案就是 $dfs(0, 0, n)$，其中 $n$ 是前序遍历的长度。
@@ -281,6 +301,8 @@ function constructFromPrePost(preorder: number[], postorder: number[]): TreeNode
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -308,6 +330,8 @@ class Solution:
         pos = {x: i for i, x in enumerate(postorder)}
         return dfs(0, 0, len(preorder))
 ```
+
+#### Java
 
 ```java
 /**
@@ -354,6 +378,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -393,6 +419,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -425,6 +453,8 @@ func constructFromPrePost(preorder []int, postorder []int) *TreeNode {
 	return dfs(0, 0, len(preorder))
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -467,4 +497,6 @@ function constructFromPrePost(preorder: number[], postorder: number[]): TreeNode
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

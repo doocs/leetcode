@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.03.Magic%20Index/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.03. 魔术索引](https://leetcode.cn/problems/magic-index-lcci)
 
 [English Version](/lcci/08.03.Magic%20Index/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>魔术索引。 在数组<code>A[0...n-1]</code>中，有所谓的魔术索引，满足条件<code>A[i] = i</code>。给定一个有序整数数组，编写一种方法找出魔术索引，若有的话，在数组A中找出一个魔术索引，如果没有，则返回-1。若有多个魔术索引，返回索引值最小的一个。</p>
 
 <p><strong>示例1:</strong></p>
@@ -32,7 +35,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.03.Magic%20Index/R
 	<li>nums长度在[1, 1000000]之间</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分搜索
 
@@ -46,6 +53,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.03.Magic%20Index/R
 时间复杂度最坏情况下为 $O(n)$，空间复杂度最坏情况下为 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +72,8 @@ class Solution:
 
         return dfs(0, len(nums) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMagicIndex(nums []int) int {
 	var dfs func(i, j int) int
@@ -130,6 +145,8 @@ func findMagicIndex(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMagicIndex(nums: number[]): number {
     const dfs = (i: number, j: number): number => {
@@ -149,6 +166,8 @@ function findMagicIndex(nums: number[]): number {
     return dfs(0, nums.length - 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,6 +194,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -198,6 +219,8 @@ var findMagicIndex = function (nums) {
     return dfs(0, nums.length - 1);
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -224,4 +247,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

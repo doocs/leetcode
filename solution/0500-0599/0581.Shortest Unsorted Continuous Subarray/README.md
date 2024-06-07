@@ -11,13 +11,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [581. 最短无序连续子数组](https://leetcode.cn/problems/shortest-unsorted-continuous-subarray)
 
 [English Version](/solution/0500-0599/0581.Shortest%20Unsorted%20Continuous%20Subarray/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，你需要找出一个 <strong>连续子数组</strong> ，如果对这个子数组进行升序排序，那么整个数组都会变为升序排序。</p>
 
@@ -64,7 +66,11 @@ tags:
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -73,6 +79,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +93,8 @@ class Solution:
             r -= 1
         return r - l + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findUnsortedSubarray(nums []int) int {
 	arr := make([]int, len(nums))
@@ -137,6 +151,8 @@ func findUnsortedSubarray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findUnsortedSubarray(nums: number[]): number {
     const arr = [...nums];
@@ -151,6 +167,8 @@ function findUnsortedSubarray(nums: number[]): number {
     return r - l + 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -187,6 +205,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：维护左侧最大值和右侧最小值
 
 我们可以从左到右遍历数组，维护一个最大值 $mx$，如果当前值小于 $mx$，说明当前值不在正确的位置上，我们更新右边界 $r$ 为当前位置。同理，我们可以从右到左遍历数组，维护一个最小值 $mi$，如果当前值大于 $mi$，说明当前值不在正确的位置上，我们更新左边界 $l$ 为当前位置。在初始化时，我们将 $l$ 和 $r$ 都初始化为 $-1$，如果 $l$ 和 $r$ 都没有被更新，说明数组已经有序，返回 $0$，否则返回 $r - l + 1$。
@@ -194,6 +216,8 @@ impl Solution {
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -212,6 +236,8 @@ class Solution:
                 mi = nums[n - i - 1]
         return 0 if r == -1 else r - l + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -236,6 +262,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -262,6 +290,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findUnsortedSubarray(nums []int) int {
 	const inf = 1 << 30
@@ -287,6 +317,8 @@ func findUnsortedSubarray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findUnsortedSubarray(nums: number[]): number {
     let [l, r] = [-1, -1];
@@ -310,4 +342,6 @@ function findUnsortedSubarray(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

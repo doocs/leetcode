@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2142. 每辆车的乘客人数 I 🔒](https://leetcode.cn/problems/the-number-of-passengers-in-each-bus-i)
 
 [English Version](/solution/2100-2199/2142.The%20Number%20of%20Passengers%20in%20Each%20Bus%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Buses</code></p>
 
@@ -92,11 +94,17 @@ Passengers 表:
 - 14 号乘客在时间 7 到达。
 - 3 号车在时间 7 到达，搭载 12、13、14 号乘客。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -114,4 +122,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

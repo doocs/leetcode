@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1377.Frog%20Position%20After%20T%20Seconds/README_EN.md
 rating: 1823
+source: Weekly Contest 179 Q4
 tags:
     - Tree
     - Depth-First Search
@@ -10,11 +11,15 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [1377. Frog Position After T Seconds](https://leetcode.com/problems/frog-position-after-t-seconds)
 
 [中文文档](/solution/1300-1399/1377.Frog%20Position%20After%20T%20Seconds/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an undirected tree consisting of <code>n</code> vertices numbered from <code>1</code> to <code>n</code>. A frog starts jumping from <strong>vertex 1</strong>. In one second, the frog jumps from its current vertex to another <strong>unvisited</strong> vertex if they are directly connected. The frog can not jump back to a visited vertex. In case the frog can jump to several vertices, it jumps randomly to one of them with the same probability. Otherwise, when the frog can not jump to any unvisited vertex, it jumps forever on the same vertex.</p>
 
@@ -52,7 +57,11 @@ tags:
 	<li><code>1 &lt;= target &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -73,6 +82,8 @@ In each round of search, we take out the head element $(u, p)$ of the queue, whe
 At the end of a round of search, we decrease $t$ by $1$, and then continue the next round of search until the queue is empty or $t \lt 0$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +110,8 @@ class Solution:
             t -= 1
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func frogPosition(n int, edges [][]int, t int, target int) float64 {
@@ -212,6 +229,8 @@ func frogPosition(n int, edges [][]int, t int, target int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function frogPosition(n: number, edges: number[][], t: number, target: number): number {
     const g: number[][] = Array.from({ length: n + 1 }, () => []);
@@ -240,6 +259,8 @@ function frogPosition(n: number, edges: number[][], t: number, target: number): 
     return 0;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -279,4 +300,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

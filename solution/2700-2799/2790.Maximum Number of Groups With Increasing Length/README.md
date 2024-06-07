@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README.md
 rating: 2619
+source: 第 355 场周赛 Q3
 tags:
     - 贪心
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2790. 长度递增组的最大数目](https://leetcode.cn/problems/maximum-number-of-groups-with-increasing-length)
 
 [English Version](/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、长度为 <code>n</code> 的数组 <code>usageLimits</code> 。</p>
 
@@ -79,11 +82,17 @@ tags:
 	<li><code>1 &lt;= usageLimits[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +107,8 @@ class Solution:
                 usageLimits[i + 1] += usageLimits[i]
         return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxIncreasingGroups(usageLimits []int) int {
 	sort.Ints(usageLimits)
@@ -150,6 +165,8 @@ func maxIncreasingGroups(usageLimits []int) int {
 	return k
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxIncreasingGroups(usageLimits: number[]): number {
@@ -169,9 +186,15 @@ function maxIncreasingGroups(usageLimits: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -188,4 +211,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

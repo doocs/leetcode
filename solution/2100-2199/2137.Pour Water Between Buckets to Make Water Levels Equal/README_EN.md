@@ -7,11 +7,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2137. Pour Water Between Buckets to Make Water Levels Equal 🔒](https://leetcode.com/problems/pour-water-between-buckets-to-make-water-levels-equal)
 
 [中文文档](/solution/2100-2199/2137.Pour%20Water%20Between%20Buckets%20to%20Make%20Water%20Levels%20Equal/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code> buckets each containing some gallons of water in it, represented by a <strong>0-indexed</strong> integer array <code>buckets</code>, where the <code>i<sup>th</sup></code> bucket contains <code>buckets[i]</code> gallons of water. You are also given an integer <code>loss</code>.</p>
 
@@ -60,11 +64,17 @@ All buckets have 3.5 gallons of water in them so return 3.5.
 	<li><code>0 &lt;= loss &lt;= 99</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +97,8 @@ class Solution:
                 r = mid
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func equalizeWater(buckets []int, loss int) float64 {
 	check := func(v float64) bool {
@@ -173,6 +189,8 @@ func equalizeWater(buckets []int, loss int) float64 {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function equalizeWater(buckets: number[], loss: number): number {
@@ -203,4 +221,6 @@ function equalizeWater(buckets: number[], loss: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

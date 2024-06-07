@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README_EN.md
 rating: 2619
+source: Weekly Contest 355 Q3
 tags:
     - Greedy
     - Array
@@ -11,11 +12,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2790. Maximum Number of Groups With Increasing Length](https://leetcode.com/problems/maximum-number-of-groups-with-increasing-length)
 
 [中文文档](/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>usageLimits</code> of length <code>n</code>.</p>
 
@@ -75,11 +80,17 @@ So, the output is 1.
 	<li><code>1 &lt;= usageLimits[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +105,8 @@ class Solution:
                 usageLimits[i + 1] += usageLimits[i]
         return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxIncreasingGroups(usageLimits []int) int {
 	sort.Ints(usageLimits)
@@ -146,6 +163,8 @@ func maxIncreasingGroups(usageLimits []int) int {
 	return k
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxIncreasingGroups(usageLimits: number[]): number {
@@ -165,9 +184,15 @@ function maxIncreasingGroups(usageLimits: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -184,4 +209,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

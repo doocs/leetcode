@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2020. Number of Accounts That Did Not Stream 🔒](https://leetcode.com/problems/number-of-accounts-that-did-not-stream)
 
 [中文文档](/solution/2000-2099/2020.Number%20of%20Accounts%20That%20Did%20Not%20Stream/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Subscriptions</code></p>
 
@@ -87,11 +91,17 @@ Streams table:
 User 11 did not subscribe in 2021.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -107,4 +117,6 @@ WHERE
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

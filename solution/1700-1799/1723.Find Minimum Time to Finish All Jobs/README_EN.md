@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1723.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs/README_EN.md
 rating: 2284
+source: Weekly Contest 223 Q4
 tags:
     - Bit Manipulation
     - Array
@@ -11,11 +12,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1723. Find Minimum Time to Finish All Jobs](https://leetcode.com/problems/find-minimum-time-to-finish-all-jobs)
 
 [中文文档](/solution/1700-1799/1723.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>jobs</code>, where <code>jobs[i]</code> is the amount of time it takes to complete the <code>i<sup>th</sup></code> job.</p>
 
@@ -50,11 +55,17 @@ The maximum working time is 11.</pre>
 	<li><code>1 &lt;= jobs[i] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +90,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +169,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumTimeRequired(jobs []int, k int) int {
@@ -188,4 +205,6 @@ func minimumTimeRequired(jobs []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

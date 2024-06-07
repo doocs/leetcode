@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1935.Maximum%20Number%20of%20Words%20You%20Can%20Type/README.md
 rating: 1226
+source: 第 250 场周赛 Q1
 tags:
     - 哈希表
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1935. 可以输入的最大单词数](https://leetcode.cn/problems/maximum-number-of-words-you-can-type)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>键盘出现了一些故障，有些字母键无法正常工作。而键盘上所有其他键都能够正常工作。</p>
 
@@ -55,7 +58,11 @@ tags:
 	<li><code>brokenLetters</code> 由 <strong>互不相同</strong> 的小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表
 
@@ -69,12 +76,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canBeTypedWords(self, text: str, brokenLetters: str) -> int:
         s = set(brokenLetters)
         return sum(all(c not in s for c in w) for w in text.split())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canBeTypedWords(text string, brokenLetters string) (ans int) {
 	s := [26]bool{}
@@ -154,6 +169,8 @@ func canBeTypedWords(text string, brokenLetters string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canBeTypedWords(text: string, brokenLetters: string): number {
@@ -174,6 +191,8 @@ function canBeTypedWords(text: string, brokenLetters: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -200,4 +219,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

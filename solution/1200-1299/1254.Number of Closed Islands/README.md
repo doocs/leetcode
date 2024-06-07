@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1254.Number%20of%20Closed%20Islands/README.md
 rating: 1658
+source: 第 162 场周赛 Q3
 tags:
     - 深度优先搜索
     - 广度优先搜索
@@ -11,13 +12,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [1254. 统计封闭岛屿的数目](https://leetcode.cn/problems/number-of-closed-islands)
 
 [English Version](/solution/1200-1299/1254.Number%20of%20Closed%20Islands/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>二维矩阵 <code>grid</code>&nbsp;由 <code>0</code>&nbsp;（土地）和 <code>1</code>&nbsp;（水）组成。岛是由最大的4个方向连通的 <code>0</code>&nbsp;组成的群，封闭岛是一个&nbsp;<code>完全</code> 由1包围（左、上、右、下）的岛。</p>
 
@@ -66,7 +69,11 @@ tags:
 	<li><code>0 &lt;= grid[i][j] &lt;=1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -77,6 +84,8 @@ tags:
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +103,8 @@ class Solution:
         dirs = (-1, 0, 1, 0, -1)
         return sum(grid[i][j] == 0 and dfs(i, j) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -158,6 +171,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func closedIsland(grid [][]int) (ans int) {
@@ -189,6 +204,8 @@ func closedIsland(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function closedIsland(grid: number[][]): number {
     const m = grid.length;
@@ -216,6 +233,8 @@ function closedIsland(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -255,6 +274,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：并查集
 
 我们可以用并查集维护每一块连通的陆地。
@@ -268,6 +291,8 @@ public class Solution {
 时间复杂度 $O(m \times n \times \alpha(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -310,6 +335,8 @@ class Solution:
                 ans += grid[i][j] == 0 and uf.find(i * n + j) == i * n + j
         return ans
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -378,6 +405,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -441,6 +470,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -506,6 +537,8 @@ func closedIsland(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function closedIsland(grid: number[][]): number {
     const m = grid.length;
@@ -570,6 +603,8 @@ class UnionFind {
     }
 }
 ```
+
+#### C#
 
 ```cs
 class UnionFind {
@@ -640,4 +675,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

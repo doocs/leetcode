@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1975.Maximum%20Matrix%20Sum/README_EN.md
 rating: 1648
+source: Biweekly Contest 59 Q2
 tags:
     - Greedy
     - Array
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1975. Maximum Matrix Sum](https://leetcode.com/problems/maximum-matrix-sum)
 
 [中文文档](/solution/1900-1999/1975.Maximum%20Matrix%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>n x n</code> integer <code>matrix</code>. You can do the following operation <strong>any</strong> number of times:</p>
 
@@ -54,11 +59,17 @@ tags:
 	<li><code>-10<sup>5</sup> &lt;= matrix[i][j] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
             return s
         return s - mi * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxMatrixSum(matrix [][]int) int64 {
@@ -145,6 +162,8 @@ func abs(x int) int {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -170,4 +189,6 @@ var maxMatrixSum = function (matrix) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

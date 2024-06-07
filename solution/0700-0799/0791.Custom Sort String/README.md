@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [791. 自定义字符串排序](https://leetcode.cn/problems/custom-sort-string)
 
 [English Version](/solution/0700-0799/0791.Custom%20Sort%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串 <code>order</code> 和 <code>s</code> 。<code>order</code> 的所有字母都是 <strong>唯一</strong> 的，并且以前按照一些自定义的顺序排序。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>order</code>&nbsp;中的所有字符都 <strong>不同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：自定义排序
 
@@ -64,12 +70,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def customSortString(self, order: str, s: str) -> str:
         d = {c: i for i, c in enumerate(order)}
         return ''.join(sorted(s, key=lambda x: d.get(x, 0)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -99,6 +111,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func customSortString(order string, s string) string {
@@ -112,6 +126,8 @@ func customSortString(order string, s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function customSortString(order: string, s: string): string {
     const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
@@ -123,6 +139,8 @@ function customSortString(order: string, s: string): string {
     return [...s].sort((a, b) => d[toIndex(a)] - d[toIndex(b)]).join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -143,6 +161,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：字符计数
 
 我们还可以先统计 $s$ 中每个字符的出现次数，存储在 $cnt$ 数组中。
@@ -152,6 +174,8 @@ impl Solution {
 时间复杂度 $O(m+n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是字符串 $order$ 和 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -165,6 +189,8 @@ class Solution:
             ans.append(c * v)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -190,6 +216,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -205,6 +233,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func customSortString(order string, s string) string {
@@ -228,6 +258,8 @@ func customSortString(order string, s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function customSortString(order: string, s: string): string {
     const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
@@ -248,6 +280,8 @@ function customSortString(order: string, s: string): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -275,4 +309,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

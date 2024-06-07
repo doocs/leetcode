@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1716.Calculate%20Money%20in%20Leetcode%20Bank/README_EN.md
 rating: 1294
+source: Biweekly Contest 43 Q1
 tags:
     - Math
 ---
+
+<!-- problem:start -->
 
 # [1716. Calculate Money in Leetcode Bank](https://leetcode.com/problems/calculate-money-in-leetcode-bank)
 
 [中文文档](/solution/1700-1799/1716.Calculate%20Money%20in%20Leetcode%20Bank/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Hercy wants to save money for his first car. He puts money in the Leetcode&nbsp;bank <strong>every day</strong>.</p>
 
@@ -51,11 +56,17 @@ tags:
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +74,8 @@ class Solution:
         a, b = divmod(n, 7)
         return (28 + 28 + 7 * (a - 1)) * a // 2 + (a * 2 + b + 1) * b // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -83,6 +98,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func totalMoney(n int) int {
 	a, b := n/7, n%7
@@ -92,4 +109,6 @@ func totalMoney(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

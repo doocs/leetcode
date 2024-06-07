@@ -8,11 +8,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1644. Lowest Common Ancestor of a Binary Tree II 🔒](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii)
 
 [中文文档](/solution/1600-1699/1644.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, return <em>the lowest common ancestor (LCA) of two given nodes, </em><code>p</code><em> and </em><code>q</code>. If either node <code>p</code> or <code>q</code> <strong>does not exist</strong> in the tree, return <code>null</code>. All values of the nodes in the tree are <strong>unique</strong>.</p>
 
@@ -58,11 +62,17 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong>&nbsp;Can you find the LCA traversing the tree, without checking nodes existence?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -93,6 +103,8 @@ class Solution:
         dfs(root, p, q)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -128,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -166,6 +180,8 @@ private:
 };
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -203,4 +219,6 @@ var lowestCommonAncestor = function (root, p, q) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

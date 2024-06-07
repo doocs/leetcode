@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README.md
 rating: 1325
+source: 第 388 场周赛 Q2
 tags:
     - 贪心
     - 数组
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [3075. 幸福值最大化的选择方案](https://leetcode.cn/problems/maximize-happiness-of-selected-children)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的数组 <code>happiness</code> ，以及一个<strong> 正整数 </strong><code>k</code> 。</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -78,6 +85,8 @@ tags:
 时间复杂度 $O(n \times \log n + k)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `happiness` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +98,8 @@ class Solution:
             ans += max(x, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumHappinessSum(happiness []int, k int) (ans int64) {
 	sort.Ints(happiness)
@@ -129,6 +144,8 @@ func maximumHappinessSum(happiness []int, k int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumHappinessSum(happiness: number[], k: number): number {
@@ -144,4 +161,6 @@ function maximumHappinessSum(happiness: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

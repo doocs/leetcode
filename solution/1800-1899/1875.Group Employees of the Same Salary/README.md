@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1875. 将工资相同的雇员分组 🔒](https://leetcode.cn/problems/group-employees-of-the-same-salary)
 
 [English Version](/solution/1800-1899/1875.Group%20Employees%20of%20the%20Same%20Salary/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Employees</code></p>
 
@@ -80,11 +82,17 @@ Juan (employee_id=8) 不在任何一个组中，因为他的工资为6100，是�
 - team_id=2: Addilyn 和 Kannon, 工资是7400
 Juan的工资(6100)没有被计算在排名中，因为他不属于任何一个组。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -108,4 +116,6 @@ ORDER BY 4, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

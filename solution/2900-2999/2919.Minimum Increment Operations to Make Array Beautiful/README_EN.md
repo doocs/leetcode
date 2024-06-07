@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2919.Minimum%20Increment%20Operations%20to%20Make%20Array%20Beautiful/README_EN.md
 rating: 2030
+source: Weekly Contest 369 Q3
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [2919. Minimum Increment Operations to Make Array Beautiful](https://leetcode.com/problems/minimum-increment-operations-to-make-array-beautiful)
 
 [中文文档](/solution/2900-2999/2919.Minimum%20Increment%20Operations%20to%20Make%20Array%20Beautiful/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> having length <code>n</code>, and an integer <code>k</code>.</p>
 
@@ -77,7 +82,11 @@ Hence, the answer is 0.
 	<li><code>0 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -99,6 +108,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minIncrementOperations(self, nums: List[int], k: int) -> int:
@@ -107,6 +118,8 @@ class Solution:
             f, g, h = g, h, min(f, g, h) + max(k - x, 0)
         return min(f, g, h)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minIncrementOperations(nums []int, k int) int64 {
 	var f, g, h int
@@ -149,6 +166,8 @@ func minIncrementOperations(nums []int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minIncrementOperations(nums: number[], k: number): number {
     let [f, g, h] = [0, 0, 0];
@@ -158,6 +177,8 @@ function minIncrementOperations(nums: number[], k: number): number {
     return Math.min(f, g, h);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -176,4 +197,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

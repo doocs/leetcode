@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1911.Maximum%20Alternating%20Subsequence%20Sum/README_EN.md
 rating: 1785
+source: Biweekly Contest 55 Q3
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [1911. Maximum Alternating Subsequence Sum](https://leetcode.com/problems/maximum-alternating-subsequence-sum)
 
 [中文文档](/solution/1900-1999/1911.Maximum%20Alternating%20Subsequence%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>alternating sum</strong> of a <strong>0-indexed</strong> array is defined as the <strong>sum</strong> of the elements at <strong>even</strong> indices <strong>minus</strong> the <strong>sum</strong> of the elements at <strong>odd</strong> indices.</p>
 
@@ -80,11 +85,17 @@ tags:
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +108,8 @@ class Solution:
             g[i] = max(f[i - 1] + x, g[i - 1])
         return max(f[n], g[n])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxAlternatingSum(nums []int) int64 {
 	n := len(nums)
@@ -141,6 +158,8 @@ func maxAlternatingSum(nums []int) int64 {
 	return int64(max(f[n], g[n]))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxAlternatingSum(nums: number[]): number {
@@ -157,9 +176,15 @@ function maxAlternatingSum(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -169,6 +194,8 @@ class Solution:
             f, g = max(g - x, f), max(f + x, g)
         return max(f, g)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -185,6 +212,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -199,6 +228,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxAlternatingSum(nums []int) int64 {
 	var f, g int
@@ -208,6 +239,8 @@ func maxAlternatingSum(nums []int) int64 {
 	return int64(max(f, g))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxAlternatingSum(nums: number[]): number {
@@ -221,4 +254,6 @@ function maxAlternatingSum(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

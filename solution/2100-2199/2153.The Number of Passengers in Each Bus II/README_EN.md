@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2153. The Number of Passengers in Each Bus II 🔒](https://leetcode.com/problems/the-number-of-passengers-in-each-bus-ii)
 
 [中文文档](/solution/2100-2199/2153.The%20Number%20of%20Passengers%20in%20Each%20Bus%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Buses</code></p>
 
@@ -96,11 +100,17 @@ Passengers table:
 - Bus 3 arrives at time 7 and collects passengers 12 and 13 as it has two empty seats.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -127,4 +137,6 @@ ORDER BY bus_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

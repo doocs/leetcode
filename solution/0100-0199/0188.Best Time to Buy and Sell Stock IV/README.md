@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv)
 
 [English Version](/solution/0100-0199/0188.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20IV/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>prices</code> 和一个整数 <code>k</code> ，其中 <code>prices[i]</code> 是某支给定的股票在第 <code>i</code><em> </em>天的价格。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li><code>0 &lt;= prices[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -69,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
@@ -85,6 +93,8 @@ class Solution:
 
         return dfs(0, k, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProfit(k int, prices []int) int {
@@ -175,6 +189,8 @@ func maxProfit(k int, prices []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(k: number, prices: number[]): number {
     const n = prices.length;
@@ -199,6 +215,8 @@ function maxProfit(k: number, prices: number[]): number {
     return dfs(0, k, 0);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -240,6 +258,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们也可以使用动态规划的方法，定义 $f[i][j][k]$ 表示到第 $i$ 天时，最多交易 $j$ 次（这里我们规定交易次数等于买入次数），且当前持有股票的状态为 $k$ 时，所能获得的最大利润。初始时 $f[i][j][k]=0$。答案即为 $f[n - 1][k][0]$。
@@ -268,6 +290,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
@@ -281,6 +305,8 @@ class Solution:
                 f[i][j][1] = max(f[i - 1][j - 1][0] - x, f[i - 1][j][1])
         return f[n - 1][k][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -300,6 +326,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -322,6 +350,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(k int, prices []int) int {
 	n := len(prices)
@@ -342,6 +372,8 @@ func maxProfit(k int, prices []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(k: number, prices: number[]): number {
     const n = prices.length;
@@ -360,6 +392,8 @@ function maxProfit(k: number, prices: number[]): number {
     return f[n - 1][k][0];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -382,9 +416,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -398,6 +438,8 @@ class Solution:
                 f[j][1] = max(f[j - 1][0] - x, f[j][1])
         return f[k][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -417,6 +459,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -439,6 +483,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(k int, prices []int) int {
 	f := make([][2]int, k+1)
@@ -455,6 +501,8 @@ func maxProfit(k int, prices []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(k: number, prices: number[]): number {
     const f = Array.from({ length: k + 1 }, () => Array.from({ length: 2 }, () => 0));
@@ -470,6 +518,8 @@ function maxProfit(k: number, prices: number[]): number {
     return f[k][0];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -492,4 +542,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

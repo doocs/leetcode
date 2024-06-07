@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1827.Minimum%20Operations%20to%20Make%20the%20Array%20Increasing/README_EN.md
 rating: 1314
+source: Biweekly Contest 50 Q1
 tags:
     - Greedy
     - Array
 ---
+
+<!-- problem:start -->
 
 # [1827. Minimum Operations to Make the Array Increasing](https://leetcode.com/problems/minimum-operations-to-make-the-array-increasing)
 
 [中文文档](/solution/1800-1899/1827.Minimum%20Operations%20to%20Make%20the%20Array%20Increasing/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> (<strong>0-indexed</strong>). In one operation, you can choose an element of the array and increment it by <code>1</code>.</p>
 
@@ -78,7 +83,11 @@ tags:
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Pass
 
@@ -90,6 +99,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array `nums`. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
@@ -99,6 +110,8 @@ class Solution:
             mx = max(mx + 1, v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(nums []int) (ans int) {
 	mx := 0
@@ -137,6 +154,8 @@ func minOperations(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(nums: number[]): number {
@@ -149,6 +168,8 @@ function minOperations(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -164,6 +185,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MinOperations(int[] nums) {
@@ -176,6 +199,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -193,4 +218,6 @@ int minOperations(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

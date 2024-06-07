@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1020.Number%20of%20Enclaves/README.md
 rating: 1615
+source: 第 130 场周赛 Q4
 tags:
     - 深度优先搜索
     - 广度优先搜索
@@ -11,13 +12,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [1020. 飞地的数量](https://leetcode.cn/problems/number-of-enclaves)
 
 [English Version](/solution/1000-1099/1020.Number%20of%20Enclaves/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> 的二进制矩阵 <code>grid</code> ，其中 <code>0</code> 表示一个海洋单元格、<code>1</code> 表示一个陆地单元格。</p>
 
@@ -54,7 +57,11 @@ tags:
 	<li><code>grid[i][j]</code> 的值为 <code>0</code> 或 <code>1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -63,6 +70,8 @@ tags:
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +91,8 @@ class Solution:
                     dfs(i, j)
         return sum(v for row in grid for v in row)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numEnclaves(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -184,6 +199,8 @@ func numEnclaves(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numEnclaves(grid: number[][]): number {
@@ -216,6 +233,8 @@ function numEnclaves(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -259,6 +278,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：BFS
 
 我们也可以使用广度优先搜索的方法，将边界上的陆地入队，然后进行广度优先搜索，将所有与边界相连的陆地都标记为 $0$。最后，统计剩余的 $1$ 的个数，即为答案。
@@ -266,6 +289,8 @@ impl Solution {
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -287,6 +312,8 @@ class Solution:
                     grid[x][y] = 0
         return sum(v for row in grid for v in row)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -323,6 +350,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -361,6 +390,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numEnclaves(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -393,6 +424,8 @@ func numEnclaves(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numEnclaves(grid: number[][]): number {
@@ -431,6 +464,10 @@ function numEnclaves(grid: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：并查集
 
 我们还可以利用并查集的方法，将边界上的陆地与一个虚拟的节点 $(m, n)$ 进行合并，然后遍历矩阵中的所有陆地，将其与上下左右的陆地进行合并。最后，统计所有与虚拟节点 $(m, n)$ 不连通的陆地的个数，即为答案。
@@ -438,6 +475,8 @@ function numEnclaves(grid: number[][]): number {
 时间复杂度 $O(m \times n \alpha(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数，而 $\alpha$ 为 [阿克曼函数](https://zh.wikipedia.org/wiki/%E9%98%BF%E5%85%8B%E6%9B%BC%E5%87%BD%E6%95%B8) 的反函数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -482,6 +521,8 @@ class Solution:
             for j in range(n)
         )
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -553,6 +594,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -618,6 +661,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -687,4 +732,6 @@ func numEnclaves(grid [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

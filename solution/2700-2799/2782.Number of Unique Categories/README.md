@@ -8,13 +8,15 @@ tags:
     - 交互
 ---
 
+<!-- problem:start -->
+
 # [2782. 唯一类别的数量 🔒](https://leetcode.cn/problems/number-of-unique-categories)
 
 [English Version](/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现给定一个整数 <code>n</code> 和一个 <code>CategoryHandler</code> 类的对象 <code>categoryHandler</code> 。</p>
 
@@ -62,7 +64,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：并查集
 
@@ -71,6 +77,8 @@ tags:
 时间复杂度 $(n^2 \times \alpha(n))$，空间复杂度 $O(n)$。其中 $n$ 是元素的个数，而 $\alpha$ 是阿克曼函数的反函数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a category handler.
@@ -93,6 +101,8 @@ class Solution:
                     p[find(a)] = find(b)
         return sum(i == x for i, x in enumerate(p))
 ```
+
+#### Java
 
 ```java
 /**
@@ -135,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a category handler.
@@ -171,6 +183,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a category handler.
@@ -205,6 +219,8 @@ func numberOfCategories(n int, categoryHandler CategoryHandler) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -241,4 +257,6 @@ function numberOfCategories(n: number, categoryHandler: CategoryHandler): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

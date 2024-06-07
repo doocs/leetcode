@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README.md
 rating: 2011
+source: 第 82 场双周赛 Q3
 tags:
     - 数组
     - 数学
@@ -10,13 +11,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [2333. 最小差值平方和](https://leetcode.cn/problems/minimum-sum-of-squared-difference)
 
 [English Version](/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;，长度为&nbsp;<code>n</code>&nbsp;。</p>
 
@@ -60,11 +63,17 @@ tags:
 	<li><code>0 &lt;= k1, k2 &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +102,8 @@ class Solution:
                 d[i] -= 1
         return sum(v * v for v in d)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -185,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSumSquareDiff(nums1 []int, nums2 []int, k1 int, k2 int) int64 {
@@ -243,4 +258,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

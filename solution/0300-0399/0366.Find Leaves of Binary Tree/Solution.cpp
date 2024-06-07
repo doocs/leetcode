@@ -12,26 +12,21 @@
 class Solution {
 public:
     vector<vector<int>> findLeaves(TreeNode* root) {
-        vector<vector<int>> res;
-        TreeNode* prev = new TreeNode(0, root, nullptr);
-        while (prev->left) {
-            vector<int> t;
-            dfs(prev->left, prev, t);
-            res.push_back(t);
-        }
-        return res;
-    }
-
-    void dfs(TreeNode* root, TreeNode* prev, vector<int>& t) {
-        if (!root) return;
-        if (!root->left && !root->right) {
-            t.push_back(root->val);
-            if (prev->left == root)
-                prev->left = nullptr;
-            else
-                prev->right = nullptr;
-        }
-        dfs(root->left, root, t);
-        dfs(root->right, root, t);
+        vector<vector<int>> ans;
+        function<int(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root) {
+                return 0;
+            }
+            int l = dfs(root->left);
+            int r = dfs(root->right);
+            int h = max(l, r);
+            if (ans.size() == h) {
+                ans.push_back({});
+            }
+            ans[h].push_back(root->val);
+            return h + 1;
+        };
+        dfs(root);
+        return ans;
     }
 };

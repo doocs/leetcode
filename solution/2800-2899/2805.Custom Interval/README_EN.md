@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2805.Custom%20Interval/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2805. Custom Interval 🔒](https://leetcode.com/problems/custom-interval)
 
 [中文文档](/solution/2800-2899/2805.Custom%20Interval/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p><strong>Function&nbsp;</strong><code>customInterval</code></p>
 
@@ -79,11 +83,17 @@ setTimeout(() =&gt; {
 	<li><code>20 &lt;= cancelTime &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 const intervalMap = new Map<number, NodeJS.Timeout>();
@@ -116,4 +126,6 @@ function customClearInterval(id: number) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

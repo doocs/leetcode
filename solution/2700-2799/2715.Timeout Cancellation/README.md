@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2715.Timeout%20Cancellation/README.md
 ---
 
+<!-- problem:start -->
+
 # [2715. 执行可取消的延迟函数](https://leetcode.cn/problems/timeout-cancellation)
 
 [English Version](/solution/2700-2799/2715.Timeout%20Cancellation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个函数 <code>fn</code>&nbsp;，一个参数数组 <code>args</code> 和一个以毫秒为单位的超时时间 <code>t</code> ，返回一个取消函数 <code>cancelFn</code> 。</p>
 
@@ -76,11 +78,17 @@ setTimeout(cancelFn, cancelTimeMs);
 	<li><code><font face="monospace">10 &lt;= cancelTimeMs&nbsp;&lt;= 1000</font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function cancellable(fn: Function, args: any[], t: number): Function {
@@ -116,6 +124,8 @@ function cancellable(fn: Function, args: any[], t: number): Function {
  *  }, maxT + 15)
  */
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -160,4 +170,6 @@ var cancellable = function (fn, args, t) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

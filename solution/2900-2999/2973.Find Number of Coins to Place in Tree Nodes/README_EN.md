@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README_EN.md
 rating: 2276
+source: Biweekly Contest 120 Q4
 tags:
     - Tree
     - Depth-First Search
@@ -11,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2973. Find Number of Coins to Place in Tree Nodes](https://leetcode.com/problems/find-number-of-coins-to-place-in-tree-nodes)
 
 [中文文档](/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <strong>undirected</strong> tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>, and rooted at node <code>0</code>. You are given a 2D integer array <code>edges</code> of length <code>n - 1</code>, where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the tree.</p>
 
@@ -72,7 +77,11 @@ tags:
 	<li>The input is generated such that <code>edges</code> represents a valid tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS + Sorting
 
@@ -102,6 +111,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def placedCoins(self, edges: List[List[int]], cost: List[int]) -> List[int]:
@@ -126,6 +137,8 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -172,6 +185,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -209,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func placedCoins(edges [][]int, cost []int) []int64 {
@@ -248,6 +265,8 @@ func placedCoins(edges [][]int, cost []int) []int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function placedCoins(edges: number[][], cost: number[]): number[] {
     const n = cost.length;
@@ -283,4 +302,6 @@ function placedCoins(edges: number[][], cost: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

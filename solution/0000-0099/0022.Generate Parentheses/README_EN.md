@@ -8,11 +8,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses)
 
 [中文文档](/solution/0000-0099/0022.Generate%20Parentheses/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given <code>n</code> pairs of parentheses, write a function to <em>generate all combinations of well-formed parentheses</em>.</p>
 
@@ -31,7 +35,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 8</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS + Pruning
 
@@ -47,6 +55,8 @@ We design a function $dfs(l, r, t)$, where $l$ and $r$ represent the number of l
 The time complexity is $O(2^{n\times 2} \times n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +74,8 @@ class Solution:
         dfs(0, 0, '')
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generateParenthesis(n int) (ans []string) {
 	var dfs func(int, int, string)
@@ -129,6 +145,8 @@ func generateParenthesis(n int) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function generateParenthesis(n: number): string[] {
     function dfs(l, r, t) {
@@ -147,6 +165,8 @@ function generateParenthesis(n: number): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,6 +195,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -200,9 +222,15 @@ var generateParenthesis = function (n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -235,6 +263,8 @@ impl Solution {
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -265,4 +295,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

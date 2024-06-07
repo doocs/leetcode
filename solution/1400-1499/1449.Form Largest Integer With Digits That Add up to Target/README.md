@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1449.Form%20Largest%20Integer%20With%20Digits%20That%20Add%20up%20to%20Target/README.md
 rating: 1927
+source: 第 26 场双周赛 Q4
 tags:
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [1449. 数位成本和为目标值的最大数字](https://leetcode.cn/problems/form-largest-integer-with-digits-that-add-up-to-target)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>cost</code> 和一个整数 <code>target</code> 。请你返回满足如下规则可以得到的 <strong>最大</strong> 整数：</p>
 
@@ -81,7 +84,11 @@ tags:
 	<li><code>1 <= target <= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划（背包问题）
 
@@ -100,6 +107,8 @@ tags:
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别为数组 $cost$ 和 $target$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -127,6 +136,8 @@ class Solution:
                 j = g[i][j]
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +178,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -203,6 +216,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestNumber(cost []int, target int) string {
@@ -245,6 +260,8 @@ func largestNumber(cost []int, target int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function largestNumber(cost: number[], target: number): string {
     const inf = 1 << 30;
@@ -285,4 +302,6 @@ function largestNumber(cost: number[], target: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

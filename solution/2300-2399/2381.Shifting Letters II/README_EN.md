@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2381.Shifting%20Letters%20II/README_EN.md
 rating: 1793
+source: Biweekly Contest 85 Q3
 tags:
     - Array
     - String
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2381. Shifting Letters II](https://leetcode.com/problems/shifting-letters-ii)
 
 [中文文档](/solution/2300-2399/2381.Shifting%20Letters%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> of lowercase English letters and a 2D integer array <code>shifts</code> where <code>shifts[i] = [start<sub>i</sub>, end<sub>i</sub>, direction<sub>i</sub>]</code>. For every <code>i</code>, <strong>shift</strong> the characters in <code>s</code> from the index <code>start<sub>i</sub></code> to the index <code>end<sub>i</sub></code> (<strong>inclusive</strong>) forward if <code>direction<sub>i</sub> = 1</code>, or shift the characters backward if <code>direction<sub>i</sub> = 0</code>.</p>
 
@@ -51,11 +56,17 @@ Finally, shift the characters from index 1 to index 1 forward. Now s = &quot;cat
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +84,8 @@ class Solution:
             chr(ord('a') + (ord(s[i]) - ord('a') + d[i] + 26) % 26) for i in range(n)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shiftingLetters(s string, shifts [][]int) string {
 	n := len(s)
@@ -147,6 +164,8 @@ func shiftingLetters(s string, shifts [][]int) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function shiftingLetters(s: string, shifts: number[][]): string {
@@ -177,4 +196,6 @@ function shiftingLetters(s: string, shifts: number[][]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

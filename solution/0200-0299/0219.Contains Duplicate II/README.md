@@ -8,13 +8,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [219. 存在重复元素 II](https://leetcode.cn/problems/contains-duplicate-ii)
 
 [English Version](/solution/0200-0299/0219.Contains%20Duplicate%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code> 和一个整数&nbsp;<code>k</code> ，判断数组中是否存在两个 <strong>不同的索引</strong><em>&nbsp;</em><code>i</code>&nbsp;和<em>&nbsp;</em><code>j</code> ，满足 <code>nums[i] == nums[j]</code> 且 <code>abs(i - j) &lt;= k</code> 。如果存在，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -64,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
@@ -74,6 +82,8 @@ class Solution:
             d[x] = i
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func containsNearbyDuplicate(nums []int, k int) bool {
 	d := map[int]int{}
@@ -119,6 +133,8 @@ func containsNearbyDuplicate(nums []int, k int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function containsNearbyDuplicate(nums: number[], k: number): boolean {
     const d: Map<number, number> = new Map();
@@ -131,6 +147,8 @@ function containsNearbyDuplicate(nums: number[], k: number): boolean {
     return false;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -146,6 +164,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -170,4 +190,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

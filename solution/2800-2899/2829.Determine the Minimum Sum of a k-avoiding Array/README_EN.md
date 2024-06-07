@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2829.Determine%20the%20Minimum%20Sum%20of%20a%20k-avoiding%20Array/README_EN.md
 rating: 1347
+source: Weekly Contest 359 Q2
 tags:
     - Greedy
     - Math
 ---
+
+<!-- problem:start -->
 
 # [2829. Determine the Minimum Sum of a k-avoiding Array](https://leetcode.com/problems/determine-the-minimum-sum-of-a-k-avoiding-array)
 
 [中文文档](/solution/2800-2899/2829.Determine%20the%20Minimum%20Sum%20of%20a%20k-avoiding%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers,&nbsp;<code>n</code> and <code>k</code>.</p>
 
@@ -46,7 +51,11 @@ It can be proven that there is no k-avoiding array with a sum less than 3.
 	<li><code>1 &lt;= n, k &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Simulation
 
@@ -55,6 +64,8 @@ We start from the positive integer $i=1$, and judge whether $i$ can be added to 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +80,8 @@ class Solution:
             s += i
         return s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSum(n int, k int) int {
 	s, i := 0, 1
@@ -129,6 +146,8 @@ func minimumSum(n int, k int) int {
 	return s
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSum(n: number, k: number): number {
@@ -151,4 +170,6 @@ function minimumSum(n: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

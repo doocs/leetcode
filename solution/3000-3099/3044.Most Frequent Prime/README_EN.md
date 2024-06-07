@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3044.Most%20Frequent%20Prime/README_EN.md
 rating: 1737
+source: Weekly Contest 385 Q3
 tags:
     - Array
     - Hash Table
@@ -13,11 +14,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [3044. Most Frequent Prime](https://leetcode.com/problems/most-frequent-prime)
 
 [中文文档](/solution/3000-3099/3044.Most%20Frequent%20Prime/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <code>m x n</code> <strong>0-indexed </strong>2D<strong> </strong>matrix <code>mat</code>. From every cell, you can create numbers in the following way:</p>
 
@@ -84,7 +89,11 @@ The most frequent prime number among all the created numbers is 97.
 	<li><code>1 &lt;= mat[i][j] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
 
@@ -97,6 +106,8 @@ Finally, we traverse the hash table to find the prime number with the highest fr
 The time complexity is $O(m \times n \times \max(m, n) \times {10}^{\frac{\max(m, n)}{2}})$, and the space complexity is $O(m \times n \times \max(m, n))$. Here, $m$ and $n$ are the number of rows and columns of `mat`, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -127,6 +138,8 @@ class Solution:
                 ans = max(ans, v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -174,6 +187,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -223,6 +238,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func mostFrequentPrime(mat [][]int) int {
 	m, n := len(mat), len(mat[0])
@@ -266,6 +283,8 @@ func isPrime(n int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mostFrequentPrime(mat: number[][]): number {
@@ -315,4 +334,6 @@ function mostFrequentPrime(mat: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

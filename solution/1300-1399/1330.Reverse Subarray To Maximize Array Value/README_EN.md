@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/README_EN.md
 rating: 2481
+source: Biweekly Contest 18 Q4
 tags:
     - Greedy
     - Array
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1330. Reverse Subarray To Maximize Array Value](https://leetcode.com/problems/reverse-subarray-to-maximize-array-value)
 
 [中文文档](/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>. The <em>value</em> of this array is defined as the sum of <code>|nums[i] - nums[i + 1]|</code> for all <code>0 &lt;= i &lt; nums.length - 1</code>.</p>
 
@@ -45,11 +50,17 @@ tags:
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +79,8 @@ class Solution:
             ans = max(ans, s + max(mx - mi, 0))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxValueAfterReverse(nums []int) int {
@@ -172,6 +189,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxValueAfterReverse(nums: number[]): number {
     const n = nums.length;
@@ -204,4 +223,6 @@ function maxValueAfterReverse(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2658.Maximum%20Number%20of%20Fish%20in%20a%20Grid/README_EN.md
 rating: 1489
+source: Biweekly Contest 103 Q3
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -11,11 +12,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2658. Maximum Number of Fish in a Grid](https://leetcode.com/problems/maximum-number-of-fish-in-a-grid)
 
 [中文文档](/solution/2600-2699/2658.Maximum%20Number%20of%20Fish%20in%20a%20Grid/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> 2D matrix <code>grid</code> of size <code>m x n</code>, where <code>(r, c)</code> represents:</p>
 
@@ -62,7 +67,11 @@ tags:
 	<li><code>0 &lt;= grid[i][j] &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -77,6 +86,8 @@ In the main function, we traverse all the cells $(i, j)$. If the current cell is
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. where $m$ and $n$ are the number of rows and columns of the grid graph respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +109,8 @@ class Solution:
                     ans = max(ans, dfs(i, j))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaxFish(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -191,6 +208,8 @@ func findMaxFish(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaxFish(grid: number[][]): number {
@@ -225,4 +244,6 @@ function findMaxFish(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

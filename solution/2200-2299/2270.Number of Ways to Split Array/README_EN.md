@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2270.Number%20of%20Ways%20to%20Split%20Array/README_EN.md
 rating: 1334
+source: Biweekly Contest 78 Q2
 tags:
     - Array
     - Prefix Sum
 ---
+
+<!-- problem:start -->
 
 # [2270. Number of Ways to Split Array](https://leetcode.com/problems/number-of-ways-to-split-array)
 
 [中文文档](/solution/2200-2299/2270.Number%20of%20Ways%20to%20Split%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code>.</p>
 
@@ -58,11 +63,17 @@ There are two valid splits in nums:
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func waysToSplitArray(nums []int) int {
@@ -131,4 +148,6 @@ func waysToSplitArray(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

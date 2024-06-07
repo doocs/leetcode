@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README.md
 rating: 1626
+source: 第 178 场周赛 Q2
 tags:
     - 数组
     - 哈希表
@@ -11,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1366. 通过投票对团队排名](https://leetcode.cn/problems/rank-teams-by-votes)
 
 [English Version](/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现在有一个特殊的排名系统，依据参赛团队在投票人心中的次序进行排名，每个投票者都需要按从高到低的顺序对参与排名的所有团队进行排位。</p>
 
@@ -34,46 +37,33 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre><strong>输入：</strong>votes = [&quot;ABC&quot;,&quot;ACB&quot;,&quot;ABC&quot;,&quot;ACB&quot;,&quot;ACB&quot;]
-<strong>输出：</strong>&quot;ACB&quot;
-<strong>解释：</strong>A 队获得五票「排位第一」，没有其他队获得「排位第一」，所以 A 队排名第一。
+<pre>
+<strong>输入：</strong>votes = ["ABC","ACB","ABC","ACB","ACB"]
+<strong>输出：</strong>"ACB"
+<strong>解释：</strong>
+A 队获得五票「排位第一」，没有其他队获得「排位第一」，所以 A 队排名第一。
 B 队获得两票「排位第二」，三票「排位第三」。
 C 队获得三票「排位第二」，两票「排位第三」。
 由于 C 队「排位第二」的票数较多，所以 C 队排第二，B 队排第三。
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
-<pre><strong>输入：</strong>votes = [&quot;WXYZ&quot;,&quot;XYZW&quot;]
-<strong>输出：</strong>&quot;XWYZ&quot;
-<strong>解释：</strong>X 队在并列僵局打破后成为排名第一的团队。X 队和 W 队的「排位第一」票数一样，但是 X 队有一票「排位第二」，而 W 没有获得「排位第二」。 
+<pre>
+<strong>输入：</strong>votes = ["WXYZ","XYZW"]
+<strong>输出：</strong>"XWYZ"
+<strong>解释：</strong>
+X 队在并列僵局打破后成为排名第一的团队。X 队和 W 队的「排位第一」票数一样，但是 X 队有一票「排位第二」，而 W 没有获得「排位第二」。 
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
-<pre><strong>输入：</strong>votes = [&quot;ZMNAGUEDSJYLBOPHRQICWFXTVK&quot;]
-<strong>输出：</strong>&quot;ZMNAGUEDSJYLBOPHRQICWFXTVK&quot;
+<pre>
+<strong>输入：</strong>votes = ["ZMNAGUEDSJYLBOPHRQICWFXTVK"]
+<strong>输出：</strong>"ZMNAGUEDSJYLBOPHRQICWFXTVK"
 <strong>解释：</strong>只有一个投票者，所以排名完全按照他的意愿。
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>votes = [&quot;BCA&quot;,&quot;CAB&quot;,&quot;CBA&quot;,&quot;ABC&quot;,&quot;ACB&quot;,&quot;BAC&quot;]
-<strong>输出：</strong>&quot;ABC&quot;
-<strong>解释：</strong> 
-A 队获得两票「排位第一」，两票「排位第二」，两票「排位第三」。
-B 队获得两票「排位第一」，两票「排位第二」，两票「排位第三」。
-C 队获得两票「排位第一」，两票「排位第二」，两票「排位第三」。
-完全并列，所以我们需要按照字母升序排名。
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre><strong>输入：</strong>votes = [&quot;M&quot;,&quot;M&quot;,&quot;M&quot;,&quot;M&quot;]
-<strong>输出：</strong>&quot;M&quot;
-<strong>解释：</strong>只有 M 队参赛，所以它排名第一。
 </pre>
 
 <p>&nbsp;</p>
@@ -89,7 +79,11 @@ C 队获得两票「排位第一」，两票「排位第二」，两票「排位
 	<li><code>votes[0]</code>&nbsp;中出现的所有字母 <strong>同样也</strong> 出现在&nbsp;<code>votes[j]</code>&nbsp;中，其中&nbsp;<code>1 &lt;= j &lt; votes.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 自定义排序
 
@@ -98,6 +92,8 @@ C 队获得两票「排位第一」，两票「排位第二」，两票「排位
 时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(n^2)$。其中 $n$ 为候选人的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -109,6 +105,8 @@ class Solution:
                 cnt[c][i] += 1
         return "".join(sorted(votes[0], key=lambda x: (cnt[x], -ord(x)), reverse=True))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rankTeams(votes []string) string {
 	cnt := [26][26]int{}
@@ -195,4 +197,6 @@ func rankTeams(votes []string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

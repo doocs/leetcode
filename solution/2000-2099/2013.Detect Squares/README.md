@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2013.Detect%20Squares/README.md
 rating: 1841
+source: 第 259 场周赛 Q3
 tags:
     - 设计
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2013. 检测正方形](https://leetcode.cn/problems/detect-squares)
 
 [English Version](/solution/2000-2099/2013.Detect%20Squares/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个在 X-Y 平面上的点构成的数据流。设计一个满足下述要求的算法：</p>
 
@@ -71,7 +74,11 @@ detectSquares.count([11, 10]); // 返回 2 。你可以选择：
 	<li>调用&nbsp;<code>add</code> 和 <code>count</code> 的 <strong>总次数</strong> 最多为 <code>5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -84,6 +91,8 @@ detectSquares.count([11, 10]); // 返回 2 。你可以选择：
 时间复杂度方面，调用 $add(x, y)$ 方法的时间复杂度为 $O(1)$，调用 $count(x_1, y_1)$ 方法的时间复杂度为 $O(n)$；空间复杂度为 $O(n)$。其中 $n$ 为数据流中的点的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class DetectSquares:
@@ -112,6 +121,8 @@ class DetectSquares:
 # obj.add(point)
 # param_2 = obj.count(point)
 ```
+
+#### Java
 
 ```java
 class DetectSquares {
@@ -155,6 +166,8 @@ class DetectSquares {
  */
 ```
 
+#### C++
+
 ```cpp
 class DetectSquares {
 public:
@@ -194,6 +207,8 @@ private:
  * int param_2 = obj->count(point);
  */
 ```
+
+#### Go
 
 ```go
 type DetectSquares struct {
@@ -236,4 +251,6 @@ func (this *DetectSquares) Count(point []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

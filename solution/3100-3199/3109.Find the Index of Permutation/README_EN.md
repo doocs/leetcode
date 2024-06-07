@@ -12,11 +12,15 @@ tags:
     - Merge Sort
 ---
 
+<!-- problem:start -->
+
 # [3109. Find the Index of Permutation 🔒](https://leetcode.com/problems/find-the-index-of-permutation)
 
 [中文文档](/solution/3100-3199/3109.Find%20the%20Index%20of%20Permutation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>perm</code> of length <code>n</code> which is a permutation of <code>[1, 2, ..., n]</code>, return the index of <code>perm</code> in the <span data-keyword="lexicographically-sorted-array">lexicographically sorted</span> array of all of the permutations of <code>[1, 2, ..., n]</code>.</p>
 
@@ -63,7 +67,11 @@ And <code>[3,1,2]</code> is at index 4.</p>
 	<li><code>perm</code> is a permutation of <code>[1, 2, ..., n]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
 
@@ -80,6 +88,8 @@ We can use a binary indexed tree to maintain the number of elements that are sma
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the permutation.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -116,6 +126,8 @@ class Solution:
             tree.update(x, 1)
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -162,6 +174,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -212,6 +226,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -253,6 +269,8 @@ func getPermutationIndex(perm []int) (ans int) {
 	return ans % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -299,4 +317,6 @@ function getPermutationIndex(perm: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

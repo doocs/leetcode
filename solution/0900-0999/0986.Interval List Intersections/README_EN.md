@@ -7,11 +7,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [986. Interval List Intersections](https://leetcode.com/problems/interval-list-intersections)
 
 [中文文档](/solution/0900-0999/0986.Interval%20List%20Intersections/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two lists of closed intervals, <code>firstList</code> and <code>secondList</code>, where <code>firstList[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> and <code>secondList[j] = [start<sub>j</sub>, end<sub>j</sub>]</code>. Each list of intervals is pairwise <strong>disjoint</strong> and in <strong>sorted order</strong>.</p>
 
@@ -48,11 +52,17 @@ tags:
 	<li><code>end<sub>j</sub> &lt; start<sub>j+1</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +82,8 @@ class Solution:
                 j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
 	m, n := len(firstList), len(secondList)
@@ -134,6 +150,8 @@ func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function intervalIntersection(firstList: number[][], secondList: number[][]): number[][] {
@@ -157,6 +175,8 @@ function intervalIntersection(firstList: number[][], secondList: number[][]): nu
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -187,4 +207,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

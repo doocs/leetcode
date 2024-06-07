@@ -3,9 +3,12 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3133.Minimum%20Array%20End/README.md
 rating: 1934
+source: 第 395 场周赛 Q3
 tags:
     - 位运算
 ---
+
+<!-- problem:start -->
 
 # [3133. 数组最后一个元素的最小值](https://leetcode.cn/problems/minimum-array-end)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数 <code>n</code> 和 <code>x</code> 。你需要构造一个长度为 <code>n</code> 的 <strong>正整数 </strong>数组 <code>nums</code> ，对于所有 <code>0 &lt;= i &lt; n - 1</code> ，满足 <code>nums[i + 1]</code><strong> 大于 </strong><code>nums[i]</code> ，并且数组 <code>nums</code> 中所有元素的按位 <code>AND</code> 运算结果为 <code>x</code> 。</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>1 &lt;= n, x &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 位运算
 
@@ -69,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minEnd(self, n: int, x: int) -> int:
@@ -81,6 +90,8 @@ class Solution:
         ans |= n << 31
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minEnd(n int, x int) (ans int64) {
 	n--
@@ -131,6 +146,8 @@ func minEnd(n int, x int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minEnd(n: number, x: number): number {
@@ -149,4 +166,6 @@ function minEnd(n: number, x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

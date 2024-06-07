@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README_EN.md
 rating: 2540
+source: Biweekly Contest 122 Q4
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [3013. Divide an Array Into Subarrays With Minimum Cost II](https://leetcode.com/problems/divide-an-array-into-subarrays-with-minimum-cost-ii)
 
 [中文文档](/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of integers <code>nums</code> of length <code>n</code>, and two <strong>positive</strong> integers <code>k</code> and <code>dist</code>.</p>
 
@@ -64,11 +69,17 @@ It can be shown that there is no possible way to divide nums into 3 subarrays at
 	<li><code>k - 2 &lt;= dist &lt;= n - 2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -110,6 +121,8 @@ class Solution:
         return ans + y
 ```
 
+#### Java
+
 ```java
 class Solution {
     public long minimumCost(int[] nums, int k, int dist) {
@@ -147,6 +160,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -199,6 +214,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumCost(nums []int, k int, dist int) int64 {
@@ -399,4 +416,6 @@ func (h *Heap) pushDown(root int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

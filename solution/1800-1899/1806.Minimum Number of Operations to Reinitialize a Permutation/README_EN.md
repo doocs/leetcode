@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1806.Minimum%20Number%20of%20Operations%20to%20Reinitialize%20a%20Permutation/README_EN.md
 rating: 1491
+source: Weekly Contest 234 Q2
 tags:
     - Array
     - Math
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1806. Minimum Number of Operations to Reinitialize a Permutation](https://leetcode.com/problems/minimum-number-of-operations-to-reinitialize-a-permutation)
 
 [中文文档](/solution/1800-1899/1806.Minimum%20Number%20of%20Operations%20to%20Reinitialize%20a%20Permutation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <strong>even</strong> integer <code>n</code>​​​​​​. You initially have a permutation <code>perm</code> of size <code>n</code>​​ where <code>perm[i] == i</code>​ <strong>(0-indexed)</strong>​​​​.</p>
 
@@ -65,7 +70,11 @@ So it takes only 2 operations.
 	<li><code>n</code>​​​​​​ is even.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Find Pattern + Simulation
 
@@ -84,6 +93,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reinitializePermutation(self, n: int) -> int:
@@ -97,6 +108,8 @@ class Solution:
             if i == 1:
                 return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reinitializePermutation(n int) (ans int) {
 	for i := 1; ; {
@@ -155,4 +172,6 @@ func reinitializePermutation(n int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README.md
 rating: 1335
+source: 第 324 场周赛 Q1
 tags:
     - 位运算
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [2506. 统计相似字符串对的数目](https://leetcode.cn/problems/count-pairs-of-similar-strings)
 
 [English Version](/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的字符串数组 <code>words</code> 。</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li><code>words[i]</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 位运算
 
@@ -80,6 +87,8 @@ tags:
 时间复杂度 $O(L)$，空间复杂度 $O(n)$。其中 $L$ 是所有字符串的长度之和，而 $n$ 是字符串的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +103,8 @@ class Solution:
             cnt[v] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func similarPairs(words []string) (ans int) {
 	cnt := map[int]int{}
@@ -144,6 +159,8 @@ func similarPairs(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function similarPairs(words: string[]): number {
@@ -160,6 +177,8 @@ function similarPairs(words: string[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -187,4 +206,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

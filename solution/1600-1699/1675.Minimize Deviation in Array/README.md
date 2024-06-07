@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1675.Minimize%20Deviation%20in%20Array/README.md
 rating: 2533
+source: 第 217 场周赛 Q4
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1675. 数组的最小偏移量](https://leetcode.cn/problems/minimize-deviation-in-array)
 
 [English Version](/solution/1600-1699/1675.Minimize%20Deviation%20in%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由 <code>n</code> 个正整数组成的数组 <code>nums</code> 。</p>
 
@@ -76,7 +79,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 优先队列
 
@@ -91,6 +98,8 @@ tags:
 时间复杂度 $O(n\log n \times \log m)$。其中 $n$, $m$ 分别是数组 `nums` 的长度以及数组的最大元素。由于数组中的最大元素除以 $2$ 的操作最多有 $O(\log m)$ 次，因此全部元素除以 $2$ 的操作最多有 $O(n\log m)$ 次。每次弹出、放入堆的操作，时间复杂度为 $O(\log n)$。因此，总的时间复杂度为 $O(n\log n \times \log m)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +120,8 @@ class Solution:
             ans = min(ans, -h[0] - mi)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumDeviation(nums []int) int {
@@ -195,4 +210,6 @@ func (h *hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README.md
 rating: 1283
+source: 第 297 场周赛 Q1
 tags:
     - 数组
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [2303. 计算应缴税款总额](https://leetcode.cn/problems/calculate-amount-paid-in-taxes)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的二维整数数组 <code>brackets</code> ，其中 <code>brackets[i] = [upper<sub>i</sub>, percent<sub>i</sub>]</code> ，表示第 <code>i</code> 个税级的上限是 <code>upper<sub>i</sub></code> ，征收的税率为 <code>percent<sub>i</sub></code> 。税级按上限 <strong>从低到高排序</strong>（在满足 <code>0 &lt; i &lt; brackets.length</code> 的前提下，<code>upper<sub>i-1</sub> &lt; upper<sub>i</sub></code>）。</p>
 
@@ -74,7 +77,11 @@ tags:
 	<li>最后一个税级的上限大于等于 <code>income</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -83,6 +90,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为 `brackets` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +102,8 @@ class Solution:
             prev = upper
         return ans / 100
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func calculateTax(brackets [][]int, income int) float64 {
 	var ans, prev int
@@ -135,6 +150,8 @@ func calculateTax(brackets [][]int, income int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function calculateTax(brackets: number[][], income: number): number {
     let ans = 0;
@@ -146,6 +163,8 @@ function calculateTax(brackets: number[][], income: number): number {
     return ans / 100;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -166,4 +185,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

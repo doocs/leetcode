@@ -8,11 +8,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1602. Find Nearest Right Node in Binary Tree 🔒](https://leetcode.com/problems/find-nearest-right-node-in-binary-tree)
 
 [中文文档](/solution/1600-1699/1602.Find%20Nearest%20Right%20Node%20in%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree and a node <code>u</code> in the tree, return <em>the <strong>nearest</strong> node on the <strong>same level</strong> that is to the <strong>right</strong> of</em> <code>u</code><em>, or return</em> <code>null</code> <em>if </em><code>u</code> <em>is the rightmost node in its level</em>.</p>
 
@@ -43,7 +47,11 @@ tags:
 	<li><code>u</code> is a node in the binary tree rooted at <code>root</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -52,6 +60,8 @@ We can use Breadth-First Search, starting from the root node. When we reach node
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -73,6 +83,8 @@ class Solution:
                 if root.right:
                     q.append(root.right)
 ```
+
+#### Java
 
 ```java
 /**
@@ -113,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -149,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -181,6 +197,8 @@ func findNearestRightNode(root *TreeNode, u *TreeNode) *TreeNode {
 	return nil
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -218,6 +236,10 @@ var findNearestRightNode = function (root, u) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: DFS
 
 DFS performs a pre-order traversal of the binary tree. The first time we search to node $u$, we mark the current depth $d$. The next time we encounter a node at the same level, it is the target node.
@@ -225,6 +247,8 @@ DFS performs a pre-order traversal of the binary tree. The first time we search 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -253,6 +277,8 @@ class Solution:
         dfs(root, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -299,6 +325,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -337,6 +365,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -369,6 +399,8 @@ func findNearestRightNode(root *TreeNode, u *TreeNode) *TreeNode {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -409,4 +441,6 @@ var findNearestRightNode = function (root, u) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

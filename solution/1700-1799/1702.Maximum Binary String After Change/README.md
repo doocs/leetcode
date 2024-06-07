@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1702.Maximum%20Binary%20String%20After%20Change/README.md
 rating: 1825
+source: 第 42 场双周赛 Q3
 tags:
     - 贪心
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1702. 修改后的最大二进制字符串](https://leetcode.cn/problems/maximum-binary-string-after-change)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二进制字符串 <code>binary</code> ，它仅有 <code>0</code> 或者 <code>1</code> 组成。你可以使用下面的操作任意次对它进行修改：</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>binary</code> 仅包含 <code>'0'</code> 和 <code>'1'</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯
 
@@ -81,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumBinaryString(self, binary: str) -> str:
@@ -90,6 +99,8 @@ class Solution:
         k += binary[k + 1 :].count('0')
         return '1' * k + '0' + '1' * (len(binary) - k - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumBinaryString(binary string) string {
@@ -151,6 +166,8 @@ func maximumBinaryString(binary string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumBinaryString(binary: string): string {
     let k = binary.indexOf('0');
@@ -161,6 +178,8 @@ function maximumBinaryString(binary: string): string {
     return '1'.repeat(k) + '0' + '1'.repeat(binary.length - k - 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -179,6 +198,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string MaximumBinaryString(string binary) {
@@ -194,4 +215,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

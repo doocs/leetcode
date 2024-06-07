@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1964.Find%20the%20Longest%20Valid%20Obstacle%20Course%20at%20Each%20Position/README_EN.md
 rating: 1933
+source: Weekly Contest 253 Q4
 tags:
     - Binary Indexed Tree
     - Array
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1964. Find the Longest Valid Obstacle Course at Each Position](https://leetcode.com/problems/find-the-longest-valid-obstacle-course-at-each-position)
 
 [中文文档](/solution/1900-1999/1964.Find%20the%20Longest%20Valid%20Obstacle%20Course%20at%20Each%20Position/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You want to build some obstacle courses. You are given a <strong>0-indexed</strong> integer array <code>obstacles</code> of length <code>n</code>, where <code>obstacles[i]</code> describes the height of the <code>i<sup>th</sup></code> obstacle.</p>
 
@@ -75,7 +80,11 @@ tags:
 	<li><code>1 &lt;= obstacles[i] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree (Fenwick Tree)
 
@@ -86,6 +95,8 @@ Then for each obstacle, we query in the Binary Indexed Tree for the length of th
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of obstacles.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -120,6 +131,8 @@ class Solution:
             tree.update(i, ans[-1])
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -165,6 +178,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -215,6 +230,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -253,6 +270,8 @@ func longestObstacleCourseAtEachPosition(obstacles []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -310,4 +329,6 @@ function longestObstacleCourseAtEachPosition(obstacles: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

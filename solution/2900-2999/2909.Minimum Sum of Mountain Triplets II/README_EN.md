@@ -3,15 +3,20 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2909.Minimum%20Sum%20of%20Mountain%20Triplets%20II/README_EN.md
 rating: 1478
+source: Weekly Contest 368 Q2
 tags:
     - Array
 ---
+
+<!-- problem:start -->
 
 # [2909. Minimum Sum of Mountain Triplets II](https://leetcode.com/problems/minimum-sum-of-mountain-triplets-ii)
 
 [中文文档](/solution/2900-2999/2909.Minimum%20Sum%20of%20Mountain%20Triplets%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of integers.</p>
 
@@ -63,7 +68,11 @@ And the sum of this triplet is nums[1] + nums[3] + nums[5] = 13. It can be shown
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration
 
@@ -76,6 +85,8 @@ Finally, if $ans$ is still the initial value, it means that there is no mountain
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +102,8 @@ class Solution:
             left = min(left, x)
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSum(nums []int) int {
 	n := len(nums)
@@ -160,6 +177,8 @@ func minimumSum(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumSum(nums: number[]): number {
     const n = nums.length;
@@ -180,4 +199,6 @@ function minimumSum(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

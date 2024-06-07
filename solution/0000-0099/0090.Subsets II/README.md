@@ -8,13 +8,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [90. 子集 II](https://leetcode.cn/problems/subsets-ii)
 
 [English Version](/solution/0000-0099/0090.Subsets%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，其中可能包含重复元素，请你返回该数组所有可能的 <span data-keyword="subset">子集</span>（幂集）。</p>
 
@@ -49,7 +51,11 @@ tags:
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + DFS
 
@@ -66,6 +72,8 @@ tags:
 时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +95,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsetsWithDup(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -168,6 +182,8 @@ func subsetsWithDup(nums []int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subsetsWithDup(nums: number[]): number[][] {
     nums.sort((a, b) => a - b);
@@ -191,6 +207,8 @@ function subsetsWithDup(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -223,6 +241,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序 + 二进制枚举
 
 与方法一类似，我们先对数组 $nums$ 进行排序，方便去重。
@@ -234,6 +256,8 @@ impl Solution {
 时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -254,6 +278,8 @@ class Solution:
                 ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -281,6 +307,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -310,6 +338,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsetsWithDup(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -333,6 +363,8 @@ func subsetsWithDup(nums []int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subsetsWithDup(nums: number[]): number[][] {
@@ -358,6 +390,8 @@ function subsetsWithDup(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -389,4 +423,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

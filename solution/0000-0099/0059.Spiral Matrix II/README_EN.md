@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [59. Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii)
 
 [中文文档](/solution/0000-0099/0059.Spiral%20Matrix%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a positive integer <code>n</code>, generate an <code>n x n</code> <code>matrix</code> filled with elements from <code>1</code> to <code>n<sup>2</sup></code> in spiral order.</p>
 
@@ -38,7 +42,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -51,6 +59,8 @@ Starting from `1`, fill in each position of the matrix in turn. After filling in
 The time complexity is $O(n^2)$, where $n$ is the side length of the matrix. Ignoring the output array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +77,8 @@ class Solution:
             i, j = x, y
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generateMatrix(n int) [][]int {
 	ans := make([][]int, n)
@@ -132,6 +148,8 @@ func generateMatrix(n int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function generateMatrix(n: number): number[][] {
@@ -157,6 +175,8 @@ function generateMatrix(n: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -190,6 +210,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -219,9 +241,15 @@ var generateMatrix = function (n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function generateMatrix(n: number): number[][] {
@@ -250,4 +278,6 @@ function generateMatrix(n: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

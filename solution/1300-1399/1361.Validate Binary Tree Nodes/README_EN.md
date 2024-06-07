@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README_EN.md
 rating: 1464
+source: Weekly Contest 177 Q2
 tags:
     - Tree
     - Depth-First Search
@@ -12,11 +13,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1361. Validate Binary Tree Nodes](https://leetcode.com/problems/validate-binary-tree-nodes)
 
 [中文文档](/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code> binary tree nodes numbered from <code>0</code> to <code>n - 1</code> where node <code>i</code> has two children <code>leftChild[i]</code> and <code>rightChild[i]</code>, return <code>true</code> if and only if <strong>all</strong> the given nodes form <strong>exactly one</strong> valid binary tree.</p>
 
@@ -55,7 +60,11 @@ tags:
 	<li><code>-1 &lt;= leftChild[i], rightChild[i] &lt;= n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find
 
@@ -70,6 +79,8 @@ After the traversal, we check whether the number of connected components in the 
 The time complexity is $O(n \times \alpha(n))$, and the space complexity is $O(n)$. Where $n$ is the number of nodes, and $\alpha(n)$ is the inverse Ackermann function, which is less than $5$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +104,8 @@ class Solution:
                     n -= 1
         return n == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
@@ -188,4 +205,6 @@ func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

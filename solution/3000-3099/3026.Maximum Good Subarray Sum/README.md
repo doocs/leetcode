@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README.md
 rating: 1816
+source: 第 123 场双周赛 Q3
 tags:
     - 数组
     - 哈希表
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [3026. 最大好子数组和](https://leetcode.cn/problems/maximum-good-subarray-sum)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;的数组&nbsp;<code>nums</code>&nbsp;和一个 <strong>正</strong>&nbsp;整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -59,7 +62,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 哈希表
 
@@ -72,6 +79,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +98,8 @@ class Solution:
                 p[nums[i + 1]] = s
         return 0 if ans == -inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSubarraySum(nums []int, k int) int64 {
 	p := map[int]int64{nums[0]: 0}
@@ -175,6 +190,8 @@ func maximumSubarraySum(nums []int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumSubarraySum(nums: number[], k: number): number {
     const p: Map<number, number> = new Map();
@@ -197,6 +214,8 @@ function maximumSubarraySum(nums: number[], k: number): number {
     return ans === -Infinity ? 0 : ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -225,4 +244,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

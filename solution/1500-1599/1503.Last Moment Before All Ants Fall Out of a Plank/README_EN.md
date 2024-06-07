@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/README_EN.md
 rating: 1618
+source: Weekly Contest 196 Q2
 tags:
     - Brainteaser
     - Array
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1503. Last Moment Before All Ants Fall Out of a Plank](https://leetcode.com/problems/last-moment-before-all-ants-fall-out-of-a-plank)
 
 [中文文档](/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We have a wooden plank of the length <code>n</code> <strong>units</strong>. Some ants are walking on the plank, each ant moves with a speed of <strong>1 unit per second</strong>. Some of the ants move to the <strong>left</strong>, the other move to the <strong>right</strong>.</p>
 
@@ -66,11 +71,17 @@ The last moment when an ant was on the plank is t = 4 seconds. After that, it fa
 	<li>All values of <code>left</code> and <code>right</code> are unique, and each value can appear <strong>only in one</strong> of the two arrays.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +93,8 @@ class Solution:
             ans = max(ans, n - x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getLastMoment(n int, left []int, right []int) (ans int) {
 	for _, x := range left {
@@ -125,6 +142,8 @@ func getLastMoment(n int, left []int, right []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getLastMoment(n: number, left: number[], right: number[]): number {
@@ -141,4 +160,6 @@ function getLastMoment(n: number, left: number[], right: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

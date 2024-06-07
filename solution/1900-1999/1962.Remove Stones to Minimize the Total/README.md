@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1962.Remove%20Stones%20to%20Minimize%20the%20Total/README.md
 rating: 1418
+source: 第 253 场周赛 Q2
 tags:
     - 贪心
     - 数组
     - 堆（优先队列）
 ---
+
+<!-- problem:start -->
 
 # [1962. 移除石子使总数最小](https://leetcode.cn/problems/remove-stones-to-minimize-the-total)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>piles</code> ，数组 <strong>下标从 0 开始</strong> ，其中 <code>piles[i]</code> 表示第 <code>i</code> 堆石子中的石子数量。另给你一个整数 <code>k</code> ，请你执行下述操作 <strong>恰好</strong> <code>k</code> 次：</p>
 
@@ -64,7 +67,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 优先队列（大根堆）
 
@@ -80,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minStoneSum(self, piles: List[int], k: int) -> int:
@@ -89,6 +98,8 @@ class Solution:
             heapreplace(pq, pq[0] // 2)
         return -sum(pq)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +145,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minStoneSum(piles []int, k int) (ans int) {
@@ -161,6 +176,8 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
+#### TypeScript
+
 ```ts
 function minStoneSum(piles: number[], k: number): number {
     const pq = new MaxPriorityQueue();
@@ -181,4 +198,6 @@ function minStoneSum(piles: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [940. 不同的子序列 II](https://leetcode.cn/problems/distinct-subsequences-ii)
 
 [English Version](/solution/0900-0999/0940.Distinct%20Subsequences%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串 <code>s</code>，计算 <code>s</code> 的 <strong>不同非空子序列</strong> 的个数。因为结果可能很大，所以返回答案需要对<strong> </strong><strong><code>10^9 + 7</code> 取余</strong> 。</p>
 
@@ -60,7 +62,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -73,6 +79,8 @@ tags:
 时间复杂度 $O(n\times C)$，其中 $n$ 是字符串 $s$ 的长度，而 $C$ 是字符集的大小，本题中 $C=26$。空间复杂度 $O(C)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +97,8 @@ class Solution:
                     dp[i][j] = dp[i - 1][j]
         return sum(dp[-1]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func distinctSubseqII(s string) int {
@@ -149,6 +163,8 @@ func distinctSubseqII(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distinctSubseqII(s: string): number {
     const mod = 1e9 + 7;
@@ -159,6 +175,8 @@ function distinctSubseqII(s: string): number {
     return dp.reduce((r, v) => (r + v) % mod, 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -185,6 +203,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int distinctSubseqII(char* s) {
     int mod = 1e9 + 7;
@@ -207,6 +227,10 @@ int distinctSubseqII(char* s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：优化的动态规划
 
 在方法一的基础上，我们还可以维护当前 $dp$ 数组中所有元素的和 $ans$，这样我们每次更新 $dp[i]$ 时，只需要将 $dp[i]$ 加上 $ans-dp[i]+1$ 即可。
@@ -219,6 +243,8 @@ int distinctSubseqII(char* s) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distinctSubseqII(self, s: str) -> int:
@@ -229,6 +255,8 @@ class Solution:
             dp[i] = sum(dp) % mod + 1
         return sum(dp) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -247,6 +275,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -267,6 +297,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctSubseqII(s string) int {
 	const mod int = 1e9 + 7
@@ -284,9 +316,15 @@ func distinctSubseqII(s string) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -304,4 +342,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

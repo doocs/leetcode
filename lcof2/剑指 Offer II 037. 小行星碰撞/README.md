@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20037.%20%E5%B0%8F%E8%A1%8C%E6%98%9F%E7%A2%B0%E6%92%9E/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 037. 小行星碰撞](https://leetcode.cn/problems/XagZNi)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组 <code>asteroids</code>，表示在同一行的小行星。</p>
 
@@ -59,7 +61,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 735&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/asteroid-collision/">https://leetcode.cn/problems/asteroid-collision/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈
 
@@ -73,6 +79,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $asteroids$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +98,8 @@ class Solution:
                     stk.append(x)
         return stk
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func asteroidCollision(asteroids []int) (stk []int) {
 	for _, x := range asteroids {
@@ -157,6 +171,8 @@ func asteroidCollision(asteroids []int) (stk []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function asteroidCollision(asteroids: number[]): number[] {
@@ -178,6 +194,8 @@ function asteroidCollision(asteroids: number[]): number[] {
     return stk;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -203,6 +221,35 @@ impl Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func asteroidCollision(_ asteroids: [Int]) -> [Int] {
+        var stack = [Int]()
+
+        for asteroid in asteroids {
+            if asteroid > 0 {
+                stack.append(asteroid)
+            } else {
+                while !stack.isEmpty && stack.last! > 0 && stack.last! < -asteroid {
+                    stack.removeLast()
+                }
+                if !stack.isEmpty && stack.last! == -asteroid {
+                    stack.removeLast()
+                } else if stack.isEmpty || stack.last! < 0 {
+                    stack.append(asteroid)
+                }
+            }
+        }
+
+        return stack
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1462.Course%20Schedule%20IV/README.md
 rating: 1692
+source: 第 27 场双周赛 Q3
 tags:
     - 深度优先搜索
     - 广度优先搜索
@@ -10,13 +11,15 @@ tags:
     - 拓扑排序
 ---
 
+<!-- problem:start -->
+
 # [1462. 课程表 IV](https://leetcode.cn/problems/course-schedule-iv)
 
 [English Version](/solution/1400-1499/1462.Course%20Schedule%20IV/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你总共需要上<meta charset="UTF-8" />&nbsp;<code>numCourses</code>&nbsp;门课，课程编号依次为 <code>0</code>&nbsp;到&nbsp;<code>numCourses-1</code>&nbsp;。你会得到一个数组&nbsp;<code>prerequisite</code> ，其中<meta charset="UTF-8" />&nbsp;<code>prerequisites[i] = [a<sub>i</sub>, b<sub>i</sub>]</code>&nbsp;表示如果你想选<meta charset="UTF-8" />&nbsp;<code>b<sub>i</sub></code> 课程，你<strong> 必须</strong> 先选<meta charset="UTF-8" />&nbsp;<code>a<sub>i</sub></code>&nbsp;课程。</p>
 
@@ -78,7 +81,11 @@ tags:
 	<li><code>u<sub>i</sub>&nbsp;!= v<sub>i</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：Floyd 算法
 
@@ -96,6 +103,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkIfPrerequisite(
@@ -111,6 +120,8 @@ class Solution:
                         f[i][j] = True
         return [f[a][b] for a, b in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +145,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -160,6 +173,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []bool) {
 	f := make([][]bool, n)
@@ -183,6 +198,8 @@ func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []b
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkIfPrerequisite(n: number, prerequisites: number[][], queries: number[][]): boolean[] {
     const f = Array.from({ length: n }, () => Array(n).fill(false));
@@ -200,6 +217,10 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：拓扑排序
 
 与方法一类似，我们创建一个二维数组 $f$，其中 $f[i][j]$ 表示节点 $i$ 到节点 $j$ 是否可达。另外，我们创建一个邻接表 $g$，其中 $g[i]$ 表示节点 $i$ 的所有后继节点；创建一个数组 $indeg$，其中 $indeg[i]$ 表示节点 $i$ 的入度。
@@ -215,6 +236,8 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -239,6 +262,8 @@ class Solution:
                     q.append(j)
         return [f[a][b] for a, b in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -277,6 +302,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -318,6 +345,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []bool) {
 	f := make([][]bool, n)
@@ -358,6 +387,8 @@ func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []b
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkIfPrerequisite(n: number, prerequisites: number[][], queries: number[][]): boolean[] {
     const f = Array.from({ length: n }, () => Array(n).fill(false));
@@ -391,4 +422,6 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

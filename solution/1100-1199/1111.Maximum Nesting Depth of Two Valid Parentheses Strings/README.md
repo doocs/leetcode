@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1111.Maximum%20Nesting%20Depth%20of%20Two%20Valid%20Parentheses%20Strings/README.md
 rating: 1749
+source: 第 144 场周赛 Q4
 tags:
     - 栈
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1111. 有效括号的嵌套深度](https://leetcode.cn/problems/maximum-nesting-depth-of-two-valid-parentheses-strings)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>有效括号字符串 </strong>定义：对于每个左括号，都能找到与之对应的右括号，反之亦然。详情参见题末「<strong>有效括号字符串</strong>」部分。</p>
 
@@ -92,7 +95,11 @@ tags:
 例如：<code>&quot;&quot;</code>，<code>&quot;()()&quot;</code>，和&nbsp;<code>&quot;()(()())&quot;</code>&nbsp;都是有效括号字符串，嵌套深度分别为 0，1，2，而&nbsp;<code>&quot;)(&quot;</code> 和&nbsp;<code>&quot;(()&quot;</code>&nbsp;都不是有效括号字符串。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -103,6 +110,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $seq$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -118,6 +127,8 @@ class Solution:
                 ans[i] = x & 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +146,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -154,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDepthAfterSplit(seq string) []int {
 	n := len(seq)
@@ -170,6 +185,8 @@ func maxDepthAfterSplit(seq string) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxDepthAfterSplit(seq: string): number[] {
@@ -188,4 +205,6 @@ function maxDepthAfterSplit(seq: string): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

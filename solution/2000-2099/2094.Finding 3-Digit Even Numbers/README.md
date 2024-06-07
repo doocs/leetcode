@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2094.Finding%203-Digit%20Even%20Numbers/README.md
 rating: 1454
+source: 第 270 场周赛 Q1
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2094. 找出 3 位偶数](https://leetcode.cn/problems/finding-3-digit-even-numbers)
 
 [English Version](/solution/2000-2099/2094.Finding%203-Digit%20Even%20Numbers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>digits</code> ，其中每个元素是一个数字（<code>0 - 9</code>）。数组中可能存在重复元素。</p>
 
@@ -71,11 +74,17 @@ tags:
 	<li><code>0 &lt;= digits[i] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +102,8 @@ class Solution:
                 ans.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +177,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findEvenNumbers(digits []int) []int {
@@ -202,6 +217,8 @@ func check(cnt1, cnt2 []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findEvenNumbers(digits: number[]): number[] {
     let record = new Array(10).fill(0);
@@ -232,4 +249,6 @@ function check(target: Array<number>, digits: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

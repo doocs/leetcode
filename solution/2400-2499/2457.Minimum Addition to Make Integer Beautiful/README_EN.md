@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2457.Minimum%20Addition%20to%20Make%20Integer%20Beautiful/README_EN.md
 rating: 1680
+source: Weekly Contest 317 Q3
 tags:
     - Greedy
     - Math
 ---
+
+<!-- problem:start -->
 
 # [2457. Minimum Addition to Make Integer Beautiful](https://leetcode.com/problems/minimum-addition-to-make-integer-beautiful)
 
 [中文文档](/solution/2400-2499/2457.Minimum%20Addition%20to%20Make%20Integer%20Beautiful/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two positive integers <code>n</code> and <code>target</code>.</p>
 
@@ -54,7 +59,11 @@ tags:
 	<li>The input will be generated such that it is always possible to make <code>n</code> beautiful.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
 
@@ -79,6 +88,8 @@ The time complexity is $O(\log^2 n)$, where $n$ is the integer given in the prob
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeIntegerBeautiful(self, n: int, target: int) -> int:
@@ -99,6 +110,8 @@ class Solution:
             x = (y // 10 + 1) * p - n
         return x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -156,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makeIntegerBeautiful(n int64, target int) (x int64) {
 	f := func(x int64) (y int) {
@@ -176,6 +193,8 @@ func makeIntegerBeautiful(n int64, target int) (x int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function makeIntegerBeautiful(n: number, target: number): number {
@@ -203,4 +222,6 @@ function makeIntegerBeautiful(n: number, target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2068.%20%E7%BE%8E%E8%A7%82%E7%9A%84%E8%8A%B1%E6%9D%9F/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 68. 美观的花束](https://leetcode.cn/problems/1GxJYY)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 力扣嘉年华的花店中从左至右摆放了一排鲜花，记录于整型一维矩阵 `flowers` 中每个数字表示该位置所种鲜花的品种编号。你可以选择一段区间的鲜花做成插花，且不能丢弃。
 在你选择的插花中，如果每一品种的鲜花数量都不超过 `cnt` 朵，那么我们认为这束插花是 「美观的」。
@@ -46,7 +48,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2068.%20%E7%BE%8E%
 -   `1 <= flowers[i] <= 10^5`
 -   `1 <= cnt <= 10^5`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -59,6 +65,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2068.%20%E7%BE%8E%
 时间复杂度 $O(n)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为数组 $flowers$ 的长度以及数组 $flowers$ 中的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +82,8 @@ class Solution:
             ans = (ans + i - j + 1) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beautifulBouquet(flowers []int, cnt int) (ans int) {
 	mx := slices.Max(flowers)
@@ -138,4 +152,6 @@ func beautifulBouquet(flowers []int, cnt int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

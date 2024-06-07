@@ -7,11 +7,15 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [2728. Count Houses in a Circular Street 🔒](https://leetcode.com/problems/count-houses-in-a-circular-street)
 
 [中文文档](/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an object <code>street</code> of class <code>Street</code> that represents a circular street and a positive integer <code>k</code> which represents a maximum bound for the number of houses in that street (in other words, the number of houses is less than or equal to <code>k</code>). Houses&#39; doors could be open or closed initially.</p>
 
@@ -55,11 +59,17 @@ The number of houses is equal to k, which is 5.
 	<li><code>1 &lt;= n &lt;= k &lt;= 10<sup>3</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a street.
@@ -86,6 +96,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -115,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -147,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a street.
@@ -170,6 +186,8 @@ func houseCount(street Street, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -200,4 +218,6 @@ function houseCount(street: Street | null, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

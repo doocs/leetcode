@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [823. Binary Trees With Factors](https://leetcode.com/problems/binary-trees-with-factors)
 
 [中文文档](/solution/0800-0899/0823.Binary%20Trees%20With%20Factors/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of unique integers, <code>arr</code>, where each integer <code>arr[i]</code> is strictly greater than <code>1</code>.</p>
 
@@ -45,11 +49,17 @@ tags:
 	<li>All the values of <code>arr</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +76,8 @@ class Solution:
                     f[i] = (f[i] + f[j] * f[idx[c]]) % mod
         return sum(f) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numFactoredBinaryTrees(arr []int) int {
 	const mod int = 1e9 + 7
@@ -162,6 +178,8 @@ func numFactoredBinaryTrees(arr []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numFactoredBinaryTrees(arr: number[]): number {
@@ -192,4 +210,6 @@ function numFactoredBinaryTrees(arr: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

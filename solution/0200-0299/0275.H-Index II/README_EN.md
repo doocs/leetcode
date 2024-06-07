@@ -7,11 +7,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [275. H-Index II](https://leetcode.com/problems/h-index-ii)
 
 [中文文档](/solution/0200-0299/0275.H-Index%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>citations</code> where <code>citations[i]</code> is the number of citations a researcher received for their <code>i<sup>th</sup></code> paper and <code>citations</code> is sorted in <strong>ascending order</strong>, return <em>the researcher&#39;s h-index</em>.</p>
 
@@ -46,7 +50,11 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 	<li><code>citations</code> is sorted in <strong>ascending order</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -57,6 +65,8 @@ Therefore, we use binary search to enumerate $h$ and obtain the maximum $h$ that
 The time complexity is $O(\log n)$, where $n$ is the length of the array $citations$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +81,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hIndex(citations []int) int {
 	n := len(citations)
@@ -123,6 +139,8 @@ func hIndex(citations []int) int {
 	return left
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hIndex(citations: number[]): number {
@@ -141,6 +159,8 @@ function hIndex(citations: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn h_index(citations: Vec<i32>) -> i32 {
@@ -158,6 +178,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -179,4 +201,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

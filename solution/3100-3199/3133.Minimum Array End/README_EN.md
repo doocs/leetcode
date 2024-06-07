@@ -3,15 +3,20 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3133.Minimum%20Array%20End/README_EN.md
 rating: 1934
+source: Weekly Contest 395 Q3
 tags:
     - Bit Manipulation
 ---
+
+<!-- problem:start -->
 
 # [3133. Minimum Array End](https://leetcode.com/problems/minimum-array-end)
 
 [中文文档](/solution/3100-3199/3133.Minimum%20Array%20End/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>n</code> and <code>x</code>. You have to construct an array of <strong>positive</strong> integers <code>nums</code> of size <code>n</code> where for every <code>0 &lt;= i &lt; n - 1</code>, <code>nums[i + 1]</code> is <strong>greater than</strong> <code>nums[i]</code>, and the result of the bitwise <code>AND</code> operation between all elements of <code>nums</code> is <code>x</code>.</p>
 
@@ -49,7 +54,11 @@ tags:
 	<li><code>1 &lt;= n, x &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Bit Manipulation
 
@@ -65,6 +74,8 @@ The time complexity is $O(\log x)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minEnd(self, n: int, x: int) -> int:
@@ -77,6 +88,8 @@ class Solution:
         ans |= n << 31
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minEnd(n int, x int) (ans int64) {
 	n--
@@ -127,6 +144,8 @@ func minEnd(n int, x int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minEnd(n: number, x: number): number {
@@ -145,4 +164,6 @@ function minEnd(n: number, x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

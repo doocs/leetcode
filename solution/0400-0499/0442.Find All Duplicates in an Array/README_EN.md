@@ -7,11 +7,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [442. Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array)
 
 [中文文档](/solution/0400-0499/0442.Find%20All%20Duplicates%20in%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> of length <code>n</code> where all the integers of <code>nums</code> are in the range <code>[1, n]</code> and each integer appears <strong>once</strong> or <strong>twice</strong>, return <em>an array of all the integers that appears <strong>twice</strong></em>.</p>
 
@@ -38,11 +42,17 @@ tags:
 	<li>Each element in <code>nums</code> appears <strong>once</strong> or <strong>twice</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -52,6 +62,8 @@ class Solution:
                 nums[nums[i] - 1], nums[i] = nums[i], nums[nums[i] - 1]
         return [v for i, v in enumerate(nums) if v != i + 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +91,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -100,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDuplicates(nums []int) []int {
 	for i := range nums {
@@ -119,4 +135,6 @@ func findDuplicates(nums []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

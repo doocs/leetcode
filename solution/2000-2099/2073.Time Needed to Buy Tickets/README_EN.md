@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2073.Time%20Needed%20to%20Buy%20Tickets/README_EN.md
 rating: 1325
+source: Weekly Contest 267 Q1
 tags:
     - Queue
     - Array
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2073. Time Needed to Buy Tickets](https://leetcode.com/problems/time-needed-to-buy-tickets)
 
 [中文文档](/solution/2000-2099/2073.Time%20Needed%20to%20Buy%20Tickets/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> people in a line queuing to buy tickets, where the <code>0<sup>th</sup></code> person is at the <strong>front</strong> of the line and the <code>(n - 1)<sup>th</sup></code> person is at the <strong>back</strong> of the line.</p>
 
@@ -56,11 +61,17 @@ The person at&nbsp;position 0 has successfully bought 5 tickets and it took 4 + 
 	<li><code>0 &lt;= k &lt; n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +84,8 @@ class Solution:
                 ans += min(tickets[k] - 1, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func timeRequiredToBuy(tickets []int, k int) int {
 	ans := 0
@@ -120,6 +137,8 @@ func timeRequiredToBuy(tickets []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function timeRequiredToBuy(tickets: number[], k: number): number {
@@ -149,4 +168,6 @@ function timeRequiredToBuy(tickets: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

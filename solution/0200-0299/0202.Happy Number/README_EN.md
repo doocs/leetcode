@@ -8,11 +8,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [202. Happy Number](https://leetcode.com/problems/happy-number)
 
 [中文文档](/solution/0200-0299/0202.Happy%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write an algorithm to determine if a number <code>n</code> is happy.</p>
 
@@ -53,11 +57,17 @@ tags:
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +82,8 @@ class Solution:
             n = x
         return n == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isHappy(n int) bool {
 	vis := map[int]bool{}
@@ -123,6 +139,8 @@ func isHappy(n int) bool {
 	return n == 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isHappy(n: number): boolean {
@@ -146,6 +164,8 @@ function isHappy(n: number): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -174,6 +194,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int getNext(int n) {
     int res = 0;
@@ -197,9 +219,15 @@ bool isHappy(int n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -216,6 +244,8 @@ class Solution:
             slow, fast = next(slow), next(next(fast))
         return slow == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -238,6 +268,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -259,6 +291,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isHappy(n int) bool {
 	next := func(x int) (y int) {
@@ -275,6 +309,8 @@ func isHappy(n int) bool {
 	return slow == 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isHappy(n: number): boolean {
@@ -296,6 +332,8 @@ function isHappy(n: number): boolean {
     return fast === 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -321,4 +359,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

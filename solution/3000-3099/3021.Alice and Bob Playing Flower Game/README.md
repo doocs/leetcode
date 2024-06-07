@@ -3,9 +3,12 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3021.Alice%20and%20Bob%20Playing%20Flower%20Game/README.md
 rating: 1581
+source: 第 382 场周赛 Q3
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [3021. Alice 和 Bob 玩鲜花游戏](https://leetcode.cn/problems/alice-and-bob-playing-flower-game)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 在一个长满鲜花的环形草地玩一个回合制游戏。环形的草地上有一些鲜花，Alice 到&nbsp;Bob 之间顺时针有 <code>x</code>&nbsp;朵鲜花，逆时针有 <code>y</code>&nbsp;朵鲜花。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>1 &lt;= n, m &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -83,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def flowerGame(self, n: int, m: int) -> int:
@@ -92,6 +101,8 @@ class Solution:
         b2 = m // 2
         return a1 * b2 + a2 * b1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func flowerGame(n int, m int) int64 {
 	a1, b1 := (n+1)/2, (m+1)/2
@@ -125,6 +140,8 @@ func flowerGame(n int, m int) int64 {
 	return int64(a1*b2 + a2*b1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function flowerGame(n: number, m: number): number {
@@ -135,6 +152,10 @@ function flowerGame(n: number, m: number): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：数学（优化）
 
@@ -154,11 +175,15 @@ function flowerGame(n: number, m: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def flowerGame(self, n: int, m: int) -> int:
         return (n * m) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +192,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -177,11 +204,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func flowerGame(n int, m int) int64 {
 	return int64((n * m) / 2)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function flowerGame(n: number, m: number): number {
@@ -191,4 +222,6 @@ function flowerGame(n: number, m: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

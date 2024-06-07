@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README_EN.md
 rating: 1155
+source: Weekly Contest 303 Q1
 tags:
     - Bit Manipulation
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2351. First Letter to Appear Twice](https://leetcode.com/problems/first-letter-to-appear-twice)
 
 [中文文档](/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> consisting of lowercase English letters, return <em>the first letter to appear <strong>twice</strong></em>.</p>
 
@@ -57,7 +62,11 @@ The only letter that appears twice is &#39;d&#39; so we return &#39;d&#39;.
 	<li><code>s</code> has at least one repeated letter.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array or Hash Table
 
@@ -66,6 +75,8 @@ We traverse the string $s$, using an array or hash table `cnt` to record the occ
 The time complexity is $O(n)$ and the space complexity is $O(C)$. Here, $n$ is the length of the string $s$, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +87,8 @@ class Solution:
             if cnt[c] == 2:
                 return c
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func repeatedCharacter(s string) byte {
 	cnt := [26]int{}
@@ -116,6 +133,8 @@ func repeatedCharacter(s string) byte {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function repeatedCharacter(s: string): string {
@@ -131,6 +150,8 @@ function repeatedCharacter(s: string): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn repeated_character(s: String) -> char {
@@ -145,6 +166,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -163,6 +186,8 @@ class Solution {
 }
 ```
 
+#### C
+
 ```c
 char repeatedCharacter(char* s) {
     int vis[26] = {0};
@@ -178,6 +203,10 @@ char repeatedCharacter(char* s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Bit Manipulation
 
 We can also use an integer `mask` to record whether each letter has appeared, where the $i$-th bit of `mask` indicates whether the $i$-th letter has appeared. When a letter appears twice, we return that letter.
@@ -185,6 +214,8 @@ We can also use an integer `mask` to record whether each letter has appeared, wh
 The time complexity is $O(n)$ and the space complexity is $O(1)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -196,6 +227,8 @@ class Solution:
                 return c
             mask |= 1 << i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -212,6 +245,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -227,6 +262,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func repeatedCharacter(s string) byte {
 	mask := 0
@@ -238,6 +275,8 @@ func repeatedCharacter(s string) byte {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function repeatedCharacter(s: string): string {
@@ -252,6 +291,8 @@ function repeatedCharacter(s: string): string {
     return ' ';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -268,6 +309,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 char repeatedCharacter(char* s) {
     int mask = 0;
@@ -283,4 +326,6 @@ char repeatedCharacter(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

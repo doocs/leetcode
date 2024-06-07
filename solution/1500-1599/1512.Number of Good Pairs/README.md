@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1512.Number%20of%20Good%20Pairs/README.md
 rating: 1160
+source: 第 197 场周赛 Q1
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [1512. 好数对的数目](https://leetcode.cn/problems/number-of-good-pairs)
 
 [English Version](/solution/1500-1599/1512.Number%20of%20Good%20Pairs/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 。</p>
 
@@ -54,7 +57,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -63,6 +70,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为数组长度，而 $C$ 为数组中元素的取值范围。本题中 $C = 101$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +83,8 @@ class Solution:
             cnt[x] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numIdenticalPairs(nums []int) (ans int) {
 	cnt := [101]int{}
@@ -113,6 +128,8 @@ func numIdenticalPairs(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numIdenticalPairs(nums: number[]): number {
     const cnt = new Array(101).fill(0);
@@ -123,6 +140,8 @@ function numIdenticalPairs(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -137,6 +156,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -158,6 +179,8 @@ class Solution {
 }
 ```
 
+#### C
+
 ```c
 int numIdenticalPairs(int* nums, int numsSize) {
     int cnt[101] = {0};
@@ -171,9 +194,15 @@ int numIdenticalPairs(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -181,6 +210,8 @@ class Solution:
         cnt = Counter(nums)
         return sum(v * (v - 1) for v in cnt.values()) >> 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -197,6 +228,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -215,6 +248,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numIdenticalPairs(nums []int) (ans int) {
 	cnt := [101]int{}
@@ -227,6 +262,8 @@ func numIdenticalPairs(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numIdenticalPairs(nums: number[]): number {
@@ -241,6 +278,8 @@ function numIdenticalPairs(nums: number[]): number {
     return ans >> 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -258,6 +297,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int numIdenticalPairs(int* nums, int numsSize) {
     int cnt[101] = {0};
@@ -274,4 +315,6 @@ int numIdenticalPairs(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2017.Grid%20Game/README_EN.md
 rating: 1718
+source: Weekly Contest 260 Q2
 tags:
     - Array
     - Matrix
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2017. Grid Game](https://leetcode.com/problems/grid-game)
 
 [中文文档](/solution/2000-2099/2017.Grid%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> 2D array <code>grid</code> of size <code>2 x n</code>, where <code>grid[r][c]</code> represents the number of points at position <code>(r, c)</code> on the matrix. Two robots are playing a game on this matrix.</p>
 
@@ -64,7 +69,11 @@ The second robot will collect 0 + 1 + 3 + 3 + 0 = 7 points.
 	<li><code>1 &lt;= grid[r][c] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum
 
@@ -80,6 +89,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def gridGame(self, grid: List[List[int]]) -> int:
@@ -91,6 +102,8 @@ class Solution:
             s2 += grid[1][j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using ll = long long;
@@ -131,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func gridGame(grid [][]int) int64 {
 	ans := math.MaxInt64
@@ -146,6 +163,8 @@ func gridGame(grid [][]int) int64 {
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function gridGame(grid: number[][]): number {
@@ -163,4 +182,6 @@ function gridGame(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

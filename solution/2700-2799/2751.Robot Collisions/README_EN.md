@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2751.Robot%20Collisions/README_EN.md
 rating: 2091
+source: Weekly Contest 351 Q4
 tags:
     - Stack
     - Array
@@ -10,11 +11,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2751. Robot Collisions](https://leetcode.com/problems/robot-collisions)
 
 [中文文档](/solution/2700-2799/2751.Robot%20Collisions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> <strong>1-indexed</strong> robots, each having a position on a line, health, and movement direction.</p>
 
@@ -72,6 +77,42 @@ tags:
 	<li>All values in <code>positions</code> are distinct</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

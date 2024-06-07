@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/README.md
 rating: 1618
+source: 第 196 场周赛 Q2
 tags:
     - 脑筋急转弯
     - 数组
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1503. 所有蚂蚁掉下来前的最后一刻](https://leetcode.cn/problems/last-moment-before-all-ants-fall-out-of-a-plank)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一块木板，长度为 <code>n</code> 个 <strong>单位</strong> 。一些蚂蚁在木板上移动，每只蚂蚁都以 <strong>每秒一个单位</strong> 的速度移动。其中，一部分蚂蚁向 <strong>左</strong> 移动，其他蚂蚁向 <strong>右</strong> 移动。</p>
 
@@ -77,7 +80,11 @@ tags:
 	<li><code>left</code> 和 <code>right</code> 中的所有值都是唯一的，并且每个值 <strong>只能出现在二者之一</strong> 中。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯
 
@@ -89,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getLastMoment(self, n: int, left: List[int], right: List[int]) -> int:
@@ -99,6 +108,8 @@ class Solution:
             ans = max(ans, n - x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getLastMoment(n int, left []int, right []int) (ans int) {
 	for _, x := range left {
@@ -142,6 +157,8 @@ func getLastMoment(n int, left []int, right []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getLastMoment(n: number, left: number[], right: number[]): number {
@@ -158,4 +175,6 @@ function getLastMoment(n: number, left: number[], right: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

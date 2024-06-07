@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1217.Minimum%20Cost%20to%20Move%20Chips%20to%20The%20Same%20Position/README_EN.md
 rating: 1407
+source: Weekly Contest 157 Q1
 tags:
     - Greedy
     - Array
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1217. Minimum Cost to Move Chips to The Same Position](https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position)
 
 [中文文档](/solution/1200-1299/1217.Minimum%20Cost%20to%20Move%20Chips%20to%20The%20Same%20Position/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We have <code>n</code> chips, where the position of the <code>i<sup>th</sup></code> chip is <code>position[i]</code>.</p>
 
@@ -60,7 +65,11 @@ Total cost is 1.
 	<li><code>1 &lt;= position[i] &lt;= 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Quick Thinking
 
@@ -70,6 +79,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCostToMoveChips(self, position: List[int]) -> int:
@@ -77,6 +88,8 @@ class Solution:
         b = len(position) - a
         return min(a, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCostToMoveChips(position []int) int {
@@ -116,6 +133,8 @@ func minCostToMoveChips(position []int) int {
 	return b
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -134,4 +153,6 @@ var minCostToMoveChips = function (position) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

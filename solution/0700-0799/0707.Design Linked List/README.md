@@ -7,13 +7,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [707. 设计链表](https://leetcode.cn/problems/design-linked-list)
 
 [English Version](/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你可以选择使用单链表或者双链表，设计并实现自己的链表。</p>
 
@@ -63,7 +65,11 @@ myLinkedList.get(1);              // 返回 3
 	<li>调用 <code>get</code>、<code>addAtHead</code>、<code>addAtTail</code>、<code>addAtIndex</code> 和 <code>deleteAtIndex</code> 的次数不超过 <code>2000</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：指针引用实现单链表
 
@@ -82,6 +88,8 @@ myLinkedList.get(1);              // 返回 3
 注意：LeetCode 平台已经内置 ListNode 单链表节点类，可以直接使用。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyLinkedList:
@@ -132,6 +140,8 @@ class MyLinkedList:
 # obj.addAtIndex(index,val)
 # obj.deleteAtIndex(index)
 ```
+
+#### Java
 
 ```java
 class MyLinkedList {
@@ -197,6 +207,8 @@ class MyLinkedList {
  * obj.deleteAtIndex(index);
  */
 ```
+
+#### C++
 
 ```cpp
 class MyLinkedList {
@@ -265,6 +277,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type MyLinkedList struct {
 	dummy *ListNode
@@ -330,6 +344,8 @@ func (this *MyLinkedList) DeleteAtIndex(index int) {
  * obj.DeleteAtIndex(index);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class LinkNode {
@@ -428,6 +444,8 @@ class MyLinkedList {
  * obj.deleteAtIndex(index)
  */
 ```
+
+#### Rust
 
 ```rust
 #[derive(Default)]
@@ -535,6 +553,10 @@ impl MyLinkedList {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：静态数组实现单链表
 
 在方法一中，我们使用了指针引用的方式，每次动态创建一个链表节点。在链表节点数量达到 $10^5$ 甚至更大时，频繁执行 new 操作，会大大增加程序的执行耗时。
@@ -552,6 +574,8 @@ impl MyLinkedList {
 具体操作可参考以下代码。时间复杂度与方法一相同。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyLinkedList:
@@ -616,6 +640,8 @@ class MyLinkedList:
 # obj.addAtIndex(index,val)
 # obj.deleteAtIndex(index)
 ```
+
+#### Java
 
 ```java
 class MyLinkedList {
@@ -696,6 +722,8 @@ class MyLinkedList {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyLinkedList {
 private:
@@ -773,6 +801,8 @@ public:
  * obj->deleteAtIndex(index);
  */
 ```
+
+#### Go
 
 ```go
 type MyLinkedList struct {
@@ -857,6 +887,8 @@ func (this *MyLinkedList) DeleteAtIndex(index int) {
  * obj.DeleteAtIndex(index);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class MyLinkedList {
@@ -944,4 +976,6 @@ class MyLinkedList {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md
 rating: 1655
+source: Weekly Contest 126 Q3
 tags:
     - Array
     - Binary Search
@@ -10,11 +11,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1004. Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii)
 
 [中文文档](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a binary array <code>nums</code> and an integer <code>k</code>, return <em>the maximum number of consecutive </em><code>1</code><em>&#39;s in the array if you can flip at most</em> <code>k</code> <code>0</code>&#39;s.</p>
 
@@ -45,7 +50,11 @@ Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 	<li><code>0 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -59,6 +68,8 @@ Similar problems:
 -   [2024. Maximize the Confusion of an Exam](https://github.com/doocs/leetcode/blob/main/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestOnes(nums []int, k int) int {
 	ans := 0
@@ -139,6 +156,8 @@ func longestOnes(nums []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestOnes(nums: number[], k: number): number {
     const n = nums.length;
@@ -156,6 +175,10 @@ function longestOnes(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sliding Window (Optimized)
 
 Below is the optimized version of the sliding window.
@@ -172,6 +195,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestOnes(self, nums: List[int], k: int) -> int:
@@ -186,6 +211,8 @@ class Solution:
                     k += 1
         return r - l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -204,6 +231,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -217,6 +246,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestOnes(nums []int, k int) int {
@@ -237,6 +268,8 @@ func longestOnes(nums []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestOnes(nums: number[], k: number): number {
     const n = nums.length;
@@ -252,6 +285,8 @@ function longestOnes(nums: number[], k: number): number {
     return n - l;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -276,4 +311,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

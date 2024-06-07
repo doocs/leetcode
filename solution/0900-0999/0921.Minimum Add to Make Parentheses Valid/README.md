@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [921. 使括号有效的最少添加](https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid)
 
 [English Version](/solution/0900-0999/0921.Minimum%20Add%20to%20Make%20Parentheses%20Valid/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>只有满足下面几点之一，括号字符串才是有效的：</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li><code>s</code> 只包含&nbsp;<code>'('</code> 和&nbsp;<code>')'</code>&nbsp;字符。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 栈
 
@@ -74,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
@@ -85,6 +93,8 @@ class Solution:
                 stk.append(c)
         return len(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minAddToMakeValid(s string) int {
 	stk := []rune{}
@@ -131,6 +145,8 @@ func minAddToMakeValid(s string) int {
 	return len(stk)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minAddToMakeValid(s: string): number {
@@ -147,6 +163,10 @@ function minAddToMakeValid(s: string): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：贪心 + 计数
 
@@ -165,6 +185,8 @@ function minAddToMakeValid(s: string): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
@@ -179,6 +201,8 @@ class Solution:
         ans += cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -199,6 +223,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -218,6 +244,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minAddToMakeValid(s string) int {
 	ans, cnt := 0, 0
@@ -234,6 +262,8 @@ func minAddToMakeValid(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minAddToMakeValid(s: string): number {
@@ -254,4 +284,6 @@ function minAddToMakeValid(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

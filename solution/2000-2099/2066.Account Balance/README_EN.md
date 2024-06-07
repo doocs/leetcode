@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2066. Account Balance 🔒](https://leetcode.com/problems/account-balance)
 
 [中文文档](/solution/2000-2099/2066.Account%20Balance/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Transactions</code></p>
 
@@ -73,11 +77,17 @@ Account 2:
 - 2021-12-12 --&gt; withdraw 7000. Balance is 7000 - 7000 = 0.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -94,4 +104,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

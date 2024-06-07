@@ -8,13 +8,15 @@ tags:
     - 交互
 ---
 
+<!-- problem:start -->
+
 # [1538. 找出隐藏数组中出现次数最多的元素 🔒](https://leetcode.cn/problems/guess-the-majority-in-a-hidden-array)
 
 [English Version](/solution/1500-1599/1538.Guess%20the%20Majority%20in%20a%20Hidden%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组&nbsp;<code>nums</code>，且&nbsp;<code>nums</code>&nbsp;中的所有整数都为 <strong>0</strong> 或 <strong>1</strong>。你不能直接访问这个数组，你需要使用&nbsp;API <code>ArrayReader</code>&nbsp;，该 API 含有下列成员函数：</p>
 
@@ -78,7 +80,11 @@ reader.query(4,5,6,7) // 返回 4，因为 nums[4], nums[5], nums[6], nums[7] �
 
 <p><strong>进阶：</strong>要找到出现次数最多的元素，需要至少调用&nbsp;<code>query()</code>&nbsp;多少次？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯
 
@@ -93,6 +99,8 @@ reader.query(4,5,6,7) // 返回 4，因为 nums[4], nums[5], nums[6], nums[7] �
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -145,6 +153,8 @@ class Solution:
             return -1
         return 3 if a > b else k
 ```
+
+#### Java
 
 ```java
 /**
@@ -206,6 +216,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * // This is the ArrayReader's API interface.
@@ -266,6 +278,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is the ArrayReader's API interface.
@@ -325,6 +339,8 @@ func guessMajority(reader *ArrayReader) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * // This is the ArrayReader's API interface.
@@ -383,4 +399,6 @@ function guessMajority(reader: ArrayReader): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

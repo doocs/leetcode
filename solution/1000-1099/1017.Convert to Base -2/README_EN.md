@@ -3,15 +3,20 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1017.Convert%20to%20Base%20-2/README_EN.md
 rating: 1697
+source: Weekly Contest 130 Q2
 tags:
     - Math
 ---
+
+<!-- problem:start -->
 
 # [1017. Convert to Base -2](https://leetcode.com/problems/convert-to-base-2)
 
 [中文文档](/solution/1000-1099/1017.Convert%20to%20Base%20-2/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, return <em>a binary string representing its representation in base</em> <code>-2</code>.</p>
 
@@ -49,11 +54,17 @@ tags:
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +81,8 @@ class Solution:
             k *= -1
         return ''.join(ans[::-1]) or '0'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func baseNeg2(n int) string {
 	if n == 0 {
@@ -143,6 +160,8 @@ func baseNeg2(n int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function baseNeg2(n: number): string {
     if (n === 0) {
@@ -163,6 +182,8 @@ function baseNeg2(n: number): string {
     return ans.reverse().join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -187,6 +208,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -216,4 +239,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

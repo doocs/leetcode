@@ -8,13 +8,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [150. 逆波兰表达式求值](https://leetcode.cn/problems/evaluate-reverse-polish-notation)
 
 [English Version](/solution/0100-0199/0150.Evaluate%20Reverse%20Polish%20Notation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>tokens</code> ，表示一个根据&nbsp;<a href="https://baike.baidu.com/item/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/128437" target="_blank">逆波兰表示法</a> 表示的算术表达式。</p>
 
@@ -90,11 +92,17 @@ tags:
 	<li>适合用栈操作运算：遇到数字则入栈；遇到算符则取出栈顶两个数字进行计算，并将结果压入栈中</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import operator
@@ -116,6 +124,8 @@ class Solution:
                 s.append(int(token))
         return s[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -175,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func evalRPN(tokens []string) int {
@@ -208,6 +222,8 @@ func popInt(stack *arraystack.Stack) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function evalRPN(tokens: string[]): number {
     const stack = [];
@@ -237,6 +253,8 @@ function evalRPN(tokens: string[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn eval_rpn(tokens: Vec<String>) -> i32 {
@@ -261,6 +279,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;
@@ -297,9 +317,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -323,4 +349,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2557. Maximum Number of Integers to Choose From a Range II 🔒](https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-ii)
 
 [中文文档](/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>banned</code> and two integers <code>n</code> and <code>maxSum</code>. You are choosing some number of integers following the below rules:</p>
 
@@ -54,7 +58,11 @@ All these integers are in the range [1, 7], all do not appear in banned, and the
 	<li><code>1 &lt;= maxSum &lt;= 10<sup>15</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Deduplication + Sorting + Binary Search
 
@@ -65,6 +73,8 @@ Next, we enumerate every two adjacent elements $i$ and $j$ in the array `banned`
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array `banned`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +96,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxCount(banned []int, n int, maxSum int64) (ans int) {
@@ -186,4 +202,6 @@ func maxCount(banned []int, n int, maxSum int64) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

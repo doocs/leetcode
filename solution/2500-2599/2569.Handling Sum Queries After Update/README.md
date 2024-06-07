@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README.md
 rating: 2397
+source: 第 98 场双周赛 Q4
 tags:
     - 线段树
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [2569. 更新数组后处理求和查询](https://leetcode.cn/problems/handling-sum-queries-after-update)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong>&nbsp;开始的数组&nbsp;<code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;，和一个二维数组&nbsp;<code>queries</code>&nbsp;表示一些操作。总共有 3 种类型的操作：</p>
 
@@ -59,7 +62,11 @@ tags:
 	<li><code>0 &lt;= nums2[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：线段树
 
@@ -97,6 +104,8 @@ tags:
 时间复杂度 $O(n + m \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组 `nums1` 和 `queries` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -176,6 +185,8 @@ class Solution:
                 ans.append(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -288,6 +299,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -396,6 +409,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type node struct {
 	l, r, s, lazy int
@@ -498,4 +513,6 @@ func handleQuery(nums1 []int, nums2 []int, queries [][]int) (ans []int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

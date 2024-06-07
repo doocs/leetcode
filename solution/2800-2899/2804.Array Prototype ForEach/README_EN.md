@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2804.Array%20Prototype%20ForEach/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2804. Array Prototype ForEach 🔒](https://leetcode.com/problems/array-prototype-foreach)
 
 [中文文档](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write your version of method&nbsp;<code>forEach</code>&nbsp;that enhances all arrays such that you can call the&nbsp;<code>array.forEach(callback, context)</code>&nbsp;method on any array and it will execute <code>callback</code> on each element of the array.&nbsp;Method&nbsp;<code>forEach</code> should not return anything.</p>
 
@@ -75,11 +79,17 @@ context = {&quot;context&quot;: 5}
 	<li><code>0 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 Array.prototype.forEach = function (callback: Function, context: any): void {
@@ -101,4 +111,6 @@ Array.prototype.forEach = function (callback: Function, context: any): void {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

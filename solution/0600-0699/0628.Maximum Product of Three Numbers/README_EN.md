@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [628. Maximum Product of Three Numbers](https://leetcode.com/problems/maximum-product-of-three-numbers)
 
 [中文文档](/solution/0600-0699/0628.Maximum%20Product%20of%20Three%20Numbers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, <em>find three numbers whose product is maximum and return the maximum product</em>.</p>
 
@@ -35,11 +39,17 @@ tags:
 	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -49,6 +59,8 @@ class Solution:
         b = nums[-1] * nums[0] * nums[1]
         return max(a, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -61,6 +73,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -75,6 +89,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumProduct(nums []int) int {
 	sort.Ints(nums)
@@ -88,6 +104,8 @@ func maximumProduct(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumProduct(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -100,9 +118,15 @@ function maximumProduct(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +135,8 @@ class Solution:
         bottom2 = nlargest(2, nums, key=lambda x: -x)
         return max(top3[0] * top3[1] * top3[2], top3[0] * bottom2[0] * bottom2[1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +166,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -171,6 +199,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumProduct(nums []int) int {
 	const inf = 1 << 30
@@ -193,6 +223,8 @@ func maximumProduct(nums []int) int {
 	return max(mi1*mi2*mx1, mx1*mx2*mx3)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumProduct(nums: number[]): number {
@@ -226,4 +258,6 @@ function maximumProduct(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

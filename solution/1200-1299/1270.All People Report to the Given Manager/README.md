@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1270. 向公司 CEO 汇报工作的所有人 🔒](https://leetcode.cn/problems/all-people-report-to-the-given-manager)
 
 [English Version](/solution/1200-1299/1270.All%20People%20Report%20to%20the%20Given%20Manager/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>员工表：<code>Employees</code></p>
 
@@ -75,7 +77,11 @@ employee_id 是 7 的职员间接汇报给公司 CEO 7 --&gt; 4 --&gt; 2 --&gt; 
 employee_id 是 3, 8 ，9 的职员不会直接或间接的汇报给公司 CEO。 
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两次连接
 
@@ -84,6 +90,8 @@ employee_id 是 3, 8 ，9 的职员不会直接或间接的汇报给公司 CEO�
 具体地，我们首先通过一次连接，找到每个 `manager_id` 对应的上级经理的 `manager_id`，然后再通过一次连接，找到更上一级经理的 `manager_id`，最后，如果更上一级的 `manager_id` 为 $1$，且员工的 `employee_id` 不为 $1$，则说明该员工直接或间接向公司 CEO 汇报工作。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -97,4 +105,6 @@ WHERE e1.employee_id != 1 AND e3.manager_id = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

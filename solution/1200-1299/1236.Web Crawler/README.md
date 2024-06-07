@@ -9,13 +9,15 @@ tags:
     - 交互
 ---
 
+<!-- problem:start -->
+
 # [1236. 网络爬虫 🔒](https://leetcode.cn/problems/web-crawler)
 
 [English Version](/solution/1200-1299/1236.Web%20Crawler/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个链接&nbsp;<code>startUrl</code> 和一个接口&nbsp;<code>HtmlParser</code>&nbsp;，请你实现一个网络爬虫，以实现爬取同&nbsp;<code>startUrl</code>&nbsp;拥有相同&nbsp;<strong>域名标签&nbsp;</strong>的全部链接。该爬虫得到的全部链接可以&nbsp;<strong>任何顺序&nbsp;</strong>返回结果。</p>
 
@@ -98,11 +100,17 @@ startUrl = "http://news.google.com"
 	<li>你可以假定url库中不包含重复项。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -135,6 +143,8 @@ class Solution:
         dfs(startUrl)
         return list(ans)
 ```
+
+#### Java
 
 ```java
 /**
@@ -172,6 +182,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -214,6 +226,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is HtmlParser's API interface.
@@ -249,4 +263,6 @@ func crawl(startUrl string, htmlParser HtmlParser) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

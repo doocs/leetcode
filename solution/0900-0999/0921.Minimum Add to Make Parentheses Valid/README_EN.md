@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [921. Minimum Add to Make Parentheses Valid](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid)
 
 [中文文档](/solution/0900-0999/0921.Minimum%20Add%20to%20Make%20Parentheses%20Valid/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A parentheses string is valid if and only if:</p>
 
@@ -53,7 +57,11 @@ tags:
 	<li><code>s[i]</code> is either <code>&#39;(&#39;</code> or <code>&#39;)&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Stack
 
@@ -70,6 +78,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
@@ -81,6 +91,8 @@ class Solution:
                 stk.append(c)
         return len(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minAddToMakeValid(s string) int {
 	stk := []rune{}
@@ -127,6 +143,8 @@ func minAddToMakeValid(s string) int {
 	return len(stk)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minAddToMakeValid(s: string): number {
@@ -143,6 +161,10 @@ function minAddToMakeValid(s: string): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Greedy + Counting
 
@@ -161,6 +183,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
@@ -175,6 +199,8 @@ class Solution:
         ans += cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -195,6 +221,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -214,6 +242,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minAddToMakeValid(s string) int {
 	ans, cnt := 0, 0
@@ -230,6 +260,8 @@ func minAddToMakeValid(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minAddToMakeValid(s: string): number {
@@ -250,4 +282,6 @@ function minAddToMakeValid(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

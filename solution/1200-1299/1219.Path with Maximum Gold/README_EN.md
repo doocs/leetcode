@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README_EN.md
 rating: 1663
+source: Weekly Contest 157 Q3
 tags:
     - Array
     - Backtracking
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1219. Path with Maximum Gold](https://leetcode.com/problems/path-with-maximum-gold)
 
 [中文文档](/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In a gold mine <code>grid</code> of size <code>m x n</code>, each cell in this mine has an integer representing the amount of gold in that cell, <code>0</code> if it is empty.</p>
 
@@ -65,7 +70,11 @@ Path to get the maximum gold, 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7.
 	<li>There are at most <strong>25 </strong>cells containing gold.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -74,6 +83,8 @@ We can enumerate each cell as the starting point, and then start a depth-first s
 The time complexity is $O(m \times n \times 3^k)$, where $k$ is the maximum length of each path. Since each cell can only be visited once at most, the time complexity will not exceed $O(m \times n \times 3^k)$. The space complexity is $O(m \times n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +102,8 @@ class Solution:
         dirs = (-1, 0, 1, 0, -1)
         return max(dfs(i, j) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +168,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMaximumGold(grid [][]int) (ans int) {
@@ -181,6 +198,8 @@ func getMaximumGold(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getMaximumGold(grid: number[][]): number {
     const m = grid.length;
@@ -204,6 +223,8 @@ function getMaximumGold(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -235,4 +256,6 @@ var getMaximumGold = function (grid) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

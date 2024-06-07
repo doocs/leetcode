@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals)
 
 [中文文档](/solution/0400-0499/0435.Non-overlapping%20Intervals/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of intervals <code>intervals</code> where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>, return <em>the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping</em>.</p>
 
@@ -51,11 +55,17 @@ tags:
 	<li><code>-5 * 10<sup>4</sup> &lt;= start<sub>i</sub> &lt; end<sub>i</sub> &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +79,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func eraseOverlapIntervals(intervals [][]int) int {
 	sort.Slice(intervals, func(i, j int) bool {
@@ -120,6 +136,8 @@ func eraseOverlapIntervals(intervals [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function eraseOverlapIntervals(intervals: number[][]): number {
@@ -140,9 +158,15 @@ function eraseOverlapIntervals(intervals: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -157,6 +181,8 @@ class Solution:
                 d[idx] = min(d[idx], e)
         return len(intervals) - len(d)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -195,4 +221,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

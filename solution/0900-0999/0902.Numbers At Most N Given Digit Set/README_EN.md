@@ -10,11 +10,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [902. Numbers At Most N Given Digit Set](https://leetcode.com/problems/numbers-at-most-n-given-digit-set)
 
 [中文文档](/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of <code>digits</code> which is sorted in <strong>non-decreasing</strong> order. You can write numbers using each <code>digits[i]</code> as many times as we want. For example, if <code>digits = [&#39;1&#39;,&#39;3&#39;,&#39;5&#39;]</code>, we may write numbers such as <code>&#39;13&#39;</code>, <code>&#39;551&#39;</code>, and <code>&#39;1351315&#39;</code>.</p>
 
@@ -62,7 +66,11 @@ In total, this is 29523 integers that can be written using the digits array.
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Digit DP
 
@@ -104,6 +112,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def atMostNGivenDigitSet(self, digits: List[str], n: int) -> int:
@@ -129,6 +139,8 @@ class Solution:
             n //= 10
         return dfs(l, True, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -175,6 +187,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -218,6 +232,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func atMostNGivenDigitSet(digits []string, n int) int {
@@ -268,4 +284,6 @@ func atMostNGivenDigitSet(digits []string, n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

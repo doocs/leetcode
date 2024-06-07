@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [199. 二叉树的右视图](https://leetcode.cn/problems/binary-tree-right-side-view)
 
 [English Version](/solution/0100-0199/0199.Binary%20Tree%20Right%20Side%20View/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二叉树的 <strong>根节点</strong> <code>root</code>，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li><meta charset="UTF-8" /><code>-100 <= Node.val <= 100</code> </li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -62,6 +68,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -86,6 +94,8 @@ class Solution:
                     q.append(node.right)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -128,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -166,6 +178,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -197,6 +211,8 @@ func rightSideView(root *TreeNode) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -213,23 +229,29 @@ func rightSideView(root *TreeNode) (ans []int) {
  */
 
 function rightSideView(root: TreeNode | null): number[] {
-    const ans = [];
     if (!root) {
-        return ans;
+        return [];
     }
-    const q = [root];
+    let q = [root];
+    const ans: number[] = [];
     while (q.length) {
-        const n = q.length;
-        ans.push(q[n - 1].val);
-        for (let i = 0; i < n; ++i) {
-            const { left, right } = q.shift();
-            left && q.push(left);
-            right && q.push(right);
+        const nextq: TreeNode[] = [];
+        ans.push(q.at(-1)!.val);
+        for (const { left, right } of q) {
+            if (left) {
+                nextq.push(left);
+            }
+            if (right) {
+                nextq.push(right);
+            }
         }
+        q = nextq;
     }
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -283,6 +305,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：DFS
 
 使用 DFS 深度优先遍历二叉树，每次先遍历右子树，再遍历左子树，这样每层第一个遍历到的节点即为该层的右视图节点。
@@ -290,6 +316,8 @@ impl Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -312,6 +340,8 @@ class Solution:
         dfs(root, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -350,6 +380,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -382,6 +414,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -407,6 +441,8 @@ func rightSideView(root *TreeNode) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -442,4 +478,6 @@ function rightSideView(root: TreeNode | null): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

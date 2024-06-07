@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README_EN.md
 rating: 2091
+source: Biweekly Contest 112 Q4
 tags:
     - Greedy
     - Hash Table
@@ -11,11 +12,15 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [2842. Count K-Subsequences of a String With Maximum Beauty](https://leetcode.com/problems/count-k-subsequences-of-a-string-with-maximum-beauty)
 
 [中文文档](/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> and an integer <code>k</code>.</p>
 
@@ -88,7 +93,11 @@ Hence, the answer is 2.
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Combinatorial Mathematics
 
@@ -107,6 +116,8 @@ Note that we need to use fast power and modulo operations here.
 The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string, and $\Sigma$ is the character set. In this problem, the character set is lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -127,6 +138,8 @@ class Solution:
         ans = ans * comb(x, k) * pow(val, k, mod) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -190,6 +203,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -248,6 +263,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countKSubsequencesWithMaxBeauty(s string, k int) int {
@@ -310,6 +327,8 @@ func countKSubsequencesWithMaxBeauty(s string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countKSubsequencesWithMaxBeauty(s: string, k: number): number {
     const f: number[] = new Array(26).fill(0);
@@ -359,4 +378,6 @@ function countKSubsequencesWithMaxBeauty(s: string, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [964. Least Operators to Express Number](https://leetcode.com/problems/least-operators-to-express-number)
 
 [中文文档](/solution/0900-0999/0964.Least%20Operators%20to%20Express%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a single positive integer <code>x</code>, we will write an expression of the form <code>x (op1) x (op2) x (op3) x ...</code> where each operator <code>op1</code>, <code>op2</code>, etc. is either addition, subtraction, multiplication, or division (<code>+</code>, <code>-</code>, <code>*</code>, or <code>/)</code>. For example, with <code>x = 3</code>, we might write <code>3 * 3 / 3 + 3 - 3</code> which is a value of <font face="monospace">3</font>.</p>
 
@@ -63,11 +67,17 @@ The expression contains 3 operations.
 	<li><code>1 &lt;= target &lt;= 2 * 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +95,8 @@ class Solution:
 
         return dfs(target)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func leastOpsExpressTarget(x int, target int) int {
 	f := map[int]int{}
@@ -176,6 +192,8 @@ func leastOpsExpressTarget(x int, target int) int {
 	return dfs(target)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function leastOpsExpressTarget(x: number, target: number): number {
@@ -206,4 +224,6 @@ function leastOpsExpressTarget(x: number, target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [619. Biggest Single Number](https://leetcode.com/problems/biggest-single-number)
 
 [中文文档](/solution/0600-0699/0619.Biggest%20Single%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>MyNumbers</code></p>
 
@@ -85,13 +89,19 @@ MyNumbers table:
 <strong>Explanation:</strong> There are no single numbers in the input table so we return null.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping and Subquery
 
 We can first group the `MyNumbers` table by `num` and count the number of occurrences of each number. Then, we can use a subquery to find the maximum number among the numbers that appear only once.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -107,11 +117,17 @@ FROM
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Grouping and `CASE` Expression
 
 Similar to Solution 1, we can first group the `MyNumbers` table by `num` and count the number of occurrences of each number. Then, we can use a `CASE` expression to find the numbers that appear only once, sort them in descending order by number, and take the first one.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -128,4 +144,6 @@ LIMIT 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

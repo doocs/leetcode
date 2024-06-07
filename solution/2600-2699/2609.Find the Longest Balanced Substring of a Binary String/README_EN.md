@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2609.Find%20the%20Longest%20Balanced%20Substring%20of%20a%20Binary%20String/README_EN.md
 rating: 1348
+source: Weekly Contest 339 Q1
 tags:
     - String
 ---
+
+<!-- problem:start -->
 
 # [2609. Find the Longest Balanced Substring of a Binary String](https://leetcode.com/problems/find-the-longest-balanced-substring-of-a-binary-string)
 
 [中文文档](/solution/2600-2699/2609.Find%20the%20Longest%20Balanced%20Substring%20of%20a%20Binary%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a binary string <code>s</code> consisting only of zeroes and ones.</p>
 
@@ -54,7 +59,11 @@ tags:
 	<li><code>&#39;0&#39; &lt;= s[i] &lt;= &#39;1&#39;</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Brute force
 
@@ -63,6 +72,8 @@ Since the range of $n$ is small, we can enumerate all substrings $s[i..j]$ to ch
 The time complexity is $O(n^3)$, and the space complexity is $O(1)$. Where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +95,8 @@ class Solution:
                     ans = max(ans, j - i + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheLongestBalancedSubstring(s string) (ans int) {
 	n := len(s)
@@ -167,6 +184,8 @@ func findTheLongestBalancedSubstring(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheLongestBalancedSubstring(s: string): number {
@@ -193,6 +212,8 @@ function findTheLongestBalancedSubstring(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -233,6 +254,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Enumeration optimization
 
 We use variables $zero$ and $one$ to record the number of continuous $0$ and $1$.
@@ -248,6 +273,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTheLongestBalancedSubstring(self, s: str) -> int:
@@ -262,6 +289,8 @@ class Solution:
                 ans = max(ans, 2 * min(one, zero))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -283,6 +312,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -306,6 +337,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheLongestBalancedSubstring(s string) (ans int) {
 	zero, one := 0, 0
@@ -323,6 +356,8 @@ func findTheLongestBalancedSubstring(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheLongestBalancedSubstring(s: string): number {
@@ -343,6 +378,8 @@ function findTheLongestBalancedSubstring(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -371,4 +408,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

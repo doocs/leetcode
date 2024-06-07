@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README_EN.md
 rating: 1845
+source: Weekly Contest 337 Q4
 tags:
     - Greedy
     - Array
@@ -10,11 +11,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2598. Smallest Missing Non-negative Integer After Operations](https://leetcode.com/problems/smallest-missing-non-negative-integer-after-operations)
 
 [中文文档](/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>value</code>.</p>
 
@@ -63,7 +68,11 @@ The MEX of nums is 2. It can be shown that 2 is the maximum MEX we can achieve.
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Count
 
@@ -75,6 +84,8 @@ The time complexity is $O(n)$ and the space complexity is $O(value)$. Where $n$ 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findSmallestInteger(self, nums: List[int], value: int) -> int:
@@ -84,6 +95,8 @@ class Solution:
                 return i
             cnt[i % value] -= 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findSmallestInteger(nums []int, value int) int {
 	cnt := make([]int, value)
@@ -133,6 +150,8 @@ func findSmallestInteger(nums []int, value int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findSmallestInteger(nums: number[], value: number): number {
@@ -150,4 +169,6 @@ function findSmallestInteger(nums: number[], value: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

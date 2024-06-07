@@ -8,13 +8,15 @@ tags:
     - 最小生成树
 ---
 
+<!-- problem:start -->
+
 # [1724. 检查边长度限制的路径是否存在 II 🔒](https://leetcode.cn/problems/checking-existence-of-edge-length-limited-paths-ii)
 
 [English Version](/solution/1700-1799/1724.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一张有&nbsp;<code>n</code>&nbsp;个节点的无向图以边的列表&nbsp;<code>edgeList</code>&nbsp;的形式定义，其中&nbsp;<code>edgeList[i] = [u<sub>i</sub>, v<sub>i</sub>, dis<sub>i</sub>]</code>&nbsp;表示一条连接&nbsp;<code>u<sub>i</sub></code>&nbsp;和&nbsp;<code>v<sub>i</sub></code>&nbsp;，距离为&nbsp;<code>dis<sub>i</sub></code>&nbsp;的边。注意，同一对节点间可能有<strong>多条</strong>边，且该图可能不是连通的。</p>
 
@@ -64,11 +66,17 @@ distanceLimitedPathsExist.query(0, 5, 6); // 返回 false。从 0 到 5 之间�
 	<li>最多调用&nbsp;<code>10<sup>4</sup></code>&nbsp;次&nbsp;<code>query</code>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：可持久化并查集
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class PersistentUnionFind:
@@ -107,6 +115,8 @@ class DistanceLimitedPathsExist:
     def query(self, p: int, q: int, limit: int) -> bool:
         return self.puf.find(p, limit) == self.puf.find(q, limit)
 ```
+
+#### Java
 
 ```java
 class PersistentUnionFind {
@@ -174,6 +184,8 @@ public class DistanceLimitedPathsExist {
  * boolean param_1 = obj.query(p,q,limit);
  */
 ```
+
+#### C++
 
 ```cpp
 class PersistentUnionFind {
@@ -247,6 +259,8 @@ public:
  * bool param_1 = obj->query(p,q,limit);
  */
 ```
+
+#### Go
 
 ```go
 type PersistentUnionFind struct {
@@ -331,6 +345,8 @@ func (dle *DistanceLimitedPathsExist) Query(p, q, limit int) bool {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class PersistentUnionFind {
     private rank: number[];
@@ -398,4 +414,6 @@ class DistanceLimitedPathsExist {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

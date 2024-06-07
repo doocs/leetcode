@@ -9,13 +9,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [2737. 找到最近的标记节点 🔒](https://leetcode.cn/problems/find-the-closest-marked-node)
 
 [English Version](/solution/2700-2799/2737.Find%20the%20Closest%20Marked%20Node/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个正整数 <code>n</code> ，表示一个 <strong>索引从 0 开始的有向加权</strong> 图的节点数量，以及一个 <strong>索引从 0 开始的二维数组</strong> <code>edges</code> ，其中 <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>, w<sub>i</sub>]</code> 表示从节点 <code>u<sub>i</sub></code> 到节点 <code>v<sub>i</sub></code> 的一条权重为 <code>w<sub>i</sub></code> 的边。</p>
 
@@ -77,7 +79,11 @@ tags:
 	<li>图的生成不会出现 <strong>自环</strong> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：Dijkstra 算法
 
@@ -90,6 +96,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -113,6 +121,8 @@ class Solution:
         ans = min(dist[i] for i in marked)
         return -1 if ans >= inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -184,6 +196,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumDistance(n int, edges [][]int, s int, marked []int) int {
@@ -226,6 +240,8 @@ func minimumDistance(n int, edges [][]int, s int, marked []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumDistance(n: number, edges: number[][], s: number, marked: number[]): number {
     const inf = 1 << 29;
@@ -260,4 +276,6 @@ function minimumDistance(n: number, edges: number[][], s: number, marked: number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

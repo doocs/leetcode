@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1611.Minimum%20One%20Bit%20Operations%20to%20Make%20Integers%20Zero/README.md
 rating: 2345
+source: 第 209 场周赛 Q4
 tags:
     - 位运算
     - 记忆化搜索
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [1611. 使整数变为 0 的最少操作次数](https://leetcode.cn/problems/minimum-one-bit-operations-to-make-integers-zero)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code>，你需要重复执行多次下述操作将其转换为 <code>0</code> ：</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：格雷码逆变换（格雷码转二进制码）
 
@@ -86,6 +93,8 @@ int rev(int x) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOneBitOperations(self, n: int) -> int:
@@ -95,6 +104,8 @@ class Solution:
             n >>= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOneBitOperations(n int) (ans int) {
 	for ; n > 0; n >>= 1 {
@@ -129,6 +144,8 @@ func minimumOneBitOperations(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOneBitOperations(n: number): number {
@@ -142,9 +159,15 @@ function minimumOneBitOperations(n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -153,6 +176,8 @@ class Solution:
             return 0
         return n ^ self.minimumOneBitOperations(n >> 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +189,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -177,6 +204,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOneBitOperations(n int) int {
 	if n == 0 {
@@ -185,6 +214,8 @@ func minimumOneBitOperations(n int) int {
 	return n ^ minimumOneBitOperations(n>>1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOneBitOperations(n: number): number {
@@ -197,4 +228,6 @@ function minimumOneBitOperations(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

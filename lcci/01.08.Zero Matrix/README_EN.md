@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.08.Zero%20Matrix/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [01.08. Zero Matrix](https://leetcode.cn/problems/zero-matrix-lcci)
 
 [中文文档](/lcci/01.08.Zero%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.</p>
 
@@ -74,7 +78,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.08.Zero%20Matrix/R
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array Marking
 
@@ -85,6 +93,8 @@ Then we traverse the matrix again, zeroing the elements corresponding to the row
 The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +111,8 @@ class Solution:
                 if rows[i] or cols[j]:
                     matrix[i][j] = 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -153,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func setZeroes(matrix [][]int) {
 	m, n := len(matrix), len(matrix[0])
@@ -175,6 +191,8 @@ func setZeroes(matrix [][]int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -203,6 +221,8 @@ function setZeroes(matrix: number[][]): void {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
@@ -228,6 +248,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -257,6 +279,8 @@ var setZeroes = function (matrix) {
 };
 ```
 
+#### C
+
 ```c
 void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
     int m = matrixSize;
@@ -284,6 +308,8 @@ void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
     free(cols);
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -316,6 +342,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: In-place Marking
 
 In Solution 1, we used additional arrays to mark the rows and columns to be zeroed. In fact, we can directly use the first row and first column of the matrix for marking, without needing to allocate additional array space.
@@ -325,6 +355,8 @@ Since the first row and first column are used for marking, their values may chan
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -347,6 +379,8 @@ class Solution:
             for i in range(m):
                 matrix[i][0] = 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -393,6 +427,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -441,6 +477,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func setZeroes(matrix [][]int) {
 	m, n := len(matrix), len(matrix[0])
@@ -483,6 +521,8 @@ func setZeroes(matrix [][]int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -532,6 +572,8 @@ function setZeroes(matrix: number[][]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -587,6 +629,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -630,6 +674,8 @@ var setZeroes = function (matrix) {
     }
 };
 ```
+
+#### C
 
 ```c
 void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
@@ -679,4 +725,6 @@ void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2257.Count%20Unguarded%20Cells%20in%20the%20Grid/README.md
 rating: 1708
+source: 第 77 场双周赛 Q3
 tags:
     - 数组
     - 矩阵
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [2257. 统计网格图中没有被保卫的格子数](https://leetcode.cn/problems/count-unguarded-cells-in-the-grid)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数&nbsp;<code>m</code>&nbsp;和&nbsp;<code>n</code>&nbsp;表示一个下标从<strong>&nbsp;0</strong>&nbsp;开始的&nbsp;<code>m x n</code>&nbsp;网格图。同时给你两个二维整数数组&nbsp;<code>guards</code> 和&nbsp;<code>walls</code>&nbsp;，其中&nbsp;<code>guards[i] = [row<sub>i</sub>, col<sub>i</sub>]</code>&nbsp;且&nbsp;<code>walls[j] = [row<sub>j</sub>, col<sub>j</sub>]</code>&nbsp;，分别表示第 <code>i</code>&nbsp;个警卫和第 <code>j</code>&nbsp;座墙所在的位置。</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li><code>guards</code>&nbsp;和&nbsp;<code>walls</code>&nbsp;中所有位置 <strong>互不相同</strong>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -75,6 +82,8 @@ tags:
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +104,8 @@ class Solution:
                     g[x][y] = 1
         return sum(v == 0 for row in g for v in row)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +176,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countUnguarded(m int, n int, guards [][]int, walls [][]int) (ans int) {
@@ -198,6 +213,8 @@ func countUnguarded(m int, n int, guards [][]int, walls [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countUnguarded(m: number, n: number, guards: number[][], walls: number[][]): number {
     const g: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
@@ -231,4 +248,6 @@ function countUnguarded(m: number, n: number, guards: number[][], walls: number[
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

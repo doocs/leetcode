@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3128.Right%20Triangles/README.md
 rating: 1540
+source: 第 129 场双周赛 Q2
 tags:
     - 数组
     - 哈希表
@@ -11,13 +12,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [3128. 直角三角形](https://leetcode.cn/problems/right-triangles)
 
 [English Version](/solution/3100-3199/3128.Right%20Triangles/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二维 boolean 矩阵&nbsp;<code>grid</code>&nbsp;。</p>
 
@@ -186,7 +189,11 @@ tags:
 	<li><code>0 &lt;= grid[i][j] &lt;= 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 枚举
 
@@ -197,6 +204,8 @@ tags:
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -214,6 +223,8 @@ class Solution:
                     ans += (rows[i] - 1) * (cols[j] - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -239,6 +250,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -266,6 +279,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfRightTriangles(grid [][]int) (ans int64) {
 	m, n := len(grid), len(grid[0])
@@ -287,6 +302,8 @@ func numberOfRightTriangles(grid [][]int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfRightTriangles(grid: number[][]): number {
@@ -314,4 +331,6 @@ function numberOfRightTriangles(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

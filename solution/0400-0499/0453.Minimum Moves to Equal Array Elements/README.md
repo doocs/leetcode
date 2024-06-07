@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [453. 最小操作次数使数组元素相等](https://leetcode.cn/problems/minimum-moves-to-equal-array-elements)
 
 [English Version](/solution/0400-0499/0453.Minimum%20Moves%20to%20Equal%20Array%20Elements/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的整数数组，每次操作将会使 <code>n - 1</code> 个元素增加 <code>1</code> 。返回让数组所有元素相等的最小操作次数。</p>
 
@@ -47,7 +49,11 @@ tags:
 	<li>答案保证符合 <strong>32-bit</strong> 整数</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -78,11 +84,15 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMoves(self, nums: List[int]) -> int:
         return sum(nums) - min(nums) * len(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMoves(nums []int) int {
 	mi := 1 << 30
@@ -120,6 +134,8 @@ func minMoves(nums []int) int {
 	return s - mi*len(nums)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minMoves(nums: number[]): number {
@@ -135,9 +151,15 @@ function minMoves(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -155,4 +177,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

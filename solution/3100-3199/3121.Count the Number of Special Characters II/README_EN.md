@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3121.Count%20the%20Number%20of%20Special%20Characters%20II/README_EN.md
 rating: 1411
+source: Weekly Contest 394 Q2
 tags:
     - Hash Table
     - String
 ---
+
+<!-- problem:start -->
 
 # [3121. Count the Number of Special Characters II](https://leetcode.com/problems/count-the-number-of-special-characters-ii)
 
 [中文文档](/solution/3100-3199/3121.Count%20the%20Number%20of%20Special%20Characters%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>word</code>. A letter&nbsp;<code>c</code> is called <strong>special</strong> if it appears <strong>both</strong> in lowercase and uppercase in <code>word</code>, and <strong>every</strong> lowercase occurrence of <code>c</code> appears before the <strong>first</strong> uppercase occurrence of <code>c</code>.</p>
 
@@ -63,7 +68,11 @@ tags:
 	<li><code>word</code> consists of only lowercase and uppercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -76,6 +85,8 @@ Finally, we traverse all lowercase and uppercase letters. If `last[a]` exists an
 The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string `word`, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| \leq 128$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +101,8 @@ class Solution:
             for a, b in zip(ascii_lowercase, ascii_uppercase)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfSpecialChars(word string) (ans int) {
 	first := make([]int, 'z'+1)
@@ -156,6 +173,8 @@ func numberOfSpecialChars(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfSpecialChars(word: string): number {
@@ -184,4 +203,6 @@ function numberOfSpecialChars(word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

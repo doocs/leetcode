@@ -4,9 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9864.%20%E6%B1%821%2B2%2B%E2%80%A6%2Bn/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 64. 求 1+2+…+n](https://leetcode.cn/problems/qiu-12n-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>求 <code>1+2+...+n</code> ，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p>
 
@@ -32,17 +36,25 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 	<li><code>1 &lt;= n&nbsp;&lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def sumNums(self, n: int) -> int:
         return n and (n + self.sumNums(n - 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -54,6 +66,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -63,6 +77,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sumNums(n int) int {
@@ -77,11 +93,15 @@ func sumNums(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 var sumNums = function (n: number): number {
     return n && n + sumNums(n - 1);
 };
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -98,6 +118,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -107,6 +129,8 @@ var sumNums = function (n) {
     return (n ** 2 + n) >> 1;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -123,6 +147,20 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func sumNums(_ n: Int) -> Int {
+        var s = n
+        let _ = n > 0 && { s += sumNums(n - 1); return true }()
+        return s
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

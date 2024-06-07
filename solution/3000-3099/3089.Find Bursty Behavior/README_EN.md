@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3089. Find Bursty Behavior 🔒](https://leetcode.com/problems/find-bursty-behavior)
 
 [中文文档](/solution/3000-3099/3089.Find%20Bursty%20Behavior/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Posts</code></p>
 
@@ -79,7 +83,11 @@ Each row of this table contains post_id, user_id, and post_date.
 <p><b>Note:</b> Output table is ordered by user_id in ascending order.</p>
 </div>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Self-Join + Group Count
 
@@ -90,6 +98,8 @@ Next, we count the average number of posts per week for each user in February 20
 Finally, we connect tables `P` and `T` with the condition `P.user_id = T.user_id`, then group by `user_id` to count the maximum number of posts within 7 days for each user. We then filter out records that meet the condition `max_7day_posts >= avg_weekly_posts * 2` to get the result. Note that we need to sort in ascending order by `user_id`.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -117,6 +127,8 @@ GROUP BY 1
 HAVING max_7day_posts >= avg_weekly_posts * 2
 ORDER BY 1;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -160,4 +172,6 @@ def find_bursty_behavior(posts: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

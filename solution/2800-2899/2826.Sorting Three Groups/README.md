@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2826.Sorting%20Three%20Groups/README.md
 rating: 1721
+source: 第 111 场双周赛 Q3
 tags:
     - 数组
     - 二分查找
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2826. 将三个组排序](https://leetcode.cn/problems/sorting-three-groups)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;。<code>nums</code>&nbsp;的每个元素是 1，2 或 3。在每次操作中，你可以删除&nbsp;<code>nums</code>&nbsp;中的一个元素。返回使 nums 成为 <strong>非递减</strong>&nbsp;顺序所需操作数的 <strong>最小值</strong>。</p>
 
@@ -59,7 +62,11 @@ nums 已是非递减顺序的。
 
 <p><strong>进阶：</strong>你可以使用&nbsp;<code>O(n)</code>&nbsp;时间复杂度以内的算法解决吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -71,27 +78,31 @@ nums 已是非递减顺序的。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
-        f = g = h = 0
+        f = [0] * 3
         for x in nums:
-            ff = gg = hh = 0
+            g = [0] * 3
             if x == 1:
-                ff = f
-                gg = min(f, g) + 1
-                hh = min(f, g, h) + 1
+                g[0] = f[0]
+                g[1] = min(f[:2]) + 1
+                g[2] = min(f) + 1
             elif x == 2:
-                ff = f + 1
-                gg = min(f, g)
-                hh = min(f, g, h) + 1
+                g[0] = f[0] + 1
+                g[1] = min(f[:2])
+                g[2] = min(f) + 1
             else:
-                ff = f + 1
-                gg = min(f, g) + 1
-                hh = min(f, g, h)
-            f, g, h = ff, gg, hh
-        return min(f, g, h)
+                g[0] = f[0] + 1
+                g[1] = min(f[:2]) + 1
+                g[2] = min(f)
+            f = g
+        return min(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -146,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperations(nums []int) int {
 	f := make([]int, 3)
@@ -169,6 +184,8 @@ func minimumOperations(nums []int) int {
 	return min(f[0], min(f[1], f[2]))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperations(nums: number[]): number {
@@ -196,32 +213,6 @@ function minimumOperations(nums: number[]): number {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def minimumOperations(self, nums: List[int]) -> int:
-        f = [0] * 3
-        for x in nums:
-            g = [0] * 3
-            if x == 1:
-                g[0] = f[0]
-                g[1] = min(f[:2]) + 1
-                g[2] = min(f) + 1
-            elif x == 2:
-                g[0] = f[0] + 1
-                g[1] = min(f[:2])
-                g[2] = min(f) + 1
-            else:
-                g[0] = f[0] + 1
-                g[1] = min(f[:2]) + 1
-                g[2] = min(f)
-            f = g
-        return min(f)
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

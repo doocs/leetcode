@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2764. Is Array a Preorder of Some ‌Binary Tree 🔒](https://leetcode.com/problems/is-array-a-preorder-of-some-binary-tree)
 
 [中文文档](/solution/2700-2799/2764.Is%20Array%20a%20Preorder%20of%20Some%20%E2%80%8CBinary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>0-indexed</strong> integer <strong>2D array</strong> <code>nodes</code>, your task is to determine if the given array represents the <strong>preorder</strong> traversal of some <strong>binary</strong> tree.</p>
 
@@ -57,11 +61,17 @@ For the preorder traversal, first we visit node 0, then we do the preorder trave
 	<li>The input is generated such that <code>nodes</code> make a binary tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +89,8 @@ class Solution:
         k = 0
         return dfs(nodes[0][0]) and k == len(nodes)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPreorder(nodes [][]int) bool {
 	k := 0
@@ -158,6 +174,8 @@ func isPreorder(nodes [][]int) bool {
 	return dfs(nodes[0][0]) && k == len(nodes)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isPreorder(nodes: number[][]): boolean {
@@ -187,4 +205,6 @@ function isPreorder(nodes: number[][]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

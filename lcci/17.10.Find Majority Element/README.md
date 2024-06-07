@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.10.Find%20Majority%20Element/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.10. 主要元素](https://leetcode.cn/problems/find-majority-element-lcci)
 
 [English Version](/lcci/17.10.Find%20Majority%20Element/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>如果数组中多一半的数都是同一个，则称之为主要元素。给定一个<strong>整数</strong>数组，找到它的主要元素。若没有，返回-1。</p>
 
 <p><strong>示例 1：</strong></p>
@@ -37,7 +40,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.10.Find%20Majority
 <p><strong>说明：</strong><br>
 你有办法在时间复杂度为 O(N)，空间复杂度为 O(1) 内完成吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：摩尔投票法
 
@@ -55,6 +62,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.10.Find%20Majority
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
@@ -66,6 +75,8 @@ class Solution:
                 cnt += 1 if m == v else -1
         return m if nums.count(m) > len(nums) // 2 else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func majorityElement(nums []int) int {
@@ -135,6 +150,8 @@ func majorityElement(nums []int) int {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -160,6 +177,8 @@ var majorityElement = function (nums) {
     return cnt > nums.length / 2 ? m : -1;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -189,6 +208,8 @@ public class Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -226,4 +247,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 多线程
 ---
 
+<!-- problem:start -->
+
 # [1242. 多线程网页爬虫 🔒](https://leetcode.cn/problems/web-crawler-multithreaded)
 
 [English Version](/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个初始地址&nbsp;<code>startUrl</code>&nbsp;和一个 HTML 解析器接口&nbsp;<code>HtmlParser</code>，请你实现一个&nbsp;<strong>多线程的网页爬虫</strong>，用于获取与&nbsp;<code>startUrl</code>&nbsp;有&nbsp;<strong>相同主机名&nbsp;</strong>的所有链接。&nbsp;</p>
 
@@ -112,6 +114,42 @@ startUrl = &quot;http://news.google.com&quot;
 	<li>你可以假设路径都是不重复的。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+### 方法一
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

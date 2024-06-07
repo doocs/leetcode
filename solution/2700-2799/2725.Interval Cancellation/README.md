@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2725.Interval%20Cancellation/README.md
 ---
 
+<!-- problem:start -->
+
 # [2725. 间隔取消](https://leetcode.cn/problems/interval-cancellation)
 
 [English Version](/solution/2700-2799/2725.Interval%20Cancellation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现给定一个函数 <code>fn</code>，一个参数数组 <code>args</code> 和一个时间间隔 <code>t</code>，返回一个取消函数 <code>cancelFn</code>。</p>
 
@@ -116,11 +118,17 @@ setTimeout(cancelFn, cancelTimeMs)
 	<li><code><font face="monospace">10 &lt;= cancelT &lt;= 500</font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function cancellable(fn: Function, args: any[], t: number): Function {
@@ -157,4 +165,6 @@ function cancellable(fn: Function, args: any[], t: number): Function {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [908. Smallest Range I](https://leetcode.com/problems/smallest-range-i)
 
 [中文文档](/solution/0900-0999/0908.Smallest%20Range%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>
 
@@ -55,7 +59,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -67,12 +75,16 @@ The time complexity is $O(n)$, where $n$ is the length of the array `nums`. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestRangeI(self, nums: List[int], k: int) -> int:
         mx, mi = max(nums), min(nums)
         return max(0, mx - mi - k * 2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -98,12 +112,16 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestRangeI(nums []int, k int) int {
 	mi, mx := slices.Min(nums), slices.Max(nums)
 	return max(0, mx-mi-k*2)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestRangeI(nums: number[], k: number): number {
@@ -112,6 +130,8 @@ function smallestRangeI(nums: number[], k: number): number {
     return Math.max(mx - mi - k * 2, 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -125,4 +145,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

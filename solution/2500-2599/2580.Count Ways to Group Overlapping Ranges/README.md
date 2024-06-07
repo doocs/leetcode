@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2580.Count%20Ways%20to%20Group%20Overlapping%20Ranges/README.md
 rating: 1631
+source: 第 99 场双周赛 Q3
 tags:
     - 数组
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [2580. 统计将重叠区间合并成组的方案数](https://leetcode.cn/problems/count-ways-to-group-overlapping-ranges)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二维整数数组&nbsp;<code>ranges</code>&nbsp;，其中&nbsp;<code>ranges[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>&nbsp;表示&nbsp;<code>start<sub>i</sub></code>&nbsp;到&nbsp;<code>end<sub>i</sub></code>&nbsp;之间（包括二者）的所有整数都包含在第&nbsp;<code>i</code>&nbsp;个区间中。</p>
 
@@ -70,7 +73,11 @@ tags:
 	<li><code>0 &lt;= start<sub>i</sub> &lt;= end<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 计数 + 快速幂
 
@@ -84,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countWays(self, ranges: List[List[int]]) -> int:
@@ -96,6 +105,8 @@ class Solution:
         mod = 10**9 + 7
         return pow(2, cnt, mod)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countWays(ranges [][]int) int {
@@ -176,6 +191,8 @@ func countWays(ranges [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countWays(ranges: number[][]): number {
     ranges.sort((a, b) => a[0] - b[0]);
@@ -194,9 +211,15 @@ function countWays(ranges: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -211,6 +234,8 @@ class Solution:
             mx = max(mx, end)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -230,6 +255,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -247,6 +274,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countWays(ranges [][]int) int {
@@ -267,4 +296,6 @@ func countWays(ranges [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

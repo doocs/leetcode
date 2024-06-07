@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2735.Collecting%20Chocolates/README_EN.md
 rating: 2043
+source: Weekly Contest 349 Q3
 tags:
     - Array
     - Enumeration
 ---
+
+<!-- problem:start -->
 
 # [2735. Collecting Chocolates](https://leetcode.com/problems/collecting-chocolates)
 
 [中文文档](/solution/2700-2799/2735.Collecting%20Chocolates/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code> representing the cost of collecting different chocolates. The cost of collecting the chocolate at the index <code>i</code>&nbsp;is <code>nums[i]</code>. Each chocolate is of a different type, and initially, the chocolate at the index&nbsp;<code>i</code>&nbsp;is of <code>i<sup>th</sup></code> type.</p>
 
@@ -53,7 +58,11 @@ Thus, the total cost will become (1 + 5 + 1 + 5 + 1) = 13. We can prove that thi
 	<li><code>1 &lt;= x &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -81,6 +90,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, nums: List[int], x: int) -> int:
@@ -92,6 +103,8 @@ class Solution:
                 f[i][j] = min(f[i][j - 1], nums[(i - j) % n])
         return min(sum(f[i][j] for i in range(n)) + x * j for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(nums []int, x int) int64 {
 	n := len(nums)
@@ -165,6 +182,8 @@ func minCost(nums []int, x int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCost(nums: number[], x: number): number {
     const n = nums.length;
@@ -186,6 +205,8 @@ function minCost(nums: number[], x: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -213,4 +234,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

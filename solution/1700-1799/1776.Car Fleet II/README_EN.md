@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1776.Car%20Fleet%20II/README_EN.md
 rating: 2530
+source: Weekly Contest 230 Q4
 tags:
     - Stack
     - Array
@@ -11,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1776. Car Fleet II](https://leetcode.com/problems/car-fleet-ii)
 
 [中文文档](/solution/1700-1799/1776.Car%20Fleet%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> cars traveling at different speeds in the same direction along a one-lane road. You are given an array <code>cars</code> of length <code>n</code>, where <code>cars[i] = [position<sub>i</sub>, speed<sub>i</sub>]</code> represents:</p>
 
@@ -53,11 +58,17 @@ tags:
 	<li><code>position<sub>i</sub> &lt; position<sub>i+1</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +88,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getCollisionTimes(cars [][]int) []float64 {
@@ -158,4 +175,6 @@ func getCollisionTimes(cars [][]int) []float64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3111.Minimum%20Rectangles%20to%20Cover%20Points/README.md
 rating: 1401
+source: 第 128 场双周赛 Q2
 tags:
     - 贪心
     - 数组
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [3111. 覆盖所有点的最少矩形数目](https://leetcode.cn/problems/minimum-rectangles-to-cover-points)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二维整数数组&nbsp;<code>point</code>&nbsp;，其中&nbsp;<code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>&nbsp;表示二维平面内的一个点。同时给你一个整数&nbsp;<code>w</code>&nbsp;。你需要用矩形&nbsp;<strong>覆盖所有</strong>&nbsp;点。</p>
 
@@ -100,7 +103,11 @@ tags:
 	<li>所有点坐标&nbsp;<code>(x<sub>i</sub>, y<sub>i</sub>)</code>&nbsp;互不相同。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -114,6 +121,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minRectanglesToCoverPoints(self, points: List[List[int]], w: int) -> int:
@@ -125,6 +134,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minRectanglesToCoverPoints(points [][]int, w int) (ans int) {
 	sort.Slice(points, func(i, j int) bool { return points[i][0] < points[j][0] })
@@ -175,6 +190,8 @@ func minRectanglesToCoverPoints(points [][]int, w int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minRectanglesToCoverPoints(points: number[][], w: number): number {
@@ -193,4 +210,6 @@ function minRectanglesToCoverPoints(points: number[][], w: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2789.Largest%20Element%20in%20an%20Array%20after%20Merge%20Operations/README.md
 rating: 1484
+source: 第 355 场周赛 Q2
 tags:
     - 贪心
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [2789. 合并后数组中的最大元素](https://leetcode.cn/problems/largest-element-in-an-array-after-merge-operations)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、由正整数组成的数组 <code>nums</code> 。</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：倒序合并
 
@@ -72,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxArrayValue(self, nums: List[int]) -> int:
@@ -80,6 +89,8 @@ class Solution:
                 nums[i] += nums[i + 1]
         return max(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxArrayValue(nums []int) int64 {
 	n := len(nums)
@@ -134,6 +149,8 @@ func maxArrayValue(nums []int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxArrayValue(nums: number[]): number {
     for (let i = nums.length - 2; i >= 0; --i) {
@@ -147,4 +164,6 @@ function maxArrayValue(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

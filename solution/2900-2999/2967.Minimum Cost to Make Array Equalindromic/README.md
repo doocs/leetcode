@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README.md
 rating: 2116
+source: 第 376 场周赛 Q3
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2967. 使数组成为等数数组的最小代价](https://leetcode.cn/problems/minimum-cost-to-make-array-equalindromic)
 
 [English Version](/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -72,7 +75,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理 + 排序 + 二分查找
 
@@ -87,6 +94,8 @@ tags:
 -   [906. 超级回文数](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0906.Super%20Palindromes/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 ps = []
@@ -108,6 +117,8 @@ class Solution:
         i = bisect_left(ps, nums[len(nums) // 2])
         return min(f(ps[j]) for j in range(i - 1, i + 2) if 0 <= j < len(ps))
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -150,6 +161,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -191,6 +204,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 var ps [2 * 100000]int64
@@ -247,6 +262,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 const ps = Array(2e5).fill(0);
 
@@ -292,4 +309,6 @@ function minimumCost(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3128.Right%20Triangles/README_EN.md
 rating: 1540
+source: Biweekly Contest 129 Q2
 tags:
     - Array
     - Hash Table
@@ -11,11 +12,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [3128. Right Triangles](https://leetcode.com/problems/right-triangles)
 
 [中文文档](/solution/3100-3199/3128.Right%20Triangles/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D boolean matrix <code>grid</code>.</p>
 
@@ -182,7 +187,11 @@ tags:
 	<li><code>0 &lt;= grid[i][j] &lt;= 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
 
@@ -193,6 +202,8 @@ Then, we enumerate each $1$. Suppose the current $1$ is in the $i$-th row and th
 The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. Where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -210,6 +221,8 @@ class Solution:
                     ans += (rows[i] - 1) * (cols[j] - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -235,6 +248,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -262,6 +277,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfRightTriangles(grid [][]int) (ans int64) {
 	m, n := len(grid), len(grid[0])
@@ -283,6 +300,8 @@ func numberOfRightTriangles(grid [][]int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfRightTriangles(grid: number[][]): number {
@@ -310,4 +329,6 @@ function numberOfRightTriangles(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

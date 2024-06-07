@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1717.Maximum%20Score%20From%20Removing%20Substrings/README_EN.md
 rating: 1867
+source: Biweekly Contest 43 Q2
 tags:
     - Stack
     - Greedy
     - String
 ---
 
+<!-- problem:start -->
+
 # [1717. Maximum Score From Removing Substrings](https://leetcode.com/problems/maximum-score-from-removing-substrings)
 
 [中文文档](/solution/1700-1799/1717.Maximum%20Score%20From%20Removing%20Substrings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> and two integers <code>x</code> and <code>y</code>. You can perform two types of operations any number of times.</p>
 
@@ -63,11 +68,17 @@ Total score = 5 + 4 + 5 + 5 = 19.</pre>
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +108,8 @@ class Solution:
                     stk2.append(c)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +191,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumGain(s string, x int, y int) int {
@@ -219,4 +236,6 @@ func maximumGain(s string, x int, y int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

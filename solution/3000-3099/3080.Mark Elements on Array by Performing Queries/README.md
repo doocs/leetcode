@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3080.Mark%20Elements%20on%20Array%20by%20Performing%20Queries/README.md
 rating: 1607
+source: 第 126 场双周赛 Q2
 tags:
     - 数组
     - 哈希表
@@ -11,13 +12,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [3080. 执行操作标记数组中的元素](https://leetcode.cn/problems/mark-elements-on-array-by-performing-queries)
 
 [English Version](/solution/3000-3099/3080.Mark%20Elements%20on%20Array%20by%20Performing%20Queries/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;下标从 <strong>0</strong>&nbsp;开始的正整数数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -77,7 +80,11 @@ tags:
 	<li><code>0 &lt;= index<sub>i</sub>, k<sub>i</sub> &lt;= n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 模拟
 
@@ -92,6 +99,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -115,6 +124,8 @@ class Solution:
             ans.append(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -182,6 +195,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func unmarkedSumArray(nums []int, queries [][]int) []int64 {
@@ -222,6 +237,8 @@ func unmarkedSumArray(nums []int, queries [][]int) []int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function unmarkedSumArray(nums: number[], queries: number[][]): number[] {
     const n = nums.length;
@@ -251,4 +268,6 @@ function unmarkedSumArray(nums: number[], queries: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

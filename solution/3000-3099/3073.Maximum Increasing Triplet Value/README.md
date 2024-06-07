@@ -7,13 +7,15 @@ tags:
     - 有序集合
 ---
 
+<!-- problem:start -->
+
 # [3073. 最大递增三元组 🔒](https://leetcode.cn/problems/maximum-increasing-triplet-value)
 
 [English Version](/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数组&nbsp;<code>nums</code>，返回满足 <code>i &lt; j &lt; k</code> 且 <code>nums[i] &lt; nums[j] &lt; nums[k]</code>&nbsp;的三元组 <code>(i, j, k)</code> <em>&nbsp;</em>的 <strong>最大值</strong><i>。</i></p>
 
@@ -54,7 +56,11 @@ tags:
 	<li>输入数据保证至少一个三元组满足给定条件。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：后缀最大值 + 有序集合
 
@@ -65,6 +71,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -86,6 +94,8 @@ class Solution:
             sl.add(nums[j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumTripletValue(nums []int) (ans int) {
 	n := len(nums)
@@ -162,6 +176,8 @@ func maximumTripletValue(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumTripletValue(nums: number[]): number {
@@ -678,4 +694,6 @@ class TreeSet<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

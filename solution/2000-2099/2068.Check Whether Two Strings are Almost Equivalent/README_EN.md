@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2068.Check%20Whether%20Two%20Strings%20are%20Almost%20Equivalent/README_EN.md
 rating: 1273
+source: Biweekly Contest 65 Q1
 tags:
     - Hash Table
     - String
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2068. Check Whether Two Strings are Almost Equivalent](https://leetcode.com/problems/check-whether-two-strings-are-almost-equivalent)
 
 [中文文档](/solution/2000-2099/2068.Check%20Whether%20Two%20Strings%20are%20Almost%20Equivalent/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Two strings <code>word1</code> and <code>word2</code> are considered <strong>almost equivalent</strong> if the differences between the frequencies of each letter from <code>&#39;a&#39;</code> to <code>&#39;z&#39;</code> between <code>word1</code> and <code>word2</code> is <strong>at most</strong> <code>3</code>.</p>
 
@@ -66,7 +71,11 @@ The difference is 4, which is more than the allowed 3.
 	<li><code>word1</code> and <code>word2</code> consist only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -76,6 +85,8 @@ The time complexity is $O(n)$ and the space complexity is $O(C)$. Where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkAlmostEquivalent(self, word1: str, word2: str) -> bool:
@@ -84,6 +95,8 @@ class Solution:
             cnt[c] -= 1
         return all(abs(x) <= 3 for x in cnt.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkAlmostEquivalent(word1 string, word2 string) bool {
 	cnt := [26]int{}
@@ -144,6 +161,8 @@ func checkAlmostEquivalent(word1 string, word2 string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkAlmostEquivalent(word1: string, word2: string): boolean {
     const cnt: number[] = new Array(26).fill(0);
@@ -156,6 +175,8 @@ function checkAlmostEquivalent(word1: string, word2: string): boolean {
     return cnt.every(x => Math.abs(x) <= 3);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -178,6 +199,8 @@ var checkAlmostEquivalent = function (word1, word2) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool CheckAlmostEquivalent(string word1, string word2) {
@@ -192,6 +215,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -218,4 +243,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

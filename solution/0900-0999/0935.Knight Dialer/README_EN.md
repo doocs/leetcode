@@ -6,11 +6,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [935. Knight Dialer](https://leetcode.com/problems/knight-dialer)
 
 [中文文档](/solution/0900-0999/0935.Knight%20Dialer/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The chess knight has a <strong>unique movement</strong>,&nbsp;it may move two squares vertically and one square horizontally, or two squares horizontally and one square vertically (with both forming the shape of an <strong>L</strong>). The possible movements of chess knight are shown in this diagram:</p>
 
@@ -56,11 +60,17 @@ tags:
 	<li><code>1 &lt;= n &lt;= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +92,8 @@ class Solution:
             f = t
         return sum(t) % (10**9 + 7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -144,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func knightDialer(n int) int {
@@ -177,6 +193,8 @@ func knightDialer(n int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function knightDialer(n: number): number {
@@ -215,6 +233,8 @@ function knightDialer(n: number): number {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int KnightDialer(int n) {
@@ -244,4 +264,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

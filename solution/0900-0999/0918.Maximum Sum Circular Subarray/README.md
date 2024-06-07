@@ -10,13 +10,15 @@ tags:
     - 单调队列
 ---
 
+<!-- problem:start -->
+
 # [918. 环形子数组的最大和](https://leetcode.cn/problems/maximum-sum-circular-subarray)
 
 [English Version](/solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个长度为 <code>n</code> 的<strong>环形整数数组</strong>&nbsp;<code>nums</code>&nbsp;，返回<em>&nbsp;<code>nums</code>&nbsp;的非空 <strong>子数组</strong> 的最大可能和&nbsp;</em>。</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li><code>-3 * 10<sup>4</sup>&nbsp;&lt;= nums[i] &lt;= 3 * 10<sup>4</sup></code>​​​​​​​</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：维护前缀最值
 
@@ -91,94 +97,7 @@ tags:
 
 <!-- tabs:start -->
 
-```python
-class Solution:
-    def maxSubarraySumCircular(self, nums: List[int]) -> int:
-        s1 = s2 = f1 = f2 = nums[0]
-        for num in nums[1:]:
-            f1 = num + max(f1, 0)
-            f2 = num + min(f2, 0)
-            s1 = max(s1, f1)
-            s2 = min(s2, f2)
-        return s1 if s1 <= 0 else max(s1, sum(nums) - s2)
-```
-
-```java
-class Solution {
-    public int maxSubarraySumCircular(int[] nums) {
-        int s1 = nums[0], s2 = nums[0], f1 = nums[0], f2 = nums[0], total = nums[0];
-        for (int i = 1; i < nums.length; ++i) {
-            total += nums[i];
-            f1 = nums[i] + Math.max(f1, 0);
-            f2 = nums[i] + Math.min(f2, 0);
-            s1 = Math.max(s1, f1);
-            s2 = Math.min(s2, f2);
-        }
-        return s1 > 0 ? Math.max(s1, total - s2) : s1;
-    }
-}
-```
-
-```cpp
-class Solution {
-public:
-    int maxSubarraySumCircular(vector<int>& nums) {
-        int s1 = nums[0], s2 = nums[0], f1 = nums[0], f2 = nums[0], total = nums[0];
-        for (int i = 1; i < nums.size(); ++i) {
-            total += nums[i];
-            f1 = nums[i] + max(f1, 0);
-            f2 = nums[i] + min(f2, 0);
-            s1 = max(s1, f1);
-            s2 = min(s2, f2);
-        }
-        return s1 > 0 ? max(s1, total - s2) : s1;
-    }
-};
-```
-
-```go
-func maxSubarraySumCircular(nums []int) int {
-	s1, s2, f1, f2, total := nums[0], nums[0], nums[0], nums[0], nums[0]
-	for i := 1; i < len(nums); i++ {
-		total += nums[i]
-		f1 = nums[i] + max(f1, 0)
-		f2 = nums[i] + min(f2, 0)
-		s1 = max(s1, f1)
-		s2 = min(s2, f2)
-	}
-	if s1 <= 0 {
-		return s1
-	}
-	return max(s1, total-s2)
-}
-```
-
-```ts
-function maxSubarraySumCircular(nums: number[]): number {
-    let pre1 = nums[0],
-        pre2 = nums[0];
-    let ans1 = nums[0],
-        ans2 = nums[0];
-    let sum = nums[0];
-
-    for (let i = 1; i < nums.length; ++i) {
-        let cur = nums[i];
-        sum += cur;
-        pre1 = Math.max(pre1 + cur, cur);
-        ans1 = Math.max(pre1, ans1);
-
-        pre2 = Math.min(pre2 + cur, cur);
-        ans2 = Math.min(pre2, ans2);
-    }
-    return ans1 > 0 ? Math.max(ans1, sum - ans2) : ans1;
-}
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
+#### Python3
 
 ```python
 class Solution:
@@ -193,6 +112,8 @@ class Solution:
             pmx = max(pmx, s)
         return max(ans, s - smi)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -211,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -231,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSubarraySumCircular(nums []int) int {
 	const inf = 1 << 30
@@ -247,11 +172,12 @@ func maxSubarraySumCircular(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSubarraySumCircular(nums: number[]): number {
-    const inf = 1 << 30;
-    let [pmi, pmx] = [0, -inf];
-    let [ans, s, smi] = [-inf, 0, inf];
+    let [pmi, pmx] = [0, -Infinity];
+    let [ans, s, smi] = [-Infinity, 0, Infinity];
     for (const x of nums) {
         s += x;
         ans = Math.max(ans, s - pmi);
@@ -265,4 +191,6 @@ function maxSubarraySumCircular(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [252. Meeting Rooms 🔒](https://leetcode.com/problems/meeting-rooms)
 
 [中文文档](/solution/0200-0299/0252.Meeting%20Rooms/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of meeting time <code>intervals</code>&nbsp;where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>, determine if a person could attend all meetings.</p>
 
@@ -32,11 +36,17 @@ tags:
 	<li><code>0 &lt;= start<sub>i</sub> &lt;&nbsp;end<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -44,6 +54,8 @@ class Solution:
         intervals.sort()
         return all(a[1] <= b[0] for a, b in pairwise(intervals))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -60,6 +72,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -78,6 +92,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canAttendMeetings(intervals [][]int) bool {
 	sort.Slice(intervals, func(i, j int) bool {
@@ -92,6 +108,8 @@ func canAttendMeetings(intervals [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canAttendMeetings(intervals: number[][]): boolean {
     intervals.sort((a, b) => a[0] - b[0]);
@@ -103,6 +121,8 @@ function canAttendMeetings(intervals: number[][]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -139,4 +159,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

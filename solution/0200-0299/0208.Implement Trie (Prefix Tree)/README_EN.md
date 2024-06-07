@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree)
 
 [中文文档](/solution/0200-0299/0208.Implement%20Trie%20%28Prefix%20Tree%29/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <a href="https://en.wikipedia.org/wiki/Trie" target="_blank"><strong>trie</strong></a> (pronounced as &quot;try&quot;) or <strong>prefix tree</strong> is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.</p>
 
@@ -55,11 +59,17 @@ trie.search(&quot;app&quot;);     // return True
 	<li>At most <code>3 * 10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>insert</code>, <code>search</code>, and <code>startsWith</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -100,6 +110,8 @@ class Trie:
 # param_2 = obj.search(word)
 # param_3 = obj.startsWith(prefix)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -154,6 +166,8 @@ class Trie {
  */
 ```
 
+#### C++
+
 ```cpp
 class Trie {
 private:
@@ -204,6 +218,8 @@ public:
  * bool param_3 = obj->startsWith(prefix);
  */
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -258,6 +274,8 @@ func (this *Trie) SearchPrefix(s string) *Trie {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class TrieNode {
     children;
@@ -306,6 +324,8 @@ class Trie {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 use std::{ rc::Rc, cell::RefCell, collections::HashMap };
@@ -401,6 +421,8 @@ impl Trie {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Initialize your data structure here.
@@ -462,6 +484,8 @@ Trie.prototype.startsWith = function (prefix) {
  */
 ```
 
+#### C#
+
 ```cs
 public class Trie {
     bool isEnd;
@@ -518,4 +542,6 @@ public class Trie {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

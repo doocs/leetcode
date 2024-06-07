@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2053.%20%E5%AE%88%E6%8A%A4%E5%A4%AA%E7%A9%BA%E5%9F%8E/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 53. 守护太空城](https://leetcode.cn/problems/EJvmW4)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>各位勇者请注意，力扣太空城发布陨石雨红色预警。</p>
 
@@ -61,6 +63,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2053.%20%E5%AE%88%
 	<li><code>0 &lt;= position[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

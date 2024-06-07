@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2467.Most%20Profitable%20Path%20in%20a%20Tree/README_EN.md
 rating: 2053
+source: Biweekly Contest 91 Q3
 tags:
     - Tree
     - Depth-First Search
@@ -11,11 +12,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2467. Most Profitable Path in a Tree](https://leetcode.com/problems/most-profitable-path-in-a-tree)
 
 [中文文档](/solution/2400-2499/2467.Most%20Profitable%20Path%20in%20a%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an undirected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>, rooted at node <code>0</code>. You are given a 2D integer array <code>edges</code> of length <code>n - 1</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the tree.</p>
 
@@ -87,7 +92,11 @@ Thus, Alice opens the gate at node 0 only. Hence, her net income is -7280.
 	<li><code>amount[i]</code> is an <strong>even</strong> integer in the range <code>[-10<sup>4</sup>, 10<sup>4</sup>]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two DFS Traversals
 
@@ -104,6 +113,8 @@ When Alice reaches a leaf node, update the maximum score.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -145,6 +156,8 @@ class Solution:
         dfs2(0, -1, 0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -204,6 +217,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -249,6 +264,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mostProfitablePath(edges [][]int, bob int, amount []int) int {
@@ -304,4 +321,6 @@ func mostProfitablePath(edges [][]int, bob int, amount []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

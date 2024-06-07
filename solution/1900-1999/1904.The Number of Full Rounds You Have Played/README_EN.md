@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1904.The%20Number%20of%20Full%20Rounds%20You%20Have%20Played/README_EN.md
 rating: 1498
+source: Weekly Contest 246 Q2
 tags:
     - Math
     - String
 ---
+
+<!-- problem:start -->
 
 # [1904. The Number of Full Rounds You Have Played](https://leetcode.com/problems/the-number-of-full-rounds-you-have-played)
 
 [中文文档](/solution/1900-1999/1904.The%20Number%20of%20Full%20Rounds%20You%20Have%20Played/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are participating in an online chess tournament. There is a chess round that starts every <code>15</code> minutes. The first round of the day starts at <code>00:00</code>, and after every <code>15</code> minutes, a new round starts.</p>
 
@@ -63,7 +68,11 @@ You did not play the full round from 10:00 to 10:15 because you logged out at 10
 	<li><code>loginTime</code> and <code>logoutTime</code> are not equal.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Convert to Minutes
 
@@ -74,6 +83,8 @@ Then we round $a$ up to the nearest multiple of $15$, and round $b$ down to the 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +98,8 @@ class Solution:
         a, b = (a + 14) // 15, b // 15
         return max(0, b - a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfRounds(loginTime string, logoutTime string) int {
 	f := func(s string) int {
@@ -138,6 +155,8 @@ func numberOfRounds(loginTime string, logoutTime string) int {
 	return max(0, b/15-(a+14)/15)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfRounds(startTime: string, finishTime: string): number {
@@ -155,4 +174,6 @@ function numberOfRounds(startTime: string, finishTime: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

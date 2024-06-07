@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1753.Maximum%20Score%20From%20Removing%20Stones/README_EN.md
 rating: 1487
+source: Weekly Contest 227 Q2
 tags:
     - Greedy
     - Math
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1753. Maximum Score From Removing Stones](https://leetcode.com/problems/maximum-score-from-removing-stones)
 
 [中文文档](/solution/1700-1799/1753.Maximum%20Score%20From%20Removing%20Stones/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are playing a solitaire game with <strong>three piles</strong> of stones of sizes <code>a</code>​​​​​​, <code>b</code>,​​​​​​ and <code>c</code>​​​​​​ respectively. Each turn you choose two <strong>different non-empty </strong>piles, take one stone from each, and add <code>1</code> point to your score. The game stops when there are <strong>fewer than two non-empty</strong> piles (meaning there are no more available moves).</p>
 
@@ -67,11 +72,17 @@ After that, there are fewer than two non-empty piles, so the game ends.
 	<li><code>1 &lt;= a, b, c &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +96,8 @@ class Solution:
             s.sort()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumScore(a int, b int, c int) (ans int) {
 	s := []int{a, b, c}
@@ -137,9 +154,15 @@ func maximumScore(a int, b int, c int) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -149,6 +172,8 @@ class Solution:
             return a + b
         return (a + b + c) >> 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -163,6 +188,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -174,6 +201,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumScore(a int, b int, c int) int {
@@ -188,4 +217,6 @@ func maximumScore(a int, b int, c int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

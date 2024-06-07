@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README.md
 rating: 2873
+source: 第 346 场周赛 Q4
 tags:
     - 图
     - 最短路
     - 堆（优先队列）
 ---
+
+<!-- problem:start -->
 
 # [2699. 修改图中的边权](https://leetcode.cn/problems/modify-graph-edge-weights)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>n</code>&nbsp;个节点的 <strong>无向带权连通</strong>&nbsp;图，节点编号为&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n - 1</code>&nbsp;，再给你一个整数数组&nbsp;<code>edges</code>&nbsp;，其中&nbsp;<code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>, w<sub>i</sub>]</code>&nbsp;表示节点&nbsp;<code>a<sub>i</sub></code> 和&nbsp;<code>b<sub>i</sub></code>&nbsp;之间有一条边权为&nbsp;<code>w<sub>i</sub></code>&nbsp;的边。</p>
 
@@ -76,7 +79,11 @@ tags:
 	<li>输入的图是连通图，且没有自环和重边。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：最短路（Dijkstra 算法）
 
@@ -94,6 +101,8 @@ tags:
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 是图中的点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -137,6 +146,8 @@ class Solution:
                 e[2] += target - d
         return edges if ok else []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -200,6 +211,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using ll = long long;
@@ -266,6 +279,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func modifiedGraphEdges(n int, edges [][]int, source int, destination int, target int) [][]int {
 	const inf int = 2e9
@@ -328,6 +343,8 @@ func modifiedGraphEdges(n int, edges [][]int, source int, destination int, targe
 	return [][]int{}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function modifiedGraphEdges(
@@ -392,4 +409,6 @@ function modifiedGraphEdges(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

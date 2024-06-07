@@ -3,9 +3,12 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1780.Check%20if%20Number%20is%20a%20Sum%20of%20Powers%20of%20Three/README.md
 rating: 1505
+source: 第 47 场双周赛 Q2
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1780. 判断一个数字是否可以表示成三的幂的和](https://leetcode.cn/problems/check-if-number-is-a-sum-of-powers-of-three)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，如果你可以将 <code>n</code> 表示成若干个不同的三的幂之和，请你返回 <code>true</code> ，否则请返回 <code>false</code> 。</p>
 
@@ -49,7 +52,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学分析
 
@@ -61,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkPowersOfThree(self, n: int) -> bool:
@@ -70,6 +79,8 @@ class Solution:
             n //= 3
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +96,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -98,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkPowersOfThree(n int) bool {
 	for n > 0 {
@@ -109,6 +124,8 @@ func checkPowersOfThree(n int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkPowersOfThree(n: number): boolean {
@@ -122,4 +139,6 @@ function checkPowersOfThree(n: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

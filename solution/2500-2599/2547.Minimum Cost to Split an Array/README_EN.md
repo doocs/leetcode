@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README_EN.md
 rating: 2019
+source: Weekly Contest 329 Q4
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2547. Minimum Cost to Split an Array](https://leetcode.com/problems/minimum-cost-to-split-an-array)
 
 [中文文档](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>
 
@@ -87,7 +92,11 @@ The cost of the split is 10. It can be shown that this is the minimum possible c
 .spoilerbutton[value="Hide Message"] + .spoiler {padding:5px;}
 </style>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -102,6 +111,8 @@ During the process, we can use memoization search, that is, use an array $f$ to 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -125,6 +136,8 @@ class Solution:
         n = len(nums)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +177,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -198,6 +213,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(nums []int, k int) int {
 	n := len(nums)
@@ -228,6 +245,8 @@ func minCost(nums []int, k int) int {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCost(nums: number[], k: number): number {
@@ -261,4 +280,6 @@ function minCost(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

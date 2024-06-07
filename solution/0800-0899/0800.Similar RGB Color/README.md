@@ -8,13 +8,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [800. 相似 RGB 颜色 🔒](https://leetcode.cn/problems/similar-rgb-color)
 
 [English Version](/solution/0800-0899/0800.Similar%20RGB%20Color/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>RGB 颜色 <code>"#AABBCC"</code>&nbsp;可以简写成&nbsp;<code>"#ABC"</code> 。</p>
 
@@ -57,11 +59,17 @@ tags:
 	<li>对于任何 <code>i &gt; 0</code>，<code>color[i]</code> 都是一个在范围 <code>['0', 'f']</code> 内的 16 进制数</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +83,8 @@ class Solution:
         a, b, c = color[1:3], color[3:5], color[5:7]
         return f'#{f(a)}{f(b)}{f(c)}'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func similarRGB(color string) string {
@@ -110,4 +122,6 @@ func similarRGB(color string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

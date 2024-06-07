@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1360.Number%20of%20Days%20Between%20Two%20Dates/README_EN.md
 rating: 1421
+source: Weekly Contest 177 Q1
 tags:
     - Math
     - String
 ---
+
+<!-- problem:start -->
 
 # [1360. Number of Days Between Two Dates](https://leetcode.com/problems/number-of-days-between-two-dates)
 
 [中文文档](/solution/1300-1399/1360.Number%20of%20Days%20Between%20Two%20Dates/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a program to count the number of days between two dates.</p>
 
@@ -33,7 +38,11 @@ tags:
 	<li>The given dates are valid&nbsp;dates between the years <code>1971</code> and <code>2100</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -48,6 +57,8 @@ Finally, we only need to return the absolute value of `calcDays(date1) - calcDay
 The time complexity is $O(y + m)$, where $y$ represents the number of years from the given date to `1971-01-01`, and $m$ represents the number of months of the given date. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +96,8 @@ class Solution:
         return abs(calcDays(date1) - calcDays(date2))
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int daysBetweenDates(String date1, String date2) {
@@ -117,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -151,6 +166,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func daysBetweenDates(date1 string, date2 string) int {
@@ -195,6 +212,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function daysBetweenDates(date1: string, date2: string): number {
     return Math.abs(calcDays(date1) - calcDays(date2));
@@ -225,4 +244,6 @@ function calcDays(date: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

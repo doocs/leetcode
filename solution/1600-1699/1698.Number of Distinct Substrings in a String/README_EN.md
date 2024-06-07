@@ -10,11 +10,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [1698. Number of Distinct Substrings in a String 🔒](https://leetcode.com/problems/number-of-distinct-substrings-in-a-string)
 
 [中文文档](/solution/1600-1699/1698.Number%20of%20Distinct%20Substrings%20in%20a%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, return <em>the number of <strong>distinct</strong> substrings of</em>&nbsp;<code>s</code>.</p>
 
@@ -47,7 +51,11 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Can you solve this problem in <code>O(n)</code> time complexity?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Brute Force Enumeration
 
@@ -57,12 +65,16 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countDistinct(self, s: str) -> int:
         n = len(s)
         return len({s[i:j] for i in range(n) for j in range(i + 1, n + 1)})
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countDistinct(s string) int {
 	ss := map[string]struct{}{}
@@ -111,6 +127,10 @@ func countDistinct(s string) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: String Hashing
 
 **String hashing** is a method to map a string of any length to a non-negative integer, and the probability of collision is almost zero. String hashing is used to calculate the hash value of a string, which can quickly determine whether two strings are equal.
@@ -124,6 +144,8 @@ Except for extremely specially constructed data, the above hash algorithm is unl
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -143,6 +165,8 @@ class Solution:
                 ss.add(t)
         return len(ss)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +191,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -193,6 +219,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countDistinct(s string) int {
 	n := len(s)
@@ -216,4 +244,6 @@ func countDistinct(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

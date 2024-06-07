@@ -9,13 +9,15 @@ tags:
     - 图
 ---
 
+<!-- problem:start -->
+
 # [785. 判断二分图](https://leetcode.cn/problems/is-graph-bipartite)
 
 [English Version](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 存在一个 <strong>无向图</strong> ，图中有 <code>n</code> 个节点。其中每个节点都有一个介于 <code>0</code> 到 <code>n - 1</code> 之间的唯一编号。给你一个二维数组 <code>graph</code> ，其中 <code>graph[u]</code> 是一个节点数组，由节点 <code>u</code> 的邻接节点组成。形式上，对于  <code>graph[u]</code> 中的每个 <code>v</code> ，都存在一条位于节点 <code>u</code> 和节点 <code>v</code> 之间的无向边。该无向图同时具有以下属性：
 
@@ -60,13 +62,19 @@ tags:
 	<li>如果 <code>graph[u]</code> 包含 <code>v</code>，那么 <code>graph[v]</code> 也会包含 <code>u</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：染色法判定二分图
 
 遍历所有节点进行染色，比如初始为白色，DFS 对节点相邻的点染上另外一种颜色。如果要染色某节点时，要染的目标颜色和该节点的已经染过的颜色不同，则说明不能构成二分图。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +96,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isBipartite(graph [][]int) bool {
@@ -173,6 +187,8 @@ func isBipartite(graph [][]int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isBipartite(graph: number[][]): boolean {
@@ -202,6 +218,8 @@ function isBipartite(graph: number[][]): boolean {
     return valid;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -243,6 +261,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：并查集
 
@@ -313,6 +335,8 @@ d[find(a)] = distance
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
@@ -329,6 +353,8 @@ class Solution:
                 p[find(v)] = find(g[0])
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -361,6 +387,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -386,6 +414,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isBipartite(graph [][]int) bool {
@@ -413,6 +443,8 @@ func isBipartite(graph [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isBipartite(graph: number[][]): boolean {
     const n = graph.length;
@@ -437,6 +469,8 @@ function isBipartite(graph: number[][]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -489,4 +523,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

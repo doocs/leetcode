@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1561.Maximum%20Number%20of%20Coins%20You%20Can%20Get/README.md
 rating: 1405
+source: 第 203 场周赛 Q2
 tags:
     - 贪心
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1561. 你可以获得的最大硬币数目](https://leetcode.cn/problems/maximum-number-of-coins-you-can-get)
 
 [English Version](/solution/1500-1599/1561.Maximum%20Number%20of%20Coins%20You%20Can%20Get/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有 3n 堆数目不一的硬币，你和你的朋友们打算按以下方式分硬币：</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>1 &lt;= piles[i] &lt;= 10^4</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -75,12 +82,16 @@ Bob 取走最小的 1/3，剩余的硬币堆由 Alice 和我按硬币数从高�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxCoins(self, piles: List[int]) -> int:
         piles.sort()
         return sum(piles[-2 : len(piles) // 3 - 1 : -2])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxCoins(piles []int) int {
 	sort.Ints(piles)
@@ -118,6 +133,8 @@ func maxCoins(piles []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxCoins(piles: number[]): number {
@@ -130,6 +147,8 @@ function maxCoins(piles: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -144,6 +163,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -162,4 +183,6 @@ int maxCoins(int* piles, int pilesSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

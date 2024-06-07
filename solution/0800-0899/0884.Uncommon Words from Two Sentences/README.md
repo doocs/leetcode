@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [884. 两句话中的不常见单词](https://leetcode.cn/problems/uncommon-words-from-two-sentences)
 
 [English Version](/solution/0800-0899/0884.Uncommon%20Words%20from%20Two%20Sentences/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>句子</strong> 是一串由空格分隔的单词。每个 <strong>单词</strong><em> </em>仅由小写字母组成。</p>
 
@@ -51,7 +53,11 @@ tags:
 	<li><code>s1</code> 和 <code>s2</code> 中的所有单词间均由单个空格分隔</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -63,12 +69,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
         cnt = Counter(s1.split()) + Counter(s2.split())
         return [s for s, v in cnt.items() if v == 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uncommonFromSentences(s1 string, s2 string) (ans []string) {
 	cnt := map[string]int{}
@@ -129,6 +143,8 @@ func uncommonFromSentences(s1 string, s2 string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uncommonFromSentences(s1: string, s2: string): string[] {
     const cnt: Map<string, number> = new Map();
@@ -144,6 +160,8 @@ function uncommonFromSentences(s1: string, s2: string): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -168,6 +186,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s1
@@ -191,4 +211,6 @@ var uncommonFromSentences = function (s1, s2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

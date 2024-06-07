@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [389. Find the Difference](https://leetcode.com/problems/find-the-difference)
 
 [中文文档](/solution/0300-0399/0389.Find%20the%20Difference/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>s</code> and <code>t</code>.</p>
 
@@ -46,7 +50,11 @@ tags:
 	<li><code>s</code> and <code>t</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -55,6 +63,8 @@ We can use a hash table or array $cnt$ to count the occurrence of each character
 The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $\Sigma$ represents the character set. Here the character set is all lowercase letters, so $|\Sigma|=26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +75,8 @@ class Solution:
             if cnt[c] < 0:
                 return c
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheDifference(s, t string) byte {
 	cnt := [26]int{}
@@ -115,6 +131,8 @@ func findTheDifference(s, t string) byte {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheDifference(s: string, t: string): string {
@@ -132,6 +150,8 @@ function findTheDifference(s: string, t: string): string {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -158,6 +178,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 char findTheDifference(char* s, char* t) {
     int n = strlen(s);
@@ -177,6 +199,10 @@ char findTheDifference(char* s, char* t) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Summation
 
 We can sum the ASCII values of each character in string $t$, then subtract the sum of the ASCII values of each character in string $s$. The final result is the ASCII value of the added character.
@@ -185,6 +211,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
@@ -192,6 +220,8 @@ class Solution:
         b = sum(ord(c) for c in t)
         return chr(b - a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -207,6 +237,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -224,6 +256,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheDifference(s string, t string) byte {
 	ss := 0
@@ -237,6 +271,8 @@ func findTheDifference(s string, t string) byte {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findTheDifference(s: string, t: string): string {
     return String.fromCharCode(
@@ -245,6 +281,8 @@ function findTheDifference(s: string, t: string): string {
     );
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -261,6 +299,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 char findTheDifference(char* s, char* t) {
     int n = strlen(s);
@@ -276,4 +316,6 @@ char findTheDifference(char* s, char* t) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

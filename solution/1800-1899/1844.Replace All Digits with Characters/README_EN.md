@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1844.Replace%20All%20Digits%20with%20Characters/README_EN.md
 rating: 1300
+source: Biweekly Contest 51 Q1
 tags:
     - String
 ---
+
+<!-- problem:start -->
 
 # [1844. Replace All Digits with Characters](https://leetcode.com/problems/replace-all-digits-with-characters)
 
 [中文文档](/solution/1800-1899/1844.Replace%20All%20Digits%20with%20Characters/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> that has lowercase English letters in its <strong>even</strong> indices and digits in its <strong>odd</strong> indices.</p>
 
@@ -56,7 +61,11 @@ tags:
 	<li><code>shift(s[i-1], s[i]) &lt;= &#39;z&#39;</code> for all <strong>odd</strong> indices <code>i</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -68,6 +77,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignori
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def replaceDigits(self, s: str) -> str:
@@ -76,6 +87,8 @@ class Solution:
             s[i] = chr(ord(s[i - 1]) + int(s[i]))
         return ''.join(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func replaceDigits(s string) string {
 	cs := []byte(s)
@@ -111,6 +128,8 @@ func replaceDigits(s string) string {
 	return string(cs)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function replaceDigits(s: string): string {
@@ -122,6 +141,8 @@ function replaceDigits(s: string): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -138,6 +159,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 char* replaceDigits(char* s) {
     int n = strlen(s);
@@ -150,4 +173,6 @@ char* replaceDigits(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

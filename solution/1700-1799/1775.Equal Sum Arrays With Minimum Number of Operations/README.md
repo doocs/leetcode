@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1775.Equal%20Sum%20Arrays%20With%20Minimum%20Number%20of%20Operations/README.md
 rating: 1850
+source: 第 230 场周赛 Q3
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [1775. 通过最少操作次数使数组的和相等](https://leetcode.cn/problems/equal-sum-arrays-with-minimum-number-of-operations)
 
 [English Version](/solution/1700-1799/1775.Equal%20Sum%20Arrays%20With%20Minimum%20Number%20of%20Operations/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个长度可能不等的整数数组 <code>nums1</code> 和 <code>nums2</code> 。两个数组中的所有值都在 <code>1</code> 到 <code>6</code> 之间（包含 <code>1</code> 和 <code>6</code>）。</p>
 
@@ -62,7 +65,11 @@ tags:
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 6</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -84,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
@@ -100,6 +109,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +168,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums1 []int, nums2 []int) int {
@@ -193,6 +208,10 @@ func sum(nums []int) (s int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：贪心 + 计数排序
 
 方法一中，我们需要创建数组 `arr` 并进行排序，时空复杂度较高。由于数组 `arr` 中元素的范围为 $[0,..5]$，因此我们创建一个长度为 $6$ 的数组 `cnt`，用于统计数组 `arr` 中每个元素的数量，也即每个最大变化量的元素的数量。
@@ -202,6 +221,8 @@ func sum(nums []int) (s int) {
 时间复杂度 $O(m+n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别为数组 `nums1` 和 `nums2` 的长度。本题中 $C=6$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -221,6 +242,8 @@ class Solution:
                 ans += 1
         return ans if d <= 0 else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -254,6 +277,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -278,6 +303,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums1 []int, nums2 []int) (ans int) {
@@ -319,4 +346,6 @@ func sum(nums []int) (s int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

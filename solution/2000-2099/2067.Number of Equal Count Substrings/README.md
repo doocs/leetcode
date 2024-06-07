@@ -8,13 +8,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [2067. 等计数子串的数量 🔒](https://leetcode.cn/problems/number-of-equal-count-substrings)
 
 [English Version](/solution/2000-2099/2067.Number%20of%20Equal%20Count%20Substrings/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的字符串 <code>s</code>，只包含小写英文字母和一个整数 <code>count</code>。如果&nbsp;<code>s</code>&nbsp;的&nbsp;<strong>子串 </strong>中的每种字母在子串中恰好出现 <code>count</code> 次，这个子串就被称为&nbsp;<strong>等计数子串</strong>。</p>
 
@@ -67,7 +69,11 @@ tags:
 	<li><code>s</code> 只由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 滑动窗口
 
@@ -78,6 +84,8 @@ tags:
 时间复杂度 $O(n \times C)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字母的种类数，本题中 $C = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +108,8 @@ class Solution:
                 ans += i == t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +169,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func equalCountSubstrings(s string, count int) (ans int) {
@@ -191,6 +205,8 @@ func equalCountSubstrings(s string, count int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function equalCountSubstrings(s: string, count: number): number {
     const n = s.length;
@@ -214,6 +230,8 @@ function equalCountSubstrings(s: string, count: number): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -246,4 +264,6 @@ var equalCountSubstrings = function (s, count) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

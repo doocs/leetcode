@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2515.Shortest%20Distance%20to%20Target%20String%20in%20a%20Circular%20Array/README.md
 rating: 1367
+source: 第 325 场周赛 Q1
 tags:
     - 数组
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2515. 到目标字符串的最短距离](https://leetcode.cn/problems/shortest-distance-to-target-string-in-a-circular-array)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的 <strong>环形</strong> 字符串数组 <code>words</code> 和一个字符串 <code>target</code> 。<strong>环形数组</strong> 意味着数组首尾相连。</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>0 &lt;= startIndex &lt; words.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -76,6 +83,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +97,8 @@ class Solution:
                 ans = min(ans, t, n - t)
         return -1 if ans == n else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func closetTarget(words []string, target string, startIndex int) int {
@@ -148,6 +163,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function closetTarget(words: string[], target: string, startIndex: number): number {
     const n = words.length;
@@ -159,6 +176,8 @@ function closetTarget(words: string[], target: string, startIndex: number): numb
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,6 +197,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int closetTarget(char** words, int wordsSize, char* target, int startIndex) {
     for (int i = 0; i <= wordsSize >> 1; i++) {
@@ -191,9 +212,15 @@ int closetTarget(char** words, int wordsSize, char* target, int startIndex) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::cmp::min;
@@ -220,4 +247,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

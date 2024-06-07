@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20039.%20%E7%9B%B4%E6%96%B9%E5%9B%BE%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2%E9%9D%A2%E7%A7%AF/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 039. 直方图最大矩形面积](https://leetcode.cn/problems/0ynMMM)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定非负整数数组 <code>heights</code>&nbsp;，数组中的数字用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 <code>1</code> 。</p>
 <p>求在该柱状图中，能够勾勒出来的矩形的最大面积。</p>
@@ -33,7 +35,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 <p>&nbsp;</p>
 <p><meta charset="UTF-8" />注意：本题与主站 84&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/largest-rectangle-in-histogram/">https://leetcode.cn/problems/largest-rectangle-in-histogram/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -52,6 +58,8 @@ for i in range(n):
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为柱子个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +83,8 @@ class Solution:
             stk.append(i)
         return max(x * (r - l - 1) for x, l, r in zip(heights, left, right))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestRectangleArea(heights []int) (ans int) {
@@ -186,6 +200,8 @@ func largestRectangleArea(heights []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function largestRectangleArea(heights: number[]): number {
     const n = heights.length;
@@ -219,6 +235,50 @@ function largestRectangleArea(heights: number[]): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func largestRectangleArea(_ heights: [Int]) -> Int {
+        let n = heights.count
+        var left = [Int](repeating: -1, count: n)
+        var right = [Int](repeating: n, count: n)
+        var stack = [Int]()
+
+        for i in 0..<n {
+            while !stack.isEmpty && heights[stack.last!] >= heights[i] {
+                stack.removeLast()
+            }
+            if !stack.isEmpty {
+                left[i] = stack.last!
+            }
+            stack.append(i)
+        }
+
+        stack.removeAll()
+
+        for i in stride(from: n - 1, through: 0, by: -1) {
+            while !stack.isEmpty && heights[stack.last!] >= heights[i] {
+                stack.removeLast()
+            }
+            if !stack.isEmpty {
+                right[i] = stack.last!
+            }
+            stack.append(i)
+        }
+
+        var maxArea = 0
+        for i in 0..<n {
+            maxArea = max(maxArea, (right[i] - left[i] - 1) * heights[i])
+        }
+
+        return maxArea
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

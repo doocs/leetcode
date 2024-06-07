@@ -7,11 +7,15 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [3094. Guess the Number Using Bitwise Questions II 🔒](https://leetcode.com/problems/guess-the-number-using-bitwise-questions-ii)
 
 [中文文档](/solution/3000-3099/3094.Guess%20the%20Number%20Using%20Bitwise%20Questions%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a number <code>n</code> between <code>0</code> and <code>2<sup>30</sup> - 1</code> (both inclusive) that you have to find.</p>
 
@@ -30,27 +34,6 @@ tags:
 <p><strong>Note:</strong> In this world, all numbers are between <code>0</code> and <code>2<sup>30</sup> - 1</code> (both inclusive), thus for counting common bits, we see only the first 30 bits of those numbers.</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1: </strong></p>
-
-<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
-<p><strong>Input: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> n = 31 </span></p>
-
-<p><strong>Output: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> 31 </span></p>
-
-<p><strong>Explanation: </strong> It can be proven that it&#39;s possible to find 31 using the provided API.</p>
-</div>
-
-<p><strong class="example">Example 2: </strong></p>
-
-<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
-<p><strong>Input: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> n = 33 </span></p>
-
-<p><strong>Output: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> 33 </span></p>
-
-<p><strong>Explanation: </strong> It can be proven that it&#39;s possible to find 33 using the provided API.</p>
-</div>
-
-<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
@@ -59,7 +42,11 @@ tags:
 	<li>If you ask for some <code>num</code> out of the given range, the output wouldn&#39;t be reliable.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -73,6 +60,8 @@ Therefore, for each bit $i$, we can call `commonBits(1 << i)` twice, denoted as 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition of commonBits API.
@@ -89,6 +78,8 @@ class Solution:
                 n |= 1 << i
         return n
 ```
+
+#### Java
 
 ```java
 /**
@@ -110,6 +101,8 @@ public class Solution extends Problem {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -133,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition of commonBits API.
@@ -153,4 +148,6 @@ func findNumber() (n int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

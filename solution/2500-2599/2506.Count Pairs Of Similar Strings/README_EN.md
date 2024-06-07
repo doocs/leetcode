@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README_EN.md
 rating: 1335
+source: Weekly Contest 324 Q1
 tags:
     - Bit Manipulation
     - Array
@@ -10,11 +11,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2506. Count Pairs Of Similar Strings](https://leetcode.com/problems/count-pairs-of-similar-strings)
 
 [中文文档](/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string array <code>words</code>.</p>
 
@@ -65,11 +70,17 @@ tags:
 	<li><code>words[i]</code> consist of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +95,8 @@ class Solution:
             cnt[v] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func similarPairs(words []string) (ans int) {
 	cnt := map[int]int{}
@@ -134,6 +151,8 @@ func similarPairs(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function similarPairs(words: string[]): number {
@@ -150,6 +169,8 @@ function similarPairs(words: string[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -177,4 +198,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

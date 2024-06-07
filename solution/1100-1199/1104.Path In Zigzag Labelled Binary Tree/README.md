@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1104.Path%20In%20Zigzag%20Labelled%20Binary%20Tree/README.md
 rating: 1544
+source: 第 143 场周赛 Q2
 tags:
     - 树
     - 数学
     - 二叉树
 ---
+
+<!-- problem:start -->
 
 # [1104. 二叉树寻路](https://leetcode.cn/problems/path-in-zigzag-labelled-binary-tree)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一棵无限的二叉树上，每个节点都有两个子节点，树中的节点 <strong>逐行</strong> 依次按&nbsp;&ldquo;之&rdquo; 字形进行标记。</p>
 
@@ -49,7 +52,11 @@ tags:
 	<li><code>1 &lt;= label &lt;= 10^6</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -60,6 +67,8 @@ tags:
 时间复杂度 $O(\log n)$，其中 $n$ 为节点 $label$ 的编号。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +84,8 @@ class Solution:
             i -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pathInZigZagTree(label int) (ans []int) {
 	x, i := 1, 1
@@ -135,4 +150,6 @@ func pathInZigZagTree(label int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

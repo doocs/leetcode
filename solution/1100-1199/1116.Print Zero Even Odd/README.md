@@ -6,13 +6,15 @@ tags:
     - 多线程
 ---
 
+<!-- problem:start -->
+
 # [1116. 打印零与奇偶数](https://leetcode.cn/problems/print-zero-even-odd)
 
 [English Version](/solution/1100-1199/1116.Print%20Zero%20Even%20Odd/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现有函数 <code>printNumber</code> 可以用一个整数参数调用，并输出该整数到控制台。</p>
 
@@ -64,7 +66,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：多线程 + 信号量
 
@@ -77,6 +83,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from threading import Semaphore
@@ -111,6 +119,8 @@ class ZeroEvenOdd:
             printNumber(i)
             self.z.release()
 ```
+
+#### Java
 
 ```java
 class ZeroEvenOdd {
@@ -153,6 +163,8 @@ class ZeroEvenOdd {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 #include <semaphore.h>
@@ -203,4 +215,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2177.Find%20Three%20Consecutive%20Integers%20That%20Sum%20to%20a%20Given%20Number/README_EN.md
 rating: 1257
+source: Biweekly Contest 72 Q2
 tags:
     - Math
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [2177. Find Three Consecutive Integers That Sum to a Given Number](https://leetcode.com/problems/find-three-consecutive-integers-that-sum-to-a-given-number)
 
 [中文文档](/solution/2100-2199/2177.Find%20Three%20Consecutive%20Integers%20That%20Sum%20to%20a%20Given%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>num</code>, return <em>three consecutive integers (as a sorted array)</em><em> that <strong>sum</strong> to </em><code>num</code>. If <code>num</code> cannot be expressed as the sum of three consecutive integers, return<em> an <strong>empty</strong> array.</em></p>
 
@@ -41,11 +46,17 @@ tags:
 	<li><code>0 &lt;= num &lt;= 10<sup>15</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -53,6 +64,8 @@ class Solution:
         x, mod = divmod(num, 3)
         return [] if mod else [x - 1, x, x + 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -65,6 +78,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -79,6 +94,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfThree(num int64) []int64 {
 	if num%3 != 0 {
@@ -88,6 +105,8 @@ func sumOfThree(num int64) []int64 {
 	return []int64{x - 1, x, x + 1}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfThree(num: number): number[] {
@@ -101,4 +120,6 @@ function sumOfThree(num: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

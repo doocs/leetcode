@@ -8,11 +8,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [970. Powerful Integers](https://leetcode.com/problems/powerful-integers)
 
 [中文文档](/solution/0900-0999/0970.Powerful%20Integers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given three integers <code>x</code>, <code>y</code>, and <code>bound</code>, return <em>a list of all the <strong>powerful integers</strong> that have a value less than or equal to</em> <code>bound</code>.</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li><code>0 &lt;= bound &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
 
@@ -66,6 +74,8 @@ Therefore, we can use double loop to enumerate all possible $x^i$ and $y^j$, den
 The time complexity is $O(\log^2 bound)$, and the space complexity is $O(\log^2 bound)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +94,8 @@ class Solution:
             a *= x
         return list(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func powerfulIntegers(x int, y int, bound int) (ans []int) {
 	s := map[int]struct{}{}
@@ -147,6 +163,8 @@ func powerfulIntegers(x int, y int, bound int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function powerfulIntegers(x: number, y: number, bound: number): number[] {
     const ans = new Set<number>();
@@ -164,6 +182,8 @@ function powerfulIntegers(x: number, y: number, bound: number): number[] {
     return Array.from(ans);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -191,4 +211,6 @@ var powerfulIntegers = function (x, y, bound) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [761. 特殊的二进制序列](https://leetcode.cn/problems/special-binary-string)
 
 [English Version](/solution/0700-0799/0761.Special%20Binary%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>特殊的二进制序列是具有以下两个性质的二进制序列：</p>
 
@@ -43,7 +45,11 @@ tags:
 	<li><code>S</code>&nbsp;保证为一个满足上述定义的<em>特殊 </em>的二进制序列。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归 + 排序
 
@@ -56,6 +62,8 @@ tags:
 时间复杂度 $O(n^2)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +82,8 @@ class Solution:
         ans.sort(reverse=True)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makeLargestSpecial(s string) string {
@@ -142,4 +156,6 @@ func makeLargestSpecial(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

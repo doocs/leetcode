@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2817.Minimum%20Absolute%20Difference%20Between%20Elements%20With%20Constraint/README.md
 rating: 1889
+source: 第 358 场周赛 Q3
 tags:
     - 数组
     - 二分查找
     - 有序集合
 ---
+
+<!-- problem:start -->
 
 # [2817. 限制条件下元素之间的最小绝对差](https://leetcode.cn/problems/minimum-absolute-difference-between-elements-with-constraint)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>x</code>&nbsp;。</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>0 &lt;= x &lt; nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：有序集合
 
@@ -78,6 +85,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -96,6 +105,8 @@ class Solution:
                 ans = min(ans, nums[i] - sl[j - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minAbsoluteDifference(nums []int, x int) int {
 	rbt := redblacktree.NewWithIntComparator()
@@ -158,6 +173,8 @@ func minAbsoluteDifference(nums []int, x int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minAbsoluteDifference(nums: number[], x: number): number {
@@ -683,4 +700,6 @@ class TreeMultiSet<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

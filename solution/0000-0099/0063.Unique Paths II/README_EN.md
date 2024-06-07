@@ -8,11 +8,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [63. Unique Paths II](https://leetcode.com/problems/unique-paths-ii)
 
 [中文文档](/solution/0000-0099/0063.Unique%20Paths%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> integer array <code>grid</code>. There is a robot initially located at the <b>top-left corner</b> (i.e., <code>grid[0][0]</code>). The robot tries to move to the <strong>bottom-right corner</strong> (i.e., <code>grid[m - 1][n - 1]</code>). The robot can only move either down or right at any point in time.</p>
 
@@ -51,7 +55,11 @@ There are two ways to reach the bottom-right corner:
 	<li><code>obstacleGrid[i][j]</code> is <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -69,6 +77,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
@@ -83,6 +93,8 @@ class Solution:
         m, n = len(obstacleGrid), len(obstacleGrid[0])
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
@@ -165,6 +181,8 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
     const m = obstacleGrid.length;
@@ -188,6 +206,10 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We define $f[i][j]$ as the number of paths to reach the grid $(i,j)$.
@@ -202,6 +224,8 @@ Finally, return $f[m - 1][n - 1]$.
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -222,6 +246,8 @@ class Solution:
                     f[i][j] = f[i - 1][j] + f[i][j - 1]
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -245,6 +271,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -270,6 +298,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 	m, n := len(obstacleGrid), len(obstacleGrid[0])
@@ -293,6 +323,8 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 	return f[m-1][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
@@ -322,6 +354,8 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
     return f[m - 1][n - 1];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -356,4 +390,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

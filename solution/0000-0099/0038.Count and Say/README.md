@@ -6,68 +6,61 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [38. 外观数列](https://leetcode.cn/problems/count-and-say)
 
 [English Version](/solution/0000-0099/0038.Count%20and%20Say/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给定一个正整数 <code>n</code> ，输出外观数列的第 <code>n</code> 项。</p>
-
-<p>「外观数列」是一个整数序列，从数字 1 开始，序列中的每一项都是对前一项的描述。</p>
-
-<p>你可以将其视作是由递归公式定义的数字字符串序列：</p>
+<p>「外观数列」是一个数位字符串序列，由递归公式定义：</p>
 
 <ul>
 	<li><code>countAndSay(1) = "1"</code></li>
-	<li><code>countAndSay(n)</code> 是对 <code>countAndSay(n-1)</code> 的描述，然后转换成另一个数字字符串。</li>
-</ul>
-
-<p>前五项如下：</p>
-
-<pre>
-1.     1
-2.     11
-3.     21
-4.     1211
-5.     111221
-第一项是数字 1 
-描述前一项，这个数是 <code>1</code> 即 “ 一 个 1 ”，记作 <code>"11"
-</code>描述前一项，这个数是 <code>11</code> 即 “ 二 个 1 ” ，记作 <code>"21"
-</code>描述前一项，这个数是 <code>21</code> 即 “ 一 个 2 + 一 个 1 ” ，记作 "<code>1211"
-</code>描述前一项，这个数是 <code>1211</code> 即 “ 一 个 1 + 一 个 2 + 二 个 1 ” ，记作 "<code>111221"</code>
-</pre>
-
-<p>要 <strong>描述</strong> 一个数字字符串，首先要将字符串分割为 <strong>最小</strong> 数量的组，每个组都由连续的最多 <strong>相同字符</strong> 组成。然后对于每个组，先描述字符的数量，然后描述字符，形成一个描述组。要将描述转换为数字字符串，先将每组中的字符数量用数字替换，再将所有描述组连接起来。</p>
-
-<p>例如，数字字符串 <code>"3322251"</code> 的描述如下图：</p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0038.Count%20and%20Say/images/1629874763-TGmKUh-image.png" style="width: 581px; height: 172px;" />
-<ul>
+	<li><code>countAndSay(n)</code> 是&nbsp;<code>countAndSay(n-1)</code> 的行程长度编码。</li>
 </ul>
 
 <p>&nbsp;</p>
 
+<ul>
+</ul>
+
+<p><a href="https://baike.baidu.com/item/%E8%A1%8C%E7%A8%8B%E9%95%BF%E5%BA%A6%E7%BC%96%E7%A0%81/2931940">行程长度编码</a>（RLE）是一种字符串压缩方法，其工作原理是通过将连续相同字符（重复两次或更多次）替换为字符重复次数（运行长度）和字符的串联。例如，要压缩字符串&nbsp;<code>"3322251"</code>&nbsp;，我们将&nbsp;<code>"33"</code>&nbsp;用&nbsp;<code>"23"</code>&nbsp;替换，将&nbsp;<code>"222"</code>&nbsp;用&nbsp;<code>"32"</code>&nbsp;替换，将&nbsp;<code>"5"</code>&nbsp;用&nbsp;<code>"15"</code>&nbsp;替换并将&nbsp;<code>"1"</code>&nbsp;用&nbsp;<code>"11"</code>&nbsp;替换。因此压缩后字符串变为 <code>"23321511"</code>。</p>
+
+<p>给定一个整数&nbsp;<code>n</code>&nbsp;，返回&nbsp;<strong>外观数列</strong>&nbsp;的第&nbsp;<code>n</code>&nbsp;个元素。</p>
+
 <p><strong>示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>n = 1
-<strong>输出：</strong>"1"
-<strong>解释：</strong>这是一个基本样例。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong>n = 4</p>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>输出：</strong>"1211"</p>
 
-<pre>
-<strong>输入：</strong>n = 4
-<strong>输出：</strong>"1211"
-<strong>解释：</strong>
-countAndSay(1) = "1"
-countAndSay(2) = 读 "1" = 一 个 1 = "11"
-countAndSay(3) = 读 "11" = 二 个 1 = "21"
-countAndSay(4) = 读 "21" = 一 个 2 + 一 个 1 = "12" + "11" = "1211"
-</pre>
+<p><strong>解释：</strong></p>
+
+<p>countAndSay(1) = "1"</p>
+
+<p>countAndSay(2) = "1" 的行程长度编码 = "11"</p>
+
+<p>countAndSay(3) = "11" 的行程长度编码 = "21"</p>
+
+<p>countAndSay(4) = "21" 的行程长度编码 = "1211"</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">n = 1</span></p>
+
+<p><strong>输出：</strong><span class="example-io">"1"</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>这是基本情况。</p>
+</div>
 
 <p>&nbsp;</p>
 
@@ -77,11 +70,20 @@ countAndSay(4) = 读 "21" = 一 个 2 + 一 个 1 = "12" + "11" = "1211"
 	<li><code>1 &lt;= n &lt;= 30</code></li>
 </ul>
 
+<p>&nbsp;</p>
+<strong>进阶：</strong>你能迭代解决该问题吗？
+
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +102,8 @@ class Solution:
             s = ''.join(t)
         return s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countAndSay(n int) string {
@@ -165,6 +173,8 @@ func countAndSay(n int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countAndSay(n: number): string {
     let s = '1';
@@ -186,6 +196,8 @@ function countAndSay(n: number): string {
     return s;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::iter::once;
@@ -211,6 +223,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 const countAndSay = function (n) {
     let s = '1';
@@ -233,6 +247,8 @@ const countAndSay = function (n) {
     return s;
 };
 ```
+
+#### C#
 
 ```cs
 using System.Text;
@@ -274,6 +290,8 @@ public class Solution {
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -308,4 +326,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

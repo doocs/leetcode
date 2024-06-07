@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20091.%20%E7%B2%89%E5%88%B7%E6%88%BF%E5%AD%90/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 091. 粉刷房子](https://leetcode.cn/problems/JEj789)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假如有一排房子，共 <code>n</code> 个，每个房子可以被粉刷成红色、蓝色或者绿色这三种颜色中的一种，你需要粉刷所有的房子并且使其相邻的两个房子颜色不能相同。</p>
 
@@ -50,11 +52,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 256&nbsp;题相同：<a href="https://leetcode.cn/problems/paint-house/">https://leetcode.cn/problems/paint-house/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +75,8 @@ class Solution:
             b = min(_r, _g) + cost[2]
         return min(r, g, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(costs [][]int) int {
 	r, g, b := 0, 0, 0
@@ -112,6 +126,8 @@ func minCost(costs [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCost(costs: number[][]): number {
     let [r, g, b] = [0, 0, 0];
@@ -121,6 +137,8 @@ function minCost(costs: number[][]): number {
     return Math.min(r, g, b);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -140,4 +158,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

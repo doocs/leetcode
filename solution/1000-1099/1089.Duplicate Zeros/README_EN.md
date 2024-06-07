@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1089.Duplicate%20Zeros/README_EN.md
 rating: 1262
+source: Weekly Contest 141 Q1
 tags:
     - Array
     - Two Pointers
 ---
+
+<!-- problem:start -->
 
 # [1089. Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros)
 
 [中文文档](/solution/1000-1099/1089.Duplicate%20Zeros/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a fixed-length integer array <code>arr</code>, duplicate each occurrence of zero, shifting the remaining elements to the right.</p>
 
@@ -43,11 +48,17 @@ tags:
 	<li><code>0 &lt;= arr[i] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +83,8 @@ class Solution:
                 arr[j] = arr[i]
             i, j = i - 1, j - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func duplicateZeros(arr []int) {
@@ -149,6 +166,8 @@ func duplicateZeros(arr []int) {
 	}
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -177,6 +196,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 void duplicateZeros(int* arr, int arrSize) {
@@ -207,4 +228,6 @@ void duplicateZeros(int* arr, int arrSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

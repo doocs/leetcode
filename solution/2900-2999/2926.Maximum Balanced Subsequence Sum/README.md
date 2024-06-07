@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README.md
 rating: 2448
+source: 第 370 场周赛 Q4
 tags:
     - 树状数组
     - 线段树
@@ -11,13 +12,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [2926. 平衡子序列的最大和](https://leetcode.cn/problems/maximum-balanced-subsequence-sum)
 
 [English Version](/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -76,7 +79,11 @@ nums[3] - nums[0] &gt;= 3 - 0 。
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划 + 树状数组
 
@@ -99,6 +106,8 @@ $$
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -130,6 +139,8 @@ class Solution:
             tree.update(j, v)
         return tree.query(len(s))
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -198,6 +209,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -249,6 +262,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const inf int = 1e18
@@ -306,6 +321,8 @@ func maxBalancedSubsequenceSum(nums []int) int64 {
 	return int64(tree.query(m))
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -372,4 +389,6 @@ function maxBalancedSubsequenceSum(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

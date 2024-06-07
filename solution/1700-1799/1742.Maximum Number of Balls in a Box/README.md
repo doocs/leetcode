@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1742.Maximum%20Number%20of%20Balls%20in%20a%20Box/README.md
 rating: 1277
+source: 第 226 场周赛 Q1
 tags:
     - 哈希表
     - 数学
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [1742. 盒子中小球的最大数量](https://leetcode.cn/problems/maximum-number-of-balls-in-a-box)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你在一家生产小球的玩具厂工作，有 <code>n</code> 个小球，编号从 <code>lowLimit</code> 开始，到 <code>highLimit</code> 结束（包括 <code>lowLimit</code> 和 <code>highLimit</code> ，即 <code>n == highLimit - lowLimit + 1</code>）。另有无限数量的盒子，编号从 <code>1</code> 到 <code>infinity</code> 。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>1 <= lowLimit <= highLimit <= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组 + 模拟
 
@@ -76,6 +83,8 @@ tags:
 时间复杂度 $O(n \times \log_{10}m)$。其中 $n = highLimit - lowLimit + 1$，而 $m = highLimit$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +98,8 @@ class Solution:
             cnt[y] += 1
         return max(cnt)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countBalls(lowLimit int, highLimit int) (ans int) {
 	cnt := [50]int{}
@@ -141,6 +156,8 @@ func countBalls(lowLimit int, highLimit int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countBalls(lowLimit: number, highLimit: number): number {
     const cnt: number[] = Array(50).fill(0);
@@ -157,4 +174,6 @@ function countBalls(lowLimit: number, highLimit: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2966.Divide%20Array%20Into%20Arrays%20With%20Max%20Difference/README_EN.md
 rating: 1395
+source: Weekly Contest 376 Q2
 tags:
     - Greedy
     - Array
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2966. Divide Array Into Arrays With Max Difference](https://leetcode.com/problems/divide-array-into-arrays-with-max-difference)
 
 [中文文档](/solution/2900-2999/2966.Divide%20Array%20Into%20Arrays%20With%20Max%20Difference/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> of size <code>n</code> and a positive integer <code>k</code>.</p>
 
@@ -56,7 +61,11 @@ Note that the order of elements is not important.
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -65,6 +74,8 @@ First, we sort the array. Then, we take out three elements each time. If the dif
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +90,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func divideArray(nums []int, k int) [][]int {
 	sort.Ints(nums)
@@ -131,6 +148,8 @@ func divideArray(nums []int, k int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function divideArray(nums: number[], k: number): number[][] {
@@ -149,4 +168,6 @@ function divideArray(nums: number[], k: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

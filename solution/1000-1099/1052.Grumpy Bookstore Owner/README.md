@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README.md
 rating: 1418
+source: 第 138 场周赛 Q2
 tags:
     - 数组
     - 滑动窗口
 ---
+
+<!-- problem:start -->
 
 # [1052. 爱生气的书店老板](https://leetcode.cn/problems/grumpy-bookstore-owner)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个书店老板，他的书店开了&nbsp;<code>n</code>&nbsp;分钟。每分钟都有一些顾客进入这家商店。给定一个长度为 <code>n</code> 的整数数组 <code>customers</code> ，其中 <code>customers[i]</code> 是在第 <code>i</code> 分钟开始时进入商店的顾客数量，所有这些顾客在第 <code>i</code> 分钟结束后离开。</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>grumpy[i] == 0 or 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口
 
@@ -67,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSatisfied(
@@ -79,6 +88,8 @@ class Solution:
             mx = max(mx, cnt)
         return sum(c * (g ^ 1) for c, g in zip(customers, grumpy)) + mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSatisfied(customers []int, grumpy []int, minutes int) int {
 	var cnt, tot int
@@ -143,6 +158,8 @@ func maxSatisfied(customers []int, grumpy []int, minutes int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSatisfied(customers: number[], grumpy: number[], minutes: number): number {
     let [cnt, tot] = [0, 0];
@@ -160,6 +177,8 @@ function maxSatisfied(customers: number[], grumpy: number[], minutes: number): n
     return tot + mx;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -186,4 +205,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

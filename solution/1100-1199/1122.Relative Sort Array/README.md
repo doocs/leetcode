@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1122.Relative%20Sort%20Array/README.md
 rating: 1188
+source: 第 145 场周赛 Q1
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1122. 数组的相对排序](https://leetcode.cn/problems/relative-sort-array)
 
 [English Version](/solution/1100-1199/1122.Relative%20Sort%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个数组，<code>arr1</code> 和&nbsp;<code>arr2</code>，<code>arr2</code>&nbsp;中的元素各不相同，<code>arr2</code> 中的每个元素都出现在&nbsp;<code>arr1</code>&nbsp;中。</p>
 
@@ -49,7 +52,11 @@ tags:
 	<li><code>arr2</code> 中的每个元素&nbsp;<code>arr2[i]</code>&nbsp;都出现在&nbsp;<code>arr1</code>&nbsp;中</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：自定义排序
 
@@ -59,12 +66,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
         pos = {x: i for i, x in enumerate(arr2)}
         return sorted(arr1, key=lambda x: pos.get(x, 1000 + x))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func relativeSortArray(arr1 []int, arr2 []int) []int {
@@ -132,6 +147,8 @@ func relativeSortArray(arr1 []int, arr2 []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function relativeSortArray(arr1: number[], arr2: number[]): number[] {
     const pos: Map<number, number> = new Map();
@@ -150,4 +167,6 @@ function relativeSortArray(arr1: number[], arr2: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

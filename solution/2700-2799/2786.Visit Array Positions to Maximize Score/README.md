@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README.md
 rating: 1732
+source: 第 109 场双周赛 Q3
 tags:
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2786. 访问数组中的位置使分数最大](https://leetcode.cn/problems/visit-array-positions-to-maximize-score)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;和一个正整数&nbsp;<code>x</code>&nbsp;。</p>
 
@@ -58,11 +61,17 @@ tags:
 	<li><code>1 &lt;= nums[i], x &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +82,8 @@ class Solution:
             f[v & 1] = max(f[v & 1] + v, f[v & 1 ^ 1] + v - x)
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxScore(nums []int, x int) int64 {
 	const inf int = 1 << 40
@@ -115,6 +130,8 @@ func maxScore(nums []int, x int) int64 {
 	return int64(max(f[0], f[1]))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxScore(nums: number[], x: number): number {
@@ -130,4 +147,6 @@ function maxScore(nums: number[], x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README.md
 rating: 2363
+source: 第 227 场周赛 Q4
 tags:
     - 位运算
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [1755. 最接近目标值的子序列和](https://leetcode.cn/problems/closest-subsequence-sum)
 
 [English Version](/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 和一个目标值 <code>goal</code> 。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>-10<sup>9</sup> &lt;= goal &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS + 二分查找
 
@@ -76,6 +83,8 @@ tags:
 -   [1774. 最接近目标价格的甜点成本](https://github.com/doocs/leetcode/blob/main/solution/1700-1799/1774.Closest%20Dessert%20Cost/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +120,8 @@ class Solution:
         self.getSubSeqSum(i + 1, curr, arr, result)
         self.getSubSeqSum(i + 1, curr + arr[i], arr, result)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +168,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -205,6 +218,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minAbsDifference(nums []int, goal int) int {
@@ -260,9 +275,15 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -289,6 +310,8 @@ class Solution:
                 ans = min(ans, abs(x - right[i - 1]))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -333,6 +356,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -364,6 +389,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minAbsDifference(nums []int, goal int) int {
@@ -414,4 +441,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

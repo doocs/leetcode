@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2234.Maximum%20Total%20Beauty%20of%20the%20Gardens/README.md
 rating: 2561
+source: 第 288 场周赛 Q4
 tags:
     - 贪心
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2234. 花园的最大总美丽值](https://leetcode.cn/problems/maximum-total-beauty-of-the-gardens)
 
 [English Version](/solution/2200-2299/2234.Maximum%20Total%20Beauty%20of%20the%20Gardens/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 是&nbsp;<code>n</code>&nbsp;个花园的园丁，她想通过种花，最大化她所有花园的总美丽值。</p>
 
@@ -78,7 +81,11 @@ tags:
 	<li><code>1 &lt;= full, partial &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 二分查找
 
@@ -95,6 +102,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $flowers$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -123,6 +132,8 @@ class Solution:
             ans = max(ans, x * full + y * partial)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -166,6 +177,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -207,6 +220,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumBeauty(flowers []int, newFlowers int64, target int, full int, partial int) int64 {
 	sort.Ints(flowers)
@@ -243,6 +258,8 @@ func maximumBeauty(flowers []int, newFlowers int64, target int, full int, partia
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumBeauty(
@@ -288,4 +305,6 @@ function maximumBeauty(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

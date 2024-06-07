@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1281.Subtract%20the%20Product%20and%20Sum%20of%20Digits%20of%20an%20Integer/README_EN.md
 rating: 1141
+source: Weekly Contest 166 Q1
 tags:
     - Math
 ---
+
+<!-- problem:start -->
 
 # [1281. Subtract the Product and Sum of Digits of an Integer](https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer)
 
 [中文文档](/solution/1200-1299/1281.Subtract%20the%20Product%20and%20Sum%20of%20Digits%20of%20an%20Integer/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 Given an integer number <code>n</code>, return the difference between the product of its digits and the sum of its digits.
 
@@ -45,7 +50,11 @@ Result = 32 - 11 = 21
 	<li><code>1 &lt;= n &lt;= 10^5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -59,6 +68,8 @@ The time complexity is $O(\log n)$, where $n$ is the given integer. The space co
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
@@ -69,6 +80,8 @@ class Solution:
             y += v
         return x - y
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subtractProductAndSum(n int) int {
 	x, y := 1, 0
@@ -111,6 +128,8 @@ func subtractProductAndSum(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subtractProductAndSum(n: number): number {
     let [x, y] = [1, 0];
@@ -122,6 +141,8 @@ function subtractProductAndSum(n: number): number {
     return x - y;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -139,6 +160,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int SubtractProductAndSum(int n) {
@@ -153,6 +176,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int subtractProductAndSum(int n) {
@@ -169,9 +194,15 @@ int subtractProductAndSum(int n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -182,4 +213,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

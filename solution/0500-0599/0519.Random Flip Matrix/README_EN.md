@@ -9,11 +9,15 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [519. Random Flip Matrix](https://leetcode.com/problems/random-flip-matrix)
 
 [中文文档](/solution/0500-0599/0519.Random%20Flip%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an <code>m x n</code> binary grid <code>matrix</code> with all the values set <code>0</code> initially. Design an algorithm to randomly pick an index <code>(i, j)</code> where <code>matrix[i][j] == 0</code> and flips it to <code>1</code>. All the indices <code>(i, j)</code> where <code>matrix[i][j] == 0</code> should be equally likely to be returned.</p>
 
@@ -55,11 +59,17 @@ solution.flip();  // return [2, 0], [0,0], [1,0], and [2,0] should be equally li
 	<li>At most <code>1000</code> calls will be made to <code>flip</code> and <code>reset</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +96,8 @@ class Solution:
 # param_1 = obj.flip()
 # obj.reset()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,4 +136,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

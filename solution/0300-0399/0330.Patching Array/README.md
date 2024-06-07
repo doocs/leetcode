@@ -7,13 +7,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [330. 按要求补齐数组](https://leetcode.cn/problems/patching-array)
 
 [English Version](/solution/0300-0399/0330.Patching%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个已排序的正整数数组 <code>nums</code>&nbsp;<em>，</em>和一个正整数&nbsp;<code>n</code><em> 。</em>从&nbsp;<code>[1, n]</code>&nbsp;区间内选取任意个数字补充到&nbsp;nums&nbsp;中，使得&nbsp;<code>[1, n]</code>&nbsp;区间内的任何数字都可以用&nbsp;nums&nbsp;中某几个数字的和来表示。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup>&nbsp;- 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -83,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minPatches(self, nums: List[int], n: int) -> int:
@@ -97,6 +105,8 @@ class Solution:
                 x <<= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minPatches(nums []int, n int) (ans int) {
 	x := 1
@@ -150,6 +164,8 @@ func minPatches(nums []int, n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minPatches(nums: number[], n: number): number {
@@ -169,4 +185,6 @@ function minPatches(nums: number[], n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

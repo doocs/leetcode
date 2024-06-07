@@ -4,11 +4,15 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.03.Intersection/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.03. Intersection](https://leetcode.cn/problems/intersection-lcci)
 
 [中文文档](/lcci/16.03.Intersection/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two straight line segments (represented as a start point and an end point), compute the point of intersection, if any. If there&#39;s no intersection, return an empty array.</p>
 The absolute error should not exceed 10^-6. If there are more than one intersections, return the one with smallest X axis value. If there are more than one intersections that have same X axis value, return the one with smallest Y axis value.
@@ -54,6 +58,10 @@ line2 = {1, 0}, {2, 1}
 	<li>All coordinates are valid 2D coordinates.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

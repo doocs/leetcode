@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1463.Cherry%20Pickup%20II/README_EN.md
 rating: 1956
+source: Biweekly Contest 27 Q4
 tags:
     - Array
     - Dynamic Programming
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1463. Cherry Pickup II](https://leetcode.com/problems/cherry-pickup-ii)
 
 [中文文档](/solution/1400-1499/1463.Cherry%20Pickup%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <code>rows x cols</code> matrix <code>grid</code> representing a field of cherries where <code>grid[i][j]</code> represents the number of cherries that you can collect from the <code>(i, j)</code> cell.</p>
 
@@ -67,7 +72,11 @@ Total of cherries: 17 + 11 = 28.
 	<li><code>0 &lt;= grid[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -87,6 +96,8 @@ The time complexity is $O(m \times n^2)$, and the space complexity is $O(m \time
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def cherryPickup(self, grid: List[List[int]]) -> int:
@@ -103,6 +114,8 @@ class Solution:
                                 f[i][j1][j2] = max(f[i][j1][j2], f[i - 1][y1][y2] + x)
         return max(f[-1][j1][j2] for j1, j2 in product(range(n), range(n)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func cherryPickup(grid [][]int) (ans int) {
@@ -211,6 +228,8 @@ func cherryPickup(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function cherryPickup(grid: number[][]): number {
     const m = grid.length;
@@ -239,11 +258,17 @@ function cherryPickup(grid: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming (Space Optimization)
 
 Notice that the calculation of $f[i][j_1][j_2]$ is only related to $f[i-1][y_1][y_2]$. Therefore, we can use a rolling array to optimize the space complexity. After optimizing the space complexity, the time complexity is $O(n^2)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -263,6 +288,8 @@ class Solution:
             f, g = g, f
         return max(f[j1][j2] for j1, j2 in product(range(n), range(n)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -303,6 +330,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -336,6 +365,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func cherryPickup(grid [][]int) (ans int) {
@@ -376,6 +407,8 @@ func cherryPickup(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function cherryPickup(grid: number[][]): number {
     const m = grid.length;
@@ -404,4 +437,6 @@ function cherryPickup(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

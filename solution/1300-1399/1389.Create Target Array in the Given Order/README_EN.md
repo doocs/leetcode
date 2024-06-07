@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1389.Create%20Target%20Array%20in%20the%20Given%20Order/README_EN.md
 rating: 1208
+source: Weekly Contest 181 Q1
 tags:
     - Array
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [1389. Create Target Array in the Given Order](https://leetcode.com/problems/create-target-array-in-the-given-order)
 
 [中文文档](/solution/1300-1399/1389.Create%20Target%20Array%20in%20the%20Given%20Order/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two arrays of integers&nbsp;<code>nums</code> and <code>index</code>. Your task is to create <em>target</em> array under the following rules:</p>
 
@@ -72,7 +77,11 @@ nums       index     target
 	<li><code>0 &lt;= index[i] &lt;= i</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -82,6 +91,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
@@ -90,6 +101,8 @@ class Solution:
             target.insert(i, x)
         return target
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func createTargetArray(nums []int, index []int) []int {
 	target := make([]int, len(nums))
@@ -132,6 +149,8 @@ func createTargetArray(nums []int, index []int) []int {
 	return target
 }
 ```
+
+#### TypeScript
 
 ```ts
 function createTargetArray(nums: number[], index: number[]): number[] {
@@ -145,4 +164,6 @@ function createTargetArray(nums: number[], index: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

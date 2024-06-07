@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2372. Calculate the Influence of Each Salesperson 🔒](https://leetcode.com/problems/calculate-the-influence-of-each-salesperson)
 
 [中文文档](/solution/2300-2399/2372.Calculate%20the%20Influence%20of%20Each%20Salesperson/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Salesperson</code></p>
 
@@ -118,11 +122,17 @@ Jerry is not the salesperson of any customer.
 The total for Jerry is 0.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -136,4 +146,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

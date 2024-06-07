@@ -10,13 +10,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [832. 翻转图像](https://leetcode.cn/problems/flipping-an-image)
 
 [English Version](/solution/0800-0899/0832.Flipping%20an%20Image/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个<meta charset="UTF-8" />&nbsp;<code>n x n</code>&nbsp;的二进制矩阵&nbsp;<code>image</code>&nbsp;，先 <strong>水平</strong> 翻转图像，然后&nbsp;<strong>反转&nbsp;</strong>图像并返回&nbsp;<em>结果</em>&nbsp;。</p>
 
@@ -65,7 +67,11 @@ tags:
 	<li><code>images[i][j]</code>&nbsp;==&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -78,6 +84,8 @@ tags:
 时间复杂度 $O(n^2)$，其中 $n$ 是矩阵的行数或列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +102,8 @@ class Solution:
                 row[i] ^= 1
         return image
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func flipAndInvertImage(image [][]int) [][]int {
 	for _, row := range image {
@@ -153,6 +167,8 @@ func flipAndInvertImage(image [][]int) [][]int {
 	return image
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -179,4 +195,6 @@ var flipAndInvertImage = function (image) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

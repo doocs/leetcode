@@ -9,13 +9,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [307. 区域和检索 - 数组可修改](https://leetcode.cn/problems/range-sum-query-mutable)
 
 [English Version](/solution/0300-0399/0307.Range%20Sum%20Query%20-%20Mutable/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组 <code>nums</code> ，请你完成两类查询。</p>
 
@@ -63,7 +65,11 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
 	<li>调用 <code>update</code> 和 <code>sumRange</code> 方法次数不大于&nbsp;<code>3 * 10<sup>4</sup></code>&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：树状数组
 
@@ -85,6 +91,8 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
 空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -128,6 +136,8 @@ class NumArray:
 # obj.update(index,val)
 # param_2 = obj.sumRange(left,right)
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -185,6 +195,8 @@ class NumArray {
  */
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -240,6 +252,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -292,6 +306,8 @@ func (t *NumArray) SumRange(left int, right int) int {
  * param_2 := obj.SumRange(left,right);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -348,6 +364,8 @@ class NumArray {
  * var param_2 = obj.sumRange(left,right)
  */
 ```
+
+#### C#
 
 ```cs
 class BinaryIndexedTree {
@@ -407,6 +425,10 @@ public class NumArray {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：线段树
 
 线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 $\log(width)$。更新某个元素的值，只需要更新 $\log(width)$ 个区间，并且这些区间都包含在一个包含该元素的大区间内。
@@ -419,6 +441,8 @@ public class NumArray {
 对于本题，构造函数的时间复杂度为 $O(n \log n)$，其他操作的时间复杂度为 $O(\log n)$。空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -491,6 +515,8 @@ class NumArray:
 # obj.update(index,val)
 # param_2 = obj.sumRange(left,right)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -584,6 +610,8 @@ class NumArray {
  */
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -669,6 +697,8 @@ public:
  * int param_2 = obj->sumRange(left,right);
  */
 ```
+
+#### Go
 
 ```go
 type Node struct {
@@ -764,6 +794,8 @@ func (this *NumArray) SumRange(left int, right int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class Node {
     l: number;
@@ -855,6 +887,8 @@ class NumArray {
  * var param_2 = obj.sumRange(left,right)
  */
 ```
+
+#### C#
 
 ```cs
 public class Node {
@@ -950,4 +984,6 @@ public class NumArray {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

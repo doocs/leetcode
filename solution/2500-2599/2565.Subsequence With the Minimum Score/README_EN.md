@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README_EN.md
 rating: 2432
+source: Weekly Contest 332 Q4
 tags:
     - Two Pointers
     - String
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2565. Subsequence With the Minimum Score](https://leetcode.com/problems/subsequence-with-the-minimum-score)
 
 [中文文档](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>s</code> and <code>t</code>.</p>
 
@@ -61,7 +66,11 @@ It can be proven that 3 is the minimum score that we can achieve.
 	<li><code>s</code> and <code>t</code> consist of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix and Suffix Preprocessing + Binary Search
 
@@ -74,6 +83,8 @@ The length of the deleted characters has monotonicity. If the condition is satis
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of string $t$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +116,8 @@ class Solution:
 
         return bisect_left(range(n + 1), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -206,6 +221,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumScore(s string, t string) int {
 	m, n := len(s), len(t)
@@ -248,4 +265,6 @@ func minimumScore(s string, t string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

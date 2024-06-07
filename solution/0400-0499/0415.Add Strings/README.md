@@ -8,13 +8,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [415. 字符串相加](https://leetcode.cn/problems/add-strings)
 
 [English Version](/solution/0400-0499/0415.Add%20Strings/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串形式的非负整数&nbsp;<code>num1</code> 和<code>num2</code>&nbsp;，计算它们的和并同样以字符串形式返回。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>num1</code> 和<code>num2</code> 都不包含任何前导零</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -68,6 +74,8 @@ tags:
 以下代码还实现了字符串相减，参考 `subStrings(num1, num2)` 函数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +110,8 @@ class Solution:
             ans.append('-')
         return ''.join(ans[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -185,6 +197,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func addStrings(num1 string, num2 string) string {
@@ -239,6 +253,8 @@ func subStrings(num1 string, num2 string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function addStrings(num1: string, num2: string): string {
     let i = num1.length - 1;
@@ -280,6 +296,8 @@ function subStrings(num1: string, num2: string): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn add_strings(num1: String, num2: String) -> String {
@@ -305,6 +323,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -359,4 +379,6 @@ var subStrings = function (num1, num2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

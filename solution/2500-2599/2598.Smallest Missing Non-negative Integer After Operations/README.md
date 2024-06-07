@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README.md
 rating: 1845
+source: 第 337 场周赛 Q4
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [2598. 执行操作后的最大 MEX](https://leetcode.cn/problems/smallest-missing-non-negative-integer-after-operations)
 
 [English Version](/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 和一个整数 <code>value</code> 。</p>
 
@@ -65,7 +68,11 @@ nums 的 MEX 是 2 。可以证明 2 是可以取到的最大 MEX 。
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -77,6 +84,8 @@ nums 的 MEX 是 2 。可以证明 2 是可以取到的最大 MEX 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findSmallestInteger(self, nums: List[int], value: int) -> int:
@@ -86,6 +95,8 @@ class Solution:
                 return i
             cnt[i % value] -= 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findSmallestInteger(nums []int, value int) int {
 	cnt := make([]int, value)
@@ -135,6 +150,8 @@ func findSmallestInteger(nums []int, value int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findSmallestInteger(nums: number[], value: number): number {
@@ -152,4 +169,6 @@ function findSmallestInteger(nums: number[], value: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

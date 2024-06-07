@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1185.Day%20of%20the%20Week/README_EN.md
 rating: 1382
+source: Weekly Contest 153 Q2
 tags:
     - Math
 ---
+
+<!-- problem:start -->
 
 # [1185. Day of the Week](https://leetcode.com/problems/day-of-the-week)
 
 [中文文档](/solution/1100-1199/1185.Day%20of%20the%20Week/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a date, return the corresponding day of the week for that date.</p>
 
@@ -48,7 +53,11 @@ tags:
 	<li>The given dates are valid dates between the years <code>1971</code> and <code>2100</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Zeller's Congruence
 
@@ -72,11 +81,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dayOfTheWeek(self, day: int, month: int, year: int) -> str:
         return datetime.date(year, month, day).strftime('%A')
 ```
+
+#### Java
 
 ```java
 import java.util.Calendar;
@@ -92,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dayOfTheWeek(d int, m int, y int) string {
 	if m < 3 {
@@ -123,6 +140,8 @@ func dayOfTheWeek(d int, m int, y int) string {
 	return weeks[(w+7)%7]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function dayOfTheWeek(d: number, m: number, y: number): string {
@@ -148,9 +167,15 @@ function dayOfTheWeek(d: number, m: number, y: number): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -172,6 +197,8 @@ class Solution:
         ][w]
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String dayOfTheWeek(int d, int m, int y) {
@@ -190,4 +217,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

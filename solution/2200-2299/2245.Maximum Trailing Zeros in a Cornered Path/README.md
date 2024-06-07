@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2245.Maximum%20Trailing%20Zeros%20in%20a%20Cornered%20Path/README.md
 rating: 2036
+source: 第 289 场周赛 Q3
 tags:
     - 数组
     - 矩阵
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [2245. 转角路径的乘积中最多能有几个尾随零](https://leetcode.cn/problems/maximum-trailing-zeros-in-a-cornered-path)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二维整数数组 <code>grid</code> ，大小为 <code>m x n</code>，其中每个单元格都含一个正整数。</p>
 
@@ -72,7 +75,11 @@ tags:
 	<li><code>1 &lt;= grid[i][j] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 枚举拐点
 
@@ -101,6 +108,8 @@ tags:
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维数组 `grid` 的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -136,6 +145,8 @@ class Solution:
                 ans = max(ans, a, b, c, d)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -177,6 +188,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -216,6 +229,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxTrailingZeros(grid [][]int) (ans int) {
@@ -261,6 +276,8 @@ func get(m, n int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxTrailingZeros(grid: number[][]): number {
     const m = grid.length;
@@ -305,4 +322,6 @@ function maxTrailingZeros(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

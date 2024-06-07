@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20060.%20%E5%87%BA%E7%8E%B0%E9%A2%91%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%20k%20%E4%B8%AA%E6%95%B0%E5%AD%97/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 060. 出现频率最高的 k 个数字](https://leetcode.cn/problems/g5c51o)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组 <code>nums</code> 和一个整数 <code>k</code>&nbsp;，请返回其中出现频率前 <code>k</code> 高的元素。可以按 <strong>任意顺序</strong> 返回答案。</p>
 
@@ -44,7 +46,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 347&nbsp;题相同：<a href="https://leetcode.cn/problems/top-k-frequent-elements/">https://leetcode.cn/problems/top-k-frequent-elements/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 优先队列（小根堆）
 
@@ -54,12 +60,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         cnt = Counter(nums)
         return [v[0] for v in cnt.most_common(k)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using pii = pair<int, int>;
@@ -102,6 +114,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func topKFrequent(nums []int, k int) []int {
@@ -133,6 +147,8 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
+#### TypeScript
+
 ```ts
 function topKFrequent(nums: number[], k: number): number[] {
     let hashMap = new Map();
@@ -148,6 +164,8 @@ function topKFrequent(nums: number[], k: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -182,9 +200,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -197,6 +221,8 @@ class Solution:
                 heappop(hp)
         return [v[1] for v in hp]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -220,6 +246,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 function topKFrequent(nums: number[], k: number): number[] {
@@ -246,4 +274,6 @@ function topKFrequent(nums: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

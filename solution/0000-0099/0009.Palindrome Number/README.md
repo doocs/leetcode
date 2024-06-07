@@ -6,13 +6,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [9. 回文数](https://leetcode.cn/problems/palindrome-number)
 
 [English Version](/solution/0000-0099/0009.Palindrome%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>x</code> ，如果 <code>x</code> 是一个回文整数，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
@@ -59,7 +61,11 @@ tags:
 
 <p><strong>进阶：</strong>你能不将整数转为字符串来解决这个问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：反转一半数字
 
@@ -87,6 +93,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPalindrome(self, x: int) -> bool:
@@ -98,6 +106,8 @@ class Solution:
             x //= 10
         return x in (y, y // 10)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPalindrome(x int) bool {
 	if x < 0 || (x > 0 && x%10 == 0) {
@@ -143,6 +157,8 @@ func isPalindrome(x int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isPalindrome(x: number): boolean {
     if (x < 0 || (x > 0 && x % 10 === 0)) {
@@ -155,6 +171,8 @@ function isPalindrome(x: number): boolean {
     return x === y || x === ~~(y / 10);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -179,6 +197,8 @@ impl Solution {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn is_palindrome(mut x: i32) -> bool {
@@ -195,6 +215,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -213,6 +235,8 @@ var isPalindrome = function (x) {
 };
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -230,4 +254,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

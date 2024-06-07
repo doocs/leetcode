@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2904.Shortest%20and%20Lexicographically%20Smallest%20Beautiful%20String/README_EN.md
 rating: 1483
+source: Weekly Contest 367 Q2
 tags:
     - String
     - Sliding Window
 ---
+
+<!-- problem:start -->
 
 # [2904. Shortest and Lexicographically Smallest Beautiful String](https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string)
 
 [中文文档](/solution/2900-2999/2904.Shortest%20and%20Lexicographically%20Smallest%20Beautiful%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a binary string <code>s</code> and a positive integer <code>k</code>.</p>
 
@@ -75,7 +80,11 @@ The lexicographically smallest beautiful substring with length 2 is the substrin
 	<li><code>1 &lt;= k &lt;= s.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -84,6 +93,8 @@ We can enumerate all substrings $s[i: j]$, where $i \lt j$, and check if they ar
 The time complexity is $O(n^3)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +110,8 @@ class Solution:
                     ans = t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestBeautifulSubstring(s string, k int) (ans string) {
@@ -165,6 +182,8 @@ func shortestBeautifulSubstring(s string, k int) (ans string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shortestBeautifulSubstring(s: string, k: number): string {
     const n = s.length;
@@ -184,6 +203,8 @@ function shortestBeautifulSubstring(s: string, k: number): string {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -209,6 +230,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Two Pointers
 
 We can also use two pointers to maintain a sliding window, where pointer $i$ points to the left boundary of the window, and pointer $j$ points to the right boundary of the window. Initially, $i$ and $j$ both point to $0$. In addition, we use a variable $cnt$ to record the number of $1$s in the sliding window.
@@ -220,6 +245,8 @@ When $cnt$ equals $k$, we have found a beautiful substring. We compare it with t
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -239,6 +266,8 @@ class Solution:
                 ans = s[i:j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -265,6 +294,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -288,6 +319,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestBeautifulSubstring(s string, k int) (ans string) {
 	i, j, cnt := 0, 0, 0
@@ -308,6 +341,8 @@ func shortestBeautifulSubstring(s string, k int) (ans string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shortestBeautifulSubstring(s: string, k: number): string {
     let [i, j, cnt] = [0, 0, 0];
@@ -327,6 +362,8 @@ function shortestBeautifulSubstring(s: string, k: number): string {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -367,4 +404,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

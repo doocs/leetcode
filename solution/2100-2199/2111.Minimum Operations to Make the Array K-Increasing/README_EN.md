@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2111.Minimum%20Operations%20to%20Make%20the%20Array%20K-Increasing/README_EN.md
 rating: 1940
+source: Weekly Contest 272 Q4
 tags:
     - Array
     - Binary Search
 ---
+
+<!-- problem:start -->
 
 # [2111. Minimum Operations to Make the Array K-Increasing](https://leetcode.com/problems/minimum-operations-to-make-the-array-k-increasing)
 
 [中文文档](/solution/2100-2199/2111.Minimum%20Operations%20to%20Make%20the%20Array%20K-Increasing/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>arr</code> consisting of <code>n</code> positive integers, and a positive integer <code>k</code>.</p>
 
@@ -79,11 +84,17 @@ Note that there can be other ways to make the array K-increasing, but none of th
 	<li><code>1 &lt;= arr[i], k &lt;= arr.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +111,8 @@ class Solution:
 
         return sum(lis(arr[i::k]) for i in range(k))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kIncreasing(arr []int, k int) int {
@@ -214,4 +231,6 @@ func kIncreasing(arr []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

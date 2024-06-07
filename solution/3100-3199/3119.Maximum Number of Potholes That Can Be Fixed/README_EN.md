@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3119. Maximum Number of Potholes That Can Be Fixed 🔒](https://leetcode.com/problems/maximum-number-of-potholes-that-can-be-fixed)
 
 [中文文档](/solution/3100-3199/3119.Maximum%20Number%20of%20Potholes%20That%20Can%20Be%20Fixed/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>road</code>, consisting only of characters <code>&quot;x&quot;</code> and <code>&quot;.&quot;</code>, where each <code>&quot;x&quot;</code> denotes a <em>pothole</em> and each <code>&quot;.&quot;</code> denotes a smooth road, and an integer <code>budget</code>.</p>
 
@@ -66,7 +70,11 @@ tags:
 	<li><code>road</code> consists only of characters <code>&#39;.&#39;</code> and <code>&#39;x&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Greedy
 
@@ -79,6 +87,8 @@ Therefore, we start repairing from the longest pothole. For a pothole of length 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $road$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +116,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int maxPotholes(String road, int budget) {
@@ -132,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -161,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPotholes(road string, budget int) (ans int) {
 	road += "."
@@ -184,6 +200,8 @@ func maxPotholes(road string, budget int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPotholes(road: string, budget: number): number {
@@ -209,6 +227,8 @@ function maxPotholes(road: string, budget: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -246,6 +266,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MaxPotholes(string road, int budget) {
@@ -275,4 +297,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

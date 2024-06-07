@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README.md
 rating: 1913
+source: 第 365 场周赛 Q3
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [2875. 无限数组的最短子数组](https://leetcode.cn/problems/minimum-size-subarray-in-infinite-array)
 
 [English Version](/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的数组 <code>nums</code> 和一个整数 <code>target</code> 。</p>
 
@@ -64,7 +67,11 @@ tags:
 	<li><code>1 &lt;= target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 哈希表
 
@@ -79,6 +86,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -103,6 +112,8 @@ class Solution:
             pos[pre] = i
         return -1 if b == inf else a + b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +180,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSizeSubarray(nums []int, target int) int {
@@ -203,6 +218,8 @@ func minSizeSubarray(nums []int, target int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minSizeSubarray(nums: number[], target: number): number {
     const s = nums.reduce((a, b) => a + b);
@@ -235,58 +252,6 @@ function minSizeSubarray(nums: number[], target: number): number {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```java
-class Solution {
-    public int shortestSubarray(int[] nums, int k) {
-        int n = nums.length;
-
-        int minLength = n * 2 + 1;
-        int l = 0;
-        int sum = 0;
-
-        for (int r = 0; r < n * 2; r++) {
-            int start = l % n;
-            int end = r % n;
-            sum += nums[end];
-
-            while (sum > k && l <= r) {
-                start = l % n;
-                sum -= nums[start];
-                l++;
-            }
-
-            if (sum == k) {
-                minLength = Math.min(minLength, r - l + 1);
-                start = l % n;
-                sum -= nums[start];
-                l++;
-            }
-        }
-
-        return minLength == n * 2 + 1 ? -1 : minLength;
-    }
-    public int minSizeSubarray(int[] nums, int target) {
-        int n = nums.length;
-        int sum = 0;
-
-        for (int num : nums) {
-            sum += num;
-        }
-        int k = target % sum;
-        int ans = target / sum * n;
-        if (k == 0) {
-            return ans;
-        }
-        int res = shortestSubarray(nums, k);
-        return res == -1 ? -1 : ans + res;
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

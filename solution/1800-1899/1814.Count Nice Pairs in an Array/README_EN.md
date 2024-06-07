@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1814.Count%20Nice%20Pairs%20in%20an%20Array/README_EN.md
 rating: 1737
+source: Biweekly Contest 49 Q3
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1814. Count Nice Pairs in an Array](https://leetcode.com/problems/count-nice-pairs-in-an-array)
 
 [中文文档](/solution/1800-1899/1814.Count%20Nice%20Pairs%20in%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> that consists of non-negative integers. Let us define <code>rev(x)</code> as the reverse of the non-negative integer <code>x</code>. For example, <code>rev(123) = 321</code>, and <code>rev(120) = 21</code>. A pair of indices <code>(i, j)</code> is <strong>nice</strong> if it satisfies all of the following conditions:</p>
 
@@ -51,7 +56,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Equation Transformation + Hash Table
 
@@ -64,6 +73,8 @@ Note that we need to perform modulo operation on the answer.
 The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the $nums$ array and the maximum value in the $nums$ array, respectively. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +90,8 @@ class Solution:
         mod = 10**9 + 7
         return sum(v * (v - 1) // 2 for v in cnt.values()) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countNicePairs(nums []int) (ans int) {
 	rev := func(x int) (y int) {
@@ -152,6 +169,8 @@ func countNicePairs(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countNicePairs(nums: number[]): number {
@@ -174,6 +193,8 @@ function countNicePairs(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -201,6 +222,8 @@ var countNicePairs = function (nums) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -231,9 +254,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -254,6 +283,8 @@ class Solution:
             cnt[y] += 1
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -279,6 +310,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -302,6 +335,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countNicePairs(nums []int) (ans int) {
 	rev := func(x int) (y int) {
@@ -320,6 +355,8 @@ func countNicePairs(nums []int) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -349,4 +386,6 @@ var countNicePairs = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

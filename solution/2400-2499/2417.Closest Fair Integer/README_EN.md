@@ -7,11 +7,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2417. Closest Fair Integer 🔒](https://leetcode.com/problems/closest-fair-integer)
 
 [中文文档](/solution/2400-2499/2417.Closest%20Fair%20Integer/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>positive</strong> integer <code>n</code>.</p>
 
@@ -44,7 +48,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case Discussion
 
@@ -56,6 +64,8 @@ We denote the number of digits of $n$ as $k$, and the number of odd and even dig
 The time complexity is $O(\sqrt{n} \times \log_{10} n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +87,8 @@ class Solution:
             return n
         return self.closestFair(n + 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func closestFair(n int) int {
 	a, b := 0, 0
@@ -169,4 +185,6 @@ func closestFair(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

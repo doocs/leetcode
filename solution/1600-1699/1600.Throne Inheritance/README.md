@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1600.Throne%20Inheritance/README.md
 rating: 1768
+source: 第 208 场周赛 Q3
 tags:
     - 树
     - 深度优先搜索
@@ -10,13 +11,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [1600. 王位继承顺序](https://leetcode.cn/problems/throne-inheritance)
 
 [English Version](/solution/1600-1699/1600.Throne%20Inheritance/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个王国里住着国王、他的孩子们、他的孙子们等等。每一个时间点，这个家庭里有人出生也有人死亡。</p>
 
@@ -89,7 +92,11 @@ t.getInheritanceOrder(); // 返回 ["king", "andy", "matthew", "alex", "asha", "
 	<li>最多调用&nbsp;<code>10</code>&nbsp;次&nbsp;<code>getInheritanceOrder</code>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：多叉树的前序遍历
 
@@ -102,6 +109,8 @@ t.getInheritanceOrder(); // 返回 ["king", "andy", "matthew", "alex", "asha", "
 时间复杂度方面，`birth` 和 `death` 的时间复杂度均为 $O(1)$，`getInheritanceOrder` 的时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 是节点数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class ThroneInheritance:
@@ -134,6 +143,8 @@ class ThroneInheritance:
 # obj.death(name)
 # param_3 = obj.getInheritanceOrder()
 ```
+
+#### Java
 
 ```java
 class ThroneInheritance {
@@ -178,6 +189,8 @@ class ThroneInheritance {
  * List<String> param_3 = obj.getInheritanceOrder();
  */
 ```
+
+#### C++
 
 ```cpp
 class ThroneInheritance {
@@ -224,6 +237,8 @@ private:
  * vector<string> param_3 = obj->getInheritanceOrder();
  */
 ```
+
+#### Go
 
 ```go
 type ThroneInheritance struct {
@@ -272,6 +287,8 @@ func (this *ThroneInheritance) GetInheritanceOrder() (ans []string) {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class ThroneInheritance {
     private king: string;
@@ -314,6 +331,8 @@ class ThroneInheritance {
  * var param_3 = obj.getInheritanceOrder()
  */
 ```
+
+#### C#
 
 ```cs
 public class ThroneInheritance {
@@ -366,4 +385,6 @@ public class ThroneInheritance {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

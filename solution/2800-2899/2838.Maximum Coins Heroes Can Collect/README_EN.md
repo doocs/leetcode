@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2838. Maximum Coins Heroes Can Collect 🔒](https://leetcode.com/problems/maximum-coins-heroes-can-collect)
 
 [中文文档](/solution/2800-2899/2838.Maximum%20Coins%20Heroes%20Can%20Collect/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a battle and <code>n</code> heroes are trying to defeat <code>m</code> monsters. You are given two <strong>1-indexed</strong> arrays of <strong>positive</strong> integers <code><font face="monospace">heroes</font></code> and <code><font face="monospace">monsters</font></code> of length <code>n</code> and <code>m</code>, respectively. <code><font face="monospace">heroes</font>[i]</code> is the power of <code>i<sup>th</sup></code> hero, and <code><font face="monospace">monsters</font>[i]</code> is the power of <code>i<sup>th</sup></code> monster.</p>
 
@@ -69,7 +73,11 @@ So the answer would be [5,16,10].</pre>
 	<li><code>1 &lt;= heroes[i], monsters[i], coins[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Prefix Sum + Binary Search
 
@@ -80,6 +88,8 @@ Next, for each hero, we can use binary search to find the strongest monster he c
 The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the number of monsters and heroes, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +105,8 @@ class Solution:
             ans.append(s[i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +184,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumCoins(heroes []int, monsters []int, coins []int) (ans []int64) {
 	m := len(monsters)
@@ -189,6 +205,8 @@ func maximumCoins(heroes []int, monsters []int, coins []int) (ans []int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumCoins(heroes: number[], monsters: number[], coins: number[]): number[] {
@@ -218,4 +236,6 @@ function maximumCoins(heroes: number[], monsters: number[], coins: number[]): nu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

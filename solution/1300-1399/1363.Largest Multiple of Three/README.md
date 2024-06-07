@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1363.Largest%20Multiple%20of%20Three/README.md
 rating: 1822
+source: 第 177 场周赛 Q4
 tags:
     - 贪心
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [1363. 形成三的最大倍数](https://leetcode.cn/problems/largest-multiple-of-three)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>digits</code>，你可以通过按 <strong>任意顺序</strong> 连接其中某些数字来形成 <strong>3</strong> 的倍数，请你返回所能得到的最大的 3 的倍数。</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li><code>0 &lt;= digits[i] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 动态规划 + 逆推
 
@@ -79,6 +86,8 @@ $$
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -104,6 +113,8 @@ class Solution:
             i += 1
         return "".join(map(str, arr[i:]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -174,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestMultipleOfThree(digits []int) string {
@@ -212,6 +227,8 @@ func largestMultipleOfThree(digits []int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function largestMultipleOfThree(digits: number[]): string {
     digits.sort((a, b) => a - b);
@@ -244,4 +261,6 @@ function largestMultipleOfThree(digits: number[]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

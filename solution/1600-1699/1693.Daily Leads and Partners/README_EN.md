@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1693. Daily Leads and Partners](https://leetcode.com/problems/daily-leads-and-partners)
 
 [中文文档](/solution/1600-1699/1693.Daily%20Leads%20and%20Partners/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>DailySales</code></p>
 
@@ -70,13 +74,19 @@ For 2020-12-8, toyota gets leads = [0, 1] and partners = [0, 1, 2] while honda g
 For 2020-12-7, toyota gets leads = [0] and partners = [1, 2] while honda gets leads = [0, 1, 2] and partners = [1, 2].
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Group By + Count Distinct
 
 We can use the `GROUP BY` statement to group the data by the `date_id` and `make_name` fields, and then use the `COUNT(DISTINCT)` function to count the number of distinct values for `lead_id` and `partner_id`.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -91,4 +101,6 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

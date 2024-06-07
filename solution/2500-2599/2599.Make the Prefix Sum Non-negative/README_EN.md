@@ -8,11 +8,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2599. Make the Prefix Sum Non-negative 🔒](https://leetcode.com/problems/make-the-prefix-sum-non-negative)
 
 [中文文档](/solution/2500-2599/2599.Make%20the%20Prefix%20Sum%20Non-negative/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. You can apply the following operation any number of times:</p>
 
@@ -51,7 +55,11 @@ The array after the operation is [3,-2,6,-5]. The prefix sum array is [3, 1, 7, 
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Min Heap)
 
@@ -62,6 +70,8 @@ Traverse the array $nums$, add the current element $x$ to the prefix sum $s$. If
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +87,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makePrefSumNonNegative(nums []int) (ans int) {
@@ -151,6 +167,8 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function makePrefSumNonNegative(nums: number[]): number {
     const pq = new MinPriorityQueue();
@@ -172,4 +190,6 @@ function makePrefSumNonNegative(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

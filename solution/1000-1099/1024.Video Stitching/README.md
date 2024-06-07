@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1024.Video%20Stitching/README.md
 rating: 1746
+source: 第 131 场周赛 Q4
 tags:
     - 贪心
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [1024. 视频拼接](https://leetcode.cn/problems/video-stitching)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你将会获得一系列视频片段，这些片段来自于一项持续时长为&nbsp;<code>time</code>&nbsp;秒的体育赛事。这些片段可能有所重叠，也可能长度不一。</p>
 
@@ -71,7 +74,11 @@ tags:
 	<li><code>1 &lt;= time &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -97,6 +104,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def videoStitching(self, clips: List[List[int]], time: int) -> int:
@@ -114,6 +123,8 @@ class Solution:
                 pre = mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func videoStitching(clips [][]int, time int) int {
 	last := make([]int, time)
@@ -195,4 +210,6 @@ func videoStitching(clips [][]int, time int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

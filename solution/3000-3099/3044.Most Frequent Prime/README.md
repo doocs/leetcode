@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3044.Most%20Frequent%20Prime/README.md
 rating: 1737
+source: 第 385 场周赛 Q3
 tags:
     - 数组
     - 哈希表
@@ -13,13 +14,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [3044. 出现频率最高的质数](https://leetcode.cn/problems/most-frequent-prime)
 
 [English Version](/solution/3000-3099/3044.Most%20Frequent%20Prime/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> 、下标从 <strong>0</strong> 开始的二维矩阵 <code>mat</code> 。在每个单元格，你可以按以下方式生成数字：</p>
 
@@ -88,7 +91,11 @@ tags:
 	<li><code>1 &lt;= mat[i][j] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -101,6 +108,8 @@ tags:
 时间复杂度 $O(m \times n \times \max(m, n) \times {10}^{\frac{\max(m, n)}{2}})$，空间复杂度 $O(m \times n \times \max(m, n))$。其中 $m$ 和 $n$ 分别是 `mat` 的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -131,6 +140,8 @@ class Solution:
                 ans = max(ans, v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -178,6 +189,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -227,6 +240,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func mostFrequentPrime(mat [][]int) int {
 	m, n := len(mat), len(mat[0])
@@ -270,6 +285,8 @@ func isPrime(n int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mostFrequentPrime(mat: number[][]): number {
@@ -319,4 +336,6 @@ function mostFrequentPrime(mat: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

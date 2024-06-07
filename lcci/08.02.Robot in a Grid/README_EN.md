@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.02.Robot%20in%20a%20Grid/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.02. Robot in a Grid](https://leetcode.cn/problems/robot-in-a-grid-lcci)
 
 [中文文档](/lcci/08.02.Robot%20in%20a%20Grid/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Imagine a robot sitting on the upper left corner of grid with r rows and c columns. The robot can only move in two directions, right and down, but certain cells are &quot;off limits&quot; such that the robot cannot step on them. Design an algorithm to find a path for the robot from the top left to the bottom right.</p>
 ![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcci/08.02.Robot%20in%20a%20Grid/images/robot_maze.png)
@@ -36,7 +40,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.02.Robot%20in%20a%
 	<li><code>r,&nbsp;c &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS (Depth-First Search)
 
@@ -47,6 +55,8 @@ If we can finally reach the bottom right corner, then we have found a feasible p
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +75,8 @@ class Solution:
         ans = []
         return ans if dfs(0, 0) else []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pathWithObstacles(obstacleGrid [][]int) [][]int {
@@ -143,6 +159,8 @@ func pathWithObstacles(obstacleGrid [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function pathWithObstacles(obstacleGrid: number[][]): number[][] {
     const m = obstacleGrid.length;
@@ -166,6 +184,8 @@ function pathWithObstacles(obstacleGrid: number[][]): number[][] {
     return [];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -195,6 +215,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -227,4 +249,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [534. Game Play Analysis III 🔒](https://leetcode.com/problems/game-play-analysis-iii)
 
 [中文文档](/solution/0500-0599/0534.Game%20Play%20Analysis%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Activity</code></p>
 
@@ -67,13 +71,19 @@ For the player with id 3, 0 + 5 = 5 games played by 2018-07-03.
 Note that for each player we only care about the days when the player logged in.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Window Function
 
 We can use the window function `SUM() OVER()` to group by `player_id`, sort by `event_date`, and calculate the total number of games played by each user up to the current date.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -89,11 +99,17 @@ FROM Activity;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Self-Join + Group By
 
 We can also use a self-join to join the `Activity` table with itself on the condition of `t1.player_id = t2.player_id AND t1.event_date >= t2.event_date`, and then group by `t1.player_id` and `t1.event_date`, and calculate the cumulative sum of `t2.games_played`. This will give us the total number of games played by each user up to the current date.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -110,9 +126,15 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -128,4 +150,6 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

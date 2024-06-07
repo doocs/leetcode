@@ -12,13 +12,15 @@ tags:
     - 归并排序
 ---
 
+<!-- problem:start -->
+
 # [315. 计算右侧小于当前元素的个数](https://leetcode.cn/problems/count-of-smaller-numbers-after-self)
 
 [English Version](/solution/0300-0399/0315.Count%20of%20Smaller%20Numbers%20After%20Self/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code><em> </em>，按要求返回一个新数组&nbsp;<code>counts</code><em> </em>。数组 <code>counts</code> 有该性质： <code>counts[i]</code> 的值是&nbsp; <code>nums[i]</code> 右侧小于&nbsp;<code>nums[i]</code> 的元素的数量。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：树状数组
 
@@ -77,6 +83,8 @@ tags:
 解决方案是直接遍历数组，每个位置先求出 `query(a[i])`，然后再修改树状数组 `update(a[i], 1)` 即可。当数的范围比较大时，需要进行离散化，即先进行去重并排序，然后对每个数字进行编号。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -113,6 +121,8 @@ class Solution:
             ans.append(tree.query(x - 1))
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -170,6 +180,8 @@ class BinaryIndexedTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -221,6 +233,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -280,6 +294,10 @@ func countSmaller(nums []int) []int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：线段树
 
 线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 `log(width)`。更新某个元素的值，只需要更新 `log(width)` 个区间，并且这些区间都包含在一个包含该元素的大区间内。
@@ -290,6 +308,8 @@ func countSmaller(nums []int) []int {
 -   对于每个内部节点 `[l, r]`，它的左儿子是 `[l, mid]`，右儿子是 `[mid + 1, r]`, 其中 `mid = ⌊(l + r) / 2⌋` (即向下取整)。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -351,6 +371,8 @@ class Solution:
             tree.modify(1, x, 1)
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -440,6 +462,8 @@ class SegmentTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -515,6 +539,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Pair struct {
 	val   int
@@ -576,6 +602,12 @@ func merge(arr []Pair, low, mid, high int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：归并排序
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2722. Join Two Arrays by ID](https://leetcode.com/problems/join-two-arrays-by-id)
 
 [中文文档](/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two arrays <code>arr1</code> and <code>arr2</code>, return a new&nbsp;array <code>joinedArray</code>. All the objects in each&nbsp;of the two inputs arrays will contain an&nbsp;<code>id</code>&nbsp;field that has an integer value.&nbsp;</p>
 
@@ -90,26 +94,41 @@ arr2 = [
 	<li><code>2 &lt;= JSON.stringify(arr2).length &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
-function join(arr1: any[], arr2: any[]): any[] {
-    const d = new Map(arr1.map(x => [x.id, x]));
+function join(arr1: ArrayType[], arr2: ArrayType[]): ArrayType[] {
+    const r = (acc: Obj, x: ArrayType): Obj => ((acc[x.id] = x), acc);
+    const d = arr1.reduce(r, {});
+
     arr2.forEach(x => {
-        if (d.has(x.id)) {
-            d.set(x.id, { ...d.get(x.id), ...x });
+        if (d[x.id]) {
+            Object.assign(d[x.id], x);
         } else {
-            d.set(x.id, x);
+            d[x.id] = x;
         }
     });
-    return [...d.values()].sort((a, b) => a.id - b.id);
+    return Object.values(d);
 }
+
+type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };
+type ArrayType = { id: number } & Record<string, JSONValue>;
+
+type Obj = Record<number, ArrayType>;
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

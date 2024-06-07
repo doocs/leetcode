@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1213.Intersection%20of%20Three%20Sorted%20Arrays/README.md
 rating: 1259
+source: 第 10 场双周赛 Q1
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [1213. 三个有序数组的交集 🔒](https://leetcode.cn/problems/intersection-of-three-sorted-arrays)
 
 [English Version](/solution/1200-1299/1213.Intersection%20of%20Three%20Sorted%20Arrays/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出三个均为 <strong>严格递增排列 </strong>的整数数组&nbsp;<code>arr1</code>，<code>arr2</code> 和&nbsp;<code>arr3</code>。返回一个由&nbsp;<strong>仅 </strong>在这三个数组中&nbsp;<strong>同时出现&nbsp;</strong>的整数所构成的有序数组。</p>
 
@@ -46,7 +49,11 @@ tags:
 	<li><code>1 &lt;= arr1[i], arr2[i], arr3[i] &lt;= 2000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -56,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arraysIntersection(
@@ -64,6 +73,8 @@ class Solution:
         cnt = Counter(arr1 + arr2 + arr3)
         return [x for x in arr1 if cnt[x] == 3]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) (ans []int) {
 	cnt := [2001]int{}
@@ -126,6 +141,8 @@ func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) (ans []int) {
 	return
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -151,6 +168,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二分查找
 
 遍历第一个数组，对于其中的每个数字，使用二分查找在第二个数组和第三个数组中查找该数字，若都找到，则将该数字加入结果数组。
@@ -158,6 +179,8 @@ class Solution {
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -172,6 +195,8 @@ class Solution:
                 ans.append(x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -188,6 +213,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -206,6 +233,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) (ans []int) {
 	for _, x := range arr1 {
@@ -221,4 +250,6 @@ func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2228. Users With Two Purchases Within Seven Days 🔒](https://leetcode.com/problems/users-with-two-purchases-within-seven-days)
 
 [中文文档](/solution/2200-2299/2228.Users%20With%20Two%20Purchases%20Within%20Seven%20Days/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Purchases</code></p>
 
@@ -63,11 +67,17 @@ User 5 had only 1 purchase.
 User 7 had two purchases on the same day so we add their ID.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -92,4 +102,6 @@ ORDER BY user_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

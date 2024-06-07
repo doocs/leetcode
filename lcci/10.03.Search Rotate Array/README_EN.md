@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.03.Search%20Rotate%20Array/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [10.03. Search Rotate Array](https://leetcode.cn/problems/search-rotate-array-lcci)
 
 [中文文档](/lcci/10.03.Search%20Rotate%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a sorted array of n integers that has been rotated an unknown number of times, write code to find an element in the array. You may assume that the array was originally sorted in increasing order. If there are more than one target elements in the array, return the smallest index.</p>
 <p><strong>Example1:</strong></p>
@@ -32,7 +36,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.03.Search%20Rotate
 	<li><code>1 &lt;= arr.length &lt;= 1000000</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -56,6 +64,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def search(self, arr: List[int], target: int) -> int:
@@ -78,6 +88,8 @@ class Solution:
                 r -= 1
         return l if arr[l] == target else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func search(arr []int, target int) int {
 	l, r := 0, len(arr)-1
@@ -171,6 +187,8 @@ func search(arr []int, target int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function search(arr: number[], target: number): number {
     let [l, r] = [0, arr.length - 1];
@@ -198,6 +216,8 @@ function search(arr: number[], target: number): number {
     return arr[l] === target ? l : -1;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -235,4 +255,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

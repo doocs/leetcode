@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1359.Count%20All%20Valid%20Pickup%20and%20Delivery%20Options/README.md
 rating: 1722
+source: 第 20 场双周赛 Q4
 tags:
     - 数学
     - 动态规划
     - 组合数学
 ---
+
+<!-- problem:start -->
 
 # [1359. 有效的快递序列数目](https://leetcode.cn/problems/count-all-valid-pickup-and-delivery-options)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你&nbsp;<code>n</code>&nbsp;笔订单，每笔订单都需要快递服务。</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 500</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -78,6 +85,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countOrders(self, n: int) -> int:
@@ -87,6 +96,8 @@ class Solution:
             f = (f * i * (2 * i - 1)) % mod
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countOrders(n int) int {
 	const mod = 1e9 + 7
@@ -125,6 +140,8 @@ func countOrders(n int) int {
 	return f
 }
 ```
+
+#### Rust
 
 ```rust
 const MOD: i64 = (1e9 as i64) + 7;
@@ -143,4 +160,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

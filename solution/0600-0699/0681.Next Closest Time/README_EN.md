@@ -9,11 +9,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [681. Next Closest Time 🔒](https://leetcode.com/problems/next-closest-time)
 
 [中文文档](/solution/0600-0699/0681.Next%20Closest%20Time/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>time</code> represented in the format <code>&quot;HH:MM&quot;</code>, form the next closest time by reusing the current digits. There is no limit on how many times a digit can be reused.</p>
 
@@ -48,11 +52,17 @@ It may be assumed that the returned time is next day&#39;s time since it is smal
 	<li><code>0 &lt;= MM &lt; 60</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +94,8 @@ class Solution:
             ans = f'{mi}{mi}:{mi}{mi}'
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,4 +153,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

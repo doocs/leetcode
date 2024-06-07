@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README.md
 rating: 1181
+source: 第 154 场周赛 Q1
 tags:
     - 哈希表
     - 字符串
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [1189. “气球” 的最大数量](https://leetcode.cn/problems/maximum-number-of-balloons)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>text</code>，你需要使用 <code>text</code> 中的字母来拼凑尽可能多的单词&nbsp;<strong>&quot;balloon&quot;（气球）</strong>。</p>
 
@@ -54,7 +57,11 @@ tags:
 	<li><code>text</code>&nbsp;全部由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -66,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxNumberOfBalloons(self, text: str) -> int:
@@ -74,6 +83,8 @@ class Solution:
         cnt['l'] >>= 1
         return min(cnt[c] for c in 'balon')
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNumberOfBalloons(text string) int {
 	cnt := [26]int{}
@@ -131,6 +146,8 @@ func maxNumberOfBalloons(text string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxNumberOfBalloons(text: string): number {
     const cnt = new Array(26).fill(0);
@@ -140,6 +157,8 @@ function maxNumberOfBalloons(text: string): number {
     return Math.min(cnt[0], cnt[1], cnt[11] >> 1, cnt[14] >> 1, cnt[13]);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -176,6 +195,8 @@ impl Solution {
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -206,4 +227,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

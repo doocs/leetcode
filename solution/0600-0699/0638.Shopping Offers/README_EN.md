@@ -11,11 +11,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [638. Shopping Offers](https://leetcode.com/problems/shopping-offers)
 
 [中文文档](/solution/0600-0699/0638.Shopping%20Offers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In LeetCode Store, there are <code>n</code> items to sell. Each item has a price. However, there are some special offers, and a special offer consists of one or more different kinds of items with a sale price.</p>
 
@@ -60,11 +64,17 @@ You cannot add more items, though only $9 for 2A ,2B and 1C.
 	<li><code>0 &lt;= special[i][j] &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +97,8 @@ class Solution:
                 ans = min(ans, offer[-1] + self.shoppingOffers(price, special, t))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shoppingOffers(price []int, special [][]int, needs []int) int {
@@ -187,4 +203,6 @@ func shoppingOffers(price []int, special [][]int, needs []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

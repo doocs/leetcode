@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [983. 最低票价](https://leetcode.cn/problems/minimum-cost-for-tickets)
 
 [English Version](/solution/0900-0999/0983.Minimum%20Cost%20For%20Tickets/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一个火车旅行很受欢迎的国度，你提前一年计划了一些火车旅行。在接下来的一年里，你要旅行的日子将以一个名为&nbsp;<code>days</code>&nbsp;的数组给出。每一项是一个从&nbsp;<code>1</code>&nbsp;到&nbsp;<code>365</code>&nbsp;的整数。</p>
 
@@ -68,7 +70,11 @@ tags:
 	<li><code>1 &lt;= costs[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索 + 二分查找
 
@@ -79,6 +85,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `days` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +103,8 @@ class Solution:
 
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -175,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mincostTickets(days []int, costs []int) int {
@@ -217,6 +231,8 @@ func lowerBound(arr []int, x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mincostTickets(days: number[], costs: number[]): number {
     const n = days.length,
@@ -235,4 +251,6 @@ function mincostTickets(days: number[], costs: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

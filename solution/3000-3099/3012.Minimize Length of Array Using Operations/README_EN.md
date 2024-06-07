@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3012.Minimize%20Length%20of%20Array%20Using%20Operations/README_EN.md
 rating: 1832
+source: Biweekly Contest 122 Q3
 tags:
     - Greedy
     - Array
@@ -10,11 +11,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [3012. Minimize Length of Array Using Operations](https://leetcode.com/problems/minimize-length-of-array-using-operations)
 
 [中文文档](/solution/3000-3099/3012.Minimize%20Length%20of%20Array%20Using%20Operations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> containing <strong>positive</strong> integers.</p>
 
@@ -80,7 +85,11 @@ It can be shown that 1 is the minimum achievable length.</pre>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case Discussion
 
@@ -94,6 +103,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumArrayLength(self, nums: List[int]) -> int:
@@ -102,6 +113,8 @@ class Solution:
             return 1
         return (nums.count(mi) + 1) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumArrayLength(nums []int) int {
 	mi := slices.Min(nums)
@@ -153,6 +170,8 @@ func minimumArrayLength(nums []int) int {
 	return (cnt + 1) / 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumArrayLength(nums: number[]): number {
@@ -172,4 +191,6 @@ function minimumArrayLength(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

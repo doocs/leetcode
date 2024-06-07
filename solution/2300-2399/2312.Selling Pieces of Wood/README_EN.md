@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README_EN.md
 rating: 2363
+source: Weekly Contest 298 Q4
 tags:
     - Memoization
     - Array
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2312. Selling Pieces of Wood](https://leetcode.com/problems/selling-pieces-of-wood)
 
 [中文文档](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>m</code> and <code>n</code> that represent the height and width of a rectangular piece of wood. You are also given a 2D integer array <code>prices</code>, where <code>prices[i] = [h<sub>i</sub>, w<sub>i</sub>, price<sub>i</sub>]</code> indicates you can sell a rectangular piece of wood of height <code>h<sub>i</sub></code> and width <code>w<sub>i</sub></code> for <code>price<sub>i</sub></code> dollars.</p>
 
@@ -62,7 +67,11 @@ Notice that we cannot rotate the 1 x 4 piece of wood to obtain a 4 x 1 piece of 
 	<li>All the shapes of wood <code>(h<sub>i</sub>, w<sub>i</sub>)</code> are pairwise <strong>distinct</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -78,6 +87,8 @@ The process of function $dfs(h, w)$ is as follows:
 The time complexity is $O(m \times n \times (m + n) + p)$, and the space complexity is $O(m \times n)$. Here, $p$ represents the length of the price array, while $m$ and $n$ represent the height and width of the wood blocks, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +107,8 @@ class Solution:
             d[h][w] = p
         return dfs(m, n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +171,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sellingWood(m int, n int, prices [][]int) int64 {
@@ -190,6 +207,8 @@ func sellingWood(m int, n int, prices [][]int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sellingWood(m: number, n: number, prices: number[][]): number {
     const f: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(-1));
@@ -219,6 +238,10 @@ function sellingWood(m: number, n: number, prices: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can transform the memoization search in Solution 1 into dynamic programming.
@@ -237,6 +260,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sellingWood(self, m: int, n: int, prices: List[List[int]]) -> int:
@@ -253,6 +278,8 @@ class Solution:
                     f[i][j] = max(f[i][j], f[i][k] + f[i][j - k])
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -277,6 +304,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -305,6 +334,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sellingWood(m int, n int, prices [][]int) int64 {
 	d := make([][]int, m+1)
@@ -330,6 +361,8 @@ func sellingWood(m int, n int, prices [][]int) int64 {
 	return f[m][n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sellingWood(m: number, n: number, prices: number[][]): number {
@@ -357,4 +390,6 @@ function sellingWood(m: number, n: number, prices: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

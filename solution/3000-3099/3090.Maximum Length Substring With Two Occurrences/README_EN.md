@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3090.Maximum%20Length%20Substring%20With%20Two%20Occurrences/README_EN.md
 rating: 1329
+source: Weekly Contest 390 Q1
 tags:
     - Hash Table
     - String
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [3090. Maximum Length Substring With Two Occurrences](https://leetcode.com/problems/maximum-length-substring-with-two-occurrences)
 
 [中文文档](/solution/3000-3099/3090.Maximum%20Length%20Substring%20With%20Two%20Occurrences/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 Given a string <code>s</code>, return the <strong>maximum</strong> length of a <span data-keyword="substring">substring</span>&nbsp;such that it contains <em>at most two occurrences</em> of each character.
 
@@ -46,7 +51,11 @@ The following substring has a length of 2 and contains at most two occurrences o
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -59,6 +68,8 @@ Finally, we return the answer $ans$.
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set, and in this problem, $\Sigma = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +84,8 @@ class Solution:
             ans = max(ans, j - i + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumLengthSubstring(s string) (ans int) {
 	cnt := [26]int{}
@@ -127,6 +144,8 @@ func maximumLengthSubstring(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumLengthSubstring(s: string): number {
@@ -146,4 +165,6 @@ function maximumLengthSubstring(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

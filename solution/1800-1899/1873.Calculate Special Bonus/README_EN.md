@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1873. Calculate Special Bonus](https://leetcode.com/problems/calculate-special-bonus)
 
 [中文文档](/solution/1800-1899/1873.Calculate%20Special%20Bonus/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employees</code></p>
 
@@ -65,13 +69,19 @@ The employee with ID 3 gets 0 bonus because their name starts with &#39;M&#39;.
 The rest of the employees get a 100% bonus.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: IF Statement + ORDER BY Clause
 
 We can use the `IF` statement to determine the calculation method of the bonus, and then use `ORDER BY` to sort the results by `employee_id`.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -90,4 +100,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2743. Count Substrings Without Repeating Character 🔒](https://leetcode.com/problems/count-substrings-without-repeating-character)
 
 [中文文档](/solution/2700-2799/2743.Count%20Substrings%20Without%20Repeating%20Character/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> consisting only of lowercase English letters. We call a substring <b>special</b> if it contains no character which has occurred at least twice (in other words, it does not contain a repeating character). Your task is to count the number of <b>special</b> substrings. For example, in the string <code>&quot;pop&quot;</code>, the substring <code>&quot;po&quot;</code> is a <strong>special</strong> substring, however, <code>&quot;pop&quot;</code> is not <strong>special</strong> (since <code>&#39;p&#39;</code> has occurred twice).</p>
 
@@ -55,7 +59,11 @@ And it can be shown that there are no special substrings with a length of at lea
 	<li><code>s</code> consists of lowercase English letters</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Two Pointers
 
@@ -64,6 +72,8 @@ We use two pointers $j$ and $i$ to represent the left and right boundaries of th
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string $s$, and $C$ is the size of the character set. In this problem, the character set consists of lowercase English letters, so $C = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +88,8 @@ class Solution:
             ans += i - j + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfSpecialSubstrings(s string) (ans int) {
 	j := 0
@@ -134,6 +150,8 @@ func numberOfSpecialSubstrings(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfSpecialSubstrings(s: string): number {
@@ -155,4 +173,6 @@ function numberOfSpecialSubstrings(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

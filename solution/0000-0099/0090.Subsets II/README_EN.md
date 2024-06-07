@@ -8,11 +8,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [90. Subsets II](https://leetcode.com/problems/subsets-ii)
 
 [中文文档](/solution/0000-0099/0090.Subsets%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> that may contain duplicates, return <em>all possible</em> <span data-keyword="subset"><em>subsets</em></span><em> (the power set)</em>.</p>
 
@@ -34,7 +38,11 @@ tags:
 	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + DFS
 
@@ -51,6 +59,8 @@ Finally, we only need to call $dfs(0)$ and return the answer array.
 The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +82,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsetsWithDup(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -153,6 +169,8 @@ func subsetsWithDup(nums []int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subsetsWithDup(nums: number[]): number[][] {
     nums.sort((a, b) => a - b);
@@ -176,6 +194,8 @@ function subsetsWithDup(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -208,6 +228,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Binary Enumeration
 
 Similar to Solution 1, we first sort the array $nums$ to facilitate deduplication.
@@ -219,6 +243,8 @@ After the enumeration ends, we return the answer array.
 The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -239,6 +265,8 @@ class Solution:
                 ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -266,6 +294,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -295,6 +325,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsetsWithDup(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -318,6 +350,8 @@ func subsetsWithDup(nums []int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subsetsWithDup(nums: number[]): number[][] {
@@ -343,6 +377,8 @@ function subsetsWithDup(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -374,4 +410,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

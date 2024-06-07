@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9845.%20%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 45. 把数组排成最小的数](https://leetcode.cn/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>输入一个非负整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。</p>
 
@@ -39,15 +41,21 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 	<li>拼接起来的数字可能会有前导 0，最后结果不需要去掉前导 0</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：自定义排序
 
-将数组中的数字转换为字符串，然后按照字符串拼接的大小进行排序。具体地，比较两个字符串 $a$ 和 $b$，如果 $a + b \lt b + a$，则 $a$ 小于 $b$，否则 $a$ 大于 $b$。
+我们将数组中的数字转换为字符串，然后按照字符串拼接的大小进行排序。具体地，比较两个字符串 $a$ 和 $b$，如果 $a + b \lt b + a$，则 $a$ 小于 $b$，否则 $a$ 大于 $b$。
 
 时间复杂度 $O(n \times \log n + n \times m)$，空间复杂度 $O(n \times m)$。其中 $n $ 和 $m$ 分别为数组的长度和字符串的平均长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +69,8 @@ class Solution:
         return "".join(ans)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String minNumber(int[] nums) {
@@ -72,6 +82,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -93,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumber(nums []int) string {
 	arr := []string{}
@@ -104,11 +118,15 @@ func minNumber(nums []int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minNumber(nums: number[]): string {
     return nums.sort((a, b) => Number(`${a}${b}`) - Number(`${b}${a}`)).join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -120,6 +138,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -136,6 +156,8 @@ var minNumber = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string MinNumber(int[] nums) {
@@ -149,6 +171,20 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func minNumber(_ nums: [Int]) -> String {
+        let sortedNums = nums.map { String($0) }
+                             .sorted { $0 + $1 < $1 + $0 }
+        return sortedNums.joined()
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

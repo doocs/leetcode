@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README.md
 rating: 1590
+source: 第 34 场双周赛 Q2
 tags:
     - 数学
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1573. 分割字符串的方案数](https://leetcode.cn/problems/number-of-ways-to-split-a-string)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二进制串&nbsp;<code>s</code>&nbsp; （一个只包含 0 和 1 的字符串），我们可以将 <code>s</code>&nbsp;分割成 3 个 <strong>非空</strong>&nbsp;字符串 s1, s2, s3 （s1 + s2 + s3 = s）。</p>
 
@@ -66,7 +69,11 @@ tags:
 	<li><code>3 &lt;= s.length &lt;= 10^5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -85,6 +92,8 @@ tags:
 -   [927. 三等分](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0927.Three%20Equal%20Parts/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -107,6 +116,8 @@ class Solution:
         j1, j2 = find(cnt * 2), find(cnt * 2 + 1)
         return (i2 - i1) * (j2 - j1) % (10**9 + 7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -180,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numWays(s string) int {
@@ -218,4 +233,6 @@ func numWays(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [1056. 易混淆数 🔒](https://leetcode.cn/problems/confusing-number)
 
 [English Version](/solution/1000-1099/1056.Confusing%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数字 <code>N</code>，当它满足以下条件的时候返回 <code>true</code>：</p>
 
@@ -79,11 +81,17 @@ tags:
 	<li>可以忽略掉旋转后得到的前导零，例如，如果我们旋转后得到 <code>0008</code> 那么该数字就是 <code>8</code> 。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +105,8 @@ class Solution:
             y = y * 10 + d[v]
         return y != n
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func confusingNumber(n int) bool {
 	d := []int{0, 1, -1, -1, -1, -1, 9, -1, 8, 6}
@@ -150,6 +164,8 @@ func confusingNumber(n int) bool {
 	return y != n
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -176,4 +192,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

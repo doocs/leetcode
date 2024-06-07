@@ -4,11 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9865.%20%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 65. 不用加减乘除做加法](https://leetcode.cn/problems/bu-yong-jia-jian-cheng-chu-zuo-jia-fa-lcof/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>写一个函数，求两个整数之和，要求在函数体内不得使用 &ldquo;+&rdquo;、&ldquo;-&rdquo;、&ldquo;*&rdquo;、&ldquo;/&rdquo; 四则运算符号。</p>
 
@@ -28,7 +30,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 	<li>结果不会溢出 32 位整数</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -54,6 +60,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def add(self, a: int, b: int) -> int:
@@ -63,6 +71,8 @@ class Solution:
             a, b = a ^ b, c
         return a if a < 0x80000000 else ~(a ^ 0xFFFFFFFF)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +86,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,6 +103,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func add(a int, b int) int {
 	if b == 0 {
@@ -99,6 +113,8 @@ func add(a int, b int) int {
 	return add(a^b, (a&b)<<1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function add(a: number, b: number): number {
@@ -110,6 +126,8 @@ function add(a: number, b: number): number {
     return a;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -125,6 +143,8 @@ var add = function (a, b) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int Add(int a, int b) {
@@ -139,11 +159,34 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func add(_ a: Int, _ b: Int) -> Int {
+        var a = a
+        var b = b
+        while b != 0 {
+            let c = (a & b) << 1
+            a ^= b
+            b = c
+        }
+        return a
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -158,4 +201,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

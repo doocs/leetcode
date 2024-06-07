@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1245.Tree%20Diameter/README_EN.md
 rating: 1792
+source: Biweekly Contest 12 Q3
 tags:
     - Tree
     - Depth-First Search
@@ -11,11 +12,15 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [1245. Tree Diameter 🔒](https://leetcode.com/problems/tree-diameter)
 
 [中文文档](/solution/1200-1299/1245.Tree%20Diameter/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>diameter</strong> of a tree is <strong>the number of edges</strong> in the longest path in that tree.</p>
 
@@ -50,7 +55,11 @@ tags:
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two DFS
 
@@ -75,6 +84,8 @@ Similar problems:
 -   [1522. Diameter of N-Ary Tree](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +113,8 @@ class Solution:
         dfs(next, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +191,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func treeDiameter(edges [][]int) int {
@@ -213,4 +230,6 @@ func treeDiameter(edges [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

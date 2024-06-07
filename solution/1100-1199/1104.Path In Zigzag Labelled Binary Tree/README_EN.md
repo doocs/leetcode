@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1104.Path%20In%20Zigzag%20Labelled%20Binary%20Tree/README_EN.md
 rating: 1544
+source: Weekly Contest 143 Q2
 tags:
     - Tree
     - Math
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1104. Path In Zigzag Labelled Binary Tree](https://leetcode.com/problems/path-in-zigzag-labelled-binary-tree)
 
 [中文文档](/solution/1100-1199/1104.Path%20In%20Zigzag%20Labelled%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In an infinite binary tree where every node has two children, the nodes are labelled in row order.</p>
 
@@ -45,7 +50,11 @@ tags:
 	<li><code>1 &lt;= label &lt;= 10^6</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -56,6 +65,8 @@ Finally, we need to reverse the path, because the problem requires the path from
 The time complexity is $O(\log n)$, where $n$ is the label of the node. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +82,8 @@ class Solution:
             i -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pathInZigZagTree(label int) (ans []int) {
 	x, i := 1, 1
@@ -131,4 +148,6 @@ func pathInZigZagTree(label int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

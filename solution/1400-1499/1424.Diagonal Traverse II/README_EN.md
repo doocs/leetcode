@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1424.Diagonal%20Traverse%20II/README_EN.md
 rating: 1779
+source: Weekly Contest 186 Q3
 tags:
     - Array
     - Sorting
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1424. Diagonal Traverse II](https://leetcode.com/problems/diagonal-traverse-ii)
 
 [中文文档](/solution/1400-1499/1424.Diagonal%20Traverse%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a 2D integer array <code>nums</code>, return <em>all elements of </em><code>nums</code><em> in diagonal order as shown in the below images</em>.</p>
 
@@ -42,11 +47,17 @@ tags:
 	<li><code>1 &lt;= nums[i][j] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -58,6 +69,8 @@ class Solution:
         arr.sort()
         return [v[2] for v in arr]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +91,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -97,6 +112,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findDiagonalOrder(nums [][]int) []int {
@@ -120,6 +137,8 @@ func findDiagonalOrder(nums [][]int) []int {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int[] FindDiagonalOrder(IList<IList<int>> nums) {
@@ -141,4 +160,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,13 +9,15 @@ tags:
     - 双向链表
 ---
 
+<!-- problem:start -->
+
 # [146. LRU 缓存](https://leetcode.cn/problems/lru-cache)
 
 [English Version](/solution/0100-0199/0146.LRU%20Cache/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <div class="title__3Vvk">请你设计并实现一个满足&nbsp; <a href="https://baike.baidu.com/item/LRU" target="_blank">LRU (最近最少使用) 缓存</a> 约束的数据结构。</div>
 
@@ -68,7 +70,11 @@ lRUCache.get(4);    // 返回 4
 	<li>最多调用 <code>2 * 10<sup>5</sup></code> 次 <code>get</code> 和 <code>put</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 双向链表
 
@@ -84,6 +90,8 @@ lRUCache.get(4);    // 返回 4
 时间复杂度 $O(1)$，空间复杂度 $O(\text{capacity})$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -151,6 +159,8 @@ class LRUCache:
 # param_1 = obj.get(key)
 # obj.put(key,value)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -239,6 +249,8 @@ class LRUCache {
  * obj.put(key,value);
  */
 ```
+
+#### C++
 
 ```cpp
 struct Node {
@@ -334,6 +346,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type node struct {
 	key, val   int
@@ -405,6 +419,8 @@ func (this *LRUCache) pushFront(n *node) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class LRUCache {
     capacity: number;
@@ -440,6 +456,8 @@ class LRUCache {
  * obj.put(key,value)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::cell::RefCell;
@@ -572,6 +590,8 @@ impl LRUCache {
  */
 ```
 
+#### C#
+
 ```cs
 public class LRUCache {
     class Node {
@@ -653,4 +673,6 @@ public class LRUCache {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

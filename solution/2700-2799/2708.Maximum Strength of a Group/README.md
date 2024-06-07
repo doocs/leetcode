@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2708.Maximum%20Strength%20of%20a%20Group/README.md
 rating: 1502
+source: 第 105 场双周赛 Q3
 tags:
     - 贪心
     - 位运算
@@ -13,13 +14,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2708. 一个小组的最大实力值](https://leetcode.cn/problems/maximum-strength-of-a-group)
 
 [English Version](/solution/2700-2799/2708.Maximum%20Strength%20of%20a%20Group/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;，它表示一个班级中所有学生在一次考试中的成绩。老师想选出一部分同学组成一个 <strong>非空</strong>&nbsp;小组，且这个小组的 <strong>实力值</strong>&nbsp;最大，如果这个小组里的学生下标为&nbsp;<code>i<sub>0</sub></code>, <code>i<sub>1</sub></code>, <code>i<sub>2</sub></code>, ... , <code>i<sub>k</sub></code>&nbsp;，那么这个小组的实力值定义为&nbsp;<code>nums[i<sub>0</sub>] * nums[i<sub>1</sub>] * nums[i<sub>2</sub>] * ... * nums[i<sub>k</sub>​]</code>&nbsp;。</p>
 
@@ -50,7 +53,11 @@ tags:
 	<li><code>-9 &lt;= nums[i] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二进制枚举
 
@@ -61,6 +68,8 @@ tags:
 时间复杂度 $O(2^n \times n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +83,8 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxStrength(nums []int) int64 {
 	ans := int64(-1e14)
@@ -129,6 +144,8 @@ func maxStrength(nums []int) int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxStrength(nums: number[]): number {
@@ -149,6 +166,10 @@ function maxStrength(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序 + 贪心
 
 我们可以先对数组进行排序，然后根据数组的特点，我们可以得到以下结论：
@@ -160,6 +181,8 @@ function maxStrength(nums: number[]): number {
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -182,6 +205,8 @@ class Solution:
                 i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -211,6 +236,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -242,6 +269,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxStrength(nums []int) int64 {
 	sort.Ints(nums)
@@ -264,6 +293,8 @@ func maxStrength(nums []int) int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxStrength(nums: number[]): number {
@@ -290,4 +321,6 @@ function maxStrength(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

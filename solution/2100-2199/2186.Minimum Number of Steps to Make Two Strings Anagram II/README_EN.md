@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2186.Minimum%20Number%20of%20Steps%20to%20Make%20Two%20Strings%20Anagram%20II/README_EN.md
 rating: 1253
+source: Weekly Contest 282 Q2
 tags:
     - Hash Table
     - String
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2186. Minimum Number of Steps to Make Two Strings Anagram II](https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram-ii)
 
 [中文文档](/solution/2100-2199/2186.Minimum%20Number%20of%20Steps%20to%20Make%20Two%20Strings%20Anagram%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>s</code> and <code>t</code>. In one step, you can append <strong>any character</strong> to either <code>s</code> or <code>t</code>.</p>
 
@@ -51,11 +56,17 @@ It can be shown that there is no way to make them anagrams of each other with le
 	<li><code>s</code> and <code>t</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +76,8 @@ class Solution:
             cnt[c] -= 1
         return sum(abs(v) for v in cnt.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -98,6 +113,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSteps(s string, t string) int {
@@ -123,6 +140,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minSteps(s: string, t: string): number {
     let cnt = new Array(128).fill(0);
@@ -139,6 +158,8 @@ function minSteps(s: string, t: string): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -164,4 +185,6 @@ var minSteps = function (s, t) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

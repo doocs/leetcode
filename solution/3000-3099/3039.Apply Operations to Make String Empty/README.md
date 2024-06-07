@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README.md
 rating: 1423
+source: 第 124 场双周赛 Q2
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [3039. 进行操作使字符串为空](https://leetcode.cn/problems/apply-operations-to-make-string-empty)
 
 [English Version](/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>s</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表或数组
 
@@ -79,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lastNonEmptyString(self, s: str) -> str:
@@ -87,6 +96,8 @@ class Solution:
         last = {c: i for i, c in enumerate(s)}
         return "".join(c for i, c in enumerate(s) if cnt[c] == mx and last[c] == i)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lastNonEmptyString(s string) string {
 	cnt := [26]int{}
@@ -157,6 +172,8 @@ func lastNonEmptyString(s string) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function lastNonEmptyString(s: string): string {
@@ -182,4 +199,6 @@ function lastNonEmptyString(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

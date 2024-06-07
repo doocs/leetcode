@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1045. Customers Who Bought All Products](https://leetcode.com/problems/customers-who-bought-all-products)
 
 [中文文档](/solution/1000-1099/1045.Customers%20Who%20Bought%20All%20Products/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Customer</code></p>
 
@@ -80,13 +84,19 @@ Product table:
 The customers who bought all the products (5 and 6) are customers with IDs 1 and 3.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping and Subquery
 
 We can group the `Customer` table by `customer_id`, and then use the `HAVING` clause to filter out the customers who have not purchased all products. To do this, we can use a subquery to find the total number of distinct products, and then compare it with the number of distinct products purchased by each customer.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -98,4 +108,6 @@ HAVING COUNT(DISTINCT product_key) = (SELECT COUNT(1) FROM Product);
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

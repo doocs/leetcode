@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1464.Maximum%20Product%20of%20Two%20Elements%20in%20an%20Array/README.md
 rating: 1121
+source: 第 191 场周赛 Q1
 tags:
     - 数组
     - 排序
     - 堆（优先队列）
 ---
+
+<!-- problem:start -->
 
 # [1464. 数组中两元素的最大乘积](https://leetcode.cn/problems/maximum-product-of-two-elements-in-an-array)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code>，请你选择数组的两个不同下标 <code>i</code> 和 <code>j</code><em>，</em>使 <code>(nums[i]-1)*(nums[j]-1)</code> 取得最大值。</p>
 
@@ -52,7 +55,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10^3</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -61,6 +68,8 @@ tags:
 时间复杂度 $O(n^2)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +80,8 @@ class Solution:
                 ans = max(ans, (a - 1) * (b - 1))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProduct(nums []int) int {
 	ans := 0
@@ -117,6 +132,8 @@ func maxProduct(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProduct(nums: number[]): number {
@@ -133,6 +150,8 @@ function maxProduct(nums: number[]): number {
     return (nums[0] - 1) * (nums[1] - 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -151,6 +170,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -174,6 +195,8 @@ class Solution {
 }
 ```
 
+#### C
+
 ```c
 int maxProduct(int* nums, int numsSize) {
     int max = 0;
@@ -193,6 +216,10 @@ int maxProduct(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序
 
 对 $nums$ 进行排序，取最后两个元素，计算乘积 $(nums[n-1]-1) \times (nums[n-2]-1)$ 即可。
@@ -201,12 +228,16 @@ int maxProduct(int* nums, int numsSize) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
         nums.sort()
         return (nums[-1] - 1) * (nums[-2] - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -218,6 +249,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -228,6 +261,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProduct(nums []int) int {
 	sort.Ints(nums)
@@ -235,6 +270,8 @@ func maxProduct(nums []int) int {
 	return (nums[n-1] - 1) * (nums[n-2] - 1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProduct(nums: number[]): number {
@@ -254,11 +291,17 @@ function maxProduct(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：一次遍历
 
 遍历 $nums$，维护最大值 $a$ 和次大值 $b$。遍历结束，返回 $(a-1) \times (b-1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -271,6 +314,8 @@ class Solution:
                 b = v
         return (a - 1) * (b - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -288,6 +333,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -307,6 +354,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProduct(nums []int) int {
 	a, b := 0, 0
@@ -323,4 +372,6 @@ func maxProduct(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

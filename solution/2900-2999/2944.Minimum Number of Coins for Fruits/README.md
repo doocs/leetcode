@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README.md
 rating: 1708
+source: 第 118 场双周赛 Q3
 tags:
     - 队列
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [2944. 购买水果需要的最少金币数](https://leetcode.cn/problems/minimum-number-of-coins-for-fruits)
 
 [English Version](/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你在一个水果超市里，货架上摆满了玲琅满目的奇珍异果。</p>
 
@@ -70,7 +73,11 @@ tags:
 	<li><code>1 &lt;= prices[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -87,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCoins(self, prices: List[int]) -> int:
@@ -98,6 +107,8 @@ class Solution:
 
         return dfs(1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCoins(prices []int) int {
 	n := len(prices)
@@ -170,6 +185,8 @@ func minimumCoins(prices []int) int {
 	return dfs(1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCoins(prices: number[]): number {
@@ -193,6 +210,10 @@ function minimumCoins(prices: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们可以将方法一中的记忆化搜索改写成动态规划的形式。
@@ -207,6 +228,8 @@ function minimumCoins(prices: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCoins(self, prices: List[int]) -> int:
@@ -215,6 +238,8 @@ class Solution:
             prices[i - 1] += min(prices[i : i * 2 + 1])
         return prices[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -232,6 +257,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -245,6 +272,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCoins(prices []int) int {
 	for i := (len(prices) - 1) / 2; i > 0; i-- {
@@ -253,6 +282,8 @@ func minimumCoins(prices []int) int {
 	return prices[0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCoins(prices: number[]): number {
@@ -265,6 +296,10 @@ function minimumCoins(prices: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：动态规划 + 单调队列优化
 
 我们观察方法二中的状态转移方程，可以发现，对于每个 $i$，我们需要求出 $f[i + 1], f[i + 2], \cdots, f[2i + 1]$ 的最小值，并且随着 $i$ 的减小，这些值的范围也在减小。这实际上是求一个单调收窄的滑动窗口的最小值，我们可以使用单调队列来优化。
@@ -274,6 +309,8 @@ function minimumCoins(prices: number[]): number {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $prices$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -290,6 +327,8 @@ class Solution:
             q.append(i)
         return prices[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -313,6 +352,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -335,6 +376,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumCoins(prices []int) int {
@@ -413,6 +456,8 @@ func (q Deque) Get(i int) int {
 	return q.r[i-len(q.l)]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCoins(prices: number[]): number {
@@ -532,4 +577,6 @@ class Deque<T> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

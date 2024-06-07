@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2358.Maximum%20Number%20of%20Groups%20Entering%20a%20Competition/README.md
 rating: 1502
+source: 第 304 场周赛 Q2
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [2358. 分组的最大数量](https://leetcode.cn/problems/maximum-number-of-groups-entering-a-competition)
 
 [English Version](/solution/2300-2399/2358.Maximum%20Number%20of%20Groups%20Entering%20a%20Competition/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数数组 <code>grades</code> ，表示大学中一些学生的成绩。你打算将 <strong>所有</strong> 学生分为一些 <strong>有序</strong> 的非空分组，其中分组间的顺序满足以下全部条件：</p>
 
@@ -56,7 +59,11 @@ tags:
 	<li><code>1 &lt;= grades[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 二分查找
 
@@ -72,12 +79,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumGroups(self, grades: List[int]) -> int:
         n = len(grades)
         return bisect_right(range(n + 1), n * 2, key=lambda x: x * x + x) - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumGroups(grades []int) int {
 	n := len(grades)
@@ -125,6 +140,8 @@ func maximumGroups(grades []int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumGroups(grades: number[]): number {
@@ -145,4 +162,6 @@ function maximumGroups(grades: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

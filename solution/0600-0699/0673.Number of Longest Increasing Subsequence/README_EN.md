@@ -9,11 +9,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [673. Number of Longest Increasing Subsequence](https://leetcode.com/problems/number-of-longest-increasing-subsequence)
 
 [中文文档](/solution/0600-0699/0673.Number%20of%20Longest%20Increasing%20Subsequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array&nbsp;<code>nums</code>, return <em>the number of longest increasing subsequences.</em></p>
 
@@ -44,7 +48,11 @@ tags:
 	<li><code>-10<sup>6</sup> &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -57,6 +65,8 @@ Finally, we return $ans$.
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +90,8 @@ class Solution:
                 ans += cnt[i]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findNumberOfLIS(nums []int) (ans int) {
 	n, mx := len(nums), 0
@@ -170,6 +186,8 @@ func findNumberOfLIS(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findNumberOfLIS(nums: number[]): number {
@@ -198,6 +216,8 @@ function findNumberOfLIS(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -232,6 +252,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary Indexed Tree
 
 We can use a binary indexed tree to maintain the length and count of the longest increasing subsequence in the prefix interval. We remove duplicates from the array $nums$ and sort it to get the array $arr$. Then we enumerate each element $x$ in $nums$, find the position $i$ of $x$ in the array $arr$ by binary search, then query the length and count of the longest increasing subsequence in $[1,i-1]$, denoted as $v$ and $cnt$, then update the length and count of the longest increasing subsequence in $[i]$ to $v+1$ and $\max(cnt,1)$. Finally, we query the length and count of the longest increasing subsequence in $[1,m]$, where $m$ is the length of the array $arr$, which is the answer.
@@ -239,6 +263,8 @@ We can use a binary indexed tree to maintain the length and count of the longest
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -281,6 +307,8 @@ class Solution:
             tree.update(i, v + 1, max(cnt, 1))
         return tree.query(m)[1]
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -339,6 +367,8 @@ public class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -399,6 +429,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -455,6 +487,8 @@ func findNumberOfLIS(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -522,6 +556,8 @@ function findNumberOfLIS(nums: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 struct BinaryIndexedTree {
     n: usize,
@@ -586,4 +622,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

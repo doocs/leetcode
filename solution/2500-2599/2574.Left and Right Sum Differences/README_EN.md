@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2574.Left%20and%20Right%20Sum%20Differences/README_EN.md
 rating: 1206
+source: Weekly Contest 334 Q1
 tags:
     - Array
     - Prefix Sum
 ---
+
+<!-- problem:start -->
 
 # [2574. Left and Right Sum Differences](https://leetcode.com/problems/left-and-right-sum-differences)
 
 [中文文档](/solution/2500-2599/2574.Left%20and%20Right%20Sum%20Differences/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code>, find a <strong>0-indexed </strong>integer array <code>answer</code> where:</p>
 
@@ -57,7 +62,11 @@ The array answer is [|0 - 0|] = [0].
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum
 
@@ -76,6 +85,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def leftRigthDifference(self, nums: List[int]) -> List[int]:
@@ -87,6 +98,8 @@ class Solution:
             left += x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func leftRigthDifference(nums []int) (ans []int) {
@@ -142,6 +159,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function leftRigthDifference(nums: number[]): number[] {
     let left = 0,
@@ -155,6 +174,8 @@ function leftRigthDifference(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,6 +193,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -196,9 +219,15 @@ int* leftRigthDifference(int* nums, int numsSize, int* returnSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function leftRigthDifference(nums: number[]): number[] {
@@ -212,6 +241,8 @@ function leftRigthDifference(nums: number[]): number[] {
     });
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -239,9 +270,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -263,4 +300,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

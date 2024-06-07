@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20028.%20%E5%B1%95%E5%B9%B3%E5%A4%9A%E7%BA%A7%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 028. 展平多级双向链表](https://leetcode.cn/problems/Qv1Da2)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>多级双向链表中，除了指向下一个节点和前一个节点指针之外，它还有一个子链表指针，可能指向单独的双向链表。这些子列表也可能会有一个或多个自己的子项，依此类推，生成多级数据结构，如下面的示例所示。</p>
 
@@ -99,11 +101,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 430&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/flatten-a-multilevel-doubly-linked-list/">https://leetcode.cn/problems/flatten-a-multilevel-doubly-linked-list/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -141,6 +149,8 @@ class Solution:
         dummy.next.prev = None
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /*
@@ -181,6 +191,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -232,6 +244,56 @@ public:
 };
 ```
 
+#### Swift
+
+```swift
+/* class Node {
+*     var val: Int
+*     var prev: Node?
+*     var next: Node?
+*     var child: Node?
+
+*     init(_ val: Int) {
+*         self.val = val
+*         self.prev = nil
+*         self.next = nil
+*         self.child = nil
+*     }
+* }
+*/
+
+class Solution {
+    private var dummy = Node(0)
+    private var tail: Node?
+
+    func flatten(_ head: Node?) -> Node? {
+        guard let head = head else {
+            return nil
+        }
+        tail = dummy
+        preOrder(head)
+        dummy.next?.prev = nil
+        return dummy.next
+    }
+
+    private func preOrder(_ node: Node?) {
+        guard let node = node else {
+            return
+        }
+        let next = node.next
+        let child = node.child
+        tail?.next = node
+        node.prev = tail
+        tail = node
+        node.child = nil
+        preOrder(child)
+        preOrder(next)
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

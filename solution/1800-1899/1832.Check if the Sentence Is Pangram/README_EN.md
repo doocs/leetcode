@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1832.Check%20if%20the%20Sentence%20Is%20Pangram/README_EN.md
 rating: 1166
+source: Weekly Contest 237 Q1
 tags:
     - Hash Table
     - String
 ---
+
+<!-- problem:start -->
 
 # [1832. Check if the Sentence Is Pangram](https://leetcode.com/problems/check-if-the-sentence-is-pangram)
 
 [中文文档](/solution/1800-1899/1832.Check%20if%20the%20Sentence%20Is%20Pangram/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>pangram</strong> is a sentence where every letter of the English alphabet appears at least once.</p>
 
@@ -42,7 +47,11 @@ tags:
 	<li><code>sentence</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array or Hash Table
 
@@ -52,11 +61,15 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
         return len(set(sentence)) == 26
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +88,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -87,6 +102,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkIfPangram(sentence string) bool {
@@ -103,6 +120,8 @@ func checkIfPangram(sentence string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkIfPangram(sentence: string): boolean {
     const vis = new Array(26).fill(false);
@@ -112,6 +131,8 @@ function checkIfPangram(sentence: string): boolean {
     return vis.every(v => v);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -124,6 +145,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool checkIfPangram(char* sentence) {
@@ -142,6 +165,10 @@ bool checkIfPangram(char* sentence) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Bit Manipulation
 
 We can also use an integer $mask$ to record the letters that have appeared, where the $i$-th bit of $mask$ indicates whether the $i$-th letter has appeared.
@@ -152,6 +179,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string `sentence`.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
@@ -160,6 +189,8 @@ class Solution:
             mask |= 1 << (ord(c) - ord('a'))
         return mask == (1 << 26) - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -173,6 +204,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -184,6 +217,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkIfPangram(sentence string) bool {
 	mask := 0
@@ -194,6 +229,8 @@ func checkIfPangram(sentence string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkIfPangram(sentence: string): boolean {
     let mark = 0;
@@ -203,6 +240,8 @@ function checkIfPangram(sentence: string): boolean {
     return mark === (1 << 26) - 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -216,6 +255,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 bool checkIfPangram(char* sentence) {
     int mark = 0;
@@ -228,4 +269,6 @@ bool checkIfPangram(char* sentence) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

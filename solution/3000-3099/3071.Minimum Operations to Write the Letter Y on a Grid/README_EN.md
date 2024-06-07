@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README_EN.md
 rating: 1689
+source: Weekly Contest 387 Q3
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [3071. Minimum Operations to Write the Letter Y on a Grid](https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid)
 
 [中文文档](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> <code>n x n</code> grid where <code>n</code> is odd, and <code>grid[r][c]</code> is <code>0</code>, <code>1</code>, or <code>2</code>.</p>
 
@@ -64,7 +69,11 @@ It can be shown that 12 is the minimum number of operations needed to write Y on
 	<li><code>n</code> is odd.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -73,6 +82,8 @@ We use two arrays of length 3, `cnt1` and `cnt2`, to record the counts of cell v
 The time complexity is $O(n^2)$, where $n$ is the size of the matrix. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +104,8 @@ class Solution:
             n * n - cnt1[i] - cnt2[j] for i in range(3) for j in range(3) if i != j
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -157,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperationsToWriteY(grid [][]int) int {
 	n := len(grid)
@@ -185,6 +202,8 @@ func minimumOperationsToWriteY(grid [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperationsToWriteY(grid: number[][]): number {
@@ -217,4 +236,6 @@ function minimumOperationsToWriteY(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

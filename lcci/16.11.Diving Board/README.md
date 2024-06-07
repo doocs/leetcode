@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.11.Diving%20Board/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.11. 跳水板](https://leetcode.cn/problems/diving-board-lcci)
 
 [English Version](/lcci/16.11.Diving%20Board/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你正在使用一堆木板建造跳水板。有两种类型的木板，其中长度较短的木板长度为<code>shorter</code>，长度较长的木板长度为<code>longer</code>。你必须正好使用<code>k</code>块木板。编写一个方法，生成跳水板所有可能的长度。</p>
 <p>返回的长度需要从小到大排列。</p>
@@ -27,7 +29,11 @@ k = 3
 <li>0 <= k <= 100000</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分类讨论
 
@@ -41,6 +47,8 @@ k = 3
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def divingBoard(self, shorter: int, longer: int, k: int) -> List[int]:
@@ -53,6 +61,8 @@ class Solution:
             ans.append(longer * i + shorter * (k - i))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +82,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -85,6 +97,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func divingBoard(shorter int, longer int, k int) []int {
@@ -102,6 +116,8 @@ func divingBoard(shorter int, longer int, k int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function divingBoard(shorter: number, longer: number, k: number): number[] {
     if (k === 0) {
@@ -117,6 +133,8 @@ function divingBoard(shorter: number, longer: number, k: number): number[] {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -139,4 +157,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2307. Check for Contradictions in Equations 🔒](https://leetcode.com/problems/check-for-contradictions-in-equations)
 
 [中文文档](/solution/2300-2399/2307.Check%20for%20Contradictions%20in%20Equations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D array of strings <code>equations</code> and an array of real numbers <code>values</code>, where <code>equations[i] = [A<sub>i</sub>, B<sub>i</sub>]</code> and <code>values[i]</code> means that <code>A<sub>i</sub> / B<sub>i</sub> = values[i]</code>.</p>
 
@@ -62,7 +66,11 @@ Since the third equation is code / et = 0.5, we get a contradiction.
 	<li><code>values[i]</code> has a maximum of 2 decimal places.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Weighted Union-Find
 
@@ -75,6 +83,8 @@ Similar problems:
 -   [399. Evaluate Division](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0399.Evaluate%20Division/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -108,6 +118,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -156,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -195,6 +209,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkContradictions(equations [][]string, values []float64) bool {
@@ -246,6 +262,8 @@ func checkContradictions(equations [][]string, values []float64) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkContradictions(equations: string[][], values: number[]): boolean {
     const d: { [key: string]: number } = {};
@@ -294,4 +312,6 @@ function checkContradictions(equations: string[][], values: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

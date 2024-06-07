@@ -8,11 +8,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [48. Rotate Image](https://leetcode.com/problems/rotate-image)
 
 [中文文档](/solution/0000-0099/0048.Rotate%20Image/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>n x n</code> 2D <code>matrix</code> representing an image, rotate the image by <strong>90</strong> degrees (clockwise).</p>
 
@@ -42,7 +46,11 @@ tags:
 	<li><code>-1000 &lt;= matrix[i][j] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: In-place Rotation
 
@@ -53,6 +61,8 @@ We can first flip the matrix upside down, that is, swap $matrix[i][j]$ and $matr
 The time complexity is $O(n^2)$, where $n$ is the side length of the matrix. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +75,8 @@ class Solution:
             for j in range(i):
                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rotate(matrix [][]int) {
 	n := len(matrix)
@@ -123,6 +139,8 @@ func rotate(matrix [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  Do not return anything, modify matrix in-place instead.
@@ -138,6 +156,8 @@ function rotate(matrix: number[][]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -161,6 +181,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -175,6 +197,8 @@ var rotate = function (matrix) {
     }
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -200,4 +224,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

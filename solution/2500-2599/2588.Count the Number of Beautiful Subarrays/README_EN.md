@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README_EN.md
 rating: 1696
+source: Weekly Contest 336 Q3
 tags:
     - Bit Manipulation
     - Array
@@ -10,11 +11,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2588. Count the Number of Beautiful Subarrays](https://leetcode.com/problems/count-the-number-of-beautiful-subarrays)
 
 [中文文档](/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. In one operation, you can:</p>
 
@@ -62,7 +67,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix XOR + Hash Table
 
@@ -78,6 +87,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def beautifulSubarrays(self, nums: List[int]) -> int:
@@ -89,6 +100,8 @@ class Solution:
             cnt[mask] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beautifulSubarrays(nums []int) (ans int64) {
 	cnt := map[int]int{0: 1}
@@ -136,6 +153,8 @@ func beautifulSubarrays(nums []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function beautifulSubarrays(nums: number[]): number {
@@ -154,4 +173,6 @@ function beautifulSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

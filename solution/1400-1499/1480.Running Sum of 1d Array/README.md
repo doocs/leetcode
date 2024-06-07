@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1480.Running%20Sum%20of%201d%20Array/README.md
 rating: 1104
+source: 第 193 场周赛 Q1
 tags:
     - 数组
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [1480. 一维数组的动态和](https://leetcode.cn/problems/running-sum-of-1d-array)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组 <code>nums</code> 。数组「动态和」的计算公式为：<code>runningSum[i] = sum(nums[0]&hellip;nums[i])</code> 。</p>
 
@@ -49,7 +52,11 @@ tags:
 	<li><code>-10^6&nbsp;&lt;= nums[i] &lt;=&nbsp;10^6</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和
 
@@ -59,11 +66,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
         return list(accumulate(nums))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +87,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -86,6 +99,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func runningSum(nums []int) []int {
 	for i := 1; i < len(nums); i++ {
@@ -95,6 +110,8 @@ func runningSum(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function runningSum(nums: number[]): number[] {
     for (let i = 1; i < nums.length; ++i) {
@@ -103,6 +120,8 @@ function runningSum(nums: number[]): number[] {
     return nums;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -114,6 +133,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -132,4 +153,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

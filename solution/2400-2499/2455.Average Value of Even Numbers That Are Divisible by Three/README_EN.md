@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2455.Average%20Value%20of%20Even%20Numbers%20That%20Are%20Divisible%20by%20Three/README_EN.md
 rating: 1151
+source: Weekly Contest 317 Q1
 tags:
     - Array
     - Math
 ---
+
+<!-- problem:start -->
 
 # [2455. Average Value of Even Numbers That Are Divisible by Three](https://leetcode.com/problems/average-value-of-even-numbers-that-are-divisible-by-three)
 
 [中文文档](/solution/2400-2499/2455.Average%20Value%20of%20Even%20Numbers%20That%20Are%20Divisible%20by%20Three/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> of <strong>positive</strong> integers, return <em>the average value of all even integers that are divisible by</em> <code>3</code><i>.</i></p>
 
@@ -43,7 +48,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -52,6 +61,8 @@ We notice that an even number divisible by $3$ must be a multiple of $6$. Theref
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +74,8 @@ class Solution:
                 n += 1
         return 0 if n == 0 else s // n
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func averageValue(nums []int) int {
 	var s, n int
@@ -111,6 +128,8 @@ func averageValue(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function averageValue(nums: number[]): number {
     let s = 0;
@@ -124,6 +143,8 @@ function averageValue(nums: number[]): number {
     return n === 0 ? 0 : ~~(s / n);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -144,6 +165,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int averageValue(int* nums, int numsSize) {
     int s = 0, n = 0;
@@ -159,9 +182,15 @@ int averageValue(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -183,4 +212,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

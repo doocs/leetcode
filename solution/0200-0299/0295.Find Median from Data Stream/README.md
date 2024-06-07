@@ -10,13 +10,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [295. 数据流的中位数](https://leetcode.cn/problems/find-median-from-data-stream)
 
 [English Version](/solution/0200-0299/0295.Find%20Median%20from%20Data%20Stream/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>中位数</strong>是有序整数列表中的中间值。如果列表的大小是偶数，则没有中间值，中位数是两个中间值的平均值。</p>
 
@@ -64,7 +66,11 @@ medianFinder.findMedian(); // return 2.0</pre>
 	<li>最多&nbsp;<code>5 * 10<sup>4</sup></code>&nbsp;次调用&nbsp;<code>addNum</code>&nbsp;和&nbsp;<code>findMedian</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（双堆）
 
@@ -79,6 +85,8 @@ medianFinder.findMedian(); // return 2.0</pre>
 每次添加元素的时间复杂度为 $O(\log n)$，取中位数的时间复杂度为 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MedianFinder:
@@ -106,6 +114,8 @@ class MedianFinder:
 # obj.addNum(num)
 # param_2 = obj.findMedian()
 ```
+
+#### Java
 
 ```java
 class MedianFinder {
@@ -139,6 +149,8 @@ class MedianFinder {
  * double param_2 = obj.findMedian();
  */
 ```
+
+#### C++
 
 ```cpp
 class MedianFinder {
@@ -176,6 +188,8 @@ private:
  * double param_2 = obj->findMedian();
  */
 ```
+
+#### Go
 
 ```go
 type MedianFinder struct {
@@ -222,6 +236,8 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class MedianFinder {
     private nums: number[];
@@ -262,6 +278,8 @@ class MedianFinder {
  * var param_2 = obj.findMedian()
  */
 ```
+
+#### Rust
 
 ```rust
 struct MedianFinder {
@@ -307,6 +325,8 @@ impl MedianFinder {
  */
 ```
 
+#### JavaScript
+
 ```js
 /**
  * initialize your data structure here.
@@ -341,6 +361,8 @@ MedianFinder.prototype.findMedian = function () {
     return this.val.length % 2 ? this.val[mid] : (this.val[mid - 1] + this.val[mid]) / 2;
 };
 ```
+
+#### C#
 
 ```cs
 public class MedianFinder {
@@ -403,4 +425,6 @@ public class MedianFinder {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

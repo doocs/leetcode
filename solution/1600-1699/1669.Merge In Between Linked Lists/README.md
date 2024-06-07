@@ -3,9 +3,12 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README.md
 rating: 1428
+source: 第 40 场双周赛 Q2
 tags:
     - 链表
 ---
+
+<!-- problem:start -->
 
 # [1669. 合并两个链表](https://leetcode.cn/problems/merge-in-between-linked-lists)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个链表&nbsp;<code>list1</code> 和&nbsp;<code>list2</code>&nbsp;，它们包含的元素分别为&nbsp;<code>n</code> 个和&nbsp;<code>m</code> 个。</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>1 &lt;= list2.length &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -66,6 +73,8 @@ tags:
 时间复杂度 $O(m + n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为链表 `list1` 和 `list2` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -89,6 +98,8 @@ class Solution:
         q.next = None
         return list1
 ```
+
+#### Java
 
 ```java
 /**
@@ -120,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -153,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -178,6 +193,8 @@ func mergeInBetween(list1 *ListNode, a int, b int, list2 *ListNode) *ListNode {
 	return list1
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -216,6 +233,8 @@ function mergeInBetween(
 }
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for singly-linked list.
@@ -250,4 +269,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

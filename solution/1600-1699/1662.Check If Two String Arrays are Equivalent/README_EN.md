@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1662.Check%20If%20Two%20String%20Arrays%20are%20Equivalent/README_EN.md
 rating: 1217
+source: Weekly Contest 216 Q1
 tags:
     - Array
     - String
 ---
+
+<!-- problem:start -->
 
 # [1662. Check If Two String Arrays are Equivalent](https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent)
 
 [中文文档](/solution/1600-1699/1662.Check%20If%20Two%20String%20Arrays%20are%20Equivalent/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two string arrays <code>word1</code> and <code>word2</code>, return<em> </em><code>true</code><em> if the two arrays <strong>represent</strong> the same string, and </em><code>false</code><em> otherwise.</em></p>
 
@@ -53,7 +58,11 @@ The strings are the same, so return true.</pre>
 	<li><code>word1[i]</code> and <code>word2[i]</code> consist of lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: String Concatenation
 
@@ -63,11 +72,15 @@ The time complexity is $O(m)$, and the space complexity is $O(m)$. Here, $m$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
         return ''.join(word1) == ''.join(word2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -86,17 +101,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arrayStringsAreEqual(word1 []string, word2 []string) bool {
 	return strings.Join(word1, "") == strings.Join(word2, "")
 }
 ```
 
+#### TypeScript
+
 ```ts
 function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
     return word1.join('') === word2.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -105,6 +126,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool arrayStringsAreEqual(char** word1, int word1Size, char** word2, int word2Size) {
@@ -132,6 +155,10 @@ bool arrayStringsAreEqual(char** word1, int word1Size, char** word2, int word2Si
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Direct Traversal
 
 In Solution 1, we concatenated the strings in the two arrays into two new strings, which has additional space overhead. We can also directly traverse the two arrays and compare the characters one by one.
@@ -145,6 +172,8 @@ If both string arrays are traversed, we return `true`, otherwise, we return `fal
 The time complexity is $O(m)$, and the space complexity is $O(1)$. Here, $m$ is the total length of the strings in the arrays.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -160,6 +189,8 @@ class Solution:
                 y, j = 0, j + 1
         return i == len(word1) and j == len(word2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -184,6 +215,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -198,6 +231,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func arrayStringsAreEqual(word1 []string, word2 []string) bool {
@@ -218,6 +253,8 @@ func arrayStringsAreEqual(word1 []string, word2 []string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
     let [i, j, x, y] = [0, 0, 0, 0];
@@ -237,6 +274,8 @@ function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
     return i === word1.length && j === word2.length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -265,4 +304,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

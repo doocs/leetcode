@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [2263. 数组变为有序的最小操作次数 🔒](https://leetcode.cn/problems/make-array-non-decreasing-or-non-increasing)
 
 [English Version](/solution/2200-2299/2263.Make%20Array%20Non-decreasing%20or%20Non-increasing/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 。在一步操作中，你可以：</p>
 
@@ -69,7 +71,11 @@ tags:
 
 <p><strong>进阶：</strong>你可以设计并实现时间复杂度为 <code>O(n*log(n))</code> 的解法吗?</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -87,6 +93,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def convertArray(self, nums: List[int]) -> int:
@@ -103,6 +111,8 @@ class Solution:
 
         return min(solve(nums), solve(nums[::-1]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +175,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func convertArray(nums []int) int {
@@ -203,4 +217,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

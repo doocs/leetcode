@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README_EN.md
 rating: 1184
+source: Weekly Contest 302 Q1
 tags:
     - Array
     - Hash Table
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2341. Maximum Number of Pairs in Array](https://leetcode.com/problems/maximum-number-of-pairs-in-array)
 
 [中文文档](/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. In one operation, you may do the following:</p>
 
@@ -64,11 +69,17 @@ No more pairs can be formed. A total of 1 pair has been formed, and there are 0 
 	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +88,8 @@ class Solution:
         s = sum(v // 2 for v in cnt.values())
         return [s, len(nums) - s * 2]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfPairs(nums []int) []int {
 	cnt := [101]int{}
@@ -125,6 +142,8 @@ func numberOfPairs(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfPairs(nums: number[]): number[] {
     const n = nums.length;
@@ -136,6 +155,8 @@ function numberOfPairs(nums: number[]): number[] {
     return [sum, n - sum * 2];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -154,6 +175,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -168,6 +191,8 @@ var numberOfPairs = function (nums) {
     return [s, nums.length - s * 2];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -184,6 +209,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -208,4 +235,6 @@ int* numberOfPairs(int* nums, int numsSize, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

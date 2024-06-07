@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [296. Best Meeting Point 🔒](https://leetcode.com/problems/best-meeting-point)
 
 [中文文档](/solution/0200-0299/0296.Best%20Meeting%20Point/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> binary grid <code>grid</code> where each <code>1</code> marks the home of one friend, return <em>the minimal <strong>total travel distance</strong></em>.</p>
 
@@ -50,11 +54,17 @@ So return 6.
 	<li>There will be <strong>at least two</strong> friends in the <code>grid</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +83,8 @@ class Solution:
         j = cols[len(cols) >> 1]
         return f(rows, i) + f(cols, j)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minTotalDistance(grid [][]int) int {
@@ -165,6 +181,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -208,4 +226,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

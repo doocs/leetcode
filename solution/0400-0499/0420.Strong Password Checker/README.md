@@ -8,13 +8,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [420. 强密码检验器](https://leetcode.cn/problems/strong-password-checker)
 
 [English Version](/solution/0400-0499/0420.Strong%20Password%20Checker/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>满足以下条件的密码被认为是强密码：</p>
 
@@ -66,11 +68,17 @@ tags:
 	<li><code>password</code> 由字母、数字、点 <code>'.'</code> 或者感叹号 <code>'!'</code> 组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -134,6 +142,8 @@ class Solution:
         remove -= use3 * 3
         return n - 20 + max(replace, 3 - types)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -217,6 +227,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -295,4 +307,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

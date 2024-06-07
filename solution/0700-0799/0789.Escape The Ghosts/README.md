@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [789. 逃脱阻碍者](https://leetcode.cn/problems/escape-the-ghosts)
 
 [English Version](/solution/0700-0799/0789.Escape%20The%20Ghosts/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你在进行一个简化版的吃豆人游戏。你从 <code>[0, 0]</code> 点开始出发，你的目的地是&nbsp;<code>target = [x<sub>target</sub>, y<sub>target</sub>]</code> 。地图上有一些阻碍者，以数组 <code>ghosts</code> 给出，第 <code>i</code> 个阻碍者从&nbsp;<code>ghosts[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>&nbsp;出发。所有输入均为 <strong>整数坐标</strong> 。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= x<sub>target</sub>, y<sub>target</sub> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：曼哈顿距离
 
@@ -71,12 +77,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def escapeGhosts(self, ghosts: List[List[int]], target: List[int]) -> bool:
         tx, ty = target
         return all(abs(tx - x) + abs(ty - y) > abs(tx) + abs(ty) for x, y in ghosts)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func escapeGhosts(ghosts [][]int, target []int) bool {
@@ -129,6 +143,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function escapeGhosts(ghosts: number[][], target: number[]): boolean {
     const [tx, ty] = target;
@@ -143,4 +159,6 @@ function escapeGhosts(ghosts: number[][], target: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

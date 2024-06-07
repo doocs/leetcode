@@ -8,11 +8,15 @@ tags:
     - Breadth-First Search
 ---
 
+<!-- problem:start -->
+
 # [559. Maximum Depth of N-ary Tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree)
 
 [中文文档](/solution/0500-0599/0559.Maximum%20Depth%20of%20N-ary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a n-ary tree, find its maximum depth.</p>
 
@@ -47,11 +51,17 @@ tags:
 	<li>The depth of the n-ary tree is less than or equal to <code>1000</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -69,6 +79,8 @@ class Solution:
             return 0
         return 1 + max([self.maxDepth(child) for child in root.children], default=0)
 ```
+
+#### Java
 
 ```java
 /*
@@ -104,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -136,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -159,4 +175,6 @@ func maxDepth(root *Node) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

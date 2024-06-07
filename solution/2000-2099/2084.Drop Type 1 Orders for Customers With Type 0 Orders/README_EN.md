@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2084. Drop Type 1 Orders for Customers With Type 0 Orders 🔒](https://leetcode.com/problems/drop-type-1-orders-for-customers-with-type-0-orders)
 
 [中文文档](/solution/2000-2099/2084.Drop%20Type%201%20Orders%20for%20Customers%20With%20Type%200%20Orders/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Orders</code></p>
 
@@ -77,11 +81,17 @@ Customer 4 has two orders of type 1. We return both of them.
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -98,9 +108,15 @@ WHERE order_type = 0 OR NOT EXISTS (SELECT 1 FROM T AS t WHERE t.customer_id = o
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT DISTINCT
@@ -115,4 +131,6 @@ WHERE b.order_type IS NULL OR b.order_type = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

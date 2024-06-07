@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README_EN.md
 rating: 2615
+source: Weekly Contest 301 Q4
 tags:
     - Math
     - Dynamic Programming
@@ -10,11 +11,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2338. Count the Number of Ideal Arrays](https://leetcode.com/problems/count-the-number-of-ideal-arrays)
 
 [中文文档](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>n</code> and <code>maxValue</code>, which are used to describe an <strong>ideal</strong> array.</p>
 
@@ -65,11 +70,17 @@ There are a total of 9 + 1 + 1 = 11 distinct ideal arrays.
 	<li><code>1 &lt;= maxValue &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +105,8 @@ class Solution:
             ans = (ans + dfs(i, 1)) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func idealArrays(n int, maxValue int) int {
@@ -220,9 +237,15 @@ func idealArrays(n int, maxValue int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -247,6 +270,8 @@ class Solution:
                 ans = (ans + dp[i][j] * c[-1][j - 1]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -282,6 +307,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -310,6 +337,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func idealArrays(n int, maxValue int) int {
@@ -352,4 +381,6 @@ func idealArrays(n int, maxValue int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

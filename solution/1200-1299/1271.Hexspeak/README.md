@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1271.Hexspeak/README.md
 rating: 1384
+source: 第 14 场双周赛 Q1
 tags:
     - 数学
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1271. 十六进制魔术数字 🔒](https://leetcode.cn/problems/hexspeak)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一个十进制数字，请按照此规则将它变成「十六进制魔术数字」：首先将它变成字母大写的十六进制字符串，然后将所有的数字&nbsp;<code>0</code> 变成字母&nbsp;<code>O</code> ，将数字&nbsp;<code>1</code> &nbsp;变成字母&nbsp;<code>I</code> 。</p>
 
@@ -47,7 +50,11 @@ tags:
 	<li>结果中的所有字母都应该是大写字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -57,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def toHexspeak(self, num: str) -> str:
@@ -64,6 +73,8 @@ class Solution:
         t = hex(int(num))[2:].upper().replace('0', 'O').replace('1', 'I')
         return t if all(c in s for c in t) else 'ERROR'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func toHexspeak(num string) string {
 	x, _ := strconv.Atoi(num)
@@ -120,4 +135,6 @@ func toHexspeak(num string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

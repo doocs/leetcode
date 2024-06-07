@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1887.Reduction%20Operations%20to%20Make%20the%20Array%20Elements%20Equal/README.md
 rating: 1427
+source: 第 244 场周赛 Q2
 tags:
     - 数组
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [1887. 使数组元素相等的减少操作次数](https://leetcode.cn/problems/reduction-operations-to-make-the-array-elements-equal)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，你的目标是令 <code>nums</code> 中的所有元素相等。完成一次减少操作需要遵照下面的几个步骤：</p>
 
@@ -68,7 +71,11 @@ tags:
 	<li><code>1 <= nums[i] <= 5 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -79,6 +86,8 @@ tags:
 时间复杂度 $O(nlogn)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +100,8 @@ class Solution:
             ans += cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reductionOperations(nums []int) int {
 	sort.Ints(nums)
@@ -136,6 +151,8 @@ func reductionOperations(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function reductionOperations(nums: number[]): number {
@@ -151,6 +168,8 @@ function reductionOperations(nums: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -170,9 +189,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -183,6 +208,8 @@ class Solution:
             cnt += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -200,6 +227,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -219,4 +248,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

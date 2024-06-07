@@ -8,13 +8,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [450. 删除二叉搜索树中的节点](https://leetcode.cn/problems/delete-node-in-a-bst)
 
 [English Version](/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二叉搜索树的根节点 <strong>root </strong>和一个值 <strong>key</strong>，删除二叉搜索树中的&nbsp;<strong>key&nbsp;</strong>对应的节点，并保证二叉搜索树的性质不变。返回二叉搜索树（有可能被更新）的根节点的引用。</p>
 
@@ -71,7 +73,11 @@ tags:
 
 <p><strong>进阶：</strong> 要求算法时间复杂度为&nbsp;O(h)，h 为树的高度。</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -93,6 +99,8 @@ tags:
 时间复杂度 $O(H)$，其中 $H$ 是树的高度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -122,6 +130,8 @@ class Solution:
         root = root.right
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -169,6 +179,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -203,6 +215,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -240,6 +254,8 @@ func deleteNode(root *TreeNode, key int) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -288,6 +304,8 @@ function deleteNode(root: TreeNode | null, key: number): TreeNode | null {
     return root;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -365,4 +383,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2475.Number%20of%20Unequal%20Triplets%20in%20Array/README_EN.md
 rating: 1255
+source: Weekly Contest 320 Q1
 tags:
     - Array
     - Hash Table
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2475. Number of Unequal Triplets in Array](https://leetcode.com/problems/number-of-unequal-triplets-in-array)
 
 [中文文档](/solution/2400-2499/2475.Number%20of%20Unequal%20Triplets%20in%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of positive integers <code>nums</code>. Find the number of triplets <code>(i, j, k)</code> that meet the following conditions:</p>
 
@@ -58,7 +63,11 @@ Note that (2, 0, 4) is not a valid triplet because 2 &gt; 0.
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Brute Force Enumeration
 
@@ -67,6 +76,8 @@ We can directly enumerate all triples $(i, j, k)$ and count all the ones that me
 The time complexity is $O(n^3)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +92,8 @@ class Solution:
                     )
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func unequalTriplets(nums []int) (ans int) {
 	n := len(nums)
@@ -136,6 +153,8 @@ func unequalTriplets(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function unequalTriplets(nums: number[]): number {
@@ -153,6 +172,8 @@ function unequalTriplets(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,6 +196,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Enumeration of Middle Elements + Binary Search
 
 We can also sort the array $nums$ first.
@@ -184,6 +209,8 @@ Then traverse $nums$, enumerate the middle element $nums[j]$, and use binary sea
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -196,6 +223,8 @@ class Solution:
             ans += (i >= 0 and k < n) * (i + 1) * (n - k)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -226,6 +255,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -244,6 +275,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func unequalTriplets(nums []int) (ans int) {
 	sort.Ints(nums)
@@ -258,6 +291,8 @@ func unequalTriplets(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function unequalTriplets(nums: number[]): number {
@@ -276,6 +311,8 @@ function unequalTriplets(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -300,6 +337,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3: Hash Table
 
 We can also use a hash table $cnt$ to count the number of each element in the array $nums$.
@@ -309,6 +350,8 @@ Then traverse the hash table $cnt$, enumerate the number of middle elements $b$,
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -322,6 +365,8 @@ class Solution:
             a += b
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -341,6 +386,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -362,6 +409,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func unequalTriplets(nums []int) (ans int) {
 	cnt := map[int]int{}
@@ -377,6 +426,8 @@ func unequalTriplets(nums []int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -404,9 +455,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 4
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -451,4 +508,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

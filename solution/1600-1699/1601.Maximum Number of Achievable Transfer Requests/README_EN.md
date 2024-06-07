@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README_EN.md
 rating: 2118
+source: Weekly Contest 208 Q4
 tags:
     - Bit Manipulation
     - Array
@@ -10,11 +11,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [1601. Maximum Number of Achievable Transfer Requests](https://leetcode.com/problems/maximum-number-of-achievable-transfer-requests)
 
 [中文文档](/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We have <code>n</code> buildings numbered from <code>0</code> to <code>n - 1</code>. Each building has a number of employees. It&#39;s transfer season, and some employees want to change the building they reside in.</p>
 
@@ -68,7 +73,11 @@ We can achieve all the requests. </pre>
 	<li><code>0 &lt;= from<sub>i</sub>, to<sub>i</sub> &lt; n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
 
@@ -79,6 +88,8 @@ We enumerate all binary numbers in the range of $[1, 2^{m})$, for each binary nu
 The time complexity is $O(2^m \times (m + n))$, and the space complexity is $O(n)$, where $m$ and $n$ are the lengths of the room change request list and the number of rooms, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +109,8 @@ class Solution:
                 ans = cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumRequests(n int, requests [][]int) (ans int) {
 	m := len(requests)
@@ -200,6 +217,8 @@ func maximumRequests(n int, requests [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumRequests(n: number, requests: number[][]): number {
@@ -234,6 +253,8 @@ function bitCount(i: number): number {
     return i & 0x3f;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -273,6 +294,8 @@ function bitCount(i) {
     return i & 0x3f;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -324,4 +347,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2548. Maximum Price to Fill a Bag 🔒](https://leetcode.com/problems/maximum-price-to-fill-a-bag)
 
 [中文文档](/solution/2500-2599/2548.Maximum%20Price%20to%20Fill%20a%20Bag/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D integer array <code>items</code> where <code>items[i] = [price<sub>i</sub>, weight<sub>i</sub>]</code> denotes the price and weight of the <code>i<sup>th</sup></code> item, respectively.</p>
 
@@ -59,7 +63,11 @@ It can be proved that 55.0 is the maximum total price that we can achieve.
 	<li><code>1 &lt;= capacity &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -71,6 +79,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPrice(self, items: List[List[int]], capacity: int) -> float:
@@ -81,6 +91,8 @@ class Solution:
             capacity -= v
         return -1 if capacity else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPrice(items [][]int, capacity int) (ans float64) {
 	sort.Slice(items, func(i, j int) bool { return items[i][1]*items[j][0] < items[i][0]*items[j][1] })
@@ -131,6 +147,8 @@ func maxPrice(items [][]int, capacity int) (ans float64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxPrice(items: number[][], capacity: number): number {
     items.sort((a, b) => a[1] * b[0] - a[0] * b[1]);
@@ -146,4 +164,6 @@ function maxPrice(items: number[][], capacity: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

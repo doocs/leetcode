@@ -8,13 +8,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [477. 汉明距离总和](https://leetcode.cn/problems/total-hamming-distance)
 
 [English Version](/solution/0400-0499/0477.Total%20Hamming%20Distance/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>两个整数的&nbsp;<a href="https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB/475174?fr=aladdin">汉明距离</a> 指的是这两个数字的二进制数对应位不同的数量。</p>
 
@@ -49,7 +51,11 @@ HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 
 	<li>给定输入的对应答案符合 <strong>32-bit</strong> 整数范围</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -58,6 +64,8 @@ HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 
 时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组的长度和数组中的元素的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +77,8 @@ class Solution:
             ans += a * b
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func totalHammingDistance(nums []int) (ans int) {
 	for i := 0; i < 32; i++ {
@@ -119,6 +133,8 @@ func totalHammingDistance(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function totalHammingDistance(nums: number[]): number {
     let ans = 0;
@@ -130,6 +146,8 @@ function totalHammingDistance(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -150,4 +168,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

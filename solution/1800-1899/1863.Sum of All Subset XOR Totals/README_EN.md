@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1863.Sum%20of%20All%20Subset%20XOR%20Totals/README_EN.md
 rating: 1372
+source: Weekly Contest 241 Q1
 tags:
     - Bit Manipulation
     - Array
@@ -12,11 +13,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [1863. Sum of All Subset XOR Totals](https://leetcode.com/problems/sum-of-all-subset-xor-totals)
 
 [中文文档](/solution/1800-1899/1863.Sum%20of%20All%20Subset%20XOR%20Totals/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>XOR total</strong> of an array is defined as the bitwise <code>XOR</code> of<strong> all its elements</strong>, or <code>0</code> if the array is<strong> empty</strong>.</p>
 
@@ -77,7 +82,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
 
@@ -88,6 +97,8 @@ Specifically, we enumerate $i$ in the range $[0, 2^n)$, where $n$ is the length 
 The time complexity is $O(n \times 2^n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +112,8 @@ class Solution:
             ans += s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsetXORSum(nums []int) (ans int) {
 	n := len(nums)
@@ -156,6 +173,8 @@ func subsetXORSum(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subsetXORSum(nums: number[]): number {
@@ -173,6 +192,8 @@ function subsetXORSum(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -197,6 +218,10 @@ var subsetXORSum = function (nums) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: DFS (Depth-First Search)
 
 We can also use depth-first search to enumerate all subsets, and then calculate the XOR sum of each subset.
@@ -211,6 +236,8 @@ When we have searched all elements of the array $nums$, i.e., $i=n$, the XOR sum
 The time complexity is $O(2^n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -227,6 +254,8 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -250,6 +279,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -270,6 +301,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsetXORSum(nums []int) (ans int) {
 	n := len(nums)
@@ -287,6 +320,8 @@ func subsetXORSum(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subsetXORSum(nums: number[]): number {
     let ans = 0;
@@ -303,6 +338,8 @@ function subsetXORSum(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -327,4 +364,6 @@ var subsetXORSum = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

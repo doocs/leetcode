@@ -7,11 +7,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [835. Image Overlap](https://leetcode.com/problems/image-overlap)
 
 [中文文档](/solution/0800-0899/0835.Image%20Overlap/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two images, <code>img1</code> and <code>img2</code>, represented as binary, square matrices of size <code>n x n</code>. A binary matrix has only <code>0</code>s and <code>1</code>s as values.</p>
 
@@ -58,11 +62,17 @@ The number of positions that have a 1 in both images is 3 (shown in red).
 	<li><code>img2[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +88,8 @@ class Solution:
                                 cnt[(i - h, j - k)] += 1
         return max(cnt.values()) if cnt else 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestOverlap(img1 [][]int, img2 [][]int) (ans int) {
 	type pair struct{ x, y int }
@@ -151,6 +167,8 @@ func largestOverlap(img1 [][]int, img2 [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestOverlap(img1: number[][], img2: number[][]): number {
@@ -178,4 +196,6 @@ function largestOverlap(img1: number[][], img2: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README.md
 rating: 2230
+source: 第 128 场周赛 Q4
 tags:
     - 数学
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [1012. 至少有 1 位重复的数字](https://leetcode.cn/problems/numbers-with-repeated-digits)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定正整数&nbsp;<code>n</code>，返回在<em>&nbsp;</em><code>[1, n]</code><em>&nbsp;</em>范围内具有 <strong>至少 1 位</strong> 重复数字的正整数的个数。</p>
 
@@ -51,7 +54,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩 + 数位 DP
 
@@ -88,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDupDigitsAtMostN(self, n: int) -> int:
@@ -117,6 +126,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +172,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -203,6 +216,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numDupDigitsAtMostN(n int) int {
@@ -251,6 +266,8 @@ func A(m, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numDupDigitsAtMostN(n: number): number {
     return n - f(n);
@@ -293,9 +310,15 @@ function f(n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -324,6 +347,8 @@ class Solution:
             n //= 10
         return dfs(len(nums) - 1, 0, True, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -368,6 +393,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -415,6 +442,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numDupDigitsAtMostN(n int) int {
@@ -469,4 +498,6 @@ func f(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

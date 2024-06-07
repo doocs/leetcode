@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [221. 最大正方形](https://leetcode.cn/problems/maximal-square)
 
 [English Version](/solution/0200-0299/0221.Maximal%20Square/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一个由 <code>'0'</code> 和 <code>'1'</code> 组成的二维矩阵内，找到只包含 <code>'1'</code> 的最大正方形，并返回其面积。</p>
 
@@ -52,7 +54,11 @@ tags:
 	<li><code>matrix[i][j]</code> 为 <code>'0'</code> 或 <code>'1'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -72,6 +78,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
@@ -85,6 +93,8 @@ class Solution:
                     mx = max(mx, dp[i + 1][j + 1])
         return mx * mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximalSquare(matrix [][]byte) int {
 	m, n := len(matrix), len(matrix[0])
@@ -144,6 +158,8 @@ func maximalSquare(matrix [][]byte) int {
 	return mx * mx
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -169,4 +185,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1907. Count Salary Categories](https://leetcode.com/problems/count-salary-categories)
 
 [中文文档](/solution/1900-1999/1907.Count%20Salary%20Categories/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Accounts</code></p>
 
@@ -69,13 +73,19 @@ Average Salary: No accounts.
 High Salary: Accounts 3, 6, and 8.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Temporary Table + Grouping + Left Join
 
 We can first create a temporary table containing all salary categories, and then count the number of bank accounts for each salary category. Finally, we use a left join to connect the temporary table with the result table to ensure that the result table contains all salary categories.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -106,11 +116,17 @@ FROM
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Filtering + Merging
 
 We can filter out the number of bank accounts for each salary category separately, and then merge the results. Here, we use `UNION` to merge the results.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -126,4 +142,6 @@ SELECT 'High Salary' AS category, IFNULL(SUM(income > 50000), 0) AS accounts_cou
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

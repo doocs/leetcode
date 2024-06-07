@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README.md
 rating: 1331
+source: 第 306 场周赛 Q1
 tags:
     - 数组
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [2373. 矩阵中的局部最大值](https://leetcode.cn/problems/largest-local-values-in-a-matrix)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>n x n</code> 的整数矩阵 <code>grid</code> 。</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li><code>1 &lt;= grid[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -69,6 +76,8 @@ tags:
 时间复杂度 $O(n^2)$，其中 $n$ 是矩阵的边长。忽略答案矩阵的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +91,8 @@ class Solution:
                 )
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestLocal(grid [][]int) [][]int {
 	n := len(grid)
@@ -139,6 +154,8 @@ func largestLocal(grid [][]int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestLocal(grid: number[][]): number[][] {
@@ -161,4 +178,6 @@ function largestLocal(grid: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

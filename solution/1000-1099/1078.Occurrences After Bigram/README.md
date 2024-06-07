@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1078.Occurrences%20After%20Bigram/README.md
 rating: 1274
+source: 第 140 场周赛 Q1
 tags:
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1078. Bigram 分词](https://leetcode.cn/problems/occurrences-after-bigram)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出第一个词&nbsp;<code>first</code> 和第二个词&nbsp;<code>second</code>，考虑在某些文本&nbsp;<code>text</code>&nbsp;中可能以 <code>"first second third"</code> 形式出现的情况，其中&nbsp;<code>second</code>&nbsp;紧随&nbsp;<code>first</code>&nbsp;出现，<code>third</code>&nbsp;紧随&nbsp;<code>second</code>&nbsp;出现。</p>
 
@@ -47,7 +50,11 @@ tags:
 	<li><code>first</code> 和&nbsp;<code>second</code>&nbsp;由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符串分割
 
@@ -58,6 +65,8 @@ tags:
 时间复杂度 $O(L)$，空间复杂度 $O(L)$，其中 $L$ 是 $text$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +79,8 @@ class Solution:
                 ans.append(c)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findOcurrences(text string, first string, second string) (ans []string) {
 	words := strings.Split(text, " ")
@@ -121,6 +136,8 @@ func findOcurrences(text string, first string, second string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findOcurrences(text: string, first: string, second: string): string[] {
@@ -138,4 +155,6 @@ function findOcurrences(text: string, first: string, second: string): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

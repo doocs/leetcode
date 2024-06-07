@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README.md
 rating: 1848
+source: 第 152 场周赛 Q3
 tags:
     - 位运算
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [1177. 构建回文串检测](https://leetcode.cn/problems/can-make-palindrome-from-substring)
 
 [English Version](/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>，请你对&nbsp;<code>s</code>&nbsp;的子串进行检测。</p>
 
@@ -54,7 +57,11 @@ queries[4] :&nbsp;子串 = &quot;abcda&quot;，可以变成回文的 &quot;abcba
 	<li><code>s</code> 中只有小写英文字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和
 
@@ -65,6 +72,8 @@ queries[4] :&nbsp;子串 = &quot;abcda&quot;，可以变成回文的 &quot;abcba
 时间复杂度 $O((n + m) \times C)$，空间复杂度 $O(n \times C)$，其中 $n$ 和 $m$ 分别为字符串 $s$ 和查询数组的长度；而 $C$ 为字符集的大小，本题中字符集为小写英文字母，因此 $C = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +89,8 @@ class Solution:
             ans.append(cnt // 2 <= k)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canMakePaliQueries(s string, queries [][]int) (ans []bool) {
 	n := len(s)
@@ -154,6 +169,8 @@ func canMakePaliQueries(s string, queries [][]int) (ans []bool) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canMakePaliQueries(s: string, queries: number[][]): boolean[] {
@@ -179,4 +196,6 @@ function canMakePaliQueries(s: string, queries: number[][]): boolean[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

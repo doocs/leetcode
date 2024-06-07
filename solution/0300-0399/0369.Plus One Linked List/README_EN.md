@@ -7,11 +7,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [369. Plus One Linked List 🔒](https://leetcode.com/problems/plus-one-linked-list)
 
 [中文文档](/solution/0300-0399/0369.Plus%20One%20Linked%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a non-negative integer represented as a linked list of digits, <em>plus one to the integer</em>.</p>
 
@@ -34,11 +38,17 @@ tags:
 	<li>The number represented by the linked list does not contain leading zeros except for the zero itself.&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -61,6 +71,8 @@ class Solution:
             target = target.next
         return dummy if dummy.val else dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -94,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -124,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -157,4 +173,6 @@ func plusOne(head *ListNode) *ListNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

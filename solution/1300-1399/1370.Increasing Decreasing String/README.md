@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1370.Increasing%20Decreasing%20String/README.md
 rating: 1369
+source: 第 21 场双周赛 Q1
 tags:
     - 哈希表
     - 字符串
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [1370. 上升下降字符串](https://leetcode.cn/problems/increasing-decreasing-string)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;，请你根据下面的算法重新构造字符串：</p>
 
@@ -80,7 +83,11 @@ tags:
 	<li><code>s</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 模拟
 
@@ -91,6 +98,8 @@ tags:
 时间复杂度 $O(n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度，而 $\Sigma$ 是字符集，本题中字符集为所有小写字母，因此 $|\Sigma|=26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +114,8 @@ class Solution:
                     cnt[c] -= 1
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortString(s string) string {
 	cnt := [26]int{}
@@ -188,6 +203,8 @@ func sortString(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sortString(s: string): string {
     const cnt: number[] = Array(26).fill(0);
@@ -212,6 +229,8 @@ function sortString(s: string): string {
     return ans.join('');
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -244,4 +263,6 @@ var sortString = function (s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

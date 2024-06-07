@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1757. 可回收且低脂的产品](https://leetcode.cn/problems/recyclable-and-low-fat-products)
 
 [English Version](/solution/1700-1799/1757.Recyclable%20and%20Low%20Fat%20Products/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Products</code></p>
 
@@ -63,13 +65,19 @@ Products 表：
 只有产品 id 为 1 和 3 的产品，既是低脂又是可回收的产品。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：条件筛选
 
 我们直接筛选出 `low_fats` 为 `Y` 且 `recyclable` 为 `Y` 的产品编号即可。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -81,6 +89,8 @@ def find_products(products: pd.DataFrame) -> pd.DataFrame:
     return rs
 ```
 
+#### MySQL
+
 ```sql
 SELECT
     product_id
@@ -90,4 +100,6 @@ WHERE low_fats = 'Y' AND recyclable = 'Y';
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

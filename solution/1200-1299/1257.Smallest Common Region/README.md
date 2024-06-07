@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1257.Smallest%20Common%20Region/README.md
 rating: 1654
+source: 第 13 场双周赛 Q2
 tags:
     - 树
     - 深度优先搜索
@@ -12,13 +13,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [1257. 最小公共区域 🔒](https://leetcode.cn/problems/smallest-common-region)
 
 [English Version](/solution/1200-1299/1257.Smallest%20Common%20Region/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一些区域列表&nbsp;<code>regions</code> ，每个列表的第一个区域都包含这个列表内所有其他区域。</p>
 
@@ -56,11 +59,17 @@ region2 = &quot;New York&quot;
 	<li>所有字符串只包含英文字母和空格，且最多只有&nbsp;20 个字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +90,8 @@ class Solution:
             region2 = m[region2]
         return region1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findSmallestRegion(regions [][]string, region1 string, region2 string) string {
@@ -154,4 +169,6 @@ func findSmallestRegion(regions [][]string, region1 string, region2 string) stri
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

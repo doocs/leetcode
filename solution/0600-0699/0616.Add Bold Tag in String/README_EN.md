@@ -10,11 +10,15 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [616. Add Bold Tag in String 🔒](https://leetcode.com/problems/add-bold-tag-in-string)
 
 [中文文档](/solution/0600-0699/0616.Add%20Bold%20Tag%20in%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> and an array of strings <code>words</code>.</p>
 
@@ -64,11 +68,17 @@ Since now the four &lt;b&gt;&#39;s are consecutive, we merge them: &quot;&lt;b&g
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as 758: <a href="https://leetcode.com/problems/bold-words-in-string/" target="_blank">https://leetcode.com/problems/bold-words-in-string/</a></p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -131,6 +141,8 @@ class Solution:
 
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -209,6 +221,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Trie {
 public:
@@ -277,6 +291,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -356,4 +372,6 @@ func addBoldTag(s string, words []string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2067.%20%E8%A3%85%E9%A5%B0%E6%A0%91/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 67. 装饰树](https://leetcode.cn/problems/KnLfVT)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 力扣嘉年华上的 DIY 手工展位准备了一棵缩小版的 **二叉** 装饰树 `root` 和灯饰，你需要将灯饰逐一插入装饰树中，要求如下：
 
@@ -42,7 +44,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2067.%20%E8%A3%85%
 
 > `0 <= root.Val <= 1000` >`root` 节点数量范围为 `[1, 10^5]`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -60,6 +66,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2067.%20%E8%A3%85%
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -82,6 +90,8 @@ class Solution:
 
         return dfs(root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -121,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -155,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -185,4 +199,6 @@ func expandBinaryTree(root *TreeNode) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

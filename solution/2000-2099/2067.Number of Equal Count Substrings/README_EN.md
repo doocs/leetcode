@@ -8,11 +8,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2067. Number of Equal Count Substrings 🔒](https://leetcode.com/problems/number-of-equal-count-substrings)
 
 [中文文档](/solution/2000-2099/2067.Number%20of%20Equal%20Count%20Substrings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> consisting of only lowercase English letters, and an integer <code>count</code>. A <strong>substring</strong> of <code>s</code> is said to be an <strong>equal count substring</strong> if, for each <strong>unique</strong> letter in the substring, it appears exactly <code>count</code> times in the substring.</p>
 
@@ -63,7 +67,11 @@ Therefore, no substrings in s are equal count substrings, so return 0</pre>
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + Sliding Window
 
@@ -74,6 +82,8 @@ Next, we take the current substring length as the size of the window, count the 
 The time complexity is $O(n \times C)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $s$, and $C$ is the number of types of letters, in this problem $C = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +106,8 @@ class Solution:
                 ans += i == t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func equalCountSubstrings(s string, count int) (ans int) {
@@ -187,6 +203,8 @@ func equalCountSubstrings(s string, count int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function equalCountSubstrings(s: string, count: number): number {
     const n = s.length;
@@ -210,6 +228,8 @@ function equalCountSubstrings(s: string, count: number): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -242,4 +262,6 @@ var equalCountSubstrings = function (s, count) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

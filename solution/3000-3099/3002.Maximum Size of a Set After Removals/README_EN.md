@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md
 rating: 1917
+source: Weekly Contest 379 Q3
 tags:
     - Greedy
     - Array
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [3002. Maximum Size of a Set After Removals](https://leetcode.com/problems/maximum-size-of-a-set-after-removals)
 
 [中文文档](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code> of even length <code>n</code>.</p>
 
@@ -59,11 +64,17 @@ It can be shown that 6 is the maximum possible size of the set s after the remov
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
         b = min(len(s2 - s1), n // 2)
         return min(a + b + len(s1 & s2), n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumSetSize(nums1 []int, nums2 []int) int {
@@ -165,6 +182,8 @@ func maximumSetSize(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumSetSize(nums1: number[], nums2: number[]): number {
     const s1: Set<number> = new Set(nums1);
@@ -191,4 +210,6 @@ function maximumSetSize(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

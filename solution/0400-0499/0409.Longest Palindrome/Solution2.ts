@@ -1,16 +1,9 @@
 function longestPalindrome(s: string): number {
-    const map = new Map();
+    const odd: Record<string, number> = {};
+    let cnt = 0;
     for (const c of s) {
-        map.set(c, (map.get(c) ?? 0) + 1);
+        odd[c] ^= 1;
+        cnt += odd[c] ? 1 : -1;
     }
-    let hasOdd = false;
-    let res = 0;
-    for (const v of map.values()) {
-        res += v;
-        if (v & 1) {
-            hasOdd = true;
-            res--;
-        }
-    }
-    return res + (hasOdd ? 1 : 0);
+    return cnt ? s.length - cnt + 1 : s.length;
 }

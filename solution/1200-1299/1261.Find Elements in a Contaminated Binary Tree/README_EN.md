@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/README_EN.md
 rating: 1439
+source: Weekly Contest 163 Q2
 tags:
     - Tree
     - Depth-First Search
@@ -12,11 +13,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1261. Find Elements in a Contaminated Binary Tree](https://leetcode.com/problems/find-elements-in-a-contaminated-binary-tree)
 
 [中文文档](/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a binary tree with the following rules:</p>
 
@@ -90,7 +95,11 @@ findElements.find(5); // return True
 	<li><code>0 &lt;= target &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS + Hash Table
 
@@ -99,6 +108,8 @@ First, we traverse the binary tree using DFS, restore the node values to their o
 In terms of time complexity, it takes $O(n)$ time to traverse the binary tree during initialization, and $O(1)$ time to check if the target value exists in the hash table during search. The space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -131,6 +142,8 @@ class FindElements:
 # obj = FindElements(root)
 # param_1 = obj.find(target)
 ```
+
+#### Java
 
 ```java
 /**
@@ -180,6 +193,8 @@ class FindElements {
  */
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -226,6 +241,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -268,6 +285,8 @@ func (this *FindElements) Find(target int) bool {
  * param_1 := obj.Find(target);
  */
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -317,4 +336,6 @@ class FindElements {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

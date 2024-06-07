@@ -8,13 +8,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [498. 对角线遍历](https://leetcode.cn/problems/diagonal-traverse)
 
 [English Version](/solution/0400-0499/0498.Diagonal%20Traverse/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> 的矩阵 <code>mat</code> ，请以对角线遍历的顺序，用一个数组返回这个矩阵中的所有元素。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>-10<sup>5</sup> &lt;= mat[i][j] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：定点遍历
 
@@ -57,6 +63,8 @@ tags:
 时间复杂度 $O(m\times n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +84,8 @@ class Solution:
             ans.extend(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findDiagonalOrder(mat [][]int) []int {
@@ -155,6 +169,8 @@ func findDiagonalOrder(mat [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findDiagonalOrder(mat: number[][]): number[] {
@@ -194,6 +210,8 @@ function findDiagonalOrder(mat: number[][]): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn find_diagonal_order(mat: Vec<Vec<i32>>) -> Vec<i32> {
@@ -230,4 +248,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

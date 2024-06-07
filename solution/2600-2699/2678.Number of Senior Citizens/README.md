@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README.md
 rating: 1198
+source: 第 104 场双周赛 Q1
 tags:
     - 数组
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2678. 老人的数目](https://leetcode.cn/problems/number-of-senior-citizens)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的字符串&nbsp;<code>details</code>&nbsp;。<code>details</code>&nbsp;中每个元素都是一位乘客的信息，信息用长度为 <code>15</code>&nbsp;的字符串表示，表示方式如下：</p>
 
@@ -57,7 +60,11 @@ tags:
 	<li>所有乘客的手机号码和座位号互不相同。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历计数
 
@@ -69,11 +76,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSeniors(self, details: List[str]) -> int:
         return sum(int(x[11:13]) > 60 for x in details)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSeniors(details []string) (ans int) {
 	for _, x := range details {
@@ -115,6 +130,8 @@ func countSeniors(details []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSeniors(details: string[]): number {
@@ -128,6 +145,8 @@ function countSeniors(details: string[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -149,15 +168,23 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function countSeniors(details: string[]): number {
     return details.filter(v => parseInt(v.slice(11, 13)) > 60).length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,4 +200,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

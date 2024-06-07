@@ -8,11 +8,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2387. Median of a Row Wise Sorted Matrix 🔒](https://leetcode.com/problems/median-of-a-row-wise-sorted-matrix)
 
 [中文文档](/solution/2300-2399/2387.Median%20of%20a%20Row%20Wise%20Sorted%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> matrix <code>grid</code> containing an <strong>odd</strong> number of integers where each row is sorted in <strong>non-decreasing</strong> order, return <em>the <strong>median</strong> of the matrix</em>.</p>
 
@@ -47,11 +51,17 @@ tags:
 	<li><code>grid[i]</code> is sorted in non-decreasing order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +73,8 @@ class Solution:
         target = (m * n + 1) >> 1
         return bisect_left(range(10**6 + 1), target, key=count)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func matrixMedian(grid [][]int) int {
@@ -166,4 +182,6 @@ func matrixMedian(grid [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

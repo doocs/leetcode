@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README.md
 rating: 1688
+source: 第 385 场周赛 Q2
 tags:
     - 字典树
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [3043. 最长公共前缀的长度](https://leetcode.cn/problems/find-the-length-of-the-longest-common-prefix)
 
 [English Version](/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个 <strong>正整数 </strong>数组 <code>arr1</code> 和 <code>arr2</code> 。</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li><code>1 &lt;= arr1[i], arr2[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -69,6 +76,8 @@ tags:
 时间复杂度 $O(m \times \log M + n \times \log N)$，空间复杂度 $O(m \times \log M)$。其中 $m$ 和 $n$ 分别是 `arr1` 和 `arr2` 的长度，而 $M$ 和 $N$ 分别是 `arr1` 和 `arr2` 中的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +96,8 @@ class Solution:
                 x //= 10
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestCommonPrefix(arr1 []int, arr2 []int) (ans int) {
 	s := map[int]bool{}
@@ -154,6 +169,8 @@ func longestCommonPrefix(arr1 []int, arr2 []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestCommonPrefix(arr1: number[], arr2: number[]): number {
@@ -177,4 +194,6 @@ function longestCommonPrefix(arr1: number[], arr2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

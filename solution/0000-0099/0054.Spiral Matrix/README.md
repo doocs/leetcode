@@ -8,13 +8,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [54. 螺旋矩阵](https://leetcode.cn/problems/spiral-matrix)
 
 [English Version](/solution/0000-0099/0054.Spiral%20Matrix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>m</code> 行 <code>n</code> 列的矩阵 <code>matrix</code> ，请按照 <strong>顺时针螺旋顺序</strong> ，返回矩阵中的所有元素。</p>
 
@@ -45,7 +47,11 @@ tags:
 	<li><code>-100 <= matrix[i][j] <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -56,6 +62,8 @@ tags:
 对于访问过的元素，我们也可以将其值加上一个常数 $300$，这样就不需要额外的 $vis$ 数组或哈希表来记录是否访问过了，从而将空间复杂度降低到 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +83,8 @@ class Solution:
             j = j + dirs[k + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func spiralOrder(matrix [][]int) (ans []int) {
 	m, n := len(matrix), len(matrix[0])
@@ -146,6 +160,8 @@ func spiralOrder(matrix [][]int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function spiralOrder(matrix: number[][]): number[] {
     const m = matrix.length;
@@ -167,6 +183,8 @@ function spiralOrder(matrix: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -206,6 +224,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -232,6 +252,8 @@ var spiralOrder = function (matrix) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public IList<int> SpiralOrder(int[][] matrix) {
@@ -256,6 +278,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：逐层模拟
 
 我们也可以从外往里一圈一圈遍历并存储矩阵元素。
@@ -263,6 +289,8 @@ public class Solution {
 时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -284,6 +312,8 @@ class Solution:
         #         matrix[i][j] -= 300
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -310,6 +340,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -338,6 +370,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func spiralOrder(matrix [][]int) (ans []int) {
 	m, n := len(matrix), len(matrix[0])
@@ -359,6 +393,8 @@ func spiralOrder(matrix [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function spiralOrder(matrix: number[][]): number[] {
@@ -385,6 +421,8 @@ function spiralOrder(matrix: number[][]): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -415,6 +453,8 @@ var spiralOrder = function (matrix) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -444,9 +484,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -468,6 +514,8 @@ class Solution:
             x2, y2 = x2 - 1, y2 - 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -500,6 +548,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -530,6 +580,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func spiralOrder(matrix [][]int) (ans []int) {
 	m, n := len(matrix), len(matrix[0])
@@ -555,6 +607,8 @@ func spiralOrder(matrix [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function spiralOrder(matrix: number[][]): number[] {
@@ -588,6 +642,8 @@ function spiralOrder(matrix: number[][]): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -625,6 +681,8 @@ var spiralOrder = function (matrix) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -659,4 +717,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1467.Probability%20of%20a%20Two%20Boxes%20Having%20The%20Same%20Number%20of%20Distinct%20Balls/README_EN.md
 rating: 2356
+source: Weekly Contest 191 Q4
 tags:
     - Array
     - Math
@@ -12,11 +13,15 @@ tags:
     - Probability and Statistics
 ---
 
+<!-- problem:start -->
+
 # [1467. Probability of a Two Boxes Having The Same Number of Distinct Balls](https://leetcode.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls)
 
 [中文文档](/solution/1400-1499/1467.Probability%20of%20a%20Two%20Boxes%20Having%20The%20Same%20Number%20of%20Distinct%20Balls/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given <code>2n</code> balls of <code>k</code> distinct colors. You will be given an integer array <code>balls</code> of size <code>k</code> where <code>balls[i]</code> is the number of balls of color <code>i</code>.</p>
 
@@ -69,11 +74,17 @@ Probability = 108 / 180 = 0.6
 	<li><code>sum(balls)</code> is even.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +105,8 @@ class Solution:
         k = len(balls)
         return dfs(0, n, 0) / comb(n << 1, n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -182,6 +197,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getProbability(balls []int) float64 {
@@ -246,6 +263,8 @@ func getProbability(balls []int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getProbability(balls: number[]): number {
     const n = balls.reduce((a, b) => a + b, 0) >> 1;
@@ -291,4 +310,6 @@ function getProbability(balls: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

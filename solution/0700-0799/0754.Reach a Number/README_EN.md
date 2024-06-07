@@ -7,11 +7,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [754. Reach a Number](https://leetcode.com/problems/reach-a-number)
 
 [中文文档](/solution/0700-0799/0754.Reach%20a%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are standing at position <code>0</code> on an infinite number line. There is a destination at position <code>target</code>.</p>
 
@@ -54,11 +58,17 @@ On the 2<sup>nd</sup> move, we step from 1 to 3 (2 steps).
 	<li><code>target != 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +81,8 @@ class Solution:
             k += 1
             s += k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +116,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reachNumber(target int) int {
@@ -118,6 +134,8 @@ func reachNumber(target int) int {
 	}
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -139,4 +157,6 @@ var reachNumber = function (target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

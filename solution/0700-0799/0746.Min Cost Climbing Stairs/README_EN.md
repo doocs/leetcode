@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [746. Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs)
 
 [中文文档](/solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>cost</code> where <code>cost[i]</code> is the cost of <code>i<sup>th</sup></code> step on a staircase. Once you pay the cost, you can either climb one or two steps.</p>
 
@@ -53,7 +57,11 @@ The total cost is 6.
 	<li><code>0 &lt;= cost[i] &lt;= 999</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -73,6 +81,8 @@ We notice that $f[i]$ in the state transition equation is only related to $f[i -
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
@@ -82,6 +92,8 @@ class Solution:
             f[i] = min(f[i - 2] + cost[i - 2], f[i - 1] + cost[i - 1])
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCostClimbingStairs(cost []int) int {
 	n := len(cost)
@@ -121,6 +137,8 @@ func minCostClimbingStairs(cost []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCostClimbingStairs(cost: number[]): number {
     const n = cost.length;
@@ -131,6 +149,8 @@ function minCostClimbingStairs(cost: number[]): number {
     return f[n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -147,9 +167,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -159,6 +185,8 @@ class Solution:
             f, g = g, min(f + cost[i - 2], g + cost[i - 1])
         return g
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -173,6 +201,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -189,6 +219,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCostClimbingStairs(cost []int) int {
 	var f, g int
@@ -198,6 +230,8 @@ func minCostClimbingStairs(cost []int) int {
 	return g
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCostClimbingStairs(cost: number[]): number {
@@ -209,6 +243,8 @@ function minCostClimbingStairs(cost: number[]): number {
     return b;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -226,4 +262,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2416.Sum%20of%20Prefix%20Scores%20of%20Strings/README.md
 rating: 1725
+source: 第 311 场周赛 Q4
 tags:
     - 字典树
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2416. 字符串的前缀分数和](https://leetcode.cn/problems/sum-of-prefix-scores-of-strings)
 
 [English Version](/solution/2400-2499/2416.Sum%20of%20Prefix%20Scores%20of%20Strings/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的数组 <code>words</code> ，该数组由 <strong>非空</strong> 字符串组成。</p>
 
@@ -70,7 +73,11 @@ tags:
 	<li><code>words[i]</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树
 
@@ -81,6 +88,8 @@ tags:
 时间复杂度 $O(n \times m)$。其中 $n$, $m$ 分别为字符串数组 `words` 的长度和其中字符串的最大长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -116,6 +125,8 @@ class Solution:
             trie.insert(w)
         return [trie.search(w) for w in words]
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -163,6 +174,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -214,6 +227,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -262,6 +277,8 @@ func sumPrefixScores(words []string) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumPrefixScores(words: string[]): number[] {
     const map = new Map();
@@ -288,9 +305,15 @@ function sumPrefixScores(words: string[]): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 class Trie {
@@ -344,4 +367,6 @@ function sumPrefixScores(words: string[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

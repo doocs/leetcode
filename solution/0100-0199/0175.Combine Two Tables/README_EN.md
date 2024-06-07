@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [175. Combine Two Tables](https://leetcode.com/problems/combine-two-tables)
 
 [中文文档](/solution/0100-0199/0175.Combine%20Two%20Tables/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Person</code></p>
 
@@ -82,13 +86,19 @@ There is no address in the address table for the personId = 1 so we return null 
 addressId = 1 contains information about the address of personId = 2.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: LEFT JOIN
 
 We can use a left join to join the `Person` table with the `Address` table on the condition `Person.personId = Address.personId`, which will give us the first name, last name, city, and state of each person. If the address of a `personId` is not in the `Address` table, it will be reported as `null`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -100,6 +110,8 @@ def combine_two_tables(person: pd.DataFrame, address: pd.DataFrame) -> pd.DataFr
     ]
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT firstName, lastName, city, state
@@ -110,4 +122,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

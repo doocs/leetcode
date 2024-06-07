@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1381.Design%20a%20Stack%20With%20Increment%20Operation/README.md
 rating: 1285
+source: 第 180 场周赛 Q2
 tags:
     - 栈
     - 设计
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [1381. 设计一个支持增量操作的栈](https://leetcode.cn/problems/design-a-stack-with-increment-operation)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你设计一个支持对其元素进行增量操作的栈。</p>
 
@@ -64,7 +67,11 @@ stk.pop();                            // 返回 -1 --&gt; 栈为空，返回 -1
 	<li>每种方法 <code>increment</code>，<code>push</code> 以及 <code>pop</code> 分别最多调用 <code>1000</code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组模拟
 
@@ -79,6 +86,8 @@ stk.pop();                            // 返回 -1 --&gt; 栈为空，返回 -1
 时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 是栈的最大容量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class CustomStack:
@@ -114,6 +123,8 @@ class CustomStack:
 # param_2 = obj.pop()
 # obj.increment(k,val)
 ```
+
+#### Java
 
 ```java
 class CustomStack {
@@ -159,6 +170,8 @@ class CustomStack {
  * obj.increment(k,val);
  */
 ```
+
+#### C++
 
 ```cpp
 class CustomStack {
@@ -208,6 +221,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type CustomStack struct {
 	stk []int
@@ -253,6 +268,8 @@ func (this *CustomStack) Increment(k int, val int) {
  * obj.Increment(k,val);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class CustomStack {
@@ -302,4 +319,6 @@ class CustomStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

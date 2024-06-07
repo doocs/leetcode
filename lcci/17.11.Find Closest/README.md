@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.11.Find%20Closest/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.11. 单词距离](https://leetcode.cn/problems/find-closest-lcci)
 
 [English Version](/lcci/17.11.Find%20Closest/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>有个内含单词的超大文本文件，给定任意两个单词，找出在这个文件中这两个单词的最短距离(相隔单词数)。如果寻找过程在这个文件中会重复多次，而每次寻找的单词不同，你能对此优化吗?</p>
 
 <p><strong>示例：</strong></p>
@@ -24,7 +27,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.11.Find%20Closest/
 	<li><code>words.length &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -37,6 +44,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.11.Find%20Closest/
 时间复杂度 $O(n)$，其中 $n$ 是文本文件中的单词数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -51,6 +60,8 @@ class Solution:
             ans = min(ans, abs(i - j))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -69,6 +80,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -90,6 +103,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findClosest(words []string, word1 string, word2 string) int {
 	const inf int = 1 << 29
@@ -106,6 +121,8 @@ func findClosest(words []string, word1 string, word2 string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findClosest(words: string[], word1: string, word2: string): number {
     let [i, j, ans] = [Infinity, -Infinity, Infinity];
@@ -120,6 +137,8 @@ function findClosest(words: string[], word1: string, word2: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -142,6 +161,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -167,6 +188,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：哈希表 + 双指针
 
 我们可以用哈希表 $d$ 记录每个单词出现的位置，然后对于每一对 $\textit{word1}$ 和 $\textit{word2}$，我们可以通过双指针的方法找到它们的最短距离。
@@ -180,6 +205,8 @@ class Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是文本文件中的单词数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -198,6 +225,8 @@ class Solution:
                 j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -222,6 +251,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -248,6 +279,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findClosest(words []string, word1 string, word2 string) int {
 	d := map[string][]int{}
@@ -271,6 +304,8 @@ func findClosest(words []string, word1 string, word2 string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findClosest(words: string[], word1: string, word2: string): number {
@@ -297,4 +332,6 @@ function findClosest(words: string[], word1: string, word2: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

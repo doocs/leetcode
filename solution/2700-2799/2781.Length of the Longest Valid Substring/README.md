@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README.md
 rating: 2203
+source: 第 354 场周赛 Q4
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [2781. 最长合法子字符串的长度](https://leetcode.cn/problems/length-of-the-longest-valid-substring)
 
 [English Version](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>word</code>&nbsp;和一个字符串数组&nbsp;<code>forbidden</code>&nbsp;。</p>
 
@@ -57,7 +60,11 @@ tags:
 	<li><code>forbidden[i]</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 双指针
 
@@ -68,6 +75,8 @@ tags:
 时间复杂度 $O(n \times \max(|forbidden[i]|^2) + m)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别表示字符串 $word$ 和 $forbidden$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +91,8 @@ class Solution:
             ans = max(ans, j - i + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestValidSubstring(word string, forbidden []string) (ans int) {
 	s := map[string]bool{}
@@ -141,6 +156,8 @@ func longestValidSubstring(word string, forbidden []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestValidSubstring(word: string, forbidden: string[]): number {
@@ -162,4 +179,6 @@ function longestValidSubstring(word: string, forbidden: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

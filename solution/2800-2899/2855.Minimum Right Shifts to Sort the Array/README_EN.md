@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2855.Minimum%20Right%20Shifts%20to%20Sort%20the%20Array/README_EN.md
 rating: 1379
+source: Biweekly Contest 113 Q1
 tags:
     - Array
 ---
+
+<!-- problem:start -->
 
 # [2855. Minimum Right Shifts to Sort the Array](https://leetcode.com/problems/minimum-right-shifts-to-sort-the-array)
 
 [中文文档](/solution/2800-2899/2855.Minimum%20Right%20Shifts%20to%20Sort%20the%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of length <code>n</code> containing <strong>distinct</strong> positive integers. Return <em>the <strong>minimum</strong> number of <strong>right shifts</strong> required to sort </em><code>nums</code><em> and </em><code>-1</code><em> if this is not possible.</em></p>
 
@@ -53,7 +58,11 @@ Now nums is sorted; therefore the answer is 2.
 	<li><code>nums</code> contains distinct integers.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Direct Traversal
 
@@ -62,6 +71,8 @@ First, we use a pointer $i$ to traverse the array $nums$ from left to right, fin
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
             k += 1
         return -1 if k < n else n - i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumRightShifts(nums []int) int {
 	n := len(nums)
@@ -129,6 +146,8 @@ func minimumRightShifts(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumRightShifts(nums: number[]): number {
     const n = nums.length;
@@ -146,4 +165,6 @@ function minimumRightShifts(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

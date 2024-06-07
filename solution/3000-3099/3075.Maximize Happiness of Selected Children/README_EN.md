@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README_EN.md
 rating: 1325
+source: Weekly Contest 388 Q2
 tags:
     - Greedy
     - Array
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3075. Maximize Happiness of Selected Children](https://leetcode.com/problems/maximize-happiness-of-selected-children)
 
 [中文文档](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>happiness</code> of length <code>n</code>, and a <strong>positive</strong> integer <code>k</code>.</p>
 
@@ -65,7 +70,11 @@ The sum of the happiness values of the selected children is 5.
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -74,6 +83,8 @@ To maximize the sum of happiness, we should prioritize choosing children with hi
 The time complexity is $O(n \times \log n + k)$ and the space complexity is $O(\log n)$, where $n$ is the length of the `happiness` array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +96,8 @@ class Solution:
             ans += max(x, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumHappinessSum(happiness []int, k int) (ans int64) {
 	sort.Ints(happiness)
@@ -125,6 +142,8 @@ func maximumHappinessSum(happiness []int, k int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumHappinessSum(happiness: number[], k: number): number {
@@ -140,4 +159,6 @@ function maximumHappinessSum(happiness: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

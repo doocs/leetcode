@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README.md
 rating: 1758
+source: 第 132 场周赛 Q3
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1027. 最长等差数列](https://leetcode.cn/problems/longest-arithmetic-subsequence)
 
 [English Version](/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>，返回 <code>nums</code>&nbsp;中最长等差子序列的<strong>长度</strong>。</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 500</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -78,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestArithSeqLength(self, nums: List[int]) -> int:
@@ -91,6 +100,8 @@ class Solution:
                 ans = max(ans, f[i][j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestArithSeqLength(nums []int) int {
 	n := len(nums)
@@ -149,6 +164,8 @@ func longestArithSeqLength(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestArithSeqLength(nums: number[]): number {
     const n = nums.length;
@@ -167,4 +184,6 @@ function longestArithSeqLength(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

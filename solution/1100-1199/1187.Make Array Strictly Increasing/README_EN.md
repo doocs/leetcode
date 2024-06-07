@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1187.Make%20Array%20Strictly%20Increasing/README_EN.md
 rating: 2315
+source: Weekly Contest 153 Q4
 tags:
     - Array
     - Binary Search
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1187. Make Array Strictly Increasing](https://leetcode.com/problems/make-array-strictly-increasing)
 
 [中文文档](/solution/1100-1199/1187.Make%20Array%20Strictly%20Increasing/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integer arrays&nbsp;<code>arr1</code> and <code>arr2</code>, return the minimum number of operations (possibly zero) needed&nbsp;to make <code>arr1</code> strictly increasing.</p>
 
@@ -56,7 +61,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -71,6 +80,8 @@ Finally, if $f[n-1] \geq \infty$, it means that it cannot be converted into a st
 The time complexity is $(n \times (\log m + \min(m, n)))$, and the space complexity is $O(n)$. Here, $n$ is the length of $arr1$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +106,8 @@ class Solution:
                     f[i] = min(f[i], f[i - k - 1] + k)
         return -1 if f[n - 1] >= inf else f[n - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makeArrayIncreasing(arr1 []int, arr2 []int) int {
@@ -208,6 +225,8 @@ func makeArrayIncreasing(arr1 []int, arr2 []int) int {
 	return f[n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function makeArrayIncreasing(arr1: number[], arr2: number[]): number {
@@ -251,6 +270,8 @@ function makeArrayIncreasing(arr1: number[], arr2: number[]): number {
     return f[n - 1] >= inf ? -1 : f[n - 1];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -303,4 +324,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

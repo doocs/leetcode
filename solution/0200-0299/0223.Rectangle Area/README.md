@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [223. 矩形面积](https://leetcode.cn/problems/rectangle-area)
 
 [English Version](/solution/0200-0299/0223.Rectangle%20Area/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你 <strong>二维</strong> 平面上两个 <strong>由直线构成且边与坐标轴平行/垂直</strong> 的矩形，请你计算并返回两个矩形覆盖的总面积。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= ax1, ay1, ax2, ay2, bx1, by1, bx2, by2 &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计算重叠面积
 
@@ -59,6 +65,8 @@ tags:
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +88,8 @@ class Solution:
         return a + b - max(height, 0) * max(width, 0)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int computeArea(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2) {
@@ -91,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func computeArea(ax1 int, ay1 int, ax2 int, ay2 int, bx1 int, by1 int, bx2 int, by2 int) int {
 	a := (ax2 - ax1) * (ay2 - ay1)
@@ -114,6 +128,8 @@ func computeArea(ax1 int, ay1 int, ax2 int, ay2 int, bx1 int, by1 int, bx2 int, 
 	return a + b - max(height, 0)*max(width, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function computeArea(
@@ -134,6 +150,8 @@ function computeArea(
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int ComputeArea(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2) {
@@ -148,4 +166,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

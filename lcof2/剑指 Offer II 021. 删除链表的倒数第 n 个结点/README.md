@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20021.%20%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC%20n%20%E4%B8%AA%E7%BB%93%E7%82%B9/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 021. 删除链表的倒数第 n 个结点](https://leetcode.cn/problems/SLwz0R)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个链表，删除链表的倒数第&nbsp;<code>n</code><em>&nbsp;</em>个结点，并且返回链表的头结点。</p>
 
@@ -55,11 +57,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 19&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/remove-nth-node-from-end-of-list/">https://leetcode.cn/problems/remove-nth-node-from-end-of-list/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -79,6 +87,8 @@ class Solution:
         slow.next = slow.next.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -107,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -138,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -162,6 +176,8 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -192,6 +208,8 @@ var removeNthFromEnd = function (head, n) {
 };
 ```
 
+#### Ruby
+
 ```rb
 # Definition for singly-linked list.
 # class ListNode
@@ -220,6 +238,43 @@ def remove_nth_from_end(head, n)
 end
 ```
 
+#### Swift
+
+```swift
+/* class ListNode {
+*     var val: Int
+*     var next: ListNode?
+*     init() { self.val = 0; self.next = nil }
+*     init(_ val: Int) { self.val = val; self.next = nil }
+*     init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next }
+* }
+*/
+
+class Solution {
+    func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
+        let dummy = ListNode(0, head)
+        var fast: ListNode? = dummy
+        var slow: ListNode? = dummy
+
+        var n = n
+        while n > 0 {
+            fast = fast?.next
+            n -= 1
+        }
+
+        while fast?.next != nil {
+            slow = slow?.next
+            fast = fast?.next
+        }
+
+        slow?.next = slow?.next?.next
+        return dummy.next
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

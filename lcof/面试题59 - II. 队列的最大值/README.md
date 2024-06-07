@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9859%20-%20II.%20%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 59 - II. 队列的最大值](https://leetcode.cn/problems/dui-lie-de-zui-da-zhi-lcof/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请定义一个队列并实现函数 <code>max_value</code> 得到队列里的最大值，要求函数<code>max_value</code>、<code>push_back</code> 和 <code>pop_front</code> 的<strong>均摊</strong>时间复杂度都是O(1)。</p>
 
@@ -39,7 +41,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 	<li><code>1 &lt;= value &lt;= 10^5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双队列
 
@@ -54,6 +60,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 以上操作的时间复杂度均为 $O(1)$，空间复杂度为 $O(n)$。其中 $n$ 为队列中的元素个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MaxQueue:
@@ -85,6 +93,8 @@ class MaxQueue:
 # obj.push_back(value)
 # param_3 = obj.pop_front()
 ```
+
+#### Java
 
 ```java
 class MaxQueue {
@@ -126,6 +136,8 @@ class MaxQueue {
  * int param_3 = obj.pop_front();
  */
 ```
+
+#### C++
 
 ```cpp
 class MaxQueue {
@@ -170,6 +182,8 @@ private:
  * int param_3 = obj->pop_front();
  */
 ```
+
+#### Go
 
 ```go
 type MaxQueue struct {
@@ -216,6 +230,8 @@ func (this *MaxQueue) Pop_front() int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MaxQueue {
     private queue: number[];
@@ -255,6 +271,8 @@ class MaxQueue {
  * var param_3 = obj.pop_front()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -306,6 +324,8 @@ impl MaxQueue {
  */
 ```
 
+#### JavaScript
+
 ```js
 var MaxQueue = function () {
     this.q1 = [];
@@ -354,6 +374,8 @@ MaxQueue.prototype.pop_front = function () {
  */
 ```
 
+#### C#
+
 ```cs
 public class MaxQueue {
     LinkedList<int> mvq;
@@ -400,6 +422,51 @@ public class MaxQueue {
  */
 ```
 
+#### Swift
+
+```swift
+class MaxQueue {
+    private var q1: [Int] = []
+    private var q2: [Int] = []
+
+    init() {
+    }
+
+    func max_value() -> Int {
+        return q2.isEmpty ? -1 : q2.first!
+    }
+
+    func push_back(_ value: Int) {
+        q1.append(value)
+        while !q2.isEmpty && q2.last! < value {
+            q2.removeLast()
+        }
+        q2.append(value)
+    }
+
+    func pop_front() -> Int {
+        if q1.isEmpty {
+            return -1
+        }
+        let ans = q1.removeFirst()
+        if q2.first == ans {
+            q2.removeFirst()
+        }
+        return ans
+    }
+}
+
+/**
+ * Your MaxQueue object will be instantiated and called as such:
+ * let obj = MaxQueue();
+ * let param_1 = obj.max_value();
+ * obj.push_back(value);
+ * let param_3 = obj.pop_front();
+ */
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

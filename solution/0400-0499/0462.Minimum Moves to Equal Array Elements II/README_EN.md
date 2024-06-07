@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [462. Minimum Moves to Equal Array Elements II](https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii)
 
 [中文文档](/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> of size <code>n</code>, return <em>the minimum number of moves required to make all array elements equal</em>.</p>
 
@@ -47,11 +51,17 @@ Only two moves are needed (remember each move increments or decrements one eleme
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +70,8 @@ class Solution:
         k = nums[len(nums) >> 1]
         return sum(abs(v - k) for v in nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +87,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -87,6 +101,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minMoves2(nums []int) int {
@@ -107,6 +123,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minMoves2(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -114,6 +132,8 @@ function minMoves2(nums: number[]): number {
     return nums.reduce((r, v) => r + Math.abs(v - mid), 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -131,9 +151,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -152,4 +178,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

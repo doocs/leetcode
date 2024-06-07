@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.03.List%20of%20Depth/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [04.03. List of Depth](https://leetcode.cn/problems/list-of-depth-lcci)
 
 [中文文档](/lcci/04.03.List%20of%20Depth/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a binary tree, design an algorithm which creates a linked list of all the nodes at each depth (e.g., if you have a tree with depth D, you&#39;ll have D linked lists). Return a array containing all the linked lists.</p>
 
@@ -42,7 +46,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.03.List%20of%20Dep
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS Level Order Traversal
 
@@ -51,6 +59,8 @@ We can use the BFS level order traversal method. For each level, we store the va
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -84,6 +94,8 @@ class Solution:
             ans.append(dummy.next)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -128,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -174,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -212,6 +228,8 @@ func listOfDepth(tree *TreeNode) (ans []*ListNode) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -258,6 +276,8 @@ function listOfDepth(tree: TreeNode | null): Array<ListNode | null> {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -329,6 +349,8 @@ impl Solution {
 }
 ```
 
+#### Swift
+
 ```swift
 /* class TreeNode {
 *    var val: Int
@@ -387,4 +409,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

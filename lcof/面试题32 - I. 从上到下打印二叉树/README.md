@@ -4,9 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9832%20-%20I.%20%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 32 - I. 从上到下打印二叉树](https://leetcode.cn/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。</p>
 
@@ -35,7 +39,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 	<li><code>节点总数 &lt;= 1000</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -44,6 +52,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -70,6 +80,8 @@ class Solution:
                     q.append(node.right)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -110,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -146,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -177,6 +193,8 @@ func levelOrder(root *TreeNode) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -193,20 +211,25 @@ func levelOrder(root *TreeNode) (ans []int) {
  */
 
 function levelOrder(root: TreeNode | null): number[] {
-    const res = [];
-    if (root == null) {
-        return res;
+    const ans: number[] = [];
+    if (!root) {
+        return ans;
     }
-    const queue = [root];
-    while (queue.length !== 0) {
-        const { val, left, right } = queue.shift();
-        res.push(val);
-        left && queue.push(left);
-        right && queue.push(right);
+    const q: TreeNode[] = [root];
+    while (q.length) {
+        const t: TreeNode[] = [];
+        for (const { val, left, right } of q) {
+            ans.push(val);
+            left && t.push(left);
+            right && t.push(right);
+        }
+        q.splice(0, q.length, ...t);
     }
-    return res;
+    return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -232,25 +255,27 @@ use std::cell::RefCell;
 use std::collections::VecDeque;
 impl Solution {
     pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-        let mut res = Vec::new();
-        let mut queue = VecDeque::new();
+        let mut ans = Vec::new();
+        let mut q = VecDeque::new();
         if let Some(node) = root {
-            queue.push_back(node);
+            q.push_back(node);
         }
-        while let Some(node) = queue.pop_front() {
+        while let Some(node) = q.pop_front() {
             let mut node = node.borrow_mut();
-            res.push(node.val);
+            ans.push(node.val);
             if let Some(l) = node.left.take() {
-                queue.push_back(l);
+                q.push_back(l);
             }
             if let Some(r) = node.right.take() {
-                queue.push_back(r);
+                q.push_back(r);
             }
         }
-        res
+        ans
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -265,22 +290,25 @@ impl Solution {
  * @return {number[]}
  */
 var levelOrder = function (root) {
+    const ans = [];
     if (!root) {
-        return [];
+        return ans;
     }
     const q = [root];
-    const ans = [];
     while (q.length) {
-        for (let n = q.length; n; --n) {
-            const { val, left, right } = q.shift();
+        const t = [];
+        for (const { val, left, right } of q) {
             ans.push(val);
-            left && q.push(left);
-            right && q.push(right);
+            left && t.push(left);
+            right && t.push(right);
         }
+        q.splice(0, q.length, ...t);
     }
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -318,6 +346,49 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+/* public class TreeNode {
+*     var val: Int
+*     var left: TreeNode?
+*     var right: TreeNode?
+*     init(_ val: Int) {
+*         self.val = val
+*         self.left = nil
+*         self.right = nil
+*     }
+* }
+*/
+
+class Solution {
+    func levelOrder(_ root: TreeNode?) -> [Int] {
+        guard let root = root else {
+            return []
+        }
+
+        var queue: [TreeNode] = [root]
+        var result: [Int] = []
+
+        while !queue.isEmpty {
+            let node = queue.removeFirst()
+            result.append(node.val)
+
+            if let left = node.left {
+                queue.append(left)
+            }
+            if let right = node.right {
+                queue.append(right)
+            }
+        }
+
+        return result
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

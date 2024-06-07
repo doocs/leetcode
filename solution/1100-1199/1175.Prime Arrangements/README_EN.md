@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1175.Prime%20Arrangements/README_EN.md
 rating: 1489
+source: Weekly Contest 152 Q1
 tags:
     - Math
 ---
+
+<!-- problem:start -->
 
 # [1175. Prime Arrangements](https://leetcode.com/problems/prime-arrangements)
 
 [中文文档](/solution/1100-1199/1175.Prime%20Arrangements/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Return the number of permutations of 1 to <code>n</code> so that prime numbers are at prime indices (1-indexed.)</p>
 
@@ -42,7 +47,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -59,6 +68,8 @@ We sequentially traverse each number $i$ in the range $[2,n]$. If this number is
 The time complexity is $O(n \times \log \log n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +88,8 @@ class Solution:
         ans = factorial(cnt) * factorial(n - cnt)
         return ans % (10**9 + 7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 const int MOD = 1e9 + 7;
@@ -144,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numPrimeArrangements(n int) int {
@@ -181,4 +198,6 @@ func numPrimeArrangements(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

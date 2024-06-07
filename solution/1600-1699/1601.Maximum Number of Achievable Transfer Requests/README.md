@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README.md
 rating: 2118
+source: 第 208 场周赛 Q4
 tags:
     - 位运算
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [1601. 最多可达成的换楼请求数目](https://leetcode.cn/problems/maximum-number-of-achievable-transfer-requests)
 
 [English Version](/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们有&nbsp;<code>n</code>&nbsp;栋楼，编号从&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n - 1</code>&nbsp;。每栋楼有若干员工。由于现在是换楼的季节，部分员工想要换一栋楼居住。</p>
 
@@ -73,7 +76,11 @@ tags:
 	<li><code>0 &lt;= from<sub>i</sub>, to<sub>i</sub> &lt; n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二进制枚举
 
@@ -84,6 +91,8 @@ tags:
 时间复杂度 $O(2^m \times (m + n))$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别是换楼请求列表的长度和楼的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -103,6 +112,8 @@ class Solution:
                 ans = cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -177,6 +190,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumRequests(n int, requests [][]int) (ans int) {
 	m := len(requests)
@@ -205,6 +220,8 @@ func maximumRequests(n int, requests [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumRequests(n: number, requests: number[][]): number {
@@ -239,6 +256,8 @@ function bitCount(i: number): number {
     return i & 0x3f;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -278,6 +297,8 @@ function bitCount(i) {
     return i & 0x3f;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -329,4 +350,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

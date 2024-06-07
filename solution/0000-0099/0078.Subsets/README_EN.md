@@ -8,11 +8,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [78. Subsets](https://leetcode.com/problems/subsets)
 
 [中文文档](/solution/0000-0099/0078.Subsets/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> of <strong>unique</strong> elements, return <em>all possible</em> <span data-keyword="subset"><em>subsets</em></span> <em>(the power set)</em>.</p>
 
@@ -42,7 +46,11 @@ tags:
 	<li>All the numbers of&nbsp;<code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS (Backtracking)
 
@@ -56,6 +64,8 @@ In the main function, we call $dfs(0)$, i.e., start searching all subsets from t
 The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array. There are a total of $2^n$ subsets, and each subset takes $O(n)$ time to construct.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +84,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsets(nums []int) (ans [][]int) {
 	t := []int{}
@@ -141,6 +157,8 @@ func subsets(nums []int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subsets(nums: number[]): number[][] {
     const ans: number[][] = [];
@@ -159,6 +177,8 @@ function subsets(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -183,6 +203,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary Enumeration
 
 We can also use the method of binary enumeration to get all subsets.
@@ -193,6 +217,8 @@ The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. He
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
@@ -202,6 +228,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -221,6 +249,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -242,6 +272,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsets(nums []int) (ans [][]int) {
 	n := len(nums)
@@ -257,6 +289,8 @@ func subsets(nums []int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subsets(nums: number[]): number[][] {
@@ -277,4 +311,6 @@ function subsets(nums: number[]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README_EN.md
 rating: 1514
+source: Weekly Contest 240 Q2
 tags:
     - Array
     - Two Pointers
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1855. Maximum Distance Between a Pair of Values](https://leetcode.com/problems/maximum-distance-between-a-pair-of-values)
 
 [中文文档](/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>non-increasing 0-indexed </strong>integer arrays <code>nums1</code>​​​​​​ and <code>nums2</code>​​​​​​.</p>
 
@@ -60,7 +65,11 @@ The maximum distance is 2 with pair (2,4).
 	<li>Both <code>nums1</code> and <code>nums2</code> are <strong>non-increasing</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -72,6 +81,8 @@ The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the lengths o
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
@@ -82,6 +93,8 @@ class Solution:
             ans = max(ans, j - i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxDistance(nums1 []int, nums2 []int) int {
@@ -141,6 +158,8 @@ func maxDistance(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxDistance(nums1: number[], nums2: number[]): number {
     let ans = 0;
@@ -162,6 +181,8 @@ function maxDistance(nums1: number[], nums2: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -187,6 +208,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums1
@@ -216,9 +239,15 @@ var maxDistance = function (nums1, nums2) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -232,6 +261,8 @@ class Solution:
             i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -248,6 +279,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -266,6 +299,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDistance(nums1 []int, nums2 []int) int {
 	m, n := len(nums1), len(nums2)
@@ -282,6 +317,8 @@ func maxDistance(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxDistance(nums1: number[], nums2: number[]): number {
     let ans = 0;
@@ -296,6 +333,8 @@ function maxDistance(nums1: number[], nums2: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -314,6 +353,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -337,4 +378,6 @@ var maxDistance = function (nums1, nums2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

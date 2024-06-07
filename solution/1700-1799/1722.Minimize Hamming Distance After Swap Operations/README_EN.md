@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README_EN.md
 rating: 1892
+source: Weekly Contest 223 Q3
 tags:
     - Depth-First Search
     - Union Find
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1722. Minimize Hamming Distance After Swap Operations](https://leetcode.com/problems/minimize-hamming-distance-after-swap-operations)
 
 [中文文档](/solution/1700-1799/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integer arrays, <code>source</code> and <code>target</code>, both of length <code>n</code>. You are also given an array <code>allowedSwaps</code> where each <code>allowedSwaps[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that you are allowed to swap the elements at index <code>a<sub>i</sub></code> and index <code>b<sub>i</sub></code> <strong>(0-indexed)</strong> of array <code>source</code>. Note that you can swap elements at a specific pair of indices <strong>multiple</strong> times and in <strong>any</strong> order.</p>
 
@@ -62,7 +67,11 @@ The Hamming distance of source and target is 2 as they differ in 2 positions: in
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find + Hash Table
 
@@ -73,6 +82,8 @@ After obtaining each connected component, we use a two-dimensional hash table $c
 The time complexity is $O(n \times \log n)$ or $O(n \times \alpha(n))$, and the space complexity is $O(n)$. Here, $n$ is the length of the array, and $\alpha$ is the inverse Ackermann function.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +110,8 @@ class Solution:
             ans += cnt[j][x] < 0
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +180,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumHammingDistance(source []int, target []int, allowedSwaps [][]int) (ans int) {
@@ -201,6 +218,8 @@ func minimumHammingDistance(source []int, target []int, allowedSwaps [][]int) (a
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumHammingDistance(
@@ -243,4 +262,6 @@ function minimumHammingDistance(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

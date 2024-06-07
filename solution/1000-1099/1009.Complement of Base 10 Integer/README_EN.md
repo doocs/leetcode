@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1009.Complement%20of%20Base%2010%20Integer/README_EN.md
 rating: 1234
+source: Weekly Contest 128 Q1
 tags:
     - Bit Manipulation
 ---
+
+<!-- problem:start -->
 
 # [1009. Complement of Base 10 Integer](https://leetcode.com/problems/complement-of-base-10-integer)
 
 [中文文档](/solution/1000-1099/1009.Complement%20of%20Base%2010%20Integer/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>complement</strong> of an integer is the integer you get when you flip all the <code>0</code>&#39;s to <code>1</code>&#39;s and all the <code>1</code>&#39;s to <code>0</code>&#39;s in its binary representation.</p>
 
@@ -56,11 +61,17 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as 476: <a href="https://leetcode.com/problems/number-complement/" target="_blank">https://leetcode.com/problems/number-complement/</a></p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +89,8 @@ class Solution:
                 ans |= 1 << i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func bitwiseComplement(n int) int {
@@ -143,4 +160,6 @@ func bitwiseComplement(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

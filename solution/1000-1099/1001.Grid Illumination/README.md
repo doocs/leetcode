@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1001.Grid%20Illumination/README.md
 rating: 1873
+source: 第 125 场周赛 Q4
 tags:
     - 数组
     - 哈希表
 ---
+
+<!-- problem:start -->
 
 # [1001. 网格照明](https://leetcode.cn/problems/grid-illumination)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在大小为 <code>n x n</code> 的网格 <code>grid</code> 上，每个单元格都有一盏灯，最初灯都处于 <strong>关闭</strong> 状态。</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>0 &lt;= row<sub>j</sub>, col<sub>j</sub> &lt; n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -84,6 +91,8 @@ tags:
 时间复杂度 $O(m + q)$，其中 $m$ 和 $q$ 分别为数组 $lamps$ 和 $queries$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +120,8 @@ class Solution:
                         diag2[x + y] -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -170,6 +181,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -214,6 +227,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func gridIllumination(n int, lamps [][]int, queries [][]int) []int {
 	row, col, diag1, diag2 := map[int]int{}, map[int]int{}, map[int]int{}, map[int]int{}
@@ -253,6 +268,8 @@ func gridIllumination(n int, lamps [][]int, queries [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function gridIllumination(n: number, lamps: number[][], queries: number[][]): number[] {
@@ -297,4 +314,6 @@ function gridIllumination(n: number, lamps: number[][], queries: number[][]): nu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README.md
 rating: 2233
+source: 第 152 场周赛 Q4
 tags:
     - 位运算
     - 字典树
@@ -11,13 +12,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [1178. 猜字谜](https://leetcode.cn/problems/number-of-valid-words-for-each-puzzle)
 
 [English Version](/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>外国友人仿照中国字谜设计了一个英文版猜字谜小游戏，请你来猜猜看吧。</p>
 
@@ -62,7 +65,11 @@ puzzles = ["aboveyz","abrodyz","abslute","absoryz","actresz","gaswxyz"]
 	<li>每个 <code>puzzles[i]</code> 所包含的字符都不重复。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩 + 哈希表 + 子集枚举
 
@@ -77,6 +84,8 @@ puzzles = ["aboveyz","abrodyz","abslute","absoryz","actresz","gaswxyz"]
 时间复杂度 $O(m \times |w| + n \times 2^{|p|})$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别为数组 $words$ 和 $puzzles$ 的长度，而 $|w|$ 和 $|p|$ 分别为数组 $words$ 中单词的最大长度和数组 $puzzles$ 中字谜的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +110,8 @@ class Solution:
             ans.append(x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -165,6 +178,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findNumOfValidWords(words []string, puzzles []string) (ans []int) {
 	cnt := map[int]int{}
@@ -191,6 +206,8 @@ func findNumOfValidWords(words []string, puzzles []string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findNumOfValidWords(words: string[], puzzles: string[]): number[] {
@@ -223,4 +240,6 @@ function findNumOfValidWords(words: string[], puzzles: string[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

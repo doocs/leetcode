@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1766.Tree%20of%20Coprimes/README_EN.md
 rating: 2231
+source: Biweekly Contest 46 Q4
 tags:
     - Tree
     - Depth-First Search
@@ -11,11 +12,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [1766. Tree of Coprimes](https://leetcode.com/problems/tree-of-coprimes)
 
 [中文文档](/solution/1700-1799/1766.Tree%20of%20Coprimes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a tree (i.e.,&nbsp;a connected, undirected graph that has no cycles) consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> and exactly <code>n - 1</code> edges. Each node has a value associated with it, and the <strong>root</strong> of the tree is node <code>0</code>.</p>
 
@@ -66,7 +71,11 @@ tags:
 	<li><code>u<sub>j</sub> != v<sub>j</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration + Stack + Backtracking
 
@@ -77,6 +86,8 @@ Next, we can use a backtracking method to traverse the entire tree from the root
 The time complexity is $O(n \times M)$, and the space complexity is $O(M^2 + n)$. Where $n$ is the number of nodes, and $M$ is the maximum value of $nums[i]$, in this problem $M = 50$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -108,6 +119,8 @@ class Solution:
         dfs(0, -1, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -168,6 +181,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -212,6 +227,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getCoprimes(nums []int, edges [][]int) []int {
@@ -265,4 +282,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [754. 到达终点数字](https://leetcode.cn/problems/reach-a-number)
 
 [English Version](/solution/0700-0799/0754.Reach%20a%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一根无限长的数轴上，你站在<code>0</code>的位置。终点在<code>target</code>的位置。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>target != 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学分析
 
@@ -74,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reachNumber(self, target: int) -> int:
@@ -85,6 +93,8 @@ class Solution:
             k += 1
             s += k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reachNumber(target int) int {
@@ -132,6 +146,8 @@ func reachNumber(target int) int {
 	}
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -153,4 +169,6 @@ var reachNumber = function (target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

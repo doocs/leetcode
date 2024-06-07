@@ -5,9 +5,12 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0729.My
 tags:
     - 设计
     - 线段树
+    - 数组
     - 二分查找
     - 有序集合
 ---
+
+<!-- problem:start -->
 
 # [729. 我的日程安排表 I](https://leetcode.cn/problems/my-calendar-i)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实现一个 <code>MyCalendar</code> 类来存放你的日程安排。如果要添加的日程安排不会造成 <strong>重复预订</strong> ，则可以存储这个新的日程安排。</p>
 
@@ -32,7 +35,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong class="example">示例：</strong></p>
 
 <pre>
 <strong>输入：</strong>
@@ -56,11 +59,17 @@ myCalendar.book(20, 30); // return True ，这个日程安排可以添加到日�
 	<li>每个测试用例，调用 <code>book</code> 方法的次数最多不超过 <code>1000</code> 次。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedDict
@@ -82,6 +91,8 @@ class MyCalendar:
 # obj = MyCalendar()
 # param_1 = obj.book(start,end)
 ```
+
+#### Java
 
 ```java
 import java.util.Map;
@@ -114,6 +125,8 @@ class MyCalendar {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyCalendar {
 public:
@@ -145,6 +158,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type MyCalendar struct {
 	rbt *redblacktree.Tree
@@ -174,6 +189,8 @@ func (this *MyCalendar) Book(start int, end int) bool {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MyCalendar {
     private calendar: number[][];
@@ -200,6 +217,8 @@ class MyCalendar {
  * var param_1 = obj.book(start,end)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::BTreeMap;
@@ -243,4 +262,6 @@ impl MyCalendar {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

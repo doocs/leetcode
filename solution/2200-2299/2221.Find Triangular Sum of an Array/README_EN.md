@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2221.Find%20Triangular%20Sum%20of%20an%20Array/README_EN.md
 rating: 1317
+source: Biweekly Contest 75 Q2
 tags:
     - Array
     - Math
@@ -10,11 +11,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2221. Find Triangular Sum of an Array](https://leetcode.com/problems/find-triangular-sum-of-an-array)
 
 [中文文档](/solution/2200-2299/2221.Find%20Triangular%20Sum%20of%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>, where <code>nums[i]</code> is a digit between <code>0</code> and <code>9</code> (<strong>inclusive</strong>).</p>
 
@@ -54,11 +59,17 @@ Since there is only one element in nums, the triangular sum is the value of that
 	<li><code>0 &lt;= nums[i] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +80,8 @@ class Solution:
                 nums[j] = (nums[j] + nums[j + 1]) % 10
         return nums[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -96,6 +111,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func triangularSum(nums []int) int {
@@ -111,4 +128,6 @@ func triangularSum(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

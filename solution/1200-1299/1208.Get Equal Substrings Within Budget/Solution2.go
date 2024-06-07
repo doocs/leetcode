@@ -1,13 +1,11 @@
 func equalSubstring(s string, t string, maxCost int) (ans int) {
-	var sum, j int
-	for i := range s {
-		sum += abs(int(s[i]) - int(t[i]))
-		for ; sum > maxCost; j++ {
-			sum -= abs(int(s[j]) - int(t[j]))
+	var cost, l int
+	for r := range s {
+		cost += abs(int(s[r]) - int(t[r]))
+		for ; cost > maxCost; l++ {
+			cost -= abs(int(s[l]) - int(t[l]))
 		}
-		if ans < i-j+1 {
-			ans = i - j + 1
-		}
+		ans = max(ans, r-l+1)
 	}
 	return
 }

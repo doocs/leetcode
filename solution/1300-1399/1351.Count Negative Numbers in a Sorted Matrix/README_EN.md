@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1351.Count%20Negative%20Numbers%20in%20a%20Sorted%20Matrix/README_EN.md
 rating: 1139
+source: Weekly Contest 176 Q1
 tags:
     - Array
     - Binary Search
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1351. Count Negative Numbers in a Sorted Matrix](https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix)
 
 [中文文档](/solution/1300-1399/1351.Count%20Negative%20Numbers%20in%20a%20Sorted%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>m x n</code> matrix <code>grid</code> which is sorted in non-increasing order both row-wise and column-wise, return <em>the number of <strong>negative</strong> numbers in</em> <code>grid</code>.</p>
 
@@ -46,7 +51,11 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you find an <code>O(n + m)</code> solution?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Start Traversing from the Bottom Left or Top Right
 
@@ -59,6 +68,8 @@ After the traversal is over, return the answer.
 The time complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +85,8 @@ class Solution:
                 j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countNegatives(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -126,6 +143,8 @@ func countNegatives(grid [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countNegatives(grid: number[][]): number {
@@ -143,6 +162,8 @@ function countNegatives(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -167,6 +188,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} grid
@@ -190,6 +213,10 @@ var countNegatives = function (grid) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary Search
 
 Traverse each row, use binary search to find the first position less than $0$ in each row. All elements to the right of this position are negative, and add the number of negative numbers to the answer.
@@ -200,11 +227,15 @@ The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the number of
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countNegatives(self, grid: List[List[int]]) -> int:
         return sum(bisect_left(row[::-1], 0) for row in grid)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -228,6 +259,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -240,6 +273,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countNegatives(grid [][]int) int {
@@ -259,6 +294,8 @@ func countNegatives(grid [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countNegatives(grid: number[][]): number {
@@ -281,6 +318,8 @@ function countNegatives(grid: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn count_negatives(grid: Vec<Vec<i32>>) -> i32 {
@@ -301,6 +340,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -329,4 +370,6 @@ var countNegatives = function (grid) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

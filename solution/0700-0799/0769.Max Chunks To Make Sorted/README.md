@@ -10,13 +10,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [769. 最多能完成排序的块](https://leetcode.cn/problems/max-chunks-to-make-sorted)
 
 [English Version](/solution/0700-0799/0769.Max%20Chunks%20To%20Make%20Sorted/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个长度为 <code>n</code> 的整数数组 <code>arr</code> ，它表示在 <code>[0, n - 1]</code> 范围内的整数的排列。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>arr</code>&nbsp;中每个元素都 <strong>不同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 一次遍历
 
@@ -67,6 +73,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +86,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxChunksToSorted(arr []int) int {
 	ans, mx := 0, 0
@@ -120,6 +134,8 @@ func maxChunksToSorted(arr []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxChunksToSorted(arr: number[]): number {
@@ -136,6 +152,8 @@ function maxChunksToSorted(arr: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn max_chunks_to_sorted(arr: Vec<i32>) -> i32 {
@@ -151,6 +169,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -170,6 +190,10 @@ int maxChunksToSorted(int* arr, int arrSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：单调栈
 
 方法一的解法有一定的局限性，若数组中存在重复元素，就无法得到正确的答案。
@@ -181,6 +205,8 @@ int maxChunksToSorted(int* arr, int arrSize) {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -196,6 +222,8 @@ class Solution:
                 stk.append(mx)
         return len(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -216,6 +244,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -239,6 +269,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxChunksToSorted(arr []int) int {
 	stk := []int{}
@@ -260,4 +292,6 @@ func maxChunksToSorted(arr []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

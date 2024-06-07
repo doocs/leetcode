@@ -11,13 +11,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [767. 重构字符串](https://leetcode.cn/problems/reorganize-string)
 
 [English Version](/solution/0700-0799/0767.Reorganize%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串&nbsp;<code>s</code>&nbsp;，检查是否能重新排布其中的字母，使得两相邻的字符不同。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li><code>s</code> 只包含小写字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -59,6 +65,8 @@ tags:
 否则，按字符出现频率从大到小遍历，依次间隔 1 个位置填充字符。若位置大于等于 n，则重置为 1 继续填充。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +87,8 @@ class Solution:
                     i = 1
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +166,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reorganizeString(s string) string {
@@ -192,6 +206,8 @@ func reorganizeString(s string) string {
 	return string(ans)
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::{ HashMap, BinaryHeap, VecDeque };
@@ -246,6 +262,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：贪心 + 哈希表 + 优先队列（大根堆）
 
 先用哈希表 `cnt` 统计每个字母出现的次数，然后构建一个大根堆 `pq`，其中每个元素是一个 `(v, c)` 的元组，其中 `c` 是字母，`v` 是字母出现的次数。
@@ -262,6 +282,8 @@ impl Solution {
 -   [1054. 距离相等的条形码](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1054.Distant%20Barcodes/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -284,6 +306,8 @@ class Solution:
                     heappush(h, (-w, c))
         return "" if len(ans) != len(s) else "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -322,6 +346,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -353,6 +379,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reorganizeString(s string) string {
@@ -408,4 +436,6 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

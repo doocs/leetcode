@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2741.Special%20Permutations/README_EN.md
 rating: 2020
+source: Weekly Contest 350 Q3
 tags:
     - Bit Manipulation
     - Array
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [2741. Special Permutations](https://leetcode.com/problems/special-permutations)
 
 [中文文档](/solution/2700-2799/2741.Special%20Permutations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a&nbsp;<strong>0-indexed</strong>&nbsp;integer array&nbsp;<code>nums</code>&nbsp;containing&nbsp;<code>n</code>&nbsp;<strong>distinct</strong> positive integers. A permutation of&nbsp;<code>nums</code>&nbsp;is called special if:</p>
 
@@ -48,7 +53,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression Dynamic Programming
 
@@ -72,6 +81,8 @@ The time complexity is $O(n^2 \times 2^n)$, and the space complexity is $O(n \ti
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def specialPerm(self, nums: List[int]) -> int:
@@ -91,6 +102,8 @@ class Solution:
                             f[i][j] = (f[i][j] + f[ii][k]) % mod
         return sum(f[-1]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +136,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -158,6 +173,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func specialPerm(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -192,4 +209,6 @@ func specialPerm(nums []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

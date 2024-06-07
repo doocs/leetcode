@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [890. 查找和替换模式](https://leetcode.cn/problems/find-and-replace-pattern)
 
 [English Version](/solution/0800-0899/0890.Find%20and%20Replace%20Pattern/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一个单词列表&nbsp;<code>words</code>&nbsp;和一个模式&nbsp;&nbsp;<code>pattern</code>，你想知道 <code>words</code> 中的哪些单词与模式匹配。</p>
 
@@ -46,11 +48,17 @@ tags:
 	<li><code>1 &lt;= pattern.length = words[i].length&nbsp;&lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +73,8 @@ class Solution:
 
         return [word for word in words if match(word, pattern)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findAndReplacePattern(words []string, pattern string) []string {
@@ -140,6 +154,8 @@ func findAndReplacePattern(words []string, pattern string) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findAndReplacePattern(words: string[], pattern: string): string[] {
     return words.filter(word => {
@@ -156,6 +172,8 @@ function findAndReplacePattern(words: string[], pattern: string): string[] {
     });
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -185,4 +203,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2052.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E6%9F%93%E8%89%B2/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 52. 二叉搜索树染色](https://leetcode.cn/problems/QO5KpG)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 欢迎各位勇者来到力扣城，本次试炼主题为「二叉搜索树染色」。
 
@@ -38,8 +40,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2052.%20%E4%BA%8C%
 
 **示例 2：**
 
-> 输入：`root = [4,2,7,1,null,5,null,null,null,null,6]`
-> `ops = [[0,2,2],[1,1,5],[0,4,5],[1,5,7]]`
+> 输入：`root = [4,2,7,1,null,5,null,null,null,null,6]` > `ops = [[0,2,2],[1,1,5],[0,4,5],[1,5,7]]`
 >
 > 输出：`5`
 >
@@ -60,7 +61,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2052.%20%E4%BA%8C%
 -   `0 <= ops[i][1] <= ops[i][2] <= 10^9`
 -   `0 <= 节点值 <= 10^9`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：有序集合 + 倒序遍历
 
@@ -73,6 +78,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2052.%20%E4%BA%8C%
 时间复杂度 $O(m + n \times \log n)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别是操作数组的长度和二叉树的节点数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -104,6 +111,8 @@ class Solution:
                 ans += t == 1
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -145,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -183,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -216,6 +229,8 @@ func getNumber(root *TreeNode, ops [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -749,4 +764,6 @@ class TreeSet<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

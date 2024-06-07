@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1734.Decode%20XORed%20Permutation/README_EN.md
 rating: 2024
+source: Biweekly Contest 44 Q3
 tags:
     - Bit Manipulation
     - Array
 ---
+
+<!-- problem:start -->
 
 # [1734. Decode XORed Permutation](https://leetcode.com/problems/decode-xored-permutation)
 
 [中文文档](/solution/1700-1799/1734.Decode%20XORed%20Permutation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an integer array <code>perm</code> that is a permutation of the first <code>n</code> positive integers, where <code>n</code> is always <strong>odd</strong>.</p>
 
@@ -45,7 +50,11 @@ tags:
 	<li><code>encoded.length == n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bitwise Operation
 
@@ -54,6 +63,8 @@ We notice that the array $perm$ is a permutation of the first $n$ positive integ
 The time complexity is $O(n)$, where $n$ is the length of the array $perm$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +81,8 @@ class Solution:
             perm[i] = encoded[i] ^ perm[i + 1]
         return perm
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func decode(encoded []int) []int {
 	n := len(encoded) + 1
@@ -135,4 +152,6 @@ func decode(encoded []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

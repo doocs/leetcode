@@ -8,13 +8,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [158. 用 Read4 读取 N 个字符 II - 多次调用 🔒](https://leetcode.cn/problems/read-n-characters-given-read4-ii-call-multiple-times)
 
 [English Version](/solution/0100-0199/0158.Read%20N%20Characters%20Given%20read4%20II%20-%20Call%20Multiple%20Times/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个文件<meta charset="UTF-8" />&nbsp;<code>file</code>&nbsp;，并且该文件只能通过给定的&nbsp;<code>read4</code>&nbsp;方法来读取，请实现一个方法使其能够使&nbsp;<code>read</code> 读取 <code>n</code> 个字符。<strong>注意：你的</strong>&nbsp;<strong><code>read</code> 方法可能会被调用多次。</strong></p>
 
@@ -112,11 +114,17 @@ sol.read (buf, 1); // 我们已经到达文件的末尾，不能读取更多的�
 	<li><code>1 &lt;= queries[i] &lt;= 500</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # The read4 API is already defined for you.
@@ -142,6 +150,8 @@ class Solution:
                 j += 1
         return j
 ```
+
+#### Java
 
 ```java
 /**
@@ -178,6 +188,8 @@ public class Solution extends Reader4 {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * The read4 API is defined in the parent class Reader4.
@@ -210,6 +222,8 @@ private:
     int size = 0;
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -251,4 +265,6 @@ var solution = func(read4 func([]byte) int) func([]byte, int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

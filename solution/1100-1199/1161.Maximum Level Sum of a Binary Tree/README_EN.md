@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1161.Maximum%20Level%20Sum%20of%20a%20Binary%20Tree/README_EN.md
 rating: 1249
+source: Weekly Contest 150 Q2
 tags:
     - Tree
     - Depth-First Search
@@ -10,11 +11,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1161. Maximum Level Sum of a Binary Tree](https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree)
 
 [中文文档](/solution/1100-1199/1161.Maximum%20Level%20Sum%20of%20a%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, the level of its root is <code>1</code>, the level of its children is <code>2</code>, and so on.</p>
 
@@ -48,7 +53,11 @@ So we return the level with the maximum sum which is level 2.
 	<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -57,6 +66,8 @@ We can use BFS to traverse the tree level by level, calculate the sum of nodes a
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -85,6 +96,8 @@ class Solution:
                 ans = i
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -132,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -167,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -204,6 +221,8 @@ func maxLevelSum(root *TreeNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -246,6 +265,10 @@ function maxLevelSum(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: DFS
 
 We can also use DFS to solve this problem. We use an array $s$ to store the sum of nodes at each level. The index of the array represents the level, and the value of the array represents the sum of nodes. We use DFS to traverse the binary tree, adding the value of each node to the sum of nodes at the corresponding level. Finally, we return the index corresponding to the maximum value in $s$.
@@ -253,6 +276,8 @@ We can also use DFS to solve this problem. We use an array $s$ to store the sum 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -277,6 +302,8 @@ class Solution:
         dfs(root, 0)
         return s.index(max(s)) + 1
 ```
+
+#### Java
 
 ```java
 /**
@@ -325,6 +352,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -360,6 +389,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -399,4 +430,6 @@ func maxLevelSum(root *TreeNode) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

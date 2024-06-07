@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3100.Water%20Bottles%20II/README.md
 rating: 1366
+source: 第 391 场周赛 Q2
 tags:
     - 数学
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [3100. 换水问题 II](https://leetcode.cn/problems/water-bottles-ii)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数 <code>numBottles</code> 和 <code>numExchange</code> 。</p>
 
@@ -55,7 +58,11 @@ tags:
 	<li><code>1 &lt;= numExchange &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -70,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxBottlesDrunk(self, numBottles: int, numExchange: int) -> int:
@@ -81,6 +90,8 @@ class Solution:
             numBottles += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxBottlesDrunk(numBottles int, numExchange int) int {
 	ans := numBottles
@@ -125,6 +140,8 @@ func maxBottlesDrunk(numBottles int, numExchange int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxBottlesDrunk(numBottles: number, numExchange: number): number {
@@ -141,4 +158,6 @@ function maxBottlesDrunk(numBottles: number, numExchange: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

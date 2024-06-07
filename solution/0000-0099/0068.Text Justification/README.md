@@ -8,13 +8,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [68. 文本左右对齐](https://leetcode.cn/problems/text-justification)
 
 [English Version](/solution/0000-0099/0068.Text%20Justification/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个单词数组&nbsp;<code>words</code> 和一个长度&nbsp;<code>maxWidth</code>&nbsp;，重新排版单词，使其成为每行恰好有&nbsp;<code>maxWidth</code>&nbsp;个字符，且左右两端对齐的文本。</p>
 
@@ -88,7 +90,11 @@ tags:
 	<li><code>words[i].length &lt;= maxWidth</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -97,6 +103,8 @@ tags:
 时间复杂度 $O(L)$，空间复杂度 $O(L)$。其中 $L$ 为所有单词的长度之和。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -127,6 +135,8 @@ class Solution:
             ans.append(''.join(row))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -162,6 +172,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -200,6 +212,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fullJustify(words []string, maxWidth int) (ans []string) {
 	for i, n := 0, len(words); i < n; {
@@ -235,6 +249,8 @@ func fullJustify(words []string, maxWidth int) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function fullJustify(words: string[], maxWidth: number): string[] {
     const ans: string[] = [];
@@ -265,6 +281,8 @@ function fullJustify(words: string[], maxWidth: number): string[] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -304,4 +322,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

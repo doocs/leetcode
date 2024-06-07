@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1406.Stone%20Game%20III/README_EN.md
 rating: 2026
+source: Weekly Contest 183 Q4
 tags:
     - Array
     - Math
@@ -10,11 +11,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [1406. Stone Game III](https://leetcode.com/problems/stone-game-iii)
 
 [中文文档](/solution/1400-1499/1406.Stone%20Game%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob continue their games with piles of stones. There are several stones <strong>arranged in a row</strong>, and each stone has an associated value which is an integer given in the array <code>stoneValue</code>.</p>
 
@@ -64,7 +69,11 @@ Remember that both play optimally so here Alice will choose the scenario that ma
 	<li><code>-1000 &lt;= stoneValue[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -84,6 +93,8 @@ To prevent repeated calculations, we can use memoization search.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of piles of stones.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +117,8 @@ class Solution:
             return 'Tie'
         return 'Alice' if ans > 0 else 'Bob'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func stoneGameIII(stoneValue []int) string {
@@ -207,6 +224,8 @@ func stoneGameIII(stoneValue []int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function stoneGameIII(stoneValue: number[]): string {
     const n = stoneValue.length;
@@ -237,4 +256,6 @@ function stoneGameIII(stoneValue: number[]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

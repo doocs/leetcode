@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2639.Find%20the%20Width%20of%20Columns%20of%20a%20Grid/README_EN.md
 rating: 1282
+source: Biweekly Contest 102 Q1
 tags:
     - Array
     - Matrix
 ---
+
+<!-- problem:start -->
 
 # [2639. Find the Width of Columns of a Grid](https://leetcode.com/problems/find-the-width-of-columns-of-a-grid)
 
 [中文文档](/solution/2600-2699/2639.Find%20the%20Width%20of%20Columns%20of%20a%20Grid/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> integer matrix <code>grid</code>. The width of a column is the maximum <strong>length </strong>of its integers.</p>
 
@@ -54,7 +59,11 @@ In the 2<sup>nd</sup> column, both 12 and -2 are of length 2.
 	<li><code>-10<sup>9</sup> &lt;= grid[r][c] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -68,11 +77,15 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(\log M)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findColumnWidth(self, grid: List[List[int]]) -> List[int]:
         return [max(len(str(x)) for x in col) for col in zip(*grid)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findColumnWidth(grid [][]int) []int {
 	ans := make([]int, len(grid[0]))
@@ -119,6 +136,8 @@ func findColumnWidth(grid [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findColumnWidth(grid: number[][]): number[] {
@@ -133,6 +152,8 @@ function findColumnWidth(grid: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -153,4 +174,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1682. 最长回文子序列 II 🔒](https://leetcode.cn/problems/longest-palindromic-subsequence-ii)
 
 [English Version](/solution/1600-1699/1682.Longest%20Palindromic%20Subsequence%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>字符串&nbsp;<code>s</code>&nbsp;的某个子序列符合下列条件时，称为“<strong>好的回文子序列</strong>”：</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>s</code>&nbsp;包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -73,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestPalindromeSubseq(self, s: str) -> int:
@@ -88,6 +96,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestPalindromeSubseq(s string) int {
@@ -185,4 +199,6 @@ func longestPalindromeSubseq(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,13 +9,15 @@ tags:
     - 拓扑排序
 ---
 
+<!-- problem:start -->
+
 # [207. 课程表](https://leetcode.cn/problems/course-schedule)
 
 [English Version](/solution/0200-0299/0207.Course%20Schedule/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你这个学期必须选修 <code>numCourses</code> 门课程，记为&nbsp;<code>0</code>&nbsp;到&nbsp;<code>numCourses - 1</code> 。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>prerequisites[i]</code> 中的所有课程对 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拓扑排序
 
@@ -68,6 +74,8 @@ tags:
 时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为课程数和先修课程数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +96,8 @@ class Solution:
                     q.append(j)
         return cnt == numCourses
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -154,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canFinish(numCourses int, prerequisites [][]int) bool {
 	g := make([][]int, numCourses)
@@ -185,6 +199,8 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canFinish(numCourses: number, prerequisites: number[][]): boolean {
     const g: number[][] = new Array(numCourses).fill(0).map(() => []);
@@ -212,6 +228,8 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
     return cnt == numCourses;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -263,6 +281,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool CanFinish(int numCourses, int[][] prerequisites) {
@@ -299,4 +319,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3083.Existence%20of%20a%20Substring%20in%20a%20String%20and%20Its%20Reverse/README_EN.md
 rating: 1173
+source: Weekly Contest 389 Q1
 tags:
     - Hash Table
     - String
 ---
+
+<!-- problem:start -->
 
 # [3083. Existence of a Substring in a String and Its Reverse](https://leetcode.com/problems/existence-of-a-substring-in-a-string-and-its-reverse)
 
 [中文文档](/solution/3000-3099/3083.Existence%20of%20a%20Substring%20in%20a%20String%20and%20Its%20Reverse/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a<strong> </strong>string <code>s</code>, find any <span data-keyword="substring">substring</span> of length <code>2</code> which is also present in the reverse of <code>s</code>.</p>
 
@@ -57,7 +62,11 @@ tags:
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -69,12 +78,16 @@ The time complexity is $O(n)$ and the space complexity is $O(|\Sigma|^2)$. Here,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isSubstringPresent(self, s: str) -> bool:
         st = {(a, b) for a, b in pairwise(s[::-1])}
         return any((a, b) in st for a, b in pairwise(s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isSubstringPresent(s string) bool {
 	st := [26][26]bool{}
@@ -127,6 +144,8 @@ func isSubstringPresent(s string) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isSubstringPresent(s: string): boolean {
@@ -145,4 +164,6 @@ function isSubstringPresent(s: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

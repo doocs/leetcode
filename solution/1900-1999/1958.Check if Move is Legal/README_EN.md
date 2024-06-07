@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README_EN.md
 rating: 1658
+source: Biweekly Contest 58 Q2
 tags:
     - Array
     - Enumeration
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1958. Check if Move is Legal](https://leetcode.com/problems/check-if-move-is-legal)
 
 [中文文档](/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> <code>8 x 8</code> grid <code>board</code>, where <code>board[r][c]</code> represents the cell <code>(r, c)</code> on a game board. On the board, free cells are represented by <code>&#39;.&#39;</code>, white cells are represented by <code>&#39;W&#39;</code>, and black cells are represented by <code>&#39;B&#39;</code>.</p>
 
@@ -51,11 +56,17 @@ The two good lines with the chosen cell as an endpoint are annotated above with 
 	<li><code>color</code> is either <code>&#39;B&#39;</code> or <code>&#39;W&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +87,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkMove(board [][]byte, rMove int, cMove int, color byte) bool {
@@ -155,4 +172,6 @@ func checkMove(board [][]byte, rMove int, cMove int, color byte) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

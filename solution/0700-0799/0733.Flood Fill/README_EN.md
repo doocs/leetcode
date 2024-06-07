@@ -9,11 +9,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [733. Flood Fill](https://leetcode.com/problems/flood-fill)
 
 [中文文档](/solution/0700-0799/0733.Flood%20Fill/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An image is represented by an <code>m x n</code> integer grid <code>image</code> where <code>image[i][j]</code> represents the pixel value of the image.</p>
 
@@ -53,11 +57,17 @@ Note the bottom corner is not colored 2, because it is not 4-directionally conne
 	<li><code>0 &lt;= sc &lt; n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +92,8 @@ class Solution:
         dfs(sr, sc)
         return image
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func floodFill(image [][]int, sr int, sc int, color int) [][]int {
 	oc := image[sr][sc]
@@ -152,6 +168,8 @@ func floodFill(image [][]int, sr int, sc int, color int) [][]int {
 	return image
 }
 ```
+
+#### TypeScript
 
 ```ts
 function floodFill(image: number[][], sr: number, sc: number, newColor: number): number[][] {
@@ -179,6 +197,8 @@ function floodFill(image: number[][], sr: number, sc: number, newColor: number):
     return image;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -209,9 +229,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -233,6 +259,8 @@ class Solution:
                     image[x][y] = color
         return image
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -262,6 +290,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -289,6 +319,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func floodFill(image [][]int, sr int, sc int, color int) [][]int {
 	if image[sr][sc] == color {
@@ -315,4 +347,6 @@ func floodFill(image [][]int, sr int, sc int, color int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2028.Find%20Missing%20Observations/README.md
 rating: 1444
+source: 第 261 场周赛 Q2
 tags:
     - 数组
     - 数学
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [2028. 找出缺失的观测数据](https://leetcode.cn/problems/find-missing-observations)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现有一份 <code>n + m</code>&nbsp;次投掷单个<strong> 六面</strong> 骰子的观测数据，骰子的每个面从 <code>1</code> 到 <code>6</code> 编号。观测数据中缺失了 <code>n</code> 份，你手上只拿到剩余&nbsp;<code>m</code> 次投掷的数据。幸好你有之前计算过的这 <code>n + m</code> 次投掷数据的 <strong>平均值</strong> 。</p>
 
@@ -71,19 +74,25 @@ tags:
 	<li><code>1 &lt;= rolls[i], mean &lt;= 6</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：构造
 
-根据题目描述，所有数字之和为 $(n + m) \times mean$，已知的数字之和为 `sum(rolls)`，那么缺失的数字之和为 $s = (n + m) \times mean - sum(rolls)$。
+根据题目描述，所有数字之和为 $(n + m) \times \text{mean}$，已知的数字之和为 $\sum_{i=0}^{m-1} \text{rolls}[i]$，那么缺失的数字之和为 $s = (n + m) \times \text{mean} - \sum_{i=0}^{m-1} \text{rolls}[i]$。
 
 如果 $s \gt n \times 6$ 或者 $s \lt n$，说明不存在满足条件的答案，返回空数组。
 
 否则，我们可以将 $s$ 平均分配到 $n$ 个数字上，即每个数字的值为 $s / n$，其中 $s \bmod n$ 个数字的值再加上 $1$。
 
-时间复杂度 $O(n + m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为缺失的数字个数和已知的数字个数。
+时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别为缺失的数字个数和已知的数字个数。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +106,8 @@ class Solution:
             ans[i] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,20 +130,27 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     vector<int> missingRolls(vector<int>& rolls, int mean, int n) {
         int m = rolls.size();
-        int s = (n + m) * mean;
-        for (int& v : rolls) s -= v;
-        if (s > n * 6 || s < n) return {};
+        int s = (n + m) * mean - accumulate(rolls.begin(), rolls.end(), 0);
+        if (s > n * 6 || s < n) {
+            return {};
+        }
         vector<int> ans(n, s / n);
-        for (int i = 0; i < s % n; ++i) ++ans[i];
+        for (int i = 0; i < s % n; ++i) {
+            ++ans[i];
+        }
         return ans;
     }
 };
 ```
+
+#### Go
 
 ```go
 func missingRolls(rolls []int, mean int, n int) []int {
@@ -155,75 +173,47 @@ func missingRolls(rolls []int, mean int, n int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function missingRolls(rolls: number[], mean: number, n: number): number[] {
-    const len = rolls.length + n;
-    const sum = rolls.reduce((p, v) => p + v);
-    const max = n * 6;
-    const min = n;
-    if ((sum + max) / len < mean || (sum + min) / len > mean) {
+    const m = rolls.length;
+    const s = (n + m) * mean - rolls.reduce((a, b) => a + b, 0);
+    if (s > n * 6 || s < n) {
         return [];
     }
-
-    const res = new Array(n);
-    for (let i = min; i <= max; i++) {
-        if ((sum + i) / len === mean) {
-            const num = Math.floor(i / n);
-            res.fill(num);
-            let count = i - n * num;
-            let j = 0;
-            while (count != 0) {
-                if (res[j] === 6) {
-                    j++;
-                } else {
-                    res[j]++;
-                    count--;
-                }
-            }
-            break;
-        }
+    const ans: number[] = Array(n).fill((s / n) | 0);
+    for (let i = 0; i < s % n; ++i) {
+        ans[i]++;
     }
-    return res;
+    return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
     pub fn missing_rolls(rolls: Vec<i32>, mean: i32, n: i32) -> Vec<i32> {
-        let n = n as usize;
-        let mean = mean as usize;
-        let len = rolls.len() + n;
-        let sum: i32 = rolls.iter().sum();
-        let sum = sum as usize;
-        let max = n * 6;
-        let min = n;
-        if sum + max < mean * len || sum + min > mean * len {
+        let m = rolls.len() as i32;
+        let s = (n + m) * mean - rolls.iter().sum::<i32>();
+
+        if s > n * 6 || s < n {
             return vec![];
         }
 
-        let mut res = vec![0; n];
-        for i in min..=max {
-            if (sum + i) / len == mean {
-                let num = i / n;
-                res.fill(num as i32);
-                let mut count = i - n * num;
-                let mut j = 0;
-                while count != 0 {
-                    if res[j] == 6 {
-                        j += 1;
-                    } else {
-                        res[j] += 1;
-                        count -= 1;
-                    }
-                }
-                break;
-            }
+        let mut ans = vec![s / n; n as usize];
+        for i in 0..(s % n) as usize {
+            ans[i] += 1;
         }
-        res
+
+        ans
     }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

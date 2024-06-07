@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2120.Execution%20of%20All%20Suffix%20Instructions%20Staying%20in%20a%20Grid/README_EN.md
 rating: 1379
+source: Weekly Contest 273 Q2
 tags:
     - String
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [2120. Execution of All Suffix Instructions Staying in a Grid](https://leetcode.com/problems/execution-of-all-suffix-instructions-staying-in-a-grid)
 
 [中文文档](/solution/2100-2199/2120.Execution%20of%20All%20Suffix%20Instructions%20Staying%20in%20a%20Grid/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an <code>n x n</code> grid, with the top-left cell at <code>(0, 0)</code> and the bottom-right cell at <code>(n - 1, n - 1)</code>. You are given the integer <code>n</code> and an integer array <code>startPos</code> where <code>startPos = [start<sub>row</sub>, start<sub>col</sub>]</code> indicates that a robot is initially at cell <code>(start<sub>row</sub>, start<sub>col</sub>)</code>.</p>
 
@@ -73,11 +78,17 @@ tags:
 	<li><code>s</code> consists of <code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>, <code>&#39;U&#39;</code>, and <code>&#39;D&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +108,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func executeInstructions(n int, startPos []int, s string) []int {
 	m := len(s)
@@ -187,6 +204,8 @@ func executeInstructions(n int, startPos []int, s string) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function executeInstructions(n: number, startPos: number[], s: string): number[] {
     const m = s.length;
@@ -214,6 +233,8 @@ function executeInstructions(n: number, startPos: number[], s: string): number[]
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -252,6 +273,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
@@ -286,4 +309,6 @@ int* executeInstructions(int n, int* startPos, int startPosSize, char* s, int* r
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

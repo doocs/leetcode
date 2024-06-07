@@ -3,15 +3,20 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1016.Binary%20String%20With%20Substrings%20Representing%201%20To%20N/README_EN.md
 rating: 1779
+source: Weekly Contest 129 Q4
 tags:
     - String
 ---
+
+<!-- problem:start -->
 
 # [1016. Binary String With Substrings Representing 1 To N](https://leetcode.com/problems/binary-string-with-substrings-representing-1-to-n)
 
 [中文文档](/solution/1000-1099/1016.Binary%20String%20With%20Substrings%20Representing%201%20To%20N/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a binary string <code>s</code> and a positive integer <code>n</code>, return <code>true</code><em> if the binary representation of all the integers in the range </em><code>[1, n]</code><em> are <strong>substrings</strong> of </em><code>s</code><em>, or </em><code>false</code><em> otherwise</em>.</p>
 
@@ -34,11 +39,17 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -47,6 +58,8 @@ class Solution:
             return False
         return all(bin(i)[2:] in s for i in range(n, n // 2, -1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -63,6 +76,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -83,6 +98,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func queryString(s string, n int) bool {
 	if n > 1000 {
@@ -96,6 +113,8 @@ func queryString(s string, n int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function queryString(s: string, n: number): boolean {
@@ -113,4 +132,6 @@ function queryString(s: string, n: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

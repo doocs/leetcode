@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9806.%20%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 06. 从尾到头打印链表](https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。</p>
 
@@ -23,7 +27,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p><code>0 &lt;= 链表长度 &lt;= 10000</code></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：顺序遍历 + 反转
 
@@ -32,6 +40,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -49,6 +59,8 @@ class Solution:
             head = head.next
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 /**
@@ -74,6 +86,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -86,13 +100,17 @@ class Solution {
 class Solution {
 public:
     vector<int> reversePrint(ListNode* head) {
-        if (!head) return {};
-        vector<int> ans = reversePrint(head->next);
-        ans.push_back(head->val);
+        vector<int> ans;
+        for (; head; head = head->next) {
+            ans.push_back(head->val);
+        }
+        reverse(ans.begin(), ans.end());
         return ans;
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -113,6 +131,8 @@ func reversePrint(head *ListNode) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -127,13 +147,15 @@ func reversePrint(head *ListNode) (ans []int) {
  */
 
 function reversePrint(head: ListNode | null): number[] {
-    let ans: number[] = [];
-    for (; !!head; head = head.next) {
-        ans.unshift(head.val);
+    const ans: number[] = [];
+    for (; head; head = head.next) {
+        ans.push(head.val);
     }
-    return ans;
+    return ans.reverse();
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -154,24 +176,26 @@ function reversePrint(head: ListNode | null): number[] {
 // }
 impl Solution {
     pub fn reverse_print(head: Option<Box<ListNode>>) -> Vec<i32> {
-        let mut arr: Vec<i32> = vec![];
+        let mut ans: Vec<i32> = vec![];
         let mut cur = head;
         while let Some(node) = cur {
-            arr.push(node.val);
+            ans.push(node.val);
             cur = node.next;
         }
-        arr.reverse();
-        arr
+        ans.reverse();
+        ans
     }
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
  * }
  */
 /**
@@ -179,13 +203,15 @@ impl Solution {
  * @return {number[]}
  */
 var reversePrint = function (head) {
-    let ans = [];
-    for (; !!head; head = head.next) {
-        ans.unshift(head.val);
+    const ans = [];
+    for (; head; head = head.next) {
+        ans.push(head.val);
     }
-    return ans;
+    return ans.reverse();
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -193,23 +219,56 @@ var reversePrint = function (head) {
  * public class ListNode {
  *     public int val;
  *     public ListNode next;
- *     public ListNode(int x) { val = x; }
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
  * }
  */
- public class Solution {
-     public int[] ReversePrint(ListNode head) {
-         List<int> ans = new List<int>();
-         while (head != null) {
-             ans.Add(head.val);
-             head = head.next;
-         }
-         ans.Reverse();
-         return ans.ToArray();
-     }
- }
+public class Solution {
+    public int[] ReversePrint(ListNode head) {
+        List<int> ans = new List<int>();
+        for (; head != null; head = head.next) {
+            ans.Add(head.val);
+        }
+        ans.Reverse();
+        return ans.ToArray();
+    }
+}
+```
+
+#### Swift
+
+```swift
+/* public class ListNode {
+*    public var val: Int
+*    public var next: ListNode?
+*    public init(_ val: Int) {
+*        self.val = val
+*        self.next = nil
+*    }
+* }
+*/
+
+class Solution {
+    func reversePrint(_ head: ListNode?) -> [Int] {
+        var stack = [Int]()
+        var current = head
+        while let node = current {
+            stack.append(node.val)
+            current = node.next
+        }
+
+        return stack.reversed()
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：递归
 
@@ -218,6 +277,8 @@ var reversePrint = function (head) {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -235,6 +296,8 @@ class Solution:
         ans.append(head.val)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -262,6 +325,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -274,15 +339,17 @@ class Solution {
 class Solution {
 public:
     vector<int> reversePrint(ListNode* head) {
-        vector<int> ans;
-        for (; head; head = head->next) {
-            ans.push_back(head->val);
+        if (!head) {
+            return {};
         }
-        reverse(ans.begin(), ans.end());
+        vector<int> ans = reversePrint(head->next);
+        ans.push_back(head->val);
         return ans;
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -301,6 +368,8 @@ func reversePrint(head *ListNode) (ans []int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -340,6 +409,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -364,4 +435,6 @@ var reversePrint = function (head) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1952.Three%20Divisors/README_EN.md
 rating: 1203
+source: Weekly Contest 252 Q1
 tags:
     - Math
     - Enumeration
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [1952. Three Divisors](https://leetcode.com/problems/three-divisors)
 
 [中文文档](/solution/1900-1999/1952.Three%20Divisors/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, return <code>true</code><em> if </em><code>n</code><em> has <strong>exactly three positive divisors</strong>. Otherwise, return </em><code>false</code>.</p>
 
@@ -43,17 +48,25 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def isThree(self, n: int) -> bool:
         return sum(n % i == 0 for i in range(2, n)) == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -69,6 +82,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -82,6 +97,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isThree(n int) bool {
 	cnt := 0
@@ -93,6 +110,8 @@ func isThree(n int) bool {
 	return cnt == 1
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -112,9 +131,15 @@ var isThree = function (n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -127,6 +152,8 @@ class Solution:
             i += 1
         return cnt == 3
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +168,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -157,6 +186,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isThree(n int) bool {
 	cnt := 0
@@ -172,6 +203,8 @@ func isThree(n int) bool {
 	return cnt == 3
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -191,4 +224,6 @@ var isThree = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

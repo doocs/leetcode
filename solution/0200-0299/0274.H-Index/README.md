@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [274. H 指数](https://leetcode.cn/problems/h-index)
 
 [English Version](/solution/0200-0299/0274.H-Index/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>citations</code> ，其中 <code>citations[i]</code> 表示研究者的第 <code>i</code> 篇论文被引用的次数。计算并返回该研究者的 <strong><code>h</code><em>&nbsp;</em>指数</strong>。</p>
 
@@ -47,7 +49,11 @@ tags:
 	<li><code>0 &lt;= citations[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -56,6 +62,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `citations` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +74,8 @@ class Solution:
                 return h
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -97,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hIndex(citations []int) int {
 	sort.Ints(citations)
@@ -110,6 +124,8 @@ func hIndex(citations []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function hIndex(citations: number[]): number {
     citations.sort((a, b) => b - a);
@@ -121,6 +137,8 @@ function hIndex(citations: number[]): number {
     return 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -144,6 +162,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：计数 + 求和
 
 我们可以使用一个长度为 $n+1$ 的数组 $cnt$，其中 $cnt[i]$ 表示引用次数为 $i$ 的论文的篇数。我们遍历数组 `citations`，将引用次数大于 $n$ 的论文都当作引用次数为 $n$ 的论文，然后将每篇论文的引用次数作为下标，将 $cnt$ 中对应的元素值加 $1$。这样我们就统计出了每个引用次数对应的论文篇数。
@@ -153,6 +175,8 @@ impl Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `citations` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -167,6 +191,8 @@ class Solution:
             if s >= h:
                 return h
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -185,6 +211,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -206,6 +234,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hIndex(citations []int) int {
 	n := len(citations)
@@ -221,6 +251,8 @@ func hIndex(citations []int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hIndex(citations: number[]): number {
@@ -240,6 +272,10 @@ function hIndex(citations: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：二分查找
 
 我们注意到，如果存在一个 $h$ 值满足至少有 $h$ 篇论文至少被引用 $h$ 次，那么对于任意一个 $h' \lt h$，都有至少 $h'$ 篇论文至少被引用 $h'$ 次。因此我们可以使用二分查找的方法，找到最大的 $h$ 值，使得至少有 $h$ 篇论文至少被引用 $h$ 次。
@@ -249,6 +285,8 @@ function hIndex(citations: number[]): number {
 时间复杂度 $O(n \times \log n)$，其中 $n$ 是数组 `citations` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -262,6 +300,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -285,6 +325,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -310,6 +352,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hIndex(citations []int) int {
 	l, r := 0, len(citations)
@@ -330,6 +374,8 @@ func hIndex(citations []int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hIndex(citations: number[]): number {
@@ -355,4 +401,6 @@ function hIndex(citations: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

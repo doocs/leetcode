@@ -7,13 +7,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [798. 得分最高的最小轮调](https://leetcode.cn/problems/smallest-rotation-with-highest-score)
 
 [English Version](/solution/0700-0799/0798.Smallest%20Rotation%20with%20Highest%20Score/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组&nbsp;<code>nums</code>，我们可以将它按一个非负整数 <code>k</code> 进行轮调，这样可以使数组变为&nbsp;<code>[nums[k], nums[k + 1], ... nums[nums.length - 1], nums[0], nums[1], ..., nums[k-1]]</code>&nbsp;的形式。此后，任何值小于或等于其索引的项都可以记作一分。</p>
 
@@ -58,13 +60,19 @@ nums 无论怎么变化总是有 3 分。
 	<li><code>0 &lt;= nums[i] &lt; nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
 对于每个数，都有一个固定的 k 生效区间。我们先利用差分，预处理每个数的 k 生效区间。有最多个数能覆盖到的 k 即是答案。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +92,8 @@ class Solution:
                 ans = k
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func bestRotation(nums []int) int {
 	n := len(nums)
@@ -160,4 +174,6 @@ func bestRotation(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

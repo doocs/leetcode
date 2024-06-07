@@ -9,11 +9,15 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [1778. Shortest Path in a Hidden Grid 🔒](https://leetcode.com/problems/shortest-path-in-a-hidden-grid)
 
 [中文文档](/solution/1700-1799/1778.Shortest%20Path%20in%20a%20Hidden%20Grid/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>This is an <strong>interactive problem</strong>.</p>
 
@@ -95,7 +99,11 @@ We now know that the target is the cell (0, 1), and the shortest path to the tar
 	<li>There is <strong>exactly one</strong> <code>2</code> in <code>grid</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS for Graph Construction + BFS for Shortest Path
 
@@ -110,6 +118,8 @@ Similar problems:
 -   [1810. Minimum Path Cost in a Hidden Grid](https://github.com/doocs/leetcode/blob/main/solution/1800-1899/1810.Minimum%20Path%20Cost%20in%20a%20Hidden%20Grid/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -166,6 +176,8 @@ class Solution(object):
                         q.append((x, y))
         return -1
 ```
+
+#### Java
 
 ```java
 /**
@@ -228,6 +240,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -298,4 +312,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

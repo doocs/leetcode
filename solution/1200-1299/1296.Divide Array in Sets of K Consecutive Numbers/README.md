@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1296.Divide%20Array%20in%20Sets%20of%20K%20Consecutive%20Numbers/README.md
 rating: 1490
+source: 第 168 场周赛 Q2
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1296. 划分数组为连续数字的集合](https://leetcode.cn/problems/divide-array-in-sets-of-k-consecutive-numbers)
 
 [English Version](/solution/1200-1299/1296.Divide%20Array%20in%20Sets%20of%20K%20Consecutive%20Numbers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;和一个正整数&nbsp;<code>k</code>，请你判断是否可以把这个数组划分成一些由&nbsp;<code>k</code>&nbsp;个连续数字组成的集合。<br />
 如果可以，请返回 <code>true</code>；否则，返回 <code>false</code>。</p>
@@ -67,7 +70,11 @@ tags:
 
 <p><strong>注意：</strong>此题目与 846 重复：<a href="https://leetcode.cn/problems/hand-of-straights/" target="_blank">https://leetcode.cn/problems/hand-of-straights/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 排序
 
@@ -78,6 +85,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +102,8 @@ class Solution:
                         cnt.pop(x)
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +156,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isPossibleDivide(nums []int, k int) bool {
@@ -170,6 +185,10 @@ func isPossibleDivide(nums []int, k int) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：有序集合
 
 我们也可以使用有序集合统计数组 `nums` 中每个数字出现的次数。
@@ -179,6 +198,8 @@ func isPossibleDivide(nums []int, k int) bool {
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedDict
@@ -205,6 +226,8 @@ class Solution:
                     sd[i] -= 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -234,6 +257,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -255,6 +280,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isPossibleDivide(nums []int, k int) bool {
@@ -288,4 +315,6 @@ func isPossibleDivide(nums []int, k int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

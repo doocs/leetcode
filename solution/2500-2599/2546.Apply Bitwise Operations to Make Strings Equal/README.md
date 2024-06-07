@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2546.Apply%20Bitwise%20Operations%20to%20Make%20Strings%20Equal/README.md
 rating: 1604
+source: 第 329 场周赛 Q3
 tags:
     - 位运算
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2546. 执行逐位运算使字符串相等](https://leetcode.cn/problems/apply-bitwise-operations-to-make-strings-equal)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong> 开始的 <strong>二元</strong> 字符串 <code>s</code> 和 <code>target</code> ，两个字符串的长度均为 <code>n</code> 。你可以对 <code>s</code> 执行下述操作 <strong>任意</strong> 次：</p>
 
@@ -56,7 +59,11 @@ tags:
 	<li><code>s</code> 和 <code>target</code> 仅由数字 <code>0</code> 和 <code>1</code> 组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯
 
@@ -66,11 +73,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeStringsEqual(self, s: str, target: str) -> bool:
         return ("1" in s) == ("1" in target)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,17 +104,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makeStringsEqual(s string, target string) bool {
 	return strings.Contains(s, "1") == strings.Contains(target, "1")
 }
 ```
 
+#### TypeScript
+
 ```ts
 function makeStringsEqual(s: string, target: string): boolean {
     return s.includes('1') === target.includes('1');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -110,6 +129,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool makeStringsEqual(char* s, char* target) {
@@ -132,4 +153,6 @@ bool makeStringsEqual(char* s, char* target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

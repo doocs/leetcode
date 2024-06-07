@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9805.%20%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 05. 替换空格](https://leetcode.cn/problems/ti-huan-kong-ge-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>请实现一个函数，把字符串 <code>s</code> 中的每个空格替换成&quot;%20&quot;。</p>
 
@@ -23,7 +27,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p><code>0 &lt;= s 的长度 &lt;= 10000</code></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符串内置方法
 
@@ -33,11 +41,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def replaceSpace(self, s: str) -> str:
         return s.replace(' ', '%20')
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -46,6 +58,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -63,17 +77,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func replaceSpace(s string) string {
 	return strings.Replace(s, " ", "%20", -1)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function replaceSpace(s: string): string {
     return s.replace(/\s/g, '%20');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -82,6 +102,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -93,6 +115,8 @@ var replaceSpace = function (s) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string ReplaceSpace(string s) {
@@ -100,6 +124,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -123,6 +149,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：遍历替换
 
 我们直接遍历字符串，遇到空格就替换成 `%20` 即可。
@@ -130,6 +160,8 @@ class Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -139,6 +171,8 @@ class Solution:
             ans.append('%20' if c == ' ' else c)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +185,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func replaceSpace(s string) string {
@@ -166,6 +202,8 @@ func replaceSpace(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function replaceSpace(s: string): string {
     const strArr = [];
@@ -175,6 +213,8 @@ function replaceSpace(s: string): string {
     return strArr.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -192,6 +232,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -201,6 +243,8 @@ var replaceSpace = function (s) {
     return s.replace(/\s/g, '%20');
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -220,9 +264,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### JavaScript
 
 ```js
 /**
@@ -240,4 +290,6 @@ var replaceSpace = function (s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

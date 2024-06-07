@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1510.Stone%20Game%20IV/README.md
 rating: 1786
+source: 第 30 场双周赛 Q4
 tags:
     - 数学
     - 动态规划
     - 博弈
 ---
+
+<!-- problem:start -->
 
 # [1510. 石子游戏 IV](https://leetcode.cn/problems/stone-game-iv)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 两个人轮流玩一个游戏，Alice 先手。</p>
 
@@ -74,7 +77,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10^5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -90,6 +97,8 @@ tags:
 时间复杂度 $O(n \times \sqrt{n})$，空间复杂度 $O(n)$。其中 $n$ 为石子堆中石子的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -107,6 +116,8 @@ class Solution:
 
         return dfs(n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -161,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func winnerSquareGame(n int) bool {
 	f := make([]int, n+1)
@@ -184,6 +199,8 @@ func winnerSquareGame(n int) bool {
 	return dfs(n)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function winnerSquareGame(n: number): boolean {
@@ -210,6 +227,10 @@ function winnerSquareGame(n: number): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们也可以使用动态规划求解本题。
@@ -232,6 +253,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def winnerSquareGame(self, n: int) -> bool:
@@ -245,6 +268,8 @@ class Solution:
                 j += 1
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -262,6 +287,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -282,6 +309,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func winnerSquareGame(n int) bool {
 	f := make([]bool, n+1)
@@ -296,6 +325,8 @@ func winnerSquareGame(n int) bool {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function winnerSquareGame(n: number): boolean {
@@ -314,4 +345,6 @@ function winnerSquareGame(n: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

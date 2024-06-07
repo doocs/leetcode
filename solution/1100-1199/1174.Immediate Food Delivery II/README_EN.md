@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1174. Immediate Food Delivery II](https://leetcode.com/problems/immediate-food-delivery-ii)
 
 [中文文档](/solution/1100-1199/1174.Immediate%20Food%20Delivery%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Delivery</code></p>
 
@@ -68,13 +72,19 @@ The customer id 4 has a first order with delivery id 7 and it is immediate.
 Hence, half the customers have immediate first orders.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Subquery
 
 We can use a subquery to first find the first order of each user, and then calculate the proportion of instant orders.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -91,11 +101,17 @@ WHERE
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Window Function
 
 We can use the `RANK()` window function to rank the orders of each user in ascending order by order date, and then filter out the orders with a rank of $1$, which are the first orders of each user. After that, we can calculate the proportion of instant orders.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -117,4 +133,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

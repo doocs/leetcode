@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [511. 游戏玩法分析 I](https://leetcode.cn/problems/game-play-analysis-i)
 
 [English Version](/solution/0500-0599/0511.Game%20Play%20Analysis%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>活动表&nbsp;<code>Activity</code>：</p>
 
@@ -58,13 +60,19 @@ Result 表：
 +-----------+-------------+
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组求最小值
 
 我们可以用 `GROUP BY` 对 `player_id` 进行分组，然后取每一组中最小的 `event_date` 作为玩家第一次登录平台的日期。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -78,6 +86,8 @@ def game_analysis(activity: pd.DataFrame) -> pd.DataFrame:
     )
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT player_id, MIN(event_date) AS first_login
@@ -87,4 +97,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

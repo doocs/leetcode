@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [337. 打家劫舍 III](https://leetcode.cn/problems/house-robber-iii)
 
 [English Version](/solution/0300-0399/0337.House%20Robber%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为<meta charset="UTF-8" />&nbsp;<code>root</code>&nbsp;。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>0 &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：树形 DP
 
@@ -76,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -94,6 +102,8 @@ class Solution:
 
         return max(dfs(root))
 ```
+
+#### Java
 
 ```java
 /**
@@ -128,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -157,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -180,6 +194,8 @@ func rob(root *TreeNode) int {
 	return max(a, b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -211,4 +227,6 @@ function rob(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

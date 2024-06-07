@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20018.%20%E6%9C%89%E6%95%88%E7%9A%84%E5%9B%9E%E6%96%87/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 018. 有效的回文](https://leetcode.cn/problems/XltzEq)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串 <code>s</code> ，验证 <code>s</code>&nbsp;是否是&nbsp;<strong>回文串&nbsp;</strong>，只考虑字母和数字字符，可以忽略字母的大小写。</p>
 
@@ -42,7 +44,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 125&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/valid-palindrome/">https://leetcode.cn/problems/valid-palindrome/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -51,6 +57,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +74,8 @@ class Solution:
             i, j = i + 1, j - 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isPalindrome(s string) bool {
@@ -144,6 +158,8 @@ func isalnum(b byte) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isPalindrome(s: string): boolean {
     const str = s.replace(/[^a-zA-Z0-9]/g, '');
@@ -159,6 +175,8 @@ function isPalindrome(s: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -188,6 +206,37 @@ impl Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func isPalindrome(_ s: String) -> Bool {
+        var i = s.startIndex
+        var j = s.index(before: s.endIndex)
+
+        while i < j {
+            while i < j && !s[i].isLetter && !s[i].isNumber {
+                i = s.index(after: i)
+            }
+            while i < j && !s[j].isLetter && !s[j].isNumber {
+                j = s.index(before: j)
+            }
+            if i >= j {
+                break
+            }
+            if s[i].lowercased() != s[j].lowercased() {
+                return false
+            }
+            i = s.index(after: i)
+            j = s.index(before: j)
+        }
+        return true
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

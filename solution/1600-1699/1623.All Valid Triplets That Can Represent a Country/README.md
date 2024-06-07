@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1623. 三人国家代表队 🔒](https://leetcode.cn/problems/all-valid-triplets-that-can-represent-a-country)
 
 [English Version](/solution/1600-1699/1623.All%20Valid%20Triplets%20That%20Can%20Represent%20a%20Country/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>SchoolA</code></p>
 
@@ -122,11 +124,17 @@ student_id 是该表具有唯一值的列
 - (Bob, Tom, Jerry) --&gt; 不适用，因为member_A和member_C有相同的ID
 - (Bob, Tom, Alice) --&gt; 可能的组合.</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -149,4 +157,6 @@ WHERE
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

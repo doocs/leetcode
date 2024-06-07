@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README.md
 rating: 2071
+source: 第 101 场双周赛 Q3
 tags:
     - 数组
     - 数学
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2607. 使子数组元素和相等](https://leetcode.cn/problems/make-k-subarray-sums-equal)
 
 [English Version](/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>arr</code> 和一个整数 <code>k</code> 。数组 <code>arr</code> 是一个循环数组。换句话说，数组中的最后一个元素的下一个元素是数组中的第一个元素，数组中第一个元素的前一个元素是数组中的最后一个元素。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>1 &lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学（裴蜀定理） + 中位数贪心
 
@@ -99,6 +106,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeSubKSumEqual(self, arr: List[int], k: int) -> int:
@@ -111,6 +120,8 @@ class Solution:
             ans += sum(abs(x - mid) for x in t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +173,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makeSubKSumEqual(arr []int, k int) (ans int64) {
@@ -194,6 +209,8 @@ func gcd(a, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function makeSubKSumEqual(arr: number[], k: number): number {
     const n = arr.length;
@@ -223,4 +240,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

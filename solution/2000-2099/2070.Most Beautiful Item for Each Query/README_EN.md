@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2070.Most%20Beautiful%20Item%20for%20Each%20Query/README_EN.md
 rating: 1724
+source: Biweekly Contest 65 Q3
 tags:
     - Array
     - Binary Search
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2070. Most Beautiful Item for Each Query](https://leetcode.com/problems/most-beautiful-item-for-each-query)
 
 [中文文档](/solution/2000-2099/2070.Most%20Beautiful%20Item%20for%20Each%20Query/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D integer array <code>items</code> where <code>items[i] = [price<sub>i</sub>, beauty<sub>i</sub>]</code> denotes the <strong>price</strong> and <strong>beauty</strong> of an item respectively.</p>
 
@@ -66,7 +71,11 @@ Hence, the answer to the query is 0.
 	<li><code>1 &lt;= price<sub>i</sub>, beauty<sub>i</sub>, queries[j] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Offline Query
 
@@ -77,6 +86,8 @@ Next, we traverse the queries from small to large. For each query, we use a poin
 The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(\log n + m)$. Where $n$ and $m$ are the lengths of the item array and the query array, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +103,8 @@ class Solution:
             ans[j] = mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumBeauty(items [][]int, queries []int) []int {
 	sort.Slice(items, func(i, j int) bool {
@@ -167,6 +184,8 @@ func maximumBeauty(items [][]int, queries []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumBeauty(items: number[][], queries: number[]): number[] {
@@ -192,6 +211,10 @@ function maximumBeauty(items: number[][], queries: number[]): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Binary Search
 
 We can sort the items by price, and then preprocess the maximum beauty value of the items that are less than or equal to each price, recorded in the array $mx$ or the original $items$ array.
@@ -201,6 +224,8 @@ For each query, we can use binary search to find the index $j$ of the first item
 The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of the item array and the query array, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -217,6 +242,8 @@ class Solution:
             ans.append(0 if j < 0 else mx[j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -241,6 +268,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -262,6 +291,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumBeauty(items [][]int, queries []int) []int {
@@ -285,6 +316,8 @@ func maximumBeauty(items [][]int, queries []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumBeauty(items: number[][], queries: number[]): number[] {
@@ -313,4 +346,6 @@ function maximumBeauty(items: number[][], queries: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

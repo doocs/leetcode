@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2723.Add%20Two%20Promises/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2723. Add Two Promises](https://leetcode.com/problems/add-two-promises)
 
 [中文文档](/solution/2700-2799/2723.Add%20Two%20Promises/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 Given two promises <code>promise1</code> and <code>promise2</code>, return a new promise. <code>promise1</code> and <code>promise2</code>&nbsp;will both resolve with a number. The returned promise should resolve with the sum of the two numbers.
 
@@ -40,11 +44,17 @@ promise2 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(-12), 30))
 	<li><code>promise1</code> and <code>promise2</code> are&nbsp;promises that resolve&nbsp;with a number</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 async function addTwoPromises(
@@ -60,6 +70,8 @@ async function addTwoPromises(
  */
 ```
 
+#### JavaScript
+
 ```js
 var addTwoPromises = async function (promise1, promise2) {
     return (await promise1) + (await promise2);
@@ -68,4 +80,6 @@ var addTwoPromises = async function (promise1, promise2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

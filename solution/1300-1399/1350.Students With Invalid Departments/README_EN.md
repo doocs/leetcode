@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1350. Students With Invalid Departments 🔒](https://leetcode.com/problems/students-with-invalid-departments)
 
 [中文文档](/solution/1300-1399/1350.Students%20With%20Invalid%20Departments/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Departments</code></p>
 
@@ -90,13 +94,19 @@ Students table:
 John, Daiana, Steve, and Jasmine are enrolled in departments 14, 33, 74, and 77 respectively. department 14, 33, 74, and 77 do not exist in the Departments table.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Subquery
 
 We can directly use a subquery to find all students who are not in the `Departments` table.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -107,11 +117,17 @@ WHERE department_id NOT IN (SELECT id FROM Departments);
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Left Join
 
 We can also use a left join to join the `Students` table with the `Departments` table on the condition of `Students.department_id = Departments.id`, and then filter out the students whose `Departments.id` is `NULL`.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -124,4 +140,6 @@ WHERE d.id IS NULL;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

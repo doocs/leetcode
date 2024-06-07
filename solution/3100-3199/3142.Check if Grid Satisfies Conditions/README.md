@@ -2,7 +2,14 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3142.Check%20if%20Grid%20Satisfies%20Conditions/README.md
+rating: 1303
+source: 第 130 场双周赛 Q1
+tags:
+    - 数组
+    - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [3142. 判断矩阵是否满足条件](https://leetcode.cn/problems/check-if-grid-satisfies-conditions)
 
@@ -10,7 +17,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3142.Ch
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code>&nbsp;的二维矩阵&nbsp;<code>grid</code>&nbsp;。你需要判断每一个格子&nbsp;<code>grid[i][j]</code>&nbsp;是否满足：</p>
 
@@ -74,7 +81,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3142.Ch
 	<li><code>0 &lt;= grid[i][j] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -83,6 +94,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3142.Ch
 时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵 `grid` 的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +109,8 @@ class Solution:
                     return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func satisfiesConditions(grid [][]int) bool {
 	m, n := len(grid), len(grid[0])
@@ -152,6 +171,8 @@ func satisfiesConditions(grid [][]int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function satisfiesConditions(grid: number[][]): boolean {
@@ -172,4 +193,6 @@ function satisfiesConditions(grid: number[][]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

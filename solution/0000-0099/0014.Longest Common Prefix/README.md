@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [14. 最长公共前缀](https://leetcode.cn/problems/longest-common-prefix)
 
 [English Version](/solution/0000-0099/0014.Longest%20Common%20Prefix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
 
@@ -21,14 +23,14 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>strs = ["flower","flow","flight"]
 <strong>输出：</strong>"fl"
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>strs = ["dog","racecar","car"]
@@ -45,7 +47,11 @@ tags:
 	<li><code>strs[i]</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符比较
 
@@ -57,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
@@ -66,6 +74,8 @@ class Solution:
                     return s[:i]
         return strs[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestCommonPrefix(strs []string) string {
 	n := len(strs)
@@ -114,6 +128,8 @@ func longestCommonPrefix(strs []string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestCommonPrefix(strs: string[]): string {
     const len = strs.reduce((r, s) => Math.min(r, s.length), Infinity);
@@ -126,6 +142,8 @@ function longestCommonPrefix(strs: string[]): string {
     return '';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -147,6 +165,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string[]} strs
@@ -164,6 +184,8 @@ var longestCommonPrefix = function (strs) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string LongestCommonPrefix(string[] strs) {
@@ -179,6 +201,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -200,6 +224,8 @@ class Solution {
     }
 }
 ```
+
+#### Ruby
 
 ```rb
 # @param {String[]} strs
@@ -231,4 +257,6 @@ end
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

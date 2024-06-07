@@ -2,13 +2,25 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README_EN.md
+rating: 1696
+source: Biweekly Contest 130 Q2
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Binary Search
+    - Sorting
 ---
+
+<!-- problem:start -->
 
 # [3143. Maximum Points Inside the Square](https://leetcode.com/problems/maximum-points-inside-the-square)
 
 [中文文档](/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D<strong> </strong>array <code>points</code> and a string <code>s</code> where, <code>points[i]</code> represents the coordinates of point <code>i</code>, and <code>s[i]</code> represents the <strong>tag</strong> of point <code>i</code>.</p>
 
@@ -76,7 +88,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Ma
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
 
@@ -87,6 +103,8 @@ We can use a hash table $g$ to store the distance from all points to the origin,
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the number of points.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +123,8 @@ class Solution:
             ans += len(idx)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -159,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPointsInsideSquare(points [][]int, s string) (ans int) {
 	g := map[int][]int{}
@@ -186,6 +210,8 @@ func maxPointsInsideSquare(points [][]int, s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPointsInsideSquare(points: number[][], s: string): number {
@@ -219,4 +245,6 @@ function maxPointsInsideSquare(points: number[][], s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

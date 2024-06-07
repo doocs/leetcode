@@ -124,6 +124,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 <!-- 这里是contest_readme_template开始位置 -->
 
+{}
+
 # 力扣竞赛
 
 [English Version](/solution/CONTEST_README_EN.md)
@@ -155,6 +157,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ---
 
 <!-- 这里是contest_readme_template_en开始位置 -->
+
+{}
 
 # LeetCode Contest
 
@@ -191,6 +195,8 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- 这里是bash_problem_readme_template开始位置 -->
 
+<!-- problem:start -->
+
 {}
 
 # [{}. {}]({})
@@ -199,27 +205,39 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 {}
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -227,7 +245,9 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是bash_problem_readme_template结束位置 -->
 
@@ -237,31 +257,47 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 {}
 
+<!-- problem:start -->
+
 # [{}. {}]({})
 
 [中文文档]({})
 
 ## Description
 
+<!-- description:start -->
+
 {}
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -269,7 +305,9 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是bash_problem_readme_template_en结束位置 -->
 
@@ -279,33 +317,47 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 {}
 
+<!-- problem:start -->
+
 # [{}. {}]({})
 
 [English Version]({})
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 {}
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -313,7 +365,9 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是problem_readme_template结束位置 -->
 
@@ -323,31 +377,47 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 {}
 
+<!-- problem:start -->
+
 # [{}. {}]({})
 
 [中文文档]({})
 
 ## Description
 
+<!-- description:start -->
+
 {}
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -355,7 +425,9 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是problem_readme_template_en结束位置 -->
 
@@ -365,21 +437,29 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 {}
 
+<!-- problem:start -->
+
 # [{}. {}]({})
 
 [English Version]({})
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 {}
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 
@@ -387,7 +467,9 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是sql_problem_readme_template结束位置 -->
 
@@ -397,19 +479,29 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 {}
 
+<!-- problem:start -->
+
 # [{}. {}]({})
 
 [中文文档]({})
 
 ## Description
 
+<!-- description:start -->
+
 {}
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 
@@ -417,7 +509,9 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是sql_problem_readme_template_en结束位置 -->
 
@@ -427,21 +521,29 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 {}
 
+<!-- problem:start -->
+
 # [{}. {}]({})
 
 [English Version]({})
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 {}
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 
@@ -449,7 +551,9 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是ts_problem_readme_template结束位置 -->
 
@@ -459,19 +563,29 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 {}
 
+<!-- problem:start -->
+
 # [{}. {}]({})
 
 [中文文档]({})
 
 ## Description
 
+<!-- description:start -->
+
 {}
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 
@@ -479,6 +593,8 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是ts_problem_readme_template_en结束位置 -->

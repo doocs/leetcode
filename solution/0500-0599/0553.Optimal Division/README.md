@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [553. 最优除法](https://leetcode.cn/problems/optimal-division)
 
 [English Version](/solution/0500-0599/0553.Optimal%20Division/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一正整数数组<strong> </strong><code>nums</code><strong>，</strong><code>nums</code> 中的相邻整数将进行浮点除法。例如，&nbsp;[2,3,4] -&gt; 2 / 3 / 4 。</p>
 
@@ -67,11 +69,17 @@ tags:
 	<li>对于给定的输入只有一种最优除法。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +91,8 @@ class Solution:
             return f'{nums[0]}/{nums[1]}'
         return f'{nums[0]}/({"/".join(map(str, nums[1:]))})'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func optimalDivision(nums []int) string {
@@ -139,6 +153,8 @@ func optimalDivision(nums []int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function optimalDivision(nums: number[]): string {
     const n = nums.length;
@@ -150,6 +166,8 @@ function optimalDivision(nums: number[]): string {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -176,4 +194,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

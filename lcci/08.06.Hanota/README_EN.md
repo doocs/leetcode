@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.06.Hanota/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.06. Hanota](https://leetcode.cn/problems/hanota-lcci)
 
 [中文文档](/lcci/08.06.Hanota/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In the classic problem of the Towers of Hanoi, you have 3 towers and N disks of different sizes which can slide onto any tower. The puzzle starts with disks sorted in ascending order of size from top to bottom (i.e., each disk sits on top of an even larger one). You have the following constraints:</p>
 <p>(1) Only one disk can be moved at a time.<br />
@@ -36,7 +40,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.06.Hanota/README_E
 	<li><code>A.length &lt;= 14</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -47,6 +55,8 @@ First, we move $n - 1$ disks from $a$ to $b$, then move the $n$-th disk from $a$
 The time complexity is $O(2^n)$, and the space complexity is $O(n)$. Here, $n$ is the number of disks.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +71,8 @@ class Solution:
 
         dfs(len(A), A, B, C)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hanota(A []int, B []int, C []int) []int {
 	var dfs func(n int, a, b, c *[]int)
@@ -119,6 +135,8 @@ func hanota(A []int, B []int, C []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  Do not return anything, modify C in-place instead.
@@ -136,6 +154,8 @@ function hanota(A: number[], B: number[], C: number[]): void {
     dfs(A.length, A, B, C);
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -157,6 +177,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Iteration (Stack)
 
 We can use a stack to simulate the recursive process.
@@ -177,6 +201,8 @@ The time complexity is $O(2^n)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hanota(self, A: List[int], B: List[int], C: List[int]) -> None:
@@ -190,6 +216,8 @@ class Solution:
                 stk.append((1, a, b, c))
                 stk.append((n - 1, a, c, b))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -228,6 +256,8 @@ class Task {
 }
 ```
 
+#### C++
+
 ```cpp
 struct Task {
     int n;
@@ -257,6 +287,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hanota(A []int, B []int, C []int) []int {
 	stk := []Task{{len(A), &A, &B, &C}}
@@ -281,6 +313,8 @@ type Task struct {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  Do not return anything, modify C in-place instead.
@@ -302,4 +336,6 @@ function hanota(A: number[], B: number[], C: number[]): void {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

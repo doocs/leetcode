@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README.md
 rating: 2115
+source: 第 193 场周赛 Q4
 tags:
     - 树
     - 深度优先搜索
@@ -12,13 +13,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1483. 树节点的第 K 个祖先](https://leetcode.cn/problems/kth-ancestor-of-a-tree-node)
 
 [English Version](/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵树，树上有 <code>n</code> 个节点，按从 <code>0</code> 到 <code>n-1</code> 编号。树以父节点数组的形式给出，其中 <code>parent[i]</code> 是节点 <code>i</code> 的父节点。树的根节点是编号为 <code>0</code> 的节点。</p>
 
@@ -65,7 +68,11 @@ treeAncestor.getKthAncestor(6, 3);  // 返回 -1 因为不存在满足要求的�
 	<li>至多查询&nbsp;<code>5 * 10<sup>4</sup></code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划 + 倍增
 
@@ -90,6 +97,8 @@ $$
 -   [2836. 在传球游戏中最大化函数值](https://github.com/doocs/leetcode/blob/main/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class TreeAncestor:
@@ -116,6 +125,8 @@ class TreeAncestor:
 # obj = TreeAncestor(n, parent)
 # param_1 = obj.getKthAncestor(node,k)
 ```
+
+#### Java
 
 ```java
 class TreeAncestor {
@@ -159,6 +170,8 @@ class TreeAncestor {
  */
 ```
 
+#### C++
+
 ```cpp
 class TreeAncestor {
 public:
@@ -199,6 +212,8 @@ private:
  * int param_1 = obj->getKthAncestor(node,k);
  */
 ```
+
+#### Go
 
 ```go
 type TreeAncestor struct {
@@ -243,6 +258,8 @@ func (this *TreeAncestor) GetKthAncestor(node int, k int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class TreeAncestor {
     private p: number[][];
@@ -282,6 +299,8 @@ class TreeAncestor {
  * var param_1 = obj.getKthAncestor(node,k)
  */
 ```
+
+#### C#
 
 ```cs
 public class TreeAncestor {
@@ -333,4 +352,6 @@ public class TreeAncestor {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

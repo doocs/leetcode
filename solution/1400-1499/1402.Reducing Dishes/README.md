@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1402.Reducing%20Dishes/README.md
 rating: 1679
+source: 第 23 场双周赛 Q4
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1402. 做菜顺序](https://leetcode.cn/problems/reducing-dishes)
 
 [English Version](/solution/1400-1499/1402.Reducing%20Dishes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个厨师收集了他&nbsp;<code>n</code>&nbsp;道菜的满意程度&nbsp;<code>satisfaction</code>&nbsp;，这个厨师做出每道菜的时间都是 1 单位时间。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>-1000 &lt;= satisfaction[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -77,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSatisfaction(self, satisfaction: List[int]) -> int:
@@ -89,6 +98,8 @@ class Solution:
             ans += s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSatisfaction(satisfaction []int) (ans int) {
 	sort.Slice(satisfaction, func(i, j int) bool { return satisfaction[i] > satisfaction[j] })
@@ -139,6 +154,8 @@ func maxSatisfaction(satisfaction []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSatisfaction(satisfaction: number[]): number {
@@ -157,4 +174,6 @@ function maxSatisfaction(satisfaction: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README.md
 rating: 1749
+source: 第 114 场双周赛 Q3
 tags:
     - 贪心
     - 位运算
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [2871. 将数组分割成最多数目的子数组](https://leetcode.cn/problems/split-array-into-maximum-number-of-subarrays)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个只包含 <strong>非负</strong>&nbsp;整数的数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 位运算
 
@@ -74,6 +81,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +95,8 @@ class Solution:
                 ans += 1
         return 1 if ans == 1 else ans - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +133,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxSubarrays(nums []int) int {
@@ -138,6 +153,8 @@ func maxSubarrays(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSubarrays(nums: number[]): number {
     let [ans, score] = [1, -1];
@@ -154,4 +171,6 @@ function maxSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

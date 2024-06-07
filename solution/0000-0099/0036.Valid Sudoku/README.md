@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [36. 有效的数独](https://leetcode.cn/problems/valid-sudoku)
 
 [English Version](/solution/0000-0099/0036.Valid%20Sudoku/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你判断一个&nbsp;<code>9 x 9</code> 的数独是否有效。只需要<strong> 根据以下规则</strong> ，验证已经填入的数字是否有效即可。</p>
 
@@ -78,7 +80,11 @@ tags:
 	<li><code>board[i][j]</code> 是一位数字（<code>1-9</code>）或者 <code>'.'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -93,6 +99,8 @@ tags:
 时间复杂度 $O(C)$，空间复杂度 $O(C)$，其中 $C$ 是数独中的空格数。本题中 $C=81$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -114,6 +122,8 @@ class Solution:
                 sub[k][num] = True
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -168,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isValidSudoku(board [][]byte) bool {
 	row, col, sub := [9][9]bool{}, [9][9]bool{}, [9][9]bool{}
@@ -189,6 +203,8 @@ func isValidSudoku(board [][]byte) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isValidSudoku(board: string[][]): boolean {
@@ -220,6 +236,8 @@ function isValidSudoku(board: string[][]): boolean {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {character[][]} board
@@ -247,6 +265,8 @@ var isValidSudoku = function (board) {
     return true;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -292,4 +312,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

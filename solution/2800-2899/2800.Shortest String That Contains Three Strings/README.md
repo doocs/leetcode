@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README.md
 rating: 1855
+source: 第 356 场周赛 Q3
 tags:
     - 贪心
     - 字符串
     - 枚举
 ---
+
+<!-- problem:start -->
 
 # [2800. 包含三个字符串的最短字符串](https://leetcode.cn/problems/shortest-string-that-contains-three-strings)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你三个字符串&nbsp;<code>a</code>&nbsp;，<code>b</code>&nbsp;和&nbsp;<code>c</code>&nbsp;， 你的任务是找到长度&nbsp;<strong>最短</strong>&nbsp;的字符串，且这三个字符串都是它的 <strong>子字符串</strong>&nbsp;。
 
@@ -54,7 +57,11 @@ tags:
 	<li><code>a</code>&nbsp;，<code>b</code>&nbsp;，<code>c</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -63,6 +70,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是三个字符串的长度的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +94,8 @@ class Solution:
                 ans = s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumString(a string, b string, c string) string {
 	f := func(s, t string) string {
@@ -185,6 +200,8 @@ func minimumString(a string, b string, c string) string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumString(a: string, b: string, c: string): string {
@@ -223,6 +240,8 @@ function minimumString(a: string, b: string, c: string): string {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -267,4 +286,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [615. Average Salary Departments VS Company 🔒](https://leetcode.com/problems/average-salary-departments-vs-company)
 
 [中文文档](/solution/0600-0699/0615.Average%20Salary%20Departments%20VS%20Company/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Salary</code></p>
 
@@ -92,11 +96,17 @@ The average salary of department &#39;2&#39; is (6000 + 10000)/2 = 8000, which i
 With he same formula for the average salary comparison in February, the result is &#39;same&#39; since both the department &#39;1&#39; and &#39;2&#39; have the same average salary with the company, which is 7000.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -124,9 +134,15 @@ FROM t;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -159,4 +175,6 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,15 +3,20 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2012.Sum%20of%20Beauty%20in%20the%20Array/README_EN.md
 rating: 1467
+source: Weekly Contest 259 Q2
 tags:
     - Array
 ---
+
+<!-- problem:start -->
 
 # [2012. Sum of Beauty in the Array](https://leetcode.com/problems/sum-of-beauty-in-the-array)
 
 [中文文档](/solution/2000-2099/2012.Sum%20of%20Beauty%20in%20the%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. For each index <code>i</code> (<code>1 &lt;= i &lt;= nums.length - 2</code>) the <strong>beauty</strong> of <code>nums[i]</code> equals:</p>
 
@@ -60,7 +65,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing Right Minimum + Traversing to Maintain Left Maximum
 
@@ -73,6 +82,8 @@ After the traversal, we can get the answer.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +103,8 @@ class Solution:
             l = max(l, nums[i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfBeauties(nums []int) (ans int) {
 	n := len(nums)
@@ -162,6 +179,8 @@ func sumOfBeauties(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfBeauties(nums: number[]): number {
@@ -186,4 +205,6 @@ function sumOfBeauties(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

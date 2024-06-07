@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1851.Minimum%20Interval%20to%20Include%20Each%20Query/README_EN.md
 rating: 2286
+source: Weekly Contest 239 Q4
 tags:
     - Array
     - Binary Search
@@ -11,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1851. Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query)
 
 [中文文档](/solution/1800-1899/1851.Minimum%20Interval%20to%20Include%20Each%20Query/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D integer array <code>intervals</code>, where <code>intervals[i] = [left<sub>i</sub>, right<sub>i</sub>]</code> describes the <code>i<sup>th</sup></code> interval starting at <code>left<sub>i</sub></code> and ending at <code>right<sub>i</sub></code> <strong>(inclusive)</strong>. The <strong>size</strong> of an interval is defined as the number of integers it contains, or more formally <code>right<sub>i</sub> - left<sub>i</sub> + 1</code>.</p>
 
@@ -59,7 +64,11 @@ tags:
 	<li><code>1 &lt;= queries[j] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Offline Query + Priority Queue (Min Heap)
 
@@ -78,6 +87,8 @@ After the above process is over, we return the answer array $ans$.
 The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the arrays `intervals` and `queries` respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +110,8 @@ class Solution:
                 ans[j] = pq[0][0]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minInterval(intervals [][]int, queries []int) []int {
@@ -207,4 +224,6 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

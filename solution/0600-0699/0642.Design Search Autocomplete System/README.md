@@ -11,13 +11,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [642. 设计搜索自动补全系统 🔒](https://leetcode.cn/problems/design-search-autocomplete-system)
 
 [English Version](/solution/0600-0699/0642.Design%20Search%20Autocomplete%20System/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>为搜索引擎设计一个搜索自动补全系统。用户会输入一条语句（最少包含一个字母，以特殊字符 <code>'#'</code> 结尾）。</p>
 
@@ -46,7 +48,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入</strong>
@@ -80,11 +82,17 @@ obj.input("#"); // return []. The user finished the input, the sentence "i a" sh
 	<li><code>input</code>&nbsp;最多被调用 <code>5000</code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树 + 排序/优先队列
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -149,6 +157,8 @@ class AutocompleteSystem:
 # obj = AutocompleteSystem(sentences, times)
 # param_1 = obj.input(c)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -239,4 +249,6 @@ class AutocompleteSystem {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

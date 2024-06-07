@@ -8,11 +8,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram)
 
 [中文文档](/solution/0000-0099/0084.Largest%20Rectangle%20in%20Histogram/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>heights</code> representing the histogram&#39;s bar height where the width of each bar is <code>1</code>, return <em>the area of the largest rectangle in the histogram</em>.</p>
 
@@ -41,7 +45,11 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 	<li><code>0 &lt;= heights[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
 
@@ -61,6 +69,8 @@ for i in range(n):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
@@ -77,6 +87,8 @@ class Solution:
             stk.append(i)
         return max(h * (right[i] - left[i] - 1) for i, h in enumerate(heights))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestRectangleArea(heights []int) int {
@@ -150,6 +166,8 @@ func largestRectangleArea(heights []int) int {
 	return res
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -199,6 +217,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 using System;
 using System.Collections.Generic;
@@ -231,9 +251,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -261,4 +287,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

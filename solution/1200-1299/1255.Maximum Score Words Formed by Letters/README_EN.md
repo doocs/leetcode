@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1255.Maximum%20Score%20Words%20Formed%20by%20Letters/README_EN.md
 rating: 1881
+source: Weekly Contest 162 Q4
 tags:
     - Bit Manipulation
     - Array
@@ -12,11 +13,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1255. Maximum Score Words Formed by Letters](https://leetcode.com/problems/maximum-score-words-formed-by-letters)
 
 [中文文档](/solution/1200-1299/1255.Maximum%20Score%20Words%20Formed%20by%20Letters/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a list of <code>words</code>, list of&nbsp; single&nbsp;<code>letters</code> (might be repeating)&nbsp;and <code>score</code>&nbsp;of every character.</p>
 
@@ -66,7 +71,11 @@ Letter &quot;e&quot; can only be used once.</pre>
 	<li><code>words[i]</code>, <code>letters[i]</code>&nbsp;contains only lower case English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
 
@@ -81,6 +90,8 @@ Then, we count the number of occurrences of each letter in the current word comb
 The time complexity is $(2^n \times n \times M)$, and the space complexity is $O(C)$. Where $n$ and $M$ are the number of words in the word set and the maximum length of the word, respectively; and $C$ is the number of letters in the alphabet, in this problem, $C=26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +108,8 @@ class Solution:
                 ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +146,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -171,6 +186,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxScoreWords(words []string, letters []byte, score []int) (ans int) {
 	cnt := [26]int{}
@@ -206,4 +223,6 @@ func maxScoreWords(words []string, letters []byte, score []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

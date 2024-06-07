@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2069.%20Hello%20LeetCode%21/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 69. Hello LeetCode!](https://leetcode.cn/problems/rMeRt2)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 力扣嘉年华同样准备了纪念品展位，参观者只需要集齐 `helloleetcode` 的 `13` 张字母卡片即可获得力扣纪念章。
 
@@ -57,6 +59,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2069.%20Hello%20Le
 -   `1 <= m <= 8`
 -   `words[i][j]` 仅为小写字母
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

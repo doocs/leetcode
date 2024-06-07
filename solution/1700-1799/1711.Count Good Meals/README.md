@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1711.Count%20Good%20Meals/README.md
 rating: 1797
+source: 第 222 场周赛 Q2
 tags:
     - 数组
     - 哈希表
 ---
+
+<!-- problem:start -->
 
 # [1711. 大餐计数](https://leetcode.cn/problems/count-good-meals)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>大餐</strong> 是指 <strong>恰好包含两道不同餐品</strong> 的一餐，其美味程度之和等于 2 的幂。</p>
 
@@ -51,7 +54,11 @@ tags:
 	<li><code>0 <= deliciousness[i] <= 2<sup>20</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举二的幂
 
@@ -77,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPairs(self, deliciousness: List[int]) -> int:
@@ -92,6 +101,8 @@ class Solution:
             cnt[d] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPairs(deliciousness []int) (ans int) {
 	mx := slices.Max(deliciousness) << 1
@@ -149,9 +164,15 @@ func countPairs(deliciousness []int) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -166,6 +187,8 @@ class Solution:
                     ans += m * (m - 1) if a == b else m * cnt[b]
         return (ans >> 1) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -194,6 +217,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -216,6 +241,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countPairs(deliciousness []int) (ans int) {
@@ -244,4 +271,6 @@ func countPairs(deliciousness []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

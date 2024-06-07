@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3140. 连续空余座位 II 🔒](https://leetcode.cn/problems/consecutive-available-seats-ii)
 
 [English Version](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Cinema</code></p>
 
@@ -78,13 +80,19 @@ seat_id 是这张表中的自增列。
 </ul>
 输出表以 first_seat_id 升序排序。</div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用窗口函数
 
 我们首先找到所有空闲座位，然后将座位进行分组，分组的依据是座位的编号减去它的排名。这样一来，连续的空闲座位将会被分到同一组。接着我们找到每组中的最小座位编号、最大座位编号和连续座位的长度。最后我们找到连续座位长度最大的组，输出这个组的最小座位编号、最大座位编号和连续座位的长度。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -113,4 +121,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

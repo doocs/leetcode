@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2079.Watering%20Plants/README_EN.md
 rating: 1320
+source: Weekly Contest 268 Q2
 tags:
     - Array
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [2079. Watering Plants](https://leetcode.com/problems/watering-plants)
 
 [中文文档](/solution/2000-2099/2079.Watering%20Plants/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You want to water <code>n</code> plants in your garden with a watering can. The plants are arranged in a row and are labeled from <code>0</code> to <code>n - 1</code> from left to right where the <code>i<sup>th</sup></code> plant is located at <code>x = i</code>. There is a river at <code>x = -1</code> that you can refill your watering can at.</p>
 
@@ -76,7 +81,11 @@ Steps needed = 1 + 1 + 2 + 2 + 3 + 3 + 4 + 4 + 5 + 5 + 6 + 6 + 7 = 49.
 	<li><code>max(plants[i]) &lt;= capacity &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -93,6 +102,8 @@ The time complexity is $O(n)$, where $n$ is the number of plants. The space comp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def wateringPlants(self, plants: List[int], capacity: int) -> int:
@@ -106,6 +117,8 @@ class Solution:
                 ans += i * 2 + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func wateringPlants(plants []int, capacity int) (ans int) {
 	water := capacity
@@ -160,6 +177,8 @@ func wateringPlants(plants []int, capacity int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function wateringPlants(plants: number[], capacity: number): number {
     let [ans, water] = [0, capacity];
@@ -175,6 +194,8 @@ function wateringPlants(plants: number[], capacity: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -195,6 +216,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int wateringPlants(int* plants, int plantsSize, int capacity) {
     int ans = 0, water = capacity;
@@ -213,4 +236,6 @@ int wateringPlants(int* plants, int plantsSize, int capacity) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

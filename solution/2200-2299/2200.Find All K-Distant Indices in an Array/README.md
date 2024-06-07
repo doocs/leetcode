@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2200.Find%20All%20K-Distant%20Indices%20in%20an%20Array/README.md
 rating: 1266
+source: 第 284 场周赛 Q1
 tags:
     - 数组
     - 双指针
 ---
+
+<!-- problem:start -->
 
 # [2200. 找出数组中的所有 K 近邻下标](https://leetcode.cn/problems/find-all-k-distant-indices-in-an-array)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 和两个整数 <code>key</code> 和 <code>k</code> 。<strong>K 近邻下标</strong> 是 <code>nums</code> 中的一个下标 <code>i</code> ，并满足至少存在一个下标 <code>j</code> 使得 <code>|i - j| &lt;= k</code> 且 <code>nums[j] == key</code> 。</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -67,6 +74,8 @@ tags:
 时间复杂度 $O(n^2)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +87,8 @@ class Solution:
                 ans.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findKDistantIndices(nums []int, key int, k int) (ans []int) {
@@ -137,6 +152,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findKDistantIndices(nums: number[], key: number, k: number): number[] {
     const n = nums.length;
@@ -155,6 +172,10 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：预处理 + 二分查找
 
 我们可以预处理得到所有等于 $key$ 的元素的下标，记录在数组 $idx$ 中。数组 $idx$ 中的所有下标元素是按照升序排列的，
@@ -164,6 +185,8 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -177,6 +200,8 @@ class Solution:
                 ans.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -202,6 +227,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -226,6 +253,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKDistantIndices(nums []int, key int, k int) (ans []int) {
 	idx := []int{}
@@ -244,6 +273,8 @@ func findKDistantIndices(nums []int, key int, k int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKDistantIndices(nums: number[], key: number, k: number): number[] {
@@ -280,6 +311,10 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：双指针
 
 我们枚举下标 $i$，用一个指针 $j$ 指向满足 $j \geq i - k$ 且 $nums[j] = key$ 的最小下标，如果 $j$ 存在且 $j \leq i + k$，那么 $i$ 就是一个 K 近邻下标，我们将 $i$ 加入答案数组中。
@@ -287,6 +322,8 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -300,6 +337,8 @@ class Solution:
                 ans.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -318,6 +357,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -338,6 +379,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKDistantIndices(nums []int, key int, k int) (ans []int) {
 	n := len(nums)
@@ -352,6 +395,8 @@ func findKDistantIndices(nums []int, key int, k int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKDistantIndices(nums: number[], key: number, k: number): number[] {
@@ -371,4 +416,6 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README.md
 rating: 2164
+source: 第 134 场周赛 Q4
 tags:
     - 深度优先搜索
     - 广度优先搜索
@@ -10,13 +11,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [1036. 逃离大迷宫](https://leetcode.cn/problems/escape-a-large-maze)
 
 [English Version](/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一个 10<sup>6</sup> x 10<sup>6</sup> 的网格中，每个网格上方格的坐标为 <code>(x, y)</code> 。</p>
 
@@ -61,11 +64,17 @@ tags:
 	<li>题目数据保证 <code>source</code> 和 <code>target</code> 不在封锁列表内</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +101,8 @@ class Solution:
         blocked = set((x, y) for x, y in blocked)
         return dfs(source, target, set()) and dfs(target, source, set())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef unsigned long long ULL;
 
@@ -160,6 +173,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isEscapePossible(blocked [][]int, source []int, target []int) bool {
 	const N = 1e6
@@ -191,6 +206,8 @@ func isEscapePossible(blocked [][]int, source []int, target []int) bool {
 	return dfs(source, target, s1) && dfs(target, source, s2)
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::{ HashSet, VecDeque };
@@ -244,4 +261,6 @@ fn bfs(block: &HashSet<(i32, i32)>, source: &Vec<i32>, target: &Vec<i32>) -> boo
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

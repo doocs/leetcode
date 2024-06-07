@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2982.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20II/README.md
 rating: 1772
+source: 第 378 场周赛 Q3
 tags:
     - 哈希表
     - 字符串
@@ -11,13 +12,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [2982. 找出出现至少三次的最长特殊子字符串 II](https://leetcode.cn/problems/find-longest-special-substring-that-occurs-thrice-ii)
 
 [English Version](/solution/2900-2999/2982.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个仅由小写英文字母组成的字符串 <code>s</code> 。</p>
 
@@ -64,7 +67,11 @@ tags:
 	<li><code>s</code> 仅由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找 + 滑动窗口计数
 
@@ -81,6 +88,8 @@ tags:
 时间复杂度 $O((n + |\Sigma|) \times \log n)$，空间复杂度 $O(|\Sigma|)$，其中 $n$ 是字符串 $s$ 的长度，而 $|\Sigma|$ 表示字符集的大小，本题中字符集为小写英文字母，因此 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +115,8 @@ class Solution:
                 r = mid - 1
         return -1 if l == 0 else l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -180,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumLength(s string) int {
@@ -216,6 +231,8 @@ func maximumLength(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumLength(s: string): number {
     const n = s.length;
@@ -250,4 +267,6 @@ function maximumLength(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

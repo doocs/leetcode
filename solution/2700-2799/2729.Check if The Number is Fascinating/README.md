@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README.md
 rating: 1227
+source: 第 106 场双周赛 Q1
 tags:
     - 哈希表
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [2729. 判断一个数是否迷人](https://leetcode.cn/problems/check-if-the-number-is-fascinating)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个三位数整数 <code>n</code>&nbsp;。</p>
 
@@ -52,7 +55,11 @@ tags:
 	<li><code>100 &lt;= n &lt;= 999</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -62,12 +69,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isFascinating(self, n: int) -> bool:
         s = str(n) + str(2 * n) + str(3 * n)
         return "".join(sorted(s)) == "123456789"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +107,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isFascinating(n int) bool {
@@ -109,12 +124,16 @@ func isFascinating(n int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isFascinating(n: number): boolean {
     const s = `${n}${n * 2}${n * 3}`;
     return s.split('').sort().join('') === '123456789';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -137,9 +156,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -182,4 +207,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

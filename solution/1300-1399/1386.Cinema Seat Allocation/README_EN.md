@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README_EN.md
 rating: 1636
+source: Biweekly Contest 22 Q2
 tags:
     - Greedy
     - Bit Manipulation
@@ -10,11 +11,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1386. Cinema Seat Allocation](https://leetcode.com/problems/cinema-seat-allocation)
 
 [中文文档](/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1386.Cinema%20Seat%20Allocation/images/cinema_seats_1.png" style="width: 400px; height: 149px;" /></p>
 
@@ -61,7 +66,11 @@ tags:
 	<li>All <code>reservedSeats[i]</code> are distinct.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Bit Manipulation
 
@@ -79,6 +88,8 @@ The time complexity is $O(m)$, and the space complexity is $O(m)$. Where $m$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxNumberOfFamilies(self, n: int, reservedSeats: List[List[int]]) -> int:
@@ -94,6 +105,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNumberOfFamilies(n int, reservedSeats [][]int) int {
 	d := map[int]int{}
@@ -162,6 +179,8 @@ func maxNumberOfFamilies(n int, reservedSeats [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
@@ -185,4 +204,6 @@ function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

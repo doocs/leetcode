@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2568.Minimum%20Impossible%20OR/README_EN.md
 rating: 1754
+source: Biweekly Contest 98 Q3
 tags:
     - Bit Manipulation
     - Brainteaser
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2568. Minimum Impossible OR](https://leetcode.com/problems/minimum-impossible-or)
 
 [中文文档](/solution/2500-2599/2568.Minimum%20Impossible%20OR/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong>&nbsp;integer array <code>nums</code>.</p>
 
@@ -46,7 +51,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumerate Powers of 2
 
@@ -58,12 +67,16 @@ The time complexity is $O(n + \log M)$, and the space complexity is $O(n)$. Here
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minImpossibleOR(self, nums: List[int]) -> int:
         s = set(nums)
         return next(1 << i for i in range(32) if 1 << i not in s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -95,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minImpossibleOR(nums []int) int {
 	s := map[int]bool{}
@@ -108,6 +125,8 @@ func minImpossibleOR(nums []int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minImpossibleOR(nums: number[]): number {
@@ -125,4 +144,6 @@ function minImpossibleOR(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

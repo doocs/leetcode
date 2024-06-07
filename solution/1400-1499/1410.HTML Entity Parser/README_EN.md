@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1410.HTML%20Entity%20Parser/README_EN.md
 rating: 1405
+source: Weekly Contest 184 Q3
 tags:
     - Hash Table
     - String
 ---
+
+<!-- problem:start -->
 
 # [1410. HTML Entity Parser](https://leetcode.com/problems/html-entity-parser)
 
 [中文文档](/solution/1400-1499/1410.HTML%20Entity%20Parser/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p><strong>HTML entity parser</strong> is the parser that takes HTML code as input and replace all the entities of the special characters by the characters itself.</p>
 
@@ -55,7 +60,11 @@ tags:
 	<li>The string may contain any possible characters out of all the 256 ASCII characters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
 
@@ -64,6 +73,8 @@ We can use a hash table to store the corresponding character for each character 
 The time complexity is $O(n \times l)$, and the space complexity is $O(l)$. Here, $n$ is the length of the string, and $l$ is the total length of the character entities.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +101,8 @@ class Solution:
                 i += 1
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +176,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func entityParser(text string) string {
@@ -198,6 +215,8 @@ func entityParser(text string) string {
 	return ans.String()
 }
 ```
+
+#### TypeScript
 
 ```ts
 function entityParser(text: string): string {
@@ -240,9 +259,15 @@ function entityParser(text: string): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function entityParser(text: string): string {
@@ -262,4 +287,6 @@ function entityParser(text: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

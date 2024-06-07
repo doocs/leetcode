@@ -9,11 +9,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [834. Sum of Distances in Tree](https://leetcode.com/problems/sum-of-distances-in-tree)
 
 [中文文档](/solution/0800-0899/0834.Sum%20of%20Distances%20in%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an undirected connected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code> and <code>n - 1</code> edges.</p>
 
@@ -59,11 +63,17 @@ Hence, answer[0] = 8, and so on.
 	<li>The given input represents a valid tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +103,8 @@ class Solution:
         dfs2(0, -1, ans[0])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -179,6 +193,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfDistancesInTree(n int, edges [][]int) []int {
 	g := make([][]int, n)
@@ -215,6 +231,8 @@ func sumOfDistancesInTree(n int, edges [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumOfDistancesInTree(n: number, edges: number[][]): number[] {
     const g: number[][] = Array.from({ length: n }, () => []);
@@ -250,4 +268,6 @@ function sumOfDistancesInTree(n: number, edges: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

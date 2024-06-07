@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2959.Number%20of%20Possible%20Sets%20of%20Closing%20Branches/README_EN.md
 rating: 2077
+source: Biweekly Contest 119 Q4
 tags:
     - Bit Manipulation
     - Graph
@@ -11,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2959. Number of Possible Sets of Closing Branches](https://leetcode.com/problems/number-of-possible-sets-of-closing-branches)
 
 [中文文档](/solution/2900-2999/2959.Number%20of%20Possible%20Sets%20of%20Closing%20Branches/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a company with <code>n</code> branches across the country, some of which are connected by roads. Initially, all branches are reachable from each other by traveling some roads.</p>
 
@@ -87,7 +92,11 @@ It can be proven, that there are only 2 possible sets of closing branches.
 	<li>All branches are reachable from each other by traveling some roads.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Enumeration + Floyd Algorithm
 
@@ -98,6 +107,8 @@ For each subset of departments, we can use the Floyd algorithm to calculate the 
 The time complexity is $O(2^n \times (n^3 + m))$, and the space complexity is $O(n^2)$. Here, $n$ and $m$ are the number of departments and the number of roads, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -126,6 +137,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -170,6 +183,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -209,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfSets(n int, maxDistance int, roads [][]int) (ans int) {
@@ -251,6 +268,8 @@ func numberOfSets(n int, maxDistance int, roads [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfSets(n: number, maxDistance: number, roads: number[][]): number {
     let ans = 0;
@@ -288,4 +307,6 @@ function numberOfSets(n: number, maxDistance: number, roads: number[][]): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

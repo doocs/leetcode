@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1137.N-th%20Tribonacci%20Number/README_EN.md
 rating: 1142
+source: Weekly Contest 147 Q1
 tags:
     - Memoization
     - Math
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1137. N-th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number)
 
 [中文文档](/solution/1100-1199/1137.N-th%20Tribonacci%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The Tribonacci sequence T<sub>n</sub> is defined as follows:&nbsp;</p>
 
@@ -61,7 +66,11 @@ T_4 = 1 + 1 + 2 = 4
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -75,6 +84,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def tribonacci(self, n: int) -> int:
@@ -83,6 +94,8 @@ class Solution:
             a, b, c = b, c, a + b + c
         return a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func tribonacci(n int) int {
 	a, b, c := 0, 1, 1
@@ -124,6 +141,8 @@ func tribonacci(n int) int {
 	return a
 }
 ```
+
+#### TypeScript
 
 ```ts
 function tribonacci(n: number): number {
@@ -167,6 +186,8 @@ function pow(a: number[][], n: number): number[][] {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -185,6 +206,8 @@ var tribonacci = function (n) {
     return a;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -208,6 +231,10 @@ class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Matrix Exponentiation to Accelerate Recurrence
 
@@ -237,6 +264,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def tribonacci(self, n: int) -> int:
@@ -265,6 +294,8 @@ class Solution:
         a = [[1, 1, 0], [1, 0, 1], [1, 0, 0]]
         return sum(pow(a, n - 3)[0])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -311,6 +342,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -354,6 +387,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 func tribonacci(n int) (ans int) {
@@ -399,6 +434,8 @@ func pow(a [][]int, n int) [][]int {
 	return res
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -448,9 +485,15 @@ function pow(a, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import numpy as np
@@ -475,4 +518,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

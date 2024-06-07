@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.12.Paths%20with%20Sum/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 04.12. 求和路径](https://leetcode.cn/problems/paths-with-sum-lcci)
 
 [English Version](/lcci/04.12.Paths%20with%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定一棵二叉树，其中每个节点都含有一个整数数值(该值或正或负)。设计一个算法，打印节点数值总和等于某个给定值的所有路径的数量。注意，路径不一定非得从二叉树的根节点或叶节点开始或结束，但是其方向必须向下(只能从父节点指向子节点方向)。</p>
 
 <p><strong>示例:</strong><br>
@@ -36,7 +39,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.12.Paths%20with%20
 	<li><code>节点总数 &lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 前缀和 + 递归
 
@@ -57,6 +64,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.12.Paths%20with%20
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -83,6 +92,8 @@ class Solution:
         cnt = Counter({0: 1})
         return dfs(root, 0)
 ```
+
+#### Java
 
 ```java
 /**
@@ -119,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -151,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -178,6 +193,8 @@ func pathSum(root *TreeNode, sum int) int {
 	return dfs(root, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -212,6 +229,8 @@ function pathSum(root: TreeNode | null, sum: number): number {
     return dfs(root, 0);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -263,6 +282,8 @@ impl Solution {
 }
 ```
 
+#### Swift
+
 ```swift
 /* class TreeNode {
 *    var val: Int
@@ -307,4 +328,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

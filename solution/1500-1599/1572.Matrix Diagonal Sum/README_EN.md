@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README_EN.md
 rating: 1280
+source: Biweekly Contest 34 Q1
 tags:
     - Array
     - Matrix
 ---
+
+<!-- problem:start -->
 
 # [1572. Matrix Diagonal Sum](https://leetcode.com/problems/matrix-diagonal-sum)
 
 [中文文档](/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a&nbsp;square&nbsp;matrix&nbsp;<code>mat</code>, return the sum of the matrix diagonals.</p>
 
@@ -56,11 +61,17 @@ Notice that element mat[1][1] = 5 is counted only once.
 	<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +83,8 @@ class Solution:
             ans += row[i] + (0 if j == i else row[j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func diagonalSum(mat [][]int) (ans int) {
 	n := len(mat)
@@ -115,6 +132,8 @@ func diagonalSum(mat [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function diagonalSum(mat: number[][]): number {
     let ans = 0;
@@ -126,6 +145,8 @@ function diagonalSum(mat: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -143,6 +164,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int diagonalSum(int** mat, int matSize, int* matColSize) {
     int ans = 0;
@@ -158,9 +181,15 @@ int diagonalSum(int** mat, int matSize, int* matColSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function diagonalSum(mat: number[][]): number {
@@ -178,4 +207,6 @@ function diagonalSum(mat: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

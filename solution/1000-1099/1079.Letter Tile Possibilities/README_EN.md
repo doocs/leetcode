@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README_EN.md
 rating: 1740
+source: Weekly Contest 140 Q2
 tags:
     - Hash Table
     - String
@@ -10,11 +11,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1079. Letter Tile Possibilities](https://leetcode.com/problems/letter-tile-possibilities)
 
 [中文文档](/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code>&nbsp;&nbsp;<code>tiles</code>, where each tile has one letter <code>tiles[i]</code> printed on it.</p>
 
@@ -51,11 +56,17 @@ tags:
 	<li><code>tiles</code> consists of uppercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +84,8 @@ class Solution:
         cnt = Counter(tiles)
         return dfs(cnt)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numTilePossibilities(tiles string) int {
 	cnt := [26]int{}
@@ -145,6 +162,8 @@ func numTilePossibilities(tiles string) int {
 	return dfs(cnt)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numTilePossibilities(tiles: string): number {
@@ -170,4 +189,6 @@ function numTilePossibilities(tiles: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

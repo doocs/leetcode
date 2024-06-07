@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README.md
 rating: 2824
+source: 第 339 场周赛 Q4
 tags:
     - 广度优先搜索
     - 数组
     - 有序集合
 ---
+
+<!-- problem:start -->
 
 # [2612. 最少翻转操作数](https://leetcode.cn/problems/minimum-reverse-operations)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;和一个在范围 <code>[0, n - 1]</code>&nbsp;以内的整数&nbsp;<code>p</code>&nbsp;，它们表示一个长度为 <code>n</code> 且下标从 <strong>0</strong>&nbsp;开始的数组&nbsp;<code>arr</code>&nbsp;，数组中除了下标为&nbsp;<code>p</code>&nbsp;处是 <code>1</code>&nbsp;以外，其他所有数都是 <code>0</code>&nbsp;。</p>
 
@@ -75,7 +78,11 @@ tags:
 	<li><code>banned</code>&nbsp;中的值 <strong>互不相同</strong>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：有序集合 + BFS
 
@@ -102,6 +109,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 题目中给定的数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedSet
@@ -136,6 +145,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int[] minReverseOperations(int n, int p, int[] banned, int k) {
@@ -168,6 +179,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -205,6 +218,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minReverseOperations(n int, p int, banned []int, k int) []int {
 	ans := make([]int, n)
@@ -237,6 +252,8 @@ func minReverseOperations(n int, p int, banned []int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minReverseOperations(n: number, p: number, banned: number[], k: number): number[] {
@@ -913,9 +930,15 @@ class TreeMultiSet<T = number> {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function minReverseOperations(n: number, p: number, banned: number[], k: number): number[] {
@@ -1570,4 +1593,6 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

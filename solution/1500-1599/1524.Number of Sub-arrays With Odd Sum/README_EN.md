@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1524.Number%20of%20Sub-arrays%20With%20Odd%20Sum/README_EN.md
 rating: 1610
+source: Biweekly Contest 31 Q2
 tags:
     - Array
     - Math
@@ -10,11 +11,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1524. Number of Sub-arrays With Odd Sum](https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum)
 
 [中文文档](/solution/1500-1599/1524.Number%20of%20Sub-arrays%20With%20Odd%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>arr</code>, return <em>the number of subarrays with an <strong>odd</strong> sum</em>.</p>
 
@@ -56,11 +61,17 @@ All sub-arrays have even sum and the answer is 0.
 	<li><code>1 &lt;= arr[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +85,8 @@ class Solution:
             cnt[s & 1] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfSubarrays(arr []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -121,6 +138,8 @@ func numOfSubarrays(arr []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numOfSubarrays(arr: number[]): number {
@@ -139,4 +158,6 @@ function numOfSubarrays(arr: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [318. 最大单词长度乘积](https://leetcode.cn/problems/maximum-product-of-word-lengths)
 
 [English Version](/solution/0300-0399/0318.Maximum%20Product%20of%20Word%20Lengths/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组&nbsp;<code>words</code> ，找出并返回 <code>length(words[i]) * length(words[j])</code>&nbsp;的最大值，并且这两个单词不含有公共字母。如果不存在这样的两个单词，返回 <code>0</code> 。</p>
 
@@ -52,7 +54,11 @@ tags:
 	<li><code>words[i]</code>&nbsp;仅包含小写字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -65,6 +71,8 @@ tags:
 时间复杂度 $O(n^2 + L)$，空间复杂度 $O(n)$。其中 $n$ 是字符串数组 $words$ 的长度，而 $L$ 是字符串数组所有字符串的长度之和。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +87,8 @@ class Solution:
                     ans = max(ans, len(s) * len(t))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProduct(words []string) (ans int) {
 	n := len(words)
@@ -141,6 +155,8 @@ func maxProduct(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProduct(words: string[]): number {
@@ -163,9 +179,15 @@ function maxProduct(words: string[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -183,6 +205,8 @@ class Solution:
             mask[x] = max(mask[x], a)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -208,6 +232,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -232,6 +258,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProduct(words []string) (ans int) {
 	mask := map[int]int{}
@@ -251,6 +279,8 @@ func maxProduct(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProduct(words: string[]): number {
@@ -275,4 +305,6 @@ function maxProduct(words: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

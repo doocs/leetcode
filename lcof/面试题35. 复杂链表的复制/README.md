@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9835.%20%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 35. 复杂链表的复制](https://leetcode.cn/problems/fu-za-lian-biao-de-fu-zhi-lcof/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请实现 <code>copyRandomList</code> 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 <code>next</code> 指针指向下一个节点，还有一个 <code>random</code> 指针指向链表中的任意节点或者 <code>null</code>。</p>
 
@@ -61,7 +63,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -72,6 +78,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -102,6 +110,8 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /*
@@ -137,6 +147,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -175,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -202,6 +216,8 @@ func copyRandomList(head *Node) *Node {
 	return dummy.Next
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -234,6 +250,8 @@ var copyRandomList = function (head) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /*
@@ -271,7 +289,63 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+/* public class Node: Hashable {
+*     public var val: Int
+*     public var next: Node?
+*     public var random: Node?
+
+*     public init(_ val: Int) {
+*         self.val = val
+*         self.next = nil
+*         self.random = nil
+*     }
+
+*     public static func == (lhs: Node, rhs: Node) -> Bool {
+*         return lhs === rhs
+*     }
+
+*     public func hash(into hasher: inout Hasher) {
+*         hasher.combine(ObjectIdentifier(self))
+*     }
+* }
+*/
+
+class Solution {
+    func copyRandomList(_ head: Node?) -> Node? {
+        var d = [Node: Node]()
+        let dummy = Node(0)
+        var tail: Node? = dummy
+        var cur = head
+
+        while cur != nil {
+            tail?.next = Node(cur!.val)
+            tail = tail?.next
+            d[cur!] = tail
+            cur = cur?.next
+        }
+
+        tail = dummy.next
+        cur = head
+
+        while cur != nil {
+            tail?.random = d[cur!.random ?? Node(0)]
+            tail = tail?.next
+            cur = cur?.next
+        }
+
+        return dummy.next
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：拼接 + 拆分
 
@@ -284,6 +358,8 @@ public class Solution {
 时间复杂度为 $O(n)$，空间复杂度为 $O(1)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -321,6 +397,8 @@ class Solution:
             cur = nxt
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -364,6 +442,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -411,6 +491,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -446,6 +528,8 @@ func copyRandomList(head *Node) *Node {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -486,6 +570,8 @@ var copyRandomList = function (head) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 /*
@@ -533,4 +619,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

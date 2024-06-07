@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [392. 判断子序列](https://leetcode.cn/problems/is-subsequence)
 
 [English Version](/solution/0300-0399/0392.Is%20Subsequence/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定字符串 <strong>s</strong> 和 <strong>t</strong> ，判断 <strong>s</strong> 是否为 <strong>t</strong> 的子序列。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li>两个字符串都只由小写字符组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -63,6 +69,8 @@ tags:
 时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是字符串 $s$ 和 $t$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +82,8 @@ class Solution:
             j += 1
         return i == len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isSubsequence(s string, t string) bool {
 	i, j, m, n := 0, 0, len(s), len(t)
@@ -119,6 +133,8 @@ func isSubsequence(s string, t string) bool {
 	return i == m
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isSubsequence(s: string, t: string): boolean {
@@ -133,6 +149,8 @@ function isSubsequence(s: string, t: string): boolean {
     return i === m;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -154,6 +172,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsSubsequence(string s, string t) {
@@ -168,6 +188,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool isSubsequence(char* s, char* t) {
@@ -185,4 +207,6 @@ bool isSubsequence(char* s, char* t) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

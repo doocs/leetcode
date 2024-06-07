@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2001.%20%E7%8C%9C%E6%95%B0%E5%AD%97/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 01. 猜数字](https://leetcode.cn/problems/guess-numbers)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>小A 和 小B 在玩猜数字。小B 每次从 1, 2, 3 中随机选择一个，小A 每次也从 1, 2, 3 中选择一个猜。他们一共进行三次这个游戏，请返回 小A 猜对了几次？</p>
 
@@ -40,7 +42,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2001.%20%E7%8C%9C%
 	<li><code>answer</code> 的元素取值为 <code>{1, 2, 3}</code> 之一。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历
 
@@ -50,11 +56,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2001.%20%E7%8C%9C%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def game(self, guess: List[int], answer: List[int]) -> int:
         return sum(a == b for a, b in zip(guess, answer))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +80,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -83,6 +95,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func game(guess []int, answer []int) (ans int) {
 	for i, a := range guess {
@@ -93,6 +107,8 @@ func game(guess []int, answer []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function game(guess: number[], answer: number[]): number {
@@ -105,6 +121,8 @@ function game(guess: number[], answer: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -123,6 +141,8 @@ var game = function (guess, answer) {
 };
 ```
 
+#### C
+
 ```c
 int game(int* guess, int guessSize, int* answer, int answerSize) {
     int res = 0;
@@ -137,9 +157,15 @@ int game(int* guess, int guessSize, int* answer, int answerSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function game(guess: number[], answer: number[]): number {
@@ -149,4 +175,6 @@ function game(guess: number[], answer: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

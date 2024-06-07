@@ -9,13 +9,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [480. 滑动窗口中位数](https://leetcode.cn/problems/sliding-window-median)
 
 [English Version](/solution/0400-0499/0480.Sliding%20Window%20Median/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>中位数是有序序列最中间的那个数。如果序列的长度是偶数，则没有最中间的数；此时中位数是最中间的两个数的平均数。</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li>与真实值误差在 <code>10 ^ -5</code> 以内的答案将被视作正确答案。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双优先队列（大小根堆） + 延迟删除
 
@@ -83,6 +89,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MedianFinder:
@@ -151,6 +159,8 @@ class Solution:
             ans.append(finder.find_median())
         return ans
 ```
+
+#### Java
 
 ```java
 class MedianFinder {
@@ -238,6 +248,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class MedianFinder {
@@ -329,6 +341,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type MedianFinder struct {
@@ -433,4 +447,6 @@ func (h *hp) Pop() any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

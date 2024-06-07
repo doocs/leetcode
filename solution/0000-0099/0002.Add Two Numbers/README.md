@@ -8,23 +8,25 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [2. 两数相加](https://leetcode.cn/problems/add-two-numbers)
 
 [English Version](/solution/0000-0099/0002.Add%20Two%20Numbers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。</p>
+<p>给你两个&nbsp;<strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照&nbsp;<strong>逆序</strong>&nbsp;的方式存储的，并且每个节点只能存储&nbsp;<strong>一位</strong>&nbsp;数字。</p>
 
 <p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
 
-<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<p>你可以假设除了数字 0 之外，这两个数都不会以 0&nbsp;开头。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0002.Add%20Two%20Numbers/images/addtwonumber1.jpg" style="width: 483px; height: 342px;" />
 <pre>
 <strong>输入：</strong>l1 = [2,4,3], l2 = [5,6,4]
@@ -32,31 +34,35 @@ tags:
 <strong>解释：</strong>342 + 465 = 807.
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>l1 = [0], l2 = [0]
 <strong>输出：</strong>[0]
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
 <strong>输入：</strong>l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 <strong>输出：</strong>[8,9,9,9,0,0,0,1]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li>每个链表中的节点数在范围 <code>[1, 100]</code> 内</li>
-	<li><code>0 <= Node.val <= 9</code></li>
+	<li><code>0 &lt;= Node.val &lt;= 9</code></li>
 	<li>题目数据保证列表表示的数字不含前导零</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -69,6 +75,8 @@ tags:
 时间复杂度 $O(\max(m, n))$，其中 $m$ 和 $n$ 分别为两个链表的长度。我们需要遍历两个链表的全部位置，而处理每个位置只需要 $O(1)$ 的时间。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -91,6 +99,8 @@ class Solution:
             l2 = l2.next if l2 else None
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -121,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -150,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -185,6 +199,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -218,6 +234,8 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
     return dummy.next;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -262,6 +280,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -290,6 +310,8 @@ var addTwoNumbers = function (l1, l2) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -320,6 +342,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 /**
@@ -371,6 +395,8 @@ class Solution {
 }
 ```
 
+#### Swift
+
 ```swift
 /**
  * Definition for singly-linked list.
@@ -402,6 +428,8 @@ class Solution {
 }
 ```
 
+#### Ruby
+
 ```rb
 # Definition for singly-linked list.
 # class ListNode
@@ -429,6 +457,8 @@ def add_two_numbers(l1, l2)
     dummy.next
 end
 ```
+
+#### Nim
 
 ```nim
 #[
@@ -466,4 +496,6 @@ proc addTwoNumbers(l1: var SinglyLinkedList, l2: var SinglyLinkedList): SinglyLi
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2850.Minimum%20Moves%20to%20Spread%20Stones%20Over%20Grid/README.md
 rating: 2001
+source: 第 362 场周赛 Q3
 tags:
     - 广度优先搜索
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [2850. 将石头分散到网格图的最少移动次数](https://leetcode.cn/problems/minimum-moves-to-spread-stones-over-grid)
 
 [English Version](/solution/2800-2899/2850.Minimum%20Moves%20to%20Spread%20Stones%20Over%20Grid/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>3 * 3</code>&nbsp;，下标从 <strong>0</strong>&nbsp;开始的二维整数矩阵&nbsp;<code>grid</code>&nbsp;，分别表示每一个格子里石头的数目。网格图中总共恰好有&nbsp;<code>9</code>&nbsp;个石头，一个格子里可能会有 <strong>多个</strong>&nbsp;石头。</p>
 
@@ -67,13 +70,19 @@ tags:
 	<li><code>grid</code>&nbsp;中元素之和为&nbsp;<code>9</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：朴素 BFS
 
 题目实际上是求一个状态图中从初始状态到目标状态的最短路径，因此可以使用 BFS 求解。初始状态为 `grid`，目标状态为 `[[1, 1, 1], [1, 1, 1], [1, 1, 1]]`，在每次操作中，我们可以将一个单元格大于 $1$ 的石头移动到相邻的一个不超过 $1$ 的单元格。如果找到了目标状态，那么就可以返回当前的层数，即为最少移动次数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +111,8 @@ class Solution:
                                         q.append(nxt)
             ans += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +180,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -205,6 +218,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumMoves(grid [][]int) int {
@@ -247,6 +262,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumMoves(grid: number[][]): number {
     const left: number[][] = [];
@@ -287,6 +304,10 @@ function minimumMoves(grid: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：状态压缩动态规划
 
 我们可以把所有值为 $0$ 的单元格坐标 $(i, j)$ 放入数组 $left$ 中，如果单元格的值 $v$ 大于 $1$，那么我们把 $v-1$ 个坐标 $(i, j)$ 放入数组 $right$ 中。那么问题就转化为，每个 $right$ 中的坐标 $(i, j)$ 都要移动到 $left$ 中的一个坐标 $(x, y)$，求最少的移动次数。
@@ -298,6 +319,8 @@ function minimumMoves(grid: number[][]): number {
 时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 表示 $left$ 的长度，本题中 $n \le 9$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -324,6 +347,8 @@ class Solution:
                     f[i] = min(f[i], f[i ^ (1 << j)] + cal(left[k - 1], right[j]))
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -364,4 +389,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

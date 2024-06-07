@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2609.Find%20the%20Longest%20Balanced%20Substring%20of%20a%20Binary%20String/README.md
 rating: 1348
+source: 第 339 场周赛 Q1
 tags:
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2609. 最长平衡子字符串](https://leetcode.cn/problems/find-the-longest-balanced-substring-of-a-binary-string)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个仅由 <code>0</code> 和 <code>1</code> 组成的二进制字符串 <code>s</code> 。<span style="">&nbsp;</span><span style="">&nbsp;</span></p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>'0' &lt;= s[i] &lt;= '1'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -67,6 +74,8 @@ tags:
 时间复杂度 $O(n^3)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +97,8 @@ class Solution:
                     ans = max(ans, j - i + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheLongestBalancedSubstring(s string) (ans int) {
 	n := len(s)
@@ -171,6 +186,8 @@ func findTheLongestBalancedSubstring(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheLongestBalancedSubstring(s: string): number {
@@ -197,6 +214,8 @@ function findTheLongestBalancedSubstring(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -237,6 +256,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：枚举优化
 
 我们用变量 $zero$ 和 $one$ 分别记录当前连续的 $0$ 和 $1$ 的个数。
@@ -252,6 +275,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTheLongestBalancedSubstring(self, s: str) -> int:
@@ -266,6 +291,8 @@ class Solution:
                 ans = max(ans, 2 * min(one, zero))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -287,6 +314,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -310,6 +339,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheLongestBalancedSubstring(s string) (ans int) {
 	zero, one := 0, 0
@@ -327,6 +358,8 @@ func findTheLongestBalancedSubstring(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheLongestBalancedSubstring(s: string): number {
@@ -347,6 +380,8 @@ function findTheLongestBalancedSubstring(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -375,4 +410,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2810.Faulty%20Keyboard/README_EN.md
 rating: 1192
+source: Weekly Contest 357 Q1
 tags:
     - String
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [2810. Faulty Keyboard](https://leetcode.com/problems/faulty-keyboard)
 
 [中文文档](/solution/2800-2899/2810.Faulty%20Keyboard/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Your laptop keyboard is faulty, and whenever you type a character <code>&#39;i&#39;</code> on it, it reverses the string that you have written. Typing other characters works as expected.</p>
 
@@ -61,7 +66,11 @@ Therefore, we return &quot;ponter&quot;.</pre>
 	<li><code>s[0] != &#39;i&#39;</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -75,6 +84,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def finalString(self, s: str) -> str:
@@ -86,6 +97,8 @@ class Solution:
                 t.append(c)
         return "".join(t)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func finalString(s string) string {
 	t := []rune{}
@@ -136,6 +153,8 @@ func finalString(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function finalString(s: string): string {
     const t: string[] = [];
@@ -149,6 +168,8 @@ function finalString(s: string): string {
     return t.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -168,4 +189,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

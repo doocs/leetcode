@@ -6,13 +6,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [520. 检测大写字母](https://leetcode.cn/problems/detect-capital)
 
 [English Version](/solution/0500-0599/0520.Detect%20Capital/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们定义，在以下情况时，单词的大写用法是正确的：</p>
 
@@ -49,7 +51,11 @@ tags:
 	<li><code>word</code> 由小写和大写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：统计大写字母的个数
 
@@ -63,12 +69,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def detectCapitalUse(self, word: str) -> bool:
         cnt = sum(c.isupper() for c in word)
         return cnt == 0 or cnt == len(word) or (cnt == 1 and word[0].isupper())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +106,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func detectCapitalUse(word string) bool {
@@ -107,6 +121,8 @@ func detectCapitalUse(word string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function detectCapitalUse(word: string): boolean {
     const cnt = word.split('').reduce((acc, c) => acc + (c === c.toUpperCase() ? 1 : 0), 0);
@@ -116,4 +132,6 @@ function detectCapitalUse(word: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

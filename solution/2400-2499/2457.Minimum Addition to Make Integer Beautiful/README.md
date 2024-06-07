@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2457.Minimum%20Addition%20to%20Make%20Integer%20Beautiful/README.md
 rating: 1680
+source: 第 317 场周赛 Q3
 tags:
     - 贪心
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [2457. 美丽整数的最小增量](https://leetcode.cn/problems/minimum-addition-to-make-integer-beautiful)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数 <code>n</code> 和 <code>target</code> 。</p>
 
@@ -54,7 +57,11 @@ tags:
 	<li>生成的输入保证总可以使 <code>n</code> 变成一个美丽整数。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -79,6 +86,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeIntegerBeautiful(self, n: int, target: int) -> int:
@@ -99,6 +108,8 @@ class Solution:
             x = (y // 10 + 1) * p - n
         return x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -156,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makeIntegerBeautiful(n int64, target int) (x int64) {
 	f := func(x int64) (y int) {
@@ -176,6 +191,8 @@ func makeIntegerBeautiful(n int64, target int) (x int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function makeIntegerBeautiful(n: number, target: number): number {
@@ -203,4 +220,6 @@ function makeIntegerBeautiful(n: number, target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README_EN.md
 rating: 2768
+source: Weekly Contest 360 Q4
 tags:
     - Bit Manipulation
     - Array
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2836. Maximize Value of Function in a Ball Passing Game](https://leetcode.com/problems/maximize-value-of-function-in-a-ball-passing-game)
 
 [中文文档](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>receiver</code> of length <code>n</code> and an integer <code>k</code>. <code>n</code> players are playing a ball-passing game.</p>
 
@@ -126,7 +131,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>10</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Binary Lifting
 
@@ -149,6 +158,8 @@ Similar problems:
 -   [1483. Kth Ancestor of a Tree Node](https://github.com/doocs/leetcode/blob/main/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -173,6 +184,8 @@ class Solution:
             ans = max(ans, t + p)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +219,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -241,6 +256,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getMaxFunctionValue(receiver []int, k int64) (ans int64) {
 	n, m := len(receiver), bits.Len(uint(k))
@@ -275,4 +292,6 @@ func getMaxFunctionValue(receiver []int, k int64) (ans int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

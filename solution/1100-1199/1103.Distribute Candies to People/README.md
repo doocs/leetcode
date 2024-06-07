@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1103.Distribute%20Candies%20to%20People/README.md
 rating: 1287
+source: 第 143 场周赛 Q1
 tags:
     - 数学
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1103. 分糖果 II](https://leetcode.cn/problems/distribute-candies-to-people)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>排排坐，分糖果。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>1 &lt;= num_people &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -70,6 +77,8 @@ tags:
 时间复杂度 $O(\max(\sqrt{candies}, num\_people))$，空间复杂度 $O(num\_people)$。其中 $candies$ 为糖果数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +92,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int[] distributeCandies(int candies, int num_people) {
@@ -95,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distributeCandies(candies int, num_people int) []int {
 	ans := make([]int, num_people)
@@ -120,6 +135,8 @@ func distributeCandies(candies int, num_people int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function distributeCandies(candies: number, num_people: number): number[] {
@@ -134,4 +151,6 @@ function distributeCandies(candies: number, num_people: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

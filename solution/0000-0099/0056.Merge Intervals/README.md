@@ -7,13 +7,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [56. 合并区间](https://leetcode.cn/problems/merge-intervals)
 
 [English Version](/solution/0000-0099/0056.Merge%20Intervals/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>以数组 <code>intervals</code> 表示若干个区间的集合，其中单个区间为 <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> 。请你合并所有重叠的区间，并返回&nbsp;<em>一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间</em>&nbsp;。</p>
 
@@ -44,7 +46,11 @@ tags:
 	<li><code>0 &lt;= start<sub>i</sub> &lt;= end<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 一次遍历
 
@@ -63,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
@@ -78,6 +86,8 @@ class Solution:
         ans.append([st, ed])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func merge(intervals [][]int) (ans [][]int) {
 	sort.Slice(intervals, func(i, j int) bool {
@@ -142,6 +156,8 @@ func merge(intervals [][]int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function merge(intervals: number[][]): number[][] {
     intervals.sort((a, b) => a[0] - b[0]);
@@ -159,6 +175,8 @@ function merge(intervals: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -181,6 +199,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -205,9 +225,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -221,6 +247,8 @@ class Solution:
                 ans[-1][1] = max(ans[-1][1], e)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -241,6 +269,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -260,6 +290,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func merge(intervals [][]int) (ans [][]int) {
 	sort.Slice(intervals, func(i, j int) bool { return intervals[i][0] < intervals[j][0] })
@@ -275,6 +307,8 @@ func merge(intervals [][]int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function merge(intervals: number[][]): number[][] {
     intervals.sort((a, b) => a[0] - b[0]);
@@ -289,6 +323,8 @@ function merge(intervals: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -310,9 +346,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function merge(intervals: number[][]): number[][] {
@@ -335,4 +377,6 @@ function merge(intervals: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

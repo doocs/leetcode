@@ -7,13 +7,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [2964. 可被整除的三元组数量 🔒](https://leetcode.cn/problems/number-of-divisible-triplet-sums)
 
 [English Version](/solution/2900-2999/2964.Number%20of%20Divisible%20Triplet%20Sums/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给定一个 <b>下标从 0 开始</b>&nbsp;的整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>d</code>，请返回满足 <code>i &lt; j &lt; k</code> 且 <code>(nums[i] + nums[j] + nums[k]) % d == 0</code> 的三元组 <code>(i, j, k)</code> 的数量。
 
@@ -53,7 +55,11 @@ tags:
 	<li><code>1 &lt;= d &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -62,6 +68,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +83,8 @@ class Solution:
             cnt[nums[j] % d] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func divisibleTripletCount(nums []int, d int) (ans int) {
 	n := len(nums)
@@ -125,6 +139,8 @@ func divisibleTripletCount(nums []int, d int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function divisibleTripletCount(nums: number[], d: number): number {
@@ -144,4 +160,6 @@ function divisibleTripletCount(nums: number[], d: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

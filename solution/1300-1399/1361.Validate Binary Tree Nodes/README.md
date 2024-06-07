@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README.md
 rating: 1464
+source: 第 177 场周赛 Q2
 tags:
     - 树
     - 深度优先搜索
@@ -12,13 +13,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [1361. 验证二叉树](https://leetcode.cn/problems/validate-binary-tree-nodes)
 
 [English Version](/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>二叉树上有 <code>n</code>&nbsp;个节点，按从&nbsp;<code>0</code>&nbsp;到 <code>n - 1</code>&nbsp;编号，其中节点&nbsp;<code>i</code>&nbsp;的两个子节点分别是&nbsp;<code>leftChild[i]</code>&nbsp;和&nbsp;<code>rightChild[i]</code>。</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>-1 &lt;= leftChild[i], rightChild[i] &lt;= n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：并查集
 
@@ -82,6 +89,8 @@ tags:
 时间复杂度 $O(n \times \alpha(n))$，空间复杂度 $O(n)$。其中 $n$ 为节点个数，而 $\alpha(n)$ 为阿克曼函数的反函数，即反阿克曼函数，其值小于 $5$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +114,8 @@ class Solution:
                     n -= 1
         return n == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +180,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
@@ -200,4 +215,6 @@ func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

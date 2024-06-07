@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2081.%20%E4%B8%8E%E9%9D%9E%E7%9A%84%E8%B0%9C%E9%A2%98/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 81. 与非的谜题](https://leetcode.cn/problems/ryfUiz)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 在永恒之森中，封存着有关万灵之树线索的卷轴，只要探险队通过最后的考验，便可以获取前往万灵之树的线索。
 
@@ -66,6 +68,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2081.%20%E4%B8%8E%
 -   若 `type = 1`，`1 <= x < 10^9` 且 `0 <= y < 2^k`
 -   保证存在 `type = 1` 的操作
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

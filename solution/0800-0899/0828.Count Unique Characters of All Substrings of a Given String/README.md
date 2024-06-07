@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [828. 统计子串中的唯一字符](https://leetcode.cn/problems/count-unique-characters-of-all-substrings-of-a-given-string)
 
 [English Version](/solution/0800-0899/0828.Count%20Unique%20Characters%20of%20All%20Substrings%20of%20a%20Given%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们定义了一个函数 <code>countUniqueChars(s)</code> 来统计字符串 <code>s</code> 中的唯一字符，并返回唯一字符的个数。</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li><code>s</code> 只包含大写英文字符</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计算每个字符的贡献
 
@@ -76,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uniqueLetterString(self, s: str) -> int:
@@ -89,6 +97,8 @@ class Solution:
                 ans += (v[i] - v[i - 1]) * (v[i + 1] - v[i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniqueLetterString(s string) (ans int) {
 	d := make([][]int, 26)
@@ -152,6 +166,8 @@ func uniqueLetterString(s string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniqueLetterString(s: string): number {
     const d: number[][] = Array.from({ length: 26 }, () => [-1]);
@@ -169,6 +185,8 @@ function uniqueLetterString(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -191,4 +209,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

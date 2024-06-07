@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [864. 获取所有钥匙的最短路径](https://leetcode.cn/problems/shortest-path-to-get-all-keys)
 
 [English Version](/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二维网格&nbsp;<code>grid</code>&nbsp;，其中：</p>
 
@@ -74,7 +76,11 @@ tags:
 	<li>每个钥匙正好打开一个对应的锁</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩 + BFS
 
@@ -109,6 +115,8 @@ f   d c b
 时间复杂度 $O(m\times n\times 2^k)$，空间复杂度 $O(m\times n\times 2^k)$。其中 $m$ 和 $n$ 分别为网格的行数和列数，而 $k$ 为钥匙的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -155,6 +163,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -223,6 +233,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -278,6 +290,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestPathAllKeys(grid []string) int {
@@ -340,4 +354,6 @@ func shortestPathAllKeys(grid []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

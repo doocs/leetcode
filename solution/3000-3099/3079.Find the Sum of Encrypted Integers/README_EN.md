@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3079.Find%20the%20Sum%20of%20Encrypted%20Integers/README_EN.md
 rating: 1190
+source: Biweekly Contest 126 Q1
 tags:
     - Array
     - Math
 ---
+
+<!-- problem:start -->
 
 # [3079. Find the Sum of Encrypted Integers](https://leetcode.com/problems/find-the-sum-of-encrypted-integers)
 
 [中文文档](/solution/3000-3099/3079.Find%20the%20Sum%20of%20Encrypted%20Integers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> containing <strong>positive</strong> integers. We define a function <code>encrypt</code> such that <code>encrypt(x)</code> replaces <strong>every</strong> digit in <code>x</code> with the <strong>largest</strong> digit in <code>x</code>. For example, <code>encrypt(523) = 555</code> and <code>encrypt(213) = 333</code>.</p>
 
@@ -47,7 +52,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -58,6 +67,8 @@ We can obtain each digit of $x$ by continuously taking the modulus and integer d
 The time complexity is $O(n \times \log M)$, where $n$ is the length of the array, and $M$ is the maximum value in the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +83,8 @@ class Solution:
 
         return sum(encrypt(x) for x in nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfEncryptedInt(nums []int) (ans int) {
 	encrypt := func(x int) int {
@@ -132,6 +149,8 @@ func sumOfEncryptedInt(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumOfEncryptedInt(nums: number[]): number {
     const encrypt = (x: number): number => {
@@ -148,4 +167,6 @@ function sumOfEncryptedInt(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

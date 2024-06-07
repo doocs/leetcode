@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/README_EN.md
 rating: 1951
+source: Biweekly Contest 13 Q4
 tags:
     - Math
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [1259. Handshakes That Don't Cross 🔒](https://leetcode.com/problems/handshakes-that-dont-cross)
 
 [中文文档](/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <strong>even</strong> number of people <code>numPeople</code> that stand around a circle and each person shakes hands with someone else so that there are <code>numPeople / 2</code> handshakes total.</p>
 
@@ -44,7 +49,11 @@ tags:
 	<li><code>numPeople</code> is even.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -60,6 +69,8 @@ To avoid repeated calculations, we use the method of memoization search.
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the size of $numPeople$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +89,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(numPeople)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfWays(numPeople int) int {
 	const mod int = 1e9 + 7
@@ -151,6 +168,8 @@ func numberOfWays(numPeople int) int {
 	return dfs(numPeople)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfWays(numPeople: number): number {
@@ -176,4 +195,6 @@ function numberOfWays(numPeople: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

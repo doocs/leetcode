@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.23.Max%20Black%20Square/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.23. Max Black Square](https://leetcode.cn/problems/max-black-square-lcci)
 
 [中文文档](/lcci/17.23.Max%20Black%20Square/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Imagine you have a square matrix, where each cell (pixel) is either black or white Design an algorithm to find the maximum subsquare such that all four borders are filled with black pixels.</p>
 <p>Return an array&nbsp;<code>[r, c, size]</code>, where&nbsp;<code>r</code>,&nbsp;<code>c</code>&nbsp;are the row number and the column number of the subsquare&#39;s upper left corner respectively, and <code>size</code>&nbsp;is the side length of the subsquare. If there are more than one answers, return the one that has smallest <code>r</code>. If there are more than one answers that have the same <code>r</code>, return the one that has smallest <code>c</code>. If there&#39;s no answer, return an empty array.</p>
@@ -55,11 +59,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.23.Max%20Black%20S
 	<li><code>matrix.length == matrix[0].length &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +94,8 @@ class Solution:
                         return [i, j, k]
         return []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findSquare(matrix [][]int) []int {
@@ -180,6 +196,8 @@ func findSquare(matrix [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findSquare(matrix: number[][]): number[] {
     const n = matrix.length;
@@ -211,6 +229,42 @@ function findSquare(matrix: number[][]): number[] {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func findSquare(_ matrix: [[Int]]) -> [Int] {
+        let n = matrix.count
+        var down = Array(repeating: Array(repeating: 0, count: n), count: n)
+        var right = Array(repeating: Array(repeating: 0, count: n), count: n)
+
+        for i in stride(from: n - 1, through: 0, by: -1) {
+            for j in stride(from: n - 1, through: 0, by: -1) {
+                if matrix[i][j] == 0 {
+                    down[i][j] = (i + 1 < n) ? down[i + 1][j] + 1 : 1
+                    right[i][j] = (j + 1 < n) ? right[i][j + 1] + 1 : 1
+                }
+            }
+        }
+
+        for k in stride(from: n, through: 1, by: -1) {
+            for i in 0...(n - k) {
+                for j in 0...(n - k) {
+                    if down[i][j] >= k && right[i][j] >= k &&
+                       right[i + k - 1][j] >= k && down[i][j + k - 1] >= k {
+                        return [i, j, k]
+                    }
+                }
+            }
+        }
+
+        return []
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

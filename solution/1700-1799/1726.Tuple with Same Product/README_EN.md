@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1726.Tuple%20with%20Same%20Product/README_EN.md
 rating: 1530
+source: Weekly Contest 224 Q2
 tags:
     - Array
     - Hash Table
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1726. Tuple with Same Product](https://leetcode.com/problems/tuple-with-same-product)
 
 [中文文档](/solution/1700-1799/1726.Tuple%20with%20Same%20Product/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>nums</code> of <strong>distinct</strong> positive integers, return <em>the number of tuples </em><code>(a, b, c, d)</code><em> such that </em><code>a * b = c * d</code><em> where </em><code>a</code><em>, </em><code>b</code><em>, </em><code>c</code><em>, and </em><code>d</code><em> are elements of </em><code>nums</code><em>, and </em><code>a != b != c != d</code><em>.</em></p>
 
@@ -49,7 +54,11 @@ tags:
 	<li>All elements in <code>nums</code> are <strong>distinct</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Combination + Hash Table
 
@@ -61,6 +70,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def tupleSameProduct(self, nums: List[int]) -> int:
@@ -71,6 +82,8 @@ class Solution:
                 cnt[x] += 1
         return sum(v * (v - 1) // 2 for v in cnt.values()) << 3
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func tupleSameProduct(nums []int) int {
 	cnt := map[int]int{}
@@ -128,6 +145,8 @@ func tupleSameProduct(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function tupleSameProduct(nums: number[]): number {
     const cnt: Map<number, number> = new Map();
@@ -144,6 +163,8 @@ function tupleSameProduct(nums: number[]): number {
     return ans << 3;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -171,4 +192,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

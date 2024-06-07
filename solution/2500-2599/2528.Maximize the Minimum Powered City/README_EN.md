@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README_EN.md
 rating: 2235
+source: Biweekly Contest 95 Q4
 tags:
     - Greedy
     - Queue
@@ -12,11 +13,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2528. Maximize the Minimum Powered City](https://leetcode.com/problems/maximize-the-minimum-powered-city)
 
 [中文文档](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>stations</code> of length <code>n</code>, where <code>stations[i]</code> represents the number of power stations in the <code>i<sup>th</sup></code> city.</p>
 
@@ -72,11 +77,17 @@ It can be proved that we cannot make the minimum power of a city greater than 4.
 	<li><code>0 &lt;= k&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -114,6 +125,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +182,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -220,6 +235,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPower(stations []int, r int, k int) int64 {
 	n := len(stations)
@@ -266,6 +283,8 @@ func maxPower(stations []int, r int, k int) int64 {
 	return int64(left)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPower(stations: number[], r: number, k: number): number {
@@ -322,4 +341,6 @@ function maxPower(stations: number[], r: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

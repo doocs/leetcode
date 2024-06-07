@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2233.Maximum%20Product%20After%20K%20Increments/README_EN.md
 rating: 1685
+source: Weekly Contest 288 Q3
 tags:
     - Greedy
     - Array
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2233. Maximum Product After K Increments](https://leetcode.com/problems/maximum-product-after-k-increments)
 
 [中文文档](/solution/2200-2299/2233.Maximum%20Product%20After%20K%20Increments/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of non-negative integers <code>nums</code> and an integer <code>k</code>. In one operation, you may choose <strong>any</strong> element from <code>nums</code> and <strong>increment</strong> it by <code>1</code>.</p>
 
@@ -50,11 +55,17 @@ Note that there may be other ways to increment nums to have the maximum product.
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +79,8 @@ class Solution:
             ans = (ans * v) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumProduct(nums []int, k int) int {
@@ -127,6 +144,8 @@ type hp struct{ sort.IntSlice }
 func (hp) Push(any)     {}
 func (hp) Pop() (_ any) { return }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -154,4 +173,6 @@ var maximumProduct = function (nums, k) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

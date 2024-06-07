@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2122.Recover%20the%20Original%20Array/README_EN.md
 rating: 2158
+source: Weekly Contest 273 Q4
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2122. Recover the Original Array](https://leetcode.com/problems/recover-the-original-array)
 
 [中文文档](/solution/2100-2199/2122.Recover%20the%20Original%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice had a <strong>0-indexed</strong> array <code>arr</code> consisting of <code>n</code> <strong>positive</strong> integers. She chose an arbitrary <strong>positive integer</strong> <code>k</code> and created two new <strong>0-indexed</strong> integer arrays <code>lower</code> and <code>higher</code> in the following manner:</p>
 
@@ -72,11 +77,17 @@ The only possible combination is arr = [220] and k = 215. Using them, we get low
 	<li>The test cases are generated such that there exists <strong>at least one</strong> valid array <code>arr</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +116,8 @@ class Solution:
                 return ans
         return []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +159,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func recoverArray(nums []int) []int {
@@ -206,4 +223,6 @@ func recoverArray(nums []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README_EN.md
 rating: 1893
+source: Weekly Contest 300 Q3
 tags:
     - Queue
     - Dynamic Programming
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2327. Number of People Aware of a Secret](https://leetcode.com/problems/number-of-people-aware-of-a-secret)
 
 [中文文档](/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>On day <code>1</code>, one person discovers a secret.</p>
 
@@ -56,11 +61,17 @@ Day 4: A forgets the secret. B, C, and D share the secret with 3 new people. (6 
 	<li><code>1 &lt;= delay &lt; forget &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +91,8 @@ class Solution:
         mod = 10**9 + 7
         return sum(d[: n + 1]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 const int mod = 1e9 + 7;
@@ -138,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func peopleAwareOfSecret(n int, delay int, forget int) int {
 	m := (n << 1) + 10
@@ -165,6 +182,8 @@ func peopleAwareOfSecret(n int, delay int, forget int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function peopleAwareOfSecret(n: number, delay: number, forget: number): number {
     let dp = new Array(n + 1).fill(0n);
@@ -191,4 +210,6 @@ function peopleAwareOfSecret(n: number, delay: number, forget: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

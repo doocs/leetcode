@@ -4,11 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2044.%20%E5%BC%80%E5%B9%95%E5%BC%8F%E7%84%B0%E7%81%AB/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 44. 开幕式焰火](https://leetcode.cn/problems/sZ59z6)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 「力扣挑战赛」开幕式开始了，空中绽放了一颗二叉树形的巨型焰火。
 给定一棵二叉树 `root` 代表焰火，节点值表示巨型焰火这一位置的颜色种类。请帮小扣计算巨型焰火有多少种不同的颜色。
@@ -34,11 +36,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2044.%20%E5%BC%80%
 -   `1 <= 节点个数 <= 1000`
 -   `1 <= Node.val <= 1000`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -60,6 +68,8 @@ class Solution:
         dfs(root)
         return len(s)
 ```
+
+#### Java
 
 ```java
 /**
@@ -91,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -118,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -147,4 +161,6 @@ func dfs(root *TreeNode) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

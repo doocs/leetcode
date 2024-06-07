@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README_EN.md
 rating: 2040
+source: Biweekly Contest 45 Q4
 tags:
     - Array
     - Binary Search
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1751. Maximum Number of Events That Can Be Attended II](https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii)
 
 [中文文档](/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <code>events</code> where <code>events[i] = [startDay<sub>i</sub>, endDay<sub>i</sub>, value<sub>i</sub>]</code>. The <code>i<sup>th</sup></code> event starts at <code>startDay<sub>i</sub></code><sub> </sub>and ends at <code>endDay<sub>i</sub></code>, and if you attend this event, you will receive a value of <code>value<sub>i</sub></code>. You are also given an integer <code>k</code> which represents the maximum number of events you can attend.</p>
 
@@ -61,11 +66,17 @@ Notice that you cannot attend any other event as they overlap, and that you do <
 	<li><code>1 &lt;= value<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +95,8 @@ class Solution:
         events.sort()
         return dfs(0, k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxValue(events [][]int, k int) int {
 	sort.Slice(events, func(i, j int) bool { return events[i][0] < events[j][0] })
@@ -176,6 +193,8 @@ func maxValue(events [][]int, k int) int {
 	return dfs(0, k)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxValue(events: number[][], k: number): number {
@@ -208,9 +227,15 @@ function maxValue(events: number[][], k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -224,6 +249,8 @@ class Solution:
                 f[i][j] = max(f[i - 1][j], f[p][j - 1] + val)
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -256,6 +283,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -276,6 +305,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxValue(events [][]int, k int) int {
@@ -298,4 +329,6 @@ func maxValue(events [][]int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

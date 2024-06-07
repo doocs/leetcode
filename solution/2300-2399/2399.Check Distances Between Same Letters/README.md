@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2399.Check%20Distances%20Between%20Same%20Letters/README.md
 rating: 1243
+source: 第 309 场周赛 Q1
 tags:
     - 数组
     - 哈希表
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2399. 检查相同字母间的距离](https://leetcode.cn/problems/check-distances-between-same-letters)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的字符串 <code>s</code> ，该字符串仅由小写英文字母组成，<code>s</code> 中的每个字母都 <strong>恰好</strong> 出现 <strong>两次</strong> 。另给你一个下标从 <strong>0</strong> 开始、长度为 <code>26</code> 的的整数数组 <code>distance</code> 。</p>
 
@@ -60,7 +63,11 @@ tags:
 	<li><code>0 &lt;= distance[i] &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表
 
@@ -69,6 +76,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字符集大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +89,8 @@ class Solution:
             d[c] = i
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkDistances(s string, distance []int) bool {
 	d := [26]int{}
@@ -127,6 +142,8 @@ func checkDistances(s string, distance []int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkDistances(s: string, distance: number[]): boolean {
@@ -142,6 +159,8 @@ function checkDistances(s: string, distance: number[]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -162,6 +181,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 bool checkDistances(char* s, int* distance, int distanceSize) {
     int n = strlen(s);
@@ -179,4 +200,6 @@ bool checkDistances(char* s, int* distance, int distanceSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

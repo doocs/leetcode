@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1297.Maximum%20Number%20of%20Occurrences%20of%20a%20Substring/README.md
 rating: 1748
+source: 第 168 场周赛 Q3
 tags:
     - 哈希表
     - 字符串
     - 滑动窗口
 ---
+
+<!-- problem:start -->
 
 # [1297. 子串的最大出现次数](https://leetcode.cn/problems/maximum-number-of-occurrences-of-a-substring)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code> ，请你返回满足以下条件且出现次数最大的&nbsp;<strong>任意</strong>&nbsp;子串的出现次数：</p>
 
@@ -64,7 +67,11 @@ tags:
 	<li><code>s</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -73,6 +80,8 @@ tags:
 时间复杂度 $O(n \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别为字符串 $s$ 的长度以及 `minSize` 的大小。本题中 $m$ 不超过 $26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +96,8 @@ class Solution:
                 ans = max(ans, cnt[t])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxFreq(s string, maxLetters int, minSize int, maxSize int) (ans int) {
@@ -149,4 +164,6 @@ func maxFreq(s string, maxLetters int, minSize int, maxSize int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1807.Evaluate%20the%20Bracket%20Pairs%20of%20a%20String/README.md
 rating: 1481
+source: 第 234 场周赛 Q3
 tags:
     - 数组
     - 哈希表
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1807. 替换字符串中的括号内容](https://leetcode.cn/problems/evaluate-the-bracket-pairs-of-a-string)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;，它包含一些括号对，每个括号中包含一个 <strong>非空</strong>&nbsp;的键。</p>
 
@@ -83,7 +86,11 @@ tags:
 	<li><code>knowledge</code>&nbsp;中的&nbsp;<code>key<sub>i</sub></code>&nbsp;不会重复。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 模拟
 
@@ -94,6 +101,8 @@ tags:
 时间复杂度 $O(n + m)$，空间复杂度 $O(L)$。其中 $n$ 和 $m$ 分别为字符串 $s$ 和列表 `knowledge` 的长度，而 $L$ 为 `knowledge` 中所有字符串的长度之和。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +120,8 @@ class Solution:
             i += 1
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -157,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func evaluate(s string, knowledge [][]string) string {
@@ -185,6 +200,8 @@ func evaluate(s string, knowledge [][]string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function evaluate(s: string, knowledge: string[][]): string {
     const n = s.length;
@@ -207,6 +224,8 @@ function evaluate(s: string, knowledge: string[][]): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -243,4 +262,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

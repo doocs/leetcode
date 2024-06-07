@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2027.%20%E9%BB%91%E7%9B%92%E5%85%89%E7%BA%BF%E5%8F%8D%E5%B0%84/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 27. 黑盒光线反射](https://leetcode.cn/problems/IQvJ9i)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 秋日市集上有个奇怪的黑盒，黑盒的主视图为 n\*m 的矩形。从黑盒的主视图来看，黑盒的上面和下面各均匀分布有 m 个小孔，黑盒的左面和右面各均匀分布有 n 个小孔。黑盒左上角小孔序号为 0，按顺时针编号，总共有 2\*(m+n) 个小孔。每个小孔均可以打开或者关闭，初始时，所有小孔均处于关闭状态。每个小孔上的盖子均为镜面材质。例如一个 2\*3 的黑盒主视图与其小孔分布如图所示:
 
@@ -77,6 +79,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2027.%20%E9%BB%91%
 -   `direction` 仅为 `1` 或 `-1`
 -   `0 <= index < 2*(m+n)`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

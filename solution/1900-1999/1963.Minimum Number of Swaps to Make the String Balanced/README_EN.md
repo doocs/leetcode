@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1963.Minimum%20Number%20of%20Swaps%20to%20Make%20the%20String%20Balanced/README_EN.md
 rating: 1688
+source: Weekly Contest 253 Q3
 tags:
     - Stack
     - Greedy
@@ -10,11 +11,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1963. Minimum Number of Swaps to Make the String Balanced](https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced)
 
 [中文文档](/solution/1900-1999/1963.Minimum%20Number%20of%20Swaps%20to%20Make%20the%20String%20Balanced/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> of <strong>even</strong> length <code>n</code>. The string consists of <strong>exactly</strong> <code>n / 2</code> opening brackets <code>&#39;[&#39;</code> and <code>n / 2</code> closing brackets <code>&#39;]&#39;</code>.</p>
 
@@ -70,7 +75,11 @@ The resulting string is &quot;[[][]]&quot;.
 	<li>The number of opening brackets <code>&#39;[&#39;</code> equals <code>n / 2</code>, and the number of closing brackets <code>&#39;]&#39;</code> equals <code>n / 2</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -85,6 +94,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSwaps(self, s: str) -> int:
@@ -96,6 +107,8 @@ class Solution:
                 x -= 1
         return (x + 1) >> 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSwaps(s string) int {
 	x := 0
@@ -144,6 +161,8 @@ func minSwaps(s string) int {
 	return (x + 1) / 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minSwaps(s: string): number {
@@ -161,4 +180,6 @@ function minSwaps(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

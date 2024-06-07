@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1880.Check%20if%20Word%20Equals%20Summation%20of%20Two%20Words/README.md
 rating: 1187
+source: 第 243 场周赛 Q1
 tags:
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1880. 检查某单词是否等于两单词之和](https://leetcode.cn/problems/check-if-word-equals-summation-of-two-words)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>字母的 <strong>字母值</strong> 取决于字母在字母表中的位置，<strong>从 0 开始</strong> 计数。即，<code>'a' -&gt; 0</code>、<code>'b' -&gt; 1</code>、<code>'c' -&gt; 2</code>，以此类推。</p>
 
@@ -70,11 +73,17 @@ targetWord 的数值为 "aaaa" -&gt; "0000" -&gt; 0
 	<li><code>firstWord</code>、<code>secondWord</code> 和 <code>targetWord</code> 仅由从 <code>'a'</code> 到 <code>'j'</code> （<strong>含 </strong><code>'a'</code> 和 <code>'j'</code><strong> </strong>）的小写英文字母组成<strong>。</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +96,8 @@ class Solution:
 
         return f(firstWord) + f(secondWord) == f(targetWord)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isSumEqual(firstWord string, secondWord string, targetWord string) bool {
 	f := func(s string) int {
@@ -132,6 +147,8 @@ func isSumEqual(firstWord string, secondWord string, targetWord string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isSumEqual(firstWord: string, secondWord: string, targetWord: string): boolean {
     const calc = (s: string) => {
@@ -144,6 +161,8 @@ function isSumEqual(firstWord: string, secondWord: string, targetWord: string): 
     return calc(firstWord) + calc(secondWord) === calc(targetWord);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -160,6 +179,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -180,6 +201,8 @@ var isSumEqual = function (firstWord, secondWord, targetWord) {
 };
 ```
 
+#### C
+
 ```c
 int calc(char* s) {
     int res = 0;
@@ -196,4 +219,6 @@ bool isSumEqual(char* firstWord, char* secondWord, char* targetWord) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

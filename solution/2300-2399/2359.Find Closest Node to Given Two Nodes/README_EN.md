@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2359.Find%20Closest%20Node%20to%20Given%20Two%20Nodes/README_EN.md
 rating: 1714
+source: Weekly Contest 304 Q3
 tags:
     - Depth-First Search
     - Graph
 ---
+
+<!-- problem:start -->
 
 # [2359. Find Closest Node to Given Two Nodes](https://leetcode.com/problems/find-closest-node-to-given-two-nodes)
 
 [中文文档](/solution/2300-2399/2359.Find%20Closest%20Node%20to%20Given%20Two%20Nodes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>directed</strong> graph of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>, where each node has <strong>at most one</strong> outgoing edge.</p>
 
@@ -54,11 +59,17 @@ The maximum of those two distances is 2. It can be proven that we cannot get a n
 	<li><code>0 &lt;= node1, node2 &lt; n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +100,8 @@ class Solution:
                 ans = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -184,6 +199,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func closestMeetingNode(edges []int, node1 int, node2 int) int {
@@ -238,6 +255,8 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
+#### TypeScript
+
 ```ts
 function closestMeetingNode(edges: number[], node1: number, node2: number): number {
     const n = edges.length;
@@ -280,9 +299,15 @@ function closestMeetingNode(edges: number[], node1: number, node2: number): numb
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -313,6 +338,8 @@ class Solution:
                 ans = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -362,6 +389,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -405,6 +434,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func closestMeetingNode(edges []int, node1 int, node2 int) int {
@@ -452,4 +483,6 @@ func closestMeetingNode(edges []int, node1 int, node2 int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

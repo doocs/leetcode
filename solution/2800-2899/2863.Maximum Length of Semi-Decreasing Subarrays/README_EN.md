@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2863. Maximum Length of Semi-Decreasing Subarrays 🔒](https://leetcode.com/problems/maximum-length-of-semi-decreasing-subarrays)
 
 [中文文档](/solution/2800-2899/2863.Maximum%20Length%20of%20Semi-Decreasing%20Subarrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>.</p>
 
@@ -62,7 +66,11 @@ It can be shown that there aren&#39;t any subarrays with the given condition wit
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
 
@@ -73,6 +81,8 @@ Next, we traverse the keys of the hash table in descending order of the numbers.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +96,8 @@ class Solution:
             k = min(k, d[x][0])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxSubarrayLength(nums []int) (ans int) {
@@ -142,6 +158,8 @@ func maxSubarrayLength(nums []int) (ans int) {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSubarrayLength(nums: number[]): number {
@@ -166,4 +184,6 @@ function maxSubarrayLength(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

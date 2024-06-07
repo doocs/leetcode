@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.14.Best%20Line/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.14. 最佳直线](https://leetcode.cn/problems/best-line-lcci)
 
 [English Version](/lcci/16.14.Best%20Line/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定一个二维平面及平面上的 N 个点列表<code>Points</code>，其中第<code>i</code>个点的坐标为<code>Points[i]=[X<sub>i</sub>,Y<sub>i</sub>]</code>。请找出一条直线，其通过的点的数目最多。</p>
 <p>设穿过最多点的直线所穿过的全部点编号从小到大排序的列表为<code>S</code>，你仅需返回<code>[S[0],S[1]]</code>作为答案，若有多条直线穿过了相同数量的点，则选择<code>S[0]</code>值较小的直线返回，<code>S[0]</code>相同则选择<code>S[1]</code>值较小的直线返回。</p>
 <p><strong>示例：</strong></p>
@@ -24,7 +27,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.14.Best%20Line/REA
 <li><code>len(Points[i]) = 2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -33,6 +40,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.14.Best%20Line/REA
 时间复杂度 $O(n^3)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `points` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -54,6 +63,8 @@ class Solution:
                     x, y = i, j
         return [x, y]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func bestLine(points [][]int) []int {
 	n := len(points)
@@ -143,6 +158,8 @@ func bestLine(points [][]int) []int {
 	return ans
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -179,6 +196,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：枚举 + 哈希表
 
 我们可以枚举一个点 $(x_1, y_1)$，把其他所有点 $(x_2, y_2)$ 与 $(x_1, y_1)$ 连成的直线的斜率存入哈希表中，斜率相同的点在同一条直线上，哈希表的键为斜率，值为直线上的点的个数。找出哈希表中的最大值，即为答案。为了避免精度问题，我们可以将斜率 $\frac{y_2 - y_1}{x_2 - x_1}$ 进行约分，约分的方法是求最大公约数，然后分子分母同时除以最大公约数，将求得的分子分母作为哈希表的键。
@@ -190,6 +211,8 @@ class Solution {
 -   [149. 直线上最多的点数](https://github.com/doocs/leetcode/blob/main/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -213,6 +236,8 @@ class Solution:
                     x, y = cnt[k][0]
         return [x, y]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -248,6 +273,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -278,6 +305,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func bestLine(points [][]int) []int {
@@ -313,4 +342,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

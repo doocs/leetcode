@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README.md
 rating: 2171
+source: 第 105 场双周赛 Q4
 tags:
     - 并查集
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [2709. 最大公约数遍历](https://leetcode.cn/problems/greatest-common-divisor-traversal)
 
 [English Version](/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;，你可以在一些下标之间遍历。对于两个下标&nbsp;<code>i</code>&nbsp;和&nbsp;<code>j</code>（<code>i != j</code>），当且仅当&nbsp;<code>gcd(nums[i], nums[j]) &gt; 1</code>&nbsp;时，我们可以在两个下标之间通行，其中&nbsp;<code>gcd</code>&nbsp;是两个数的 <strong>最大公约数</strong>&nbsp;。</p>
 
@@ -61,11 +64,17 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -116,6 +125,8 @@ class Solution:
                 uf.union(i, j + n)
         return len(set(uf.find(i) for i in range(n))) == 1
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -196,6 +207,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 int MX = 100010;
 vector<int> P[100010];
@@ -273,6 +286,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const mx = 100010
@@ -353,4 +368,6 @@ func canTraverseAllPairs(nums []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

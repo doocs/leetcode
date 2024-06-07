@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [546. Remove Boxes](https://leetcode.com/problems/remove-boxes)
 
 [中文文档](/solution/0500-0599/0546.Remove%20Boxes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given several <code>boxes</code> with different colors represented by different positive numbers.</p>
 
@@ -56,11 +60,17 @@ tags:
 	<li><code>1 &lt;= boxes[i]&nbsp;&lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +92,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func removeBoxes(boxes []int) int {
@@ -182,4 +198,6 @@ func removeBoxes(boxes []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README_EN.md
 rating: 1917
+source: Weekly Contest 344 Q4
 tags:
     - Greedy
     - Tree
@@ -11,11 +12,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2673. Make Costs of Paths Equal in a Binary Tree](https://leetcode.com/problems/make-costs-of-paths-equal-in-a-binary-tree)
 
 [中文文档](/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code> representing the number of nodes in a <strong>perfect binary tree</strong> consisting of nodes numbered from <code>1</code> to <code>n</code>. The root of the tree is node <code>1</code> and each node <code>i</code> in the tree has two children where the left child is the node <code>2 * i</code> and the right child is <code>2 * i + 1</code>.</p>
 
@@ -63,7 +68,11 @@ It can be shown that this is the minimum answer we can achieve.
 	<li><code>1 &lt;= cost[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
 
@@ -81,6 +90,8 @@ The time complexity is $O(n)$, where $n$ is the number of nodes. The space compl
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minIncrements(self, n: int, cost: List[int]) -> int:
@@ -91,6 +102,8 @@ class Solution:
             cost[i - 1] += max(cost[l - 1], cost[r - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minIncrements(n int, cost []int) (ans int) {
@@ -139,6 +156,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minIncrements(n: number, cost: number[]): number {
     let ans = 0;
@@ -153,4 +172,6 @@ function minIncrements(n: number, cost: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

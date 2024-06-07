@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2810.Faulty%20Keyboard/README.md
 rating: 1192
+source: 第 357 场周赛 Q1
 tags:
     - 字符串
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [2810. 故障键盘](https://leetcode.cn/problems/faulty-keyboard)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你的笔记本键盘存在故障，每当你在上面输入字符 <code>'i'</code> 时，它会反转你所写的字符串。而输入其他字符则可以正常工作。</p>
 
@@ -63,7 +66,11 @@ tags:
 	<li><code>s[0] != 'i'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -77,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def finalString(self, s: str) -> str:
@@ -88,6 +97,8 @@ class Solution:
                 t.append(c)
         return "".join(t)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func finalString(s string) string {
 	t := []rune{}
@@ -138,6 +153,8 @@ func finalString(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function finalString(s: string): string {
     const t: string[] = [];
@@ -151,6 +168,8 @@ function finalString(s: string): string {
     return t.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -170,4 +189,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

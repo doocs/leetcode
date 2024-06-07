@@ -8,13 +8,15 @@ tags:
     - 随机化
 ---
 
+<!-- problem:start -->
+
 # [384. 打乱数组](https://leetcode.cn/problems/shuffle-an-array)
 
 [English Version](/solution/0300-0399/0384.Shuffle%20an%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，设计算法来打乱一个没有重复元素的数组。打乱后，数组的所有排列应该是&nbsp;<strong>等可能</strong>&nbsp;的。</p>
 
@@ -55,11 +57,17 @@ solution.shuffle();    // 随机返回数组 [1, 2, 3] 打乱后的结果。例�
 	<li>最多可以调用 <code>10<sup>4</sup></code> 次 <code>reset</code> 和 <code>shuffle</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +91,8 @@ class Solution:
 # param_1 = obj.reset()
 # param_2 = obj.shuffle()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +133,8 @@ class Solution {
  */
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +169,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type Solution struct {
 	nums, original []int
@@ -188,6 +202,8 @@ func (this *Solution) Shuffle() []int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class Solution {
     private nums: number[];
@@ -218,6 +234,8 @@ class Solution {
  * var param_2 = obj.shuffle()
  */
 ```
+
+#### Rust
 
 ```rust
 use rand::Rng;
@@ -254,6 +272,8 @@ impl Solution {
  * let ret_2: Vec<i32> = obj.shuffle();
  */
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -296,4 +316,6 @@ Solution.prototype.shuffle = function () {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

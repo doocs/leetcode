@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.09.Sorted%20Matrix%20Search/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 10.09. 排序矩阵查找](https://leetcode.cn/problems/sorted-matrix-search-lcci)
 
 [English Version](/lcci/10.09.Sorted%20Matrix%20Search/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定M&times;N矩阵，每一行、每一列都按升序排列，请编写代码找出某元素。</p>
 
 <p><strong>示例:</strong></p>
@@ -30,7 +33,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.09.Sorted%20Matrix
 
 <p>给定&nbsp;target&nbsp;=&nbsp;<code>20</code>，返回&nbsp;<code>false</code>。</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -42,6 +49,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.09.Sorted%20Matrix
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
@@ -51,6 +60,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -65,6 +76,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -81,6 +94,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchMatrix(matrix [][]int, target int) bool {
 	for _, row := range matrix {
@@ -92,6 +107,8 @@ func searchMatrix(matrix [][]int, target int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function searchMatrix(matrix: number[][], target: number): boolean {
@@ -114,6 +131,8 @@ function searchMatrix(matrix: number[][], target: number): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -142,6 +161,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -169,6 +190,8 @@ var searchMatrix = function (matrix, target) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool SearchMatrix(int[][] matrix, int target) {
@@ -182,6 +205,8 @@ public class Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -216,6 +241,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：从左下角或右上角搜索
 
 这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 `matrix[i][j]`与 `target` 的大小关系：
@@ -229,6 +258,8 @@ class Solution {
 时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别为矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -246,6 +277,8 @@ class Solution:
                 j += 1
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -269,6 +302,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -294,6 +329,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchMatrix(matrix [][]int, target int) bool {
 	if len(matrix) == 0 {
@@ -315,6 +352,8 @@ func searchMatrix(matrix [][]int, target int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function searchMatrix(matrix: number[][], target: number): boolean {
     if (matrix.length === 0) {
@@ -335,6 +374,8 @@ function searchMatrix(matrix: number[][], target: number): boolean {
     return false;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -361,4 +402,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [80. 删除有序数组中的重复项 II](https://leetcode.cn/problems/remove-duplicates-from-sorted-array-ii)
 
 [English Version](/solution/0000-0099/0080.Remove%20Duplicates%20from%20Sorted%20Array%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个有序数组 <code>nums</code> ，请你<strong><a href="http://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank"> 原地</a></strong> 删除重复出现的元素，使得出现次数超过两次的元素<strong>只出现两次</strong> ，返回删除后数组的新长度。</p>
 
@@ -68,7 +70,11 @@ for (int i = 0; i &lt; len; i++) {
 	<li><code>nums</code> 已按升序排列</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -93,6 +99,8 @@ for (int i = 0; i &lt; len; i++) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
@@ -103,6 +111,8 @@ class Solution:
                 k += 1
         return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeDuplicates(nums []int) int {
 	k := 0
@@ -146,6 +160,8 @@ func removeDuplicates(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function removeDuplicates(nums: number[]): number {
     let k = 0;
@@ -157,6 +173,8 @@ function removeDuplicates(nums: number[]): number {
     return k;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,6 +190,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -189,6 +209,8 @@ var removeDuplicates = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int RemoveDuplicates(int[] nums) {
@@ -205,4 +227,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

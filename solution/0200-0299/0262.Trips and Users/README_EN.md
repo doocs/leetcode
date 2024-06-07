@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [262. Trips and Users](https://leetcode.com/problems/trips-and-users)
 
 [中文文档](/solution/0200-0299/0262.Trips%20and%20Users/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Trips</code></p>
 
@@ -116,11 +120,17 @@ On 2013-10-03:
   - The Cancellation Rate is (1 / 2) = 0.50
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -168,6 +178,8 @@ def trips_and_users(trips: pd.DataFrame, users: pd.DataFrame) -> pd.DataFrame:
     return df[["Day", "Cancellation Rate"]]
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -183,4 +195,6 @@ GROUP BY request_at;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

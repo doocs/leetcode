@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1396.Design%20Underground%20System/README.md
 rating: 1464
+source: 第 182 场周赛 Q3
 tags:
     - 设计
     - 哈希表
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1396. 设计地铁系统](https://leetcode.cn/problems/design-underground-system)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>地铁系统跟踪不同车站之间的乘客出行时间，并使用这一数据来计算从一站到另一站的平均时间。</p>
 
@@ -109,7 +112,11 @@ undergroundSystem.getAverageTime("Leyton", "Paradise"); // 返回 6.66667 ，(5 
 	<li>与标准答案误差在 <code>10<sup>-5</sup></code> 以内的结果都被视为正确结果</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -127,6 +134,8 @@ undergroundSystem.getAverageTime("Leyton", "Paradise"); // 返回 6.66667 ，(5 
 时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 为乘客的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UndergroundSystem:
@@ -153,6 +162,8 @@ class UndergroundSystem:
 # obj.checkOut(id,stationName,t)
 # param_3 = obj.getAverageTime(startStation,endStation)
 ```
+
+#### Java
 
 ```java
 class UndergroundSystem {
@@ -192,6 +203,8 @@ class UndergroundSystem {
  */
 ```
 
+#### C++
+
 ```cpp
 class UndergroundSystem {
 public:
@@ -227,6 +240,8 @@ private:
  * double param_3 = obj->getAverageTime(startStation,endStation);
  */
 ```
+
+#### Go
 
 ```go
 type UndergroundSystem struct {
@@ -282,4 +297,6 @@ type pair struct {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # 力扣竞赛
 
 [English Version](/solution/CONTEST_README_EN.md)
@@ -22,6 +26,34 @@
 
 ## 往期竞赛
 
+#### 第 400 场周赛(2024-06-02 10:30, 90 分钟) 参赛人数 3534
+
+- [3168. 候诊室中的最少椅子数](/solution/3100-3199/3168.Minimum%20Number%20of%20Chairs%20in%20a%20Waiting%20Room/README.md)
+- [3169. 无需开会的工作日](/solution/3100-3199/3169.Count%20Days%20Without%20Meetings/README.md)
+- [3170. 删除星号以后字典序最小的字符串](/solution/3100-3199/3170.Lexicographically%20Minimum%20String%20After%20Removing%20Stars/README.md)
+- [3171. 找到按位与最接近 K 的子数组](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README.md)
+
+#### 第 399 场周赛(2024-05-26 10:30, 90 分钟) 参赛人数 3424
+
+- [3162. 优质数对的总数 I](/solution/3100-3199/3162.Find%20the%20Number%20of%20Good%20Pairs%20I/README.md)
+- [3163. 压缩字符串 III](/solution/3100-3199/3163.String%20Compression%20III/README.md)
+- [3164. 优质数对的总数 II](/solution/3100-3199/3164.Find%20the%20Number%20of%20Good%20Pairs%20II/README.md)
+- [3165. 不包含相邻元素的子序列的最大和](/solution/3100-3199/3165.Maximum%20Sum%20of%20Subsequence%20With%20Non-adjacent%20Elements/README.md)
+
+#### 第 131 场双周赛(2024-05-25 22:30, 90 分钟) 参赛人数 2537
+
+- [3158. 求出出现两次数字的 XOR 值](/solution/3100-3199/3158.Find%20the%20XOR%20of%20Numbers%20Which%20Appear%20Twice/README.md)
+- [3159. 查询数组中元素的出现位置](/solution/3100-3199/3159.Find%20Occurrences%20of%20an%20Element%20in%20an%20Array/README.md)
+- [3160. 所有球里面不同颜色的数目](/solution/3100-3199/3160.Find%20the%20Number%20of%20Distinct%20Colors%20Among%20the%20Balls/README.md)
+- [3161. 物块放置查询](/solution/3100-3199/3161.Block%20Placement%20Queries/README.md)
+
+#### 第 398 场周赛(2024-05-19 10:30, 90 分钟) 参赛人数 3606
+
+- [3151. 特殊数组 I](/solution/3100-3199/3151.Special%20Array%20I/README.md)
+- [3152. 特殊数组 II](/solution/3100-3199/3152.Special%20Array%20II/README.md)
+- [3153. 所有数对中数位不同之和](/solution/3100-3199/3153.Sum%20of%20Digit%20Differences%20of%20All%20Pairs/README.md)
+- [3154. 到达第 K 级台阶的方案数](/solution/3100-3199/3154.Find%20Number%20of%20Ways%20to%20Reach%20the%20K-th%20Stair/README.md)
+
 #### 第 397 场周赛(2024-05-12 10:30, 90 分钟) 参赛人数 3365
 
 - [3146. 两个字符串的排列差](/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README.md)
@@ -36,7 +68,7 @@
 - [3144. 分割字符频率相等的最少子字符串](/solution/3100-3199/3144.Minimum%20Substring%20Partition%20of%20Equal%20Character%20Frequency/README.md)
 - [3145. 大数组元素的乘积](/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README.md)
 
-#### 第 396 场周赛(2024-05-05 10:30, 90 分钟) 参赛人数 2931
+#### 第 396 场周赛(2024-05-05 10:30, 90 分钟) 参赛人数 2932
 
 - [3136. 有效单词](/solution/3100-3199/3136.Valid%20Word/README.md)
 - [3137. K 周期字符串需要的最少操作次数](/solution/3100-3199/3137.Minimum%20Number%20of%20Operations%20to%20Make%20Word%20K-Periodic/README.md)

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [577. 员工奖金](https://leetcode.cn/problems/employee-bonus)
 
 [English Version](/solution/0500-0599/0577.Employee%20Bonus/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Employee</code>&nbsp;</p>
 
@@ -84,13 +86,19 @@ Bonus table:
 | Dan  | 500   |
 +------+-------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：左连接
 
 我们可以使用左连接，将 `Employee` 表和 `Bonus` 表按照 `empId` 进行连接，然后筛选出奖金小于 $1000$ 的员工。注意，连接后的表中，`bonus` 为 `NULL` 的员工也应该被筛选出来，因此我们需要使用 `IFNULL` 函数将 `NULL` 值转换为 $0$。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -103,4 +111,6 @@ WHERE IFNULL(bonus, 0) < 1000;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

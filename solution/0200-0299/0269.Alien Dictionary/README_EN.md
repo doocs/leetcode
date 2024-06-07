@@ -11,11 +11,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [269. Alien Dictionary 🔒](https://leetcode.com/problems/alien-dictionary)
 
 [中文文档](/solution/0200-0299/0269.Alien%20Dictionary/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a new alien language that uses the English alphabet. However, the order of the letters is unknown to you.</p>
 
@@ -57,11 +61,17 @@ tags:
 	<li><code>words[i]</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -118,6 +128,8 @@ class Solution:
                         q.append(i)
         return '' if len(ans) < cnt else ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -196,6 +208,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -257,4 +271,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

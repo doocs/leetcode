@@ -8,13 +8,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [946. 验证栈序列](https://leetcode.cn/problems/validate-stack-sequences)
 
 [English Version](/solution/0900-0999/0946.Validate%20Stack%20Sequences/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定&nbsp;<code>pushed</code>&nbsp;和&nbsp;<code>popped</code>&nbsp;两个序列，每个序列中的 <strong>值都不重复</strong>，只有当它们可能是在最初空栈上进行的推入 push 和弹出 pop 操作序列的结果时，返回 <code>true</code>；否则，返回 <code>false</code>&nbsp;。</p>
 
@@ -50,7 +52,11 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 	<li><code>popped</code> 是 <code>pushed</code> 的一个排列</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈模拟
 
@@ -61,6 +67,8 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是 `pushed` 序列的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +81,8 @@ class Solution:
                 j += 1
         return j == len(pushed)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validateStackSequences(pushed []int, popped []int) bool {
 	stk := []int{}
@@ -124,6 +138,8 @@ func validateStackSequences(pushed []int, popped []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function validateStackSequences(pushed: number[], popped: number[]): boolean {
     const stk = [];
@@ -138,6 +154,8 @@ function validateStackSequences(pushed: number[], popped: number[]): boolean {
     return j == pushed.length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -155,6 +173,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -176,6 +196,8 @@ var validateStackSequences = function (pushed, popped) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool ValidateStackSequences(int[] pushed, int[] popped) {
@@ -196,4 +218,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2200.Find%20All%20K-Distant%20Indices%20in%20an%20Array/README_EN.md
 rating: 1266
+source: Weekly Contest 284 Q1
 tags:
     - Array
     - Two Pointers
 ---
+
+<!-- problem:start -->
 
 # [2200. Find All K-Distant Indices in an Array](https://leetcode.com/problems/find-all-k-distant-indices-in-an-array)
 
 [中文文档](/solution/2200-2299/2200.Find%20All%20K-Distant%20Indices%20in%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and two integers <code>key</code> and <code>k</code>. A <strong>k-distant index</strong> is an index <code>i</code> of <code>nums</code> for which there exists at least one index <code>j</code> such that <code>|i - j| &lt;= k</code> and <code>nums[j] == key</code>.</p>
 
@@ -54,7 +59,11 @@ Hence, we return [0,1,2,3,4].
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -63,6 +72,8 @@ We enumerate the index $i$ in the range $[0, n)$, and for each index $i$, we enu
 The time complexity is $O(n^2)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +85,8 @@ class Solution:
                 ans.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findKDistantIndices(nums []int, key int, k int) (ans []int) {
@@ -133,6 +150,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findKDistantIndices(nums: number[], key: number, k: number): number[] {
     const n = nums.length;
@@ -151,6 +170,10 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Preprocessing + Binary Search
 
 We can preprocess to get the indices of all elements equal to $key$, recorded in the array $idx$. All index elements in the array $idx$ are sorted in ascending order.
@@ -160,6 +183,8 @@ Next, we enumerate the index $i$. For each index $i$, we can use binary search t
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -173,6 +198,8 @@ class Solution:
                 ans.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -198,6 +225,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -222,6 +251,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKDistantIndices(nums []int, key int, k int) (ans []int) {
 	idx := []int{}
@@ -240,6 +271,8 @@ func findKDistantIndices(nums []int, key int, k int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKDistantIndices(nums: number[], key: number, k: number): number[] {
@@ -276,6 +309,10 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3: Two Pointers
 
 We enumerate the index $i$, and use a pointer $j$ to point to the smallest index that satisfies $j \geq i - k$ and $nums[j] = key$. If $j$ exists and $j \leq i + k$, then $i$ is a K-nearest neighbor index. We add $i$ to the answer array.
@@ -283,6 +320,8 @@ We enumerate the index $i$, and use a pointer $j$ to point to the smallest index
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -296,6 +335,8 @@ class Solution:
                 ans.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -314,6 +355,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -334,6 +377,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKDistantIndices(nums []int, key int, k int) (ans []int) {
 	n := len(nums)
@@ -348,6 +393,8 @@ func findKDistantIndices(nums []int, key int, k int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKDistantIndices(nums: number[], key: number, k: number): number[] {
@@ -367,4 +414,6 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

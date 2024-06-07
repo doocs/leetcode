@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1996.The%20Number%20of%20Weak%20Characters%20in%20the%20Game/README.md
 rating: 1860
+source: 第 257 场周赛 Q2
 tags:
     - 栈
     - 贪心
@@ -11,13 +12,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [1996. 游戏中弱角色的数量](https://leetcode.cn/problems/the-number-of-weak-characters-in-the-game)
 
 [English Version](/solution/1900-1999/1996.The%20Number%20of%20Weak%20Characters%20in%20the%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你正在参加一个多角色游戏，每个角色都有两个主要属性：<strong>攻击</strong> 和 <strong>防御</strong> 。给你一个二维整数数组 <code>properties</code> ，其中 <code>properties[i] = [attack<sub>i</sub>, defense<sub>i</sub>]</code> 表示游戏中第 <code>i</code> 个角色的属性。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>1 &lt;= attack<sub>i</sub>, defense<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 遍历
 
@@ -75,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfWeakCharacters(self, properties: List[List[int]]) -> int:
@@ -85,6 +94,8 @@ class Solution:
             mx = max(mx, x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfWeakCharacters(properties [][]int) (ans int) {
@@ -138,6 +153,8 @@ func numberOfWeakCharacters(properties [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfWeakCharacters(properties: number[][]): number {
     properties.sort((a, b) => (a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]));
@@ -153,6 +170,8 @@ function numberOfWeakCharacters(properties: number[][]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -176,4 +195,6 @@ var numberOfWeakCharacters = function (properties) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

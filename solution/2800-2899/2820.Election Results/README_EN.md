@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2820.Election%20Results/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2820. Election Results 🔒](https://leetcode.com/problems/election-results)
 
 [中文文档](/solution/2800-2899/2820.Election%20Results/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code><font face="monospace">Votes</font></code></p>
 
@@ -63,7 +67,11 @@ Votes table:
 - Collectively, Candidate Ryan and Christine amassed a total of 2.33 votes, while Kathy received a combined total of 1.33 votes.
 Since Ryan and Christine received an equal number of votes, we will display their names in ascending order.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Window Function + Group Statistics
 
@@ -72,6 +80,8 @@ We can use the window function `count` to calculate the number of votes each vot
 Note that there may be multiple candidates ranking first in the result set, so we need to use `order by` to sort the candidates.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -102,4 +112,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

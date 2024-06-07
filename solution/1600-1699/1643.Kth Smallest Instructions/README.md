@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README.md
 rating: 2079
+source: 第 213 场周赛 Q4
 tags:
     - 数组
     - 数学
@@ -10,13 +11,15 @@ tags:
     - 组合数学
 ---
 
+<!-- problem:start -->
+
 # [1643. 第 K 条最小指令](https://leetcode.cn/problems/kth-smallest-instructions)
 
 [English Version](/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Bob 站在单元格 <code>(0, 0)</code> ，想要前往目的地 <code>destination</code> ：<code>(row, column)</code> 。他只能向 <strong>右</strong> 或向 <strong>下</strong> 走。你可以为 Bob 提供导航 <strong>指令</strong> 来帮助他到达目的地 <code>destination</code> 。</p>
 
@@ -77,7 +80,11 @@ tags:
 	<li><code>1 <= k <= nCr(row + column, row)</code>，其中 <code>nCr(a, b)</code> 表示组合数，即从 <code>a</code> 个物品中选 <code>b</code> 个物品的不同方案数。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：组合计数
 
@@ -94,6 +101,8 @@ tags:
 时间复杂度 $O((h + v) \times h)$，空间复杂度 $O((h + v) \times h)$。其中 $h$ 和 $v$ 分别为 $destination[1]$ 和 $destination[0]$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -114,6 +123,8 @@ class Solution:
                     h -= 1
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +159,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -185,6 +198,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kthSmallestPath(destination []int, k int) string {
 	v, h := destination[0], destination[1]
@@ -221,4 +236,6 @@ func kthSmallestPath(destination []int, k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2023.Number%20of%20Pairs%20of%20Strings%20With%20Concatenation%20Equal%20to%20Target/README_EN.md
 rating: 1341
+source: Biweekly Contest 62 Q2
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2023. Number of Pairs of Strings With Concatenation Equal to Target](https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target)
 
 [中文文档](/solution/2000-2099/2023.Number%20of%20Pairs%20of%20Strings%20With%20Concatenation%20Equal%20to%20Target/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of <strong>digit</strong> strings <code>nums</code> and a <strong>digit</strong> string <code>target</code>, return <em>the number of pairs of indices </em><code>(i, j)</code><em> (where </em><code>i != j</code><em>) such that the <strong>concatenation</strong> of </em><code>nums[i] + nums[j]</code><em> equals </em><code>target</code>.</p>
 
@@ -66,7 +71,11 @@ tags:
 	<li><code>nums[i]</code> and <code>target</code> do not have leading zeros.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -76,6 +85,8 @@ The time complexity is $O(n^2 \times m)$, where $n$ and $m$ are the lengths of t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfPairs(self, nums: List[str], target: str) -> int:
@@ -84,6 +95,8 @@ class Solution:
             i != j and nums[i] + nums[j] == target for i in range(n) for j in range(n)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfPairs(nums []string, target string) (ans int) {
 	for i, a := range nums {
@@ -133,6 +150,10 @@ func numOfPairs(nums []string, target string) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Hash Table
 
 We can use a hash table to count the occurrence of each string in the array `nums`, then traverse all prefixes and suffixes of the string `target`. If both the prefix and suffix are in the hash table, then increment the answer by the product of their occurrences.
@@ -140,6 +161,8 @@ We can use a hash table to count the occurrence of each string in the array `num
 The time complexity is $O(n + m^2)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the array `nums` and the string `target`, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -154,6 +177,8 @@ class Solution:
                 ans += cnt[a] * (cnt[a] - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -179,6 +204,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +228,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfPairs(nums []string, target string) (ans int) {
 	cnt := map[string]int{}
@@ -221,4 +250,6 @@ func numOfPairs(nums []string, target string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

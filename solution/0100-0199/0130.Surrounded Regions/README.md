@@ -10,13 +10,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [130. 被围绕的区域](https://leetcode.cn/problems/surrounded-regions)
 
 [English Version](/solution/0100-0199/0130.Surrounded%20Regions/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你一个 <code>m x n</code> 的矩阵 <code>board</code> ，由若干字符 <code>'X'</code> 和 <code>'O'</code> ，找到所有被 <code>'X'</code> 围绕的区域，并将这些区域里所有的  <code>'O'</code> 用 <code>'X'</code> 填充。
 
@@ -52,7 +54,11 @@ tags:
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -66,6 +72,8 @@ tags:
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +99,8 @@ class Solution:
                 elif board[i][j] == "O":
                     board[i][j] = "X"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func solve(board [][]byte) {
 	m, n := len(board), len(board[0])
@@ -204,6 +218,8 @@ func solve(board [][]byte) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function solve(board: string[][]): void {
     const m = board.length;
@@ -237,6 +253,8 @@ function solve(board: string[][]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -290,6 +308,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     private readonly int[] dirs = {-1, 0, 1, 0, -1};
@@ -336,6 +356,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：并查集
 
 我们也可以使用并查集，将矩阵边界上的每个 `O` 与一个超级节点 $m \times n$ 相连，将矩阵中的每个 `O` 与其上下左右的 `O` 相连。
@@ -345,6 +369,8 @@ public class Solution {
 时间复杂度 $O(m \times n \times \alpha(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数，$\alpha$ 是阿克曼函数的反函数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -371,6 +397,8 @@ class Solution:
                 if board[i][j] == "O" and find(i * n + j) != find(m * n):
                     board[i][j] = "X"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -419,6 +447,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -457,6 +487,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func solve(board [][]byte) {
@@ -498,6 +530,8 @@ func solve(board [][]byte) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function solve(board: string[][]): void {
@@ -541,4 +575,6 @@ function solve(board: string[][]): void {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,9 +3,12 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1362.Closest%20Divisors/README.md
 rating: 1533
+source: 第 177 场周赛 Q3
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1362. 最接近的因数](https://leetcode.cn/problems/closest-divisors)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>num</code>，请你找出同时满足下面全部要求的两个整数：</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>1 &lt;= num &lt;= 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -64,6 +71,8 @@ tags:
 时间复杂度 $O(\sqrt{num})$，空间复杂度 $O(1)$。其中 $num$ 是给定的整数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +86,8 @@ class Solution:
         b = f(num + 2)
         return a if abs(a[0] - a[1]) < abs(b[0] - b[1]) else b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func closestDivisors(num int) []int {
@@ -140,4 +155,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

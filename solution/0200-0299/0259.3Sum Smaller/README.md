@@ -9,13 +9,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [259. 较小的三数之和 🔒](https://leetcode.cn/problems/3sum-smaller)
 
 [English Version](/solution/0200-0299/0259.3Sum%20Smaller/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个长度为 <code>n</code> 的整数数组和一个目标值 <code>target</code>&nbsp;，寻找能够使条件&nbsp;<code>nums[i] + nums[j] + nums[k] &lt; target</code>&nbsp;成立的三元组&nbsp; <code>i, j, k</code>&nbsp;个数（<code>0 &lt;= i &lt; j &lt; k &lt; n</code>）。</p>
 
@@ -54,11 +56,17 @@ tags:
 	<li><code>-100 &lt;= target &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +84,8 @@ class Solution:
                     j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func threeSumSmaller(nums []int, target int) int {
 	sort.Ints(nums)
@@ -142,6 +156,8 @@ func threeSumSmaller(nums []int, target int) int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -171,4 +187,6 @@ var threeSumSmaller = function (nums, target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,13 +10,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [212. 单词搜索 II](https://leetcode.cn/problems/word-search-ii)
 
 [English Version](/solution/0200-0299/0212.Word%20Search%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个&nbsp;<code>m x n</code> 二维字符网格&nbsp;<code>board</code><strong>&nbsp;</strong>和一个单词（字符串）列表 <code>words</code>，&nbsp;<em>返回所有二维网格上的单词</em>&nbsp;。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li><code>words</code> 中的所有字符串互不相同</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树 + DFS
 
@@ -66,6 +72,8 @@ tags:
 时间复杂度 $(m \times n \times 3^{l-1})$，空间复杂度 $(k \times l)$。其中 $m$ 和 $n$ 分别是 `board` 的行数和列数。而 $l$ 和 $k$ 分别是 `words` 中的单词的平均长度和单词的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -111,6 +119,8 @@ class Solution:
                 dfs(tree, i, j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -174,6 +184,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -240,6 +252,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -297,6 +311,8 @@ func findWords(board [][]byte, words []string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {
@@ -362,4 +378,6 @@ function findWords(board: string[][], words: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

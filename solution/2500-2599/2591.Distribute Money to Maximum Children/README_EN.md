@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README_EN.md
 rating: 1530
+source: Biweekly Contest 100 Q1
 tags:
     - Greedy
     - Math
 ---
+
+<!-- problem:start -->
 
 # [2591. Distribute Money to Maximum Children](https://leetcode.com/problems/distribute-money-to-maximum-children)
 
 [中文文档](/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>money</code> denoting the amount of money (in dollars) that you have and another integer <code>children</code> denoting the number of children that you must distribute the money to.</p>
 
@@ -56,7 +61,11 @@ It can be proven that no distribution exists such that number of children gettin
 	<li><code>2 &lt;= children &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case analysis
 
@@ -72,6 +81,8 @@ Time complexity $O(1)$, space complexity $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distMoney(self, money: int, children: int) -> int:
@@ -84,6 +95,8 @@ class Solution:
         # money-8x >= children-x, x <= (money-children)/7
         return (money - children) // 7
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distMoney(money int, children int) int {
 	if money < children {
@@ -138,6 +155,8 @@ func distMoney(money int, children int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distMoney(money: number, children: number): number {
     if (money < children) {
@@ -152,6 +171,8 @@ function distMoney(money: number, children: number): number {
     return Math.floor((money - children) / 7);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,4 +196,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

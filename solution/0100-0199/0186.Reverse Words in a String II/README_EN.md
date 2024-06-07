@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [186. Reverse Words in a String II 🔒](https://leetcode.com/problems/reverse-words-in-a-string-ii)
 
 [中文文档](/solution/0100-0199/0186.Reverse%20Words%20in%20a%20String%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a character array <code>s</code>, reverse the order of the <strong>words</strong>.</p>
 
@@ -38,7 +42,11 @@ tags:
 	<li>All the words in <code>s</code> are guaranteed to be separated by a single space.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -47,6 +55,8 @@ We can iterate through the character array $s$, using two pointers $i$ and $j$ t
 The time complexity is $O(n)$, where $n$ is the length of the character array $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +75,8 @@ class Solution:
                 reverse(i, j)
         reverse(0, n - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseWords(s []byte) {
 	reverse := func(i, j int) {
@@ -133,6 +149,8 @@ func reverseWords(s []byte) {
 	reverse(0, n-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -159,4 +177,6 @@ function reverseWords(s: string[]): void {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

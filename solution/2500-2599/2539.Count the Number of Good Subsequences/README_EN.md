@@ -10,11 +10,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2539. Count the Number of Good Subsequences 🔒](https://leetcode.com/problems/count-the-number-of-good-subsequences)
 
 [中文文档](/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>subsequence</strong> of a string is&nbsp;good if it is not empty and the frequency of each one of its characters is the same.</p>
 
@@ -54,11 +58,17 @@ tags:
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 N = 10001
@@ -86,6 +96,8 @@ class Solution:
             ans = (ans + x - 1) % MOD
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 int N = 10001;
@@ -195,6 +209,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 const n = 1e4 + 1
 const mod = 1e9 + 7
@@ -248,4 +264,6 @@ func countGoodSubsequences(s string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

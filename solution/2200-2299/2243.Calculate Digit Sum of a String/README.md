@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2243.Calculate%20Digit%20Sum%20of%20a%20String/README.md
 rating: 1301
+source: 第 289 场周赛 Q1
 tags:
     - 字符串
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [2243. 计算字符串的数字和](https://leetcode.cn/problems/calculate-digit-sum-of-a-string)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由若干数字（<code>0</code> - <code>9</code>）组成的字符串 <code>s</code> ，和一个整数。</p>
 
@@ -64,7 +67,11 @@ s 变为 "0" + "0" + "0" = "000" ，其长度等于 k ，所以返回 "000" 。
 	<li><code>s</code> 仅由数字（<code>0</code> - <code>9</code>）组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -73,6 +80,8 @@ s 变为 "0" + "0" + "0" = "000" ，其长度等于 k ，所以返回 "000" 。
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +97,8 @@ class Solution:
             s = "".join(t)
         return s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func digitSum(s string, k int) string {
 	for len(s) > k {
@@ -148,6 +163,8 @@ func digitSum(s string, k int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function digitSum(s: string, k: number): string {
     let ans = [];
@@ -165,9 +182,15 @@ function digitSum(s: string, k: number): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -183,4 +206,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

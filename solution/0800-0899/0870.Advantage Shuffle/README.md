@@ -9,13 +9,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [870. 优势洗牌](https://leetcode.cn/problems/advantage-shuffle)
 
 [English Version](/solution/0800-0899/0870.Advantage%20Shuffle/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个长度相等的数组&nbsp;<code>nums1</code>&nbsp;和&nbsp;<code>nums2</code>，<code>nums1</code>&nbsp;相对于 <code>nums2</code> 的<em>优势</em>可以用满足&nbsp;<code>nums1[i] &gt; nums2[i]</code>&nbsp;的索引 <code>i</code>&nbsp;的数目来描述。</p>
 
@@ -47,7 +49,11 @@ tags:
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -56,6 +62,8 @@ tags:
 时间复杂度 $O(nlogn)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +82,8 @@ class Solution:
                 i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func advantageCount(nums1 []int, nums2 []int) []int {
@@ -147,6 +161,8 @@ func advantageCount(nums1 []int, nums2 []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function advantageCount(nums1: number[], nums2: number[]): number[] {
     const n = nums1.length;
@@ -169,6 +185,8 @@ function advantageCount(nums1: number[], nums2: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -196,4 +214,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

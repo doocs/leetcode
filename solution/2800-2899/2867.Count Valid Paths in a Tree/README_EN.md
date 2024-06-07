@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README_EN.md
 rating: 2428
+source: Weekly Contest 364 Q4
 tags:
     - Tree
     - Depth-First Search
@@ -11,11 +12,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2867. Count Valid Paths in a Tree](https://leetcode.com/problems/count-valid-paths-in-a-tree)
 
 [中文文档](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an undirected tree with <code>n</code> nodes labeled from <code>1</code> to <code>n</code>. You are given the integer <code>n</code> and a 2D integer array <code>edges</code> of length <code>n - 1</code>, where <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> indicates that there is an edge between nodes <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code> in the tree.</p>
 
@@ -70,7 +75,11 @@ It can be shown that there are only 6 valid paths.
 	<li>The input is generated such that <code>edges</code> represent a valid tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Union-Find + Enumeration
 
@@ -85,6 +94,8 @@ Since $i$ is already a prime number, if $i$ is an endpoint of the path, we only 
 The time complexity is $O(n \times \alpha(n))$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes, and $\alpha$ is the inverse function of the Ackermann function.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -141,6 +152,8 @@ class Solution:
                         t += cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class PrimeTable {
@@ -239,6 +252,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 const int mx = 1e5 + 10;
 bool prime[mx + 1];
@@ -323,6 +338,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const mx int = 1e5 + 10
@@ -409,6 +426,8 @@ func countPaths(n int, edges [][]int) (ans int64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 const mx = 100010;
 const prime = Array(mx).fill(true);
@@ -489,9 +508,15 @@ function countPaths(n: number, edges: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -537,6 +562,8 @@ class Solution:
         dfs(1, 0, con, prime, r)
         return r[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -610,6 +637,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
     long long mul(long long x, long long y) {
@@ -666,4 +695,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

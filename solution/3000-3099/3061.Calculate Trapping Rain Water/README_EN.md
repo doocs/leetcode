@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3061. Calculate Trapping Rain Water 🔒](https://leetcode.com/problems/calculate-trapping-rain-water)
 
 [中文文档](/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <font face="monospace">Heights</font></p>
 
@@ -65,13 +69,19 @@ Heights table:
 The elevation map depicted above (in the black section) is graphically represented with the x-axis denoting the id and the y-axis representing the heights [0,1,0,2,1,0,1,3,2,1,2,1]. In this scenario, 6 units of rainwater are trapped within the blue section.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Window Function + Summation
 
 We use the window function `MAX(height) OVER (ORDER BY id)` to calculate the maximum height for each position and its left side, and use `MAX(height) OVER (ORDER BY id DESC)` to calculate the maximum height for each position and its right side, denoted as `l` and `r` respectively. Then, the amount of water stored at each position is `min(l, r) - height`. Finally, we sum them up.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -87,6 +97,8 @@ SELECT SUM(LEAST(l, r) - height) AS total_trapped_water
 FROM T;
 ```
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -100,4 +112,6 @@ def calculate_trapped_rain_water(heights: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

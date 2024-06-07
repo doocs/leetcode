@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.11.Diving%20Board/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.11. Diving Board](https://leetcode.cn/problems/diving-board-lcci)
 
 [中文文档](/lcci/16.11.Diving%20Board/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are building a diving board by placing a bunch of planks of wood end-to-end. There are two types of planks, one of length <code>shorter</code> and one of length <code>longer</code>. You must use exactly <code>K</code> planks of wood. Write a method to generate all possible lengths for the diving board.</p>
 
@@ -37,7 +41,11 @@ k = 3
 	<li>0 &lt;= k &lt;= 100000</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case Analysis
 
@@ -51,6 +59,8 @@ The time complexity is $O(k)$, where $k$ is the number of boards. Ignoring the s
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def divingBoard(self, shorter: int, longer: int, k: int) -> List[int]:
@@ -63,6 +73,8 @@ class Solution:
             ans.append(longer * i + shorter * (k - i))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -95,6 +109,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func divingBoard(shorter int, longer int, k int) []int {
@@ -112,6 +128,8 @@ func divingBoard(shorter int, longer int, k int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function divingBoard(shorter: number, longer: number, k: number): number[] {
     if (k === 0) {
@@ -127,6 +145,8 @@ function divingBoard(shorter: number, longer: number, k: number): number[] {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -149,4 +169,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

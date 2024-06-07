@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [385. Mini Parser](https://leetcode.com/problems/mini-parser)
 
 [中文文档](/solution/0300-0399/0385.Mini%20Parser/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string s represents the serialization of a nested list, implement a parser to deserialize it and return <em>the deserialized</em> <code>NestedInteger</code>.</p>
 
@@ -50,7 +54,11 @@ tags:
 	<li>All the values in the input are in the range <code>[-10<sup>6</sup>, 10<sup>6</sup>]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -61,6 +69,8 @@ After the traversal is over, return the answer.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -124,6 +134,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 /**
  * // This is the interface that allows for creating nested lists.
@@ -177,6 +189,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -234,6 +248,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is the interface that allows for creating nested lists.
@@ -284,6 +300,8 @@ func deserialize(s string) *NestedInteger {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -350,6 +368,10 @@ function deserialize(s: string): NestedInteger {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Stack
 
 We can use a stack to simulate the recursive process.
@@ -366,6 +388,8 @@ After the traversal is over, return the top `NestedInteger` of the stack.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -434,6 +458,8 @@ class Solution:
         return stk.pop()
 ```
 
+#### Java
+
 ```java
 /**
  * // This is the interface that allows for creating nested lists.
@@ -498,6 +524,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -566,6 +594,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is the interface that allows for creating nested lists.
@@ -630,6 +660,8 @@ func deserialize(s string) *NestedInteger {
 	return stk[0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -703,4 +735,6 @@ function deserialize(s: string): NestedInteger {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

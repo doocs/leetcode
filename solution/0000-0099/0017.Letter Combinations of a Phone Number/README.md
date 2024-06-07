@@ -8,13 +8,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [17. 电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number)
 
 [English Version](/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个仅包含数字&nbsp;<code>2-9</code>&nbsp;的字符串，返回所有它能表示的字母组合。答案可以按 <strong>任意顺序</strong> 返回。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>digits[i]</code> 是范围 <code>['2', '9']</code> 的一个数字。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历
 
@@ -63,6 +69,8 @@ tags:
 时间复杂度 $O(4^n)$。空间复杂度 $O(4^n)$。其中 $n$ 是输入数字的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +84,8 @@ class Solution:
             ans = [a + b for a in ans for b in s]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func letterCombinations(digits string) []string {
 	ans := []string{}
@@ -147,6 +161,8 @@ func letterCombinations(digits string) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function letterCombinations(digits: string): string[] {
     if (digits.length == 0) {
@@ -167,6 +183,8 @@ function letterCombinations(digits: string): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -192,6 +210,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} digits
@@ -216,6 +236,8 @@ var letterCombinations = function (digits) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -243,6 +265,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：DFS
 
 我们可以使用深度优先搜索的方法，枚举所有可能的字母组合。假设当前已经产生了一部分字母组合，但是还有一些数字没有被穷举到，此时我们取出下一个数字所对应的字母，然后依次枚举这个数字所对应的每一个字母，将它们添加到前面已经产生的字母组合后面，形成所有可能的组合。
@@ -250,6 +276,8 @@ public class Solution {
 时间复杂度 $O(4^n)$。空间复杂度 $O(n)$。其中 $n$ 是输入数字的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -271,6 +299,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -303,6 +333,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -330,6 +362,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func letterCombinations(digits string) (ans []string) {
 	d := []string{"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}
@@ -353,6 +387,8 @@ func letterCombinations(digits string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function letterCombinations(digits: string): string[] {
@@ -378,6 +414,8 @@ function letterCombinations(digits: string): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -407,6 +445,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} digits
@@ -435,6 +475,8 @@ var letterCombinations = function (digits) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -466,6 +508,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -513,4 +557,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

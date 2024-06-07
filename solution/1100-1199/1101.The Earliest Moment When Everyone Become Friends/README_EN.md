@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1101.The%20Earliest%20Moment%20When%20Everyone%20Become%20Friends/README_EN.md
 rating: 1558
+source: Biweekly Contest 3 Q3
 tags:
     - Union Find
     - Array
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1101. The Earliest Moment When Everyone Become Friends 🔒](https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends)
 
 [中文文档](/solution/1100-1199/1101.The%20Earliest%20Moment%20When%20Everyone%20Become%20Friends/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are n people in a social group labeled from <code>0</code> to <code>n - 1</code>. You are given an array <code>logs</code> where <code>logs[i] = [timestamp<sub>i</sub>, x<sub>i</sub>, y<sub>i</sub>]</code> indicates that <code>x<sub>i</sub></code> and <code>y<sub>i</sub></code> will be friends at the time <code>timestamp<sub>i</sub></code>.</p>
 
@@ -58,7 +63,11 @@ The sixth event occurs at timestamp = 20190301, and after 0 and 3 become friends
 	<li>All the pairs <code>(x<sub>i</sub>, y<sub>i</sub>)</code> occur at most one time in the input.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Union-Find
 
@@ -69,6 +78,8 @@ If we have traversed all the logs and not everyone is in one friend circle, then
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of logs.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +99,8 @@ class Solution:
                 return t
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func earliestAcq(logs [][]int, n int) int {
@@ -176,6 +193,8 @@ func earliestAcq(logs [][]int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function earliestAcq(logs: number[][], n: number): number {
     const p: number[] = Array(n)
@@ -201,6 +220,8 @@ function earliestAcq(logs: number[][], n: number): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 struct UnionFind {
@@ -263,9 +284,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -303,6 +330,8 @@ class Solution:
                     return t
         return -1
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -356,6 +385,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -406,6 +437,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -460,6 +493,8 @@ func earliestAcq(logs [][]int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class UnionFind {
     private p: number[];
@@ -510,4 +545,6 @@ function earliestAcq(logs: number[][], n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

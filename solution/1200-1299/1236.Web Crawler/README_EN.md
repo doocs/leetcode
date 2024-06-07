@@ -9,11 +9,15 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [1236. Web Crawler 🔒](https://leetcode.com/problems/web-crawler)
 
 [中文文档](/solution/1200-1299/1236.Web%20Crawler/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a url <code>startUrl</code> and an interface <code>HtmlParser</code>, implement a web&nbsp;crawler to crawl all links that are under the&nbsp;<strong>same hostname</strong> as&nbsp;<code>startUrl</code>.&nbsp;</p>
 
@@ -98,11 +102,17 @@ startUrl = &quot;http://news.google.com&quot;
 	<li>You may assume there&#39;re&nbsp;no duplicates in url library.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -135,6 +145,8 @@ class Solution:
         dfs(startUrl)
         return list(ans)
 ```
+
+#### Java
 
 ```java
 /**
@@ -172,6 +184,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -214,6 +228,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is HtmlParser's API interface.
@@ -249,4 +265,6 @@ func crawl(startUrl string, htmlParser HtmlParser) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

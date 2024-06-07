@@ -6,13 +6,15 @@ tags:
     - 多线程
 ---
 
+<!-- problem:start -->
+
 # [1117. H2O 生成](https://leetcode.cn/problems/building-h2o)
 
 [English Version](/solution/1100-1199/1117.Building%20H2O/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现在有两种线程，氧 <code>oxygen</code> 和氢 <code>hydrogen</code>，你的目标是组织这两种线程来产生水分子。</p>
 
@@ -63,11 +65,17 @@ tags:
 	<li>输入字符串&nbsp;<code>water</code>&nbsp;中的 <font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.6px"><span style="background-color:#f9f2f4">'O'</span></span></font></font>&nbsp;总数将会是 <code>n</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from threading import Semaphore
@@ -92,6 +100,8 @@ class H2O:
         self.h.release(2)
 ```
 
+#### Java
+
 ```java
 class H2O {
     private Semaphore h = new Semaphore(2);
@@ -115,6 +125,8 @@ class H2O {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 #include <semaphore.h>
@@ -154,4 +166,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

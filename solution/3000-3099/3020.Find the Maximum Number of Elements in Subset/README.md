@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3020.Find%20the%20Maximum%20Number%20of%20Elements%20in%20Subset/README.md
 rating: 1741
+source: 第 382 场周赛 Q2
 tags:
     - 数组
     - 哈希表
     - 枚举
 ---
+
+<!-- problem:start -->
 
 # [3020. 子集中元素的最大数量](https://leetcode.cn/problems/find-the-maximum-number-of-elements-in-subset)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个<strong> 正整数 </strong>数组 <code>nums</code> 。</p>
 
@@ -54,7 +57,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -65,6 +72,8 @@ tags:
 时间复杂度 $O(n \times \log \log M)$，空间复杂度 $O(n)$。其中 $n$ 和 $M$ 分别是数组 $nums$ 的长度和数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +90,8 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumLength(nums []int) (ans int) {
 	cnt := map[int]int{}
@@ -155,6 +170,8 @@ func maximumLength(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumLength(nums: number[]): number {
     const cnt: Map<number, number> = new Map();
@@ -178,4 +195,6 @@ function maximumLength(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20009.%20%E4%B9%98%E7%A7%AF%E5%B0%8F%E4%BA%8E%20K%20%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 009. 乘积小于 K 的子数组](https://leetcode.cn/problems/ZVAVXX)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个正整数数组&nbsp;<code>nums</code>和整数 <code>k</code>&nbsp;，请找出该数组内乘积小于&nbsp;<code>k</code>&nbsp;的连续的子数组的个数。</p>
 
@@ -42,7 +44,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 713&nbsp;题相同：<a href="https://leetcode.cn/problems/subarray-product-less-than-k/">https://leetcode.cn/problems/subarray-product-less-than-k/</a>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口
 
@@ -51,6 +57,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +73,8 @@ class Solution:
             ans += j - i + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSubarrayProductLessThanK(nums []int, k int) int {
 	s := 1
@@ -116,6 +130,8 @@ func numSubarrayProductLessThanK(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numSubarrayProductLessThanK(nums: number[], k: number): number {
@@ -133,6 +149,33 @@ function numSubarrayProductLessThanK(nums: number[], k: number): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func numSubarrayProductLessThanK(_ nums: [Int], _ k: Int) -> Int {
+        if k <= 1 { return 0 }
+
+        var product: Int = 1
+        var ans: Int = 0
+        var left: Int = 0
+
+        for right in 0..<nums.count {
+            product *= nums[right]
+            while product >= k {
+                product /= nums[left]
+                left += 1
+            }
+            ans += right - left + 1
+        }
+
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

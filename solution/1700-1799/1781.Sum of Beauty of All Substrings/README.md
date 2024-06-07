@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1781.Sum%20of%20Beauty%20of%20All%20Substrings/README.md
 rating: 1714
+source: 第 47 场双周赛 Q3
 tags:
     - 哈希表
     - 字符串
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [1781. 所有子字符串美丽值之和](https://leetcode.cn/problems/sum-of-beauty-of-all-substrings)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个字符串的 <strong>美丽值</strong> 定义为：出现频率最高字符与出现频率最低字符的出现次数之差。</p>
 
@@ -50,7 +53,11 @@ tags:
 	<li><code>s</code> 只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 计数
 
@@ -59,6 +66,8 @@ tags:
 时间复杂度 $O(n^2 \times C)$，空间复杂度 $O(C)$。其中 $n$ 为字符串的长度，而 $C$ 为字符集的大小。本题中 $C = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +80,8 @@ class Solution:
                 ans += max(cnt.values()) - min(cnt.values())
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beautySum(s string) (ans int) {
 	for i := range s {
@@ -146,6 +161,8 @@ func beautySum(s string) (ans int) {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -167,9 +184,15 @@ var beautySum = function (s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -194,6 +217,8 @@ class Solution:
                 ans += mx - mi
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -226,6 +251,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -260,6 +287,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beautySum(s string) (ans int) {
 	n := len(s)
@@ -288,6 +317,8 @@ func beautySum(s string) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -324,4 +355,6 @@ var beautySum = function (s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [700. Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree)
 
 [中文文档](/solution/0700-0799/0700.Search%20in%20a%20Binary%20Search%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>root</code> of a binary search tree (BST) and an integer <code>val</code>.</p>
 
@@ -43,11 +47,17 @@ tags:
 	<li><code>1 &lt;= val &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -66,6 +76,8 @@ class Solution:
             else self.searchBST(root.left, val)
         )
 ```
+
+#### Java
 
 ```java
 /**
@@ -93,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -113,6 +127,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -136,4 +152,6 @@ func searchBST(root *TreeNode, val int) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

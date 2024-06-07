@@ -8,11 +8,15 @@ tags:
     - Data Stream
 ---
 
+<!-- problem:start -->
+
 # [359. Logger Rate Limiter 🔒](https://leetcode.com/problems/logger-rate-limiter)
 
 [中文文档](/solution/0300-0399/0359.Logger%20Rate%20Limiter/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a logger system that receives a stream of messages along with their timestamps. Each <strong>unique</strong> message should only be printed <strong>at most every 10 seconds</strong> (i.e. a message printed at timestamp <code>t</code> will prevent other identical messages from being printed until timestamp <code>t + 10</code>).</p>
 
@@ -55,11 +59,17 @@ logger.shouldPrintMessage(11, &quot;foo&quot;); // 11 &gt;= 11, return true, nex
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>shouldPrintMessage</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Logger:
@@ -86,6 +96,8 @@ class Logger:
 # obj = Logger()
 # param_1 = obj.shouldPrintMessage(timestamp,message)
 ```
+
+#### Java
 
 ```java
 class Logger {
@@ -118,6 +130,8 @@ class Logger {
  * boolean param_1 = obj.shouldPrintMessage(timestamp,message);
  */
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -153,4 +167,6 @@ Logger.prototype.shouldPrintMessage = function (timestamp, message) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

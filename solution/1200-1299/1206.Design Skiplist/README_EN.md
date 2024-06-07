@@ -7,11 +7,15 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [1206. Design Skiplist](https://leetcode.com/problems/design-skiplist)
 
 [中文文档](/solution/1200-1299/1206.Design%20Skiplist/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a <strong>Skiplist</strong> without using any built-in libraries.</p>
 
@@ -67,11 +71,17 @@ skiplist.search(1); // return False, 1 has already been erased.</pre>
 	<li>At most <code>5 * 10<sup>4</sup></code> calls will be made to <code>search</code>, <code>add</code>, and <code>erase</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -139,6 +149,8 @@ class Skiplist:
 # obj.add(num)
 # param_3 = obj.erase(num)
 ```
+
+#### Java
 
 ```java
 class Skiplist {
@@ -227,6 +239,8 @@ class Skiplist {
  */
 ```
 
+#### C++
+
 ```cpp
 struct Node {
     int val;
@@ -305,6 +319,8 @@ public:
  * bool param_3 = obj->erase(num);
  */
 ```
+
+#### Go
 
 ```go
 func init() { rand.Seed(time.Now().UnixNano()) }
@@ -407,4 +423,6 @@ func randomLevel() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

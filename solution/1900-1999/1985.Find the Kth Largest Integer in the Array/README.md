@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1985.Find%20the%20Kth%20Largest%20Integer%20in%20the%20Array/README.md
 rating: 1414
+source: 第 256 场周赛 Q2
 tags:
     - 数组
     - 字符串
@@ -12,13 +13,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1985. 找出数组中的第 K 大整数](https://leetcode.cn/problems/find-the-kth-largest-integer-in-the-array)
 
 [English Version](/solution/1900-1999/1985.Find%20the%20Kth%20Largest%20Integer%20in%20the%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>nums</code> 和一个整数 <code>k</code> 。<code>nums</code> 中的每个字符串都表示一个不含前导零的整数。</p>
 
@@ -69,11 +72,17 @@ nums 中的数字按非递减顺序排列为 ["0","0"]
 	<li><code>nums[i]</code> 不含任何前导零</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：自定义排序
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +96,8 @@ class Solution:
         return nums[k - 1]
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String kthLargestNumber(String[] nums, int k) {
@@ -96,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kthLargestNumber(nums []string, k int) string {
@@ -123,4 +138,6 @@ func kthLargestNumber(nums []string, k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

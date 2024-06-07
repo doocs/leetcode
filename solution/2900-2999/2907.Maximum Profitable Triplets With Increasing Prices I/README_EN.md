@@ -8,11 +8,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2907. Maximum Profitable Triplets With Increasing Prices I 🔒](https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-i)
 
 [中文文档](/solution/2900-2999/2907.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <strong>0-indexed</strong> arrays <code>prices</code> and <code>profits</code> of length <code>n</code>. There are <code>n</code> items in an store where the <code>i<sup>th</sup></code> item has a price of <code>prices[i]</code> and a profit of <code>profits[i]</code>.</p>
 
@@ -62,7 +66,11 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 	<li><code>1 &lt;= profits[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumerate the Middle Element
 
@@ -71,6 +79,8 @@ We can enumerate the middle element $profits[j]$, and then enumerate the left el
 The time complexity is $O(n^2)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +99,8 @@ class Solution:
                 ans = max(ans, left + x + right)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int, profits []int) int {
 	n := len(prices)
@@ -167,6 +183,8 @@ func maxProfit(prices []int, profits []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(prices: number[], profits: number[]): number {
     const n = prices.length;
@@ -190,6 +208,8 @@ function maxProfit(prices: number[], profits: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -225,6 +245,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary Indexed Tree
 
 We can use two Binary Indexed Trees (BITs) to maintain the maximum profit on the left and right of each price, respectively. Then, we enumerate the middle price, query the maximum profit on both sides through the BIT, and finally take the maximum value.
@@ -234,6 +258,8 @@ The time complexity is $O(n \times \log M)$, and the space complexity is $O(M)$.
 Since the length of $prices$ does not exceed $2000$, and the value of $prices[i]$ reaches $10^6$, we can discretize $prices$, which can reduce the space complexity to $O(n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -276,6 +302,8 @@ class Solution:
             (l + x + r for l, x, r in zip(left, profits, right) if l and r), default=-1
         )
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -336,6 +364,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -394,6 +424,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -454,6 +486,8 @@ func maxProfit(prices []int, profits []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class BinaryIndexedTree {
     private n: number;
@@ -513,6 +547,8 @@ function maxProfit(prices: number[], profits: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 struct BinaryIndexedTree {
@@ -583,9 +619,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -630,6 +672,8 @@ class Solution:
             (l + x + r for l, x, r in zip(left, profits, right) if l and r), default=-1
         )
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -707,6 +751,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -768,6 +814,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -837,6 +885,8 @@ func maxProfit(prices []int, profits []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -921,4 +971,6 @@ function maxProfit(prices: number[], profits: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

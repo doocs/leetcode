@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1569.Number%20of%20Ways%20to%20Reorder%20Array%20to%20Get%20Same%20BST/README_EN.md
 rating: 2288
+source: Weekly Contest 204 Q4
 tags:
     - Tree
     - Union Find
@@ -16,11 +17,15 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [1569. Number of Ways to Reorder Array to Get Same BST](https://leetcode.com/problems/number-of-ways-to-reorder-array-to-get-same-bst)
 
 [中文文档](/solution/1500-1599/1569.Number%20of%20Ways%20to%20Reorder%20Array%20to%20Get%20Same%20BST/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>nums</code> that represents a permutation of integers from <code>1</code> to <code>n</code>. We are going to construct a binary search tree (BST) by inserting the elements of <code>nums</code> in order into an initially empty BST. Find the number of different ways to reorder <code>nums</code> so that the constructed BST is identical to that formed from the original array <code>nums</code>.</p>
 
@@ -71,7 +76,11 @@ tags:
 	<li>All integers in <code>nums</code> are <strong>distinct</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Combination Counting + Recursion
 
@@ -92,6 +101,8 @@ Note the modulo operation of the answer, because the value of $dfs(nums)$ may be
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -115,6 +126,8 @@ class Solution:
                 c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod
         return (dfs(nums) - 1 + mod) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +171,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -194,6 +209,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfWays(nums []int) int {
 	n := len(nums)
@@ -229,6 +246,8 @@ func numOfWays(nums []int) int {
 	return (dfs(nums) - 1 + mod) % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numOfWays(nums: number[]): number {
@@ -267,4 +286,6 @@ function numOfWays(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

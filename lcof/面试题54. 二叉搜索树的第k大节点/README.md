@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9854.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E7%AC%ACk%E5%A4%A7%E8%8A%82%E7%82%B9/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 54. 二叉搜索树的第 k 大节点](https://leetcode.cn/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>给定一棵二叉搜索树，请找出其中第 <code>k</code> 大的节点的值。</p>
 
@@ -44,7 +48,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 	<li>1 ≤ k ≤ 二叉搜索树元素个数</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：反序中序遍历
 
@@ -55,6 +63,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉搜索树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -81,6 +91,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -115,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -145,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -171,6 +187,8 @@ func kthLargest(root *TreeNode, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -204,6 +222,8 @@ function kthLargest(root: TreeNode | null, k: number): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -244,6 +264,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -273,6 +295,8 @@ var kthLargest = function (root, k) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -307,45 +331,46 @@ public class Solution {
 }
 ```
 
-<!-- tabs:end -->
+#### Swift
 
-### 方法二
+```swift
+/* public class TreeNode {
+*     public var val: Int
+*     public var left: TreeNode?
+*     public var right: TreeNode?
+*     public init(_ val: Int) {
+*         self.val = val
+*         self.left = nil
+*         self.right = nil
+*     }
+* }
+*/
 
-<!-- tabs:start -->
+class Solution {
+    private var k: Int = 0
+    private var ans: Int = 0
 
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func kthLargest(root *TreeNode, k int) int {
-	ch := make(chan int)
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	go inorder(ctx, root, ch)
-	for ; k > 1; k-- {
-		<-ch
-	}
-	return <-ch
-}
+    func kthLargest(_ root: TreeNode?, _ k: Int) -> Int {
+        self.k = k
+        dfs(root)
+        return ans
+    }
 
-func inorder(ctx context.Context, cur *TreeNode, ch chan<- int) {
-	if cur != nil {
-		inorder(ctx, cur.Right, ch)
-		select {
-		case ch <- cur.Val:
-		case <-ctx.Done():
-			return
-		}
-		inorder(ctx, cur.Left, ch)
-	}
+    private func dfs(_ root: TreeNode?) {
+        guard let root = root, k > 0 else { return }
+        dfs(root.right)
+        k -= 1
+        if k == 0 {
+            ans = root.val
+            return
+        }
+        dfs(root.left)
+    }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

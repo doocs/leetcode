@@ -8,11 +8,15 @@ tags:
     - Queue
 ---
 
+<!-- problem:start -->
+
 # [232. Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks)
 
 [中文文档](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (<code>push</code>, <code>peek</code>, <code>pop</code>, and <code>empty</code>).</p>
 
@@ -63,7 +67,11 @@ myQueue.empty(); // return false
 <p>&nbsp;</p>
 <p><strong>Follow-up:</strong> Can you implement the queue such that each operation is <strong><a href="https://en.wikipedia.org/wiki/Amortized_analysis" target="_blank">amortized</a></strong> <code>O(1)</code> time complexity? In other words, performing <code>n</code> operations will take overall <code>O(n)</code> time even if one of those operations may take longer.</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Double Stack
 
@@ -78,6 +86,8 @@ When getting the front element, we first check whether `stk2` is empty. If it is
 When checking whether the queue is empty, we only need to check whether both stacks are empty. The time complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyQueue:
@@ -112,6 +122,8 @@ class MyQueue:
 # param_3 = obj.peek()
 # param_4 = obj.empty()
 ```
+
+#### Java
 
 ```java
 class MyQueue {
@@ -157,6 +169,8 @@ class MyQueue {
  * boolean param_4 = obj.empty();
  */
 ```
+
+#### C++
 
 ```cpp
 class MyQueue {
@@ -208,6 +222,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MyQueue struct {
 	stk1 []int
@@ -257,6 +273,8 @@ func (this *MyQueue) move() {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MyQueue {
     stk1: number[];
@@ -303,6 +321,8 @@ class MyQueue {
  * var param_4 = obj.empty()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -357,4 +377,6 @@ impl MyQueue {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

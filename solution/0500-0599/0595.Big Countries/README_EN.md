@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [595. Big Countries](https://leetcode.com/problems/big-countries)
 
 [中文文档](/solution/0500-0599/0595.Big%20Countries/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>World</code></p>
 
@@ -67,11 +71,17 @@ World table:
 +-------------+------------+---------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -82,9 +92,15 @@ WHERE area >= 3000000 OR population >= 25000000;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -99,4 +115,6 @@ WHERE population >= 25000000;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

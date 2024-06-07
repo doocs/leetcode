@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2369.Check%20if%20There%20is%20a%20Valid%20Partition%20For%20The%20Array/README_EN.md
 rating: 1779
+source: Weekly Contest 305 Q3
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [2369. Check if There is a Valid Partition For The Array](https://leetcode.com/problems/check-if-there-is-a-valid-partition-for-the-array)
 
 [中文文档](/solution/2300-2399/2369.Check%20if%20There%20is%20a%20Valid%20Partition%20For%20The%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. You have to partition the array into one or more <strong>contiguous</strong> subarrays.</p>
 
@@ -52,7 +57,11 @@ This partition is valid, so we return true.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -84,6 +93,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validPartition(self, nums: List[int]) -> bool:
@@ -103,6 +114,8 @@ class Solution:
         n = len(nums)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -163,6 +178,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func validPartition(nums []int) bool {
 	n := len(nums)
@@ -191,6 +208,8 @@ func validPartition(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function validPartition(nums: number[]): boolean {
     const n = nums.length;
@@ -214,6 +233,10 @@ function validPartition(nums: number[]): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can convert the memoization search in Solution 1 into dynamic programming.
@@ -236,6 +259,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validPartition(self, nums: List[int]) -> bool:
@@ -248,6 +273,8 @@ class Solution:
             f[i] = (a and f[i - 2]) or ((b or c) and f[i - 3])
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -267,6 +294,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -285,6 +314,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validPartition(nums []int) bool {
 	n := len(nums)
@@ -300,6 +331,8 @@ func validPartition(nums []int) bool {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validPartition(nums: number[]): boolean {
@@ -318,4 +351,6 @@ function validPartition(nums: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

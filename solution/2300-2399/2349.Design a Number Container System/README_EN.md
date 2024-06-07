@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README_EN.md
 rating: 1540
+source: Biweekly Contest 83 Q3
 tags:
     - Design
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2349. Design a Number Container System](https://leetcode.com/problems/design-a-number-container-system)
 
 [中文文档](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a number container system that can do the following:</p>
 
@@ -61,11 +66,17 @@ nc.find(10); // Number 10 is at the indices 2, 3, and 5. The smallest index that
 	<li>At most <code>10<sup>5</sup></code> calls will be made <strong>in total</strong> to <code>change</code> and <code>find</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedSet
@@ -93,6 +104,8 @@ class NumberContainers:
 # obj.change(index,number)
 # param_2 = obj.find(number)
 ```
+
+#### Java
 
 ```java
 class NumberContainers {
@@ -127,6 +140,8 @@ class NumberContainers {
  */
 ```
 
+#### C++
+
 ```cpp
 class NumberContainers {
 public:
@@ -159,6 +174,8 @@ public:
  * int param_2 = obj->find(number);
  */
 ```
+
+#### Go
 
 ```go
 type NumberContainers struct {
@@ -199,4 +216,6 @@ func (this *NumberContainers) Find(number int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

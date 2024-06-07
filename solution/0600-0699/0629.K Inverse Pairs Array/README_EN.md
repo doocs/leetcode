@@ -6,11 +6,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [629. K Inverse Pairs Array](https://leetcode.com/problems/k-inverse-pairs-array)
 
 [中文文档](/solution/0600-0699/0629.K%20Inverse%20Pairs%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>For an integer array <code>nums</code>, an <strong>inverse pair</strong> is a pair of integers <code>[i, j]</code> where <code>0 &lt;= i &lt; j &lt; nums.length</code> and <code>nums[i] &gt; nums[j]</code>.</p>
 
@@ -41,11 +45,17 @@ tags:
 	<li><code>0 &lt;= k &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +70,8 @@ class Solution:
                 s[j] = (s[j - 1] + f[j - 1]) % mod
         return f[k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kInversePairs(n int, k int) int {
 	f := make([]int, k+1)
@@ -127,6 +143,8 @@ func kInversePairs(n int, k int) int {
 	return f[k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function kInversePairs(n: number, k: number): number {
@@ -149,4 +167,6 @@ function kInversePairs(n: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

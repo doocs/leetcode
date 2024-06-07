@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1626.Best%20Team%20With%20No%20Conflicts/README.md
 rating: 2027
+source: 第 211 场周赛 Q3
 tags:
     - 数组
     - 动态规划
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [1626. 无矛盾的最佳球队](https://leetcode.cn/problems/best-team-with-no-conflicts)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假设你是球队的经理。对于即将到来的锦标赛，你想组合一支总体得分最高的球队。球队的得分是球队中所有球员的分数 <strong>总和</strong> 。</p>
 
@@ -56,7 +59,11 @@ tags:
 	<li><code>1 &lt;= ages[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 动态规划
 
@@ -74,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def bestTeamScore(self, scores: List[int], ages: List[int]) -> int:
@@ -87,6 +96,8 @@ class Solution:
             f[i] += score
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func bestTeamScore(scores []int, ages []int) int {
@@ -161,6 +176,8 @@ func bestTeamScore(scores []int, ages []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function bestTeamScore(scores: number[], ages: number[]): number {
     const arr = ages.map((age, i) => [age, scores[i]]);
@@ -178,6 +195,8 @@ function bestTeamScore(scores: number[], ages: number[]): number {
     return Math.max(...f);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -204,6 +223,10 @@ var bestTeamScore = function (scores, ages) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序 + 树状数组
 
 与方法一类似，我们可以将球员按照分数从小到大排序，如果分数相同，则按照年龄从小到大排序。
@@ -215,6 +238,8 @@ var bestTeamScore = function (scores, ages) {
 时间复杂度 $O(n \times (\log n + \log m))$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为球员的数量和球员的年龄的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -243,6 +268,8 @@ class Solution:
             tree.update(age, score + tree.query(age))
         return tree.query(m)
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -292,6 +319,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -338,6 +367,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -388,4 +419,6 @@ func bestTeamScore(scores []int, ages []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

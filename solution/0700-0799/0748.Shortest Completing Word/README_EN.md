@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [748. Shortest Completing Word](https://leetcode.com/problems/shortest-completing-word)
 
 [中文文档](/solution/0700-0799/0748.Shortest%20Completing%20Word/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>licensePlate</code> and an array of strings <code>words</code>, find the <strong>shortest completing</strong> word in <code>words</code>.</p>
 
@@ -55,7 +59,11 @@ Since &quot;steps&quot; is the only word containing all the letters, that is the
 	<li><code>words[i]</code> consists of lower case English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -66,6 +74,8 @@ Then, we traverse each word $w$ in the array `words`. If the length of the word 
 The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the array `words`, and $\Sigma$ is the character set. In this case, the character set is all lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +90,8 @@ class Solution:
                 ans = w
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestCompletingWord(licensePlate string, words []string) (ans string) {
 	cnt := [26]int{}
@@ -181,6 +197,8 @@ func shortestCompletingWord(licensePlate string, words []string) (ans string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function shortestCompletingWord(licensePlate: string, words: string[]): string {
@@ -214,6 +232,8 @@ function shortestCompletingWord(licensePlate: string, words: string[]): string {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -251,4 +271,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

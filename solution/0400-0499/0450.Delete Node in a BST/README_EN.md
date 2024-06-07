@@ -8,11 +8,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [450. Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst)
 
 [中文文档](/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return <em>the <strong>root node reference</strong> (possibly updated) of the BST</em>.</p>
 
@@ -64,11 +68,17 @@ Please notice that another valid answer is [5,2,6,null,4,null,7] and it&#39;s al
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it with time complexity <code>O(height of tree)</code>?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -98,6 +108,8 @@ class Solution:
         root = root.right
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -145,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -179,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -216,6 +232,8 @@ func deleteNode(root *TreeNode, key int) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -264,6 +282,8 @@ function deleteNode(root: TreeNode | null, key: number): TreeNode | null {
     return root;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -341,4 +361,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

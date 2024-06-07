@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [746. 使用最小花费爬楼梯](https://leetcode.cn/problems/min-cost-climbing-stairs)
 
 [English Version](/solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>cost</code> ，其中 <code>cost[i]</code> 是从楼梯第 <code>i</code> 个台阶向上爬需要支付的费用。一旦你支付此费用，即可选择向上爬一个或者两个台阶。</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li><code>0 &lt;= cost[i] &lt;= 999</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -77,6 +83,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
@@ -86,6 +94,8 @@ class Solution:
             f[i] = min(f[i - 2] + cost[i - 2], f[i - 1] + cost[i - 1])
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCostClimbingStairs(cost []int) int {
 	n := len(cost)
@@ -125,6 +139,8 @@ func minCostClimbingStairs(cost []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCostClimbingStairs(cost: number[]): number {
     const n = cost.length;
@@ -135,6 +151,8 @@ function minCostClimbingStairs(cost: number[]): number {
     return f[n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -151,9 +169,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -163,6 +187,8 @@ class Solution:
             f, g = g, min(f + cost[i - 2], g + cost[i - 1])
         return g
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -177,6 +203,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -193,6 +221,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCostClimbingStairs(cost []int) int {
 	var f, g int
@@ -202,6 +232,8 @@ func minCostClimbingStairs(cost []int) int {
 	return g
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCostClimbingStairs(cost: number[]): number {
@@ -213,6 +245,8 @@ function minCostClimbingStairs(cost: number[]): number {
     return b;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -230,4 +264,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

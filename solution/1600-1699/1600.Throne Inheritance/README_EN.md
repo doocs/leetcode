@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1600.Throne%20Inheritance/README_EN.md
 rating: 1768
+source: Weekly Contest 208 Q3
 tags:
     - Tree
     - Depth-First Search
@@ -10,11 +11,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1600. Throne Inheritance](https://leetcode.com/problems/throne-inheritance)
 
 [中文文档](/solution/1600-1699/1600.Throne%20Inheritance/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A kingdom consists of a king, his children, his grandchildren, and so on. Every once in a while, someone in the family dies or a child is born.</p>
 
@@ -85,7 +90,11 @@ t.getInheritanceOrder(); // return [&quot;king&quot;, &quot;andy&quot;, &quot;ma
 	<li>At most <code>10</code> calls will be made to <code>getInheritanceOrder</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preorder Traversal of a Multi-branch Tree
 
@@ -98,6 +107,8 @@ According to the problem description, we can find that the order of throne inher
 In terms of time complexity, both `birth` and `death` have a time complexity of $O(1)$, and `getInheritanceOrder` has a time complexity of $O(n)$. The space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class ThroneInheritance:
@@ -130,6 +141,8 @@ class ThroneInheritance:
 # obj.death(name)
 # param_3 = obj.getInheritanceOrder()
 ```
+
+#### Java
 
 ```java
 class ThroneInheritance {
@@ -174,6 +187,8 @@ class ThroneInheritance {
  * List<String> param_3 = obj.getInheritanceOrder();
  */
 ```
+
+#### C++
 
 ```cpp
 class ThroneInheritance {
@@ -220,6 +235,8 @@ private:
  * vector<string> param_3 = obj->getInheritanceOrder();
  */
 ```
+
+#### Go
 
 ```go
 type ThroneInheritance struct {
@@ -268,6 +285,8 @@ func (this *ThroneInheritance) GetInheritanceOrder() (ans []string) {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class ThroneInheritance {
     private king: string;
@@ -310,6 +329,8 @@ class ThroneInheritance {
  * var param_3 = obj.getInheritanceOrder()
  */
 ```
+
+#### C#
 
 ```cs
 public class ThroneInheritance {
@@ -362,4 +383,6 @@ public class ThroneInheritance {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

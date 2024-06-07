@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README.md
 rating: 1376
+source: 第 130 场周赛 Q1
 tags:
     - 位运算
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [1018. 可被 5 整除的二进制前缀](https://leetcode.cn/problems/binary-prefix-divisible-by-5)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二进制数组 <code>nums</code> (&nbsp;<strong>索引从0开始&nbsp;</strong>)。</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>nums[i]</code>&nbsp;仅为&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -62,6 +69,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +82,8 @@ class Solution:
             ans.append(x == 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func prefixesDivBy5(nums []int) (ans []bool) {
 	x := 0
@@ -113,6 +128,8 @@ func prefixesDivBy5(nums []int) (ans []bool) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function prefixesDivBy5(nums: number[]): boolean[] {
@@ -128,4 +145,6 @@ function prefixesDivBy5(nums: number[]): boolean[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

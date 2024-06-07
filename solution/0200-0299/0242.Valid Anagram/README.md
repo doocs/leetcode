@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [242. 有效的字母异位词](https://leetcode.cn/problems/valid-anagram)
 
 [English Version](/solution/0200-0299/0242.Valid%20Anagram/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串 <code><em>s</em></code> 和 <code><em>t</em></code> ，编写一个函数来判断 <code><em>t</em></code> 是否是 <code><em>s</em></code> 的字母异位词。</p>
 
@@ -48,7 +50,11 @@ tags:
 
 <p><strong>进阶: </strong>如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -59,6 +65,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(C)$，其中 $n$ 是字符串的长度；而 $C$ 是字符集的大小，本题中 $C=26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +80,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isAnagram(s string, t string) bool {
@@ -130,6 +144,8 @@ func isAnagram(s string, t string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isAnagram(s: string, t: string): boolean {
     if (s.length !== t.length) {
@@ -143,6 +159,8 @@ function isAnagram(s: string, t: string): boolean {
     return cnt.every(x => x === 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -166,6 +184,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -185,6 +205,8 @@ var isAnagram = function (s, t) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsAnagram(string s, string t) {
@@ -200,6 +222,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -220,15 +244,23 @@ bool isAnagram(char* s, char* t) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         return Counter(s) == Counter(t)
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -248,6 +280,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool isAnagram(char* s, char* t) {
@@ -272,4 +306,6 @@ bool isAnagram(char* s, char* t) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

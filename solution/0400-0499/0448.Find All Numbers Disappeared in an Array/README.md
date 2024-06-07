@@ -7,13 +7,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [448. 找到所有数组中消失的数字](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array)
 
 [English Version](/solution/0400-0499/0448.Find%20All%20Numbers%20Disappeared%20in%20an%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个含 <code>n</code> 个整数的数组 <code>nums</code> ，其中 <code>nums[i]</code> 在区间 <code>[1, n]</code> 内。请你找出所有在 <code>[1, n]</code> 范围内但没有出现在 <code>nums</code> 中的数字，并以数组的形式返回结果。</p>
 
@@ -45,7 +47,11 @@ tags:
 
 <p><strong>进阶：</strong>你能在不使用额外空间且时间复杂度为<em> </em><code>O(n)</code><em> </em>的情况下解决这个问题吗? 你可以假定返回的数组不算在额外空间内。</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表
 
@@ -55,12 +61,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
         s = set(nums)
         return [x for x in range(1, len(nums) + 1) if x not in s]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDisappearedNumbers(nums []int) (ans []int) {
 	n := len(nums)
@@ -117,6 +131,8 @@ func findDisappearedNumbers(nums []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findDisappearedNumbers(nums: number[]): number[] {
@@ -137,6 +153,10 @@ function findDisappearedNumbers(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：原地修改
 
 我们可以遍历数组 $nums$，将 $|nums[i]|-1$ 位置的数字标记为负数，表示数组 $nums[i]$ 出现过。最后遍历数组 $nums$，若 $nums[i]$ 为正数，则说明数组中缺失 $i+1$，将其添加到结果列表中。
@@ -147,6 +167,8 @@ function findDisappearedNumbers(nums: number[]): number[] {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
@@ -156,6 +178,8 @@ class Solution:
                 nums[i] *= -1
         return [i + 1 for i in range(len(nums)) if nums[i] > 0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -178,6 +202,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -199,6 +225,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findDisappearedNumbers(nums []int) (ans []int) {
@@ -225,6 +253,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findDisappearedNumbers(nums: number[]): number[] {
     const n = nums.length;
@@ -246,4 +276,6 @@ function findDisappearedNumbers(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

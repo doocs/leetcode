@@ -2,7 +2,16 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README.md
+rating: 2641
+source: 第 397 场周赛 Q4
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 状态压缩
 ---
+
+<!-- problem:start -->
 
 # [3149. 找出分数最低的排列](https://leetcode.cn/problems/find-the-minimum-cost-array-permutation)
 
@@ -10,7 +19,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3149.Fi
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组 <code>nums</code> ，它是 <code>[0, 1, 2, ..., n - 1]</code> 的一个<span data-keyword="permutation">排列</span> 。对于任意一个 <code>[0, 1, 2, ..., n - 1]</code> 的排列 <code>perm</code> ，其 <strong>分数 </strong>定义为：</p>
 
@@ -57,7 +66,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3149.Fi
 	<li><code>nums</code> 是 <code>[0, 1, 2, ..., n - 1]</code> 的一个排列。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -77,6 +90,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3149.Fi
 时间复杂度 $(n^2 \times 2^n)$，空间复杂度 $O(n \times 2^n)$。其中 $n$ 为数组 $\text{nums}$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -107,6 +122,8 @@ class Solution:
         g(1, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +175,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -202,6 +221,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findPermutation(nums []int) (ans []int) {
@@ -258,6 +279,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findPermutation(nums: number[]): number[] {
     const n = nums.length;
@@ -300,4 +323,6 @@ function findPermutation(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

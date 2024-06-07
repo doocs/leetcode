@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1795. 每个产品在不同商店的价格](https://leetcode.cn/problems/rearrange-products-table)
 
 [English Version](/solution/1700-1799/1795.Rearrange%20Products%20Table/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Products</code></p>
 
@@ -65,13 +67,19 @@ Products table:
 产品 0 在 store1、store2、store3 的价格分别为 95、100、105。
 产品 1 在 store1、store3 的价格分别为 70、80。在 store2 无法买到。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：合并
 
 我们可以筛选出每个商店的产品和价格，然后使用 `UNION` 合并即可。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -84,4 +92,6 @@ SELECT product_id, 'store3' AS store, store3 AS price FROM Products WHERE store3
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

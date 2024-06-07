@@ -8,11 +8,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [383. Ransom Note](https://leetcode.com/problems/ransom-note)
 
 [中文文档](/solution/0300-0399/0383.Ransom%20Note/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>ransomNote</code> and <code>magazine</code>, return <code>true</code><em> if </em><code>ransomNote</code><em> can be constructed by using the letters from </em><code>magazine</code><em> and </em><code>false</code><em> otherwise</em>.</p>
 
@@ -37,7 +41,11 @@ tags:
 	<li><code>ransomNote</code> and <code>magazine</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -49,6 +57,8 @@ The time complexity is $O(m + n)$, and the space complexity is $O(C)$. Where $m$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
@@ -59,6 +69,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +88,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canConstruct(ransomNote string, magazine string) bool {
 	cnt := [26]int{}
@@ -111,6 +127,8 @@ func canConstruct(ransomNote string, magazine string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canConstruct(ransomNote: string, magazine: string): boolean {
     const cnt: number[] = Array(26).fill(0);
@@ -125,6 +143,8 @@ function canConstruct(ransomNote: string, magazine: string): boolean {
     return true;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -142,6 +162,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -169,4 +191,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

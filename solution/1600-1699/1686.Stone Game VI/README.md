@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1686.Stone%20Game%20VI/README.md
 rating: 2000
+source: 第 41 场双周赛 Q3
 tags:
     - 贪心
     - 数组
@@ -12,13 +13,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1686. 石子游戏 VI](https://leetcode.cn/problems/stone-game-vi)
 
 [English Version](/solution/1600-1699/1686.Stone%20Game%20VI/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 轮流玩一个游戏，Alice 先手。</p>
 
@@ -80,7 +83,11 @@ Bob 会获胜。
 	<li><code>1 <= aliceValues[i], bobValues[i] <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -91,6 +98,8 @@ Bob 会获胜。
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$，其中 $n$ 为数组 `aliceValues` 和 `bobValues` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +114,8 @@ class Solution:
             return -1
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -159,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGameVI(aliceValues []int, bobValues []int) int {
 	vals := make([][2]int, len(aliceValues))
@@ -184,6 +199,8 @@ func stoneGameVI(aliceValues []int, bobValues []int) int {
 	return 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stoneGameVI(aliceValues: number[], bobValues: number[]): number {
@@ -211,4 +228,6 @@ function stoneGameVI(aliceValues: number[], bobValues: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

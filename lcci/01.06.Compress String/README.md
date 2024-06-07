@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.06.Compress%20String/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 01.06. 字符串压缩](https://leetcode.cn/problems/compress-string-lcci)
 
 [English Version](/lcci/01.06.Compress%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>字符串压缩。利用字符重复出现的次数，编写一种方法，实现基本的字符串压缩功能。比如，字符串<code>aabcccccaaa</code>会变为<code>a2b1c5a3</code>。若“压缩”后的字符串没有变短，则返回原先的字符串。你可以假设字符串中只包含大小写英文字母（a至z）。</p>
 
 <p> <strong>示例1:</strong></p>
@@ -34,7 +37,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.06.Compress%20Stri
 <li>字符串长度在[0, 50000]范围内。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -46,12 +53,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.06.Compress%20Stri
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def compressString(self, S: str) -> str:
         t = "".join(a + str(len(list(b))) for a, b in groupby(S))
         return min(S, t, key=len)
 ```
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +77,8 @@ class Solution:
             i = j
         return min(S, "".join(t), key=len)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func compressString(S string) string {
 	n := len(S)
@@ -125,6 +142,8 @@ func compressString(S string) string {
 	return S
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -153,6 +172,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} S
@@ -172,6 +193,8 @@ var compressString = function (S) {
     return t.length < n ? t.join('') : S;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -197,4 +220,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

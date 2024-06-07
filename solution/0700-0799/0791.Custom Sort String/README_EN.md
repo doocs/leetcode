@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [791. Custom Sort String](https://leetcode.com/problems/custom-sort-string)
 
 [中文文档](/solution/0700-0799/0791.Custom%20Sort%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>order</code> and <code>s</code>. All the characters of <code>order</code> are <strong>unique</strong> and were sorted in some custom order previously.</p>
 
@@ -55,11 +59,17 @@ tags:
 	<li>All the characters of <code>order</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +77,8 @@ class Solution:
         d = {c: i for i, c in enumerate(order)}
         return ''.join(sorted(s, key=lambda x: d.get(x, 0)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -96,6 +110,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func customSortString(order string, s string) string {
@@ -109,6 +125,8 @@ func customSortString(order string, s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function customSortString(order: string, s: string): string {
     const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
@@ -120,6 +138,8 @@ function customSortString(order: string, s: string): string {
     return [...s].sort((a, b) => d[toIndex(a)] - d[toIndex(b)]).join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -140,9 +160,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -156,6 +182,8 @@ class Solution:
             ans.append(c * v)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -181,6 +209,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -196,6 +226,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func customSortString(order string, s string) string {
@@ -219,6 +251,8 @@ func customSortString(order string, s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function customSortString(order: string, s: string): string {
     const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
@@ -239,6 +273,8 @@ function customSortString(order: string, s: string): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -266,4 +302,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.06.Convert%20Integer/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 05.06. 整数转换](https://leetcode.cn/problems/convert-integer-lcci)
 
 [English Version](/lcci/05.06.Convert%20Integer/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>整数转换。编写一个函数，确定需要改变几个位才能将整数A转成整数B。</p>
 
 <p> <strong>示例1:</strong></p>
@@ -33,7 +36,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.06.Convert%20Integ
 <li>A，B范围在[-2147483648, 2147483647]之间</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -43,6 +50,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.06.Convert%20Integ
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def convertInteger(self, A: int, B: int) -> int:
@@ -51,6 +60,8 @@ class Solution:
         return (A ^ B).bit_count()
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int convertInteger(int A, int B) {
@@ -58,6 +69,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -69,11 +82,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func convertInteger(A int, B int) int {
 	return bits.OnesCount32(uint32(A ^ B))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function convertInteger(A: number, B: number): number {
@@ -89,6 +106,8 @@ function convertInteger(A: number, B: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn convert_integer(a: i32, b: i32) -> i32 {
@@ -96,6 +115,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -107,4 +128,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

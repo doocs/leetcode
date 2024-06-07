@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README.md
 rating: 2262
+source: 第 386 场周赛 Q3
 tags:
     - 数组
     - 二分查找
 ---
+
+<!-- problem:start -->
 
 # [3048. 标记所有下标的最早秒数 I](https://leetcode.cn/problems/earliest-second-to-mark-indices-i)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>1</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code> 和&nbsp;<code>changeIndices</code>&nbsp;，数组的长度分别为&nbsp;<code>n</code> 和&nbsp;<code>m</code>&nbsp;。</p>
 
@@ -88,7 +91,11 @@ tags:
 	<li><code>1 &lt;= changeIndices[i] &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -103,6 +110,8 @@ tags:
 时间复杂度 $O(m \times \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 `nums` 和 `changeIndices` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -127,6 +136,8 @@ class Solution:
         l = bisect_left(range(1, m + 2), True, key=check) + 1
         return -1 if l > m else l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -173,6 +184,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -215,6 +228,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func earliestSecondToMarkIndices(nums []int, changeIndices []int) int {
 	n, m := len(nums), len(changeIndices)
@@ -243,6 +258,8 @@ func earliestSecondToMarkIndices(nums []int, changeIndices []int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function earliestSecondToMarkIndices(nums: number[], changeIndices: number[]): number {
@@ -282,4 +299,6 @@ function earliestSecondToMarkIndices(nums: number[], changeIndices: number[]): n
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2639.Find%20the%20Width%20of%20Columns%20of%20a%20Grid/README.md
 rating: 1282
+source: 第 102 场双周赛 Q1
 tags:
     - 数组
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [2639. 查询网格图中每一列的宽度](https://leetcode.cn/problems/find-the-width-of-columns-of-a-grid)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的&nbsp;<code>m x n</code>&nbsp;整数矩阵&nbsp;<code>grid</code>&nbsp;。矩阵中某一列的宽度是这一列数字的最大 <strong>字符串长度</strong>&nbsp;。</p>
 
@@ -56,7 +59,11 @@ tags:
 	<li><code>-10<sup>9</sup> &lt;= grid[r][c] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -70,11 +77,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findColumnWidth(self, grid: List[List[int]]) -> List[int]:
         return [max(len(str(x)) for x in col) for col in zip(*grid)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findColumnWidth(grid [][]int) []int {
 	ans := make([]int, len(grid[0]))
@@ -121,6 +136,8 @@ func findColumnWidth(grid [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findColumnWidth(grid: number[][]): number[] {
@@ -135,6 +152,8 @@ function findColumnWidth(grid: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -155,4 +174,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

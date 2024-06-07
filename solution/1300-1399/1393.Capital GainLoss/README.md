@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1393. 股票的资本损益](https://leetcode.cn/problems/capital-gainloss)
 
 [English Version](/solution/1300-1399/1393.Capital%20GainLoss/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>Stocks</code>&nbsp;表：</p>
 
@@ -25,7 +27,7 @@ tags:
 | operation_day | int     |
 | price         | int     |
 +---------------+---------+
-(stock_name, day) 是这张表的主键(具有唯一值的列的组合)
+(stock_name, operation_day) 是这张表的主键(具有唯一值的列的组合)
 operation 列使用的是一种枚举类型，包括：('Sell','Buy')
 此表的每一行代表了名为 stock_name 的某支股票在 operation_day 这一天的操作价格。
 此表可以保证，股票的每个“卖出”操作在前一天都有相应的“买入”操作。并且，股票的每个“买入”操作在即将到来的一天都有相应的“卖出”操作。
@@ -76,13 +78,19 @@ Handbags 股票在第17天以30000美元的价格买入，在第29天以7000美�
 Corona Masks 股票在第1天以10美元的价格买入，在第3天以1010美元的价格卖出。在第4天以1000美元的价格再次购买，在第5天以500美元的价格出售。最后，它在第6天以1000美元的价格被买走，在第10天以10000美元的价格被卖掉。资本损益是每次（’Buy'-&gt;'Sell'）操作资本收益或损失的和=（1010-10）+（500-1000）+（10000-1000）=1000-500+9000=9500美元。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：GROUP BY + SUM(IF())
 
 我们使用 `GROUP BY` 将同一支股票的买卖操作分组，然后使用 `SUM(IF())` 计算每支股票的资本损益。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -95,4 +103,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

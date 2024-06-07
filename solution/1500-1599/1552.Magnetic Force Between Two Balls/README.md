@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1552.Magnetic%20Force%20Between%20Two%20Balls/README.md
 rating: 1919
+source: 第 202 场周赛 Q3
 tags:
     - 数组
     - 二分查找
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [1552. 两球之间的磁力](https://leetcode.cn/problems/magnetic-force-between-two-balls)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在代号为 C-137 的地球上，Rick 发现如果他将两个球放在他新发明的篮子里，它们之间会形成特殊形式的磁力。Rick 有&nbsp;<code>n</code>&nbsp;个空的篮子，第&nbsp;<code>i</code>&nbsp;个篮子的位置在&nbsp;<code>position[i]</code>&nbsp;，Morty&nbsp;想把&nbsp;<code>m</code>&nbsp;个球放到这些篮子里，使得任意两球间&nbsp;<strong>最小磁力</strong>&nbsp;最大。</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>2 &lt;= m &lt;= position.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -62,6 +69,8 @@ tags:
 然后二分枚举磁力值（相邻两球的最小间距），统计当前最小磁力值下能放下多少个小球，记为 cnt。若 `cnt >= m`，说明此磁力值符合条件。继续二分查找，最终找到符合条件的最大磁力值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +95,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDistance(position []int, m int) int {
 	sort.Ints(position)
@@ -174,6 +189,8 @@ func maxDistance(position []int, m int) int {
 	return left
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -213,4 +230,6 @@ var maxDistance = function (position, m) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

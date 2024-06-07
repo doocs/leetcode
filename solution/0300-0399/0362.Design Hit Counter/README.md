@@ -10,13 +10,15 @@ tags:
     - 数据流
 ---
 
+<!-- problem:start -->
+
 # [362. 敲击计数器 🔒](https://leetcode.cn/problems/design-hit-counter)
 
 [English Version](/solution/0300-0399/0362.Design%20Hit%20Counter/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个敲击计数器，使它可以统计在过去 <code>5</code> 分钟内被敲击次数。（即过去 <code>300</code> 秒）</p>
 
@@ -66,33 +68,33 @@ counter.getHits(301); // 在时刻 301 统计过去 5 分钟内的敲击次数�
 
 <p><strong>进阶:</strong>&nbsp;如果每秒的敲击次数是一个很大的数字，你的计数器可以应对吗？</p>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：二分查找
+
+由于 `timestamp` 是单调递增的，我们可以使用一个数组 `ts` 来存储所有的 `timestamp`，然后在 `getHits` 方法中使用二分查找找到第一个大于等于 `timestamp - 300 + 1` 的位置，然后返回 `ts` 的长度减去这个位置即可。
+
+时间复杂度方面，`hit` 方法的时间复杂度为 $O(1)$，`getHits` 方法的时间复杂度为 $O(\log n)$。其中 $n$ 为 `ts` 的长度。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class HitCounter:
+
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.counter = Counter()
+        self.ts = []
 
     def hit(self, timestamp: int) -> None:
-        """
-        Record a hit.
-        @param timestamp - The current timestamp (in seconds granularity).
-        """
-        self.counter[timestamp] += 1
+        self.ts.append(timestamp)
 
     def getHits(self, timestamp: int) -> int:
-        """
-        Return the number of hits in the past 5 minutes.
-        @param timestamp - The current timestamp (in seconds granularity).
-        """
-        return sum([v for t, v in self.counter.items() if t + 300 > timestamp])
+        return len(self.ts) - bisect_left(self.ts, timestamp - 300 + 1)
 
 
 # Your HitCounter object will be instantiated and called as such:
@@ -101,36 +103,35 @@ class HitCounter:
 # param_2 = obj.getHits(timestamp)
 ```
 
+#### Java
+
 ```java
 class HitCounter {
+    private List<Integer> ts = new ArrayList<>();
 
-    private Map<Integer, Integer> counter;
-
-    /** Initialize your data structure here. */
     public HitCounter() {
-        counter = new HashMap<>();
     }
 
-    /**
-       Record a hit.
-        @param timestamp - The current timestamp (in seconds granularity).
-     */
     public void hit(int timestamp) {
-        counter.put(timestamp, counter.getOrDefault(timestamp, 0) + 1);
+        ts.add(timestamp);
     }
 
-    /**
-       Return the number of hits in the past 5 minutes.
-        @param timestamp - The current timestamp (in seconds granularity).
-     */
     public int getHits(int timestamp) {
-        int hits = 0;
-        for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
-            if (entry.getKey() + 300 > timestamp) {
-                hits += entry.getValue();
+        int l = search(timestamp - 300 + 1);
+        return ts.size() - l;
+    }
+
+    private int search(int x) {
+        int l = 0, r = ts.size();
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (ts.get(mid) >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
             }
         }
-        return hits;
+        return l;
     }
 }
 
@@ -142,39 +143,146 @@ class HitCounter {
  */
 ```
 
-```rust
-use std::{ collections::BinaryHeap, cmp::Reverse };
+#### C++
 
-struct HitCounter {
-    /// A min heap
-    pq: BinaryHeap<Reverse<i32>>,
+```cpp
+class HitCounter {
+public:
+    HitCounter() {
+
+    }
+
+    void hit(int timestamp) {
+        ts.push_back(timestamp);
+    }
+
+    int getHits(int timestamp) {
+        return ts.end() - lower_bound(ts.begin(), ts.end(), timestamp - 300 + 1);
+    }
+
+private:
+    vector<int> ts;
+};
+
+/**
+ * Your HitCounter object will be instantiated and called as such:
+ * HitCounter* obj = new HitCounter();
+ * obj->hit(timestamp);
+ * int param_2 = obj->getHits(timestamp);
+ */
+```
+
+#### Go
+
+```go
+type HitCounter struct {
+	ts []int
 }
 
+func Constructor() HitCounter {
+	return HitCounter{}
+}
+
+func (this *HitCounter) Hit(timestamp int) {
+	this.ts = append(this.ts, timestamp)
+}
+
+func (this *HitCounter) GetHits(timestamp int) int {
+	return len(this.ts) - sort.SearchInts(this.ts, timestamp-300+1)
+}
+
+/**
+ * Your HitCounter object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Hit(timestamp);
+ * param_2 := obj.GetHits(timestamp);
+ */
+```
+
+#### TypeScript
+
+```ts
+class HitCounter {
+    private ts: number[] = [];
+
+    constructor() {}
+
+    hit(timestamp: number): void {
+        this.ts.push(timestamp);
+    }
+
+    getHits(timestamp: number): number {
+        const search = (x: number) => {
+            let [l, r] = [0, this.ts.length];
+            while (l < r) {
+                const mid = (l + r) >> 1;
+                if (this.ts[mid] >= x) {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            return l;
+        };
+        return this.ts.length - search(timestamp - 300 + 1);
+    }
+}
+
+/**
+ * Your HitCounter object will be instantiated and called as such:
+ * var obj = new HitCounter()
+ * obj.hit(timestamp)
+ * var param_2 = obj.getHits(timestamp)
+ */
+```
+
+#### Rust
+
+```rust
+struct HitCounter {
+    ts: Vec<i32>,
+}
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
 impl HitCounter {
     fn new() -> Self {
-        Self {
-            pq: BinaryHeap::new(),
-        }
+        HitCounter { ts: Vec::new() }
     }
 
     fn hit(&mut self, timestamp: i32) {
-        self.pq.push(Reverse(timestamp));
+        self.ts.push(timestamp);
     }
 
-    fn get_hits(&mut self, timestamp: i32) -> i32 {
-        while let Some(Reverse(min_elem)) = self.pq.peek() {
-            if *min_elem <= timestamp - 300 {
-                self.pq.pop();
+    fn get_hits(&self, timestamp: i32) -> i32 {
+        let l = self.search(timestamp - 300 + 1);
+        (self.ts.len() - l) as i32
+    }
+
+    fn search(&self, x: i32) -> usize {
+        let (mut l, mut r) = (0, self.ts.len());
+        while l < r {
+            let mid = (l + r) / 2;
+            if self.ts[mid] >= x {
+                r = mid;
             } else {
-                break;
+                l = mid + 1;
             }
         }
-
-        self.pq.len() as i32
+        l
     }
-}
+}/**
+ * Your HitCounter object will be instantiated and called as such:
+ * let obj = HitCounter::new();
+ * obj.hit(timestamp);
+ * let ret_2: i32 = obj.get_hits(timestamp);
+ */
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

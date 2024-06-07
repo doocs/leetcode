@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1098. Unpopular Books 🔒](https://leetcode.com/problems/unpopular-books)
 
 [中文文档](/solution/1000-1099/1098.Unpopular%20Books/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Books</code></p>
 
@@ -87,11 +91,17 @@ Orders table:
 +-----------+--------------------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -106,4 +116,6 @@ HAVING SUM(IF(dispatch_date >= '2018-06-23', quantity, 0)) < 10;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

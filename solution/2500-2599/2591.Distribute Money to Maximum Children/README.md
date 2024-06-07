@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README.md
 rating: 1530
+source: 第 100 场双周赛 Q1
 tags:
     - 贪心
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [2591. 将钱分给最多的儿童](https://leetcode.cn/problems/distribute-money-to-maximum-children)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>money</code>&nbsp;，表示你总共有的钱数（单位为美元）和另一个整数&nbsp;<code>children</code>&nbsp;，表示你要将钱分配给多少个儿童。</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>2 &lt;= children &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分类讨论
 
@@ -74,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distMoney(self, money: int, children: int) -> int:
@@ -86,6 +95,8 @@ class Solution:
         # money-8x >= children-x, x <= (money-children)/7
         return (money - children) // 7
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distMoney(money int, children int) int {
 	if money < children {
@@ -140,6 +155,8 @@ func distMoney(money int, children int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distMoney(money: number, children: number): number {
     if (money < children) {
@@ -154,6 +171,8 @@ function distMoney(money: number, children: number): number {
     return Math.floor((money - children) / 7);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -177,4 +196,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

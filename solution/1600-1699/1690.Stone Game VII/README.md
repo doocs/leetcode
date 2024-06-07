@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1690.Stone%20Game%20VII/README.md
 rating: 1951
+source: 第 219 场周赛 Q3
 tags:
     - 数组
     - 数学
@@ -10,13 +11,15 @@ tags:
     - 博弈
 ---
 
+<!-- problem:start -->
+
 # [1690. 石子游戏 VII](https://leetcode.cn/problems/stone-game-vii)
 
 [English Version](/solution/1600-1699/1690.Stone%20Game%20VII/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>石子游戏中，爱丽丝和鲍勃轮流进行自己的回合，<strong>爱丽丝先开始</strong> 。</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>1 <= stones[i] <= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -77,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameVII(self, stones: List[int]) -> int:
@@ -93,6 +102,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGameVII(stones []int) int {
 	n := len(stones)
@@ -177,6 +192,8 @@ func stoneGameVII(stones []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function stoneGameVII(stones: number[]): number {
     const n = stones.length;
@@ -202,6 +219,10 @@ function stoneGameVII(stones: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们可以将方法一中的记忆化搜索转换为动态规划，定义 $f[i][j]$ 表示当剩下的石子为 $stones[i], stones[i + 1], \dots, stones[j]$ 时，先手与后手的得分差值。那么答案即为 $f[0][n - 1]$。
@@ -220,6 +241,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameVII(self, stones: List[int]) -> int:
@@ -233,6 +256,8 @@ class Solution:
                 f[i][j] = max(a, b)
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -254,6 +279,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -279,6 +306,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGameVII(stones []int) int {
 	n := len(stones)
@@ -299,6 +328,8 @@ func stoneGameVII(stones []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function stoneGameVII(stones: number[]): number {
     const n = stones.length;
@@ -318,4 +349,6 @@ function stoneGameVII(stones: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

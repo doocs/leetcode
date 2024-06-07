@@ -8,13 +8,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [289. 生命游戏](https://leetcode.cn/problems/game-of-life)
 
 [English Version](/solution/0200-0299/0289.Game%20of%20Life/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>根据&nbsp;<a href="https://baike.baidu.com/item/%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/2926434?fr=aladdin" target="_blank">百度百科</a>&nbsp;，&nbsp;<strong>生命游戏</strong>&nbsp;，简称为 <strong>生命</strong> ，是英国数学家约翰·何顿·康威在 1970 年发明的细胞自动机。</p>
 
@@ -65,7 +67,11 @@ tags:
 	<li>本题中，我们使用二维数组来表示面板。原则上，面板是无限的，但当活细胞侵占了面板边界时会造成问题。你将如何解决这些问题？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：原地标记
 
@@ -78,6 +84,8 @@ tags:
 时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是面板的行数和列数。我们需要遍历整个面板。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +109,8 @@ class Solution:
                 elif board[i][j] == -1:
                     board[i][j] = 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +146,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -173,6 +185,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func gameOfLife(board [][]int) {
 	m, n := len(board), len(board[0])
@@ -206,6 +220,8 @@ func gameOfLife(board [][]int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -244,6 +260,8 @@ function gameOfLife(board: number[][]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 const DIR: [(i32, i32); 8] = [
@@ -303,6 +321,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public void GameOfLife(int[][] board) {
@@ -342,4 +362,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [168. Excel 表列名称](https://leetcode.cn/problems/excel-sheet-column-title)
 
 [English Version](/solution/0100-0199/0168.Excel%20Sheet%20Column%20Title/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>columnNumber</code> ，返回它在 Excel 表中相对应的列名称。</p>
 
@@ -68,11 +70,17 @@ AB -> 28
 	<li><code>1 <= columnNumber <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +92,8 @@ class Solution:
             columnNumber //= 26
         return ''.join(res[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +109,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 func convertToTitle(columnNumber int) string {
 	res := []rune{}
@@ -110,6 +122,8 @@ func convertToTitle(columnNumber int) string {
 	return string(res)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function convertToTitle(columnNumber: number): string {
@@ -123,6 +137,8 @@ function convertToTitle(columnNumber: number): string {
     return res.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -148,6 +164,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string ConvertToTitle(int columnNumber) {
@@ -164,4 +182,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

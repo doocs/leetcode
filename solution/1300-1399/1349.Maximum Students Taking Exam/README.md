@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1349.Maximum%20Students%20Taking%20Exam/README.md
 rating: 2385
+source: 第 175 场周赛 Q4
 tags:
     - 位运算
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [1349. 参加考试的最大学生数](https://leetcode.cn/problems/maximum-students-taking-exam)
 
 [English Version](/solution/1300-1399/1349.Maximum%20Students%20Taking%20Exam/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个&nbsp;<code>m&nbsp;* n</code>&nbsp;的矩阵 <code>seats</code>&nbsp;表示教室中的座位分布。如果座位是坏的（不可用），就用&nbsp;<code>'#'</code>&nbsp;表示；否则，用&nbsp;<code>'.'</code>&nbsp;表示。</p>
 
@@ -75,7 +78,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 8</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩 + 记忆化搜索
 
@@ -97,6 +104,8 @@ tags:
 时间复杂度 $O(4^n \times n \times m)$，空间复杂度 $O(2^n \times m)$。其中 $m$ 和 $n$ 分别为座位的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -128,6 +137,8 @@ class Solution:
         ss = [f(s) for s in seats]
         return dfs(ss[0], 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -174,6 +185,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -214,6 +227,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxStudents(seats [][]byte) int {
@@ -258,6 +273,8 @@ func maxStudents(seats [][]byte) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxStudents(seats: string[][]): number {
     const m: number = seats.length;
@@ -299,4 +316,6 @@ function maxStudents(seats: string[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

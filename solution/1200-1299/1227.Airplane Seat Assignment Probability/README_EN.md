@@ -9,11 +9,15 @@ tags:
     - Probability and Statistics
 ---
 
+<!-- problem:start -->
+
 # [1227. Airplane Seat Assignment Probability](https://leetcode.com/problems/airplane-seat-assignment-probability)
 
 [中文文档](/solution/1200-1299/1227.Airplane%20Seat%20Assignment%20Probability/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p><code>n</code> passengers board an airplane with exactly <code>n</code> seats. The first passenger has lost the ticket and picks a seat randomly. But after that, the rest of the passengers will:</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -130,11 +138,15 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nthPersonGetsNthSeat(self, n: int) -> float:
         return 1 if n == 1 else 0.5
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +166,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nthPersonGetsNthSeat(n int) float64 {
@@ -164,4 +180,6 @@ func nthPersonGetsNthSeat(n int) float64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

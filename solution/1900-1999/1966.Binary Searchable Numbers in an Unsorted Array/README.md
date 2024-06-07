@@ -7,13 +7,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [1966. 未排序数组中的可被二分搜索的数 🔒](https://leetcode.cn/problems/binary-searchable-numbers-in-an-unsorted-array)
 
 [English Version](/solution/1900-1999/1966.Binary%20Searchable%20Numbers%20in%20an%20Unsorted%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个 <strong>类似</strong> <a href="https://leetcode.com/explore/learn/card/binary-search/" target="_blank">二分搜索</a>的方法。 这个方法有两个入参: <code>sequence</code> 是一个整数数组， <code>target</code> 是一个整数。 这个方法可以判断 <code>target</code> 是否存在 <code>sequence</code>中。</p>
 
@@ -79,7 +81,11 @@ func(sequence, target)
 
 <p><strong>提升:</strong>&nbsp;如果&nbsp;<code>nums</code> 存在&nbsp;<strong>重复的值</strong>, 你会如何修改你的算法吗?&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：维护前缀最大值和后缀最小值
 
@@ -100,6 +106,8 @@ func(sequence, target)
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def binarySearchableNumbers(self, nums: List[int]) -> int:
@@ -118,6 +126,8 @@ class Solution:
                 mi = nums[i]
         return sum(ok)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func binarySearchableNumbers(nums []int) (ans int) {
@@ -200,4 +214,6 @@ func binarySearchableNumbers(nums []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

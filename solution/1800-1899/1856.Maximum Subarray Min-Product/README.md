@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README.md
 rating: 2051
+source: 第 240 场周赛 Q3
 tags:
     - 栈
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [1856. 子数组最小乘积的最大值](https://leetcode.cn/problems/maximum-subarray-min-product)
 
 [English Version](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个数组的 <strong>最小乘积</strong> 定义为这个数组中 <strong>最小值</strong> <strong>乘以 </strong>数组的 <strong>和</strong> 。</p>
 
@@ -68,7 +71,11 @@ tags:
 	<li><code>1 <= nums[i] <= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈 + 前缀和
 
@@ -81,6 +88,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +115,8 @@ class Solution:
         mod = 10**9 + 7
         return max((s[right[i]] - s[left[i] + 1]) * x for i, x in enumerate(nums)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -190,6 +203,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxSumMinProduct(nums []int) int {
@@ -235,6 +250,8 @@ func maxSumMinProduct(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSumMinProduct(nums: number[]): number {
     const n = nums.length;
@@ -278,4 +295,6 @@ function maxSumMinProduct(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

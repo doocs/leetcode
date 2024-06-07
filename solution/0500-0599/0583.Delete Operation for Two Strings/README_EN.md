@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [583. Delete Operation for Two Strings](https://leetcode.com/problems/delete-operation-for-two-strings)
 
 [中文文档](/solution/0500-0599/0583.Delete%20Operation%20for%20Two%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>word1</code> and <code>word2</code>, return <em>the minimum number of <strong>steps</strong> required to make</em> <code>word1</code> <em>and</em> <code>word2</code> <em>the same</em>.</p>
 
@@ -41,11 +45,17 @@ tags:
 	<li><code>word1</code> and <code>word2</code> consist of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +74,8 @@ class Solution:
                     dp[i][j] = 1 + min(dp[i - 1][j], dp[i][j - 1])
         return dp[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +124,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minDistance(word1 string, word2 string) int {
@@ -135,6 +151,8 @@ func minDistance(word1 string, word2 string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minDistance(word1: string, word2: string): number {
     const m = word1.length;
@@ -153,6 +171,8 @@ function minDistance(word1: string, word2: string): number {
     return m - max + n - max;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -177,4 +197,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

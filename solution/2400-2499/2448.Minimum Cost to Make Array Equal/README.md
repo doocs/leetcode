@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README.md
 rating: 2005
+source: 第 316 场周赛 Q3
 tags:
     - 贪心
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2448. 使数组相等的最小开销](https://leetcode.cn/problems/minimum-cost-to-make-array-equal)
 
 [English Version](/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong>&nbsp;开始的数组&nbsp;<code>nums</code> 和&nbsp;<code>cost</code>&nbsp;，分别包含&nbsp;<code>n</code>&nbsp;个&nbsp;<strong>正</strong>&nbsp;整数。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li>测试用例确保输出不超过 2<sup>53</sup>-1。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 排序 + 枚举
 
@@ -90,6 +97,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, nums: List[int], cost: List[int]) -> int:
@@ -109,6 +118,8 @@ class Solution:
             ans = min(ans, l + r)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -166,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(nums []int, cost []int) int64 {
 	n := len(nums)
@@ -193,6 +208,8 @@ func minCost(nums []int, cost []int) int64 {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -244,6 +261,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序 + 中位数
 
 我们还可以把 $b_i$ 看作是 $a_i$ 的出现次数，那么中位数下标是 $\frac{\sum_{i=1}^{n} b_i}{2}$。把所有数变成中位数，一定是最优的。
@@ -257,6 +278,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, nums: List[int], cost: List[int]) -> int:
@@ -268,6 +291,8 @@ class Solution:
             if s > mid:
                 return sum(abs(v - x) * c for v, c in arr)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -303,6 +328,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -328,6 +355,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCost(nums []int, cost []int) int64 {
@@ -367,4 +396,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

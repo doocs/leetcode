@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3019.Number%20of%20Changing%20Keys/README_EN.md
 rating: 1175
+source: Weekly Contest 382 Q1
 tags:
     - String
 ---
+
+<!-- problem:start -->
 
 # [3019. Number of Changing Keys](https://leetcode.com/problems/number-of-changing-keys)
 
 [中文文档](/solution/3000-3099/3019.Number%20of%20Changing%20Keys/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed </strong>string <code>s</code> typed by a user. Changing a key is defined as using a key different from the last used key. For example, <code>s = &quot;ab&quot;</code> has a change of a key while <code>s = &quot;bBBb&quot;</code> does not have any.</p>
 
@@ -50,7 +55,11 @@ From s[4] = &#39;c&#39; to s[5] = &#39;C&#39;, there is no change of key as caps
 	<li><code>s</code> consists of only upper case and lower case English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Pass
 
@@ -60,11 +69,15 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countKeyChanges(self, s: str) -> int:
         return sum(a.lower() != b.lower() for a, b in pairwise(s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +93,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countKeyChanges(s string) (ans int) {
 	s = strings.ToLower(s)
@@ -105,6 +122,8 @@ func countKeyChanges(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countKeyChanges(s: string): number {
@@ -121,4 +140,6 @@ function countKeyChanges(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1253.Reconstruct%20a%202-Row%20Binary%20Matrix/README.md
 rating: 1505
+source: 第 162 场周赛 Q2
 tags:
     - 贪心
     - 数组
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [1253. 重构 2 行二进制矩阵](https://leetcode.cn/problems/reconstruct-a-2-row-binary-matrix)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个&nbsp;<code>2</code>&nbsp;行 <code>n</code> 列的二进制数组：</p>
 
@@ -63,7 +66,11 @@ tags:
 	<li><code>0 &lt;= colsum[i] &lt;= 2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -81,6 +88,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是数组 $colsum$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -104,6 +113,8 @@ class Solution:
                 return []
         return ans if lower == upper == 0 else []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
@@ -200,6 +215,8 @@ func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reconstructMatrix(upper: number, lower: number, colsum: number[]): number[][] {
     const n = colsum.length;
@@ -230,4 +247,6 @@ function reconstructMatrix(upper: number, lower: number, colsum: number[]): numb
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

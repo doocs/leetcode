@@ -3,15 +3,20 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1291.Sequential%20Digits/README_EN.md
 rating: 1373
+source: Weekly Contest 167 Q2
 tags:
     - Enumeration
 ---
+
+<!-- problem:start -->
 
 # [1291. Sequential Digits](https://leetcode.com/problems/sequential-digits)
 
 [中文文档](/solution/1200-1299/1291.Sequential%20Digits/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An&nbsp;integer has <em>sequential digits</em> if and only if each digit in the number is one more than the previous digit.</p>
 
@@ -32,11 +37,17 @@ tags:
 	<li><code>10 &lt;= low &lt;= high &lt;= 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -50,6 +61,8 @@ class Solution:
                     ans.append(x)
         return sorted(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -69,6 +82,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -90,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sequentialDigits(low int, high int) (ans []int) {
 	for i := 1; i < 9; i++ {
@@ -105,6 +122,8 @@ func sequentialDigits(low int, high int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sequentialDigits(low: number, high: number): number[] {
@@ -125,4 +144,6 @@ function sequentialDigits(low: number, high: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

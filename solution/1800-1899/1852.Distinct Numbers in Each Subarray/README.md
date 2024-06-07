@@ -8,13 +8,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [1852. 每个子数组的数字种类数 🔒](https://leetcode.cn/problems/distinct-numbers-in-each-subarray)
 
 [English Version](/solution/1800-1899/1852.Distinct%20Numbers%20in%20Each%20Subarray/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>与一个整数 <code>k</code>，请你构造一个长度 <code>n-k+1</code> 的数组 <code>ans</code>，这个数组第<code>i</code>个元素 <code>ans[i]</code> 是每个长度为k的子数组 <code>nums[i:i+k-1] = [nums[i], nums[i+1], ..., nums[i+k-1]]</code>中数字的种类数。</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口 + 哈希表
 
@@ -72,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distinctNumbers(self, nums: List[int], k: int) -> List[int]:
@@ -85,6 +93,8 @@ class Solution:
             ans.append(len(cnt))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctNumbers(nums []int, k int) []int {
 	cnt := map[int]int{}
@@ -149,6 +163,8 @@ func distinctNumbers(nums []int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function distinctNumbers(nums: number[], k: number): number[] {
@@ -171,6 +187,10 @@ function distinctNumbers(nums: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：滑动窗口 + 数组
 
 我们也可以用数组来代替哈希表，这样可以提升一定的性能。
@@ -178,6 +198,8 @@ function distinctNumbers(nums: number[], k: number): number[] {
 时间复杂度 $O(n)$，空间复杂度 $O(M)$。其中 $n$ 为数组 $nums$ 的长度，而 $M$ 为数组 $nums$ 中的最大值，本题中 $M \leq 10^5$。
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -210,6 +232,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -240,6 +264,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctNumbers(nums []int, k int) (ans []int) {
 	m := slices.Max(nums)
@@ -267,6 +293,8 @@ func distinctNumbers(nums []int, k int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distinctNumbers(nums: number[], k: number): number[] {
     const m = Math.max(...nums);
@@ -293,4 +321,6 @@ function distinctNumbers(nums: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

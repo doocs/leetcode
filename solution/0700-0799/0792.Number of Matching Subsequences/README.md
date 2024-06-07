@@ -12,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [792. 匹配子序列的单词数](https://leetcode.cn/problems/number-of-matching-subsequences)
 
 [English Version](/solution/0700-0799/0792.Number%20of%20Matching%20Subsequences/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定字符串 <code>s</code>&nbsp;和字符串数组&nbsp;<code>words</code>, 返回&nbsp;&nbsp;<em><code>words[i]</code>&nbsp;中是<code>s</code>的子序列的单词个数</em>&nbsp;。</p>
 
@@ -57,7 +59,11 @@ tags:
 </ul>
 <span style="display:block"><span style="height:0px"><span style="position:absolute">​​​​</span></span></span>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分桶
 
@@ -87,6 +93,8 @@ b: ["bb"]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numMatchingSubseq(self, s: str, words: List[str]) -> int:
@@ -103,6 +111,8 @@ class Solution:
                     d[t[1]].append(t[1:])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numMatchingSubseq(s string, words []string) (ans int) {
@@ -175,6 +189,10 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二分查找
 
 我们还可以先用数组或哈希表 $d$ 存放字符串 $s$ 每个字符的下标，即 $d[c]$ 为 $s$ 中所有字符 $c$ 的下标组成的数组。
@@ -188,6 +206,8 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 时间复杂度 $O(\sum_{i=0}^{m-1} |w_i| \times \log n)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为 $s$ 和 $words$ 的长度，而 $|w_i|$ 为 $words[i]$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -206,6 +226,8 @@ class Solution:
                     d[words[i][j]].append((i, j))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -233,6 +255,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -255,6 +279,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numMatchingSubseq(s string, words []string) (ans int) {
@@ -281,9 +307,15 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -302,6 +334,8 @@ class Solution:
             d[c].append(i)
         return sum(check(w) for w in words)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -349,6 +383,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -371,6 +407,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numMatchingSubseq(s string, words []string) (ans int) {
@@ -401,4 +439,6 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

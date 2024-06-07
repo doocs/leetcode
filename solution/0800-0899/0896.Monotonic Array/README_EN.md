@@ -6,11 +6,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [896. Monotonic Array](https://leetcode.com/problems/monotonic-array)
 
 [中文文档](/solution/0800-0899/0896.Monotonic%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An array is <strong>monotonic</strong> if it is either monotone increasing or monotone decreasing.</p>
 
@@ -48,7 +52,11 @@ tags:
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Traversal
 
@@ -60,6 +68,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isMonotonic(self, nums: List[int]) -> bool:
@@ -67,6 +77,8 @@ class Solution:
         desc = all(a >= b for a, b in pairwise(nums))
         return asc or desc
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isMonotonic(nums []int) bool {
 	asc, desc := false, false
@@ -124,6 +140,8 @@ func isMonotonic(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isMonotonic(nums: number[]): boolean {
     let [asc, desc] = [false, false];
@@ -140,6 +158,8 @@ function isMonotonic(nums: number[]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -160,6 +180,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -184,4 +206,6 @@ var isMonotonic = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

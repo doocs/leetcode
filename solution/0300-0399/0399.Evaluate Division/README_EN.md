@@ -8,14 +8,19 @@ tags:
     - Union Find
     - Graph
     - Array
+    - String
     - Shortest Path
 ---
+
+<!-- problem:start -->
 
 # [399. Evaluate Division](https://leetcode.com/problems/evaluate-division)
 
 [中文文档](/solution/0300-0399/0399.Evaluate%20Division/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of variable pairs <code>equations</code> and an array of real numbers <code>values</code>, where <code>equations[i] = [A<sub>i</sub>, B<sub>i</sub>]</code> and <code>values[i]</code> represent the equation <code>A<sub>i</sub> / B<sub>i</sub> = values[i]</code>. Each <code>A<sub>i</sub></code> or <code>B<sub>i</sub></code> is a string that represents a single variable.</p>
 
@@ -68,11 +73,17 @@ note: x is undefined =&gt; -1.0</pre>
 	<li><code>A<sub>i</sub>, B<sub>i</sub>, C<sub>j</sub>, D<sub>j</sub></code> consist of lower case English letters and digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +113,8 @@ class Solution:
             for c, d in queries
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -193,6 +208,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func calcEquation(equations [][]string, values []float64, queries [][]string) []float64 {
 	p := make(map[string]string)
@@ -234,6 +251,8 @@ func calcEquation(equations [][]string, values []float64, queries [][]string) []
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -322,6 +341,55 @@ impl Solution {
 }
 ```
 
+#### TypeScript
+
+```ts
+function calcEquation(equations: string[][], values: number[], queries: string[][]): number[] {
+    const g: Record<string, [string, number][]> = {};
+    const ans = Array.from({ length: queries.length }, () => -1);
+
+    for (let i = 0; i < equations.length; i++) {
+        const [a, b] = equations[i];
+        (g[a] ??= []).push([b, values[i]]);
+        (g[b] ??= []).push([a, 1 / values[i]]);
+    }
+
+    for (let i = 0; i < queries.length; i++) {
+        const [c, d] = queries[i];
+        const vis = new Set<string>();
+        const q: [string, number][] = [[c, 1]];
+
+        if (!g[c] || !g[d]) continue;
+        if (c === d) {
+            ans[i] = 1;
+            continue;
+        }
+
+        for (const [current, v] of q) {
+            if (vis.has(current)) continue;
+            vis.add(current);
+
+            for (const [intermediate, multiplier] of g[current]) {
+                if (vis.has(intermediate)) continue;
+
+                if (intermediate === d) {
+                    ans[i] = v * multiplier;
+                    break;
+                }
+
+                q.push([intermediate, v * multiplier]);
+            }
+
+            if (ans[i] !== -1) break;
+        }
+    }
+
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

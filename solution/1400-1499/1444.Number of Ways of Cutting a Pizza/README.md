@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/README.md
 rating: 2126
+source: 第 188 场周赛 Q4
 tags:
     - 记忆化搜索
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [1444. 切披萨的方案数](https://leetcode.cn/problems/number-of-ways-of-cutting-a-pizza)
 
 [English Version](/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个&nbsp;<code>rows x cols</code>&nbsp;大小的矩形披萨和一个整数 <code>k</code>&nbsp;，矩形包含两种字符：&nbsp;<code>&#39;A&#39;</code> （表示苹果）和&nbsp;<code>&#39;.&#39;</code>&nbsp;（表示空白格子）。你需要切披萨 <code>k-1</code> 次，得到&nbsp;<code>k</code>&nbsp;块披萨并送给别人。</p>
 
@@ -59,7 +62,11 @@ tags:
 	<li><code>pizza</code>&nbsp;只包含字符&nbsp;<code>&#39;A&#39;</code>&nbsp;和&nbsp;<code>&#39;.&#39;</code>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二维前缀和 + 记忆化搜索
 
@@ -88,6 +95,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def ways(self, pizza: List[str], k: int) -> int:
@@ -112,6 +121,8 @@ class Solution:
                 s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + int(c == 'A')
         return dfs(0, 0, k - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +169,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -196,6 +209,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func ways(pizza []string, k int) int {
@@ -252,6 +267,8 @@ func ways(pizza []string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function ways(pizza: string[], k: number): number {
     const mod = 1e9 + 7;
@@ -291,4 +308,6 @@ function ways(pizza: string[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

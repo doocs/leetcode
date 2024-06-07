@@ -12,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [218. The Skyline Problem](https://leetcode.com/problems/the-skyline-problem)
 
 [中文文档](/solution/0200-0299/0218.The%20Skyline%20Problem/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A city&#39;s <strong>skyline</strong> is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Given the locations and heights of all the buildings, return <em>the <strong>skyline</strong> formed by these buildings collectively</em>.</p>
 
@@ -62,11 +66,17 @@ Figure B shows the skyline formed by those buildings. The red points in figure B
 	<li><code>buildings</code> is sorted by <code>left<sub>i</sub></code> in&nbsp;non-decreasing order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from queue import PriorityQueue
@@ -93,6 +103,8 @@ class Solution:
             skys.append([line, high])
         return skys
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Matrix struct{ left, right, height int }
@@ -181,6 +195,8 @@ func getSkyline(buildings [][]int) [][]int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn get_skyline(buildings: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
@@ -218,4 +234,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

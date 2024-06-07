@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.13.Bisect%20Squares/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.13. 平分正方形](https://leetcode.cn/problems/bisect-squares-lcci)
 
 [English Version](/lcci/16.13.Bisect%20Squares/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个正方形及一个二维平面。请找出将这两个正方形分割成两半的一条直线。假设正方形顶边和底边与 x 轴平行。</p>
 <p>每个正方形的数据<code>square</code>包含3个数值，正方形的左下顶点坐标<code>[X,Y] = [square[0],square[1]]</code>，以及正方形的边长<code>square[2]</code>。所求直线穿过两个正方形会形成4个交点，请返回4个交点形成线段的两端点坐标（两个端点即为4个交点中距离最远的2个点，这2个点所连成的线段一定会穿过另外2个交点）。2个端点坐标<code>[X<sub>1</sub>,Y<sub>1</sub>]</code>和<code>[X<sub>2</sub>,Y<sub>2</sub>]</code>的返回格式为<code>{X<sub>1</sub>,Y<sub>1</sub>,X<sub>2</sub>,Y<sub>2</sub>}</code>，要求若<code>X<sub>1</sub> != X<sub>2</sub></code>，需保证<code>X<sub>1</sub> &lt; X<sub>2</sub></code>，否则需保证<code>Y<sub>1</sub> &lt;= Y<sub>2</sub></code>。</p>
@@ -28,7 +30,11 @@ square2 = {0, -1, 2}
 	<li><code>square[2] &gt; 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：几何数学
 
@@ -44,6 +50,8 @@ square2 = {0, -1, 2}
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +78,8 @@ class Solution:
             y4 = k * x4 + b
         return [x3, y3, x4, y4]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func cutSquares(square1 []int, square2 []int) []float64 {
 	x1, y1 := float64(square1[0])+float64(square1[2])/2, float64(square1[1])+float64(square1[2])/2
@@ -169,6 +183,8 @@ func cutSquares(square1 []int, square2 []int) []float64 {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function cutSquares(square1: number[], square2: number[]): number[] {
@@ -201,6 +217,8 @@ function cutSquares(square1: number[], square2: number[]): number[] {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -241,4 +259,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

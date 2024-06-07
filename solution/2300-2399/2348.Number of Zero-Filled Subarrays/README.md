@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README.md
 rating: 1315
+source: 第 83 场双周赛 Q2
 tags:
     - 数组
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [2348. 全 0 子数组的数目](https://leetcode.cn/problems/number-of-zero-filled-subarrays)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;，返回全部为&nbsp;<code>0</code>&nbsp;的&nbsp;<strong>子数组</strong>&nbsp;数目。</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历计数
 
@@ -75,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def zeroFilledSubarray(self, nums: List[int]) -> int:
@@ -84,6 +93,8 @@ class Solution:
             ans += cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func zeroFilledSubarray(nums []int) (ans int64) {
 	cnt := 0
@@ -129,6 +144,8 @@ func zeroFilledSubarray(nums []int) (ans int64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function zeroFilledSubarray(nums: number[]): number {
     let ans = 0;
@@ -143,4 +160,6 @@ function zeroFilledSubarray(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

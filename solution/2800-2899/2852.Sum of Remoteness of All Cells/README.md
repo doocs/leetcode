@@ -10,13 +10,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [2852. 所有单元格的远离程度之和 🔒](https://leetcode.cn/problems/sum-of-remoteness-of-all-cells)
 
 [English Version](/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个下标从 <strong>0</strong> 开始的大小为 <code>n * n</code> 的矩阵 <code>grid</code>，其中每个单元格的值 <code>grid[i][j]</code> 要么是 <strong>正整数</strong>，要么是表示阻塞单元格的值 <code>-1</code> 。</p>
 
@@ -74,7 +76,11 @@ tags:
 	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>6</sup></code> 或&nbsp;<code>grid[i][j] == -1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -83,6 +89,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是矩阵的边长。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -108,6 +116,8 @@ class Solution:
                     ans += (cnt - t) * s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -156,6 +166,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -197,6 +209,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumRemoteness(grid [][]int) (ans int64) {
 	n := len(grid)
@@ -234,6 +248,8 @@ func sumRemoteness(grid [][]int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumRemoteness(grid: number[][]): number {
@@ -276,4 +292,6 @@ function sumRemoteness(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

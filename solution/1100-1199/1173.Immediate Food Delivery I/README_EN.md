@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1173. Immediate Food Delivery I 🔒](https://leetcode.com/problems/immediate-food-delivery-i)
 
 [中文文档](/solution/1100-1199/1173.Immediate%20Food%20Delivery%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Delivery</code></p>
 
@@ -60,13 +64,19 @@ Delivery table:
 <strong>Explanation:</strong> The orders with delivery id 2 and 3 are immediate while the others are scheduled.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sum
 
 We can use the `sum` function to count the number of instant orders, and then divide it by the total number of orders. Since the problem requires a percentage, we need to multiply by 100. Finally, we can use the `round` function to keep two decimal places.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -77,4 +87,6 @@ FROM Delivery;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

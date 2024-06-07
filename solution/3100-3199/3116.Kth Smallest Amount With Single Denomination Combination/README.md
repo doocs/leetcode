@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README.md
 rating: 2387
+source: 第 393 场周赛 Q3
 tags:
     - 位运算
     - 数组
@@ -12,13 +13,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [3116. 单面值组合的第 K 小金额](https://leetcode.cn/problems/kth-smallest-amount-with-single-denomination-combination)
 
 [English Version](/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>coins</code> 表示不同面额的硬币，另给你一个整数 <code>k</code> 。</p>
 
@@ -90,7 +93,11 @@ tags:
 	<li><code>coins</code> 包含两两不同的整数。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找 + 容斥原理
 
@@ -120,6 +127,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findKthSmallest(self, coins: List[int], k: int) -> int:
@@ -141,6 +150,8 @@ class Solution:
 
         return bisect_left(range(10**11), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -195,6 +206,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -238,6 +251,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKthSmallest(coins []int, k int) int64 {
 	var r int = 1e11
@@ -277,6 +292,8 @@ func lcm(a, b int) int {
 	return a * b / gcd(a, b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKthSmallest(coins: number[], k: number): number {
@@ -334,4 +351,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

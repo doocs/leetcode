@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README_EN.md
 rating: 1787
+source: Weekly Contest 149 Q3
 tags:
     - Hash Table
     - String
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1156. Swap For Longest Repeated Character Substring](https://leetcode.com/problems/swap-for-longest-repeated-character-substring)
 
 [中文文档](/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>text</code>. You can swap two of the characters in the <code>text</code>.</p>
 
@@ -52,7 +57,11 @@ tags:
 	<li><code>text</code> consist of lowercase English characters only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -65,6 +74,8 @@ Then we skip the character pointed by the pointer $j$, and continue to move the 
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +96,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxRepOpt1(text string) (ans int) {
 	cnt := [26]int{}
@@ -166,6 +183,8 @@ func maxRepOpt1(text string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxRepOpt1(text: string): number {
@@ -197,4 +216,6 @@ function maxRepOpt1(text: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

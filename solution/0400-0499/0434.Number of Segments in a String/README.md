@@ -6,13 +6,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [434. 字符串中的单词数](https://leetcode.cn/problems/number-of-segments-in-a-string)
 
 [English Version](/solution/0400-0499/0434.Number%20of%20Segments%20in%20a%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>统计字符串中的单词个数，这里的单词指的是连续的不是空格的字符。</p>
 
@@ -25,7 +27,11 @@ tags:
 <strong>解释: </strong>这里的单词是指连续的不是空格的字符，所以 &quot;Hello,&quot; 算作 1 个单词。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符串分割
 
@@ -35,11 +41,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSegments(self, s: str) -> int:
         return len(s.split())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -55,6 +65,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -67,6 +79,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSegments(s string) int {
 	ans := 0
@@ -78,6 +92,8 @@ func countSegments(s string) int {
 	return ans
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -100,6 +116,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：模拟
 
 直接模拟，遍历字符串，检测每个字符，统计个数。
@@ -107,6 +127,8 @@ class Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -117,6 +139,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +155,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +173,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSegments(s string) int {
 	ans := 0
@@ -161,4 +189,6 @@ func countSegments(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

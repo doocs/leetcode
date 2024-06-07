@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1952.Three%20Divisors/README.md
 rating: 1203
+source: 第 252 场周赛 Q1
 tags:
     - 数学
     - 枚举
     - 数论
 ---
+
+<!-- problem:start -->
 
 # [1952. 三除数](https://leetcode.cn/problems/three-divisors)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> 。如果 <code>n</code> <strong>恰好有三个正除数</strong> ，返回 <code>true</code><em> </em>；否则，返回<em> </em><code>false</code> 。</p>
 
@@ -44,7 +47,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -54,11 +61,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isThree(self, n: int) -> bool:
         return sum(n % i == 0 for i in range(2, n)) == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +85,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -87,6 +100,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isThree(n int) bool {
 	cnt := 0
@@ -98,6 +113,8 @@ func isThree(n int) bool {
 	return cnt == 1
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -117,6 +134,10 @@ var isThree = function (n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：枚举优化
 
 我们可以枚举 $1$ 到 $\sqrt{n}$ 之间的数 $i$，如果 $n$ 能被 $i$ 整除，并且 $\frac{n}{i}$ 不等于 $i$，那么计数器累加 $2$，否则计数器累加 $1$。最后判断计数器是否为 $3$ 即可。
@@ -124,6 +145,8 @@ var isThree = function (n) {
 时间复杂度 $O(\sqrt{n})$，空间复杂度 $O(1)$。其中 $n$ 为给定的整数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -136,6 +159,8 @@ class Solution:
             i += 1
         return cnt == 3
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +175,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -166,6 +193,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isThree(n int) bool {
 	cnt := 0
@@ -181,6 +210,8 @@ func isThree(n int) bool {
 	return cnt == 3
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -200,4 +231,6 @@ var isThree = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

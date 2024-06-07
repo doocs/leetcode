@@ -6,11 +6,15 @@ tags:
     - Bit Manipulation
 ---
 
+<!-- problem:start -->
+
 # [201. Bitwise AND of Numbers Range](https://leetcode.com/problems/bitwise-and-of-numbers-range)
 
 [中文文档](/solution/0200-0299/0201.Bitwise%20AND%20of%20Numbers%20Range/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integers <code>left</code> and <code>right</code> that represent the range <code>[left, right]</code>, return <em>the bitwise AND of all numbers in this range, inclusive</em>.</p>
 
@@ -43,11 +47,17 @@ tags:
 	<li><code>0 &lt;= left &lt;= right &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -56,6 +66,8 @@ class Solution:
             right &= right - 1
         return right
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -67,6 +79,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -80,6 +94,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rangeBitwiseAnd(left int, right int) int {
 	for left < right {
@@ -88,6 +104,8 @@ func rangeBitwiseAnd(left int, right int) int {
 	return right
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -103,6 +121,8 @@ var rangeBitwiseAnd = function (left, right) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int RangeBitwiseAnd(int left, int right) {
@@ -116,4 +136,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

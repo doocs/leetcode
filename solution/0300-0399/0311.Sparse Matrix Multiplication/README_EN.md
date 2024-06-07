@@ -8,11 +8,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [311. Sparse Matrix Multiplication 🔒](https://leetcode.com/problems/sparse-matrix-multiplication)
 
 [中文文档](/solution/0300-0399/0311.Sparse%20Matrix%20Multiplication/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two <a href="https://en.wikipedia.org/wiki/Sparse_matrix" target="_blank">sparse matrices</a> <code>mat1</code> of size <code>m x k</code> and <code>mat2</code> of size <code>k x n</code>, return the result of <code>mat1 x mat2</code>. You may assume that multiplication is always possible.</p>
 
@@ -42,7 +46,11 @@ tags:
 	<li><code>-100 &lt;= mat1[i][j], mat2[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Direct Multiplication
 
@@ -51,6 +59,8 @@ We can directly calculate each element in the result matrix according to the def
 The time complexity is $O(m \times n \times k)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows of matrix $mat1$ and the number of columns of matrix $mat2$ respectively, and $k$ is the number of columns of matrix $mat1$ or the number of rows of matrix $mat2$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +73,8 @@ class Solution:
                     ans[i][j] += mat1[i][k] * mat2[k][j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func multiply(mat1 [][]int, mat2 [][]int) [][]int {
 	m, n := len(mat1), len(mat2[0])
@@ -117,6 +133,8 @@ func multiply(mat1 [][]int, mat2 [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function multiply(mat1: number[][], mat2: number[][]): number[][] {
     const [m, n] = [mat1.length, mat2[0].length];
@@ -134,6 +152,10 @@ function multiply(mat1: number[][], mat2: number[][]): number[][] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Preprocessing
 
 We can preprocess the sparse representation of the two matrices, i.e., $g1[i]$ represents the column index and value of all non-zero elements in the $i$th row of matrix $mat1$, and $g2[i]$ represents the column index and value of all non-zero elements in the $i$th row of matrix $mat2$.
@@ -143,6 +165,8 @@ Next, we traverse each row $i$, traverse each element $(k, x)$ in $g1[i]$, trave
 The time complexity is $O(m \times n \times k)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows of matrix $mat1$ and the number of columns of matrix $mat2$ respectively, and $k$ is the number of columns of matrix $mat1$ or the number of rows of matrix $mat2$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -165,6 +189,8 @@ class Solution:
                     ans[i][j] += x * y
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -201,6 +227,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -232,6 +260,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func multiply(mat1 [][]int, mat2 [][]int) [][]int {
@@ -267,6 +297,8 @@ func multiply(mat1 [][]int, mat2 [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function multiply(mat1: number[][], mat2: number[][]): number[][] {
     const [m, n] = [mat1.length, mat2[0].length];
@@ -298,4 +330,6 @@ function multiply(mat1: number[][], mat2: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

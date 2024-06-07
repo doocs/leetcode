@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1447.Simplified%20Fractions/README.md
 rating: 1268
+source: 第 26 场双周赛 Q2
 tags:
     - 数学
     - 字符串
     - 数论
 ---
+
+<!-- problem:start -->
 
 # [1447. 最简分数](https://leetcode.cn/problems/simplified-fractions)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;，请你返回所有 0 到 1 之间（不包括 0 和 1）满足分母小于等于&nbsp;&nbsp;<code>n</code>&nbsp;的 <strong>最简&nbsp;</strong>分数&nbsp;。分数可以以 <strong>任意&nbsp;</strong>顺序返回。</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举分子分母
 
@@ -62,6 +69,8 @@ tags:
 时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是给定的参数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +82,8 @@ class Solution:
             if gcd(i, j) == 1
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func simplifiedFractions(n int) (ans []string) {
@@ -131,6 +146,8 @@ func gcd(a, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function simplifiedFractions(n: number): string[] {
     const ans: string[] = [];
@@ -148,6 +165,8 @@ function gcd(a: number, b: number): number {
     return b === 0 ? a : gcd(b, a % b);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -174,4 +193,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

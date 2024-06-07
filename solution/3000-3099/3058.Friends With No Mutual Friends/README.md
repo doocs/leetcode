@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3058. 没有共同朋友的朋友 🔒](https://leetcode.cn/problems/friends-with-no-mutual-friends)
 
 [English Version](/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Friends</code></p>
 
@@ -67,7 +69,11 @@ Friends 表：
 - 用户 3 和 4 是彼此的朋友，但他们有用户 ID 为 2 的共同好友，与用户 2 和 5 有用户 ID 为 1 的共同好友一样，因此被排除。
 输出表以 user_id1 升序排列。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：子查询
 
@@ -76,6 +82,8 @@ Friends 表：
 接下来，我们可以使用子查询来找出没有共同朋友的朋友 🔒 对，即这个朋友对不属于其他某个人的朋友。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -96,6 +104,8 @@ WHERE
     )
 ORDER BY 1, 2;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -125,4 +135,6 @@ def friends_with_no_mutual_friends(friends: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

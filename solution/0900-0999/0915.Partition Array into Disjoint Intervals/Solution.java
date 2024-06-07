@@ -7,13 +7,12 @@ class Solution {
             mi[i] = Math.min(nums[i], mi[i + 1]);
         }
         int mx = 0;
-        for (int i = 1; i <= n; ++i) {
+        for (int i = 1;; ++i) {
             int v = nums[i - 1];
             mx = Math.max(mx, v);
             if (mx <= mi[i]) {
                 return i;
             }
         }
-        return 0;
     }
 }

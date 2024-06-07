@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README.md
 rating: 1197
+source: 第 388 场周赛 Q1
 tags:
     - 贪心
     - 数组
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [3074. 重新分装苹果](https://leetcode.cn/problems/apple-redistribution-into-boxes)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的数组 <code>apple</code> 和另一个长度为 <code>m</code> 的数组 <code>capacity</code> 。</p>
 
@@ -55,7 +58,11 @@ tags:
 	<li>输入数据保证可以将包裹中的苹果重新分装到箱子中。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -64,6 +71,8 @@ tags:
 时间复杂度 $O(m \times \log m + n)$，空间复杂度 $O(\log m)$。其中 $m$ 和 $n$ 分别是数组 `capacity` 和 `apple` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +84,8 @@ class Solution:
             if s <= 0:
                 return i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumBoxes(apple []int, capacity []int) int {
@@ -126,6 +141,8 @@ func minimumBoxes(apple []int, capacity []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumBoxes(apple: number[], capacity: number[]): number {
     capacity.sort((a, b) => b - a);
@@ -141,4 +158,6 @@ function minimumBoxes(apple: number[], capacity: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

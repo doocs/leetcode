@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README_EN.md
 rating: 1151
+source: Weekly Contest 354 Q1
 tags:
     - Array
     - Enumeration
 ---
+
+<!-- problem:start -->
 
 # [2778. Sum of Squares of Special Elements](https://leetcode.com/problems/sum-of-squares-of-special-elements)
 
 [中文文档](/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>1-indexed</strong> integer array <code>nums</code> of length <code>n</code>.</p>
 
@@ -47,11 +52,17 @@ Hence, the sum of the squares of all special elements of nums is nums[1] * nums[
 	<li><code>1 &lt;= nums[i] &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +70,8 @@ class Solution:
         n = len(nums)
         return sum(x * x for i, x in enumerate(nums, 1) if n % i == 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,6 +106,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfSquares(nums []int) (ans int) {
 	n := len(nums)
@@ -102,6 +119,8 @@ func sumOfSquares(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfSquares(nums: number[]): number {
@@ -118,4 +137,6 @@ function sumOfSquares(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

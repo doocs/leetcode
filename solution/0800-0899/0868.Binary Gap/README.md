@@ -6,13 +6,15 @@ tags:
     - 位运算
 ---
 
+<!-- problem:start -->
+
 # [868. 二进制间距](https://leetcode.cn/problems/binary-gap)
 
 [English Version](/solution/0800-0899/0868.Binary%20Gap/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个正整数 <code>n</code>，找到并返回 <code>n</code> 的二进制表示中两个 <strong>相邻</strong> 1 之间的<strong> 最长距离 </strong>。如果不存在两个相邻的 1，返回 <code>0</code> 。</p>
 
@@ -60,11 +62,17 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +86,8 @@ class Solution:
             n >>= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func binaryGap(n int) int {
 	ans := 0
@@ -126,6 +140,8 @@ func binaryGap(n int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function binaryGap(n: number): number {
@@ -143,6 +159,8 @@ function binaryGap(n: number): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -167,4 +185,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [566. Reshape the Matrix](https://leetcode.com/problems/reshape-the-matrix)
 
 [中文文档](/solution/0500-0599/0566.Reshape%20the%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In MATLAB, there is a handy function called <code>reshape</code> which can reshape an <code>m x n</code> matrix into a new one with a different size <code>r x c</code> keeping its original data.</p>
 
@@ -48,11 +52,17 @@ tags:
 	<li><code>1 &lt;= r, c &lt;= 300</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +75,8 @@ class Solution:
             ans[i // c][i % c] = mat[i // n][i % n]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func matrixReshape(mat [][]int, r int, c int) [][]int {
 	m, n := len(mat), len(mat[0])
@@ -116,6 +132,8 @@ func matrixReshape(mat [][]int, r int, c int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function matrixReshape(mat: number[][], r: number, c: number): number[][] {
     let m = mat.length,
@@ -132,6 +150,8 @@ function matrixReshape(mat: number[][], r: number, c: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -166,6 +186,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Return an array of arrays of size *returnSize.
@@ -194,9 +216,15 @@ int** matrixReshape(int** mat, int matSize, int* matColSize, int r, int c, int* 
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function matrixReshape(mat: number[][], r: number, c: number): number[][] {
@@ -215,4 +243,6 @@ function matrixReshape(mat: number[][], r: number, c: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

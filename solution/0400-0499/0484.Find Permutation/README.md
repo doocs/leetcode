@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [484. 寻找排列 🔒](https://leetcode.cn/problems/find-permutation)
 
 [English Version](/solution/0400-0499/0484.Find%20Permutation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>由范围 <code>[1,n]</code> 内所有整数组成的 <code>n</code> 个整数的排列&nbsp;<code>perm</code>&nbsp;可以表示为长度为 <code>n - 1</code> 的字符串 <code>s</code> ，其中:</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li><code>s[i]</code>&nbsp;只会包含字符 <code>'D'</code> 和 <code>'I'</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -66,6 +72,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 表示字符串 `s` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +89,8 @@ class Solution:
             i = max(i + 1, j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findPermutation(s string) []int {
@@ -160,4 +174,6 @@ func reverse(arr []int, i, j int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

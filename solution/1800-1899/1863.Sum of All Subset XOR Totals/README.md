@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1863.Sum%20of%20All%20Subset%20XOR%20Totals/README.md
 rating: 1372
+source: 第 241 场周赛 Q1
 tags:
     - 位运算
     - 数组
@@ -12,13 +13,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [1863. 找出所有子集的异或总和再求和](https://leetcode.cn/problems/sum-of-all-subset-xor-totals)
 
 [English Version](/solution/1800-1899/1863.Sum%20of%20All%20Subset%20XOR%20Totals/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个数组的<strong> 异或总和</strong> 定义为数组中所有元素按位 <code>XOR</code> 的结果；如果数组为 <strong>空</strong> ，则异或总和为 <code>0</code> 。</p>
 
@@ -78,7 +81,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二进制枚举
 
@@ -89,6 +96,8 @@ tags:
 时间复杂度 $O(n \times 2^n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +111,8 @@ class Solution:
             ans += s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsetXORSum(nums []int) (ans int) {
 	n := len(nums)
@@ -157,6 +172,8 @@ func subsetXORSum(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subsetXORSum(nums: number[]): number {
@@ -174,6 +191,8 @@ function subsetXORSum(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -198,6 +217,10 @@ var subsetXORSum = function (nums) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：DFS
 
 我们也可以使用深度优先搜索的方法，枚举出所有的子集，然后计算每个子集的异或总和。
@@ -212,6 +235,8 @@ var subsetXORSum = function (nums) {
 时间复杂度 $O(2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -228,6 +253,8 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -251,6 +278,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -271,6 +300,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsetXORSum(nums []int) (ans int) {
 	n := len(nums)
@@ -288,6 +319,8 @@ func subsetXORSum(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subsetXORSum(nums: number[]): number {
     let ans = 0;
@@ -304,6 +337,8 @@ function subsetXORSum(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -328,4 +363,6 @@ var subsetXORSum = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

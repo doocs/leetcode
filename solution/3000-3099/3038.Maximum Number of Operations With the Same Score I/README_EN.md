@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3038.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20I/README_EN.md
 rating: 1201
+source: Biweekly Contest 124 Q1
 tags:
     - Array
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [3038. Maximum Number of Operations With the Same Score I](https://leetcode.com/problems/maximum-number-of-operations-with-the-same-score-i)
 
 [中文文档](/solution/3000-3099/3038.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers called <code>nums</code>, you can perform the following operation while <code>nums</code> contains <strong>at least</strong> <code>2</code> elements:</p>
 
@@ -55,7 +60,11 @@ We are unable to perform any more operations as the score of the next operation 
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal
 
@@ -64,6 +73,8 @@ First, we calculate the sum of the first two elements, denoted as $s$. Then we t
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +88,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int maxOperations(int[] nums) {
@@ -89,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxOperations(nums []int) (ans int) {
 	s, n := nums[0]+nums[1], len(nums)
@@ -113,6 +130,8 @@ func maxOperations(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxOperations(nums: number[]): number {
@@ -128,4 +147,6 @@ function maxOperations(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

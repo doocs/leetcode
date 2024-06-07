@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1922.Count%20Good%20Numbers/README.md
 rating: 1674
+source: 第 248 场周赛 Q3
 tags:
     - 递归
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1922. 统计好数字的数目](https://leetcode.cn/problems/count-good-numbers)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们称一个数字字符串是 <strong>好数字</strong> 当它满足（下标从 <strong>0</strong> 开始）<strong>偶数</strong> 下标处的数字为 <strong>偶数</strong> 且 <strong>奇数</strong> 下标处的数字为 <strong>质数</strong> （<code>2</code>，<code>3</code>，<code>5</code> 或 <code>7</code>）。</p>
 
@@ -58,11 +61,17 @@ tags:
 	<li><code>1 <= n <= 10<sup>15</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +89,8 @@ class Solution:
 
         return myPow(5, (n + 1) >> 1) * myPow(4, n >> 1) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 int MOD = 1000000007;
@@ -127,6 +140,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 const mod int64 = 1e9 + 7
 
@@ -149,4 +164,6 @@ func myPow(x, n int64) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

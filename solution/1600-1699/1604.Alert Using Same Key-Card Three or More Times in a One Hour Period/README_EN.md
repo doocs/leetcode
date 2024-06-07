@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1604.Alert%20Using%20Same%20Key-Card%20Three%20or%20More%20Times%20in%20a%20One%20Hour%20Period/README_EN.md
 rating: 1606
+source: Biweekly Contest 36 Q2
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1604. Alert Using Same Key-Card Three or More Times in a One Hour Period](https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period)
 
 [中文文档](/solution/1600-1699/1604.Alert%20Using%20Same%20Key-Card%20Three%20or%20More%20Times%20in%20a%20One%20Hour%20Period/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>LeetCode company workers use key-cards to unlock office doors. Each time a worker uses their key-card, the security system saves the worker&#39;s name and the time when it was used. The system emits an <strong>alert</strong> if any worker uses the key-card <strong>three or more times</strong> in a one-hour period.</p>
 
@@ -55,7 +60,11 @@ tags:
 	<li><code>keyName[i] contains only lowercase English letters.</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
 
@@ -68,6 +77,8 @@ Finally, we sort the answer array in lexicographical order to get the answer.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of clock-in records.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +98,8 @@ class Solution:
         ans.sort()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -151,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func alertNames(keyName []string, keyTime []string) (ans []string) {
 	d := map[string][]int{}
@@ -176,6 +193,8 @@ func alertNames(keyName []string, keyTime []string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function alertNames(keyName: string[], keyTime: string[]): string[] {
@@ -211,4 +230,6 @@ function alertNames(keyName: string[], keyTime: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

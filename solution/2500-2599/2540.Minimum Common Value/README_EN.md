@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2540.Minimum%20Common%20Value/README_EN.md
 rating: 1249
+source: Biweekly Contest 96 Q1
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2540. Minimum Common Value](https://leetcode.com/problems/minimum-common-value)
 
 [中文文档](/solution/2500-2599/2540.Minimum%20Common%20Value/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integer arrays <code>nums1</code> and <code>nums2</code>, sorted in non-decreasing order, return <em>the <strong>minimum integer common</strong> to both arrays</em>. If there is no common integer amongst <code>nums1</code> and <code>nums2</code>, return <code>-1</code>.</p>
 
@@ -46,7 +51,11 @@ tags:
 	<li>Both <code>nums1</code> and <code>nums2</code> are sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -55,6 +64,8 @@ Traverse the two arrays. If the elements pointed to by the two pointers are equa
 The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two arrays respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +81,8 @@ class Solution:
                 j += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getCommon(nums1 []int, nums2 []int) int {
 	m, n := len(nums1), len(nums2)
@@ -126,6 +143,8 @@ func getCommon(nums1 []int, nums2 []int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getCommon(nums1: number[], nums2: number[]): number {
@@ -146,6 +165,8 @@ function getCommon(nums1: number[], nums2: number[]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -169,6 +190,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int getCommon(int* nums1, int nums1Size, int* nums2, int nums2Size) {
     int i = 0;
@@ -189,9 +212,15 @@ int getCommon(int* nums1, int nums1Size, int* nums2, int nums2Size) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -218,4 +247,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

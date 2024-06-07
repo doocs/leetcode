@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2619.Array%20Prototype%20Last/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2619. Array Prototype Last](https://leetcode.com/problems/array-prototype-last)
 
 [中文文档](/solution/2600-2699/2619.Array%20Prototype%20Last/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write code that enhances all arrays such that you can call the&nbsp;<code>array.last()</code>&nbsp;method on any array and it will return the last element. If there are no elements in the array, it should return&nbsp;<code>-1</code>.</p>
 
@@ -39,11 +43,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2619.Ar
 	<li><code>0 &lt;= arr.length &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 declare global {
@@ -66,4 +76,6 @@ export {};
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

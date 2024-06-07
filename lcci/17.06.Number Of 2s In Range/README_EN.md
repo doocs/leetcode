@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.06.Number%20Of%202s%20In%20Range/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.06. Number Of 2s In Range](https://leetcode.cn/problems/number-of-2s-in-range-lcci)
 
 [中文文档](/lcci/17.06.Number%20Of%202s%20In%20Range/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a method to count the number of 2s that appear in all the numbers between 0&nbsp;and n (inclusive).</p>
 <p><strong>Example:</strong></p>
@@ -25,7 +29,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.06.Number%20Of%202
 	<li><code>n &lt;= 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Digit DP
 
@@ -62,6 +70,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOf2sInRange(self, n: int) -> int:
@@ -83,6 +93,8 @@ class Solution:
             n //= 10
         return dfs(l, 0, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOf2sInRange(n int) int {
@@ -202,6 +218,8 @@ func numberOf2sInRange(n int) int {
 }
 ```
 
+#### Swift
+
 ```swift
 class Solution {
     private var a = [Int](repeating: 0, count: 12)
@@ -243,4 +261,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

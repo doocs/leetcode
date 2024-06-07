@@ -8,11 +8,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [89. Gray Code](https://leetcode.com/problems/gray-code)
 
 [中文文档](/solution/0000-0099/0089.Gray%20Code/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An <strong>n-bit gray code sequence</strong> is a sequence of <code>2<sup>n</sup></code> integers where:</p>
 
@@ -59,7 +63,11 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
 	<li><code>1 &lt;= n &lt;= 16</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary to Gray Code Conversion
 
@@ -83,11 +91,15 @@ The time complexity is $O(2^n)$, where $n$ is the integer given in the problem. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def grayCode(self, n: int) -> List[int]:
         return [i ^ (i >> 1) for i in range(1 << n)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func grayCode(n int) (ans []int) {
 	for i := 0; i < 1<<n; i++ {
@@ -122,6 +138,8 @@ func grayCode(n int) (ans []int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -139,4 +157,6 @@ var grayCode = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

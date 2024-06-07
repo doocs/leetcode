@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1719.Number%20Of%20Ways%20To%20Reconstruct%20A%20Tree/README_EN.md
 rating: 3018
+source: Biweekly Contest 43 Q4
 tags:
     - Tree
     - Graph
 ---
+
+<!-- problem:start -->
 
 # [1719. Number Of Ways To Reconstruct A Tree](https://leetcode.com/problems/number-of-ways-to-reconstruct-a-tree)
 
 [中文文档](/solution/1700-1799/1719.Number%20Of%20Ways%20To%20Reconstruct%20A%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>pairs</code>, where <code>pairs[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>, and:</p>
 
@@ -76,11 +81,17 @@ tags:
 	<li>The elements in <code>pairs</code> are unique.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -116,6 +127,8 @@ class Solution:
             return 0
         return 2 if equal else 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +180,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -209,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkWays(pairs [][]int) int {
@@ -266,4 +283,6 @@ func checkWays(pairs [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

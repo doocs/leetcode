@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2379.Minimum%20Recolors%20to%20Get%20K%20Consecutive%20Black%20Blocks/README_EN.md
 rating: 1360
+source: Biweekly Contest 85 Q1
 tags:
     - String
     - Sliding Window
 ---
+
+<!-- problem:start -->
 
 # [2379. Minimum Recolors to Get K Consecutive Black Blocks](https://leetcode.com/problems/minimum-recolors-to-get-k-consecutive-black-blocks)
 
 [中文文档](/solution/2300-2399/2379.Minimum%20Recolors%20to%20Get%20K%20Consecutive%20Black%20Blocks/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string <code>blocks</code> of length <code>n</code>, where <code>blocks[i]</code> is either <code>&#39;W&#39;</code> or <code>&#39;B&#39;</code>, representing the color of the <code>i<sup>th</sup></code> block. The characters <code>&#39;W&#39;</code> and <code>&#39;B&#39;</code> denote the colors white and black, respectively.</p>
 
@@ -55,7 +60,11 @@ Therefore, we return 0.
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -69,6 +78,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $blocks$. T
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumRecolors(self, blocks: str, k: int) -> int:
@@ -79,6 +90,8 @@ class Solution:
             ans = min(ans, cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumRecolors(blocks string, k int) int {
@@ -133,6 +150,8 @@ func minimumRecolors(blocks string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumRecolors(blocks: string, k: number): number {
     let cnt = 0;
@@ -148,6 +167,8 @@ function minimumRecolors(blocks: string, k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,6 +196,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -205,6 +228,8 @@ class Solution {
 }
 ```
 
+#### C
+
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 
@@ -226,4 +251,6 @@ int minimumRecolors(char* blocks, int k) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2618.Check%20if%20Object%20Instance%20of%20Class/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2618. Check if Object Instance of Class](https://leetcode.com/problems/check-if-object-instance-of-class)
 
 [中文文档](/solution/2600-2699/2618.Check%20if%20Object%20Instance%20of%20Class/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a function that checks if a given value&nbsp;is an instance of a given class or superclass. For this problem, an object is considered an instance of a given class if that object has access to that class&#39;s methods.</p>
 
@@ -51,11 +55,17 @@ Dog is a subclass of Animal. Therefore, a Dog object is an instance of both Dog 
 <strong>Explanation: </strong>5 is a Number. Note that the &quot;instanceof&quot; keyword would return false. However, it is still considered an instance of Number because it accesses the Number methods. For example &quot;toFixed()&quot;.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function checkIfInstanceOf(obj: any, classFunction: any): boolean {
@@ -79,4 +89,6 @@ function checkIfInstanceOf(obj: any, classFunction: any): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,15 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.25.Word%20Rectangle/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.25. 单词矩阵](https://leetcode.cn/problems/word-rectangle-lcci)
 
 [English Version](/lcci/17.25.Word%20Rectangle/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一份单词的清单，设计一个算法，创建由字母组成的面积最大的矩形，其中每一行组成一个单词(自左向右)，每一列也组成一个单词(自上而下)。不要求这些单词在清单里连续出现，但要求所有行等长，所有列等高。</p>
 <p>如果有多个面积最大的矩形，输出任意一个均可。一个单词可以重复使用。</p>
@@ -32,7 +34,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.25.Word%20Rectangl
 	<li>数据保证单词足够随机</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组 + 回溯 + 字典树
 
@@ -43,6 +49,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.25.Word%20Rectangl
 在判断单词矩阵是否合法时，我们可以使用字典树来进行优化。我们将所有的单词加入到字典树中，然后对于每一列，我们检查其是否是一个单词。如果是一个单词，那么我们就检查下一列，否则我们就可以停止对该单词矩阵的搜索了。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -108,6 +116,8 @@ class Solution:
             dfs(ws)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -188,6 +198,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -273,6 +285,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -349,6 +363,91 @@ func maxRectangle(words []string) (ans []string) {
 }
 ```
 
+#### Swift
+
+```swift
+class Trie {
+    var children = [Trie?](repeating: nil, count: 26)
+    var isEnd = false
+
+    func insert(_ word: String) {
+        var node = self
+        for c in word {
+            let index = Int(c.asciiValue! - Character("a").asciiValue!)
+            if node.children[index] == nil {
+                node.children[index] = Trie()
+            }
+            node = node.children[index]!
+        }
+        node.isEnd = true
+    }
+}
+
+class Solution {
+    private var maxL = 0
+    private var maxS = 0
+    private var ans: [String] = []
+    private var trie = Trie()
+    private var t = [String]()
+
+    func maxRectangle(_ words: [String]) -> [String] {
+        var d = [Int: [String]]()
+        for word in words {
+            maxL = max(maxL, word.count)
+            trie.insert(word)
+            d[word.count, default: []].append(word)
+        }
+
+        for ws in d.values {
+            t.removeAll()
+            dfs(ws)
+        }
+        return ans
+    }
+
+    private func dfs(_ ws: [String]) {
+        guard let first = ws.first, first.count * maxL > maxS, t.count < maxL else { return }
+        for w in ws {
+            t.append(w)
+            let st = check(t)
+            switch st {
+            case 0:
+                t.removeLast()
+            case 1:
+                if maxS < t.count * t[0].count {
+                    maxS = t.count * t[0].count
+                    ans = t
+                }
+                dfs(ws)
+                t.removeLast()
+            default:
+                dfs(ws)
+                t.removeLast()
+            }
+        }
+    }
+
+    private func check(_ mat: [String]) -> Int {
+        let m = mat.count, n = mat[0].count
+        var result = 1
+        for j in 0..<n {
+            var node = trie
+            for i in 0..<m {
+                let index = Int(mat[i][mat[i].index(mat[i].startIndex, offsetBy: j)].asciiValue! - Character("a").asciiValue!)
+                guard let nextNode = node.children[index] else { return 0 }
+                node = nextNode
+            }
+            if !node.isEnd {
+                result = 2
+            }
+        }
+        return result
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

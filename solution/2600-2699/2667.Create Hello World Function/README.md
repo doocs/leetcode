@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2667.Create%20Hello%20World%20Function/README.md
 ---
 
+<!-- problem:start -->
+
 # [2667. 创建 Hello World 函数](https://leetcode.cn/problems/create-hello-world-function)
 
 [English Version](/solution/2600-2699/2667.Create%20Hello%20World%20Function/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 请你编写一个名为 <code>createHelloWorld</code> 的函数。它应该返回一个新的函数，该函数总是返回 <code>"Hello World"</code>&nbsp;。
 
@@ -48,11 +50,17 @@ f({}, null, 42); // "Hello World"
 	<li><code>0 &lt;= args.length &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function createHelloWorld() {
@@ -69,4 +77,6 @@ function createHelloWorld() {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

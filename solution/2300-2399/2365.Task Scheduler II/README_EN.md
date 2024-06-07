@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2365.Task%20Scheduler%20II/README_EN.md
 rating: 1622
+source: Biweekly Contest 84 Q3
 tags:
     - Array
     - Hash Table
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2365. Task Scheduler II](https://leetcode.com/problems/task-scheduler-ii)
 
 [中文文档](/solution/2300-2399/2365.Task%20Scheduler%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of positive integers <code>tasks</code>, representing tasks that need to be completed <strong>in order</strong>, where <code>tasks[i]</code> represents the <strong>type</strong> of the <code>i<sup>th</sup></code> task.</p>
 
@@ -73,7 +78,11 @@ It can be shown that the tasks cannot be completed in less than 6 days.
 	<li><code>1 &lt;= space &lt;= tasks.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
 
@@ -87,6 +96,8 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def taskSchedulerII(self, tasks: List[int], space: int) -> int:
@@ -98,6 +109,8 @@ class Solution:
             day[task] = ans + space + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func taskSchedulerII(tasks []int, space int) (ans int64) {
 	day := map[int]int64{}
@@ -143,6 +160,8 @@ func taskSchedulerII(tasks []int, space int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function taskSchedulerII(tasks: number[], space: number): number {
@@ -159,4 +178,6 @@ function taskSchedulerII(tasks: number[], space: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

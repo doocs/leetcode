@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1881.Maximum%20Value%20after%20Insertion/README.md
 rating: 1381
+source: 第 243 场周赛 Q2
 tags:
     - 贪心
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1881. 插入后的最大值](https://leetcode.cn/problems/maximum-value-after-insertion)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个非常大的整数 <code>n</code> 和一个整数数字 <code>x</code> ，大整数 <code>n</code> 用一个字符串表示。<code>n</code> 中每一位数字和数字 <code>x</code> 都处于闭区间 <code>[1, 9]</code> 中，且 <code>n</code> 可能表示一个 <strong>负数</strong> 。</p>
 
@@ -57,11 +60,17 @@ tags:
 	<li>当 <code>n</code> 表示负数时，将会以字符 <code>'-'</code> 开始。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +86,8 @@ class Solution:
                     return n[: i + 1] + str(x) + n[i + 1 :]
             return n + str(x)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxValue(n string, x int) string {
 	i := 0
@@ -124,6 +139,8 @@ func maxValue(n string, x int) string {
 	return n[:i] + string(y) + n[i:]
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -149,4 +166,6 @@ var maxValue = function (n, x) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1360.Number%20of%20Days%20Between%20Two%20Dates/README.md
 rating: 1421
+source: 第 177 场周赛 Q1
 tags:
     - 数学
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1360. 日期之间隔几天](https://leetcode.cn/problems/number-of-days-between-two-dates)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你编写一个程序来计算两个日期之间隔了多少天。</p>
 
@@ -42,7 +45,11 @@ tags:
 	<li>给定的日期是&nbsp;<code>1971</code>&nbsp;年到 <code>2100</code>&nbsp;年之间的有效日期。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -57,6 +64,8 @@ tags:
 时间复杂度 $O(y + m)$，其中 $y$ 表示给定的日期距离 `1971-01-01` 的年数，而 $m$ 表示给定的日期的月数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +103,8 @@ class Solution:
         return abs(calcDays(date1) - calcDays(date2))
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int daysBetweenDates(String date1, String date2) {
@@ -126,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -160,6 +173,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func daysBetweenDates(date1 string, date2 string) int {
@@ -204,6 +219,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function daysBetweenDates(date1: string, date2: string): number {
     return Math.abs(calcDays(date1) - calcDays(date2));
@@ -234,4 +251,6 @@ function calcDays(date: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

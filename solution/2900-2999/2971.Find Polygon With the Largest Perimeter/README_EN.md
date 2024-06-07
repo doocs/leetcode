@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2971.Find%20Polygon%20With%20the%20Largest%20Perimeter/README_EN.md
 rating: 1521
+source: Biweekly Contest 120 Q2
 tags:
     - Greedy
     - Array
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2971. Find Polygon With the Largest Perimeter](https://leetcode.com/problems/find-polygon-with-the-largest-perimeter)
 
 [中文文档](/solution/2900-2999/2971.Find%20Polygon%20With%20the%20Largest%20Perimeter/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <strong>positive</strong> integers <code>nums</code> of length <code>n</code>.</p>
 
@@ -61,11 +66,17 @@ It can be shown that the largest possible perimeter is 12.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +89,8 @@ class Solution:
                 ans = max(ans, s[k])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestPerimeter(nums []int) int64 {
 	sort.Ints(nums)
@@ -137,6 +154,8 @@ func largestPerimeter(nums []int) int64 {
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestPerimeter(nums: number[]): number {
@@ -158,4 +177,6 @@ function largestPerimeter(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

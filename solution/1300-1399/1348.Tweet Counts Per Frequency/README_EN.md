@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1348.Tweet%20Counts%20Per%20Frequency/README_EN.md
 rating: 2036
+source: Weekly Contest 175 Q3
 tags:
     - Design
     - Hash Table
@@ -11,11 +12,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1348. Tweet Counts Per Frequency](https://leetcode.com/problems/tweet-counts-per-frequency)
 
 [中文文档](/solution/1300-1399/1348.Tweet%20Counts%20Per%20Frequency/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A social media company is trying to monitor activity on their site by analyzing the number of tweets that occur in select periods of time. These periods can be partitioned into smaller <strong>time chunks</strong> based on a certain frequency (every <strong>minute</strong>, <strong>hour</strong>, or <strong>day</strong>).</p>
 
@@ -74,11 +79,17 @@ tweetCounts.getTweetCountsPerFrequency(&quot;hour&quot;, &quot;tweet3&quot;, 0, 
 	<li>There will be at most <code>10<sup>4</sup></code> calls <strong>in total</strong> to <code>recordTweet</code> and <code>getTweetCountsPerFrequency</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -112,6 +123,8 @@ class TweetCounts:
 # obj.recordTweet(tweetName,time)
 # param_2 = obj.getTweetCountsPerFrequency(freq,tweetName,startTime,endTime)
 ```
+
+#### Java
 
 ```java
 class TweetCounts {
@@ -156,6 +169,8 @@ class TweetCounts {
  */
 ```
 
+#### C++
+
 ```cpp
 class TweetCounts {
 public:
@@ -195,4 +210,6 @@ private:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

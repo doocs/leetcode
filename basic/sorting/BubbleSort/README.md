@@ -8,6 +8,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 def bubbleSort(arr):
     n = len(arr)
@@ -36,6 +38,8 @@ arr = [64, 34, 25, 12, 22, 11, 90]
 bubbleSort(arr)
 print(arr)
 ```
+
+#### Java
 
 ```java
 import java.util.Arrays;
@@ -69,6 +73,8 @@ public class BubbleSort {
 }
 ```
 
+#### C++
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -97,6 +103,8 @@ int main() {
 }
 ```
 
+#### Go
+
 ```go
 package main
 
@@ -122,6 +130,8 @@ func main() {
 }
 ```
 
+#### Rust
+
 ```rust
 fn bubble_sort(nums: &mut Vec<i32>) {
     let n = nums.len();
@@ -142,6 +152,8 @@ fn main() {
     println!("{:?}", nums);
 }
 ```
+
+#### JavaScript
 
 ```js
 function bubbleSort(inputArr) {
@@ -167,6 +179,8 @@ function bubbleSort(inputArr) {
 const arr = [6, 3, 2, 1, 5];
 console.log(bubbleSort(arr));
 ```
+
+#### C#
 
 ```cs
 using static System.Console;
@@ -217,5 +231,3 @@ public class Program
 ```
 
 <!-- tabs:end -->
-
-<!-- end -->

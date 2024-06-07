@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md
 rating: 1655
+source: 第 126 场周赛 Q3
 tags:
     - 数组
     - 二分查找
@@ -10,13 +11,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [1004. 最大连续 1 的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii)
 
 [English Version](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二进制数组&nbsp;<code>nums</code>&nbsp;和一个整数 <code>k</code>，如果可以翻转最多 <code>k</code> 个 <code>0</code> ，则返回 <em>数组中连续 <code>1</code> 的最大个数</em> 。</p>
 
@@ -48,7 +51,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口
 
@@ -62,6 +69,8 @@ tags:
 -   [2024. 考试的最大困扰度](https://github.com/doocs/leetcode/blob/main/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +87,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestOnes(nums []int, k int) int {
 	ans := 0
@@ -142,6 +157,8 @@ func longestOnes(nums []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestOnes(nums: number[], k: number): number {
     const n = nums.length;
@@ -159,6 +176,10 @@ function longestOnes(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：滑动窗口（优化）
 
 以下是滑动窗口的优化版本。
@@ -175,6 +196,8 @@ function longestOnes(nums: number[], k: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestOnes(self, nums: List[int], k: int) -> int:
@@ -189,6 +212,8 @@ class Solution:
                     k += 1
         return r - l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -207,6 +232,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -220,6 +247,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestOnes(nums []int, k int) int {
@@ -240,6 +269,8 @@ func longestOnes(nums []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestOnes(nums: number[], k: number): number {
     const n = nums.length;
@@ -255,6 +286,8 @@ function longestOnes(nums: number[], k: number): number {
     return n - l;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -279,4 +312,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

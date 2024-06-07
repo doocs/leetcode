@@ -4,11 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9861.%20%E6%89%91%E5%85%8B%E7%89%8C%E4%B8%AD%E7%9A%84%E9%A1%BA%E5%AD%90/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 61. 扑克牌中的顺子](https://leetcode.cn/problems/bu-ke-pai-zhong-de-shun-zi-lcof/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>从<strong>若干副扑克牌</strong>中随机抽 <code>5</code> 张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王为 0 ，可以看成任意数字。A 不能视为 14。</p>
 
@@ -36,7 +38,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p>数组的数取值为 [0, 13] .</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历
 
@@ -50,6 +56,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +74,8 @@ class Solution:
             mx = max(mx, x)
         return mx - mi <= 4
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isStraight(nums []int) bool {
 	vis := map[int]bool{}
@@ -129,6 +143,8 @@ func isStraight(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isStraight(nums: number[]): boolean {
     nums.sort((a, b) => a - b);
@@ -143,6 +159,8 @@ function isStraight(nums: number[]): boolean {
     return nums[4] - nums[j] <= 4;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -160,6 +178,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -185,6 +205,8 @@ var isStraight = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsStraight(int[] nums) {
@@ -206,6 +228,32 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func isStraight(_ nums: [Int]) -> Bool {
+        var vis = Array(repeating: false, count: 14)
+        var mi = 20, mx = -1
+        for x in nums {
+            if x == 0 {
+                continue
+            }
+            if vis[x] {
+                return false
+            }
+            vis[x] = true
+            mi = min(mi, x)
+            mx = max(mx, x)
+        }
+        return mx - mi <= 4
+    }
+}
+
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

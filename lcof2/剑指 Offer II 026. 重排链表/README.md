@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20026.%20%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 026. 重排链表](https://leetcode.cn/problems/LGjMqU)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个单链表 <code>L</code><em> </em>的头节点 <code>head</code> ，单链表 <code>L</code> 表示为：</p>
 
@@ -49,11 +51,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 143&nbsp;题相同：<a href="https://leetcode.cn/problems/reorder-list/">https://leetcode.cn/problems/reorder-list/</a>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -98,6 +106,8 @@ class Solution:
         cur.next = l1 or l2
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -155,6 +165,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -216,6 +228,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -274,6 +288,76 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 
+#### Swift
+
+```swift
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     var val: Int
+ *     var next: ListNode?
+ *     init() { self.val = 0; self.next = nil; }
+ *     init(_ val: Int) { self.val = val; self.next = nil; }
+ *     init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
+ * }
+ */
+
+class Solution {
+    func reorderList(_ head: ListNode?) {
+        guard let head = head else { return }
+
+        let mid = middleNode(head)
+
+        let secondHalf = reverseList(mid.next)
+        mid.next = nil
+
+        mergeTwoLists(head, secondHalf)
+    }
+
+    private func middleNode(_ head: ListNode?) -> ListNode {
+        var slow = head
+        var fast = head
+        while fast != nil && fast?.next != nil {
+            slow = slow?.next
+            fast = fast?.next?.next
+        }
+        return slow!
+    }
+
+    private func reverseList(_ head: ListNode?) -> ListNode? {
+        var prev: ListNode? = nil
+        var curr = head
+        while curr != nil {
+            let nextTemp = curr?.next
+            curr?.next = prev
+            prev = curr
+            curr = nextTemp
+        }
+        return prev
+    }
+
+    private func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) {
+        var l1 = l1
+        var l2 = l2
+        while l1 != nil && l2 != nil {
+            let l1Next = l1?.next
+            let l2Next = l2?.next
+
+            l1?.next = l2
+            if l1Next == nil {
+                break
+            }
+            l2?.next = l1Next
+
+            l1 = l1Next
+            l2 = l2Next
+        }
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

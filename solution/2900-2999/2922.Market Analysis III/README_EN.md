@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2922. Market Analysis III 🔒](https://leetcode.com/problems/market-analysis-iii)
 
 [中文文档](/solution/2900-2999/2922.Market%20Analysis%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Users</code></p>
 
@@ -104,13 +108,19 @@ Items table:
 - The user with seller_id 3 has sold two items, but only one of them is not marked as a favorite. We will include just that non-favorite item in our count.
 Since seller_ids 2 and 3 have the same count of one item each, they both will be displayed in the output.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Equijoin + Grouping + Subquery
 
 We can use equijoin to connect the `Orders` table and the `Users` table according to `seller_id`, then connect `Items` according to `item_id`, and filter out the records where `item_brand` is not equal to `favorite_brand`. Then, group by `seller_id` and count the number of `item_id` corresponding to each `seller_id`. Finally, use a subquery to find the `seller_id` with the most `item_id`.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -132,4 +142,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1591.Strange%20Printer%20II/README_EN.md
 rating: 2290
+source: Biweekly Contest 35 Q4
 tags:
     - Graph
     - Topological Sort
@@ -10,11 +11,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1591. Strange Printer II](https://leetcode.com/problems/strange-printer-ii)
 
 [中文文档](/solution/1500-1599/1591.Strange%20Printer%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a strange printer with the following two special requirements:</p>
 
@@ -60,6 +65,42 @@ tags:
 	<li><code>1 &lt;= targetGrid[row][col] &lt;= 60</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

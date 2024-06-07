@@ -8,11 +8,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [949. Largest Time for Given Digits](https://leetcode.com/problems/largest-time-for-given-digits)
 
 [中文文档](/solution/0900-0999/0949.Largest%20Time%20for%20Given%20Digits/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>arr</code> of 4 digits, find the latest 24-hour time that can be made using each digit <strong>exactly once</strong>.</p>
 
@@ -45,11 +49,17 @@ tags:
 	<li><code>0 &lt;= arr[i] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +78,8 @@ class Solution:
                     return f'{h:02}:{m:02}'
         return ''
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestTimeFromDigits(arr []int) string {
 	ans := -1
@@ -141,9 +157,15 @@ func largestTimeFromDigits(arr []int) string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -162,4 +184,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array)
 
 [中文文档](/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> sorted in <strong>non-decreasing order</strong>, remove the duplicates <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank"><strong>in-place</strong></a> such that each unique element appears only <strong>once</strong>. The <strong>relative order</strong> of the elements should be kept the <strong>same</strong>. Then return <em>the number of unique elements in </em><code>nums</code>.</p>
 
@@ -68,7 +72,11 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 	<li><code>nums</code> is sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Pass
 
@@ -93,6 +101,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
@@ -103,6 +113,8 @@ class Solution:
                 k += 1
         return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeDuplicates(nums []int) int {
 	k := 0
@@ -146,6 +162,8 @@ func removeDuplicates(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function removeDuplicates(nums: number[]): number {
     let k: number = 0;
@@ -157,6 +175,8 @@ function removeDuplicates(nums: number[]): number {
     return k;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,6 +192,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -189,6 +211,8 @@ var removeDuplicates = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int RemoveDuplicates(int[] nums) {
@@ -202,6 +226,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -223,9 +249,15 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### C++
 
 ```cpp
 class Solution {
@@ -239,4 +271,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

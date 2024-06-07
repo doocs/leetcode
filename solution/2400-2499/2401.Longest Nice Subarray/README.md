@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2401.Longest%20Nice%20Subarray/README.md
 rating: 1749
+source: 第 309 场周赛 Q3
 tags:
     - 位运算
     - 数组
     - 滑动窗口
 ---
+
+<!-- problem:start -->
 
 # [2401. 最长优雅子数组](https://leetcode.cn/problems/longest-nice-subarray)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由 <strong>正</strong> 整数组成的数组 <code>nums</code> 。</p>
 
@@ -55,7 +58,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -75,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestNiceSubarray(self, nums: List[int]) -> int:
@@ -87,6 +96,8 @@ class Solution:
             mask |= x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestNiceSubarray(nums []int) (ans int) {
 	mask, j := 0, 0
@@ -137,6 +152,8 @@ func longestNiceSubarray(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestNiceSubarray(nums: number[]): number {
     let mask = 0;
@@ -151,6 +168,8 @@ function longestNiceSubarray(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -174,6 +193,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int LongestNiceSubarray(int[] nums) {
@@ -192,4 +213,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

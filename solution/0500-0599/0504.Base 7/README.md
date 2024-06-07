@@ -6,13 +6,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [504. 七进制数](https://leetcode.cn/problems/base-7)
 
 [English Version](/solution/0500-0599/0504.Base%207/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数 <code>num</code>，将其转化为 <strong>7 进制</strong>，并以字符串形式输出。</p>
 
@@ -40,7 +42,11 @@ tags:
 	<li><code>-10<sup>7</sup>&nbsp;&lt;= num &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -49,6 +55,8 @@ tags:
 时间复杂度 $O(\log n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。其中 $n$ 是 `num` 的绝对值大小。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +71,8 @@ class Solution:
             num //= 7
         return ''.join(ans[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +93,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -98,6 +110,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func convertToBase7(num int) string {
@@ -115,6 +129,8 @@ func convertToBase7(num int) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function convertToBase7(num: number): string {
@@ -134,6 +150,8 @@ function convertToBase7(num: number): string {
     return isMinus ? '-' + res : res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -160,4 +178,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

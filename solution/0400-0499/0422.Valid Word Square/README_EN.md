@@ -7,11 +7,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [422. Valid Word Square 🔒](https://leetcode.com/problems/valid-word-square)
 
 [中文文档](/solution/0400-0499/0422.Valid%20Word%20Square/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of strings <code>words</code>, return <code>true</code> <em>if it forms a valid <strong>word square</strong></em>.</p>
 
@@ -63,24 +67,36 @@ Therefore, it is NOT a valid word square.
 	<li><code>words[i]</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Iterative Check
+
+We observe that if $words[i][j] \neq words[j][i]$, we can directly return `false`.
+
+Therefore, we only need to iterate through each row, and then check whether each row satisfies $words[i][j] = words[j][i]$. Note that if the index is out of bounds, we also directly return `false`.
+
+The time complexity is $O(n^2)$, where $n$ is the length of `words`. The space complexity is $O(1)`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def validWordSquare(self, words: List[str]) -> bool:
         m = len(words)
-        n = max(len(w) for w in words)
-        if m != n:
-            return False
-        for j in range(n):
-            if words[j] != "".join(w[j] for w in words if j < len(w)):
-                return False
+        for i, w in enumerate(words):
+            for j, c in enumerate(w):
+                if j >= m or i >= len(words[j]) or c != words[j][i]:
+                    return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validWordSquare(words []string) bool {
 	m := len(words)
@@ -133,6 +153,8 @@ func validWordSquare(words []string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validWordSquare(words: string[]): boolean {
@@ -151,21 +173,6 @@ function validWordSquare(words: string[]): boolean {
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def validWordSquare(self, words: List[str]) -> bool:
-        m = len(words)
-        for i, w in enumerate(words):
-            for j, c in enumerate(w):
-                if j >= m or i >= len(words[j]) or c != words[j][i]:
-                    return False
-        return True
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

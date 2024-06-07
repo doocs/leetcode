@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2233.Maximum%20Product%20After%20K%20Increments/README.md
 rating: 1685
+source: 第 288 场周赛 Q3
 tags:
     - 贪心
     - 数组
     - 堆（优先队列）
 ---
+
+<!-- problem:start -->
 
 # [2233. K 次增加后的最大乘积](https://leetcode.cn/problems/maximum-product-after-k-increments)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个非负整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。每次操作，你可以选择&nbsp;<code>nums</code>&nbsp;中 <strong>任一</strong>&nbsp;元素并将它 <strong>增加</strong>&nbsp;<code>1</code>&nbsp;。</p>
 
@@ -52,7 +55,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 优先队列（小根堆）
 
@@ -61,6 +68,8 @@ tags:
 时间复杂度 $O(n+klogn)$。其中，$n$ 表示 $nums$ 的长度。建堆的时间复杂度为 $O(n)$，每次弹出最小元素进行加 $1$，再放回堆中，时间复杂度为 $O(logn)$，共进行 $k$ 次操作。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +83,8 @@ class Solution:
             ans = (ans * v) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumProduct(nums []int, k int) int {
@@ -133,6 +148,8 @@ type hp struct{ sort.IntSlice }
 func (hp) Push(any)     {}
 func (hp) Pop() (_ any) { return }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -160,4 +177,6 @@ var maximumProduct = function (nums, k) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

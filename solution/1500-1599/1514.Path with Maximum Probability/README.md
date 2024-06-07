@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README.md
 rating: 1846
+source: 第 197 场周赛 Q3
 tags:
     - 图
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1514. 概率最大的路径](https://leetcode.cn/problems/path-with-maximum-probability)
 
 [English Version](/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由 <code>n</code> 个节点（下标从 0 开始）组成的无向加权图，该图由一个描述边的列表组成，其中 <code>edges[i] = [a, b]</code> 表示连接节点 a 和 b 的一条无向边，且该边遍历成功的概率为 <code>succProb[i]</code> 。</p>
 
@@ -67,13 +70,19 @@ tags:
 	<li>每两个节点之间最多有一条边</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：堆优化 Dijkstra 算法
 
 时间复杂度 O(mlogn)。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -103,6 +112,8 @@ class Solution:
                     heappush(q, (-d[v], v))
         return d[end]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProbability(n int, edges [][]int, succProb []float64, start int, end int) float64 {
@@ -213,11 +228,17 @@ type pair struct {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：SPFA 算法
 
 时间复杂度，平均情况下 O(m)，最坏情况下 O(nm)，n 表示点数，m 表示边数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -249,6 +270,8 @@ class Solution:
                         vis[j] = True
         return d[end]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -286,6 +309,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -326,4 +351,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

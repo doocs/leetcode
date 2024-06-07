@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2389.Longest%20Subsequence%20With%20Limited%20Sum/README.md
 rating: 1387
+source: 第 308 场周赛 Q1
 tags:
     - 贪心
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2389. 和有限的最长子序列](https://leetcode.cn/problems/longest-subsequence-with-limited-sum)
 
 [English Version](/solution/2300-2399/2389.Longest%20Subsequence%20With%20Limited%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;的整数数组 <code>nums</code> ，和一个长度为 <code>m</code> 的整数数组 <code>queries</code> 。</p>
 
@@ -56,7 +59,11 @@ tags:
 	<li><code>1 &lt;= nums[i], queries[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 前缀和 + 二分查找
 
@@ -68,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def answerQueries(self, nums: List[int], queries: List[int]) -> List[int]:
@@ -75,6 +84,8 @@ class Solution:
         s = list(accumulate(nums))
         return [bisect_right(s, q) for q in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func answerQueries(nums []int, queries []int) (ans []int) {
 	sort.Ints(nums)
@@ -135,6 +150,8 @@ func answerQueries(nums []int, queries []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function answerQueries(nums: number[], queries: number[]): number[] {
@@ -163,6 +180,8 @@ function answerQueries(nums: number[], queries: number[]): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn answer_queries(mut nums: Vec<i32>, queries: Vec<i32>) -> Vec<i32> {
@@ -184,6 +203,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -212,6 +233,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序 + 离线查询 + 双指针
 
 与方法一类似，我们可以先对数组 $nums$ 进行升序排列。
@@ -228,6 +253,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def answerQueries(self, nums: List[int], queries: List[int]) -> List[int]:
@@ -243,6 +270,8 @@ class Solution:
             ans[i] = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -266,6 +295,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -291,6 +322,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func answerQueries(nums []int, queries []int) (ans []int) {
 	sort.Ints(nums)
@@ -312,6 +345,8 @@ func answerQueries(nums []int, queries []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function answerQueries(nums: number[], queries: number[]): number[] {
@@ -337,4 +372,6 @@ function answerQueries(nums: number[], queries: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

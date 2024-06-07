@@ -7,13 +7,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [283. 移动零](https://leetcode.cn/problems/move-zeroes)
 
 [English Version](/solution/0200-0299/0283.Move%20Zeroes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数组 <code>nums</code>，编写一个函数将所有 <code>0</code> 移动到数组的末尾，同时保持非零元素的相对顺序。</p>
 
@@ -48,7 +50,11 @@ tags:
 
 <p><b>进阶：</b>你能尽量减少完成的操作次数吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -60,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
@@ -69,6 +77,8 @@ class Solution:
                 i += 1
                 nums[i], nums[j] = nums[j], nums[i]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -99,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func moveZeroes(nums []int) {
 	i := -1
@@ -110,6 +124,8 @@ func moveZeroes(nums []int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -129,6 +145,8 @@ function moveZeroes(nums: number[]): void {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn move_zeroes(nums: &mut Vec<i32>) {
@@ -145,6 +163,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -163,6 +183,8 @@ var moveZeroes = function (nums) {
 };
 ```
 
+#### C
+
 ```c
 void moveZeroes(int* nums, int numsSize) {
     int i = 0;
@@ -180,4 +202,6 @@ void moveZeroes(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

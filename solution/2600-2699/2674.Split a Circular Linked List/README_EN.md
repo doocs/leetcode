@@ -7,11 +7,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [2674. Split a Circular Linked List 🔒](https://leetcode.com/problems/split-a-circular-linked-list)
 
 [中文文档](/solution/2600-2699/2674.Split%20a%20Circular%20Linked%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>circular linked list</strong> <code>list</code> of positive integers, your task is to split it into 2 <strong>circular linked lists</strong> so that the first one contains the <strong>first half</strong> of the nodes in <code>list</code> (exactly <code>ceil(list.length / 2)</code> nodes) in the same order they appeared in <code>list</code>, and the second one contains <strong>the rest</strong> of the nodes in <code>list</code> in the same order they appeared in <code>list</code>.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><font face="monospace"><code>LastNode.next = FirstNode</code></font> where <code>LastNode</code> is the last node of the list and <code>FirstNode</code> is the first one</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Fast and Slow Pointers
 
@@ -54,6 +62,8 @@ We define two pointers $a$ and $b$, both initially pointing to the head of the l
 The time complexity is $O(n)$, where $n$ is the length of the linked list. It requires one traversal of the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -76,6 +86,8 @@ class Solution:
         a.next = list
         return [list, list2]
 ```
+
+#### Java
 
 ```java
 /**
@@ -105,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -137,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -160,6 +176,8 @@ func splitCircularLinkedList(list *ListNode) []*ListNode {
 	return []*ListNode{list, list2}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -193,4 +211,6 @@ function splitCircularLinkedList(list: ListNode | null): Array<ListNode | null> 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

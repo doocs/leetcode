@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2278.Percentage%20of%20Letter%20in%20String/README_EN.md
 rating: 1161
+source: Weekly Contest 294 Q1
 tags:
     - String
 ---
+
+<!-- problem:start -->
 
 # [2278. Percentage of Letter in String](https://leetcode.com/problems/percentage-of-letter-in-string)
 
 [中文文档](/solution/2200-2299/2278.Percentage%20of%20Letter%20in%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> and a character <code>letter</code>, return<em> the <strong>percentage</strong> of characters in </em><code>s</code><em> that equal </em><code>letter</code><em> <strong>rounded down</strong> to the nearest whole percent.</em></p>
 
@@ -42,17 +47,25 @@ The percentage of characters in s that equal the letter &#39;k&#39; is 0%, so we
 	<li><code>letter</code> is a lowercase English letter.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def percentageLetter(self, s: str, letter: str) -> int:
         return s.count(letter) * 100 // len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -68,6 +81,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -78,6 +93,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func percentageLetter(s string, letter byte) int {
@@ -91,6 +108,8 @@ func percentageLetter(s string, letter byte) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function percentageLetter(s: string, letter: string): number {
     let count = 0;
@@ -101,6 +120,8 @@ function percentageLetter(s: string, letter: string): number {
     return Math.floor((count / total) * 100);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -118,4 +139,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

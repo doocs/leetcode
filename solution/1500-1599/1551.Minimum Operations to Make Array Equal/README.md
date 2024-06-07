@@ -3,9 +3,12 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1551.Minimum%20Operations%20to%20Make%20Array%20Equal/README.md
 rating: 1293
+source: 第 202 场周赛 Q2
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1551. 使数组中所有元素相等的最小操作数](https://leetcode.cn/problems/minimum-operations-to-make-array-equal)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>存在一个长度为 <code>n</code> 的数组 <code>arr</code> ，其中 <code>arr[i] = (2 * i) + 1</code> （ <code>0 &lt;= i &lt; n</code> ）。</p>
 
@@ -46,7 +49,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10^4</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -70,11 +77,15 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, n: int) -> int:
         return sum(n - (i << 1 | 1) for i in range(n >> 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(n int) (ans int) {
 	for i := 0; i < n>>1; i++ {
@@ -109,6 +124,8 @@ func minOperations(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(n: number): number {
@@ -122,4 +139,6 @@ function minOperations(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

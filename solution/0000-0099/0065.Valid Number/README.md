@@ -6,69 +6,66 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [65. 有效数字](https://leetcode.cn/problems/valid-number)
 
 [English Version](/solution/0000-0099/0065.Valid%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p><strong>有效数字</strong>（按顺序）可以分成以下几个部分：</p>
+<p>给定一个字符串&nbsp;<code>s</code>&nbsp;，返回&nbsp;<code>s</code>&nbsp;是否是一个 <strong>有效数字</strong>。</p>
 
-<ol>
-	<li>一个 <strong>小数</strong> 或者 <strong>整数</strong></li>
-	<li>（可选）一个 <code>'e'</code> 或 <code>'E'</code> ，后面跟着一个 <strong>整数</strong></li>
-</ol>
+<p>例如，下面的都是有效数字：<code>"2", "0089", "-0.1", "+3.14", "4.", "-.9", "2e10", "-90E3", "3e+7", "+6e-1", "53.5e93", "-123.456e789"</code>，而接下来的不是：<code>"abc", "1a", "1e", "e3", "99e2.5", "--6", "-+3", "95a54e53"</code>。</p>
 
-<p><strong>小数</strong>（按顺序）可以分成以下几个部分：</p>
+<p>一般的，一个 <strong>有效数字</strong>&nbsp;可以用以下的规则之一定义：</p>
 
 <ol>
-	<li>（可选）一个符号字符（<code>'+'</code> 或 <code>'-'</code>）</li>
-	<li>下述格式之一：
-	<ol>
-		<li>至少一位数字，后面跟着一个点 <code>'.'</code></li>
-		<li>至少一位数字，后面跟着一个点 <code>'.'</code> ，后面再跟着至少一位数字</li>
-		<li>一个点 <code>'.'</code> ，后面跟着至少一位数字</li>
-	</ol>
-	</li>
+	<li>一个 <strong>整数</strong> 后面跟着一个 <strong>可选指数</strong>。</li>
+	<li>一个 <strong>十进制数</strong> 后面跟着一个&nbsp;<strong>可选指数</strong>。</li>
 </ol>
 
-<p><strong>整数</strong>（按顺序）可以分成以下几个部分：</p>
+<p>一个 <strong>整数</strong> 定义为一个&nbsp;<strong>可选符号</strong>&nbsp;<code>'-'</code>&nbsp;或&nbsp;<code>'+'</code>&nbsp;后面跟着 <strong>数字</strong>。</p>
+
+<p>一个 <strong>十进制数</strong>&nbsp;定义为一个&nbsp;<strong>可选符号&nbsp;</strong><code>'-'</code>&nbsp;或&nbsp;<code>'+'</code>&nbsp;后面跟着下述规则：</p>
 
 <ol>
-	<li>（可选）一个符号字符（<code>'+'</code> 或 <code>'-'</code>）</li>
-	<li>至少一位数字</li>
+	<li><strong>数字&nbsp;</strong>后跟着一个 <strong>小数点&nbsp;<code>.</code></strong>。</li>
+	<li><strong>数字&nbsp;</strong>后跟着一个 <strong>小数点&nbsp;<code>.</code>&nbsp;</strong>再跟着<strong> 数位</strong>。</li>
+	<li>一个 <strong>小数点&nbsp;<code>.</code>&nbsp;</strong>后跟着<strong> 数位</strong>。</li>
 </ol>
 
-<p>部分有效数字列举如下：<code>["2", "0089", "-0.1", "+3.14", "4.", "-.9", "2e10", "-90E3", "3e+7", "+6e-1", "53.5e93", "-123.456e789"]</code></p>
+<p><strong>指数</strong> 定义为指数符号 <code>'e'</code> 或 <code>'E'</code>，后面跟着一个 <b>整数</b>。</p>
 
-<p>部分无效数字列举如下：<code>["abc", "1a", "1e", "e3", "99e2.5", "--6", "-+3", "95a54e53"]</code></p>
-
-<p>给你一个字符串 <code>s</code> ，如果 <code>s</code> 是一个 <strong>有效数字</strong> ，请返回 <code>true</code> 。</p>
+<p><strong>数字</strong>&nbsp;定义为一个或多个数位。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>s = "0"
-<strong>输出：</strong>true
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">s = "0"</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>输出：</strong><span class="example-io">true</span></p>
+</div>
 
-<pre>
-<strong>输入：</strong>s = "e"
-<strong>输出：</strong>false
-</pre>
+<p><strong class="example">示例 2：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">s = "e"</span></p>
 
-<pre>
-<strong>输入：</strong>s = "."
-<strong>输出：</strong>false
-</pre>
+<p><strong>输出：</strong><span class="example-io">false</span></p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">s = "."</span></p>
+
+<p><strong>输出：</strong><span class="example-io">false</span></p>
+</div>
 
 <p>&nbsp;</p>
 
@@ -79,7 +76,11 @@ tags:
 	<li><code>s</code> 仅含英文字母（大写和小写），数字（<code>0-9</code>），加号 <code>'+'</code> ，减号 <code>'-'</code> ，或者点 <code>'.'</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分情况讨论
 
@@ -100,6 +101,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为字符串长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -132,6 +135,8 @@ class Solution:
             j += 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -174,6 +179,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +208,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isNumber(s string) bool {
@@ -239,6 +248,8 @@ func isNumber(s string) bool {
 	return true
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -300,6 +311,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 using System.Text.RegularExpressions;
 
@@ -314,4 +327,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

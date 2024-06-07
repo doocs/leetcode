@@ -7,11 +7,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [41. First Missing Positive](https://leetcode.com/problems/first-missing-positive)
 
 [中文文档](/solution/0000-0099/0041.First%20Missing%20Positive/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an unsorted integer array <code>nums</code>. Return the <em>smallest positive integer</em> that is <em>not present</em> in <code>nums</code>.</p>
 
@@ -50,7 +54,11 @@ tags:
 	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: In-place Swap
 
@@ -61,6 +69,8 @@ After the traversal, we traverse the array again. If $i+1$ is not equal to $nums
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +87,8 @@ class Solution:
                 return i + 1
         return n + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func firstMissingPositive(nums []int) int {
 	n := len(nums)
@@ -139,6 +155,8 @@ func firstMissingPositive(nums []int) int {
 	return n + 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function firstMissingPositive(nums: number[]): number {
@@ -157,6 +175,8 @@ function firstMissingPositive(nums: number[]): number {
     return (res === -1 ? n : res) + 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -181,6 +201,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -207,6 +229,8 @@ public class Solution {
 }
 ```
 
+#### C
+
 ```c
 int firstMissingPositive(int* nums, int numsSize) {
     for (int i = 0; i < numsSize; ++i) {
@@ -228,6 +252,8 @@ void swap(int* a, int* b) {
     *b = t;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -265,4 +291,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

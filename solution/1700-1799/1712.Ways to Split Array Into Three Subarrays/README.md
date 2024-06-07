@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1712.Ways%20to%20Split%20Array%20Into%20Three%20Subarrays/README.md
 rating: 2078
+source: 第 222 场周赛 Q3
 tags:
     - 数组
     - 双指针
@@ -10,13 +11,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [1712. 将数组分成三个子数组的方案数](https://leetcode.cn/problems/ways-to-split-array-into-three-subarrays)
 
 [English Version](/solution/1700-1799/1712.Ways%20to%20Split%20Array%20Into%20Three%20Subarrays/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们称一个分割整数数组的方案是 <strong>好的</strong> ，当它满足：</p>
 
@@ -63,7 +66,11 @@ tags:
 	<li><code>0 <= nums[i] <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 二分查找
 
@@ -81,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToSplit(self, nums: List[int]) -> int:
@@ -93,6 +102,8 @@ class Solution:
             ans += k - j
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToSplit(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -165,6 +180,8 @@ func waysToSplit(nums []int) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -201,4 +218,6 @@ var waysToSplit = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

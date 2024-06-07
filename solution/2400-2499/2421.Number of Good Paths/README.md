@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2421.Number%20of%20Good%20Paths/README.md
 rating: 2444
+source: 第 312 场周赛 Q4
 tags:
     - 树
     - 并查集
@@ -12,13 +13,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2421. 好路径的数目](https://leetcode.cn/problems/number-of-good-paths)
 
 [English Version](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵 <code>n</code>&nbsp;个节点的树（连通无向无环的图），节点编号从&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n - 1</code>&nbsp;且恰好有&nbsp;<code>n - 1</code>&nbsp;条边。</p>
 
@@ -83,7 +86,11 @@ tags:
 	<li><code>edges</code>&nbsp;表示一棵合法的树。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 并查集
 
@@ -94,6 +101,8 @@ tags:
 时间复杂度 $O(n \times \log n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -126,6 +135,8 @@ class Solution:
                     size[pb][v] += size[pa][v]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -177,6 +188,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -222,6 +235,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfGoodPaths(vals []int, edges [][]int) int {
@@ -275,4 +290,6 @@ func numberOfGoodPaths(vals []int, edges [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2797. Partial Function with Placeholders 🔒](https://leetcode.com/problems/partial-function-with-placeholders)
 
 [中文文档](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a function <code>fn</code>&nbsp;and an array <code>args</code>, return a function <code>partialFn</code>.&nbsp;</p>
 
@@ -67,11 +71,17 @@ Placeholder &quot;_&quot; is replaced with 5 and 20 is added at the end of args.
 	<li><code>0 &lt;= number of placeholders &lt;= restArgs.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function partial(fn: Function, args: any[]): Function {
@@ -89,6 +99,8 @@ function partial(fn: Function, args: any[]): Function {
     };
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -114,4 +126,6 @@ var partial = function (fn, args) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

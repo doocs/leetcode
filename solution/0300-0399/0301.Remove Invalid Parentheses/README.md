@@ -8,13 +8,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [301. 删除无效的括号](https://leetcode.cn/problems/remove-invalid-parentheses)
 
 [English Version](/solution/0300-0399/0301.Remove%20Invalid%20Parentheses/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由若干括号和字母组成的字符串 <code>s</code> ，删除最小数量的无效括号，使得输入的字符串有效。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li><code>s</code> 中至多含 <code>20</code> 个括号</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS + 剪枝
 
@@ -81,6 +87,8 @@ tags:
 时间复杂度 $O(n\times 2^n)$，空间复杂度 $O(n)$。长度为 $n$ 的字符串有 $2^n$ 种可能的删除方式，每种删除方式需要 $O(n)$ 的时间复制字符串。因此总时间复杂度为 $O(n\times 2^n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -112,6 +120,8 @@ class Solution:
         dfs(0, l, r, 0, 0, '')
         return list(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -162,6 +172,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -206,6 +218,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func removeInvalidParentheses(s string) []string {
@@ -258,4 +272,6 @@ func removeInvalidParentheses(s string) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

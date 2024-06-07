@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1510.Stone%20Game%20IV/README_EN.md
 rating: 1786
+source: Biweekly Contest 30 Q4
 tags:
     - Math
     - Dynamic Programming
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [1510. Stone Game IV](https://leetcode.com/problems/stone-game-iv)
 
 [中文文档](/solution/1500-1599/1510.Stone%20Game%20IV/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob take turns playing a game, with Alice starting first.</p>
 
@@ -54,11 +59,17 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +87,8 @@ class Solution:
 
         return dfs(n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func winnerSquareGame(n int) bool {
 	f := make([]int, n+1)
@@ -153,6 +170,8 @@ func winnerSquareGame(n int) bool {
 	return dfs(n)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function winnerSquareGame(n: number): boolean {
@@ -179,9 +198,15 @@ function winnerSquareGame(n: number): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -196,6 +221,8 @@ class Solution:
                 j += 1
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -213,6 +240,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -233,6 +262,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func winnerSquareGame(n int) bool {
 	f := make([]bool, n+1)
@@ -247,6 +278,8 @@ func winnerSquareGame(n int) bool {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function winnerSquareGame(n: number): boolean {
@@ -265,4 +298,6 @@ function winnerSquareGame(n: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

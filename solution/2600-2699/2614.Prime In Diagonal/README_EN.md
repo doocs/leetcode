@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2614.Prime%20In%20Diagonal/README_EN.md
 rating: 1375
+source: Weekly Contest 340 Q1
 tags:
     - Array
     - Math
@@ -10,11 +11,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2614. Prime In Diagonal](https://leetcode.com/problems/prime-in-diagonal)
 
 [中文文档](/solution/2600-2699/2614.Prime%20In%20Diagonal/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 0-indexed two-dimensional integer array <code>nums</code>.</p>
 
@@ -57,7 +62,11 @@ tags:
 	<li><code>1 &lt;= nums<span style="font-size: 10.8333px;">[i][j]</span>&nbsp;&lt;= 4*10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Math + Simulation
 
@@ -68,6 +77,8 @@ Then we iterate the array and check whether the numbers on the diagonals are pri
 The time complexity is $O(n \times \sqrt{M})$, where $n$ and $M$ are the number of rows of the array and the maximum value in the array, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +97,8 @@ class Solution:
                 ans = max(ans, row[n - i - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func diagonalPrime(nums [][]int) (ans int) {
 	n := len(nums)
@@ -174,6 +191,8 @@ func isPrime(x int) bool {
 	return true
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -212,4 +231,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3036.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20II/README_EN.md
 rating: 1894
+source: Weekly Contest 384 Q4
 tags:
     - Array
     - String Matching
@@ -10,11 +11,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [3036. Number of Subarrays That Match a Pattern II](https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-ii)
 
 [中文文档](/solution/3000-3099/3036.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code>, and a <strong>0-indexed</strong> integer array <code>pattern</code> of size <code>m</code> consisting of integers <code>-1</code>, <code>0</code>, and <code>1</code>.</p>
 
@@ -57,11 +62,17 @@ Hence, there are 2 subarrays in nums that match the pattern.
 	<li><code>-1 &lt;= pattern[i] &lt;= 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 def partial(s):
@@ -111,6 +122,8 @@ class Solution:
         return len(match(s, pattern))
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int countMatchingSubarrays(int[] nums, int[] pattern) {
@@ -152,6 +165,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 int ps[1000001];
 class Solution {
@@ -183,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countMatchingSubarrays(nums []int, pattern []int) int {
@@ -218,6 +235,8 @@ func countMatchingSubarrays(nums []int, pattern []int) int {
 	return res
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Solution {
@@ -275,4 +294,6 @@ function countMatchingSubarrays(nums: number[], pattern: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

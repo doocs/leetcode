@@ -7,11 +7,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [66. Plus One](https://leetcode.com/problems/plus-one)
 
 [中文文档](/solution/0000-0099/0066.Plus%20One/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>large integer</strong> represented as an integer array <code>digits</code>, where each <code>digits[i]</code> is the <code>i<sup>th</sup></code> digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading <code>0</code>&#39;s.</p>
 
@@ -57,7 +61,11 @@ Thus, the result should be [1,0].
 	<li><code>digits</code> does not contain any leading <code>0</code>&#39;s.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -66,6 +74,8 @@ We start traversing from the last element of the array, add one to the current e
 The time complexity is $O(n)$, where $n$ is the length of the array. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +88,8 @@ class Solution:
                 return digits
         return [1] + digits
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func plusOne(digits []int) []int {
 	n := len(digits)
@@ -126,6 +142,8 @@ func plusOne(digits []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function plusOne(digits: number[]): number[] {
     const n = digits.length;
@@ -138,6 +156,8 @@ function plusOne(digits: number[]): number[] {
     return [1, ...digits];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -155,6 +175,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -175,4 +197,6 @@ var plusOne = function (digits) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

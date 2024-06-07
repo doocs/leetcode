@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1680.Concatenation%20of%20Consecutive%20Binary%20Numbers/README.md
 rating: 1629
+source: 第 218 场周赛 Q3
 tags:
     - 位运算
     - 数学
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1680. 连接连续二进制数字](https://leetcode.cn/problems/concatenation-of-consecutive-binary-numbers)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，请你将 <code>1</code> 到 <code>n</code> 的二进制表示连接起来，并返回连接结果对应的 <strong>十进制</strong> 数字对 <code>10<sup>9</sup> + 7</code> 取余的结果。</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -62,6 +69,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为给定的整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +81,8 @@ class Solution:
             ans = (ans << i.bit_length() | i) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func concatenatedBinary(n int) (ans int) {
 	const mod = 1e9 + 7
@@ -109,6 +124,8 @@ func concatenatedBinary(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function concatenatedBinary(n: number): number {
@@ -127,9 +144,15 @@ function concatenatedBinary(n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -142,6 +165,8 @@ class Solution:
             ans = (ans << shift | i) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +184,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -178,6 +205,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func concatenatedBinary(n int) (ans int) {
 	const mod = 1e9 + 7
@@ -194,4 +223,6 @@ func concatenatedBinary(n int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

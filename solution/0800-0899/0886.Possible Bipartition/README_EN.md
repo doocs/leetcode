@@ -9,11 +9,15 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [886. Possible Bipartition](https://leetcode.com/problems/possible-bipartition)
 
 [中文文档](/solution/0800-0899/0886.Possible%20Bipartition/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We want to split a group of <code>n</code> people (labeled from <code>1</code> to <code>n</code>) into two groups of <strong>any size</strong>. Each person may dislike some other people, and they should not go into the same group.</p>
 
@@ -47,11 +51,17 @@ tags:
 	<li>All the pairs of <code>dislikes</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +83,8 @@ class Solution:
             g[b].append(a)
         return all(c or dfs(i, 1) for i, c in enumerate(color))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func possibleBipartition(n int, dislikes [][]int) bool {
@@ -171,6 +187,8 @@ func possibleBipartition(n int, dislikes [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function possibleBipartition(n: number, dislikes: number[][]): boolean {
     const color = new Array(n + 1).fill(0);
@@ -196,6 +214,8 @@ function possibleBipartition(n: number, dislikes: number[][]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -230,9 +250,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -255,6 +281,8 @@ class Solution:
                 p[find(j)] = find(g[i][0])
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -292,6 +320,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -318,6 +348,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func possibleBipartition(n int, dislikes [][]int) bool {
@@ -352,4 +384,6 @@ func possibleBipartition(n int, dislikes [][]int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

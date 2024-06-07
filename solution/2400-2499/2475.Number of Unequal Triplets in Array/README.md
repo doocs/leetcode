@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2475.Number%20of%20Unequal%20Triplets%20in%20Array/README.md
 rating: 1255
+source: 第 320 场周赛 Q1
 tags:
     - 数组
     - 哈希表
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [2475. 数组中不等三元组的数目](https://leetcode.cn/problems/number-of-unequal-triplets-in-array)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的正整数数组 <code>nums</code> 。请你找出并统计满足下述条件的三元组 <code>(i, j, k)</code> 的数目：</p>
 
@@ -62,7 +65,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -71,6 +78,8 @@ tags:
 时间复杂度 $O(n^3)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +94,8 @@ class Solution:
                     )
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func unequalTriplets(nums []int) (ans int) {
 	n := len(nums)
@@ -140,6 +155,8 @@ func unequalTriplets(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function unequalTriplets(nums: number[]): number {
@@ -157,6 +174,8 @@ function unequalTriplets(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -179,6 +198,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序 + 枚举中间元素 + 二分查找
 
 我们也可以先对数组 $nums$ 进行排序。
@@ -188,6 +211,8 @@ impl Solution {
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -200,6 +225,8 @@ class Solution:
             ans += (i >= 0 and k < n) * (i + 1) * (n - k)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -230,6 +257,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -248,6 +277,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func unequalTriplets(nums []int) (ans int) {
 	sort.Ints(nums)
@@ -262,6 +293,8 @@ func unequalTriplets(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function unequalTriplets(nums: number[]): number {
@@ -280,6 +313,8 @@ function unequalTriplets(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -304,6 +339,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：哈希表
 
 我们还可以使用哈希表 $cnt$ 来统计数组 $nums$ 中每个元素的数量。
@@ -313,6 +352,8 @@ impl Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -326,6 +367,8 @@ class Solution:
             a += b
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -345,6 +388,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -366,6 +411,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func unequalTriplets(nums []int) (ans int) {
 	cnt := map[int]int{}
@@ -381,6 +428,8 @@ func unequalTriplets(nums []int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -408,9 +457,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法四
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -455,4 +510,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2022.%20%E9%BB%91%E7%99%BD%E6%96%B9%E6%A0%BC%E7%94%BB/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 22. 黑白方格画](https://leetcode.cn/problems/ccw6C7)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 小扣注意到秋日市集上有一个创作黑白方格画的摊位。摊主给每个顾客提供一个固定在墙上的白色画板，画板不能转动。画板上有 `n * n` 的网格。绘画规则为，小扣可以选择任意多行以及任意多列的格子涂成黑色（选择的整行、整列均需涂成黑色），所选行数、列数均可为 0。
 
@@ -48,7 +50,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2022.%20%E9%BB%91%
 -   `1 <= n <= 6`
 -   `0 <= k <= n * n`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：组合计数
 
@@ -59,6 +65,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2022.%20%E9%BB%91%
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是网格的边长。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +80,8 @@ class Solution:
                     ans += comb(n, i) * comb(n, j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func paintingPlan(n int, k int) (ans int) {
 	if k == n*n {
@@ -152,6 +166,8 @@ func paintingPlan(n int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function paintingPlan(n: number, k: number): number {
@@ -181,4 +197,6 @@ function paintingPlan(n: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1819.Number%20of%20Different%20Subsequences%20GCDs/README.md
 rating: 2539
+source: 第 235 场周赛 Q4
 tags:
     - 数组
     - 数学
@@ -10,13 +11,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [1819. 序列中不同最大公约数的数目](https://leetcode.cn/problems/number-of-different-subsequences-gcds)
 
 [English Version](/solution/1800-1899/1819.Number%20of%20Different%20Subsequences%20GCDs/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由正整数组成的数组 <code>nums</code> 。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>1 <= nums[i] <= 2 * 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 数学
 
@@ -74,6 +81,8 @@ tags:
 时间复杂度 $O(n + M \times \log M)$，空间复杂度 $O(M)$。其中 $n$ 和 $M$ 分别是数组 $nums$ 的长度和数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +100,8 @@ class Solution:
                         break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countDifferentSubsequenceGCDs(nums []int) (ans int) {
@@ -181,4 +196,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

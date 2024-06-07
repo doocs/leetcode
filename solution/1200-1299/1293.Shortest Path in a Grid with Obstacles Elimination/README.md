@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1293.Shortest%20Path%20in%20a%20Grid%20with%20Obstacles%20Elimination/README.md
 rating: 1967
+source: 第 167 场周赛 Q4
 tags:
     - 广度优先搜索
     - 数组
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [1293. 网格中的最短路径](https://leetcode.cn/problems/shortest-path-in-a-grid-with-obstacles-elimination)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个&nbsp;<code>m * n</code>&nbsp;的网格，其中每个单元格不是&nbsp;<code>0</code>（空）就是&nbsp;<code>1</code>（障碍物）。每一步，您都可以在空白单元格中上、下、左、右移动。</p>
 
@@ -58,11 +61,17 @@ tags:
 	<li><code>grid[0][0] == grid[m-1][n-1] == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +99,8 @@ class Solution:
                             vis.add((x, y, k - 1))
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +183,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestPath(grid [][]int, k int) int {
@@ -215,6 +230,54 @@ func shortestPath(grid [][]int, k int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function shortestPath(grid: number[][], k: number): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    if (k >= m + n - 3) {
+        return m + n - 2;
+    }
+
+    let q: Point[] = [[0, 0, k]];
+    const vis = Array.from({ length: m }, () =>
+        Array.from({ length: n }, () => Array.from({ length: k + 1 }, () => false)),
+    );
+    vis[0][0][k] = true;
+    const dirs = [0, 1, 0, -1, 0];
+    let ans = 0;
+
+    while (q.length) {
+        const nextQ: Point[] = [];
+        ++ans;
+
+        for (const [i, j, k] of q) {
+            for (let d = 0; d < 4; ++d) {
+                const [x, y] = [i + dirs[d], j + dirs[d + 1]];
+                if (x === m - 1 && y === n - 1) {
+                    return ans;
+                }
+                const v = grid[x]?.[y];
+                if (v === 0 && !vis[x][y][k]) {
+                    nextQ.push([x, y, k]);
+                    vis[x][y][k] = true;
+                } else if (v === 1 && k > 0 && !vis[x][y][k - 1]) {
+                    nextQ.push([x, y, k - 1]);
+                    vis[x][y][k - 1] = true;
+                }
+            }
+        }
+        q = nextQ;
+    }
+    return -1;
+}
+
+type Point = [number, number, number];
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

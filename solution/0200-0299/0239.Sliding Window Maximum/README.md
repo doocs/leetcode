@@ -10,13 +10,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [239. 滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum)
 
 [English Version](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code>，有一个大小为&nbsp;<code>k</code><em>&nbsp;</em>的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 <code>k</code>&nbsp;个数字。滑动窗口每次只向右移动一位。</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（大根堆）
 
@@ -68,6 +74,8 @@ tags:
 时间复杂度 $O(n \times \log k)$，空间复杂度 $O(k)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +90,8 @@ class Solution:
             ans.append(-q[0][0])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxSlidingWindow(nums []int, k int) (ans []int) {
@@ -156,6 +170,8 @@ func (h hp) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -191,6 +207,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -215,6 +233,8 @@ var maxSlidingWindow = function (nums, k) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;
@@ -247,6 +267,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：单调队列
 
 这道题也可以使用单调队列来解决。时间复杂度 $O(n)$，空间复杂度 $O(k)$。
@@ -266,6 +290,8 @@ for i in range(n):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
@@ -281,6 +307,8 @@ class Solution:
                 ans.append(nums[q[0]])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -305,6 +333,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -328,6 +358,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSlidingWindow(nums []int, k int) (ans []int) {
 	q := []int{}
@@ -349,4 +381,6 @@ func maxSlidingWindow(nums []int, k int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

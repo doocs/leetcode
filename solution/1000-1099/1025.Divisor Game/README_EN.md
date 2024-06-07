@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1025.Divisor%20Game/README_EN.md
 rating: 1435
+source: Weekly Contest 132 Q1
 tags:
     - Brainteaser
     - Math
@@ -10,11 +11,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [1025. Divisor Game](https://leetcode.com/problems/divisor-game)
 
 [中文文档](/solution/1000-1099/1025.Divisor%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob take turns playing a game, with Alice starting first.</p>
 
@@ -53,7 +58,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematical Induction
 
@@ -78,11 +87,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def divisorGame(self, n: int) -> bool:
         return n % 2 == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,11 +116,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func divisorGame(n int) bool {
 	return n%2 == 0
 }
 ```
+
+#### JavaScript
 
 ```js
 var divisorGame = function (n) {
@@ -115,4 +134,6 @@ var divisorGame = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

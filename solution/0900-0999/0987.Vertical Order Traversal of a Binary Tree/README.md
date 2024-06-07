@@ -11,25 +11,27 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [987. 二叉树的垂序遍历](https://leetcode.cn/problems/vertical-order-traversal-of-a-binary-tree)
 
 [English Version](/solution/0900-0999/0987.Vertical%20Order%20Traversal%20of%20a%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你二叉树的根结点 <code>root</code> ，请你设计算法计算二叉树的<em> </em><strong>垂序遍历</strong> 序列。</p>
 
-<p>对位于 <code>(row, col)</code> 的每个结点而言，其左右子结点分别位于 <code>(row + 1, col - 1)</code> 和 <code>(row + 1, col + 1)</code> 。树的根结点位于 <code>(0, 0)</code> 。</p>
+<p>对位于&nbsp;<code>(row, col)</code>&nbsp;的每个结点而言，其左右子结点分别位于&nbsp;<code>(row + 1, col - 1)</code>&nbsp;和&nbsp;<code>(row + 1, col + 1)</code> 。树的根结点位于 <code>(0, 0)</code> 。</p>
 
 <p>二叉树的 <strong>垂序遍历</strong> 从最左边的列开始直到最右边的列结束，按列索引每一列上的所有结点，形成一个按出现位置从上到下排序的有序列表。如果同行同列上有多个结点，则按结点的值从小到大进行排序。</p>
 
 <p>返回二叉树的 <strong>垂序遍历</strong> 序列。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0987.Vertical%20Order%20Traversal%20of%20a%20Binary%20Tree/images/vtree1.jpg" style="width: 431px; height: 304px;" />
 <pre>
 <strong>输入：</strong>root = [3,9,20,null,null,15,7]
@@ -40,7 +42,7 @@ tags:
 列  1 ：只有结点 20 在此列中。
 列  2 ：只有结点 7 在此列中。</pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0987.Vertical%20Order%20Traversal%20of%20a%20Binary%20Tree/images/vtree2.jpg" style="width: 512px; height: 304px;" />
 <pre>
 <strong>输入：</strong>root = [1,2,3,4,5,6,7]
@@ -55,7 +57,7 @@ tags:
 列  2 ：只有结点 7 在此列中。
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0987.Vertical%20Order%20Traversal%20of%20a%20Binary%20Tree/images/vtree3.jpg" style="width: 512px; height: 304px;" />
 <pre>
 <strong>输入：</strong>root = [1,2,3,4,6,5,7]
@@ -64,16 +66,20 @@ tags:
 这个示例实际上与示例 2 完全相同，只是结点 5 和 6 在树中的位置发生了交换。
 因为 5 和 6 的位置仍然相同，所以答案保持不变，仍然按值从小到大排序。</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li>树中结点数目总数在范围 <code>[1, 1000]</code> 内</li>
-	<li><code>0 <= Node.val <= 1000</code></li>
+	<li><code>0 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS + 排序
 
@@ -84,6 +90,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -113,6 +121,8 @@ class Solution:
             ans[-1].append(val)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -169,6 +179,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -209,6 +221,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -246,6 +260,8 @@ func verticalTraversal(root *TreeNode) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -289,4 +305,6 @@ function verticalTraversal(root: TreeNode | null): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

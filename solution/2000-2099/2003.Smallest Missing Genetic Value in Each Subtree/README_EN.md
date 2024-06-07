@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2003.Smallest%20Missing%20Genetic%20Value%20in%20Each%20Subtree/README_EN.md
 rating: 2415
+source: Weekly Contest 258 Q4
 tags:
     - Tree
     - Depth-First Search
@@ -10,11 +11,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2003. Smallest Missing Genetic Value in Each Subtree](https://leetcode.com/problems/smallest-missing-genetic-value-in-each-subtree)
 
 [中文文档](/solution/2000-2099/2003.Smallest%20Missing%20Genetic%20Value%20in%20Each%20Subtree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a <strong>family tree</strong> rooted at <code>0</code> consisting of <code>n</code> nodes numbered <code>0</code> to <code>n - 1</code>. You are given a <strong>0-indexed</strong> integer array <code>parents</code>, where <code>parents[i]</code> is the parent for node <code>i</code>. Since node <code>0</code> is the <strong>root</strong>, <code>parents[0] == -1</code>.</p>
 
@@ -72,7 +77,11 @@ tags:
 	<li>Each <code>nums[i]</code> is distinct.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -91,6 +100,8 @@ Finally, we return the answer array $ans$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -128,6 +139,8 @@ class Solution:
             idx = parents[idx]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -182,6 +195,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -229,6 +244,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestMissingValueSubtree(parents []int, nums []int) []int {
 	n := len(nums)
@@ -273,6 +290,8 @@ func smallestMissingValueSubtree(parents []int, nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function smallestMissingValueSubtree(parents: number[], nums: number[]): number[] {
     const n = nums.length;
@@ -314,6 +333,8 @@ function smallestMissingValueSubtree(parents: number[], nums: number[]): number[
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -371,4 +392,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

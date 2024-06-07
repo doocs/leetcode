@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.02.Robot%20in%20a%20Grid/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.02. 迷路的机器人](https://leetcode.cn/problems/robot-in-a-grid-lcci)
 
 [English Version](/lcci/08.02.Robot%20in%20a%20Grid/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>设想有个机器人坐在一个网格的左上角，网格 r 行 c 列。机器人只能向下或向右移动，但不能走到一些被禁止的网格（有障碍物）。设计一种算法，寻找机器人从左上角移动到右下角的路径。</p>
 ![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcci/08.02.Robot%20in%20a%20Grid/images/robot_maze.png)
 <p>网格中的障碍物和空位置分别用 <code>1</code> 和 <code>0</code> 来表示。</p>
@@ -28,7 +31,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.02.Robot%20in%20a%
 0行0列（左上角） -&gt; 0行1列 -&gt; 0行2列 -&gt; 1行2列 -&gt; 2行2列（右下角）</pre>
 <p><strong>说明：</strong><em>r</em>&nbsp;和 <em>c </em>的值均不超过 100。</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -39,6 +46,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.02.Robot%20in%20a%
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -57,6 +66,8 @@ class Solution:
         ans = []
         return ans if dfs(0, 0) else []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pathWithObstacles(obstacleGrid [][]int) [][]int {
@@ -135,6 +150,8 @@ func pathWithObstacles(obstacleGrid [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function pathWithObstacles(obstacleGrid: number[][]): number[][] {
     const m = obstacleGrid.length;
@@ -158,6 +175,8 @@ function pathWithObstacles(obstacleGrid: number[][]): number[][] {
     return [];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -187,6 +206,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -219,4 +240,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

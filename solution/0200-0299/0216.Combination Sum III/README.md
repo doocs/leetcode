@@ -7,13 +7,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [216. 组合总和 III](https://leetcode.cn/problems/combination-sum-iii)
 
 [English Version](/solution/0200-0299/0216.Combination%20Sum%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>找出所有相加之和为&nbsp;<code>n</code><em> </em>的&nbsp;<code>k</code><strong>&nbsp;</strong>个数的组合，且满足下列条件：</p>
 
@@ -64,7 +66,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 60</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：剪枝 + 回溯（两种方式）
 
@@ -79,6 +85,8 @@ tags:
 -   否则，我们可以选择将数字 $i$ 加入搜索路径 $t$ 中，然后继续搜索，即执行 $dfs(i + 1, s - i)$，搜索完成后，将 $i$ 从搜索路径 $t$ 中移除；我们也可以选择不将数字 $i$ 加入搜索路径 $t$ 中，直接执行 $dfs(i + 1, s)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +108,8 @@ class Solution:
         dfs(1, n)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -158,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combinationSum3(k int, n int) (ans [][]int) {
 	t := []int{}
@@ -182,6 +196,8 @@ func combinationSum3(k int, n int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combinationSum3(k: number, n: number): number[][] {
     const ans: number[][] = [];
@@ -205,6 +221,8 @@ function combinationSum3(k: number, n: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -244,6 +262,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -289,6 +309,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
@@ -309,6 +331,8 @@ class Solution:
         dfs(1, n)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -341,6 +365,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -369,6 +395,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combinationSum3(k int, n int) (ans [][]int) {
 	t := []int{}
@@ -394,6 +422,8 @@ func combinationSum3(k int, n int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combinationSum3(k: number, n: number): number[][] {
     const ans: number[][] = [];
@@ -418,6 +448,8 @@ function combinationSum3(k: number, n: number): number[][] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -452,6 +484,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二进制枚举
 
 我们可以用一个长度为 $9$ 的二进制整数表示数字 $1$ 到 $9$ 的选取情况，其中二进制整数的第 $i$ 位表示数字 $i + 1$ 是否被选取，如果第 $i$ 位为 $1$，则表示数字 $i + 1$ 被选取，否则表示数字 $i + 1$ 没有被选取。
@@ -468,6 +504,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
@@ -479,6 +517,8 @@ class Solution:
                     ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -503,6 +543,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -529,6 +571,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combinationSum3(k int, n int) (ans [][]int) {
 	for mask := 0; mask < 1<<9; mask++ {
@@ -549,6 +593,8 @@ func combinationSum3(k int, n int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function combinationSum3(k: number, n: number): number[][] {
@@ -580,6 +626,8 @@ function bitCount(i: number): number {
     return i & 0x3f;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -616,4 +664,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

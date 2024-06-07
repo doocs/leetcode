@@ -3,15 +3,20 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1551.Minimum%20Operations%20to%20Make%20Array%20Equal/README_EN.md
 rating: 1293
+source: Weekly Contest 202 Q2
 tags:
     - Math
 ---
+
+<!-- problem:start -->
 
 # [1551. Minimum Operations to Make Array Equal](https://leetcode.com/problems/minimum-operations-to-make-array-equal)
 
 [中文文档](/solution/1500-1599/1551.Minimum%20Operations%20to%20Make%20Array%20Equal/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have an array <code>arr</code> of length <code>n</code> where <code>arr[i] = (2 * i) + 1</code> for all valid values of <code>i</code> (i.e.,&nbsp;<code>0 &lt;= i &lt; n</code>).</p>
 
@@ -44,7 +49,11 @@ In the second operation choose x = 2 and y = 0 again, thus arr = [3, 3, 3].
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -68,11 +77,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, n: int) -> int:
         return sum(n - (i << 1 | 1) for i in range(n >> 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(n int) (ans int) {
 	for i := 0; i < n>>1; i++ {
@@ -107,6 +124,8 @@ func minOperations(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(n: number): number {
@@ -120,4 +139,6 @@ function minOperations(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

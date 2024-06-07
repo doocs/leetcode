@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1922.Count%20Good%20Numbers/README_EN.md
 rating: 1674
+source: Weekly Contest 248 Q3
 tags:
     - Recursion
     - Math
 ---
+
+<!-- problem:start -->
 
 # [1922. Count Good Numbers](https://leetcode.com/problems/count-good-numbers)
 
 [中文文档](/solution/1900-1999/1922.Count%20Good%20Numbers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A digit string is <strong>good</strong> if the digits <strong>(0-indexed)</strong> at <strong>even</strong> indices are <strong>even</strong> and the digits at <strong>odd</strong> indices are <strong>prime</strong> (<code>2</code>, <code>3</code>, <code>5</code>, or <code>7</code>).</p>
 
@@ -54,11 +59,17 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>15</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +87,8 @@ class Solution:
 
         return myPow(5, (n + 1) >> 1) * myPow(4, n >> 1) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 int MOD = 1000000007;
@@ -123,6 +138,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 const mod int64 = 1e9 + 7
 
@@ -145,4 +162,6 @@ func myPow(x, n int64) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

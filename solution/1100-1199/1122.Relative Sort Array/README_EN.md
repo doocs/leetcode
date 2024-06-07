@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1122.Relative%20Sort%20Array/README_EN.md
 rating: 1188
+source: Weekly Contest 145 Q1
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1122. Relative Sort Array](https://leetcode.com/problems/relative-sort-array)
 
 [中文文档](/solution/1100-1199/1122.Relative%20Sort%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two arrays <code>arr1</code> and <code>arr2</code>, the elements of <code>arr2</code> are distinct, and all elements in <code>arr2</code> are also in <code>arr1</code>.</p>
 
@@ -45,7 +50,11 @@ tags:
 	<li>Each&nbsp;<code>arr2[i]</code> is in <code>arr1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Custom Sorting
 
@@ -55,12 +64,16 @@ The time complexity is $O(n \times \log n + m)$, and the space complexity is $O(
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
         pos = {x: i for i, x in enumerate(arr2)}
         return sorted(arr1, key=lambda x: pos.get(x, 1000 + x))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +118,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func relativeSortArray(arr1 []int, arr2 []int) []int {
@@ -128,6 +145,8 @@ func relativeSortArray(arr1 []int, arr2 []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function relativeSortArray(arr1: number[], arr2: number[]): number[] {
     const pos: Map<number, number> = new Map();
@@ -146,4 +165,6 @@ function relativeSortArray(arr1: number[], arr2: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

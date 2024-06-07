@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.01.Three%20Steps%20Problem/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.01. Three Steps Problem](https://leetcode.cn/problems/three-steps-problem-lcci)
 
 [中文文档](/lcci/08.01.Three%20Steps%20Problem/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A child is running up a staircase with n steps and can hop either 1 step, 2 steps, or 3 steps at a time. Implement a method to count how many possible ways the child can run up the stairs.&nbsp;The result may be large, so return it modulo 1000000007.</p>
 
@@ -36,7 +40,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.01.Three%20Steps%2
 
 1. `1 <= n <= 1000000`
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -50,6 +58,8 @@ The time complexity is $O(n)$, where $n$ is the given integer. The space complex
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToStep(self, n: int) -> int:
@@ -59,6 +69,8 @@ class Solution:
             a, b, c = b, c, (a + b + c) % mod
         return a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -93,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToStep(n int) int {
 	const mod int = 1e9 + 7
@@ -103,6 +119,8 @@ func waysToStep(n int) int {
 	return a
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -120,6 +138,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -135,6 +155,8 @@ var waysToStep = function (n) {
 };
 ```
 
+#### C
+
 ```c
 int waysToStep(int n) {
     const int mod = 1e9 + 7;
@@ -148,6 +170,8 @@ int waysToStep(int n) {
     return a;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -170,6 +194,10 @@ class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Matrix Quick Power to Accelerate Recursion
 
@@ -198,6 +226,8 @@ We define the initial matrix $res = \begin{bmatrix} 1 & 1  & 0 \end{bmatrix}$, t
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -228,6 +258,8 @@ class Solution:
         return sum(pow(a, n - 4)[0]) % mod
 ```
 
+#### Python3
+
 ```python
 import numpy as np
 
@@ -247,6 +279,8 @@ class Solution:
             n >>= 1
         return res.sum() % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -291,6 +325,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -338,6 +374,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 const mod = 1e9 + 7
 
@@ -381,6 +419,8 @@ func pow(a [][]int, n int) [][]int {
 	return res
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -436,4 +476,6 @@ function pow(a, n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README.md
 rating: 2059
+source: 第 146 场周赛 Q4
 tags:
     - 数组
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1131. 绝对值表达式的最大值](https://leetcode.cn/problems/maximum-of-absolute-value-expression)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个长度相等的整数数组，返回下面表达式的最大值：</p>
 
@@ -44,7 +47,11 @@ tags:
 	<li><code>-10^6 &lt;= arr1[i], arr2[i] &lt;= 10^6</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学 + 枚举
 
@@ -65,6 +72,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxAbsValExpr(self, arr1: List[int], arr2: List[int]) -> int:
@@ -78,6 +87,8 @@ class Solution:
                 ans = max(ans, mx - mi)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxAbsValExpr(arr1 []int, arr2 []int) int {
 	dirs := [5]int{1, -1, -1, 1, 1}
@@ -140,6 +155,8 @@ func maxAbsValExpr(arr1 []int, arr2 []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxAbsValExpr(arr1: number[], arr2: number[]): number {
@@ -163,4 +180,6 @@ function maxAbsValExpr(arr1: number[], arr2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

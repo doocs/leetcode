@@ -9,11 +9,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2950. Number of Divisible Substrings 🔒](https://leetcode.com/problems/number-of-divisible-substrings)
 
 [中文文档](/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Each character of the English alphabet has been mapped to a digit as shown below.</p>
 
@@ -142,7 +146,11 @@ It can be shown that there are no other substrings of word that are divisible.
 	<li><code>word</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -155,6 +163,8 @@ After the enumeration is over, return the answer.
 The time complexity is $O(n^2)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $word$, and $C$ is the size of the character set, in this question $C=26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -173,6 +183,8 @@ class Solution:
                 ans += s % (j - i + 1) == 0
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -197,6 +209,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -223,6 +237,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countDivisibleSubstrings(word string) (ans int) {
 	d := []string{"ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"}
@@ -245,6 +261,8 @@ func countDivisibleSubstrings(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countDivisibleSubstrings(word: string): number {
@@ -269,6 +287,8 @@ function countDivisibleSubstrings(word: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -301,6 +321,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Hash Table + Prefix Sum + Enumeration
 
 Similar to Solution 1, we first use a hash table or array $mp$ to record the number corresponding to each letter.
@@ -312,6 +336,8 @@ We can enumerate the average value $i$ of the subarray. If the sum of the elemen
 The time complexity is $O(10 \times n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $word$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -332,6 +358,8 @@ class Solution:
                 cnt[s] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -360,6 +388,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -385,6 +415,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countDivisibleSubstrings(word string) (ans int) {
 	d := []string{"ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"}
@@ -406,6 +438,8 @@ func countDivisibleSubstrings(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countDivisibleSubstrings(word: string): number {
@@ -431,6 +465,8 @@ function countDivisibleSubstrings(word: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -462,4 +498,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -41,27 +41,20 @@
  * @return {number}
  */
 var depthSumInverse = function (nestedList) {
-    const maxDepth = nestedList => {
-        let depth = 1;
-        for (const item of nestedList) {
-            if (item.isInteger()) {
-                continue;
-            }
-            depth = Math.max(depth, 1 + maxDepth(item.getList()));
-        }
-        return depth;
-    };
-    const dfs = (nestedList, depth) => {
-        let depthSum = 0;
-        for (const item of nestedList) {
-            if (item.isInteger()) {
-                depthSum += item.getInteger() * depth;
-            } else {
-                depthSum += dfs(item.getList(), depth - 1);
+    let [maxDepth, ws, s] = [0, 0, 0];
+    const dfs = (x, d) => {
+        maxDepth = Math.max(maxDepth, d);
+        if (x.isInteger()) {
+            ws += x.getInteger() * d;
+            s += x.getInteger();
+        } else {
+            for (const y of x.getList()) {
+                dfs(y, d + 1);
             }
         }
-        return depthSum;
     };
-    const depth = maxDepth(nestedList);
-    return dfs(nestedList, depth);
+    for (const x of nestedList) {
+        dfs(x, 1);
+    }
+    return (maxDepth + 1) * s - ws;
 };

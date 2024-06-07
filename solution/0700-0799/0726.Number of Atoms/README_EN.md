@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [726. Number of Atoms](https://leetcode.com/problems/number-of-atoms)
 
 [中文文档](/solution/0700-0799/0726.Number%20of%20Atoms/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>formula</code> representing a chemical formula, return <em>the count of each atom</em>.</p>
 
@@ -75,6 +79,42 @@ tags:
 	<li><code>formula</code> is always valid.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

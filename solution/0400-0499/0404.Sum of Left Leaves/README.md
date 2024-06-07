@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [404. 左叶子之和](https://leetcode.cn/problems/sum-of-left-leaves)
 
 [English Version](/solution/0400-0499/0404.Sum%20of%20Left%20Leaves/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定二叉树的根节点&nbsp;<code>root</code>&nbsp;，返回所有左叶子之和。</p>
 
@@ -49,7 +51,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -62,6 +68,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -82,6 +90,8 @@ class Solution:
                 ans += self.sumOfLeftLeaves(root.left)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -117,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -148,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -172,6 +186,8 @@ func sumOfLeftLeaves(root *TreeNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -203,6 +219,8 @@ function sumOfLeftLeaves(root: TreeNode | null): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -248,6 +266,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for a binary tree node.
@@ -276,6 +296,10 @@ int sumOfLeftLeaves(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：栈
 
 我们也可以将方法一的递归改为迭代，使用栈来模拟递归的过程。
@@ -291,6 +315,8 @@ int sumOfLeftLeaves(struct TreeNode* root) {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -316,6 +342,8 @@ class Solution:
                 stk.append(root.right)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -359,6 +387,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -397,6 +427,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -428,6 +460,8 @@ func sumOfLeftLeaves(root *TreeNode) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -469,4 +503,6 @@ function sumOfLeftLeaves(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

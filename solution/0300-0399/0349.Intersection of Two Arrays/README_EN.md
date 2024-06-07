@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [349. Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays)
 
 [中文文档](/solution/0300-0399/0349.Intersection%20of%20Two%20Arrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integer arrays <code>nums1</code> and <code>nums2</code>, return <em>an array of their <span data-keyword="array-intersection">intersection</span></em>. Each element in the result must be <strong>unique</strong> and you may return the result in <strong>any order</strong>.</p>
 
@@ -42,17 +46,25 @@ tags:
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
         return list(set(nums1) & set(nums2))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +84,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -94,6 +108,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func intersection(nums1 []int, nums2 []int) (ans []int) {
 	s := [1001]bool{}
@@ -109,6 +125,8 @@ func intersection(nums1 []int, nums2 []int) (ans []int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -132,6 +150,8 @@ var intersection = function (nums1, nums2) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int[] Intersection(int[] nums1, int[] nums2) {
@@ -147,6 +167,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -174,9 +196,15 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### JavaScript
 
 ```js
 /**
@@ -191,4 +219,6 @@ var intersection = function (nums1, nums2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

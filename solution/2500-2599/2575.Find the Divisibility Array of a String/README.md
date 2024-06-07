@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2575.Find%20the%20Divisibility%20Array%20of%20a%20String/README.md
 rating: 1541
+source: 第 334 场周赛 Q2
 tags:
     - 数组
     - 数学
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2575. 找出字符串的可整除数组](https://leetcode.cn/problems/find-the-divisibility-array-of-a-string)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的字符串 <code>word</code> ，长度为 <code>n</code> ，由从 <code>0</code> 到 <code>9</code> 的数字组成。另给你一个正整数 <code>m</code> 。</p>
 
@@ -57,7 +60,11 @@ tags:
 	<li><code>1 &lt;= m &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历 + 取模
 
@@ -66,6 +73,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为字符串 `word` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +86,8 @@ class Solution:
             ans.append(1 if x == 0 else 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func divisibilityArray(word string, m int) (ans []int) {
@@ -125,6 +140,8 @@ func divisibilityArray(word string, m int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function divisibilityArray(word: string, m: number): number[] {
     const ans: number[] = [];
@@ -136,6 +153,8 @@ function divisibilityArray(word: string, m: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -157,6 +176,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
@@ -176,4 +197,6 @@ int* divisibilityArray(char* word, int m, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

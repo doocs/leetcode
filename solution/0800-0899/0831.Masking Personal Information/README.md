@@ -6,13 +6,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [831. 隐藏个人信息](https://leetcode.cn/problems/masking-personal-information)
 
 [English Version](/solution/0800-0899/0831.Masking%20Personal%20Information/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一条个人信息字符串 <code>s</code> ，可能表示一个 <strong>邮箱地址</strong> ，也可能表示一串 <strong>电话号码</strong> 。返回按如下规则 <strong>隐藏</strong> 个人信息后的结果：</p>
 
@@ -115,7 +117,11 @@ tags:
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -124,6 +130,8 @@ tags:
 时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -136,6 +144,8 @@ class Solution:
         suf = '***-***-' + s[-4:]
         return suf if cnt == 0 else f'+{"*" * cnt}-{suf}'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +170,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -188,6 +200,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maskPII(s string) string {
 	i := strings.Index(s, "@")
@@ -210,6 +224,8 @@ func maskPII(s string) string {
 	return "+" + strings.Repeat("*", cnt) + "-" + suf
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maskPII(s: string): string {
@@ -235,4 +251,6 @@ function maskPII(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

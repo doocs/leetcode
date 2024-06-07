@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2432.The%20Employee%20That%20Worked%20on%20the%20Longest%20Task/README.md
 rating: 1266
+source: 第 314 场周赛 Q1
 tags:
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [2432. 处理用时最长的那个任务的员工](https://leetcode.cn/problems/the-employee-that-worked-on-the-longest-task)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>共有 <code>n</code> 位员工，每位员工都有一个从 <code>0</code> 到 <code>n - 1</code> 的唯一 id 。</p>
 
@@ -81,7 +84,11 @@ tags:
 	<li><code>leaveTime<sub>i</sub></code> 按严格递增顺序排列</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：直接遍历
 
@@ -95,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hardestWorker(self, n: int, logs: List[List[int]]) -> int:
@@ -106,6 +115,8 @@ class Solution:
             last += t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hardestWorker(n int, logs [][]int) (ans int) {
 	var mx, last int
@@ -161,6 +176,8 @@ func hardestWorker(n int, logs [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function hardestWorker(n: number, logs: number[][]): number {
     let [ans, mx, last] = [0, 0, 0];
@@ -175,6 +192,8 @@ function hardestWorker(n: number, logs: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -194,6 +213,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -216,9 +237,15 @@ int hardestWorker(int n, int** logs, int logsSize, int* logsColSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -247,4 +274,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

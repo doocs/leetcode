@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2580.Count%20Ways%20to%20Group%20Overlapping%20Ranges/README_EN.md
 rating: 1631
+source: Biweekly Contest 99 Q3
 tags:
     - Array
     - Sorting
 ---
+
+<!-- problem:start -->
 
 # [2580. Count Ways to Group Overlapping Ranges](https://leetcode.com/problems/count-ways-to-group-overlapping-ranges)
 
 [中文文档](/solution/2500-2599/2580.Count%20Ways%20to%20Group%20Overlapping%20Ranges/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D integer array <code>ranges</code> where <code>ranges[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> denotes that all integers between <code>start<sub>i</sub></code> and <code>end<sub>i</sub></code> (both <strong>inclusive</strong>) are contained in the <code>i<sup>th</sup></code> range.</p>
 
@@ -68,7 +73,11 @@ Thus, there are four possible ways to group them:
 	<li><code>0 &lt;= start<sub>i</sub> &lt;= end<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Counting + Fast Power
 
@@ -82,6 +91,8 @@ Alternatively, we can also avoid using fast power. Once a new non-overlapping in
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countWays(self, ranges: List[List[int]]) -> int:
@@ -94,6 +105,8 @@ class Solution:
         mod = 10**9 + 7
         return pow(2, cnt, mod)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countWays(ranges [][]int) int {
@@ -174,6 +191,8 @@ func countWays(ranges [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countWays(ranges: number[][]): number {
     ranges.sort((a, b) => a[0] - b[0]);
@@ -192,9 +211,15 @@ function countWays(ranges: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -209,6 +234,8 @@ class Solution:
             mx = max(mx, end)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -228,6 +255,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -245,6 +274,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countWays(ranges [][]int) int {
@@ -265,4 +296,6 @@ func countWays(ranges [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

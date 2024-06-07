@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2188.Minimum%20Time%20to%20Finish%20the%20Race/README_EN.md
 rating: 2315
+source: Weekly Contest 282 Q4
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [2188. Minimum Time to Finish the Race](https://leetcode.com/problems/minimum-time-to-finish-the-race)
 
 [中文文档](/solution/2100-2199/2188.Minimum%20Time%20to%20Finish%20the%20Race/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>tires</code> where <code>tires[i] = [f<sub>i</sub>, r<sub>i</sub>]</code> indicates that the <code>i<sup>th</sup></code> tire can finish its <code>x<sup>th</sup></code> successive lap in <code>f<sub>i</sub> * r<sub>i</sub><sup>(x-1)</sup></code> seconds.</p>
 
@@ -67,11 +72,17 @@ The minimum time to complete the race is 25 seconds.
 	<li><code>1 &lt;= numLaps &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +105,8 @@ class Solution:
             f[i] += changeTime
         return f[numLaps]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +168,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumFinishTime(tires [][]int, changeTime int, numLaps int) int {
@@ -185,6 +202,8 @@ func minimumFinishTime(tires [][]int, changeTime int, numLaps int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumFinishTime(tires: number[][], changeTime: number, numLaps: number): number {
     const cost: number[] = Array(18).fill(Infinity);
@@ -211,4 +230,6 @@ function minimumFinishTime(tires: number[][], changeTime: number, numLaps: numbe
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

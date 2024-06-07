@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [806. 写字符串需要的行数](https://leetcode.cn/problems/number-of-lines-to-write-string)
 
 [English Version](/solution/0800-0899/0806.Number%20of%20Lines%20To%20Write%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们要把给定的字符串 <code>S</code>&nbsp;从左到右写到每一行上，每一行的最大宽度为100个单位，如果我们在写某个字母的时候会使这行超过了100 个单位，那么我们应该把这个字母写到下一行。我们给定了一个数组&nbsp;<code>widths</code>&nbsp;，这个数组&nbsp;widths[0] 代表 &#39;a&#39; 需要的单位，&nbsp;widths[1] 代表 &#39;b&#39; 需要的单位，...，&nbsp;widths[25] 代表 &#39;z&#39; 需要的单位。</p>
 
@@ -53,7 +55,11 @@ S = &quot;bbbcccdddaaa&quot;
 	<li><code>widths[i]</code>&nbsp;值的范围在&nbsp;<code>[2, 10]</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -67,6 +73,8 @@ S = &quot;bbbcccdddaaa&quot;
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfLines(self, widths: List[int], s: str) -> List[int]:
@@ -79,6 +87,8 @@ class Solution:
                 last = w
         return [lines, last]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfLines(widths []int, s string) []int {
 	lines, last := 1, 0
@@ -133,6 +147,8 @@ func numberOfLines(widths []int, s string) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfLines(widths: number[], s: string): number[] {
     let [lines, last] = [1, 0];
@@ -148,6 +164,8 @@ function numberOfLines(widths: number[], s: string): number[] {
     return [lines, last];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,4 +191,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

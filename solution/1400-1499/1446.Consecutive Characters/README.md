@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1446.Consecutive%20Characters/README.md
 rating: 1165
+source: 第 26 场双周赛 Q1
 tags:
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1446. 连续字符](https://leetcode.cn/problems/consecutive-characters)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;，字符串的<strong>「能量」</strong>定义为：只包含一种字符的最长非空子字符串的长度。</p>
 
@@ -46,7 +49,11 @@ tags:
 	<li><code>s</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历计数
 
@@ -60,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPower(self, s: str) -> int:
@@ -72,6 +81,8 @@ class Solution:
                 t = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPower(s string) int {
 	ans, t := 1, 1
@@ -120,6 +135,8 @@ func maxPower(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPower(s: string): number {
@@ -138,4 +155,6 @@ function maxPower(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

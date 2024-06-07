@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [112. 路径总和](https://leetcode.cn/problems/path-sum)
 
 [English Version](/solution/0100-0199/0112.Path%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你二叉树的根节点&nbsp;<code>root</code> 和一个表示目标和的整数&nbsp;<code>targetSum</code> 。判断该树中是否存在 <strong>根节点到叶子节点</strong> 的路径，这条路径上所有节点值相加等于目标和&nbsp;<code>targetSum</code> 。如果存在，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>-1000 &lt;= targetSum &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -68,6 +74,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是二叉树的节点数。对每个节点访问一次。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -88,6 +96,8 @@ class Solution:
 
         return dfs(root, 0)
 ```
+
+#### Java
 
 ```java
 /**
@@ -123,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -149,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -173,6 +187,8 @@ func hasPathSum(root *TreeNode, targetSum int) bool {
 	return dfs(root, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -200,6 +216,8 @@ function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
     return hasPathSum(left, targetSum - val) || hasPathSum(right, targetSum - val);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -241,6 +259,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -268,4 +288,6 @@ var hasPathSum = function (root, targetSum) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

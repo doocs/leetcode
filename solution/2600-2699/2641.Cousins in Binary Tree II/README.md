@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2641.Cousins%20in%20Binary%20Tree%20II/README.md
 rating: 1676
+source: 第 102 场双周赛 Q3
 tags:
     - 树
     - 深度优先搜索
@@ -11,13 +12,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [2641. 二叉树的堂兄弟节点 II](https://leetcode.cn/problems/cousins-in-binary-tree-ii)
 
 [English Version](/solution/2600-2699/2641.Cousins%20in%20Binary%20Tree%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵二叉树的根&nbsp;<code>root</code>&nbsp;，请你将每个节点的值替换成该节点的所有 <strong>堂兄弟节点值的和&nbsp;</strong>。</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两次 DFS
 
@@ -78,6 +85,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -115,6 +124,8 @@ class Solution:
         dfs2(root, 0)
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -171,6 +182,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -220,6 +233,8 @@ private:
     };
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -271,6 +286,8 @@ func replaceValueInTree(root *TreeNode) *TreeNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -320,6 +337,10 @@ function replaceValueInTree(root: TreeNode | null): TreeNode | null {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：BFS
 
 我们先将根节点的值更新为 $0$，用一个队列 $q$ 来存储每一层的所有节点，初始时将根节点入队。
@@ -331,6 +352,8 @@ function replaceValueInTree(root: TreeNode | null): TreeNode | null {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -364,6 +387,8 @@ class Solution:
             q = t
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -415,6 +440,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -461,6 +488,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -506,6 +535,8 @@ func replaceValueInTree(root *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -555,4 +586,6 @@ function replaceValueInTree(root: TreeNode | null): TreeNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

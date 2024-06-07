@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2900.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20I/README_EN.md
 rating: 1468
+source: Biweekly Contest 115 Q2
 tags:
     - Greedy
     - Array
@@ -10,11 +11,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2900. Longest Unequal Adjacent Groups Subsequence I](https://leetcode.com/problems/longest-unequal-adjacent-groups-subsequence-i)
 
 [中文文档](/solution/2900-2999/2900.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string array <code>words</code> and a <strong>binary</strong> array <code>groups</code> both of length <code>n</code>, where <code>words[i]</code> is associated with <code>groups[i]</code>.</p>
 
@@ -88,7 +93,11 @@ tags:
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -98,6 +107,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $groups$. Th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getWordsInLongestSubsequence(
@@ -105,6 +116,8 @@ class Solution:
     ) -> List[str]:
         return [words[i] for i, x in enumerate(groups) if i == 0 or x != groups[i - 1]]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getWordsInLongestSubsequence(n int, words []string, groups []int) (ans []string) {
 	for i, x := range groups {
@@ -145,6 +162,8 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) (ans []st
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
@@ -157,6 +176,8 @@ function getWordsInLongestSubsequence(n: number, words: string[], groups: number
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -180,4 +201,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

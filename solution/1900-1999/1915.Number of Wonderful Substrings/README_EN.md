@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1915.Number%20of%20Wonderful%20Substrings/README_EN.md
 rating: 2234
+source: Weekly Contest 247 Q3
 tags:
     - Bit Manipulation
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1915. Number of Wonderful Substrings](https://leetcode.com/problems/number-of-wonderful-substrings)
 
 [中文文档](/solution/1900-1999/1915.Number%20of%20Wonderful%20Substrings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>wonderful</strong> string is a string where <strong>at most one</strong> letter appears an <strong>odd</strong> number of times.</p>
 
@@ -108,11 +113,17 @@ tags:
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -127,6 +138,8 @@ class Solution:
             cnt[st] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -168,6 +183,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func wonderfulSubstrings(word string) (ans int64) {
 	cnt := [1024]int{1}
@@ -183,6 +200,8 @@ func wonderfulSubstrings(word string) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function wonderfulSubstrings(word: string): number {
@@ -201,6 +220,8 @@ function wonderfulSubstrings(word: string): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -226,4 +247,6 @@ var wonderfulSubstrings = function (word) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

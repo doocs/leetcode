@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [45. 跳跃游戏 II](https://leetcode.cn/problems/jump-game-ii)
 
 [English Version](/solution/0000-0099/0045.Jump%20Game%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个长度为 <code>n</code> 的 <strong>0 索引</strong>整数数组 <code>nums</code>。初始位置为 <code>nums[0]</code>。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li>题目保证可以到达&nbsp;<code>nums[n-1]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -75,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def jump(self, nums: List[int]) -> int:
@@ -86,6 +94,8 @@ class Solution:
                 last = mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func jump(nums []int) (ans int) {
 	mx, last := 0, 0
@@ -134,6 +148,8 @@ func jump(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function jump(nums: number[]): number {
     let [ans, mx, last] = [0, 0, 0];
@@ -147,6 +163,8 @@ function jump(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -167,6 +185,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int Jump(int[] nums) {
@@ -182,6 +202,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) a < b ? a : b
@@ -199,6 +221,8 @@ int jump(int* nums, int numsSize) {
     return dp[numsSize - 1];
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -226,4 +250,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

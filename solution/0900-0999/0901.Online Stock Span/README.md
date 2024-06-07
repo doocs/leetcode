@@ -9,13 +9,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [901. 股票价格跨度](https://leetcode.cn/problems/online-stock-span)
 
 [English Version](/solution/0900-0999/0901.Online%20Stock%20Span/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个算法收集某些股票的每日报价，并返回该股票当日价格的 <strong>跨度</strong> 。</p>
 
@@ -65,7 +67,11 @@ stockSpanner.next(85);  // 返回 6
 	<li>最多调用 <code>next</code> 方法 <code>10<sup>4</sup></code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -82,6 +88,8 @@ stockSpanner.next(85);  // 返回 6
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是调用 `next(price)` 的次数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class StockSpanner:
@@ -100,6 +108,8 @@ class StockSpanner:
 # obj = StockSpanner()
 # param_1 = obj.next(price)
 ```
+
+#### Java
 
 ```java
 class StockSpanner {
@@ -124,6 +134,8 @@ class StockSpanner {
  * int param_1 = obj.next(price);
  */
 ```
+
+#### C++
 
 ```cpp
 class StockSpanner {
@@ -151,6 +163,8 @@ private:
  * int param_1 = obj->next(price);
  */
 ```
+
+#### Go
 
 ```go
 type StockSpanner struct {
@@ -180,6 +194,8 @@ type pair struct{ price, cnt int }
  */
 ```
 
+#### TypeScript
+
 ```ts
 class StockSpanner {
     private stk: number[][];
@@ -204,6 +220,8 @@ class StockSpanner {
  * var param_1 = obj.next(price)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -239,4 +257,6 @@ impl StockSpanner {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

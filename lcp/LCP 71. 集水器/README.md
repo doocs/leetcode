@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 71. 集水器](https://leetcode.cn/problems/kskhHQ)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 字符串数组 `shape` 描述了一个二维平面中的矩阵形式的集水器，`shape[i][j]` 表示集水器的第 `i` 行 `j` 列为：
 
@@ -68,6 +70,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2071.%20%E9%9B%86%
 -   `1 <= shape[i].length <= 50`
 -   `shape[i][j]` 仅为 `'l'`、`'r'` 或 `'.'`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

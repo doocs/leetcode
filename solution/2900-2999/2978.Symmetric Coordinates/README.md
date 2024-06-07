@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2978. 对称坐标 🔒](https://leetcode.cn/problems/symmetric-coordinates)
 
 [English Version](/solution/2900-2999/2978.Symmetric%20Coordinates/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<font face="monospace"><code>Coordinates</code></font></p>
 
@@ -66,13 +68,19 @@ Coordinates table:
 输出表按照 X 和 Y 升序排列。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数 + 自连接
 
 我们可以使用窗口函数 `ROW_NUMBER()` 来为每一行添加一个自增的序号，然后再自连接两张表，连接条件为 `p1.x = p2.y AND p1.y = p2.x AND p1.x <= p1.y AND p1.id != p2.id`，最后再排序去重即可。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -95,4 +103,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

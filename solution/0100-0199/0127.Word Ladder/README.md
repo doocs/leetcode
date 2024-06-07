@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [127. 单词接龙](https://leetcode.cn/problems/word-ladder)
 
 [English Version](/solution/0100-0199/0127.Word%20Ladder/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>字典&nbsp;<code>wordList</code> 中从单词 <code>beginWord</code><em>&nbsp;</em>和 <code>endWord</code> 的 <strong>转换序列 </strong>是一个按下述规格形成的序列<meta charset="UTF-8" />&nbsp;<code>beginWord -&gt; s<sub>1</sub>&nbsp;-&gt; s<sub>2</sub>&nbsp;-&gt; ... -&gt; s<sub>k</sub></code>：</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li><code>wordList</code> 中的所有字符串 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -96,6 +102,8 @@ def extend(m1, m2, q):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
@@ -121,6 +129,8 @@ class Solution:
                     s[i] = ch
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -186,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func ladderLength(beginWord string, endWord string, wordList []string) int {
@@ -222,6 +236,8 @@ func ladderLength(beginWord string, endWord string, wordList []string) int {
 	return 0
 }
 ```
+
+#### C#
 
 ```cs
 using System.Collections;
@@ -296,9 +312,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -333,6 +355,8 @@ class Solution:
                 return t + 1
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -387,6 +411,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -427,6 +453,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func ladderLength(beginWord string, endWord string, wordList []string) int {
@@ -484,4 +512,6 @@ func ladderLength(beginWord string, endWord string, wordList []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

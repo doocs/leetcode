@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2766.Relocate%20Marbles/README_EN.md
 rating: 1613
+source: Biweekly Contest 108 Q2
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2766. Relocate Marbles](https://leetcode.com/problems/relocate-marbles)
 
 [中文文档](/solution/2700-2799/2766.Relocate%20Marbles/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> representing the initial positions of some marbles. You are also given two <strong>0-indexed </strong>integer arrays <code>moveFrom</code> and <code>moveTo</code> of <strong>equal</strong> length.</p>
 
@@ -63,7 +68,11 @@ Since 2 is the only occupied position, we return [2].
 	<li>The test cases are generated such that there is at least a marble in&nbsp;<code>moveFrom[i]</code>&nbsp;at the moment we want to apply&nbsp;the <code>i<sup>th</sup></code>&nbsp;move.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -72,6 +81,8 @@ Let's use a hash table $pos$ to record all stone positions. Initially, $pos$ con
 The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$. Here, $n$ is the length of array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +95,8 @@ class Solution:
             pos.add(t)
         return sorted(pos)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +133,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func relocateMarbles(nums []int, moveFrom []int, moveTo []int) (ans []int) {
@@ -140,6 +157,8 @@ func relocateMarbles(nums []int, moveFrom []int, moveTo []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function relocateMarbles(nums: number[], moveFrom: number[], moveTo: number[]): number[] {
     const pos: Set<number> = new Set(nums);
@@ -155,4 +174,6 @@ function relocateMarbles(nums: number[], moveFrom: number[], moveTo: number[]): 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

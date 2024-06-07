@@ -3,15 +3,20 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1220.Count%20Vowels%20Permutation/README_EN.md
 rating: 1729
+source: Weekly Contest 157 Q4
 tags:
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [1220. Count Vowels Permutation](https://leetcode.com/problems/count-vowels-permutation)
 
 [中文文档](/solution/1200-1299/1220.Count%20Vowels%20Permutation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, your task is to count how many strings of length <code>n</code> can be formed under the following rules:</p>
 
@@ -56,7 +61,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 2 * 10^4</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -101,6 +110,8 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countVowelPermutation(self, n: int) -> int:
@@ -116,6 +127,8 @@ class Solution:
             f = g
         return sum(f) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +176,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countVowelPermutation(n int) (ans int) {
@@ -185,6 +202,8 @@ func countVowelPermutation(n int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countVowelPermutation(n: number): number {
     const f: number[] = Array(5).fill(1);
@@ -201,6 +220,8 @@ function countVowelPermutation(n: number): number {
     return f.reduce((a, b) => (a + b) % mod);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -225,11 +246,17 @@ var countVowelPermutation = function (n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Matrix Exponentiation to Accelerate Recursion
 
 The time complexity is $O(C^3 \times \log n)$, and the space complexity is $O(C^2)$. Here, $C$ is the number of vowels. In this problem, $C=5$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -264,6 +291,8 @@ class Solution:
         res = pow(a, n - 1)
         return sum(map(sum, res)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -307,6 +336,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -354,6 +385,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 const mod = 1e9 + 7
 
@@ -400,6 +433,8 @@ func pow(a [][]int, n int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 const mod = 1e9 + 7;
 
@@ -441,6 +476,8 @@ function pow(a: number[][], n: number): number[][] {
     return res;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -491,9 +528,15 @@ function pow(a, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import numpy as np
@@ -521,6 +564,8 @@ class Solution:
             n >>= 1
         return res.sum() % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -550,4 +595,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

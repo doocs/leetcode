@@ -8,11 +8,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [110. Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree)
 
 [中文文档](/solution/0100-0199/0110.Balanced%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a binary tree, determine if it is <span data-keyword="height-balanced"><strong>height-balanced</strong></span>.</p>
 
@@ -46,7 +50,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bottom-Up Recursion
 
@@ -60,6 +68,8 @@ Therefore, if the function $height(root)$ returns $-1$, it means the binary tree
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -80,6 +90,8 @@ class Solution:
 
         return height(root) >= 0
 ```
+
+#### Java
 
 ```java
 /**
@@ -116,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -146,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -182,6 +198,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -212,6 +230,8 @@ function isBalanced(root: TreeNode | null): boolean {
     return dfs(root) > -1;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -254,6 +274,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -285,4 +307,6 @@ var isBalanced = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

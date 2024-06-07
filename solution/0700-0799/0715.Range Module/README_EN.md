@@ -8,11 +8,15 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [715. Range Module](https://leetcode.com/problems/range-module)
 
 [中文文档](/solution/0700-0799/0715.Range%20Module/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A Range Module is a module that tracks ranges of numbers. Design a data structure to track the ranges represented as <strong>half-open intervals</strong> and query about them.</p>
 
@@ -54,7 +58,11 @@ rangeModule.queryRange(16, 17); // return True, (The number 16 in [16, 17) is st
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>addRange</code>, <code>queryRange</code>, and <code>removeRange</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Segment Tree
 
@@ -72,6 +80,8 @@ Due to the large data range of the problem, we can implement it with a dynamical
 In terms of time complexity, the time complexity of each operation is $O(\log n)$. The space complexity is $O(m \times \log n)$. Here, $m$ is the number of operations, and $n$ is the data range.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -158,6 +168,8 @@ class RangeModule:
 # param_2 = obj.queryRange(left,right)
 # obj.removeRange(left,right)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -262,6 +274,8 @@ class RangeModule {
  * obj.removeRange(left,right);
  */
 ```
+
+#### C++
 
 ```cpp
 template <class T>
@@ -390,6 +404,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 const N int = 1e9
 
@@ -493,6 +509,8 @@ func (this *RangeModule) RemoveRange(left int, right int) {
  * obj.RemoveRange(left,right);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class Node {
@@ -634,4 +652,6 @@ class RangeModule {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

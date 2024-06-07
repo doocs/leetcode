@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.07.Baby%20Names/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.07. Baby Names](https://leetcode.cn/problems/baby-names-lcci)
 
 [中文文档](/lcci/17.07.Baby%20Names/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Each year, the government releases a list of the 10000 most common baby names and their frequencies (the number of babies with that name). The only problem with this is that some names have multiple spellings. For example,&quot;John&quot; and &#39;&#39;Jon&quot; are essentially the same name but would be listed separately in the list. Given two lists, one of names/frequencies and the other of pairs of equivalent names, write an algorithm to print a new list of the true frequency of each name. Note that if John and Jon are synonyms, and Jon and Johnny are synonyms, then John and Johnny are synonyms. (It is both transitive and symmetric.) In the final list, choose the name that are <strong>lexicographically smallest</strong> as the &quot;real&quot; name.</p>
 
@@ -26,7 +30,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.07.Baby%20Names/RE
 	<li><code>names.length &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + DFS
 
@@ -39,6 +47,8 @@ After traversing all names, the answer array is what we seek.
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the name array and the synonym array, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +83,8 @@ class Solution:
                 ans.append(f"{name}({freq})")
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -174,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func trulyMostPopular(names []string, synonyms []string) (ans []string) {
 	g := map[string][]string{}
@@ -220,6 +236,8 @@ func trulyMostPopular(names []string, synonyms []string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function trulyMostPopular(names: string[], synonyms: string[]): string[] {
     const map = new Map<string, string>();
@@ -250,6 +268,8 @@ function trulyMostPopular(names: string[], synonyms: string[]): string[] {
     return [...keyCount.entries()].map(([k, v]) => `${k}(${v})`);
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -307,4 +327,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

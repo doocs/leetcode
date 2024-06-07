@@ -8,11 +8,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water)
 
 [中文文档](/solution/0000-0099/0011.Container%20With%20Most%20Water/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>height</code> of length <code>n</code>. There are <code>n</code> vertical lines drawn such that the two endpoints of the <code>i<sup>th</sup></code> line are <code>(i, 0)</code> and <code>(i, height[i])</code>.</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li><code>0 &lt;= height[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -60,6 +68,8 @@ Repeat this process until the two pillars meet.
 The time complexity is $O(n)$, where $n$ is the length of the array `height`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +85,8 @@ class Solution:
                 j -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxArea(height []int) (ans int) {
 	i, j := 0, len(height)-1
@@ -130,6 +146,8 @@ func maxArea(height []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxArea(height: number[]): number {
@@ -149,6 +167,8 @@ function maxArea(height: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn max_area(height: Vec<i32>) -> i32 {
@@ -167,6 +187,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -190,6 +212,8 @@ var maxArea = function (height) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MaxArea(int[] height) {
@@ -208,6 +232,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -235,4 +261,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2435.Paths%20in%20Matrix%20Whose%20Sum%20Is%20Divisible%20by%20K/README.md
 rating: 1951
+source: 第 314 场周赛 Q4
 tags:
     - 数组
     - 动态规划
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [2435. 矩阵中和能被 K 整除的路径](https://leetcode.cn/problems/paths-in-matrix-whose-sum-is-divisible-by-k)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的&nbsp;<code>m x n</code>&nbsp;整数矩阵&nbsp;<code>grid</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。你从起点&nbsp;<code>(0, 0)</code>&nbsp;出发，每一步只能往 <strong>下</strong>&nbsp;或者往 <strong>右</strong>&nbsp;，你想要到达终点&nbsp;<code>(m - 1, n - 1)</code>&nbsp;。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -78,6 +85,8 @@ $$
 时间复杂度 $O(m \times n \times k)$，空间复杂度 $O(m \times n \times k)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数，而 $k$ 为给定的整数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +107,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +176,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfPaths(grid [][]int, k int) int {
@@ -202,6 +217,8 @@ func numberOfPaths(grid [][]int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfPaths(grid: number[][], k: number): number {
     const MOD = 10 ** 9 + 7;
@@ -226,6 +243,10 @@ function numberOfPaths(grid: number[][], k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们也可以使用动态规划求解。
@@ -243,6 +264,8 @@ $$
 时间复杂度 $O(m \times n \times k)$，空间复杂度 $O(m \times n \times k)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数，而 $k$ 为给定的整数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -262,6 +285,8 @@ class Solution:
                     dp[i][j][s] %= mod
         return dp[-1][-1][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -290,6 +315,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -313,6 +340,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfPaths(grid [][]int, k int) int {
@@ -346,4 +375,6 @@ func numberOfPaths(grid [][]int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

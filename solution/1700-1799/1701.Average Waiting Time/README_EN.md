@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1701.Average%20Waiting%20Time/README_EN.md
 rating: 1436
+source: Biweekly Contest 42 Q2
 tags:
     - Array
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [1701. Average Waiting Time](https://leetcode.com/problems/average-waiting-time)
 
 [中文文档](/solution/1700-1799/1701.Average%20Waiting%20Time/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a restaurant with a single chef. You are given an array <code>customers</code>, where <code>customers[i] = [arrival<sub>i</sub>, time<sub>i</sub>]:</code></p>
 
@@ -60,7 +65,11 @@ So the average waiting time = (2 + 6 + 4 + 1) / 4 = 3.25.
 	<li><code>arrival<sub>i&nbsp;</sub>&lt;= arrival<sub>i+1</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -76,6 +85,8 @@ The time complexity is $O(n)$, where $n$ is the length of the customer array `cu
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def averageWaitingTime(self, customers: List[List[int]]) -> float:
@@ -85,6 +96,8 @@ class Solution:
             tot += t - a
         return tot / len(customers)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func averageWaitingTime(customers [][]int) float64 {
 	tot, t := 0, 0
@@ -128,6 +145,8 @@ func averageWaitingTime(customers [][]int) float64 {
 	return float64(tot) / float64(len(customers))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function averageWaitingTime(customers: number[][]): number {
@@ -142,4 +161,6 @@ function averageWaitingTime(customers: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

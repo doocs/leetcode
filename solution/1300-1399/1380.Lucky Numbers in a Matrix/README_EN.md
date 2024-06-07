@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1380.Lucky%20Numbers%20in%20a%20Matrix/README_EN.md
 rating: 1207
+source: Weekly Contest 180 Q1
 tags:
     - Array
     - Matrix
 ---
+
+<!-- problem:start -->
 
 # [1380. Lucky Numbers in a Matrix](https://leetcode.com/problems/lucky-numbers-in-a-matrix)
 
 [中文文档](/solution/1300-1399/1380.Lucky%20Numbers%20in%20a%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> matrix of <strong>distinct </strong>numbers, return <em>all <strong>lucky numbers</strong> in the matrix in <strong>any </strong>order</em>.</p>
 
@@ -54,7 +59,11 @@ tags:
 	<li>All elements in the matrix are distinct.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Maintain Row Minimum and Column Maximum
 
@@ -66,6 +75,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def luckyNumbers(self, matrix: List[List[int]]) -> List[int]:
@@ -73,6 +84,8 @@ class Solution:
         cols = {max(col) for col in zip(*matrix)}
         return list(rows & cols)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func luckyNumbers(matrix [][]int) (ans []int) {
 	m, n := len(matrix), len(matrix[0])
@@ -152,6 +169,8 @@ func luckyNumbers(matrix [][]int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function luckyNumbers(matrix: number[][]): number[] {
     const m = matrix.length;
@@ -175,6 +194,8 @@ function luckyNumbers(matrix: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -206,4 +227,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

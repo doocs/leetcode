@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [205. 同构字符串](https://leetcode.cn/problems/isomorphic-strings)
 
 [English Version](/solution/0200-0299/0205.Isomorphic%20Strings/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串&nbsp;<code>s</code>&nbsp;和&nbsp;<code>t</code>&nbsp;，判断它们是否是同构的。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>s</code>&nbsp;和&nbsp;<code>t</code>&nbsp;由任意有效的 ASCII 字符组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表或数组
 
@@ -65,6 +71,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度；而 $C$ 为字符集大小，本题中 $C = 256$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +86,8 @@ class Solution:
             d2[b] = a
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isIsomorphic(s string, t string) bool {
 	d1 := [256]int{}
@@ -134,6 +148,8 @@ func isIsomorphic(s string, t string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isIsomorphic(s: string, t: string): boolean {
@@ -151,6 +167,8 @@ function isIsomorphic(s: string, t: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -176,6 +194,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsIsomorphic(string s, string t) {
@@ -197,9 +217,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -212,6 +238,8 @@ class Solution:
             d1[a] = d2[b] = i
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -234,4 +262,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

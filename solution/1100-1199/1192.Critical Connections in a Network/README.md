@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README.md
 rating: 2084
+source: 第 154 场周赛 Q4
 tags:
     - 深度优先搜索
     - 图
     - 双连通分量
 ---
+
+<!-- problem:start -->
 
 # [1192. 查找集群内的关键连接](https://leetcode.cn/problems/critical-connections-in-a-network)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>力扣数据中心有&nbsp;<code>n</code>&nbsp;台服务器，分别按从&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n-1</code>&nbsp;的方式进行了编号。它们之间以 <strong>服务器到服务器</strong> 的形式相互连接组成了一个内部集群，连接是无向的。用 &nbsp;<code>connections</code> 表示集群网络，<code>connections[i] = [a, b]</code>&nbsp;表示服务器 <code>a</code>&nbsp;和 <code>b</code>&nbsp;之间形成连接。任何服务器都可以直接或者间接地通过网络到达任何其他服务器。</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li>不存在重复的连接</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：Tarjan 算法
 
@@ -68,6 +75,8 @@ tags:
 用于求图中的「桥」与「割点」有一算法：tarjan 算法，这个算法使用先递归的访问相邻节点后访问节点自身的 dfs 方法，通过记录「访问的顺序：DFN」以及在递归结束后访问节点自身时探索其可以回溯到的最早被访问的节点来更新「最早可回溯的节点：low」，可以实现在 $O(n)$ 时间内找到图的「桥」与「割点」。同时，此种算法可以用于查找有向图中的强连通分量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +110,8 @@ class Solution:
         tarjan(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func criticalConnections(n int, connections [][]int) (ans [][]int) {
 	now := 0
@@ -215,6 +230,8 @@ func criticalConnections(n int, connections [][]int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function criticalConnections(n: number, connections: number[][]): number[][] {
@@ -253,4 +270,6 @@ function criticalConnections(n: number, connections: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

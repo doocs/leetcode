@@ -4,11 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2051.%20%E7%83%B9%E9%A5%AA%E6%96%99%E7%90%86/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 51. 烹饪料理](https://leetcode.cn/problems/UEcfPD)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 欢迎各位勇者来到力扣城，城内设有烹饪锅供勇者制作料理，为自己恢复状态。
 
@@ -49,7 +51,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2051.%20%E7%83%B9%
 -   `0 <= materials[i], cookbooks[i][j], attribute[i][j] <= 20`
 -   `1 <= limit <= 100`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二进制枚举
 
@@ -64,6 +70,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2051.%20%E7%83%B9%
 时间复杂度 $(2^n \times n)$，其中 $n$ 是料理的数量。我们需要枚举所有的料理方案，对于每种方案，我们需要 $O(n)$ 的时间计算其美味度和饱腹感，因此总时间复杂度为 $O(2^n \times n)$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +98,8 @@ class Solution:
                 ans = a
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -156,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func perfectMenu(materials []int, cookbooks [][]int, attribute [][]int, limit int) int {
 	n := len(cookbooks)
@@ -184,6 +198,8 @@ func perfectMenu(materials []int, cookbooks [][]int, attribute [][]int, limit in
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function perfectMenu(
@@ -221,4 +237,6 @@ function perfectMenu(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

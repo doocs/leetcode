@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README_EN.md
 rating: 1404
+source: Weekly Contest 391 Q3
 tags:
     - Array
     - Math
 ---
+
+<!-- problem:start -->
 
 # [3101. Count Alternating Subarrays](https://leetcode.com/problems/count-alternating-subarrays)
 
 [中文文档](/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <span data-keyword="binary-array">binary array</span> <code>nums</code>.</p>
 
@@ -53,7 +58,11 @@ tags:
 	<li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -72,6 +81,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countAlternatingSubarrays(self, nums: List[int]) -> int:
@@ -81,6 +92,8 @@ class Solution:
             ans += s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countAlternatingSubarrays(nums []int) int64 {
@@ -124,6 +141,8 @@ func countAlternatingSubarrays(nums []int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countAlternatingSubarrays(nums: number[]): number {
     let [ans, s] = [1, 1];
@@ -137,4 +156,6 @@ function countAlternatingSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

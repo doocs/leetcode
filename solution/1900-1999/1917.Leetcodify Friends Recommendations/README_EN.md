@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1917. Leetcodify Friends Recommendations 🔒](https://leetcode.com/problems/leetcodify-friends-recommendations)
 
 [中文文档](/solution/1900-1999/1917.Leetcodify%20Friends%20Recommendations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Listens</code></p>
 
@@ -106,11 +110,17 @@ Users 1 and 5 listened to songs 10, 11, and 12, but on different days.
 Similarly, we can see that users 2 and 3 listened to songs 10, 11, and 12 on the same day and are not friends, so we recommend them to each other.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -139,4 +149,6 @@ HAVING COUNT(DISTINCT l1.song_id) >= 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

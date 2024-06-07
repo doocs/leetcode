@@ -6,11 +6,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [799. Champagne Tower](https://leetcode.com/problems/champagne-tower)
 
 [中文文档](/solution/0700-0799/0799.Champagne%20Tower/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We stack glasses in a pyramid, where the <strong>first</strong> row has <code>1</code> glass, the <strong>second</strong> row has <code>2</code> glasses, and so on until the 100<sup>th</sup> row.&nbsp; Each glass holds one cup&nbsp;of champagne.</p>
 
@@ -70,11 +74,17 @@ tags:
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +100,8 @@ class Solution:
                     f[i + 1][j + 1] += half
         return f[query_row][query_glass]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func champagneTower(poured int, query_row int, query_glass int) float64 {
 	f := [101][101]float64{}
@@ -150,6 +166,8 @@ func champagneTower(poured int, query_row int, query_glass int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function champagneTower(poured: number, query_row: number, query_glass: number): number {
     let row = [poured];
@@ -166,6 +184,8 @@ function champagneTower(poured: number, query_row: number, query_glass: number):
     return Math.min(1, row[query_glass]);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -190,9 +210,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -208,6 +234,8 @@ class Solution:
             f = g
         return min(1, f[query_glass])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -228,6 +256,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -251,6 +281,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func champagneTower(poured int, query_row int, query_glass int) float64 {
 	f := []float64{float64(poured)}
@@ -271,4 +303,6 @@ func champagneTower(poured int, query_row int, query_glass int) float64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

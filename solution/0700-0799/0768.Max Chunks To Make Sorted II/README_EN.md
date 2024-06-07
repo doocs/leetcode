@@ -10,11 +10,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [768. Max Chunks To Make Sorted II](https://leetcode.com/problems/max-chunks-to-make-sorted-ii)
 
 [中文文档](/solution/0700-0799/0768.Max%20Chunks%20To%20Make%20Sorted%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>arr</code>.</p>
 
@@ -51,11 +55,17 @@ However, splitting into [2, 1], [3], [4], [4] is the highest number of chunks po
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +81,8 @@ class Solution:
                 stk.append(mx)
         return len(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxChunksToSorted(arr []int) int {
 	var stk []int
@@ -131,6 +147,8 @@ func maxChunksToSorted(arr []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxChunksToSorted(arr: number[]): number {
     const stack = [];
@@ -148,6 +166,8 @@ function maxChunksToSorted(arr: number[]): number {
     return stack.length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -171,4 +191,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

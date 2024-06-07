@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1693. 每天的领导和合伙人](https://leetcode.cn/problems/daily-leads-and-partners)
 
 [English Version](/solution/1600-1699/1693.Daily%20Leads%20and%20Partners/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>DailySales</code></p>
 
@@ -71,13 +73,19 @@ DailySales 表：
 在 2020-12-8，丰田（toyota）有领导者 = [0, 1] 和合伙人 = [0, 1, 2] ，同时本田（honda）有领导者 = [1, 2] 和合伙人 = [1, 2]。
 在 2020-12-7，丰田（toyota）有领导者 = [0] 和合伙人 = [1, 2] ，同时本田（honda）有领导者 = [0, 1, 2] 和合伙人 = [1, 2]。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组统计
 
 我们可以使用 `GROUP BY` 语句，按照 `date_id` 和 `make_name` 字段进行分组，然后使用 `COUNT(DISTINCT)` 函数，统计 `lead_id` 和 `partner_id` 的不同值的数量。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -92,4 +100,6 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

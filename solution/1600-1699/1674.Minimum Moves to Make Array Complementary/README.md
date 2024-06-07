@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README.md
 rating: 2333
+source: 第 217 场周赛 Q3
 tags:
     - 数组
     - 哈希表
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [1674. 使数组互补的最少操作次数](https://leetcode.cn/problems/minimum-moves-to-make-array-complementary)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为<strong> 偶数</strong> <code>n</code> 的整数数组 <code>nums</code> 和一个整数 <code>limit</code> 。每一次操作，你可以将 <code>nums</code> 中的任何整数替换为 <code>1</code> 到 <code>limit</code> 之间的另一个整数。</p>
 
@@ -65,7 +68,11 @@ nums[3] + nums[0] = 3 + 1 = 4.
 	<li><code>n</code> 是偶数。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
@@ -93,6 +100,8 @@ nums[3] + nums[0] = 3 + 1 = 4.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMoves(self, nums: List[int], limit: int) -> int:
@@ -118,6 +127,8 @@ class Solution:
                 ans = s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +159,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -180,6 +193,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMoves(nums []int, limit int) int {
 	d := make([]int, limit*2+2)
@@ -205,6 +220,8 @@ func minMoves(nums []int, limit int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minMoves(nums: number[], limit: number): number {
@@ -237,4 +254,6 @@ function minMoves(nums: number[], limit: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

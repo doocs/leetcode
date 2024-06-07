@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [524. Longest Word in Dictionary through Deleting](https://leetcode.com/problems/longest-word-in-dictionary-through-deleting)
 
 [中文文档](/solution/0500-0599/0524.Longest%20Word%20in%20Dictionary%20through%20Deleting/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> and a string array <code>dictionary</code>, return <em>the longest string in the dictionary that can be formed by deleting some of the given string characters</em>. If there is more than one possible result, return the longest word with the smallest lexicographical order. If there is no possible result, return the empty string.</p>
 
@@ -42,11 +46,17 @@ tags:
 	<li><code>s</code> and <code>dictionary[i]</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +76,8 @@ class Solution:
                 ans = a
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLongestWord(s string, dictionary []string) string {
 	ans := ""
@@ -140,6 +156,8 @@ func findLongestWord(s string, dictionary []string) string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findLongestWord(s: string, dictionary: string[]): string {
@@ -171,6 +189,8 @@ function findLongestWord(s: string, dictionary: string[]): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn find_longest_word(s: String, mut dictionary: Vec<String>) -> String {
@@ -198,4 +218,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

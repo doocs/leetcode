@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1646.Get%20Maximum%20in%20Generated%20Array/README.md
 rating: 1301
+source: 第 214 场周赛 Q1
 tags:
     - 数组
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1646. 获取生成数组中的最大值](https://leetcode.cn/problems/get-maximum-in-generated-array)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> 。按下述规则生成一个长度为 <code>n + 1</code> 的数组 <code>nums</code> ：</p>
 
@@ -70,7 +73,11 @@ tags:
 	<li><code>0 <= n <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -86,6 +93,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMaximumGenerated(self, n: int) -> int:
@@ -97,6 +106,8 @@ class Solution:
             nums[i] = nums[i >> 1] if i % 2 == 0 else nums[i >> 1] + nums[(i >> 1) + 1]
         return max(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getMaximumGenerated(n int) int {
 	if n < 2 {
@@ -150,6 +165,8 @@ func getMaximumGenerated(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getMaximumGenerated(n: number): number {
     if (n === 0) {
@@ -166,4 +183,6 @@ function getMaximumGenerated(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

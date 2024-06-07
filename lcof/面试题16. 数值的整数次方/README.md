@@ -4,9 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9816.%20%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16. 数值的整数次方](https://leetcode.cn/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>实现 <a href="https://www.cplusplus.com/reference/valarray/pow/">pow(<em>x</em>, <em>n</em>)</a> ，即计算 x 的 n 次幂函数（即，x<sup>n</sup>）。不得使用库函数，同时不需要考虑大数问题。</p>
 
@@ -46,7 +50,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p>注意：本题与主站 50 题相同：<a href="https://leetcode.cn/problems/powx-n/">https://leetcode.cn/problems/powx-n/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学（快速幂）
 
@@ -55,6 +63,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为幂指数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +80,8 @@ class Solution:
 
         return qpow(x, n) if n >= 0 else 1 / qpow(x, -n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func myPow(x float64, n int) float64 {
@@ -128,6 +144,8 @@ func myPow(x float64, n int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function myPow(x: number, n: number): number {
     const qpow = (a: number, n: number): number => {
@@ -143,6 +161,8 @@ function myPow(x: number, n: number): number {
     return n >= 0 ? qpow(x, n) : 1 / qpow(x, -n);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,6 +193,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} x
@@ -194,6 +216,8 @@ var myPow = function (x, n) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public double MyPow(double x, int n) {
@@ -213,6 +237,34 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func myPow(_ x: Double, _ n: Int) -> Double {
+        return n >= 0 ? qpow(x, Int64(n)) : 1 / qpow(x, -Int64(n))
+    }
+
+    private func qpow(_ a: Double, _ n: Int64) -> Double {
+        var ans: Double = 1
+        var base: Double = a
+        var exponent: Int64 = n
+
+        while exponent > 0 {
+            if (exponent & 1) == 1 {
+                ans *= base
+            }
+            base *= base
+            exponent >>= 1
+        }
+
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

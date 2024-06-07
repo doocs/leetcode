@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2300.Successful%20Pairs%20of%20Spells%20and%20Potions/README_EN.md
 rating: 1476
+source: Biweekly Contest 80 Q2
 tags:
     - Array
     - Two Pointers
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2300. Successful Pairs of Spells and Potions](https://leetcode.com/problems/successful-pairs-of-spells-and-potions)
 
 [中文文档](/solution/2300-2399/2300.Successful%20Pairs%20of%20Spells%20and%20Potions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two positive integer arrays <code>spells</code> and <code>potions</code>, of length <code>n</code> and <code>m</code> respectively, where <code>spells[i]</code> represents the strength of the <code>i<sup>th</sup></code> spell and <code>potions[j]</code> represents the strength of the <code>j<sup>th</sup></code> potion.</p>
 
@@ -58,7 +63,11 @@ Thus, [2,0,2] is returned.
 	<li><code>1 &lt;= success &lt;= 10<sup>10</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
 
@@ -67,6 +76,8 @@ We can sort the potion array, then traverse the spell array. For each spell $v$,
 The time complexity is $O((m + n) \times \log m)$, and the space complexity is $O(\log n)$. Here, $m$ and $n$ are the lengths of the potion array and the spell array, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +88,8 @@ class Solution:
         m = len(potions)
         return [m - bisect_left(potions, success / v) for v in spells]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func successfulPairs(spells []int, potions []int, success int64) (ans []int) {
 	sort.Ints(potions)
@@ -128,6 +145,8 @@ func successfulPairs(spells []int, potions []int, success int64) (ans []int) {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function successfulPairs(spells: number[], potions: number[], success: number): number[] {
@@ -153,4 +172,6 @@ function successfulPairs(spells: number[], potions: number[], success: number): 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

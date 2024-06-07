@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.06.Convert%20Integer/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [05.06. Convert Integer](https://leetcode.cn/problems/convert-integer-lcci)
 
 [中文文档](/lcci/05.06.Convert%20Integer/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a function to determine the number of bits you would need to flip to convert integer A to integer B.</p>
 
@@ -50,7 +54,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.06.Convert%20Integ
 	<li><code>-2147483648 &lt;= A, B &lt;= 2147483647</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -60,6 +68,8 @@ The time complexity is $O(\log n)$, where $n$ is the maximum value of A and B. T
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def convertInteger(self, A: int, B: int) -> int:
@@ -68,6 +78,8 @@ class Solution:
         return (A ^ B).bit_count()
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int convertInteger(int A, int B) {
@@ -75,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -86,11 +100,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func convertInteger(A int, B int) int {
 	return bits.OnesCount32(uint32(A ^ B))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function convertInteger(A: number, B: number): number {
@@ -106,6 +124,8 @@ function convertInteger(A: number, B: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn convert_integer(a: i32, b: i32) -> i32 {
@@ -113,6 +133,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -124,4 +146,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

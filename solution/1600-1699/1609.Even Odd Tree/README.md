@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1609.Even%20Odd%20Tree/README.md
 rating: 1438
+source: 第 209 场周赛 Q2
 tags:
     - 树
     - 广度优先搜索
     - 二叉树
 ---
+
+<!-- problem:start -->
 
 # [1609. 奇偶树](https://leetcode.cn/problems/even-odd-tree)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果一棵二叉树满足下述几个条件，则可以称为 <strong>奇偶树</strong> ：</p>
 
@@ -91,7 +94,11 @@ tags:
 	<li><code>1 <= Node.val <= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -100,6 +107,8 @@ BFS 逐层遍历，每层按照奇偶性判断，每层的节点值都是偶数�
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -128,6 +137,8 @@ class Solution:
             even ^= 1
         return True
 ```
+
+#### Java
 
 ```java
 /**
@@ -175,6 +186,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -218,6 +231,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -260,6 +275,10 @@ func isEvenOddTree(root *TreeNode) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：DFS
 
 DFS 先序遍历二叉树，同样根据节点所在层的奇偶性判断是否满足条件，遍历过程中用哈希表记录每一层最近访问到的节点值。
@@ -267,6 +286,8 @@ DFS 先序遍历二叉树，同样根据节点所在层的奇偶性判断是否�
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -292,6 +313,8 @@ class Solution:
         d = {}
         return dfs(root, 0)
 ```
+
+#### Java
 
 ```java
 /**
@@ -334,6 +357,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -371,6 +396,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -412,4 +439,6 @@ func isEvenOddTree(root *TreeNode) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

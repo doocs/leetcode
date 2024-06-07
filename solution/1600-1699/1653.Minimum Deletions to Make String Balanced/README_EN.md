@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README_EN.md
 rating: 1793
+source: Biweekly Contest 39 Q2
 tags:
     - Stack
     - String
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1653. Minimum Deletions to Make String Balanced](https://leetcode.com/problems/minimum-deletions-to-make-string-balanced)
 
 [中文文档](/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> consisting only of characters <code>&#39;a&#39;</code> and <code>&#39;b&#39;</code>​​​​.</p>
 
@@ -48,7 +53,11 @@ Delete the characters at 0-indexed positions 3 and 6 (&quot;aab<u>a</u>bb<u>a</u
 	<li><code>s[i]</code> is&nbsp;<code>&#39;a&#39;</code> or <code>&#39;b&#39;</code>​​.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -76,6 +85,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumDeletions(self, s: str) -> int:
@@ -90,6 +101,8 @@ class Solution:
                 f[i] = min(f[i - 1] + 1, b)
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumDeletions(s string) int {
 	n := len(s)
@@ -148,6 +165,8 @@ func minimumDeletions(s string) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDeletions(s: string): number {
@@ -168,6 +187,10 @@ function minimumDeletions(s: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Enumeration + Prefix Sum
 
 We can enumerate each position $i$ in the string $s$, dividing the string $s$ into two parts, namely $s[0,..,i-1]$ and $s[i+1,..n-1]$. To make the string balanced, the number of characters we need to delete at the current position $i$ is the number of character 'b' in $s[0,..,i-1]$ plus the number of character 'a' in $s[i+1,..n-1]$.
@@ -177,6 +200,8 @@ Therefore, we maintain two variables $lb$ and $ra$ to represent the number of ch
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -189,6 +214,8 @@ class Solution:
                 ans = min(ans + 1, b)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -207,6 +234,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -224,6 +253,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumDeletions(s string) int {
 	ans, b := 0, 0
@@ -237,6 +268,8 @@ func minimumDeletions(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDeletions(s: string): number {
@@ -256,9 +289,15 @@ function minimumDeletions(s: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -271,6 +310,8 @@ class Solution:
             lb += c == 'b'
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -293,6 +334,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -308,6 +351,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumDeletions(s string) int {
@@ -327,6 +372,8 @@ func minimumDeletions(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDeletions(s: string): number {
@@ -350,4 +397,6 @@ function minimumDeletions(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

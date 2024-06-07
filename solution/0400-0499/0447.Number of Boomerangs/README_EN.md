@@ -8,11 +8,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [447. Number of Boomerangs](https://leetcode.com/problems/number-of-boomerangs)
 
 [中文文档](/solution/0400-0499/0447.Number%20of%20Boomerangs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given <code>n</code> <code>points</code> in the plane that are all <strong>distinct</strong>, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>. A <strong>boomerang</strong> is a tuple of points <code>(i, j, k)</code> such that the distance between <code>i</code> and <code>j</code> equals the distance between <code>i</code> and <code>k</code> <strong>(the order of the tuple matters)</strong>.</p>
 
@@ -52,7 +56,11 @@ tags:
 	<li>All the points are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + Counting
 
@@ -63,6 +71,8 @@ If there are $x$ points with equal distance to $i$, then we can arbitrarily sele
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array `points`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +86,8 @@ class Solution:
                 cnt[d] += 1
         return ans << 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfBoomerangs(points [][]int) (ans int) {
 	for _, p1 := range points {
@@ -126,6 +142,8 @@ func numberOfBoomerangs(points [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfBoomerangs(points: number[][]): number {
@@ -144,9 +162,15 @@ function numberOfBoomerangs(points: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -160,6 +184,8 @@ class Solution:
             ans += sum(x * (x - 1) for x in cnt.values())
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -179,6 +205,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -200,6 +228,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfBoomerangs(points [][]int) (ans int) {
 	for _, p1 := range points {
@@ -215,6 +245,8 @@ func numberOfBoomerangs(points [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfBoomerangs(points: number[][]): number {
@@ -235,4 +267,6 @@ function numberOfBoomerangs(points: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

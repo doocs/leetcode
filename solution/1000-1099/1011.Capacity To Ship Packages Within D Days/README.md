@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1011.Capacity%20To%20Ship%20Packages%20Within%20D%20Days/README.md
 rating: 1725
+source: 第 128 场周赛 Q3
 tags:
     - 数组
     - 二分查找
 ---
+
+<!-- problem:start -->
 
 # [1011. 在 D 天内送达包裹的能力](https://leetcode.cn/problems/capacity-to-ship-packages-within-d-days)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>传送带上的包裹必须在 <code>days</code> 天内从一个港口运送到另一个港口。</p>
 
@@ -24,7 +27,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>weights = [1,2,3,4,5,6,7,8,9,10], days = 5
@@ -40,7 +43,7 @@ tags:
 请注意，货物必须按照给定的顺序装运，因此使用载重能力为 14 的船舶并将包装分成 (2, 3, 4, 5), (1, 6, 7), (8), (9), (10) 是不允许的。 
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>weights = [3,2,2,4,1,4], days = 3
@@ -52,7 +55,7 @@ tags:
 第 3 天：1, 4
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
 <strong>输入：</strong>weights = [1,2,3,1,1], days = 4
@@ -73,7 +76,11 @@ tags:
 	<li><code>1 &lt;= weights[i] &lt;= 500</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -86,6 +93,8 @@ tags:
 时间复杂度 $O(n \times \log \sum\limits_{i=0}^{n-1} weights[i])$，空间复杂度 $O(1)$。其中 $n$ 为包裹数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +111,8 @@ class Solution:
         left, right = max(weights), sum(weights) + 1
         return left + bisect_left(range(left, right), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -169,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shipWithinDays(weights []int, days int) int {
 	var left, right int
@@ -192,6 +207,8 @@ func shipWithinDays(weights []int, days int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function shipWithinDays(weights: number[], days: number): number {
@@ -227,4 +244,6 @@ function shipWithinDays(weights: number[], days: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

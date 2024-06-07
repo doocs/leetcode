@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README_EN.md
 rating: 1331
+source: Weekly Contest 306 Q1
 tags:
     - Array
     - Matrix
 ---
+
+<!-- problem:start -->
 
 # [2373. Largest Local Values in a Matrix](https://leetcode.com/problems/largest-local-values-in-a-matrix)
 
 [中文文档](/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>n x n</code> integer matrix <code>grid</code>.</p>
 
@@ -52,11 +57,17 @@ Notice that each value in the generated matrix corresponds to the largest value 
 	<li><code>1 &lt;= grid[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +81,8 @@ class Solution:
                 )
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestLocal(grid [][]int) [][]int {
 	n := len(grid)
@@ -127,6 +144,8 @@ func largestLocal(grid [][]int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestLocal(grid: number[][]): number[][] {
@@ -149,4 +168,6 @@ function largestLocal(grid: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

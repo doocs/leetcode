@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1066.Campus%20Bikes%20II/README.md
 rating: 1885
+source: 第 1 场双周赛 Q3
 tags:
     - 位运算
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [1066. 校园自行车分配 II 🔒](https://leetcode.cn/problems/campus-bikes-ii)
 
 [English Version](/solution/1000-1099/1066.Campus%20Bikes%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在由 2D 网格表示的校园里有&nbsp;<code>n</code>&nbsp;位工人（<code>worker</code>）和 <code>m</code>&nbsp;辆自行车（<code>bike</code>），<code>n &lt;= m</code>。所有工人和自行车的位置都用网格上的 2D 坐标表示。</p>
 
@@ -72,7 +75,11 @@ tags:
 	<li>所有的工人和自行车的位置都是 <strong>不同</strong>&nbsp;的。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩动态规划
 
@@ -90,6 +97,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def assignBikes(self, workers: List[List[int]], bikes: List[List[int]]) -> int:
@@ -106,6 +115,8 @@ class Solution:
                         )
         return min(f[n])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +168,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func assignBikes(workers [][]int, bikes [][]int) int {
@@ -189,6 +204,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function assignBikes(workers: number[][], bikes: number[][]): number {
     const n = workers.length;
@@ -214,4 +231,6 @@ function assignBikes(workers: number[][], bikes: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

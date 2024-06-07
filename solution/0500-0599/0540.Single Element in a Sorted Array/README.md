@@ -7,13 +7,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [540. 有序数组中的单一元素](https://leetcode.cn/problems/single-element-in-a-sorted-array)
 
 [English Version](/solution/0500-0599/0540.Single%20Element%20in%20a%20Sorted%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个仅由整数组成的有序数组，其中每个元素都会出现两次，唯有一个数只会出现一次。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li><code>0 &lt;= nums[i]&nbsp;&lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -90,6 +96,8 @@ return nums[l]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def singleNonDuplicate(self, nums: List[int]) -> int:
@@ -103,6 +111,8 @@ class Solution:
                 left = mid + 1
         return nums[left]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func singleNonDuplicate(nums []int) int {
 	left, right := 0, len(nums)-1
@@ -154,6 +168,8 @@ func singleNonDuplicate(nums []int) int {
 	return nums[left]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function singleNonDuplicate(nums: number[]): number {
@@ -170,6 +186,8 @@ function singleNonDuplicate(nums: number[]): number {
     return nums[left];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -189,6 +207,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int singleNonDuplicate(int* nums, int numsSize) {
     int left = 0;
@@ -207,4 +227,6 @@ int singleNonDuplicate(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,13 +11,15 @@ tags:
     - 滚动哈希
 ---
 
+<!-- problem:start -->
+
 # [187. 重复的 DNA 序列](https://leetcode.cn/problems/repeated-dna-sequences)
 
 [English Version](/solution/0100-0199/0187.Repeated%20DNA%20Sequences/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>DNA序列</strong>&nbsp;由一系列核苷酸组成，缩写为<meta charset="UTF-8" />&nbsp;<code>'A'</code>,&nbsp;<code>'C'</code>,&nbsp;<code>'G'</code>&nbsp;和<meta charset="UTF-8" />&nbsp;<code>'T'</code>.。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>s[i]</code><code>==</code><code>'A'</code>、<code>'C'</code>、<code>'G'</code>&nbsp;or&nbsp;<code>'T'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -68,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
@@ -80,6 +88,8 @@ class Solution:
                 ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findRepeatedDnaSequences(s string) (ans []string) {
 	cnt := map[string]int{}
@@ -127,6 +141,8 @@ func findRepeatedDnaSequences(s string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findRepeatedDnaSequences(s: string): string[] {
@@ -143,6 +159,8 @@ function findRepeatedDnaSequences(s: string): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -167,6 +185,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -185,6 +205,8 @@ var findRepeatedDnaSequences = function (s) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -207,6 +229,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：Rabin-Karp 字符串匹配算法
 
 本质上是滑动窗口和哈希的结合方法，和 [0028.找出字符串中第一个匹配项的下标](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/) 类似，本题可以借助哈希函数将子序列计数的时间复杂度降低到 $O(1)$。
@@ -214,6 +240,8 @@ public class Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func findRepeatedDnaSequences(s string) []string {
@@ -238,4 +266,6 @@ func findRepeatedDnaSequences(s string) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

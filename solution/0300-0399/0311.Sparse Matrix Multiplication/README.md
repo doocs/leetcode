@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [311. 稀疏矩阵的乘法 🔒](https://leetcode.cn/problems/sparse-matrix-multiplication)
 
 [English Version](/solution/0300-0399/0311.Sparse%20Matrix%20Multiplication/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个&nbsp;<a href="https://baike.baidu.com/item/%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5" target="_blank">稀疏矩阵</a>&nbsp;：大小为 <code>m x k</code> 的稀疏矩阵 <code>mat1</code> 和大小为 <code>k x n</code> 的稀疏矩阵 <code>mat2</code> ，返回 <code>mat1 x mat2</code> 的结果。你可以假设乘法总是可能的。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li><code>-100 &lt;= mat1[i][j], mat2[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：直接相乘
 
@@ -57,6 +63,8 @@ tags:
 时间复杂度 $O(m \times n \times k)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵 $mat1$ 的行数和矩阵 $mat2$ 的列数，而 $k$ 是矩阵 $mat1$ 的列数或矩阵 $mat2$ 的行数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +77,8 @@ class Solution:
                     ans[i][j] += mat1[i][k] * mat2[k][j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func multiply(mat1 [][]int, mat2 [][]int) [][]int {
 	m, n := len(mat1), len(mat2[0])
@@ -123,6 +137,8 @@ func multiply(mat1 [][]int, mat2 [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function multiply(mat1: number[][], mat2: number[][]): number[][] {
     const [m, n] = [mat1.length, mat2[0].length];
@@ -140,6 +156,10 @@ function multiply(mat1: number[][], mat2: number[][]): number[][] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：预处理
 
 我们可以预处理出两个矩阵的稀疏表示，即 $g1[i]$ 表示矩阵 $mat1$ 第 $i$ 行中所有非零元素的列下标和值，而 $g2[i]$ 表示矩阵 $mat2$ 第 $i$ 行中所有非零元素的列下标和值。
@@ -149,6 +169,8 @@ function multiply(mat1: number[][], mat2: number[][]): number[][] {
 时间复杂度 $O(m \times n \times k)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵 $mat1$ 的行数和矩阵 $mat2$ 的列数，而 $k$ 是矩阵 $mat1$ 的列数或矩阵 $mat2$ 的行数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -171,6 +193,8 @@ class Solution:
                     ans[i][j] += x * y
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -207,6 +231,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -238,6 +264,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func multiply(mat1 [][]int, mat2 [][]int) [][]int {
@@ -273,6 +301,8 @@ func multiply(mat1 [][]int, mat2 [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function multiply(mat1: number[][], mat2: number[][]): number[][] {
     const [m, n] = [mat1.length, mat2[0].length];
@@ -304,4 +334,6 @@ function multiply(mat1: number[][], mat2: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

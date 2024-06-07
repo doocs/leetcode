@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2564.Substring%20XOR%20Queries/README_EN.md
 rating: 1959
+source: Weekly Contest 332 Q3
 tags:
     - Bit Manipulation
     - Array
@@ -10,11 +11,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2564. Substring XOR Queries](https://leetcode.com/problems/substring-xor-queries)
 
 [中文文档](/solution/2500-2599/2564.Substring%20XOR%20Queries/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>binary string</strong> <code>s</code>, and a <strong>2D</strong> integer array <code>queries</code> where <code>queries[i] = [first<sub>i</sub>, second<sub>i</sub>]</code>.</p>
 
@@ -62,7 +67,11 @@ tags:
 	<li><code>0 &lt;= first<sub>i</sub>, second<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration
 
@@ -73,6 +82,8 @@ Then we enumerate each query. For each query $[first, second]$, we only need to 
 The time complexity is $O(n \times \log M + m)$, and the space complexity is $O(n \times \log M)$. Where $n$ and $m$ are the lengths of the string $s$ and the query array $queries$ respectively, and $M$ can take the maximum value of an integer $2^{31} - 1$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +102,8 @@ class Solution:
                     break
         return [d.get(first ^ second, [-1, -1]) for first, second in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func substringXorQueries(s string, queries [][]int) (ans [][]int) {
 	d := map[int][]int{}
@@ -182,4 +199,6 @@ func substringXorQueries(s string, queries [][]int) (ans [][]int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

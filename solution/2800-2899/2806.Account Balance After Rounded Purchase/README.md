@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2806.Account%20Balance%20After%20Rounded%20Purchase/README.md
 rating: 1214
+source: 第 110 场双周赛 Q1
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [2806. 取整购买后的账户余额](https://leetcode.cn/problems/account-balance-after-rounded-purchase)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一开始，你的银行账户里有&nbsp;<code>100</code>&nbsp;块钱。</p>
 
@@ -52,7 +55,11 @@ tags:
 	<li><code>0 &lt;= purchaseAmount &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 模拟
 
@@ -61,6 +68,8 @@ tags:
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +81,8 @@ class Solution:
                 x = y
         return 100 - x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +118,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func accountBalanceAfterPurchase(purchaseAmount int) int {
@@ -127,6 +142,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function accountBalanceAfterPurchase(purchaseAmount: number): number {
     let [diff, x] = [100, 0];
@@ -143,4 +160,6 @@ function accountBalanceAfterPurchase(purchaseAmount: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

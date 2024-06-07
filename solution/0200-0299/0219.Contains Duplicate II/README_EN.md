@@ -8,11 +8,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [219. Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii)
 
 [中文文档](/solution/0200-0299/0219.Contains%20Duplicate%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <code>true</code> <em>if there are two <strong>distinct indices</strong> </em><code>i</code><em> and </em><code>j</code><em> in the array such that </em><code>nums[i] == nums[j]</code><em> and </em><code>abs(i - j) &lt;= k</code>.</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -61,6 +69,8 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$. Here $n$ is th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
@@ -71,6 +81,8 @@ class Solution:
             d[x] = i
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func containsNearbyDuplicate(nums []int, k int) bool {
 	d := map[int]int{}
@@ -116,6 +132,8 @@ func containsNearbyDuplicate(nums []int, k int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function containsNearbyDuplicate(nums: number[], k: number): boolean {
     const d: Map<number, number> = new Map();
@@ -128,6 +146,8 @@ function containsNearbyDuplicate(nums: number[], k: number): boolean {
     return false;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -143,6 +163,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -167,4 +189,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

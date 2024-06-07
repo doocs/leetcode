@@ -9,13 +9,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [2403. 杀死所有怪物的最短时间 🔒](https://leetcode.cn/problems/minimum-time-to-kill-all-monsters)
 
 [English Version](/solution/2400-2499/2403.Minimum%20Time%20to%20Kill%20All%20Monsters/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一个整数数组 <code>power</code>，其中&nbsp; <code>power[i]</code> 是第 <code>i</code> 个怪物的力量。</p>
 
@@ -86,7 +88,11 @@ tags:
 	<li><code>1 &lt;= power[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩 + 记忆化搜索或动态规划
 
@@ -97,6 +103,8 @@ tags:
 时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 是怪物数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -115,6 +123,8 @@ class Solution:
 
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -182,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTime(power []int) int64 {
 	n := len(power)
@@ -211,6 +225,8 @@ func minimumTime(power []int) int64 {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTime(power: number[]): number {
@@ -250,9 +266,15 @@ function bitCount(x) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -267,6 +289,8 @@ class Solution:
                     dp[mask] = min(dp[mask], dp[mask ^ (1 << i)] + (v + cnt - 1) // cnt)
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -288,6 +312,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -308,6 +334,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTime(power []int) int64 {
 	n := len(power)
@@ -327,6 +355,8 @@ func minimumTime(power []int) int64 {
 	return dp[len(dp)-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTime(power: number[]): number {
@@ -357,4 +387,6 @@ function bitCount(x) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2020. 无流量的帐户数 🔒](https://leetcode.cn/problems/number-of-accounts-that-did-not-stream)
 
 [English Version](/solution/2000-2099/2020.Number%20of%20Accounts%20That%20Did%20Not%20Stream/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Subscriptions</code></p>
 
@@ -86,11 +88,17 @@ Streams table:
 <strong>解释：</strong>用户 4 和 9 在 2021 没有会话。
 用户 11 在 2021 没有订阅。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -106,4 +114,6 @@ WHERE
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

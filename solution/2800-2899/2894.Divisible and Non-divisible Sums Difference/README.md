@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README.md
 rating: 1140
+source: 第 366 场周赛 Q1
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [2894. 分类求和并作差](https://leetcode.cn/problems/divisible-and-non-divisible-sums-difference)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数 <code>n</code> 和 <code>m</code> 。</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li><code>1 &lt;= n, m &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -81,11 +88,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def differenceOfSums(self, n: int, m: int) -> int:
         return sum(i if i % m else -i for i in range(1, n + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func differenceOfSums(n int, m int) (ans int) {
 	for i := 1; i <= n; i++ {
@@ -125,6 +140,8 @@ func differenceOfSums(n int, m int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function differenceOfSums(n: number, m: number): number {
     let ans = 0;
@@ -137,21 +154,6 @@ function differenceOfSums(n: number, m: number): number {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```java
-class Solution {
-    public int differenceOfSums(int n, int m) {
-        int sum = n * (n + 1) / 2;
-        int k = n / m;
-        int nums2 = k * (k + 1) / 2 * m;
-        return sum - nums2 * 2;
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

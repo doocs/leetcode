@@ -9,13 +9,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [646. 最长数对链](https://leetcode.cn/problems/maximum-length-of-pair-chain)
 
 [English Version](/solution/0600-0699/0646.Maximum%20Length%20of%20Pair%20Chain/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由&nbsp;<code>n</code>&nbsp;个数对组成的数对数组&nbsp;<code>pairs</code>&nbsp;，其中&nbsp;<code>pairs[i] = [left<sub>i</sub>, right<sub>i</sub>]</code>&nbsp;且&nbsp;<code>left<sub>i</sub>&nbsp;&lt; right<sub>i</sub></code><sub> 。</sub></p>
 
@@ -52,7 +54,11 @@ tags:
 	<li><code>-1000 &lt;= left<sub>i</sub>&nbsp;&lt; right<sub>i</sub>&nbsp;&lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -61,6 +67,8 @@ tags:
 朴素做法，时间复杂度 $O(n^2)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +81,8 @@ class Solution:
                     dp[i] = max(dp[i], dp[j] + 1)
         return max(dp)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +127,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLongestChain(pairs [][]int) int {
@@ -139,6 +153,8 @@ func findLongestChain(pairs [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLongestChain(pairs: number[][]): number {
     pairs.sort((a, b) => a[0] - b[0]);
@@ -154,6 +170,8 @@ function findLongestChain(pairs: number[][]): number {
     return dp[n - 1];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,6 +193,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：贪心
 
 在所有可作为下一个数对的集合中，选择第二个数最小的数对添加到数对链。因此可以按照第二个数升序排列的顺序遍历所有数对，如果当前数能加入链，则加入。
@@ -182,6 +204,8 @@ impl Solution {
 时间复杂度 $O(n\log n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -193,6 +217,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -210,6 +236,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -230,6 +258,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLongestChain(pairs [][]int) int {
 	sort.Slice(pairs, func(i, j int) bool {
@@ -246,6 +276,8 @@ func findLongestChain(pairs [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLongestChain(pairs: number[][]): number {
     pairs.sort((a, b) => a[1] - b[1]);
@@ -260,6 +292,8 @@ function findLongestChain(pairs: number[][]): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -282,4 +316,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

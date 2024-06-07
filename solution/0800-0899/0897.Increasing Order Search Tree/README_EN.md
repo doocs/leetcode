@@ -10,11 +10,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [897. Increasing Order Search Tree](https://leetcode.com/problems/increasing-order-search-tree)
 
 [中文文档](/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary search tree, rearrange the tree in <strong>in-order</strong> so that the leftmost node in the tree is now the root of the tree, and every node has no left child and only one right child.</p>
 
@@ -41,7 +45,11 @@ tags:
 	<li><code>0 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS In-order Traversal
 
@@ -54,6 +62,8 @@ After the traversal ends, the original binary search tree is modified into a sin
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -78,6 +88,8 @@ class Solution:
         dfs(root)
         return dummy.right
 ```
+
+#### Java
 
 ```java
 /**
@@ -117,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -150,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -177,6 +193,8 @@ func increasingBST(root *TreeNode) *TreeNode {
 	return dummy.Right
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -213,4 +231,6 @@ function increasingBST(root: TreeNode | null): TreeNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

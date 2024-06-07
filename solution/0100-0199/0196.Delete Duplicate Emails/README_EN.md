@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [196. Delete Duplicate Emails](https://leetcode.com/problems/delete-duplicate-emails)
 
 [中文文档](/solution/0100-0199/0196.Delete%20Duplicate%20Emails/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Person</code></p>
 
@@ -60,11 +64,17 @@ Person table:
 <strong>Explanation:</strong> john@example.com is repeated two times. We keep the row with the smallest Id = 1.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -78,6 +88,8 @@ def delete_duplicate_emails(person: pd.DataFrame) -> None:
     person.drop_duplicates(subset="email", keep="first", inplace=True)
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 DELETE FROM Person
@@ -86,9 +98,15 @@ WHERE id NOT IN (SELECT MIN(id) FROM (SELECT * FROM Person) AS p GROUP BY email)
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -112,9 +130,15 @@ WHERE
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 DELETE p2
@@ -127,4 +151,6 @@ WHERE
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

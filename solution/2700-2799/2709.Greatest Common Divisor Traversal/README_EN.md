@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README_EN.md
 rating: 2171
+source: Biweekly Contest 105 Q4
 tags:
     - Union Find
     - Array
@@ -10,11 +11,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2709. Greatest Common Divisor Traversal](https://leetcode.com/problems/greatest-common-divisor-traversal)
 
 [中文文档](/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>, and you are allowed to <strong>traverse</strong> between its indices. You can traverse between index <code>i</code> and index <code>j</code>, <code>i != j</code>, if and only if <code>gcd(nums[i], nums[j]) &gt; 1</code>, where <code>gcd</code> is the <strong>greatest common divisor</strong>.</p>
 
@@ -57,11 +62,17 @@ To go from index 0 to index 2, we can just go directly because gcd(nums[0], nums
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -112,6 +123,8 @@ class Solution:
                 uf.union(i, j + n)
         return len(set(uf.find(i) for i in range(n))) == 1
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -192,6 +205,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 int MX = 100010;
 vector<int> P[100010];
@@ -269,6 +284,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const mx = 100010
@@ -349,4 +366,6 @@ func canTraverseAllPairs(nums []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

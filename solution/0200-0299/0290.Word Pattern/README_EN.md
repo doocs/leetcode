@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [290. Word Pattern](https://leetcode.com/problems/word-pattern)
 
 [中文文档](/solution/0200-0299/0290.Word%20Pattern/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>pattern</code> and a string <code>s</code>, find if <code>s</code>&nbsp;follows the same pattern.</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li>All the words in <code>s</code> are separated by a <strong>single space</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -64,6 +72,8 @@ After the traversal, return `true`.
 The time complexity is $O(m + n)$ and the space complexity is $O(m + n)$. Here $m$ and $n$ are the length of $pattern$ and string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +90,8 @@ class Solution:
             d2[b] = a
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func wordPattern(pattern string, s string) bool {
 	ws := strings.Split(s, " ")
@@ -154,6 +170,8 @@ func wordPattern(pattern string, s string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function wordPattern(pattern: string, s: string): boolean {
@@ -178,6 +196,8 @@ function wordPattern(pattern: string, s: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -210,6 +230,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool WordPattern(string pattern, string s) {
@@ -238,4 +260,38 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function wordPattern(pattern: string, s: string): boolean {
+    const hash: Record<string, string> = Object.create(null);
+    const arr = s.split(/\s+/);
+
+    if (pattern.length !== arr.length || new Set(pattern).size !== new Set(arr).size) {
+        return false;
+    }
+
+    for (let i = 0; i < pattern.length; i++) {
+        hash[pattern[i]] ??= arr[i];
+        if (hash[pattern[i]] !== arr[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

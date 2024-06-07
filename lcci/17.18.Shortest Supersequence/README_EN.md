@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.18.Shortest%20Supersequence/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.18. Shortest Supersequence](https://leetcode.cn/problems/shortest-supersequence-lcci)
 
 [中文文档](/lcci/17.18.Shortest%20Supersequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two arrays, one shorter (with all distinct elements) and one longer. Find the shortest subarray in the longer array that contains all the elements in the shorter array. The items can appear in any order.</p>
 <p>Return the indexes of the leftmost and the rightmost elements of the array. If there are more than one answer, return the one that has the smallest left index. If there is no answer, return an empty array.</p>
@@ -40,11 +44,17 @@ small = [4]
 	<li><code>1 &lt;= small.length&nbsp;&lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +76,8 @@ class Solution:
                 j += 1
         return [] if k < 0 else [k, k + mi - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestSeq(big []int, small []int) []int {
 	cnt := len(small)
@@ -166,6 +182,8 @@ func shortestSeq(big []int, small []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shortestSeq(big: number[], small: number[]): number[] {
     let cnt = small.length;
@@ -196,6 +214,8 @@ function shortestSeq(big: number[], small: number[]): number[] {
     return k < 0 ? [] : [k, k + mi - 1];
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -243,4 +263,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

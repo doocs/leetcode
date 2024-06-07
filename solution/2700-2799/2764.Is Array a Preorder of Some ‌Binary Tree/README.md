@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [2764. 数组是否表示某二叉树的前序遍历 🔒](https://leetcode.cn/problems/is-array-a-preorder-of-some-binary-tree)
 
 [English Version](/solution/2700-2799/2764.Is%20Array%20a%20Preorder%20of%20Some%20%E2%80%8CBinary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个以 <strong>0</strong> 为起始索引的整数 <strong>二维数组</strong> <code>nodes</code> ，你的任务是确定给定的数组是否表示某个 <strong>二叉</strong> 树的 <strong>前序</strong> 遍历。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li>生成的输入保证 <code>nodes</code> 可以组成二叉树。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -80,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPreorder(self, nodes: List[List[int]]) -> bool:
@@ -96,6 +104,8 @@ class Solution:
         k = 0
         return dfs(nodes[0][0]) and k == len(nodes)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPreorder(nodes [][]int) bool {
 	k := 0
@@ -175,6 +189,8 @@ func isPreorder(nodes [][]int) bool {
 	return dfs(nodes[0][0]) && k == len(nodes)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isPreorder(nodes: number[][]): boolean {
@@ -204,4 +220,6 @@ function isPreorder(nodes: number[][]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

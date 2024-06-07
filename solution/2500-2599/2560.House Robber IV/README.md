@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2560.House%20Robber%20IV/README.md
 rating: 2081
+source: 第 331 场周赛 Q3
 tags:
     - 数组
     - 二分查找
 ---
+
+<!-- problem:start -->
 
 # [2560. 打家劫舍 IV](https://leetcode.cn/problems/house-robber-iv)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>沿街有一排连续的房屋。每间房屋内都藏有一定的现金。现在有一位小偷计划从这些房屋中窃取现金。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= (nums.length + 1)/2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找 + 贪心
 
@@ -70,6 +77,8 @@ tags:
 时间复杂度 $O(n \times \log m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是数组 $nums$ 的长度和数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +94,8 @@ class Solution:
 
         return bisect_left(range(max(nums) + 1), True, key=f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCapability(nums []int, k int) int {
 	return sort.Search(1e9+1, func(x int) bool {
@@ -159,6 +174,8 @@ func minCapability(nums []int, k int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCapability(nums: number[], k: number): number {
@@ -190,4 +207,6 @@ function minCapability(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

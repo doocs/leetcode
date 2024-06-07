@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README_EN.md
 rating: 2294
+source: Biweekly Contest 113 Q4
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -10,11 +11,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2858. Minimum Edge Reversals So Every Node Is Reachable](https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable)
 
 [中文文档](/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a <strong>simple directed graph</strong> with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. The graph would form a <strong>tree</strong> if its edges were bi-directional.</p>
 
@@ -74,11 +79,17 @@ So, answer[2] = 1.
 	<li>The input is generated such&nbsp;that if the edges were bi-directional, the graph would be a tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +117,8 @@ class Solution:
         dfs2(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +196,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minEdgeReversals(n int, edges [][]int) []int {
@@ -219,6 +236,8 @@ func minEdgeReversals(n int, edges [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minEdgeReversals(n: number, edges: number[][]): number[] {
     const g: number[][][] = Array.from({ length: n }, () => []);
@@ -251,4 +270,6 @@ function minEdgeReversals(n: number, edges: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

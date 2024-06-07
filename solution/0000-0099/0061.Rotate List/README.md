@@ -7,13 +7,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [61. 旋转链表](https://leetcode.cn/problems/rotate-list)
 
 [English Version](/solution/0000-0099/0061.Rotate%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个链表的头节点 <code>head</code> ，旋转链表，将链表每个节点向右移动&nbsp;<code>k</code><em>&nbsp;</em>个位置。</p>
 
@@ -43,7 +45,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= 2 * 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：快慢指针 + 链表拼接
 
@@ -60,6 +66,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是链表节点数，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -89,6 +97,8 @@ class Solution:
         fast.next = head
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -131,6 +141,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -176,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -212,6 +226,8 @@ func rotateRight(head *ListNode, k int) *ListNode {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -255,6 +271,8 @@ function rotateRight(head: ListNode | null, k: number): ListNode | null {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -307,6 +325,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for singly-linked list.
@@ -353,4 +373,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

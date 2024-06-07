@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README.md
 rating: 1636
+source: 第 22 场双周赛 Q2
 tags:
     - 贪心
     - 位运算
@@ -10,13 +11,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [1386. 安排电影院座位](https://leetcode.cn/problems/cinema-seat-allocation)
 
 [English Version](/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1386.Cinema%20Seat%20Allocation/images/cinema_seats_1.png" style="height: 149px; width: 400px;" /></p>
 
@@ -65,7 +68,11 @@ tags:
 	<li>所有&nbsp;<code>reservedSeats[i]</code> 都是互不相同的。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 状态压缩
 
@@ -83,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxNumberOfFamilies(self, n: int, reservedSeats: List[List[int]]) -> int:
@@ -98,6 +107,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -146,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNumberOfFamilies(n int, reservedSeats [][]int) int {
 	d := map[int]int{}
@@ -166,6 +181,8 @@ func maxNumberOfFamilies(n int, reservedSeats [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
@@ -189,4 +206,6 @@ function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

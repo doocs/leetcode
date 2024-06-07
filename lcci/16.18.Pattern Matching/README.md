@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.18.Pattern%20Matching/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.18. 模式匹配](https://leetcode.cn/problems/pattern-matching-lcci)
 
 [English Version](/lcci/16.18.Pattern%20Matching/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有两个字符串，即<code>pattern</code>和<code>value</code>。 <code>pattern</code>字符串由字母<code>"a"</code>和<code>"b"</code>组成，用于描述字符串中的模式。例如，字符串<code>"catcatgocatgo"</code>匹配模式<code>"aabab"</code>（其中<code>"cat"</code>是<code>"a"</code>，<code>"go"</code>是<code>"b"</code>），该字符串也匹配像<code>"a"</code>、<code>"ab"</code>和<code>"b"</code>这样的模式。但需注意<code>"a"</code>和<code>"b"</code>不能同时表示相同的字符串。编写一个方法判断<code>value</code>字符串是否匹配<code>pattern</code>字符串。</p>
 <p><strong>示例 1：</strong></p>
@@ -37,7 +39,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.18.Pattern%20Match
 <li>你可以假设<code>pattern</code>只包含字母<code>"a"</code>和<code>"b"</code>，<code>value</code>仅包含小写字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -52,6 +58,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.18.Pattern%20Match
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $value$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +95,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +153,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -203,6 +215,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func patternMatching(pattern string, value string) bool {
 	cnt := [2]int{}
@@ -251,6 +265,8 @@ func patternMatching(pattern string, value string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function patternMatching(pattern: string, value: string): boolean {
     const cnt: number[] = [0, 0];
@@ -297,6 +313,8 @@ function patternMatching(pattern: string, value: string): boolean {
     return false;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -366,4 +384,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

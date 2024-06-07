@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1543. 产品名称格式修复 🔒](https://leetcode.cn/problems/fix-product-name-format)
 
 [English Version](/solution/1500-1599/1543.Fix%20Product%20Name%20Format/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Sales</code></p>
 
@@ -75,11 +77,17 @@ Sales</code> 表：
 二月份售出 2 个 LCKeychains 和 1 部 LCPhone。 
 三月份售出 1 个 Matryoshka。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -98,4 +106,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

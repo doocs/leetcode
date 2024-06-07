@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [826. Most Profit Assigning Work](https://leetcode.com/problems/most-profit-assigning-work)
 
 [中文文档](/solution/0800-0899/0826.Most%20Profit%20Assigning%20Work/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code> jobs and <code>m</code> workers. You are given three arrays: <code>difficulty</code>, <code>profit</code>, and <code>worker</code> where:</p>
 
@@ -58,98 +62,132 @@ tags:
 	<li><code>1 &lt;= difficulty[i], profit[i], worker[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Sorting + Two Pointers
+
+We can sort the jobs in ascending order of ability, and then sort the jobs in ascending order of difficulty.
+
+Then we traverse the workers. For each worker, we find the job with the maximum profit that he can complete, and then add this profit to the answer.
+
+The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of the arrays `profit` and `worker` respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def maxProfitAssignment(
         self, difficulty: List[int], profit: List[int], worker: List[int]
     ) -> int:
-        n = len(difficulty)
-        job = [(difficulty[i], profit[i]) for i in range(n)]
-        job.sort(key=lambda x: x[0])
         worker.sort()
-        i = t = res = 0
+        jobs = sorted(zip(difficulty, profit))
+        ans = mx = i = 0
         for w in worker:
-            while i < n and job[i][0] <= w:
-                t = max(t, job[i][1])
+            while i < len(jobs) and jobs[i][0] <= w:
+                mx = max(mx, jobs[i][1])
                 i += 1
-            res += t
-        return res
+            ans += mx
+        return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
     public int maxProfitAssignment(int[] difficulty, int[] profit, int[] worker) {
-        int n = difficulty.length;
-        List<int[]> job = new ArrayList<>();
-        for (int i = 0; i < n; ++i) {
-            job.add(new int[] {difficulty[i], profit[i]});
-        }
-        job.sort(Comparator.comparing(a -> a[0]));
         Arrays.sort(worker);
-        int res = 0;
-        int i = 0, t = 0;
-        for (int w : worker) {
-            while (i < n && job.get(i)[0] <= w) {
-                t = Math.max(t, job.get(i++)[1]);
-            }
-            res += t;
+        int n = profit.length;
+        int[][] jobs = new int[n][0];
+        for (int i = 0; i < n; ++i) {
+            jobs[i] = new int[] {difficulty[i], profit[i]};
         }
-        return res;
+        Arrays.sort(jobs, (a, b) -> a[0] - b[0]);
+        int ans = 0, mx = 0, i = 0;
+        for (int w : worker) {
+            while (i < n && jobs[i][0] <= w) {
+                mx = Math.max(mx, jobs[i++][1]);
+            }
+            ans += mx;
+        }
+        return ans;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
 public:
     int maxProfitAssignment(vector<int>& difficulty, vector<int>& profit, vector<int>& worker) {
-        int n = difficulty.size();
-        vector<pair<int, int>> job;
-        for (int i = 0; i < n; ++i) {
-            job.push_back({difficulty[i], profit[i]});
-        }
-        sort(job.begin(), job.end());
         sort(worker.begin(), worker.end());
-        int i = 0, t = 0;
-        int res = 0;
-        for (auto w : worker) {
-            while (i < n && job[i].first <= w) {
-                t = max(t, job[i++].second);
-            }
-            res += t;
+        int n = profit.size();
+        vector<pair<int, int>> jobs;
+        for (int i = 0; i < n; ++i) {
+            jobs.emplace_back(difficulty[i], profit[i]);
         }
-        return res;
+        sort(jobs.begin(), jobs.end());
+        int ans = 0, mx = 0, i = 0;
+        for (int w : worker) {
+            while (i < n && jobs[i].first <= w) {
+                mx = max(mx, jobs[i++].second);
+            }
+            ans += mx;
+        }
+        return ans;
     }
 };
 ```
 
-```go
-func maxProfitAssignment(difficulty []int, profit []int, worker []int) int {
-	var job [][2]int
-	for i := range difficulty {
-		job = append(job, [2]int{difficulty[i], profit[i]})
-	}
+#### Go
 
-	sort.SliceStable(job, func(i, j int) bool { return job[i][0] <= job[j][0] })
+```go
+func maxProfitAssignment(difficulty []int, profit []int, worker []int) (ans int) {
 	sort.Ints(worker)
-	i, t, n, res := 0, 0, len(difficulty), 0
-	for _, w := range worker {
-		for i < n && job[i][0] <= w {
-			t = max(t, job[i][1])
-			i++
-		}
-		res += t
+	n := len(profit)
+	jobs := make([][2]int, n)
+	for i, p := range profit {
+		jobs[i] = [2]int{difficulty[i], p}
 	}
-	return res
+	sort.Slice(jobs, func(i, j int) bool { return jobs[i][0] < jobs[j][0] })
+	mx, i := 0, 0
+	for _, w := range worker {
+		for ; i < n && jobs[i][0] <= w; i++ {
+			mx = max(mx, jobs[i][1])
+		}
+		ans += mx
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maxProfitAssignment(difficulty: number[], profit: number[], worker: number[]): number {
+    const n = profit.length;
+    worker.sort((a, b) => a - b);
+    const jobs = Array.from({ length: n }, (_, i) => [difficulty[i], profit[i]]);
+    jobs.sort((a, b) => a[0] - b[0]);
+    let [ans, mx, i] = [0, 0, 0];
+    for (const w of worker) {
+        while (i < n && jobs[i][0] <= w) {
+            mx = Math.max(mx, jobs[i++][1]);
+        }
+        ans += mx;
+    }
+    return ans;
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

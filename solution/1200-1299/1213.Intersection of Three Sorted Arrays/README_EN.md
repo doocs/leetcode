@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1213.Intersection%20of%20Three%20Sorted%20Arrays/README_EN.md
 rating: 1259
+source: Biweekly Contest 10 Q1
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1213. Intersection of Three Sorted Arrays 🔒](https://leetcode.com/problems/intersection-of-three-sorted-arrays)
 
 [中文文档](/solution/1200-1299/1213.Intersection%20of%20Three%20Sorted%20Arrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given three integer arrays <code>arr1</code>, <code>arr2</code> and <code>arr3</code>&nbsp;<strong>sorted</strong> in <strong>strictly increasing</strong> order, return a sorted array of <strong>only</strong>&nbsp;the&nbsp;integers that appeared in <strong>all</strong> three arrays.</p>
 
@@ -42,7 +47,11 @@ tags:
 	<li><code>1 &lt;= arr1[i], arr2[i], arr3[i] &lt;= 2000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -52,6 +61,8 @@ The time complexity is $O(n)$, and the space complexity is $O(m)$. Here, $n$ and
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arraysIntersection(
@@ -60,6 +71,8 @@ class Solution:
         cnt = Counter(arr1 + arr2 + arr3)
         return [x for x in arr1 if cnt[x] == 3]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) (ans []int) {
 	cnt := [2001]int{}
@@ -122,6 +139,8 @@ func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) (ans []int) {
 	return
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -147,6 +166,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary Search
 
 Traverse the first array. For each number, use binary search to find this number in the second and third arrays. If found in both, add this number to the result array.
@@ -154,6 +177,8 @@ Traverse the first array. For each number, use binary search to find this number
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -168,6 +193,8 @@ class Solution:
                 ans.append(x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -184,6 +211,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -202,6 +231,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) (ans []int) {
 	for _, x := range arr1 {
@@ -217,4 +248,6 @@ func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

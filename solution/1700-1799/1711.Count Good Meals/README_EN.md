@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1711.Count%20Good%20Meals/README_EN.md
 rating: 1797
+source: Weekly Contest 222 Q2
 tags:
     - Array
     - Hash Table
 ---
+
+<!-- problem:start -->
 
 # [1711. Count Good Meals](https://leetcode.com/problems/count-good-meals)
 
 [中文文档](/solution/1700-1799/1711.Count%20Good%20Meals/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>good meal</strong> is a meal that contains <strong>exactly two different food items</strong> with a sum of deliciousness equal to a power of two.</p>
 
@@ -47,7 +52,11 @@ Their respective sums are 4, 8, 8, and 16, all of which are powers of 2.
 	<li><code>0 &lt;= deliciousness[i] &lt;= 2<sup>20</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration of Powers of Two
 
@@ -71,6 +80,8 @@ The time complexity is the same as the method above.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPairs(self, deliciousness: List[int]) -> int:
@@ -86,6 +97,8 @@ class Solution:
             cnt[d] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPairs(deliciousness []int) (ans int) {
 	mx := slices.Max(deliciousness) << 1
@@ -143,9 +160,15 @@ func countPairs(deliciousness []int) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -160,6 +183,8 @@ class Solution:
                     ans += m * (m - 1) if a == b else m * cnt[b]
         return (ans >> 1) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -188,6 +213,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -210,6 +237,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countPairs(deliciousness []int) (ans int) {
@@ -238,4 +267,6 @@ func countPairs(deliciousness []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

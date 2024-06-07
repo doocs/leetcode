@@ -7,11 +7,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [135. Candy](https://leetcode.com/problems/candy)
 
 [中文文档](/solution/0100-0199/0135.Candy/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> children standing in a line. Each child is assigned a rating value given in the integer array <code>ratings</code>.</p>
 
@@ -51,7 +55,11 @@ The third child gets 1 candy because it satisfies the above two conditions.
 	<li><code>0 &lt;= ratings[i] &lt;= 2 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two traversals
 
@@ -64,6 +72,8 @@ Finally, we traverse the array of scores once, and the minimum number of candies
 Time complexity $O(n)$, space complexity $O(n)$. Where $n$ is the length of the array of scores.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +89,8 @@ class Solution:
                 right[i] = right[i + 1] + 1
         return sum(max(a, b) for a, b in zip(left, right))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func candy(ratings []int) int {
@@ -161,6 +177,8 @@ func candy(ratings []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function candy(ratings: number[]): number {
     const n = ratings.length;
@@ -183,6 +201,8 @@ function candy(ratings: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -213,9 +233,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -249,4 +275,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

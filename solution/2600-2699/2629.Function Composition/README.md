@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2629.Function%20Composition/README.md
 ---
 
+<!-- problem:start -->
+
 # [2629. 复合函数](https://leetcode.cn/problems/function-composition)
 
 [English Version](/solution/2600-2699/2629.Function%20Composition/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你编写一个函数，它接收一个函数数组 <code>[f<sub>1</sub>, f<sub>2</sub>, f<sub>3</sub>，…， f<sub>n</sub>]</code> ，并返回一个新的函数 <code>fn</code>&nbsp;，它是函数数组的 <strong>复合函数</strong> 。</p>
 
@@ -65,11 +67,17 @@ Starting with x = 4.
 	<li><font face="monospace">所有函数都接受并返回一个整型</font></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 type F = (x: number) => number;
@@ -88,4 +96,6 @@ function compose(functions: F[]): F {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

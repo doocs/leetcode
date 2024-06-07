@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2451.Odd%20String%20Difference/README.md
 rating: 1406
+source: 第 90 场双周赛 Q1
 tags:
     - 数组
     - 哈希表
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2451. 差值数组不同的字符串](https://leetcode.cn/problems/odd-string-difference)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>words</code>&nbsp;，每一个字符串长度都相同，令所有字符串的长度都为 <code>n</code>&nbsp;。</p>
 
@@ -62,7 +65,11 @@ tags:
 	<li><code>words[i]</code>&nbsp;只含有小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表模拟
 
@@ -71,6 +78,8 @@ tags:
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为字符串的长度和字符串的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +90,8 @@ class Solution:
             d[t].append(s)
         return next(ss[0] for ss in d.values() if len(ss) == 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func oddString(words []string) string {
 	d := map[string][]string{}
@@ -149,6 +164,8 @@ func oddString(words []string) string {
 	return ""
 }
 ```
+
+#### TypeScript
 
 ```ts
 function oddString(words: string[]): string {
@@ -172,6 +189,8 @@ function oddString(words: string[]): string {
     return '';
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -200,9 +219,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -241,4 +266,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

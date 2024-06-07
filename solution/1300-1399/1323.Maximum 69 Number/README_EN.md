@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1323.Maximum%2069%20Number/README_EN.md
 rating: 1193
+source: Weekly Contest 172 Q1
 tags:
     - Greedy
     - Math
 ---
+
+<!-- problem:start -->
 
 # [1323. Maximum 69 Number](https://leetcode.com/problems/maximum-69-number)
 
 [中文文档](/solution/1300-1399/1323.Maximum%2069%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer <code>num</code> consisting only of digits <code>6</code> and <code>9</code>.</p>
 
@@ -56,17 +61,25 @@ The maximum number is 9969.
 	<li><code>num</code>&nbsp;consists of only <code>6</code> and <code>9</code> digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def maximum69Number(self, num: int) -> int:
         return int(str(num).replace("6", "9", 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +88,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -92,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximum69Number(num int) int {
 	s := strconv.Itoa(num)
@@ -107,11 +124,15 @@ func maximum69Number(num int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximum69Number(num: number): number {
     return Number((num + '').replace('6', '9'));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -120,6 +141,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -135,6 +158,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int maximum69Number(int num) {
@@ -154,4 +179,6 @@ int maximum69Number(int num) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

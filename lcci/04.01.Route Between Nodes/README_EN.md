@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.01.Route%20Between%20Nodes/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [04.01. Route Between Nodes](https://leetcode.cn/problems/route-between-nodes-lcci)
 
 [中文文档](/lcci/04.01.Route%20Between%20Nodes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a directed graph, design an algorithm to find out whether there is a route between two nodes.</p>
 
@@ -40,7 +44,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.01.Route%20Between
 	<li>There might be self cycles and duplicated edges.</li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -55,6 +63,8 @@ The process of depth-first search is as follows:
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +85,8 @@ class Solution:
         vis = set()
         return dfs(start)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findWhetherExistsPath(n int, graph [][]int, start int, target int) bool {
 	g := make([][]int, n)
@@ -167,6 +183,8 @@ func findWhetherExistsPath(n int, graph [][]int, start int, target int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findWhetherExistsPath(
     n: number,
@@ -192,6 +210,8 @@ function findWhetherExistsPath(
     return dfs(start);
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -229,6 +249,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: BFS
 
 Similar to Solution 1, we first construct an adjacency list $g$ based on the given graph, where $g[i]$ represents all the neighboring nodes of node $i$. We use a hash table or array $vis$ to record the visited nodes, and then start a breadth-first search from node $start$. If we search to node $target$, we return `true`, otherwise we return `false`.
@@ -236,6 +260,8 @@ Similar to Solution 1, we first construct an adjacency list $g$ based on the giv
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -257,6 +283,8 @@ class Solution:
                     q.append(j)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -287,6 +315,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -316,6 +346,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findWhetherExistsPath(n int, graph [][]int, start int, target int) bool {
 	g := make([][]int, n)
@@ -341,6 +373,8 @@ func findWhetherExistsPath(n int, graph [][]int, start int, target int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findWhetherExistsPath(
@@ -374,4 +408,6 @@ function findWhetherExistsPath(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

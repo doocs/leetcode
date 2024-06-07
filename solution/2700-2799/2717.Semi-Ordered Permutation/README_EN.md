@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2717.Semi-Ordered%20Permutation/README_EN.md
 rating: 1295
+source: Weekly Contest 348 Q2
 tags:
     - Array
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [2717. Semi-Ordered Permutation](https://leetcode.com/problems/semi-ordered-permutation)
 
 [中文文档](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> permutation of <code>n</code> integers <code>nums</code>.</p>
 
@@ -67,7 +72,11 @@ It can be proved that there is no sequence of less than three operations that ma
 	<li><code>nums is a permutation.</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Find the Positions of 1 and n
 
@@ -79,6 +88,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def semiOrderedPermutation(self, nums: List[int]) -> int:
@@ -88,6 +99,8 @@ class Solution:
         k = 1 if i < j else 2
         return i + n - j - k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func semiOrderedPermutation(nums []int) int {
@@ -141,6 +158,8 @@ func semiOrderedPermutation(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function semiOrderedPermutation(nums: number[]): number {
     const n = nums.length;
@@ -150,6 +169,8 @@ function semiOrderedPermutation(nums: number[]): number {
     return i + n - j - k;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -179,9 +200,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -212,4 +239,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1555. Bank Account Summary 🔒](https://leetcode.com/problems/bank-account-summary)
 
 [中文文档](/solution/1500-1599/1555.Bank%20Account%20Summary/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Users</code></p>
 
@@ -100,11 +104,17 @@ Winston received $400 on &quot;2020-08-01&quot; and paid $500 on &quot;2020-08-0
 Luis did not received any transfer, credit = $800
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -127,4 +137,6 @@ GROUP BY t.user_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

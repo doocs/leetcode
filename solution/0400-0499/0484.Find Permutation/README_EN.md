@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [484. Find Permutation 🔒](https://leetcode.com/problems/find-permutation)
 
 [中文文档](/solution/0400-0499/0484.Find%20Permutation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A permutation <code>perm</code> of <code>n</code>&nbsp;integers of all the integers in the range <code>[1, n]</code> can be represented as a string <code>s</code> of length <code>n - 1</code> where:</p>
 
@@ -49,11 +53,17 @@ tags:
 	<li><code>s[i]</code> is either <code>&#39;I&#39;</code> or <code>&#39;D&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +79,8 @@ class Solution:
             i = max(i + 1, j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findPermutation(s string) []int {
@@ -148,4 +164,6 @@ func reverse(arr []int, i, j int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

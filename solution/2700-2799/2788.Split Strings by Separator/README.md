@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README.md
 rating: 1239
+source: 第 355 场周赛 Q1
 tags:
     - 数组
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2788. 按分隔符拆分字符串](https://leetcode.cn/problems/split-strings-by-separator)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>words</code> 和一个字符 <code>separator</code> ，请你按 <code>separator</code> 拆分 <code>words</code> 中的每个字符串。</p>
 
@@ -74,7 +77,11 @@ tags:
 	<li><code>separator</code> 是字符串 <code>".,|$#@"</code> 中的某个字符（不包括引号）</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -84,11 +91,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def splitWordsBySeparator(self, words: List[str], separator: str) -> List[str]:
         return [s for w in words for s in w.split(separator) if s]
 ```
+
+#### Java
 
 ```java
 import java.util.regex.Pattern;
@@ -107,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func splitWordsBySeparator(words []string, separator byte) (ans []string) {
 	for _, w := range words {
@@ -140,6 +155,8 @@ func splitWordsBySeparator(words []string, separator byte) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function splitWordsBySeparator(words: string[], separator: string): string[] {
     return words.flatMap(w => w.split(separator).filter(s => s.length > 0));
@@ -148,4 +165,6 @@ function splitWordsBySeparator(words: string[], separator: string): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2905.Find%20Indices%20With%20Index%20and%20Value%20Difference%20II/README.md
 rating: 1763
+source: 第 367 场周赛 Q3
 tags:
     - 数组
     - 双指针
 ---
+
+<!-- problem:start -->
 
 # [2905. 找出满足差值条件的下标 II](https://leetcode.cn/problems/find-indices-with-index-and-value-difference-ii)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、长度为 <code>n</code> 的整数数组 <code>nums</code> ，以及整数 <code>indexDifference</code> 和整数 <code>valueDifference</code> 。</p>
 
@@ -73,11 +76,17 @@ abs(0 - 0) &gt;= 0 且 abs(nums[0] - nums[0]) &gt;= 0 。
 	<li><code>0 &lt;= valueDifference &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +106,8 @@ class Solution:
                 return [mx, i]
         return [-1, -1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findIndices(nums []int, indexDifference int, valueDifference int) []int {
 	mi, mx := 0, 0
@@ -170,6 +185,8 @@ func findIndices(nums []int, indexDifference int, valueDifference int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findIndices(nums: number[], indexDifference: number, valueDifference: number): number[] {
     let [mi, mx] = [0, 0];
@@ -191,6 +208,8 @@ function findIndices(nums: number[], indexDifference: number, valueDifference: n
     return [-1, -1];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -226,4 +245,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

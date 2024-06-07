@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README_EN.md
 rating: 2449
+source: Weekly Contest 274 Q4
 tags:
     - Depth-First Search
     - Graph
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [2127. Maximum Employees to Be Invited to a Meeting](https://leetcode.com/problems/maximum-employees-to-be-invited-to-a-meeting)
 
 [中文文档](/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A company is organizing a meeting and has a list of <code>n</code> employees, waiting to be invited. They have arranged for a large <strong>circular</strong> table, capable of seating <strong>any number</strong> of employees.</p>
 
@@ -70,7 +75,11 @@ The maximum number of employees that can be invited to the meeting is 4.
 	<li><code>favorite[i] != i</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Maximum Cycle in Graph + Longest Chain
 
@@ -89,6 +98,8 @@ Therefore, the problem is actually equivalent to finding the length of the maxim
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `favorite`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -129,6 +140,8 @@ class Solution:
 
         return max(max_cycle(favorite), topological_sort(favorite))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -192,6 +205,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -243,6 +258,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumInvitations(favorite []int) int {
@@ -310,6 +327,8 @@ func topologicalSort(fa []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumInvitations(favorite: number[]): number {
     return Math.max(maxCycle(favorite), topologicalSort(favorite));
@@ -370,4 +389,6 @@ function topologicalSort(fa: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

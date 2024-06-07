@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2449.Minimum%20Number%20of%20Operations%20to%20Make%20Arrays%20Similar/README_EN.md
 rating: 2076
+source: Weekly Contest 316 Q4
 tags:
     - Greedy
     - Array
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2449. Minimum Number of Operations to Make Arrays Similar](https://leetcode.com/problems/minimum-number-of-operations-to-make-arrays-similar)
 
 [中文文档](/solution/2400-2499/2449.Minimum%20Number%20of%20Operations%20to%20Make%20Arrays%20Similar/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two positive integer arrays <code>nums</code> and <code>target</code>, of the same length.</p>
 
@@ -67,7 +72,11 @@ It can be shown that 2 is the minimum number of operations needed.
 	<li>It is possible to make <code>nums</code> similar to <code>target</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Odd-Even Classification + Sorting
 
@@ -83,6 +92,8 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeSimilar(self, nums: List[int], target: List[int]) -> int:
@@ -90,6 +101,8 @@ class Solution:
         target.sort(key=lambda x: (x & 1, x))
         return sum(abs(a - b) for a, b in zip(nums, target)) // 4
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makeSimilar(nums []int, target []int) int64 {
@@ -192,6 +209,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function makeSimilar(nums: number[], target: number[]): number {
@@ -234,4 +253,6 @@ function makeSimilar(nums: number[], target: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

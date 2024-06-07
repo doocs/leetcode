@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1690.Stone%20Game%20VII/README_EN.md
 rating: 1951
+source: Weekly Contest 219 Q3
 tags:
     - Array
     - Math
@@ -10,11 +11,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [1690. Stone Game VII](https://leetcode.com/problems/stone-game-vii)
 
 [中文文档](/solution/1600-1699/1690.Stone%20Game%20VII/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob take turns playing a game, with <strong>Alice starting first</strong>.</p>
 
@@ -54,7 +59,11 @@ The score difference is 18 - 12 = 6.
 	<li><code>1 &lt;= stones[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memorization Search
 
@@ -73,6 +82,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameVII(self, stones: List[int]) -> int:
@@ -89,6 +100,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGameVII(stones []int) int {
 	n := len(stones)
@@ -173,6 +190,8 @@ func stoneGameVII(stones []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function stoneGameVII(stones: number[]): number {
     const n = stones.length;
@@ -198,6 +217,10 @@ function stoneGameVII(stones: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can convert the memoization search in Solution 1 into dynamic programming. We define $f[i][j]$ as the score difference between the first and second players when the remaining stones are $stones[i], stones[i + 1], \dots, stones[j]$. Therefore, the answer is $f[0][n - 1]$.
@@ -216,6 +239,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameVII(self, stones: List[int]) -> int:
@@ -229,6 +254,8 @@ class Solution:
                 f[i][j] = max(a, b)
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -250,6 +277,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -275,6 +304,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGameVII(stones []int) int {
 	n := len(stones)
@@ -295,6 +326,8 @@ func stoneGameVII(stones []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function stoneGameVII(stones: number[]): number {
     const n = stones.length;
@@ -314,4 +347,6 @@ function stoneGameVII(stones: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

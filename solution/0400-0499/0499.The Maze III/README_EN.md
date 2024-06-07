@@ -13,11 +13,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [499. The Maze III 🔒](https://leetcode.com/problems/the-maze-iii)
 
 [中文文档](/solution/0400-0499/0499.The%20Maze%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a ball in a <code>maze</code> with empty spaces (represented as <code>0</code>) and walls (represented as <code>1</code>). The ball can go through the empty spaces by rolling <strong>up, down, left or right</strong>, but it won&#39;t stop rolling until hitting a wall. When the ball stops, it could choose the next direction. There is also a hole in this maze. The ball will drop into the hole if it rolls onto the hole.</p>
 
@@ -72,11 +76,17 @@ Both ways have shortest distance 6, but the first way is lexicographically small
 	<li>The maze contains <strong>at least 2 empty spaces</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -112,6 +122,8 @@ class Solution:
                         q.append((x, y))
         return path[rh][ch] or 'impossible'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +171,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -198,6 +212,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 import "math"
@@ -250,4 +266,6 @@ func findShortestWay(maze [][]int, ball []int, hole []int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

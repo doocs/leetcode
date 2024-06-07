@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1854.Maximum%20Population%20Year/README.md
 rating: 1370
+source: 第 240 场周赛 Q1
 tags:
     - 数组
     - 计数
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [1854. 人口最多的年份](https://leetcode.cn/problems/maximum-population-year)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二维整数数组 <code>logs</code> ，其中每个 <code>logs[i] = [birth<sub>i</sub>, death<sub>i</sub>]</code> 表示第 <code>i</code> 个人的出生和死亡年份。</p>
 
@@ -49,7 +52,11 @@ tags:
 	<li><code>1950 &lt;= birth<sub>i</sub> &lt; death<sub>i</sub> &lt;= 2050</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
@@ -60,6 +67,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为数组 $logs$ 的长度；而 $C$ 为年份的范围大小，即 $2050 - 1950 + 1 = 101$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +86,8 @@ class Solution:
                 mx, j = s, i
         return j + offset
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumPopulation(logs [][]int) int {
 	d := [101]int{}
@@ -150,6 +165,8 @@ func maximumPopulation(logs [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumPopulation(logs: number[][]): number {
     const d: number[] = new Array(101).fill(0);
@@ -169,6 +186,8 @@ function maximumPopulation(logs: number[][]): number {
     return j + offset;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -198,4 +217,6 @@ var maximumPopulation = function (logs) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

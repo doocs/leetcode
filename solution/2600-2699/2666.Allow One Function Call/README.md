@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2666.Allow%20One%20Function%20Call/README.md
 ---
 
+<!-- problem:start -->
+
 # [2666. 只允许一次函数调用](https://leetcode.cn/problems/allow-one-function-call)
 
 [English Version](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个函数 <code>fn</code> ，它返回一个新的函数，返回的函数与原始函数完全相同，只不过它确保 <code>fn</code> 最多被调用一次。</p>
 
@@ -55,11 +57,17 @@ onceFn(4, 6, 8); // undefined, fn 没有被调用
 	<li><code>2 &lt;= JSON.stringify(calls).length &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function once<T extends (...args: any[]) => any>(
@@ -85,4 +93,6 @@ function once<T extends (...args: any[]) => any>(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

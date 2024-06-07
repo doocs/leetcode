@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2957.Remove%20Adjacent%20Almost-Equal%20Characters/README_EN.md
 rating: 1429
+source: Biweekly Contest 119 Q2
 tags:
     - Greedy
     - String
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2957. Remove Adjacent Almost-Equal Characters](https://leetcode.com/problems/remove-adjacent-almost-equal-characters)
 
 [中文文档](/solution/2900-2999/2957.Remove%20Adjacent%20Almost-Equal%20Characters/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string <code>word</code>.</p>
 
@@ -58,7 +63,11 @@ It can be shown that the minimum number of operations needed to remove all adjac
 	<li><code>word</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -69,6 +78,8 @@ Finally, we return the recorded number of operations.
 The time complexity is $O(n)$, where $n$ is the length of the string `word`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +94,8 @@ class Solution:
                 i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func removeAlmostEqualCharacters(word string) (ans int) {
@@ -134,6 +151,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function removeAlmostEqualCharacters(word: string): number {
     let ans = 0;
@@ -149,4 +168,6 @@ function removeAlmostEqualCharacters(word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3120.Count%20the%20Number%20of%20Special%20Characters%20I/README.md
 rating: 1205
+source: 第 394 场周赛 Q1
 tags:
     - 哈希表
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [3120. 统计特殊字母的数量 I](https://leetcode.cn/problems/count-the-number-of-special-characters-i)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>word</code>。如果 <code>word</code> 中同时存在某个字母的小写形式和大写形式，则称这个字母为 <strong>特殊字母</strong> 。</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>word</code> 仅由小写和大写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表或数组
 
@@ -79,12 +86,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfSpecialChars(self, word: str) -> int:
         s = set(word)
         return sum(a in s and b in s for a, b in zip(ascii_lowercase, ascii_uppercase))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfSpecialChars(word string) (ans int) {
 	s := make([]bool, 'z'+1)
@@ -135,6 +150,8 @@ func numberOfSpecialChars(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfSpecialChars(word: string): number {
@@ -154,4 +171,6 @@ function numberOfSpecialChars(word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

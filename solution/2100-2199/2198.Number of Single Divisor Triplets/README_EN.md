@@ -6,11 +6,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2198. Number of Single Divisor Triplets 🔒](https://leetcode.com/problems/number-of-single-divisor-triplets)
 
 [中文文档](/solution/2100-2199/2198.Number%20of%20Single%20Divisor%20Triplets/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of positive integers <code>nums</code>. A triplet of three <strong>distinct</strong> indices <code>(i, j, k)</code> is called a <strong>single divisor triplet</strong> of <code>nums</code> if <code>nums[i] + nums[j] + nums[k]</code> is divisible by <strong>exactly one</strong> of <code>nums[i]</code>, <code>nums[j]</code>, or <code>nums[k]</code>.</p>
 Return <em>the number of <strong>single divisor triplets</strong> of </em><code>nums</code><em>.</em>
@@ -57,7 +61,11 @@ Note that (0, 1, 2) is not a single divisor triplet because nums[0] + nums[1] + 
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
 
@@ -73,6 +81,8 @@ Finally, we add up the numbers of all single-factor triples.
 The time complexity is $O(M^3)$, and the space complexity is $O(M)$. Where $M$ is the range of elements in the array `nums`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +104,8 @@ class Solution:
                             ans += x * y * z
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +178,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func singleDivisorTriplet(nums []int) (ans int64) {
@@ -200,6 +216,8 @@ func singleDivisorTriplet(nums []int) (ans int64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function singleDivisorTriplet(nums: number[]): number {
     const cnt: number[] = Array(101).fill(0);
@@ -233,4 +251,6 @@ function singleDivisorTriplet(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

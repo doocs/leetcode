@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1779.Find%20Nearest%20Point%20That%20Has%20the%20Same%20X%20or%20Y%20Coordinate/README.md
 rating: 1259
+source: 第 47 场双周赛 Q1
 tags:
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [1779. 找到最近的有相同 X 或 Y 坐标的点](https://leetcode.cn/problems/find-nearest-point-that-has-the-same-x-or-y-coordinate)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数&nbsp;<code>x</code> 和&nbsp;<code>y</code>&nbsp;，表示你在一个笛卡尔坐标系下的&nbsp;<code>(x, y)</code>&nbsp;处。同时，在同一个坐标系下给你一个数组&nbsp;<code>points</code>&nbsp;，其中&nbsp;<code>points[i] = [a<sub>i</sub>, b<sub>i</sub>]</code>&nbsp;表示在&nbsp;<code>(a<sub>i</sub>, b<sub>i</sub>)</code>&nbsp;处有一个点。当一个点与你所在的位置有相同的 <code>x</code> 坐标或者相同的 <code>y</code> 坐标时，我们称这个点是 <b>有效的</b>&nbsp;。</p>
 
@@ -54,7 +57,11 @@ tags:
 	<li><code>1 &lt;= x, y, a<sub>i</sub>, b<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：直接遍历
 
@@ -63,6 +70,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `points` 数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +84,8 @@ class Solution:
                     ans, mi = i, d
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +127,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nearestValidPoint(x int, y int, points [][]int) int {
@@ -138,6 +153,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function nearestValidPoint(x: number, y: number, points: number[][]): number {
     let res = -1;
@@ -155,6 +172,8 @@ function nearestValidPoint(x: number, y: number, points: number[][]): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,6 +197,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int nearestValidPoint(int x, int y, int** points, int pointsSize, int* pointsColSize) {
     int ans = -1;
@@ -199,4 +220,6 @@ int nearestValidPoint(int x, int y, int** points, int pointsSize, int* pointsCol
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

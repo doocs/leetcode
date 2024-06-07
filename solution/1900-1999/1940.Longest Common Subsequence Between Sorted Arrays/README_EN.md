@@ -8,11 +8,15 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1940. Longest Common Subsequence Between Sorted Arrays 🔒](https://leetcode.com/problems/longest-common-subsequence-between-sorted-arrays)
 
 [中文文档](/solution/1900-1999/1940.Longest%20Common%20Subsequence%20Between%20Sorted%20Arrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integer arrays <code>arrays</code> where each <code>arrays[i]</code> is sorted in <strong>strictly increasing</strong> order, return <em>an integer array representing the <strong>longest common subsequence</strong> between <strong>all</strong> the arrays</em>.</p>
 
@@ -57,11 +61,17 @@ tags:
 	<li><code>arrays[i]</code> is sorted in <strong>strictly increasing</strong> order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +83,8 @@ class Solution:
                 counter[e] += 1
         return [e for e, count in counter.items() if count == n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestCommomSubsequence(arrays [][]int) []int {
 	counter := make(map[int]int)
@@ -131,6 +147,8 @@ func longestCommomSubsequence(arrays [][]int) []int {
 	return res
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -153,9 +171,15 @@ var longestCommonSubsequence = function (arrays) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -182,4 +206,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

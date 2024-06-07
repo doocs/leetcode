@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [179. Largest Number](https://leetcode.com/problems/largest-number)
 
 [中文文档](/solution/0100-0199/0179.Largest%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a list of non-negative integers <code>nums</code>, arrange them such that they form the largest number and return it.</p>
 
@@ -42,11 +46,17 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -55,6 +65,8 @@ class Solution:
         nums.sort(key=cmp_to_key(lambda a, b: 1 if a + b < b + a else -1))
         return "0" if nums[0] == "0" else "".join(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -71,6 +83,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -89,6 +103,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestNumber(nums []int) string {
 	vs := make([]string, len(nums))
@@ -104,6 +120,8 @@ func largestNumber(nums []int) string {
 	return strings.Join(vs, "")
 }
 ```
+
+#### C#
 
 ```cs
 using System;
@@ -164,4 +182,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

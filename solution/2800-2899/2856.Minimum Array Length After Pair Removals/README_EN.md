@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README_EN.md
 rating: 1749
+source: Biweekly Contest 113 Q2
 tags:
     - Greedy
     - Array
@@ -12,62 +13,75 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2856. Minimum Array Length After Pair Removals](https://leetcode.com/problems/minimum-array-length-after-pair-removals)
 
 [中文文档](/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README.md)
 
 ## Description
 
-<p>You are given a <strong>0-indexed</strong> <strong>sorted</strong> array of integers <code>nums</code>.</p>
+<!-- description:start -->
+
+<p>Given an integer array <code>num</code> sorted in non-decreasing order.</p>
 
 <p>You can perform the following operation any number of times:</p>
 
 <ul>
-	<li>Choose <strong>two</strong> indices, <code>i</code> and <code>j</code>, where <code>i &lt; j</code>, such that <code>nums[i] &lt; nums[j]</code>.</li>
+	<li>Choose <strong>two</strong> indices, <code>i</code> and <code>j</code>, where <code>nums[i] &lt; nums[j]</code>.</li>
 	<li>Then, remove the elements at indices <code>i</code> and <code>j</code> from <code>nums</code>. The remaining elements retain their original order, and the array is re-indexed.</li>
 </ul>
 
-<p>Return <em>an integer that denotes the <strong>minimum</strong> length of </em><code>nums</code><em> after performing the operation any number of times (<strong>including zero</strong>).</em></p>
-
-<p>Note that <code>nums</code> is sorted in <strong>non-decreasing</strong> order.</p>
+<p>Return the <strong>minimum</strong> length of <code>nums</code> after applying the operation zero or more times.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [1,3,4,9]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> Initially, nums = [1, 3, 4, 9].
-In the first operation, we can choose index 0 and 1 because nums[0] &lt; nums[1] &lt;=&gt; 1 &lt; 3.
-Remove indices 0 and 1, and nums becomes [4, 9].
-For the next operation, we can choose index 0 and 1 because nums[0] &lt; nums[1] &lt;=&gt; 4 &lt; 9.
-Remove indices 0 and 1, and nums becomes an empty array [].
-Hence, the minimum length achievable is 0.</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [1,2,3,4]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">0</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/images/tcase1.gif" style="width: 160px; height: 70px;" /></p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [2,3,6,9]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> Initially, nums = [2, 3, 6, 9]. 
-In the first operation, we can choose index 0 and 2 because nums[0] &lt; nums[2] &lt;=&gt; 2 &lt; 6. 
-Remove indices 0 and 2, and nums becomes [3, 9]. 
-For the next operation, we can choose index 0 and 1 because nums[0] &lt; nums[1] &lt;=&gt; 3 &lt; 9. 
-Remove indices 0 and 1, and nums becomes an empty array []. 
-Hence, the minimum length achievable is 0.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [1,1,2,2,3,3]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">0</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/images/tcase2.gif" style="width: 240px; height: 70px;" /></p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [1,1,2]
-<strong>Output:</strong> 1
-<strong>Explanation:</strong> Initially, nums = [1, 1, 2].
-In an operation, we can choose index 0 and 2 because nums[0] &lt; nums[2] &lt;=&gt; 1 &lt; 2. 
-Remove indices 0 and 2, and nums becomes [1]. 
-It is no longer possible to perform an operation on the array. 
-Hence, the minimum achievable length is 1. 
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [1000000000,1000000000]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">2</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>Since both numbers are equal, they cannot be removed.</p>
+</div>
+
+<p><strong class="example">Example 4:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [2,3,4,4,4]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">1</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/images/tcase3.gif" style="width: 210px; height: 70px;" /></p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
@@ -78,7 +92,11 @@ Hence, the minimum achievable length is 1.
 	<li><code>nums</code> is sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Max Heap)
 
@@ -87,6 +105,8 @@ We use a hash table $cnt$ to count the occurrence of each element in the array $
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +126,8 @@ class Solution:
             ans -= 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +158,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minLengthAfterRemovals(nums []int) int {
@@ -208,6 +234,8 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
+#### TypeScript
+
 ```ts
 function minLengthAfterRemovals(nums: number[]): number {
     const cnt: Map<number, number> = new Map();
@@ -236,4 +264,6 @@ function minLengthAfterRemovals(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

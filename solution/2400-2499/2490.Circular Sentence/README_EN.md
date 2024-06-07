@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2490.Circular%20Sentence/README_EN.md
 rating: 1262
+source: Weekly Contest 322 Q1
 tags:
     - String
 ---
+
+<!-- problem:start -->
 
 # [2490. Circular Sentence](https://leetcode.com/problems/circular-sentence)
 
 [中文文档](/solution/2400-2499/2490.Circular%20Sentence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>sentence</strong> is a list of words that are separated by a<strong> single</strong> space with no leading or trailing spaces.</p>
 
@@ -73,7 +78,11 @@ The sentence is <strong>not</strong> circular.</pre>
 	<li>There are no leading or trailing spaces.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -83,6 +92,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isCircularSentence(self, sentence: str) -> bool:
@@ -90,6 +101,8 @@ class Solution:
         n = len(ss)
         return all(s[-1] == ss[(i + 1) % n][0] for i, s in enumerate(ss))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isCircularSentence(sentence string) bool {
 	ss := strings.Split(sentence, " ")
@@ -145,6 +162,8 @@ func isCircularSentence(sentence string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isCircularSentence(sentence: string): boolean {
     const ss = sentence.split(' ');
@@ -157,6 +176,8 @@ function isCircularSentence(sentence: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,6 +193,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -192,6 +215,10 @@ var isCircularSentence = function (sentence) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Simulation (Space Optimization)
 
 We can first check whether the first and last characters of the string are equal. If they are not equal, return `false`. Otherwise, traverse the string. If the current character is a space, check whether the previous character and the next character are equal. If they are not equal, return `false`. Otherwise, return `true` after traversing all the characters.
@@ -200,6 +227,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isCircularSentence(self, s: str) -> bool:
@@ -207,6 +236,8 @@ class Solution:
             c != " " or s[i - 1] == s[i + 1] for i, c in enumerate(s)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -224,6 +255,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -243,6 +276,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isCircularSentence(s string) bool {
 	n := len(s)
@@ -258,6 +293,8 @@ func isCircularSentence(s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isCircularSentence(s: string): boolean {
     const n = s.length;
@@ -272,6 +309,8 @@ function isCircularSentence(s: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -294,6 +333,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -315,4 +356,6 @@ var isCircularSentence = function (s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

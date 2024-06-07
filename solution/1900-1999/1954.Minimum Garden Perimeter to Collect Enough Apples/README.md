@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1954.Minimum%20Garden%20Perimeter%20to%20Collect%20Enough%20Apples/README.md
 rating: 1758
+source: 第 252 场周赛 Q3
 tags:
     - 数学
     - 二分查找
 ---
+
+<!-- problem:start -->
 
 # [1954. 收集足够苹果的最小花园周长](https://leetcode.cn/problems/minimum-garden-perimeter-to-collect-enough-apples)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个用无限二维网格表示的花园，<strong>每一个</strong>&nbsp;整数坐标处都有一棵苹果树。整数坐标&nbsp;<code>(i, j)</code>&nbsp;处的苹果树有 <code>|i| + |j|</code>&nbsp;个苹果。</p>
 
@@ -63,7 +66,11 @@ tags:
 	<li><code>1 &lt;= neededApples &lt;= 10<sup>15</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学 + 枚举
 
@@ -93,6 +100,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumPerimeter(self, neededApples: int) -> int:
@@ -101,6 +110,8 @@ class Solution:
             x += 1
         return x * 8
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumPerimeter(neededApples int64) int64 {
 	var x int64 = 1
@@ -136,6 +151,8 @@ func minimumPerimeter(neededApples int64) int64 {
 	return 8 * x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumPerimeter(neededApples: number): number {
@@ -149,11 +166,17 @@ function minimumPerimeter(neededApples: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二分查找
 
 我们也可以二分枚举 $n$，时间复杂度 $O(\log m)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -167,6 +190,8 @@ class Solution:
                 l = mid + 1
         return l * 8
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -184,6 +209,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -203,6 +230,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumPerimeter(neededApples int64) int64 {
 	var l, r int64 = 1, 100000
@@ -217,6 +246,8 @@ func minimumPerimeter(neededApples int64) int64 {
 	return l * 8
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumPerimeter(neededApples: number): number {
@@ -236,4 +267,6 @@ function minimumPerimeter(neededApples: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

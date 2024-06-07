@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2500.Delete%20Greatest%20Value%20in%20Each%20Row/README.md
 rating: 1309
+source: 第 323 场周赛 Q1
 tags:
     - 数组
     - 矩阵
@@ -11,13 +12,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [2500. 删除每行中的最大值](https://leetcode.cn/problems/delete-greatest-value-in-each-row)
 
 [English Version](/solution/2500-2599/2500.Delete%20Greatest%20Value%20in%20Each%20Row/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>m x n</code> 大小的矩阵 <code>grid</code> ，由若干正整数组成。</p>
 
@@ -71,7 +74,11 @@ tags:
 	<li><code>1 &lt;= grid[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -83,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def deleteGreatestValue(self, grid: List[List[int]]) -> int:
@@ -90,6 +99,8 @@ class Solution:
             row.sort()
         return sum(max(col) for col in zip(*grid))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func deleteGreatestValue(grid [][]int) (ans int) {
@@ -146,6 +161,8 @@ func deleteGreatestValue(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function deleteGreatestValue(grid: number[][]): number {
     for (const row of grid) {
@@ -164,6 +181,8 @@ function deleteGreatestValue(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -193,4 +212,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

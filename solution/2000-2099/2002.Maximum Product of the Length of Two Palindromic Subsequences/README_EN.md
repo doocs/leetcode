@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2002.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Subsequences/README_EN.md
 rating: 1869
+source: Weekly Contest 258 Q3
 tags:
     - Bit Manipulation
     - String
@@ -11,11 +12,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [2002. Maximum Product of the Length of Two Palindromic Subsequences](https://leetcode.com/problems/maximum-product-of-the-length-of-two-palindromic-subsequences)
 
 [中文文档](/solution/2000-2099/2002.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Subsequences/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, find two <strong>disjoint palindromic subsequences</strong> of <code>s</code> such that the <strong>product</strong> of their lengths is <strong>maximized</strong>. The two subsequences are <strong>disjoint</strong> if they do not both pick a character at the same index.</p>
 
@@ -59,7 +64,11 @@ The product of their lengths is: 5 * 5 = 25.
 	<li><code>s</code> consists of lowercase English letters only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
 
@@ -70,6 +79,8 @@ Next, we enumerate each number $i$ in $p$. If $i$ is a palindrome subsequence, t
 The time complexity is $(2^n \times n + 3^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +111,8 @@ class Solution:
                     j = (j - 1) & mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +191,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProduct(s string) (ans int) {
@@ -217,4 +234,6 @@ func maxProduct(s string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

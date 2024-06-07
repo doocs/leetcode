@@ -7,11 +7,15 @@ tags:
     - Design
 ---
 
+<!-- problem:start -->
+
 # [155. Min Stack](https://leetcode.com/problems/min-stack)
 
 [中文文档](/solution/0100-0199/0155.Min%20Stack/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
 
@@ -58,11 +62,17 @@ minStack.getMin(); // return -2
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>push</code>, <code>pop</code>, <code>top</code>, and <code>getMin</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MinStack:
@@ -92,6 +102,8 @@ class MinStack:
 # param_3 = obj.top()
 # param_4 = obj.getMin()
 ```
+
+#### Java
 
 ```java
 class MinStack {
@@ -130,6 +142,8 @@ class MinStack {
  * int param_4 = obj.getMin();
  */
 ```
+
+#### C++
 
 ```cpp
 class MinStack {
@@ -171,6 +185,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MinStack struct {
 	stk1 []int
@@ -208,6 +224,8 @@ func (this *MinStack) GetMin() int {
  * param_4 := obj.GetMin();
  */
 ```
+
+#### TypeScript
 
 ```ts
 class MinStack {
@@ -247,6 +265,8 @@ class MinStack {
  * var param_4 = obj.getMin()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -295,6 +315,8 @@ impl MinStack {
  */
 ```
 
+#### JavaScript
+
 ```js
 var MinStack = function () {
     this.stk1 = [];
@@ -342,6 +364,8 @@ MinStack.prototype.getMin = function () {
  */
 ```
 
+#### C#
+
 ```cs
 public class MinStack {
     private Stack<int> stk1 = new Stack<int>();
@@ -382,4 +406,6 @@ public class MinStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2910.Minimum%20Number%20of%20Groups%20to%20Create%20a%20Valid%20Assignment/README.md
 rating: 2132
+source: 第 368 场周赛 Q3
 tags:
     - 贪心
     - 数组
     - 哈希表
 ---
+
+<!-- problem:start -->
 
 # [2910. 合法分组的最少组数](https://leetcode.cn/problems/minimum-number-of-groups-to-create-a-valid-assignment)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一组带编号的&nbsp;<code>balls</code> 并要求将它们分类到盒子里，以便均衡地分配。你必须遵守两条规则：</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>1 &lt;= balls[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -72,6 +79,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +96,8 @@ class Solution:
             if ans:
                 return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minGroupsForValidAssignment(nums []int) int {
 	cnt := map[int]int{}
@@ -171,6 +186,8 @@ func minGroupsForValidAssignment(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minGroupsForValidAssignment(nums: number[]): number {
     const cnt: Map<number, number> = new Map();
@@ -192,6 +209,8 @@ function minGroupsForValidAssignment(nums: number[]): number {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -235,4 +254,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

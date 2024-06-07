@@ -7,13 +7,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [766. 托普利茨矩阵](https://leetcode.cn/problems/toeplitz-matrix)
 
 [English Version](/solution/0700-0799/0766.Toeplitz%20Matrix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>m x n</code> 的矩阵 <code>matrix</code> 。如果这个矩阵是托普利茨矩阵，返回 <code>true</code> ；否则，返回<em> </em><code>false</code><em> 。</em></p>
 
@@ -60,7 +62,11 @@ tags:
 	<li>如果矩阵太大，以至于一次只能将不完整的一行加载到内存中，该怎么办？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -69,6 +75,8 @@ tags:
 时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +88,8 @@ class Solution:
             for j in range(1, n)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isToeplitzMatrix(matrix [][]int) bool {
 	m, n := len(matrix), len(matrix[0])
@@ -127,6 +141,8 @@ func isToeplitzMatrix(matrix [][]int) bool {
 	return true
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -149,4 +165,6 @@ var isToeplitzMatrix = function (matrix) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [994. Rotting Oranges](https://leetcode.com/problems/rotting-oranges)
 
 [中文文档](/solution/0900-0999/0994.Rotting%20Oranges/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> <code>grid</code> where each cell can have one of three values:</p>
 
@@ -60,7 +64,11 @@ tags:
 	<li><code>grid[i][j]</code> is <code>0</code>, <code>1</code>, or <code>2</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -73,6 +81,8 @@ Finally, if the number of fresh oranges is $0$, we return the current round numb
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +110,8 @@ class Solution:
                         cnt -= 1
         return -1 if cnt > 0 else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +147,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -173,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func orangesRotting(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -209,6 +225,8 @@ func orangesRotting(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function orangesRotting(grid: number[][]): number {
     const m: number = grid.length;
@@ -243,6 +261,8 @@ function orangesRotting(grid: number[][]): number {
     return cnt > 0 ? -1 : ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -301,4 +321,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

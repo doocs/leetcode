@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9822.%20%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 22. 链表中倒数第 k 个节点](https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。</p>
 
@@ -21,7 +25,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 返回链表 4<strong>->5</strong>.</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：快慢指针
 
@@ -32,6 +40,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -50,6 +60,8 @@ class Solution:
             slow, fast = slow.next, fast.next
         return slow
 ```
+
+#### Java
 
 ```java
 /**
@@ -74,6 +86,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -100,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -119,6 +135,8 @@ func getKthFromEnd(head *ListNode, k int) *ListNode {
 	return slow
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -153,6 +171,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -180,6 +200,8 @@ var getKthFromEnd = function (head, k) {
 };
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for singly-linked list.
@@ -204,6 +226,42 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+/* public class ListNode {
+*     var val: Int
+*     var next: ListNode?
+*     init(_ val: Int) {
+*         self.val = val
+*         self.next = nil
+*     }
+* }
+*/
+
+class Solution {
+    func getKthFromEnd(_ head: ListNode?, _ k: Int) -> ListNode? {
+        var slow = head
+        var fast = head
+        var k = k
+
+        while k > 0 {
+            fast = fast?.next
+            k -= 1
+        }
+
+        while fast != nil {
+            slow = slow?.next
+            fast = fast?.next
+        }
+
+        return slow
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3010.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20I/README.md
 rating: 1291
+source: 第 122 场双周赛 Q1
 tags:
     - 数组
     - 枚举
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [3010. 将数组分成最小总代价的子数组 I](https://leetcode.cn/problems/divide-an-array-into-subarrays-with-minimum-cost-i)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;的整数数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历找最小值和次小值
 
@@ -74,6 +81,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +95,8 @@ class Solution:
                 c = x
         return a + b + c
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCost(nums []int) int {
 	a, b, c := nums[0], 100, 100
@@ -135,6 +150,8 @@ func minimumCost(nums []int) int {
 	return a + b + c
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCost(nums: number[]): number {
@@ -152,4 +169,6 @@ function minimumCost(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1423.Maximum%20Points%20You%20Can%20Obtain%20from%20Cards/README.md
 rating: 1573
+source: 第 186 场周赛 Q2
 tags:
     - 数组
     - 前缀和
     - 滑动窗口
 ---
+
+<!-- problem:start -->
 
 # [1423. 可获得的最大点数](https://leetcode.cn/problems/maximum-points-you-can-obtain-from-cards)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>几张卡牌<strong> 排成一行</strong>，每张卡牌都有一个对应的点数。点数由整数数组 <code>cardPoints</code> 给出。</p>
 
@@ -71,7 +74,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= cardPoints.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口
 
@@ -85,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxScore(self, cardPoints: List[int], k: int) -> int:
@@ -94,6 +103,8 @@ class Solution:
             ans = max(ans, s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxScore(cardPoints []int, k int) int {
@@ -144,6 +159,8 @@ func maxScore(cardPoints []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxScore(cardPoints: number[], k: number): number {
     const n = cardPoints.length;
@@ -156,6 +173,8 @@ function maxScore(cardPoints: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,6 +191,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -191,6 +212,8 @@ var maxScore = function (cardPoints, k) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MaxScore(int[] cardPoints, int k) {
@@ -205,6 +228,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -226,6 +251,8 @@ class Solution {
 }
 ```
 
+#### Scala
+
 ```scala
 object Solution {
     def maxScore(cardPoints: Array[Int], k: Int): Int = {
@@ -241,6 +268,8 @@ object Solution {
 }
 ```
 
+#### Swift
+
 ```swift
 class Solution {
     func maxScore(_ cardPoints: [Int], _ k: Int) -> Int {
@@ -255,6 +284,8 @@ class Solution {
     }
 }
 ```
+
+#### Ruby
 
 ```rb
 # @param {Integer[]} card_points
@@ -272,6 +303,8 @@ def max_score(card_points, k)
 end
 ```
 
+#### Kotlin
+
 ```kotlin
 class Solution {
     fun maxScore(cardPoints: IntArray, k: Int): Int {
@@ -286,6 +319,8 @@ class Solution {
     }
 }
 ```
+
+#### Dart
 
 ```dart
 class Solution {
@@ -304,4 +339,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

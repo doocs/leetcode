@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README.md
 rating: 1347
+source: 第 372 场周赛 Q1
 tags:
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2937. 使三个字符串相等](https://leetcode.cn/problems/make-three-strings-equal)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你三个字符串 <code>s1</code>、<code>s2</code> 和 <code>s3</code>。 你可以根据需要对这三个字符串执行以下操作 <strong>任意次数</strong> <!-- notionvc: b5178de7-3318-4129-b7d9-726b47e90621 -->。</p>
 
@@ -47,7 +50,11 @@ tags:
 	<li><code>s1</code>、<code>s2</code> 和 <code>s3</code> 仅由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -56,6 +63,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为三个字符串的最小长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +76,8 @@ class Solution:
                 return -1 if i == 0 else s - 3 * i
         return s - 3 * n
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMinimumOperations(s1 string, s2 string, s3 string) int {
 	s := len(s1) + len(s2) + len(s3)
@@ -115,6 +130,8 @@ func findMinimumOperations(s1 string, s2 string, s3 string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMinimumOperations(s1: string, s2: string, s3: string): number {
     const s = s1.length + s2.length + s3.length;
@@ -130,4 +147,6 @@ function findMinimumOperations(s1: string, s2: string, s3: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

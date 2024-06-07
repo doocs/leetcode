@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2804.Array%20Prototype%20ForEach/README.md
 ---
 
+<!-- problem:start -->
+
 # [2804. 数组原型的 forEach 方法 🔒](https://leetcode.cn/problems/array-prototype-foreach)
 
 [English Version](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个数组方法 <code>forEach</code>，使其可以在任何数组上调用 <code>array.forEach(callback, context)</code> 方法，它将在数组的每个元素上执行回调函数。<code>forEach</code> 方法不应该返回任何内容。</p>
 
@@ -79,11 +81,17 @@ context = {"context": 5}
 	<li><code>0 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 Array.prototype.forEach = function (callback: Function, context: any): void {
@@ -105,4 +113,6 @@ Array.prototype.forEach = function (callback: Function, context: any): void {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

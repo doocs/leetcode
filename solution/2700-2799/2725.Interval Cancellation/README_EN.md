@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2725.Interval%20Cancellation/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2725. Interval Cancellation](https://leetcode.com/problems/interval-cancellation)
 
 [中文文档](/solution/2700-2799/2725.Interval%20Cancellation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a function <code>fn</code>, an array of arguments&nbsp;<code>args</code>, and&nbsp;an interval time <code>t</code>, return a cancel function <code>cancelFn</code>.</p>
 
@@ -114,11 +118,17 @@ Cancelled at 180ms
 	<li><code><font face="monospace">10 &lt;= </font>cancelTimeMs<font face="monospace"> &lt;= 500</font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function cancellable(fn: Function, args: any[], t: number): Function {
@@ -155,4 +165,6 @@ function cancellable(fn: Function, args: any[], t: number): Function {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

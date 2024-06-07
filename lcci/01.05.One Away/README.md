@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.05.One%20Away/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 01.05. 一次编辑](https://leetcode.cn/problems/one-away-lcci)
 
 [English Version](/lcci/01.05.One%20Away/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>字符串有三种编辑操作:插入一个字符、删除一个字符或者替换一个字符。 给定两个字符串，编写一个函数判定它们是否只需要一次(或者零次)编辑。</p>
 
 <p>&nbsp;</p>
@@ -32,7 +35,11 @@ second = &quot;pal&quot;
 <strong>输出:</strong> False
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分情况讨论 + 双指针
 
@@ -47,6 +54,8 @@ second = &quot;pal&quot;
 时间复杂度 $O(n)$，其中 $n$ 为字符串长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +76,8 @@ class Solution:
             i += 1
         return cnt < 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func oneEditAway(first string, second string) bool {
 	m, n := len(first), len(second)
@@ -165,6 +180,8 @@ func oneEditAway(first string, second string) bool {
 	return cnt < 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function oneEditAway(first: string, second: string): boolean {
@@ -200,6 +217,8 @@ function oneEditAway(first: string, second: string): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn one_edit_away(first: String, second: String) -> bool {
@@ -228,6 +247,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -273,4 +294,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

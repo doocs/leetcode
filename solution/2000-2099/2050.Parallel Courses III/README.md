@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2050.Parallel%20Courses%20III/README.md
 rating: 2084
+source: 第 264 场周赛 Q4
 tags:
     - 图
     - 拓扑排序
@@ -10,13 +11,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [2050. 并行课程 III](https://leetcode.cn/problems/parallel-courses-iii)
 
 [English Version](/solution/2000-2099/2050.Parallel%20Courses%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;，表示有&nbsp;<code>n</code>&nbsp;节课，课程编号从&nbsp;<code>1</code>&nbsp;到&nbsp;<code>n</code>&nbsp;。同时给你一个二维整数数组&nbsp;<code>relations</code>&nbsp;，其中&nbsp;<code>relations[j] = [prevCourse<sub>j</sub>, nextCourse<sub>j</sub>]</code>&nbsp;，表示课程&nbsp;<code>prevCourse<sub>j</sub></code>&nbsp;必须在课程&nbsp;<code>nextCourse<sub>j</sub></code>&nbsp;<strong>之前</strong>&nbsp;完成（先修课的关系）。同时给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>time</code>&nbsp;，其中&nbsp;<code>time[i]</code>&nbsp;表示完成第&nbsp;<code>(i+1)</code>&nbsp;门课程需要花费的 <strong>月份</strong>&nbsp;数。</p>
 
@@ -75,7 +78,11 @@ tags:
 	<li>先修课程图是一个有向无环图。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拓扑排序 + 动态规划
 
@@ -95,6 +102,8 @@ tags:
 时间复杂度 $O(m + n)$，空间复杂度 $O(m + n)$。其中 $m$ 是数组 $relations$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -122,6 +131,8 @@ class Solution:
                     q.append(j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +170,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -198,6 +211,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTime(n int, relations [][]int, time []int) int {
 	g := make([][]int, n)
@@ -232,6 +247,8 @@ func minimumTime(n int, relations [][]int, time []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTime(n: number, relations: number[][], time: number[]): number {
@@ -269,4 +286,6 @@ function minimumTime(n: number, relations: number[][], time: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

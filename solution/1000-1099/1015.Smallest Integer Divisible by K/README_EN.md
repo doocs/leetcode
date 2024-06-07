@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README_EN.md
 rating: 1874
+source: Weekly Contest 129 Q2
 tags:
     - Hash Table
     - Math
 ---
+
+<!-- problem:start -->
 
 # [1015. Smallest Integer Divisible by K](https://leetcode.com/problems/smallest-integer-divisible-by-k)
 
 [中文文档](/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a positive integer <code>k</code>, you need to find the <strong>length</strong> of the <strong>smallest</strong> positive integer <code>n</code> such that <code>n</code> is divisible by <code>k</code>, and <code>n</code> only contains the digit <code>1</code>.</p>
 
@@ -52,11 +57,17 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +79,8 @@ class Solution:
             n = (n * 10 + 1) % k
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestRepunitDivByK(k int) int {
 	n := 1 % k
@@ -112,6 +129,8 @@ func smallestRepunitDivByK(k int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestRepunitDivByK(k: number): number {
@@ -128,4 +147,6 @@ function smallestRepunitDivByK(k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

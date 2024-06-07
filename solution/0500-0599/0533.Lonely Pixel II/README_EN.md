@@ -8,11 +8,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [533. Lonely Pixel II 🔒](https://leetcode.com/problems/lonely-pixel-ii)
 
 [中文文档](/solution/0500-0599/0533.Lonely%20Pixel%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> <code>picture</code> consisting of black <code>&#39;B&#39;</code> and white <code>&#39;W&#39;</code> pixels and an integer target, return <em>the number of <b>black</b> lonely pixels</em>.</p>
 
@@ -53,7 +57,11 @@ Take &#39;B&#39; at row r = 0 and column c = 1 as an example:
 	<li><code>1 &lt;= target &lt;= min(m, n)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -68,6 +76,8 @@ After the traversal, we return the answer.
 The time complexity is $O(m \times n^2)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the matrix respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +98,8 @@ class Solution:
                 ans += target
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -168,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findBlackPixel(picture [][]byte, target int) (ans int) {
 	m := len(picture)
@@ -202,6 +218,8 @@ func findBlackPixel(picture [][]byte, target int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findBlackPixel(picture: string[][], target: number): number {
@@ -243,4 +261,6 @@ function findBlackPixel(picture: string[][], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

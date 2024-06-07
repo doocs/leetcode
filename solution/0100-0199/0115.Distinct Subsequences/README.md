@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [115. 不同的子序列](https://leetcode.cn/problems/distinct-subsequences)
 
 [English Version](/solution/0100-0199/0115.Distinct%20Subsequences/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串 <code>s</code><strong> </strong>和 <code>t</code> ，统计并返回在 <code>s</code> 的 <strong>子序列</strong> 中 <code>t</code> 出现的个数，结果需要对&nbsp;10<sup>9</sup> + 7 取模。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li><code>s</code> 和 <code>t</code> 由英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -83,6 +89,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
@@ -97,6 +105,8 @@ class Solution:
                     f[i][j] += f[i - 1][j - 1]
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numDistinct(s string, t string) int {
 	m, n := len(s), len(t)
@@ -164,6 +178,8 @@ func numDistinct(s string, t string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numDistinct(s: string, t: string): number {
     const m = s.length;
@@ -183,6 +199,8 @@ function numDistinct(s: string, t: string): number {
     return f[m][n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -215,9 +233,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -230,6 +254,8 @@ class Solution:
                     f[j] += f[j - 1]
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -249,6 +275,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -271,6 +299,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numDistinct(s string, t string) int {
 	n := len(t)
@@ -286,6 +316,8 @@ func numDistinct(s string, t string) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numDistinct(s: string, t: string): number {
@@ -306,4 +338,6 @@ function numDistinct(s: string, t: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1407. Top Travellers](https://leetcode.com/problems/top-travellers)
 
 [中文文档](/solution/1400-1499/1407.Top%20Travellers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Users</code></p>
 
@@ -98,13 +102,19 @@ Bob, Jonathan, Alex, and Alice have only one ride and we just order them by the 
 Donald did not have any rides, the distance traveled by him is 0.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: LEFT JOIN + GROUP BY
 
 We can use a left join to join the `Users` table with the `Rides` table on the condition of user id, and then group by user id to calculate the travel distance for each user. Note that if a user has no travel records, the travel distance is $0$.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -118,4 +128,6 @@ ORDER BY 2 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

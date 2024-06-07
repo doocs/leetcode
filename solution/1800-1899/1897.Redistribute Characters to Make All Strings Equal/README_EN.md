@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1897.Redistribute%20Characters%20to%20Make%20All%20Strings%20Equal/README_EN.md
 rating: 1309
+source: Weekly Contest 245 Q1
 tags:
     - Hash Table
     - String
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1897. Redistribute Characters to Make All Strings Equal](https://leetcode.com/problems/redistribute-characters-to-make-all-strings-equal)
 
 [中文文档](/solution/1800-1899/1897.Redistribute%20Characters%20to%20Make%20All%20Strings%20Equal/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of strings <code>words</code> (<strong>0-indexed</strong>).</p>
 
@@ -49,11 +54,17 @@ All the strings are now equal to &quot;abc&quot;, so return <code>true</code>.
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +76,8 @@ class Solution:
         n = len(words)
         return all(count % n == 0 for count in counter.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makeEqual(words []string) bool {
 	counter := [26]int{}
@@ -122,6 +139,8 @@ func makeEqual(words []string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function makeEqual(words: string[]): boolean {
@@ -144,4 +163,6 @@ function makeEqual(words: string[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README_EN.md
 rating: 1149
+source: Biweekly Contest 125 Q1
 tags:
     - Array
 ---
+
+<!-- problem:start -->
 
 # [3065. Minimum Operations to Exceed Threshold Value I](https://leetcode.com/problems/minimum-operations-to-exceed-threshold-value-i)
 
 [中文文档](/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>, and an integer <code>k</code>.</p>
 
@@ -57,7 +62,11 @@ It can be shown that 3 is the minimum number of operations needed so that all el
 	<li>The input is generated such that there is at least one index <code>i</code> such that <code>nums[i] &gt;= k</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal and Counting
 
@@ -67,11 +76,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
         return sum(x < k for x in nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(nums []int, k int) (ans int) {
 	for _, x := range nums {
@@ -113,6 +130,8 @@ func minOperations(nums []int, k int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(nums: number[], k: number): number {
     return nums.filter(x => x < k).length;
@@ -121,4 +140,6 @@ function minOperations(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

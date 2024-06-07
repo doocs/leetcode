@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1504.Count%20Submatrices%20With%20All%20Ones/README_EN.md
 rating: 1845
+source: Weekly Contest 196 Q3
 tags:
     - Stack
     - Array
@@ -11,11 +12,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [1504. Count Submatrices With All Ones](https://leetcode.com/problems/count-submatrices-with-all-ones)
 
 [中文文档](/solution/1500-1599/1504.Count%20Submatrices%20With%20All%20Ones/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> binary matrix <code>mat</code>, <em>return the number of <strong>submatrices</strong> that have all ones</em>.</p>
 
@@ -58,11 +63,17 @@ Total number of rectangles = 8 + 5 + 2 + 4 + 2 + 2 + 1 = 24.
 	<li><code>mat[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +93,8 @@ class Solution:
                     ans += col
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSubmat(mat [][]int) (ans int) {
@@ -169,4 +186,6 @@ func numSubmat(mat [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

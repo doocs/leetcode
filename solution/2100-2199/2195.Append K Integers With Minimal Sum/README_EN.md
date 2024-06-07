@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2195.Append%20K%20Integers%20With%20Minimal%20Sum/README_EN.md
 rating: 1658
+source: Weekly Contest 283 Q2
 tags:
     - Greedy
     - Array
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2195. Append K Integers With Minimal Sum](https://leetcode.com/problems/append-k-integers-with-minimal-sum)
 
 [中文文档](/solution/2100-2199/2195.Append%20K%20Integers%20With%20Minimal%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>. Append <code>k</code> <strong>unique positive</strong> integers that do <strong>not</strong> appear in <code>nums</code> to <code>nums</code> such that the resulting total sum is <strong>minimum</strong>.</p>
 
@@ -49,7 +54,11 @@ The sum of the six integers appended is 1 + 2 + 3 + 4 + 7 + 8 = 25, so we return
 	<li><code>1 &lt;= k &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Greedy + Mathematics
 
@@ -63,6 +72,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimalKSum(self, nums: List[int], k: int) -> int:
@@ -75,6 +86,8 @@ class Solution:
             k -= m
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimalKSum(nums []int, k int) (ans int64) {
 	nums = append(nums, []int{0, 2e9}...)
@@ -126,6 +143,8 @@ func minimalKSum(nums []int, k int) (ans int64) {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimalKSum(nums: number[], k: number): number {
@@ -143,4 +162,6 @@ function minimalKSum(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

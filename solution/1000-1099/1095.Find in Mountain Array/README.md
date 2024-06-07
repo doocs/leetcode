@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README.md
 rating: 1827
+source: 第 142 场周赛 Q3
 tags:
     - 数组
     - 二分查找
     - 交互
 ---
+
+<!-- problem:start -->
 
 # [1095. 山脉数组中查找目标值](https://leetcode.cn/problems/find-in-mountain-array)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>（这是一个 <strong>交互式问题&nbsp;</strong>）</p>
 
@@ -81,7 +84,11 @@ tags:
 	<li><code>0 &lt;= mountain_arr.get(index) &lt;=&nbsp;10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -92,6 +99,8 @@ tags:
 时间复杂度 $O(\log n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -125,6 +134,8 @@ class Solution:
         ans = search(0, l, 1)
         return search(l + 1, n - 1, -1) if ans == -1 else ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -171,6 +182,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * // This is the MountainArray's API interface.
@@ -211,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -256,6 +271,8 @@ func findInMountainArray(target int, mountainArr *MountainArray) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * // This is the MountainArray's API interface.
@@ -294,6 +311,8 @@ function findInMountainArray(target: number, mountainArr: MountainArray) {
     return ans === -1 ? search(l + 1, n - 1, -1) : ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -347,4 +366,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

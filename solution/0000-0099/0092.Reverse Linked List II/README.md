@@ -6,13 +6,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [92. 反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii)
 
 [English Version](/solution/0000-0099/0092.Reverse%20Linked%20List%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你单链表的头指针 <code>head</code> 和两个整数  <code>left</code> 和 <code>right</code> ，其中  <code>left <= right</code> 。请你反转从位置 <code>left</code> 到位置 <code>right</code> 的链表节点，返回 <strong>反转后的链表</strong> 。
 
@@ -47,7 +49,11 @@ tags:
 
 <p><strong>进阶：</strong> 你可以使用一趟扫描完成反转吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -56,6 +62,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -83,6 +91,8 @@ class Solution:
         q.next = cur
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -121,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -158,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -188,6 +202,8 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -228,6 +244,8 @@ function reverseBetween(head: ListNode | null, left: number, right: number): Lis
     return dummy.next;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -273,6 +291,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -310,6 +330,8 @@ var reverseBetween = function (head, left, right) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -351,4 +373,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

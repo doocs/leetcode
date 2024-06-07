@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.13.Re-Space/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.13. Re-Space](https://leetcode.cn/problems/re-space-lcci)
 
 [中文文档](/lcci/17.13.Re-Space/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Oh, no! You have accidentally removed all spaces, punctuation, and capitalization in a lengthy document. A sentence like &quot;I reset the computer. It still didn&#39;t boot!&quot; became &quot;iresetthecomputeritstilldidntboot&#39;&#39;. You&#39;ll deal with the punctuation and capi&shy;talization later; right now you need to re-insert the spaces. Most of the words are in a dictionary but a few are not. Given a dictionary (a list of strings) and the document (a string), design an algorithm to unconcatenate the document in a way that minimizes the number of unrecognized characters. Return the number of unrecognized characters.</p>
 
@@ -40,11 +44,17 @@ sentence = &quot;jesslookedjustliketimherbrother&quot;
 	<li>There are only lowercase letters in&nbsp;<code>dictionary</code>&nbsp;and&nbsp;<code>sentence</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +69,8 @@ class Solution:
                     dp[i] = min(dp[i], dp[j])
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func respace(dictionary []string, sentence string) int {
 	s := map[string]bool{}
@@ -118,6 +134,8 @@ func respace(dictionary []string, sentence string) int {
 	return dp[n]
 }
 ```
+
+#### Swift
 
 ```swift
 class TrieNode {
@@ -177,4 +195,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1706.Where%20Will%20the%20Ball%20Fall/README_EN.md
 rating: 1764
+source: Weekly Contest 221 Q3
 tags:
     - Array
     - Matrix
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1706. Where Will the Ball Fall](https://leetcode.com/problems/where-will-the-ball-fall)
 
 [中文文档](/solution/1700-1799/1706.Where%20Will%20the%20Ball%20Fall/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a 2-D <code>grid</code> of size <code>m x n</code> representing a box, and you have <code>n</code> balls. The box is open on the top and bottom sides.</p>
 
@@ -69,7 +74,11 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
 	<li><code>grid[i][j]</code> is <code>1</code> or <code>-1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case Discussion + DFS
 
@@ -85,6 +94,8 @@ If any of the above situations are met, we can judge that the ball will get stuc
 The time complexity is $O(m \times n)$, and the space complexity is $O(m)$. Where $m$ and $n$ are the number of rows and columns of the array $grid$, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +116,8 @@ class Solution:
         m, n = len(grid), len(grid[0])
         return [dfs(0, j) for j in range(n)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -175,6 +190,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findBall(grid [][]int) (ans []int) {
@@ -208,6 +225,8 @@ func findBall(grid [][]int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findBall(grid: number[][]): number[] {
     const m = grid.length;
@@ -235,6 +254,8 @@ function findBall(grid: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -269,4 +290,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

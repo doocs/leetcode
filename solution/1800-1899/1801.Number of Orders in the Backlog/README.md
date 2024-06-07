@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1801.Number%20of%20Orders%20in%20the%20Backlog/README.md
 rating: 1711
+source: 第 233 场周赛 Q2
 tags:
     - 数组
     - 模拟
     - 堆（优先队列）
 ---
+
+<!-- problem:start -->
 
 # [1801. 积压订单中的订单总数](https://leetcode.cn/problems/number-of-orders-in-the-backlog)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二维整数数组 <code>orders</code> ，其中每个 <code>orders[i] = [price<sub>i</sub>, amount<sub>i</sub>, orderType<sub>i</sub>]</code> 表示有 <code>amount<sub>i</sub></code><sub> </sub>笔类型为 <code>orderType<sub>i</sub></code> 、价格为 <code>price<sub>i</sub></code> 的订单。</p>
 
@@ -75,7 +78,11 @@ tags:
 	<li><code>orderType<sub>i</sub></code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（大小根堆） + 模拟
 
@@ -88,6 +95,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是 `orders` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -117,6 +126,8 @@ class Solution:
         mod = 10**9 + 7
         return sum(v[1] for v in buy + sell) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +178,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -221,6 +234,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getNumberOfBacklogOrders(orders [][]int) (ans int) {
@@ -280,4 +295,6 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

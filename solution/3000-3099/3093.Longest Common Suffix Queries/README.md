@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README.md
 rating: 2118
+source: 第 390 场周赛 Q4
 tags:
     - 字典树
     - 数组
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [3093. 最长公共后缀查询](https://leetcode.cn/problems/longest-common-suffix-queries)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串数组&nbsp;<code>wordsContainer</code> 和&nbsp;<code>wordsQuery</code>&nbsp;。</p>
 
@@ -75,7 +78,11 @@ tags:
 	<li><code>wordsQuery[i].length</code>&nbsp;的和至多为&nbsp;<code>5 * 10<sup>5</sup></code>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字典树
 
@@ -94,6 +101,8 @@ tags:
 时间复杂度 $(L_1 \times |\Sigma| + L_2)$，空间复杂度 $O(L_1 \times |\Sigma|)$，其中 $L_1$ 和 $L_2$ 分别是 `wordsContainer` 和 `wordsQuery` 的字符串长度之和；而 $\Sigma$ 是字符集大小，本题中 $\Sigma = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -137,6 +146,8 @@ class Solution:
             trie.insert(w, i)
         return [trie.query(w) for w in wordsQuery]
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -192,6 +203,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -257,6 +270,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 const inf = 1 << 30
 
@@ -313,6 +328,8 @@ func stringIndices(wordsContainer []string, wordsQuery []string) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class Trie {
     private children: Trie[] = new Array<Trie>(26);
@@ -367,4 +384,6 @@ function stringIndices(wordsContainer: string[], wordsQuery: string[]): number[]
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

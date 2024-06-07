@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2136.Earliest%20Possible%20Day%20of%20Full%20Bloom/README_EN.md
 rating: 2033
+source: Weekly Contest 275 Q4
 tags:
     - Greedy
     - Array
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2136. Earliest Possible Day of Full Bloom](https://leetcode.com/problems/earliest-possible-day-of-full-bloom)
 
 [中文文档](/solution/2100-2199/2136.Earliest%20Possible%20Day%20of%20Full%20Bloom/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code> flower seeds. Every seed must be planted first before it can begin to grow, then bloom. Planting a seed takes time and so does the growth of a seed. You are given two <strong>0-indexed</strong> integer arrays <code>plantTime</code> and <code>growTime</code>, of length <code>n</code> each:</p>
 
@@ -72,11 +77,17 @@ Thus, on day 2, all the seeds are blooming.
 	<li><code>1 &lt;= plantTime[i], growTime[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +98,8 @@ class Solution:
             ans = max(ans, t + gt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func earliestFullBloom(plantTime []int, growTime []int) (ans int) {
 	n := len(plantTime)
@@ -142,6 +159,8 @@ func earliestFullBloom(plantTime []int, growTime []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function earliestFullBloom(plantTime: number[], growTime: number[]): number {
     const n = plantTime.length;
@@ -155,6 +174,8 @@ function earliestFullBloom(plantTime: number[], growTime: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -174,4 +195,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

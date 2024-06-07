@@ -7,11 +7,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [906. Super Palindromes](https://leetcode.com/problems/super-palindromes)
 
 [中文文档](/solution/0900-0999/0906.Super%20Palindromes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Let&#39;s say a positive integer is a <strong>super-palindrome</strong> if it is a palindrome, and it is also the square of a palindrome.</p>
 
@@ -45,7 +49,11 @@ Note that 676 is not a superpalindrome: 26 * 26 = 676, but 26 is not a palindrom
 	<li><code>left</code> is less than or equal to <code>right</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration
 
@@ -62,6 +70,8 @@ Similar problems:
 -   [2967. Minimum Cost to Make Array Equalindromic](https://github.com/doocs/leetcode/blob/main/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 ps = []
@@ -85,6 +95,8 @@ class Solution:
         l, r = int(left), int(right)
         return sum(l <= x <= r and is_palindrome(x) for x in map(lambda x: x * x, ps))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using ll = unsigned long long;
@@ -166,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 var ps [2 * 100000]int64
 
@@ -207,6 +223,8 @@ func superpalindromesInRange(left string, right string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 const ps = Array(2e5).fill(0);
 
@@ -240,4 +258,6 @@ function superpalindromesInRange(left: string, right: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

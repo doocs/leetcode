@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1671.Minimum%20Number%20of%20Removals%20to%20Make%20Mountain%20Array/README_EN.md
 rating: 1912
+source: Biweekly Contest 40 Q4
 tags:
     - Greedy
     - Array
@@ -10,11 +11,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1671. Minimum Number of Removals to Make Mountain Array](https://leetcode.com/problems/minimum-number-of-removals-to-make-mountain-array)
 
 [中文文档](/solution/1600-1699/1671.Minimum%20Number%20of%20Removals%20to%20Make%20Mountain%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You may recall that an array <code>arr</code> is a <strong>mountain array</strong> if and only if:</p>
 
@@ -56,7 +61,11 @@ tags:
 	<li>It is guaranteed that you can make a mountain array out of <code>nums</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -69,6 +78,8 @@ Then the final answer is $n - \max(left[i] + right[i] - 1)$, where $1 \leq i \le
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +97,8 @@ class Solution:
                     right[i] = max(right[i], right[j] + 1)
         return n - max(a + b - 1 for a, b in zip(left, right) if a > 1 and b > 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumMountainRemovals(nums []int) int {
@@ -182,6 +199,8 @@ func minimumMountainRemovals(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumMountainRemovals(nums: number[]): number {
     const n = nums.length;
@@ -210,6 +229,8 @@ function minimumMountainRemovals(nums: number[]): number {
     return n - ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -246,4 +267,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

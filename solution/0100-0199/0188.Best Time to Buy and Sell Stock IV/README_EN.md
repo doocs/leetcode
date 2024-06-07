@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [188. Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv)
 
 [中文文档](/solution/0100-0199/0188.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20IV/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>prices</code> where <code>prices[i]</code> is the price of a given stock on the <code>i<sup>th</sup></code> day, and an integer <code>k</code>.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>0 &lt;= prices[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -66,6 +74,8 @@ The time complexity is $O(n \times k)$, and the space complexity is $O(n \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
@@ -82,6 +92,8 @@ class Solution:
 
         return dfs(0, k, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProfit(k int, prices []int) int {
@@ -172,6 +188,8 @@ func maxProfit(k int, prices []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(k: number, prices: number[]): number {
     const n = prices.length;
@@ -196,6 +214,8 @@ function maxProfit(k: number, prices: number[]): number {
     return dfs(0, k, 0);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -237,6 +257,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can also use dynamic programming to define $f[i][j][k]$ as the maximum profit that can be obtained when completing at most j transactions (here we define the number of transactions as the number of purchases), and holding the stock with the current state k on the i-th day. The initial value of $f[i][j][k]$ is 0. The answer is $f[n - 1][k][0]$.
@@ -265,6 +289,8 @@ We notice that the state $f[i][]$ only depends on the state $f[i - 1][]$, so we 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
@@ -278,6 +304,8 @@ class Solution:
                 f[i][j][1] = max(f[i - 1][j - 1][0] - x, f[i - 1][j][1])
         return f[n - 1][k][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -297,6 +325,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -319,6 +349,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(k int, prices []int) int {
 	n := len(prices)
@@ -339,6 +371,8 @@ func maxProfit(k int, prices []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(k: number, prices: number[]): number {
     const n = prices.length;
@@ -357,6 +391,8 @@ function maxProfit(k: number, prices: number[]): number {
     return f[n - 1][k][0];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -379,9 +415,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -395,6 +437,8 @@ class Solution:
                 f[j][1] = max(f[j - 1][0] - x, f[j][1])
         return f[k][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -414,6 +458,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -436,6 +482,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(k int, prices []int) int {
 	f := make([][2]int, k+1)
@@ -452,6 +500,8 @@ func maxProfit(k int, prices []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(k: number, prices: number[]): number {
     const f = Array.from({ length: k + 1 }, () => Array.from({ length: 2 }, () => 0));
@@ -467,6 +517,8 @@ function maxProfit(k: number, prices: number[]): number {
     return f[k][0];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -489,4 +541,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

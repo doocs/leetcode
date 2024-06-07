@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README_EN.md
 rating: 1239
+source: Weekly Contest 355 Q1
 tags:
     - Array
     - String
 ---
+
+<!-- problem:start -->
 
 # [2788. Split Strings by Separator](https://leetcode.com/problems/split-strings-by-separator)
 
 [中文文档](/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of strings <code>words</code> and a character <code>separator</code>, <strong>split</strong> each string in <code>words</code> by <code>separator</code>.</p>
 
@@ -70,7 +75,11 @@ Hence, the resulting array is [&quot;easy&quot;,&quot;problem&quot;].
 	<li><code>separator</code> is a character from the string <code>&quot;.,|$#@&quot;</code> (excluding the quotes)</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -80,11 +89,15 @@ The time complexity is $O(n \times m)$, and the space complexity is $O(m)$, wher
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def splitWordsBySeparator(self, words: List[str], separator: str) -> List[str]:
         return [s for w in words for s in w.split(separator) if s]
 ```
+
+#### Java
 
 ```java
 import java.util.regex.Pattern;
@@ -103,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func splitWordsBySeparator(words []string, separator byte) (ans []string) {
 	for _, w := range words {
@@ -136,6 +153,8 @@ func splitWordsBySeparator(words []string, separator byte) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function splitWordsBySeparator(words: string[], separator: string): string[] {
     return words.flatMap(w => w.split(separator).filter(s => s.length > 0));
@@ -144,4 +163,6 @@ function splitWordsBySeparator(words: string[], separator: string): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

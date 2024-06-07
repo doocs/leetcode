@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1238.Circular%20Permutation%20in%20Binary%20Representation/README.md
 rating: 1774
+source: 第 160 场周赛 Q2
 tags:
     - 位运算
     - 数学
     - 回溯
 ---
+
+<!-- problem:start -->
 
 # [1238. 循环码排列](https://leetcode.cn/problems/circular-permutation-in-binary-representation)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数&nbsp;<code>n</code> 和 <code>start</code>。你的任务是返回任意 <code>(0,1,2,,...,2^n-1)</code> 的排列 <code>p</code>，并且满足：</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>0 &lt;= start&nbsp;&lt;&nbsp;2^n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二进制码转格雷码
 
@@ -77,6 +84,8 @@ int gray(x) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def circularPermutation(self, n: int, start: int) -> List[int]:
@@ -84,6 +93,8 @@ class Solution:
         j = g.index(start)
         return g[j:] + g[:j]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func circularPermutation(n int, start int) []int {
 	g := make([]int, 1<<n)
@@ -140,6 +155,8 @@ func circularPermutation(n int, start int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function circularPermutation(n: number, start: number): number[] {
     const ans: number[] = [];
@@ -152,6 +169,10 @@ function circularPermutation(n: number, start: number): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：转换优化
 
 由于 $gray(0) = 0$，那么 $gray(0) \oplus start = start$，而 $gray(i)$ 与 $gray(i-1)$ 只有一个二进制位不同，所以 $gray(i) \oplus start$ 与 $gray(i-1) \oplus start$ 也只有一个二进制位不同。
@@ -162,11 +183,15 @@ function circularPermutation(n: number, start: number): number[] {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def circularPermutation(self, n: int, start: int) -> List[int]:
         return [i ^ (i >> 1) ^ start for i in range(1 << n)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -179,6 +204,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -193,6 +220,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func circularPermutation(n int, start int) (ans []int) {
 	for i := 0; i < 1<<n; i++ {
@@ -204,4 +233,6 @@ func circularPermutation(n int, start int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1364. Number of Trusted Contacts of a Customer 🔒](https://leetcode.com/problems/number-of-trusted-contacts-of-a-customer)
 
 [中文文档](/solution/1300-1399/1364.Number%20of%20Trusted%20Contacts%20of%20a%20Customer/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Customers</code></p>
 
@@ -128,11 +132,17 @@ Alex has one contact and it is a trusted contact (Alice).
 John doesn&#39;t have any contacts.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -153,4 +163,6 @@ ORDER BY invoice_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

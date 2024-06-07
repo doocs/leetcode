@@ -7,13 +7,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [401. 二进制手表](https://leetcode.cn/problems/binary-watch)
 
 [English Version](/solution/0400-0499/0401.Binary%20Watch/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>二进制手表顶部有 4 个 LED 代表<strong> 小时（0-11）</strong>，底部的 6 个 LED 代表<strong> 分钟（0-59）</strong>。每个 LED 代表一个 0 或 1，最低位在右侧。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li><code>0 &lt;= turnedOn &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举组合
 
@@ -70,6 +76,8 @@ tags:
 合法组合需要满足的条件是：i 的二进制形式中 1 的个数加上 j 的二进制形式中 1 的个数，结果等于 turnedOn。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +89,8 @@ class Solution:
             if (bin(i) + bin(j)).count('1') == turnedOn
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func readBinaryWatch(turnedOn int) []string {
 	var ans []string
@@ -128,6 +142,8 @@ func readBinaryWatch(turnedOn int) []string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function readBinaryWatch(turnedOn: number): string[] {
@@ -162,6 +178,8 @@ function readBinaryWatch(turnedOn: number): string[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -214,11 +232,17 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二进制枚举
 
 利用 10 个二进制位表示手表，其中前 4 位代表小时，后 6 位代表分钟。枚举 `[0, 1 << 10)` 的所有数，找出合法的数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -230,6 +254,8 @@ class Solution:
                 ans.append('{:d}:{:02d}'.format(h, m))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -245,6 +271,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -262,6 +290,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func readBinaryWatch(turnedOn int) []string {
 	var ans []string
@@ -277,4 +307,6 @@ func readBinaryWatch(turnedOn int) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

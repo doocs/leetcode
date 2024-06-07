@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20010.%20%E5%92%8C%E4%B8%BA%20k%20%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 010. 和为 k 的子数组](https://leetcode.cn/problems/QTMn0o)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个正整数数组和一个整数&nbsp;<code>k</code><strong> ，</strong>请找到该数组中和为&nbsp;<code>k</code><strong>&nbsp;</strong>的连续子数组的个数。</p>
 
@@ -44,7 +46,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p>注意：本题与主站 560&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/subarray-sum-equals-k/">https://leetcode.cn/problems/subarray-sum-equals-k/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 前缀和
 
@@ -53,6 +59,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +73,8 @@ class Solution:
             cnt[s] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subarraySum(nums []int, k int) (ans int) {
 	cnt := map[int]int{0: 1}
@@ -111,6 +125,8 @@ func subarraySum(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subarraySum(nums: number[], k: number): number {
@@ -127,6 +143,28 @@ function subarraySum(nums: number[], k: number): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func subarraySum(_ nums: [Int], _ k: Int) -> Int {
+        var cnt: [Int: Int] = [0: 1]
+        var ans = 0
+        var s = 0
+
+        for x in nums {
+            s += x
+            ans += cnt[s - k, default: 0]
+            cnt[s, default: 0] += 1
+        }
+
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

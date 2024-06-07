@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [803. 打砖块](https://leetcode.cn/problems/bricks-falling-when-hit)
 
 [English Version](/solution/0800-0899/0803.Bricks%20Falling%20When%20Hit/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个 <code>m x n</code> 的二元网格<meta charset="UTF-8" />&nbsp;<code>grid</code>&nbsp;，其中 <code>1</code> 表示砖块，<code>0</code> 表示空白。砖块 <strong>稳定</strong>（不会掉落）的前提是：</p>
 
@@ -84,11 +86,17 @@ tags:
 	<li>所有 <code>(x<sub>i</sub>, y<sub>i</sub>)</code> 互不相同</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -138,6 +146,8 @@ class Solution:
             ans.append(max(0, curr - prev - 1))
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -224,6 +234,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -286,6 +298,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func hitBricks(grid [][]int, hits [][]int) []int {
@@ -367,4 +381,6 @@ func hitBricks(grid [][]int, hits [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

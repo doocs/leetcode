@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2975.Maximum%20Square%20Area%20by%20Removing%20Fences%20From%20a%20Field/README_EN.md
 rating: 1873
+source: Weekly Contest 377 Q2
 tags:
     - Array
     - Hash Table
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2975. Maximum Square Area by Removing Fences From a Field](https://leetcode.com/problems/maximum-square-area-by-removing-fences-from-a-field)
 
 [中文文档](/solution/2900-2999/2975.Maximum%20Square%20Area%20by%20Removing%20Fences%20From%20a%20Field/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a large <code>(m - 1) x (n - 1)</code> rectangular field with corners at <code>(1, 1)</code> and <code>(m, n)</code> containing some horizontal and vertical fences given in arrays <code>hFences</code> and <code>vFences</code> respectively.</p>
 
@@ -57,7 +62,11 @@ tags:
 	<li><code><font face="monospace">hFences</font></code><font face="monospace"> and </font><code><font face="monospace">vFences</font></code><font face="monospace"> are unique.</font></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -66,6 +75,8 @@ We can enumerate any two horizontal fences $a$ and $b$ in $hFences$, calculate t
 The time complexity is $O(h^2 + v^2)$, and the space complexity is $O(h^2 + v^2)$. Where $h$ and $v$ are the lengths of $hFences$ and $vFences$ respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +94,8 @@ class Solution:
         ans = max(hs & vs, default=0)
         return ans**2 % mod if ans else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximizeSquareArea(m int, n int, hFences []int, vFences []int) int {
 	f := func(nums []int, k int) map[int]bool {
@@ -173,6 +190,8 @@ func maximizeSquareArea(m int, n int, hFences []int, vFences []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximizeSquareArea(m: number, n: number, hFences: number[], vFences: number[]): number {
     const f = (nums: number[], k: number): Set<number> => {
@@ -200,4 +219,6 @@ function maximizeSquareArea(m: number, n: number, hFences: number[], vFences: nu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

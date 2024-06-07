@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README_EN.md
 rating: 1949
+source: Biweekly Contest 6 Q4
 tags:
     - Hash Table
     - String
 ---
+
+<!-- problem:start -->
 
 # [1153. String Transforms Into Another String 🔒](https://leetcode.com/problems/string-transforms-into-another-string)
 
 [中文文档](/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>str1</code> and <code>str2</code> of the same length, determine whether you can transform <code>str1</code> into <code>str2</code> by doing <strong>zero or more</strong> <em>conversions</em>.</p>
 
@@ -45,7 +50,11 @@ tags:
 	<li><code>str1</code> and <code>str2</code> contain only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -60,6 +69,8 @@ After the traversal, return `true`.
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string `str1`, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +87,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canConvert(str1 string, str2 string) bool {
 	if str1 == str2 {
@@ -166,6 +183,8 @@ func canConvert(str1 string, str2 string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canConvert(str1: string, str2: string): boolean {
     if (str1 === str2) {
@@ -188,4 +207,6 @@ function canConvert(str1: string, str2: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

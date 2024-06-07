@@ -11,13 +11,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [959. 由斜杠划分区域](https://leetcode.cn/problems/regions-cut-by-slashes)
 
 [English Version](/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在由 <code>1 x 1</code> 方格组成的 <code>n&nbsp;x n</code>&nbsp;网格&nbsp;<code>grid</code> 中，每个 <code>1 x 1</code>&nbsp;方块由 <code>'/'</code>、<code>'\'</code> 或空格构成。这些字符会将方块划分为一些共边的区域。</p>
 
@@ -67,11 +69,17 @@ tags:
 	<li><code>grid[i][j]</code> 是&nbsp;<code>'/'</code>、<code>'\'</code>、或&nbsp;<code>' '</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -110,6 +118,8 @@ class Solution:
                     union(4 * k + 2, 4 * k + 3)
         return size
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -168,6 +178,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -215,6 +227,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func regionsBySlashes(grid []string) int {
@@ -267,4 +281,6 @@ func regionsBySlashes(grid []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

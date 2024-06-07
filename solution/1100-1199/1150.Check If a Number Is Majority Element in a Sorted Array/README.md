@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1150.Check%20If%20a%20Number%20Is%20Majority%20Element%20in%20a%20Sorted%20Array/README.md
 rating: 1249
+source: 第 6 场双周赛 Q1
 tags:
     - 数组
     - 二分查找
 ---
+
+<!-- problem:start -->
 
 # [1150. 检查一个数是否在数组中占绝大多数 🔒](https://leetcode.cn/problems/check-if-a-number-is-majority-element-in-a-sorted-array)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出一个按 <strong>非递减</strong> 顺序排列的数组 <code>nums</code>，和一个目标数值 <code>target</code>。假如数组 <code>nums</code> 中绝大多数元素的数值都等于 <code>target</code>，则返回 <code>True</code>，否则请返回 <code>False</code>。</p>
 
@@ -52,7 +55,11 @@ tags:
 	<li><code>1 <= target <= 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -62,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isMajorityElement(self, nums: List[int], target: int) -> bool:
@@ -69,6 +78,8 @@ class Solution:
         right = bisect_right(nums, target)
         return right - left > len(nums) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isMajorityElement(nums []int, target int) bool {
 	left := sort.SearchInts(nums, target)
@@ -111,6 +126,8 @@ func isMajorityElement(nums []int, target int) bool {
 	return right-left > len(nums)/2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isMajorityElement(nums: number[], target: number): boolean {
@@ -135,6 +152,10 @@ function isMajorityElement(nums: number[], target: number): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二分查找（优化）
 
 方法一中，我们使用了两次二分查找，分别找到数组 $nums$ 中第一个大于等于 $target$ 的元素的下标 $left$，以及第一个大于 $target$ 的元素的下标 $right$。但是，我们可以使用一次二分查找，找到数组 $nums$ 中第一个大于等于 $target$ 的元素的下标 $left$，然后判断 $nums[left + \frac{n}{2}]$ 是否等于 $target$，如果相等，说明数组 $nums$ 中的元素 $target$ 出现的次数超过了数组长度的一半，因此返回 $true$，否则返回 $false$。
@@ -143,6 +164,8 @@ function isMajorityElement(nums: number[], target: number): boolean {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isMajorityElement(self, nums: List[int], target: int) -> bool:
@@ -150,6 +173,8 @@ class Solution:
         right = left + len(nums) // 2
         return right < len(nums) and nums[right] == target
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -175,6 +200,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -187,6 +214,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isMajorityElement(nums []int, target int) bool {
 	n := len(nums)
@@ -195,6 +224,8 @@ func isMajorityElement(nums []int, target int) bool {
 	return right < n && nums[right] == target
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isMajorityElement(nums: number[], target: number): boolean {
@@ -220,4 +251,6 @@ function isMajorityElement(nums: number[], target: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1492.The%20kth%20Factor%20of%20n/README_EN.md
 rating: 1231
+source: Biweekly Contest 29 Q2
 tags:
     - Math
     - Number Theory
 ---
+
+<!-- problem:start -->
 
 # [1492. The kth Factor of n](https://leetcode.com/problems/the-kth-factor-of-n)
 
 [中文文档](/solution/1400-1499/1492.The%20kth%20Factor%20of%20n/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two positive integers <code>n</code> and <code>k</code>. A factor of an integer <code>n</code> is defined as an integer <code>i</code> where <code>n % i == 0</code>.</p>
 
@@ -55,7 +60,11 @@ tags:
 
 <p>Could you solve this problem in less than O(n) complexity?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Brute Force Enumeration
 
@@ -64,6 +73,8 @@ A "factor" is a number that can divide another number. Therefore, we only need t
 The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
                     return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kthFactor(n int, k int) int {
 	for i := 1; i <= n; i++ {
@@ -117,6 +134,8 @@ func kthFactor(n int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function kthFactor(n: number, k: number): number {
     for (let i = 1; i <= n; ++i) {
@@ -130,6 +149,10 @@ function kthFactor(n: number, k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Optimized Enumeration
 
 We can observe that if $n$ has a factor $x$, then $n$ must also have a factor $n/x$.
@@ -139,6 +162,8 @@ Therefore, we first need to enumerate $[1,2,...\left \lfloor \sqrt{n}  \right \r
 The time complexity is $O(\sqrt{n})$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -161,6 +186,8 @@ class Solution:
         return -1
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int kthFactor(int n, int k) {
@@ -182,6 +209,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -205,6 +234,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kthFactor(n int, k int) int {
@@ -232,6 +263,8 @@ func kthFactor(n int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function kthFactor(n: number, k: number): number {
     let i: number = 1;
@@ -254,4 +287,6 @@ function kthFactor(n: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

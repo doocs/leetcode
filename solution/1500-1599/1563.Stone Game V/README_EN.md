@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1563.Stone%20Game%20V/README_EN.md
 rating: 2087
+source: Weekly Contest 203 Q4
 tags:
     - Array
     - Math
@@ -10,11 +11,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [1563. Stone Game V](https://leetcode.com/problems/stone-game-v)
 
 [中文文档](/solution/1500-1599/1563.Stone%20Game%20V/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are several stones <strong>arranged in a row</strong>, and each stone has an associated value which is an integer given in the array <code>stoneValue</code>.</p>
 
@@ -57,11 +62,17 @@ The last round Alice has only one choice to divide the row which is [2], [3]. Bo
 	<li><code>1 &lt;= stoneValue[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +100,8 @@ class Solution:
         s = list(accumulate(stoneValue, initial=0))
         return dfs(0, len(stoneValue) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func stoneGameV(stoneValue []int) int {
@@ -230,4 +247,6 @@ func stoneGameV(stoneValue []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

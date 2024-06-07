@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2203.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths/README.md
 rating: 2364
+source: 第 284 场周赛 Q4
 tags:
     - 图
     - 最短路
 ---
+
+<!-- problem:start -->
 
 # [2203. 得到要求路径的最小带权子图](https://leetcode.cn/problems/minimum-weighted-subgraph-with-the-required-paths)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;，它表示一个 <strong>带权有向</strong> 图的节点数，节点编号为&nbsp;<code>0</code> 到&nbsp;<code>n - 1</code>&nbsp;。</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>1 &lt;= weight[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举三条最短路的交汇点
 
@@ -88,6 +95,8 @@ $A$, $B$ 两条路径一定存在着公共点 $p$，因为 $dest$ 一定是其�
 时间复杂度 $O(mlogn)$，其中 m 表示数组 $edges$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -119,6 +128,8 @@ class Solution:
         ans = min(sum(v) for v in zip(d1, d2, d3))
         return -1 if ans >= inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -184,4 +195,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

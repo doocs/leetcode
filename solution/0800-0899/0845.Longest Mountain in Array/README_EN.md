@@ -9,11 +9,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [845. Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array)
 
 [中文文档](/solution/0800-0899/0845.Longest%20Mountain%20in%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You may recall that an array <code>arr</code> is a <strong>mountain array</strong> if and only if:</p>
 
@@ -62,11 +66,17 @@ tags:
 	<li>Can you solve it in <code>O(1)</code> space?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +95,8 @@ class Solution:
                     ans = max(ans, f[i] + g[i] - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestMountain(arr []int) (ans int) {
 	n := len(arr)
@@ -169,9 +185,15 @@ func longestMountain(arr []int) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -192,6 +214,8 @@ class Solution:
             l = r
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -218,6 +242,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -246,6 +272,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestMountain(arr []int) (ans int) {
 	n := len(arr)
@@ -271,4 +299,6 @@ func longestMountain(arr []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

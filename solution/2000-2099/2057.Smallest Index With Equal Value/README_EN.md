@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2057.Smallest%20Index%20With%20Equal%20Value/README_EN.md
 rating: 1167
+source: Weekly Contest 265 Q1
 tags:
     - Array
 ---
+
+<!-- problem:start -->
 
 # [2057. Smallest Index With Equal Value](https://leetcode.com/problems/smallest-index-with-equal-value)
 
 [中文文档](/solution/2000-2099/2057.Smallest%20Index%20With%20Equal%20Value/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code>, return <em>the <strong>smallest</strong> index </em><code>i</code><em> of </em><code>nums</code><em> such that </em><code>i mod 10 == nums[i]</code><em>, or </em><code>-1</code><em> if such index does not exist</em>.</p>
 
@@ -59,11 +64,17 @@ i=3: 3 mod 10 = 3 != nums[3].
 	<li><code>0 &lt;= nums[i] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +84,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -99,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestEqual(nums []int) int {
 	for i, v := range nums {
@@ -109,6 +126,8 @@ func smallestEqual(nums []int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestEqual(nums: number[]): number {
@@ -121,4 +140,6 @@ function smallestEqual(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

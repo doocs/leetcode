@@ -8,11 +8,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures)
 
 [中文文档](/solution/0700-0799/0739.Daily%20Temperatures/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>temperatures</code> represents the daily temperatures, return <em>an array</em> <code>answer</code> <em>such that</em> <code>answer[i]</code> <em>is the number of days you have to wait after the</em> <code>i<sup>th</sup></code> <em>day to get a warmer temperature</em>. If there is no future day for which this is possible, keep <code>answer[i] == 0</code> instead.</p>
 
@@ -35,11 +39,17 @@ tags:
 	<li><code>30 &lt;=&nbsp;temperatures[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -53,6 +63,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -71,6 +83,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dailyTemperatures(temperatures []int) []int {
 	ans := make([]int, len(temperatures))
@@ -106,6 +122,8 @@ func dailyTemperatures(temperatures []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function dailyTemperatures(temperatures: number[]): number[] {
@@ -125,6 +143,8 @@ function dailyTemperatures(temperatures: number[]): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn daily_temperatures(temperatures: Vec<i32>) -> Vec<i32> {
@@ -142,6 +162,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -167,9 +189,15 @@ var dailyTemperatures = function (temperatures) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -185,6 +213,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +236,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -222,6 +254,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func dailyTemperatures(temperatures []int) []int {
@@ -243,4 +277,6 @@ func dailyTemperatures(temperatures []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

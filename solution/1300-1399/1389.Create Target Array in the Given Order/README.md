@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1389.Create%20Target%20Array%20in%20the%20Given%20Order/README.md
 rating: 1208
+source: 第 181 场周赛 Q1
 tags:
     - 数组
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1389. 按既定顺序创建目标数组](https://leetcode.cn/problems/create-target-array-in-the-given-order)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数数组 <code>nums</code> 和 <code>index</code>。你需要按照以下规则创建目标数组：</p>
 
@@ -73,7 +76,11 @@ nums       index     target
 	<li><code>0 &lt;= index[i] &lt;= i</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -83,6 +90,8 @@ nums       index     target
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
@@ -91,6 +100,8 @@ class Solution:
             target.insert(i, x)
         return target
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func createTargetArray(nums []int, index []int) []int {
 	target := make([]int, len(nums))
@@ -133,6 +148,8 @@ func createTargetArray(nums []int, index []int) []int {
 	return target
 }
 ```
+
+#### TypeScript
 
 ```ts
 function createTargetArray(nums: number[], index: number[]): number[] {
@@ -146,4 +163,6 @@ function createTargetArray(nums: number[], index: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

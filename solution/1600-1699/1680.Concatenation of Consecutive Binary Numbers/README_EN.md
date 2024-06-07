@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1680.Concatenation%20of%20Consecutive%20Binary%20Numbers/README_EN.md
 rating: 1629
+source: Weekly Contest 218 Q3
 tags:
     - Bit Manipulation
     - Math
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1680. Concatenation of Consecutive Binary Numbers](https://leetcode.com/problems/concatenation-of-consecutive-binary-numbers)
 
 [中文文档](/solution/1600-1699/1680.Concatenation%20of%20Consecutive%20Binary%20Numbers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, return <em>the <strong>decimal value</strong> of the binary string formed by concatenating the binary representations of </em><code>1</code><em> to </em><code>n</code><em> in order, <strong>modulo </strong></em><code>10<sup>9 </sup>+ 7</code>.</p>
 
@@ -52,7 +57,11 @@ After modulo 10<sup>9</sup> + 7, the result is 505379714.
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -61,6 +70,8 @@ By observing the pattern of number concatenation, we can find that when concaten
 The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +82,8 @@ class Solution:
             ans = (ans << i.bit_length() | i) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func concatenatedBinary(n int) (ans int) {
 	const mod = 1e9 + 7
@@ -108,6 +125,8 @@ func concatenatedBinary(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function concatenatedBinary(n: number): number {
@@ -126,9 +145,15 @@ function concatenatedBinary(n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -141,6 +166,8 @@ class Solution:
             ans = (ans << shift | i) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +185,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -177,6 +206,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func concatenatedBinary(n int) (ans int) {
 	const mod = 1e9 + 7
@@ -193,4 +224,6 @@ func concatenatedBinary(n int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

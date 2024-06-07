@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2974.Minimum%20Number%20Game/README_EN.md
 rating: 1184
+source: Weekly Contest 377 Q1
 tags:
     - Array
     - Sorting
@@ -10,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2974. Minimum Number Game](https://leetcode.com/problems/minimum-number-game)
 
 [中文文档](/solution/2900-2999/2974.Minimum%20Number%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of <strong>even</strong> length and there is also an empty array <code>arr</code>. Alice and Bob decided to play a game where in every round Alice and Bob will do one move. The rules of the game are as follows:</p>
 
@@ -53,7 +58,11 @@ At the begining of round two, nums = [5,4]. Now, first Alice removes 4 and then 
 	<li><code>nums.length % 2 == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation + Priority Queue (Min Heap)
 
@@ -62,6 +71,8 @@ We can put the elements in the array $nums$ into a min heap one by one, and each
 Time complexity is $O(n \times \log n)$, and space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +85,8 @@ class Solution:
             ans.append(a)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberGame(nums []int) (ans []int) {
@@ -144,6 +161,8 @@ func (h *hp) Push(x interface{}) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberGame(nums: number[]): number[] {
     const pq = new MinPriorityQueue();
@@ -159,6 +178,8 @@ function numberGame(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::BinaryHeap;
@@ -188,6 +209,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Swapping
 
 We can sort the array $nums$, and then swap the positions of every two adjacent elements in sequence to get the answer array.
@@ -195,6 +220,8 @@ We can sort the array $nums$, and then swap the positions of every two adjacent 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -204,6 +231,8 @@ class Solution:
             nums[i], nums[i + 1] = nums[i + 1], nums[i]
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -219,6 +248,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -233,6 +264,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberGame(nums []int) []int {
 	sort.Ints(nums)
@@ -243,6 +276,8 @@ func numberGame(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberGame(nums: number[]): number[] {
     nums.sort((a, b) => a - b);
@@ -252,6 +287,8 @@ function numberGame(nums: number[]): number[] {
     return nums;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -268,4 +305,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

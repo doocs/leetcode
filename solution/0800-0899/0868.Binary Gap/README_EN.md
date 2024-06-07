@@ -6,11 +6,15 @@ tags:
     - Bit Manipulation
 ---
 
+<!-- problem:start -->
+
 # [868. Binary Gap](https://leetcode.com/problems/binary-gap)
 
 [中文文档](/solution/0800-0899/0868.Binary%20Gap/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a positive integer <code>n</code>, find and return <em>the <strong>longest distance</strong> between any two <strong>adjacent</strong> </em><code>1</code><em>&#39;s in the binary representation of </em><code>n</code><em>. If there are no two adjacent </em><code>1</code><em>&#39;s, return </em><code>0</code><em>.</em></p>
 
@@ -53,11 +57,17 @@ There are not any adjacent pairs of 1&#39;s in the binary representation of 8, s
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +81,8 @@ class Solution:
             n >>= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func binaryGap(n int) int {
 	ans := 0
@@ -119,6 +135,8 @@ func binaryGap(n int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function binaryGap(n: number): number {
@@ -136,6 +154,8 @@ function binaryGap(n: number): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -160,4 +180,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

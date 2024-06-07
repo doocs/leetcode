@@ -6,11 +6,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [941. Valid Mountain Array](https://leetcode.com/problems/valid-mountain-array)
 
 [中文文档](/solution/0900-0999/0941.Valid%20Mountain%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>arr</code>, return <em><code>true</code> if and only if it is a valid mountain array</em>.</p>
 
@@ -45,7 +49,11 @@ tags:
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -56,6 +64,8 @@ Then, we use a pointer $i$ to move from the left end of the array to the right, 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +80,8 @@ class Solution:
             j -= 1
         return i == j
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validMountainArray(arr []int) bool {
 	n := len(arr)
@@ -126,6 +142,8 @@ func validMountainArray(arr []int) bool {
 	return i == j
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validMountainArray(arr: number[]): boolean {
@@ -146,4 +164,6 @@ function validMountainArray(arr: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

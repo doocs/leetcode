@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1583.Count%20Unhappy%20Friends/README_EN.md
 rating: 1658
+source: Weekly Contest 206 Q2
 tags:
     - Array
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [1583. Count Unhappy Friends](https://leetcode.com/problems/count-unhappy-friends)
 
 [中文文档](/solution/1500-1599/1583.Count%20Unhappy%20Friends/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a list of&nbsp;<code>preferences</code>&nbsp;for&nbsp;<code>n</code>&nbsp;friends, where <code>n</code> is always <strong>even</strong>.</p>
 
@@ -78,11 +83,17 @@ Friends 0 and 2 are happy.
 	<li>Each person is contained in <strong>exactly one</strong> pair.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +111,8 @@ class Solution:
             ans += any(d[u][x] < d[u][p[u]] for u in preferences[x][: d[x][y]])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +146,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -168,6 +183,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func unhappyFriends(n int, preferences [][]int, pairs [][]int) (ans int) {
 	d := make([][]int, n)
@@ -201,4 +218,6 @@ func unhappyFriends(n int, preferences [][]int, pairs [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

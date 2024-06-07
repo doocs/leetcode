@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README_EN.md
 rating: 2016
+source: Weekly Contest 380 Q4
 tags:
     - Two Pointers
     - String
@@ -12,11 +13,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [3008. Find Beautiful Indices in the Given Array II](https://leetcode.com/problems/find-beautiful-indices-in-the-given-array-ii)
 
 [中文文档](/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code>, a string <code>a</code>, a string <code>b</code>, and an integer <code>k</code>.</p>
 
@@ -67,11 +72,17 @@ Thus we return [0] as the result.
 	<li><code>s</code>, <code>a</code>, and <code>b</code> contain only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -124,6 +135,8 @@ class Solution:
             i += 1
         return res
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -227,6 +240,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -294,6 +309,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 func beautifulIndices(s string, a string, b string, k int) []int {
@@ -383,4 +400,6 @@ func beautifulIndices(s string, a string, b string, k int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

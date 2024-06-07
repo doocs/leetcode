@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20041.%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E5%B9%B3%E5%9D%87%E5%80%BC/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 041. 滑动窗口的平均值](https://leetcode.cn/problems/qIsx9U)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数据流和一个窗口大小，根据该滑动窗口的大小，计算滑动窗口里所有数字的平均值。</p>
 
@@ -51,11 +53,17 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 
 <p><meta charset="UTF-8" />注意：本题与主站 346&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/moving-average-from-data-stream/">https://leetcode.cn/problems/moving-average-from-data-stream/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：循环数组
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MovingAverage:
@@ -76,6 +84,8 @@ class MovingAverage:
 # obj = MovingAverage(size)
 # param_1 = obj.next(val)
 ```
+
+#### Java
 
 ```java
 class MovingAverage {
@@ -102,6 +112,8 @@ class MovingAverage {
  * double param_1 = obj.next(val);
  */
 ```
+
+#### C++
 
 ```cpp
 class MovingAverage {
@@ -131,6 +143,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MovingAverage struct {
 	arr []int
@@ -158,11 +172,47 @@ func (this *MovingAverage) Next(val int) float64 {
  */
 ```
 
+#### Swift
+
+```swift
+class MovingAverage {
+    private var arr: [Int]
+    private var s: Int
+    private var cnt: Int
+
+    init(_ size: Int) {
+        arr = [Int](repeating: 0, count: size)
+        s = 0
+        cnt = 0
+    }
+
+    func next(_ val: Int) -> Double {
+        let idx = cnt % arr.count
+        s += val - arr[idx]
+        arr[idx] = val
+        cnt += 1
+        return Double(s) / Double(min(cnt, arr.count))
+    }
+}
+
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * let obj = MovingAverage(size)
+ * let param_1 = obj.next(val)
+ */
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：队列
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MovingAverage:
@@ -183,6 +233,8 @@ class MovingAverage:
 # obj = MovingAverage(size)
 # param_1 = obj.next(val)
 ```
+
+#### Java
 
 ```java
 class MovingAverage {
@@ -210,6 +262,8 @@ class MovingAverage {
  * double param_1 = obj.next(val);
  */
 ```
+
+#### C++
 
 ```cpp
 class MovingAverage {
@@ -241,6 +295,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MovingAverage struct {
 	q []int
@@ -271,4 +327,6 @@ func (this *MovingAverage) Next(val int) float64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

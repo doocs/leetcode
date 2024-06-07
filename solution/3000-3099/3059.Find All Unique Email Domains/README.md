@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3059. 找到所有不同的邮件域名 🔒](https://leetcode.cn/problems/find-all-unique-email-domains)
 
 [English Version](/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Emails</code></p>
 
@@ -62,13 +64,19 @@ Emails 表：
 输出表以 email_domains 升序排列。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用 `SUBSTRING_INDEX` 函数 + 分组统计
 
 我们先筛选出所有以 `.com` 结尾的邮箱，然后使用 `SUBSTRING_INDEX` 函数提取出邮箱的域名，最后使用 `GROUP BY` 统计每个域名的个数。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -78,6 +86,8 @@ WHERE email LIKE '%.com'
 GROUP BY 1
 ORDER BY 1;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -96,4 +106,6 @@ def find_unique_email_domains(emails: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

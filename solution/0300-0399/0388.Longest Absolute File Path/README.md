@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [388. 文件的最长绝对路径](https://leetcode.cn/problems/longest-absolute-file-path)
 
 [English Version](/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假设有一个同时存储文件和目录的文件系统。下图展示了文件系统的一个示例：</p>
 
@@ -85,11 +87,17 @@ dir
 	<li><code>input</code> 可能包含小写或大写的英文字母，一个换行符 <code>'\n'</code>，一个制表符 <code>'\t'</code>，一个点 <code>'.'</code>，一个空格 <code>' '</code>，和数字。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -127,6 +135,8 @@ class Solution:
 
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -173,6 +183,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -218,6 +230,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lengthLongestPath(input string) int {
 	i, n := 0, len(input)
@@ -261,4 +275,6 @@ func lengthLongestPath(input string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

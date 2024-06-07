@@ -11,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2371. 最小化网格中的最大值 🔒](https://leetcode.cn/problems/minimize-maximum-value-in-a-grid)
 
 [English Version](/solution/2300-2399/2371.Minimize%20Maximum%20Value%20in%20a%20Grid/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个包含&nbsp;<strong>不同&nbsp;</strong>正整数的 <code>m × n</code> 整数矩阵 <code>grid</code>。</p>
 
@@ -66,7 +68,11 @@ tags:
 	<li><code>grid</code> 由不同的整数组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 贪心
 
@@ -79,6 +85,8 @@ tags:
 时间复杂度 $O(mn\log mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 是矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +102,8 @@ class Solution:
             row_max[i] = col_max[j] = ans[i][j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minScore(grid [][]int) [][]int {
@@ -170,6 +184,8 @@ func minScore(grid [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minScore(grid: number[][]): number[][] {
     const m = grid.length;
@@ -194,4 +210,6 @@ function minScore(grid: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

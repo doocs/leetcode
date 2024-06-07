@@ -10,11 +10,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [95. Unique Binary Search Trees II](https://leetcode.com/problems/unique-binary-search-trees-ii)
 
 [中文文档](/solution/0000-0099/0095.Unique%20Binary%20Search%20Trees%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, return <em>all the structurally unique <strong>BST&#39;</strong>s (binary search trees), which has exactly </em><code>n</code><em> nodes of unique values from</em> <code>1</code> <em>to</em> <code>n</code>. Return the answer in <strong>any order</strong>.</p>
 
@@ -40,7 +44,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 8</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS (Depth-First Search)
 
@@ -54,6 +62,8 @@ The execution steps of the function $dfs(i, j)$ are as follows:
 The time complexity is $O(n \times G(n))$, and the space complexity is $O(n \times G(n))$. Where $G(n)$ is the Catalan number.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -78,6 +88,8 @@ class Solution:
 
         return dfs(1, n)
 ```
+
+#### Java
 
 ```java
 /**
@@ -120,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -156,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -186,6 +202,8 @@ func generateTrees(n int) []*TreeNode {
 	return dfs(1, n)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -222,6 +240,8 @@ function generateTrees(n: number): Array<TreeNode | null> {
     return dfs(1, n);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -281,4 +301,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

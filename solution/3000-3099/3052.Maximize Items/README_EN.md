@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3052. Maximize Items 🔒](https://leetcode.com/problems/maximize-items)
 
 [中文文档](/solution/3000-3099/3052.Maximize%20Items/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <font face="monospace"><code>Inventory</code></font></p>
 
@@ -74,7 +78,11 @@ Inventory table:
 - In the not_prime category, there are a total of 4 items with a combined square footage of 128.50. After deducting the storage used by prime-eligible items (500,000 - 499,680 = 320), there is room for 2 combinations of non-prime items, accommodating a total of 8 non-prime items within the available 320 square footage.
 Output table is ordered by item count in descending order.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Join Query + Union All
 
@@ -83,6 +91,8 @@ First, we calculate the total area of all items of type `prime_eligible` and rec
 Next, we calculate the number of items of type `prime_eligible` and `not_prime` respectively. For items of type `prime_eligible`, the number of portions we can store is $\lfloor \frac{500000}{s} \rfloor$. For items of type `not_prime`, the number of portions we can store is $\lfloor \frac{500000 \mod s}{\sum \text{s1}} \rfloor$. Where $\sum \text{s1}$ is the total area of all items of type `not_prime`. Multiplying by the number of items of type `prime_eligible` and `not_prime` respectively gives us our result.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -111,4 +121,6 @@ WHERE item_type = 'not_prime';
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

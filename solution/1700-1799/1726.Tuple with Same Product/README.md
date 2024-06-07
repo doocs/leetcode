@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1726.Tuple%20with%20Same%20Product/README.md
 rating: 1530
+source: 第 224 场周赛 Q2
 tags:
     - 数组
     - 哈希表
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [1726. 同积元组](https://leetcode.cn/problems/tuple-with-same-product)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由 <strong>不同</strong> 正整数组成的数组 <code>nums</code> ，请你返回满足&nbsp;<code>a * b = c * d</code> 的元组<em> </em><code>(a, b, c, d)</code><em> </em>的数量。其中 <code>a</code>、<code>b</code>、<code>c</code> 和 <code>d</code> 都是 <code>nums</code> 中的元素，且 <code>a != b != c != d</code> 。</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>nums</code> 中的所有元素 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：组合数 + 哈希表
 
@@ -65,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def tupleSameProduct(self, nums: List[int]) -> int:
@@ -75,6 +84,8 @@ class Solution:
                 cnt[x] += 1
         return sum(v * (v - 1) // 2 for v in cnt.values()) << 3
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func tupleSameProduct(nums []int) int {
 	cnt := map[int]int{}
@@ -132,6 +147,8 @@ func tupleSameProduct(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function tupleSameProduct(nums: number[]): number {
     const cnt: Map<number, number> = new Map();
@@ -148,6 +165,8 @@ function tupleSameProduct(nums: number[]): number {
     return ans << 3;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -175,4 +194,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3056. 快照分析 🔒](https://leetcode.cn/problems/snaps-analysis)
 
 [English Version](/solution/3000-3099/3056.Snaps%20Analysis/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Activities</code></p>
 
@@ -103,13 +105,19 @@ Age 表：
 输出表中的所有百分比舍入到两位。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：等值连接 + 分组求和
 
 我们可以通过等值连接，将 `Activities` 表和 `Age` 表按照 `user_id` 进行连接，然后再按照 `age_bucket` 进行分组，最后计算每个年龄段的发送和打开的百分比。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -122,6 +130,8 @@ FROM
     JOIN Age USING (user_id)
 GROUP BY 1;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -149,4 +159,6 @@ def snap_analysis(activities: pd.DataFrame, age: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

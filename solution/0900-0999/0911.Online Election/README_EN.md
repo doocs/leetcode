@@ -9,11 +9,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [911. Online Election](https://leetcode.com/problems/online-election)
 
 [中文文档](/solution/0900-0999/0911.Online%20Election/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integer arrays <code>persons</code> and <code>times</code>. In an election, the <code>i<sup>th</sup></code> vote was cast for <code>persons[i]</code> at time <code>times[i]</code>.</p>
 
@@ -60,7 +64,11 @@ topVotedCandidate.q(8); // return 1
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>q</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -73,6 +81,8 @@ During the query, we use binary search to find the largest moment less than or e
 In terms of time complexity, during initialization, we need $O(n)$ time, and during the query, we need $O(\log n)$ time. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class TopVotedCandidate:
@@ -97,6 +107,8 @@ class TopVotedCandidate:
 # obj = TopVotedCandidate(persons, times)
 # param_1 = obj.q(t)
 ```
+
+#### Java
 
 ```java
 class TopVotedCandidate {
@@ -132,6 +144,8 @@ class TopVotedCandidate {
  * int param_1 = obj.q(t);
  */
 ```
+
+#### C++
 
 ```cpp
 class TopVotedCandidate {
@@ -169,6 +183,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type TopVotedCandidate struct {
 	times []int
@@ -201,6 +217,8 @@ func (this *TopVotedCandidate) Q(t int) int {
  * param_1 := obj.Q(t);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class TopVotedCandidate {
@@ -251,4 +269,6 @@ class TopVotedCandidate {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

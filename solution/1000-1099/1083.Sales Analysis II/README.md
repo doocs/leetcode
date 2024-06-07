@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1083. 销售分析 II 🔒](https://leetcode.cn/problems/sales-analysis-ii)
 
 [English Version](/solution/1000-1099/1083.Sales%20Analysis%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Product</code></p>
 
@@ -89,13 +91,19 @@ Product table:
 id 为 1 的买家购买了一部 S8，但是却没有购买 iPhone，而 id 为 3 的买家却同时购买了这 2 部手机。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：JOIN + GROUP BY + HAVING
 
 我们先将 `Sales` 表和 `Product` 表连接起来，然后根据 `buyer_id` 分组，最后用 `HAVING` 子句筛选出购买了 S8 却没有购买 iPhone 的买家。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -109,4 +117,6 @@ HAVING SUM(product_name = 'S8') > 0 AND SUM(product_name = 'iPhone') = 0;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

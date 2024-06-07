@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2458.Height%20of%20Binary%20Tree%20After%20Subtree%20Removal%20Queries/README_EN.md
 rating: 2298
+source: Weekly Contest 317 Q4
 tags:
     - Tree
     - Depth-First Search
@@ -11,11 +12,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2458. Height of Binary Tree After Subtree Removal Queries](https://leetcode.com/problems/height-of-binary-tree-after-subtree-removal-queries)
 
 [中文文档](/solution/2400-2499/2458.Height%20of%20Binary%20Tree%20After%20Subtree%20Removal%20Queries/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>root</code> of a <strong>binary tree</strong> with <code>n</code> nodes. Each node is assigned a unique value from <code>1</code> to <code>n</code>. You are also given an array <code>queries</code> of size <code>m</code>.</p>
 
@@ -70,7 +75,11 @@ The height of the tree is 2 (The path 1 -&gt; 3 -&gt; 2).
 	<li><code>queries[i] != root.val</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two DFS Traversals
 
@@ -97,6 +106,8 @@ Finally, we return the result values corresponding to each query node.
 The time complexity is $O(n+m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the number of nodes in the tree and the number of queries, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -128,6 +139,8 @@ class Solution:
         dfs(root, -1, 0)
         return [res[v] for v in queries]
 ```
+
+#### Java
 
 ```java
 /**
@@ -183,6 +196,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -221,6 +236,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -264,4 +281,6 @@ func treeQueries(root *TreeNode, queries []int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

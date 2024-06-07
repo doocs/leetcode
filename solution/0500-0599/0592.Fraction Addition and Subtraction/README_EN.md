@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [592. Fraction Addition and Subtraction](https://leetcode.com/problems/fraction-addition-and-subtraction)
 
 [中文文档](/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>expression</code> representing an expression of fraction addition and subtraction, return the calculation result in string format.</p>
 
@@ -51,11 +55,17 @@ tags:
 	<li>The numerator and denominator of the <strong>final result</strong> are guaranteed to be valid and in the range of <strong>32-bit</strong> int.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +89,8 @@ class Solution:
         y //= z
         return f'{x}/{y}'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func fractionAddition(expression string) string {
@@ -160,4 +174,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

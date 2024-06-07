@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [611. Valid Triangle Number](https://leetcode.com/problems/valid-triangle-number)
 
 [中文文档](/solution/0600-0699/0611.Valid%20Triangle%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, return <em>the number of triplets chosen from the array that can make triangles if we take them as side lengths of a triangle</em>.</p>
 
@@ -45,11 +49,17 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +72,8 @@ class Solution:
                 ans += k - j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func triangleNumber(nums []int) int {
@@ -124,6 +140,8 @@ func triangleNumber(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function triangleNumber(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -144,6 +162,8 @@ function triangleNumber(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -170,9 +190,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -200,4 +226,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

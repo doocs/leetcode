@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [788. Rotated Digits](https://leetcode.com/problems/rotated-digits)
 
 [中文文档](/solution/0700-0799/0788.Rotated%20Digits/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An integer <code>x</code> is a <strong>good</strong> if after rotating each digit individually by 180 degrees, we get a valid number that is different from <code>x</code>. Each digit must be rotated - we cannot choose to leave it alone.</p>
 
@@ -57,11 +61,17 @@ Note that 1 and 10 are not good numbers, since they remain unchanged after rotat
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +91,8 @@ class Solution:
         d = [0, 1, 5, -1, -1, 2, 9, -1, 8, 6]
         return sum(check(i) for i in range(1, n + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rotatedDigits(n int) int {
 	d := []int{0, 1, 5, -1, -1, 2, 9, -1, 8, 6}
@@ -171,9 +187,15 @@ func rotatedDigits(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -199,6 +221,8 @@ class Solution:
             l += 1
         return dfs(l, 0, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -242,6 +266,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -282,6 +308,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rotatedDigits(n int) int {
@@ -330,4 +358,6 @@ func rotatedDigits(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

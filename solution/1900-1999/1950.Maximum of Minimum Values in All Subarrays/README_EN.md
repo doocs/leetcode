@@ -8,11 +8,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [1950. Maximum of Minimum Values in All Subarrays 🔒](https://leetcode.com/problems/maximum-of-minimum-values-in-all-subarrays)
 
 [中文文档](/solution/1900-1999/1950.Maximum%20of%20Minimum%20Values%20in%20All%20Subarrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> of size <code>n</code>. You are asked to solve <code>n</code> queries for each integer <code>i</code> in the range <code>0 &lt;= i &lt; n</code>.</p>
 
@@ -77,11 +81,17 @@ i=3:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +121,8 @@ class Solution:
             ans[i] = max(ans[i], ans[i + 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +165,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -192,6 +206,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMaximums(nums []int) []int {
@@ -236,4 +252,6 @@ func findMaximums(nums []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

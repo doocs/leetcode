@@ -11,11 +11,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [839. Similar String Groups](https://leetcode.com/problems/similar-string-groups)
 
 [中文文档](/solution/0800-0899/0839.Similar%20String%20Groups/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Two strings, <code>X</code> and <code>Y</code>, are considered similar if either they are identical or we can make them equivalent by swapping at most two letters (in distinct positions) within the string <code>X</code>.</p>
 
@@ -50,11 +54,17 @@ tags:
 	<li>All words in <code>strs</code> have the same length and are anagrams of each other.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +82,8 @@ class Solution:
                     p[find(i)] = find(j)
         return sum(i == find(i) for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSimilarGroups(strs []string) int {
@@ -196,4 +212,6 @@ func numSimilarGroups(strs []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2570.Merge%20Two%202D%20Arrays%20by%20Summing%20Values/README_EN.md
 rating: 1281
+source: Weekly Contest 333 Q1
 tags:
     - Array
     - Hash Table
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [2570. Merge Two 2D Arrays by Summing Values](https://leetcode.com/problems/merge-two-2d-arrays-by-summing-values)
 
 [中文文档](/solution/2500-2599/2570.Merge%20Two%202D%20Arrays%20by%20Summing%20Values/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>2D</strong> integer arrays <code>nums1</code> and <code>nums2.</code></p>
 
@@ -65,7 +70,11 @@ tags:
 	<li>Both arrays are in&nbsp;strictly ascending order by id.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
 
@@ -77,6 +86,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(M)$. Where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mergeArrays(
@@ -87,6 +98,8 @@ class Solution:
             cnt[i] += v
         return sorted(cnt.items())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mergeArrays(nums1 [][]int, nums2 [][]int) (ans [][]int) {
 	cnt := [1001]int{}
@@ -154,6 +171,8 @@ func mergeArrays(nums1 [][]int, nums2 [][]int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mergeArrays(nums1: number[][], nums2: number[][]): number[][] {
@@ -174,6 +193,8 @@ function mergeArrays(nums1: number[][], nums2: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -202,4 +223,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

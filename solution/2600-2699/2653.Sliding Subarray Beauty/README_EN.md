@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README_EN.md
 rating: 1785
+source: Weekly Contest 342 Q3
 tags:
     - Array
     - Hash Table
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2653. Sliding Subarray Beauty](https://leetcode.com/problems/sliding-subarray-beauty)
 
 [中文文档](/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> containing <code>n</code> integers, find the <strong>beauty</strong> of each subarray of size <code>k</code>.</p>
 
@@ -72,7 +77,11 @@ For <code>[0, -3]</code>, the 1<sup>st</sup> smallest negative integer is -3.</p
 	<li><code>-50&nbsp;&lt;= nums[i] &lt;= 50&nbsp;</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -83,6 +92,8 @@ Next, we traverse the array $nums$, maintaining a sliding window of length $k$. 
 The time complexity is $O(n \times 50)$, and the space complexity is $O(100)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +117,8 @@ class Solution:
         return ans
 ```
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -120,6 +133,8 @@ class Solution:
             ans.append(sl[x - 1] if sl[x - 1] < 0 else 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +200,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getSubarrayBeauty(nums []int, k int, x int) []int {
 	n := len(nums)
@@ -210,6 +229,8 @@ func getSubarrayBeauty(nums []int, k int, x int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getSubarrayBeauty(nums: number[], k: number, x: number): number[] {
@@ -241,6 +262,10 @@ function getSubarrayBeauty(nums: number[], k: number, x: number): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Double Priority Queue (Min-Max Heap) + Delayed Deletion
 
 We can use two priority queues (min-max heap) to maintain the elements in the current window, one priority queue stores the smaller $x$ elements in the current window, and the other priority queue stores the larger $k - x$ elements in the current window. We also need a delayed deletion dictionary `delayed` to record whether the elements in the current window need to be deleted.
@@ -270,6 +295,8 @@ Similar problems:
 -   [480. Sliding Window Median](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0480.Sliding%20Window%20Median/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MedianFinder:
@@ -341,6 +368,8 @@ class Solution:
             ans.append(finder.find())
         return ans
 ```
+
+#### Java
 
 ```java
 class MedianFinder {
@@ -434,6 +463,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class MedianFinder {
@@ -533,6 +564,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type MedianFinder struct {
@@ -643,4 +676,6 @@ func getSubarrayBeauty(nums []int, k int, x int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

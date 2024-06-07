@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2082.%20%E4%B8%87%E7%81%B5%E4%B9%8B%E6%A0%91/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 82. 万灵之树](https://leetcode.cn/problems/cnHoX6)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 探险家小扣终于来到了万灵之树前，挑战最后的谜题。
 已知小扣拥有足够数量的链接节点和 `n` 颗幻境宝石，`gem[i]` 表示第 `i` 颗宝石的数值。现在小扣需要使用这些链接节点和宝石组合成一颗二叉树，其组装规则为：
@@ -69,6 +71,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2082.%20%E4%B8%87%
 -   `0 <= target < p`
 -   存在 2 组 `gem.length == 9` 的用例
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

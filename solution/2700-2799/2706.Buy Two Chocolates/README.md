@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2706.Buy%20Two%20Chocolates/README.md
 rating: 1207
+source: 第 105 场双周赛 Q1
 tags:
     - 数组
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [2706. 购买两块巧克力](https://leetcode.cn/problems/buy-two-chocolates)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>prices</code>&nbsp;，它表示一个商店里若干巧克力的价格。同时给你一个整数&nbsp;<code>money</code>&nbsp;，表示你一开始拥有的钱数。</p>
 
@@ -48,7 +51,11 @@ tags:
 	<li><code>1 &lt;= money &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -58,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def buyChoco(self, prices: List[int], money: int) -> int:
@@ -65,6 +74,8 @@ class Solution:
         cost = prices[0] + prices[1]
         return money if money < cost else money - cost
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +86,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -87,6 +100,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func buyChoco(prices []int, money int) int {
 	sort.Ints(prices)
@@ -98,6 +113,8 @@ func buyChoco(prices []int, money int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function buyChoco(prices: number[], money: number): number {
     prices.sort((a, b) => a - b);
@@ -105,6 +122,8 @@ function buyChoco(prices: number[], money: number): number {
     return money < cost ? money : money - cost;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -121,6 +140,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：一次遍历
 
 我们可以在一次遍历中找到最小的两个价格，然后计算花费。
@@ -128,6 +151,8 @@ impl Solution {
 时间复杂度 $O(n)$，其中 $n$ 是数组 `prices` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -141,6 +166,8 @@ class Solution:
         cost = a + b
         return money if money < cost else money - cost
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +187,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -178,6 +207,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func buyChoco(prices []int, money int) int {
@@ -197,6 +228,8 @@ func buyChoco(prices []int, money int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function buyChoco(prices: number[], money: number): number {
     let [a, b] = [1000, 1000];
@@ -212,6 +245,8 @@ function buyChoco(prices: number[], money: number): number {
     return money < cost ? money : money - cost;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -238,4 +273,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

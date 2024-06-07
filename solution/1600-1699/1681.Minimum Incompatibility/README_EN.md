@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1681.Minimum%20Incompatibility/README_EN.md
 rating: 2389
+source: Weekly Contest 218 Q4
 tags:
     - Bit Manipulation
     - Array
@@ -10,11 +11,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1681. Minimum Incompatibility](https://leetcode.com/problems/minimum-incompatibility)
 
 [中文文档](/solution/1600-1699/1681.Minimum%20Incompatibility/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>​​​ and an integer <code>k</code>. You are asked to distribute this array into <code>k</code> subsets of <strong>equal size</strong> such that there are no two equal elements in the same subset.</p>
 
@@ -60,7 +65,11 @@ The incompatibility is (2-1) + (3-2) + (8-6) + (3-1) = 6.
 	<li><code>1 &lt;= nums[i] &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + State Compression + Dynamic Programming
 
@@ -79,6 +88,8 @@ Finally, if $f[2^n-1]=+\infty$, it means that it cannot be partitioned into $k$ 
 The time complexity is $O(3^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -120,6 +131,8 @@ class Solution:
                 j = (j - 1) & mask
         return f[-1] if f[-1] != inf else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -177,6 +190,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -233,6 +248,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumIncompatibility(nums []int, k int) int {
@@ -293,6 +310,8 @@ func minimumIncompatibility(nums []int, k int) int {
 	return f[1<<n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumIncompatibility(nums: number[], k: number): number {
@@ -355,6 +374,8 @@ function bitCount(i: number): number {
     return i & 0x3f;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -424,9 +445,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -455,4 +482,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

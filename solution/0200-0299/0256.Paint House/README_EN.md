@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [256. Paint House 🔒](https://leetcode.com/problems/paint-house)
 
 [中文文档](/solution/0200-0299/0256.Paint%20House/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a row of <code>n</code> houses, where each house can be painted one of three colors: red, blue, or green. The cost of painting each house with a certain color is different. You have to paint all the houses such that no two adjacent houses have the same color.</p>
 
@@ -50,11 +54,17 @@ Minimum cost: 2 + 5 + 3 = 10.
 	<li><code>1 &lt;= costs[i][j] &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +74,8 @@ class Solution:
             a, b, c = min(b, c) + ca, min(a, c) + cb, min(a, b) + cc
         return min(a, b, c)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(costs [][]int) int {
 	r, g, b := 0, 0, 0
@@ -108,6 +124,8 @@ func minCost(costs [][]int) int {
 	return min(r, min(g, b))
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -125,4 +143,6 @@ var minCost = function (costs) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

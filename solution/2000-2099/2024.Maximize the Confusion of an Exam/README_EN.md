@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README_EN.md
 rating: 1643
+source: Biweekly Contest 62 Q3
 tags:
     - String
     - Binary Search
@@ -10,11 +11,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2024. Maximize the Confusion of an Exam](https://leetcode.com/problems/maximize-the-confusion-of-an-exam)
 
 [中文文档](/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A teacher is writing a test with <code>n</code> true/false questions, with <code>&#39;T&#39;</code> denoting true and <code>&#39;F&#39;</code> denoting false. He wants to confuse the students by <strong>maximizing</strong> the number of <strong>consecutive</strong> questions with the <strong>same</strong> answer (multiple trues or multiple falses in a row).</p>
 
@@ -66,7 +71,11 @@ In both cases, there are five consecutive &#39;T&#39;s.
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -77,6 +86,8 @@ We use two pointers to maintain a range $[j, i]$ such that the number of charact
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +105,8 @@ class Solution:
 
         return max(f("T"), f("F"))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxConsecutiveAnswers(answerKey string, k int) int {
@@ -163,6 +180,8 @@ func maxConsecutiveAnswers(answerKey string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxConsecutiveAnswers(answerKey: string, k: number): number {
     const n = answerKey.length;
@@ -180,6 +199,8 @@ function maxConsecutiveAnswers(answerKey: string, k: number): number {
     return Math.max(f('T'), f('F'));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -206,4 +227,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

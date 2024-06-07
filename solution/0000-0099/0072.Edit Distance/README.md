@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [72. 编辑距离](https://leetcode.cn/problems/edit-distance)
 
 [English Version](/solution/0000-0099/0072.Edit%20Distance/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个单词&nbsp;<code>word1</code> 和&nbsp;<code>word2</code>， <em>请返回将&nbsp;<code>word1</code>&nbsp;转换成&nbsp;<code>word2</code> 所使用的最少操作数</em> &nbsp;。</p>
 
@@ -60,7 +62,11 @@ exection -&gt; execution (插入 'u')
 	<li><code>word1</code> 和 <code>word2</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -88,6 +94,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
@@ -104,6 +112,8 @@ class Solution:
                     f[i][j] = min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minDistance(word1 string, word2 string) int {
 	m, n := len(word1), len(word2)
@@ -176,6 +190,8 @@ func minDistance(word1 string, word2 string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minDistance(word1: string, word2: string): number {
     const m = word1.length;
@@ -199,6 +215,8 @@ function minDistance(word1: string, word2: string): number {
     return f[m][n];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -231,4 +249,6 @@ var minDistance = function (word1, word2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

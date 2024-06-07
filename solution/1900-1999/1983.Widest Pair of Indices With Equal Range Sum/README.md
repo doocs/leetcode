@@ -8,13 +8,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [1983. 范围和相等的最宽索引对 🔒](https://leetcode.cn/problems/widest-pair-of-indices-with-equal-range-sum)
 
 [English Version](/solution/1900-1999/1983.Widest%20Pair%20of%20Indices%20With%20Equal%20Range%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个 <strong>以0为索引</strong> 的二进制数组 <code>nums1</code> 和 <code>nums2</code> 。找出 <strong>最宽</strong> 的索引对 <code>(i, j)</code> ，使的&nbsp;<code>i &lt;= j</code>&nbsp;并且&nbsp;<code>nums1[i] + nums1[i+1] + ... + nums1[j] == nums2[i] + nums2[i+1] + ... + nums2[j]</code>。</p>
 
@@ -68,7 +70,11 @@ i和j之间的距离是j - i + 1 = 1 - 1 + 1 = 1。
 	<li><code>nums2[i]</code>&nbsp;仅为&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 哈希表
 
@@ -84,6 +90,8 @@ i和j之间的距离是j - i + 1 = 1 - 1 + 1 = 1。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def widestPairOfIndices(self, nums1: List[int], nums2: List[int]) -> int:
@@ -97,6 +105,8 @@ class Solution:
                 d[s] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func widestPairOfIndices(nums1 []int, nums2 []int) (ans int) {
 	d := map[int]int{0: -1}
@@ -155,6 +169,8 @@ func widestPairOfIndices(nums1 []int, nums2 []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function widestPairOfIndices(nums1: number[], nums2: number[]): number {
@@ -177,4 +193,6 @@ function widestPairOfIndices(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9810-%20I.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 10- I. 斐波那契数列](https://leetcode.cn/problems/fei-bo-na-qi-shu-lie-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>写一个函数，输入 <code>n</code> ，求斐波那契（Fibonacci）数列的第 <code>n</code> 项（即 <code>F(N)</code>）。斐波那契数列的定义如下：</p>
 
@@ -42,7 +46,11 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.</pre>
 	<li><code>0 <= n <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递推
 
@@ -52,6 +60,8 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fib(self, n: int) -> int:
@@ -60,6 +70,8 @@ class Solution:
             a, b = b, (a + b) % 1000000007
         return a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +86,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -90,6 +104,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fib(n int) int {
 	a, b := 0, 1
@@ -99,6 +115,8 @@ func fib(n int) int {
 	return a
 }
 ```
+
+#### TypeScript
 
 ```ts
 function fib(n: number): number {
@@ -112,6 +130,8 @@ function fib(n: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn fib(n: i32) -> i32 {
@@ -123,6 +143,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -139,6 +161,8 @@ var fib = function (n) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int Fib(int n) {
@@ -153,6 +177,27 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func fib(_ n: Int) -> Int {
+        var a = 0
+        var b = 1
+        var count = n
+        while count > 0 {
+            let c = (a + b) % 1000000007
+            a = b
+            b = c
+            count -= 1
+        }
+        return a
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

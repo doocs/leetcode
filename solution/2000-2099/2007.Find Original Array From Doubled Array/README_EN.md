@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2007.Find%20Original%20Array%20From%20Doubled%20Array/README_EN.md
 rating: 1557
+source: Biweekly Contest 61 Q2
 tags:
     - Greedy
     - Array
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2007. Find Original Array From Doubled Array](https://leetcode.com/problems/find-original-array-from-doubled-array)
 
 [中文文档](/solution/2000-2099/2007.Find%20Original%20Array%20From%20Doubled%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An integer array <code>original</code> is transformed into a <strong>doubled</strong> array <code>changed</code> by appending <strong>twice the value</strong> of every element in <code>original</code>, and then randomly <strong>shuffling</strong> the resulting array.</p>
 
@@ -57,7 +62,11 @@ Other original arrays could be [4,3,1] or [3,1,4].
 	<li><code>0 &lt;= changed[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -70,6 +79,8 @@ After the traversal, we return the answer array.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `changed`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +98,8 @@ class Solution:
             ans.append(x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findOriginalArray(changed []int) (ans []int) {
 	sort.Ints(changed)
@@ -165,6 +182,8 @@ func findOriginalArray(changed []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findOriginalArray(changed: number[]): number[] {
@@ -192,4 +211,6 @@ function findOriginalArray(changed: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

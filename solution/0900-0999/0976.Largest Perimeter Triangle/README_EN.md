@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [976. Largest Perimeter Triangle](https://leetcode.com/problems/largest-perimeter-triangle)
 
 [中文文档](/solution/0900-0999/0976.Largest%20Perimeter%20Triangle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, return <em>the largest perimeter of a triangle with a non-zero area, formed from three of these lengths</em>. If it is impossible to form any triangle of a non-zero area, return <code>0</code>.</p>
 
@@ -46,11 +50,17 @@ As we cannot use any three side lengths to form a triangle of non-zero area, we 
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +71,8 @@ class Solution:
                 return c + nums[i]
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +89,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -91,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestPerimeter(nums []int) int {
 	sort.Ints(nums)
@@ -103,6 +119,8 @@ func largestPerimeter(nums []int) int {
 	return 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestPerimeter(nums: number[]): number {
@@ -117,6 +135,8 @@ function largestPerimeter(nums: number[]): number {
     return 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -133,6 +153,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -152,4 +174,6 @@ int largestPerimeter(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

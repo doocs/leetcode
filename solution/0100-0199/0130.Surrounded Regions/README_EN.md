@@ -10,11 +10,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [130. Surrounded Regions](https://leetcode.com/problems/surrounded-regions)
 
 [中文文档](/solution/0100-0199/0130.Surrounded%20Regions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> matrix <code>board</code> containing <code>&#39;X&#39;</code> and <code>&#39;O&#39;</code>, <em>capture all regions that are 4-directionally&nbsp;surrounded by</em> <code>&#39;X&#39;</code>.</p>
 
@@ -50,7 +54,11 @@ The other three &#39;O&#39; form a surrounded region, so they are flipped.
 	<li><code>board[i][j]</code> is <code>&#39;X&#39;</code> or <code>&#39;O&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Depth-First Search (DFS)
 
@@ -64,6 +72,8 @@ Then we traverse the matrix again, for each position:
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +99,8 @@ class Solution:
                 elif board[i][j] == "O":
                     board[i][j] = "X"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -168,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func solve(board [][]byte) {
 	m, n := len(board), len(board[0])
@@ -202,6 +218,8 @@ func solve(board [][]byte) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function solve(board: string[][]): void {
     const m = board.length;
@@ -235,6 +253,8 @@ function solve(board: string[][]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -288,6 +308,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     private readonly int[] dirs = {-1, 0, 1, 0, -1};
@@ -334,6 +356,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Union-Find Set
 
 We can also use a union-find set, connecting each 'O' on the matrix boundary with a super node $m \times n$, and connecting each 'O' in the matrix with the 'O's above, below, left, and right of it.
@@ -343,6 +369,8 @@ Then we traverse this matrix, for each position, if it is 'O' and it is not conn
 The time complexity is $O(m \times n \times \alpha(m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the matrix, respectively, and $\alpha$ is the inverse Ackermann function.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -369,6 +397,8 @@ class Solution:
                 if board[i][j] == "O" and find(i * n + j) != find(m * n):
                     board[i][j] = "X"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -417,6 +447,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -455,6 +487,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func solve(board [][]byte) {
@@ -496,6 +530,8 @@ func solve(board [][]byte) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function solve(board: string[][]): void {
@@ -539,4 +575,6 @@ function solve(board: string[][]): void {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

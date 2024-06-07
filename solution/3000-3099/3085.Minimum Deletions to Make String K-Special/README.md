@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README.md
 rating: 1764
+source: 第 389 场周赛 Q3
 tags:
     - 贪心
     - 哈希表
@@ -11,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [3085. 成为 K 特殊字符串需要删除的最少字符数](https://leetcode.cn/problems/minimum-deletions-to-make-string-k-special)
 
 [English Version](/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>word</code> 和一个整数 <code>k</code>。</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li><code>word</code> 仅由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 枚举
 
@@ -84,6 +91,8 @@ tags:
 时间复杂度 $O(n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 为字符串长度；而 $|\Sigma|$ 为字符集大小，本题中 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +109,8 @@ class Solution:
         nums = Counter(word).values()
         return min(f(v) for v in range(len(word) + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +185,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumDeletions(word string, k int) int {
 	freq := [26]int{}
@@ -205,4 +220,6 @@ func minimumDeletions(word string, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

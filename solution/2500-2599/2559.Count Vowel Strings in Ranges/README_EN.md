@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README_EN.md
 rating: 1435
+source: Weekly Contest 331 Q2
 tags:
     - Array
     - String
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2559. Count Vowel Strings in Ranges](https://leetcode.com/problems/count-vowel-strings-in-ranges)
 
 [中文文档](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of strings <code>words</code> and a 2D array of integers <code>queries</code>.</p>
 
@@ -55,7 +60,11 @@ We return [2,3,0].
 	<li><code>0 &lt;= l<sub>i</sub> &lt;= r<sub>i</sub> &lt;&nbsp;words.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Binary Search
 
@@ -67,6 +76,8 @@ The time complexity is $O(n + m \times \log n)$, and the space complexity is $O(
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
@@ -74,6 +85,8 @@ class Solution:
         nums = [i for i, w in enumerate(words) if w[0] in vowels and w[-1] in vowels]
         return [bisect_right(nums, r) - bisect_left(nums, l) for l, r in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func vowelStrings(words []string, queries [][]int) []int {
 	vowels := map[byte]bool{'a': true, 'e': true, 'i': true, 'o': true, 'u': true}
@@ -151,6 +168,8 @@ func vowelStrings(words []string, queries [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function vowelStrings(words: string[], queries: number[][]): number[] {
@@ -180,6 +199,10 @@ function vowelStrings(words: string[], queries: number[][]): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Prefix Sum
 
 We can create a prefix sum array $s$ of length $n+1$, where $s[i]$ represents the number of strings that start and end with a vowel in the first $i$ strings of the array $words$. Initially, $s[0] = 0$.
@@ -192,6 +215,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
@@ -203,6 +228,8 @@ class Solution:
         )
         return [s[r + 1] - s[l] for l, r in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -224,6 +251,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -247,6 +276,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func vowelStrings(words []string, queries [][]int) []int {
 	vowels := map[byte]bool{'a': true, 'e': true, 'i': true, 'o': true, 'u': true}
@@ -268,6 +299,8 @@ func vowelStrings(words []string, queries [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function vowelStrings(words: string[], queries: number[][]): number[] {
     const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
@@ -286,4 +319,6 @@ function vowelStrings(words: string[], queries: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

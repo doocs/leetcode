@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2883.Drop%20Missing%20Data/README.md
 ---
 
+<!-- problem:start -->
+
 # [2883. 删去丢失的数据](https://leetcode.cn/problems/drop-missing-data)
 
 [English Version](/solution/2800-2899/2883.Drop%20Missing%20Data/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <pre>
 DataFrame students
@@ -54,11 +56,17 @@ DataFrame students
 <b>解释：
 </b>学号为 217 的学生所在行在 name 列中有空值，因此这一行将被删除。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -70,4 +78,6 @@ def dropMissingData(students: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

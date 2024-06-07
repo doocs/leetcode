@@ -7,11 +7,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [414. Third Maximum Number](https://leetcode.com/problems/third-maximum-number)
 
 [中文文档](/solution/0400-0499/0414.Third%20Maximum%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, return <em>the <strong>third distinct maximum</strong> number in this array. If the third maximum does not exist, return the <strong>maximum</strong> number</em>.</p>
 
@@ -60,11 +64,30 @@ The third distinct maximum is 1.
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Can you find an <code>O(n)</code> solution?
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Single Pass
+
+We can use three variables $m_1$, $m_2$, and $m_3$ to represent the first, second, and third largest numbers in the array respectively. Initially, we set these three variables to negative infinity.
+
+Then, we iterate through each number in the array. For each number:
+
+-   If it equals any of $m_1$, $m_2$, or $m_3$, we skip this number.
+-   If it is greater than $m_1$, we update the values of $m_1$, $m_2$, and $m_3$ to $m_2$, $m_3$, and this number respectively.
+-   If it is greater than $m_2$, we update the values of $m_2$ and $m_3$ to $m_3$ and this number respectively.
+-   If it is greater than $m_3$, we update the value of $m_3$ to this number.
+
+Finally, if the value of $m_3$ has not been updated, it means that there is no third largest number in the array, so we return $m_1$. Otherwise, we return $m_3$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `nums`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +104,8 @@ class Solution:
                 m3 = num
         return m3 if m3 != -inf else m1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +157,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func thirdMax(nums []int) int {
@@ -155,4 +184,6 @@ func thirdMax(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

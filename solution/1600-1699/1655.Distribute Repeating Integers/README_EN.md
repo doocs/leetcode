@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1655.Distribute%20Repeating%20Integers/README_EN.md
 rating: 2307
+source: Biweekly Contest 39 Q4
 tags:
     - Bit Manipulation
     - Array
@@ -11,11 +12,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1655. Distribute Repeating Integers](https://leetcode.com/problems/distribute-repeating-integers)
 
 [中文文档](/solution/1600-1699/1655.Distribute%20Repeating%20Integers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <code>n</code> integers, <code>nums</code>, where there are at most <code>50</code> unique values in the array. You are also given an array of <code>m</code> customer order quantities, <code>quantity</code>, where <code>quantity[i]</code> is the amount of integers the <code>i<sup>th</sup></code> customer ordered. Determine if it is possible to distribute <code>nums</code> such that:</p>
 
@@ -65,7 +70,11 @@ tags:
 	<li>There are at most <code>50</code> unique values in <code>nums</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression Dynamic Programming + Subset Enumeration
 
@@ -84,6 +93,8 @@ The answer is `f[n-1][2^m-1]`.
 The time complexity is `O(n * 3^m)`, and the space complexity is `O(n * 2^m)`. Here, `n` is the number of different integers in the array `nums`, and `m` is the length of the array `quantity`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -116,6 +127,8 @@ class Solution:
                     k = (k - 1) & j
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +177,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -215,6 +230,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canDistribute(nums []int, quantity []int) bool {
 	m := len(quantity)
@@ -260,6 +277,8 @@ func canDistribute(nums []int, quantity []int) bool {
 	return f[n-1][(1<<m)-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canDistribute(nums: number[], quantity: number[]): boolean {
@@ -308,4 +327,6 @@ function canDistribute(nums: number[], quantity: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

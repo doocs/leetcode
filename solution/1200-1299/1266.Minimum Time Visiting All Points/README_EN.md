@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1266.Minimum%20Time%20Visiting%20All%20Points/README_EN.md
 rating: 1302
+source: Weekly Contest 164 Q1
 tags:
     - Geometry
     - Array
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1266. Minimum Time Visiting All Points](https://leetcode.com/problems/minimum-time-visiting-all-points)
 
 [中文文档](/solution/1200-1299/1266.Minimum%20Time%20Visiting%20All%20Points/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>On a 2D plane, there are <code>n</code> points with integer coordinates <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>. Return <em>the <strong>minimum time</strong> in seconds to visit all the points in the order given by </em><code>points</code>.</p>
 
@@ -61,7 +66,11 @@ Total time = 7 seconds</pre>
 	<li><code>-1000&nbsp;&lt;= points[i][0], points[i][1]&nbsp;&lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -75,6 +84,8 @@ The time complexity is $O(n)$, where $n$ is the number of points. The space comp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minTimeToVisitAllPoints(self, points: List[List[int]]) -> int:
@@ -82,6 +93,8 @@ class Solution:
             max(abs(p1[0] - p2[0]), abs(p1[1] - p2[1])) for p1, p2 in pairwise(points)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minTimeToVisitAllPoints(points [][]int) (ans int) {
@@ -130,6 +147,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minTimeToVisitAllPoints(points: number[][]): number {
     let ans = 0;
@@ -141,6 +160,8 @@ function minTimeToVisitAllPoints(points: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -156,6 +177,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -173,4 +196,6 @@ int minTimeToVisitAllPoints(int** points, int pointsSize, int* pointsColSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

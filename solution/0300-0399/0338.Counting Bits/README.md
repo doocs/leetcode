@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [338. 比特位计数](https://leetcode.cn/problems/counting-bits)
 
 [English Version](/solution/0300-0399/0338.Counting%20Bits/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，对于&nbsp;<code>0 &lt;= i &lt;= n</code> 中的每个 <code>i</code> ，计算其二进制表示中 <strong><code>1</code> 的个数</strong> ，返回一个长度为 <code>n + 1</code> 的数组 <code>ans</code> 作为答案。</p>
 
@@ -65,7 +67,11 @@ tags:
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -75,11 +81,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countBits(self, n: int) -> List[int]:
         return [i.bit_count() for i in range(n + 1)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countBits(n int) []int {
 	ans := make([]int, n+1)
@@ -115,6 +129,8 @@ func countBits(n int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countBits(n: number): number[] {
@@ -137,6 +153,10 @@ function bitCount(n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们定义一个长度为 $n+1$ 的答案数组 $ans$，初始时 $ans[0]=0$。
@@ -147,6 +167,8 @@ function bitCount(n: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countBits(self, n: int) -> List[int]:
@@ -155,6 +177,8 @@ class Solution:
             ans[i] = ans[i & (i - 1)] + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +191,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -181,6 +207,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countBits(n int) []int {
 	ans := make([]int, n+1)
@@ -190,6 +218,8 @@ func countBits(n int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countBits(n: number): number[] {
@@ -203,4 +233,6 @@ function countBits(n: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

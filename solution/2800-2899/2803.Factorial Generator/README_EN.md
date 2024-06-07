@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2803.Factorial%20Generator/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2803. Factorial Generator 🔒](https://leetcode.com/problems/factorial-generator)
 
 [中文文档](/solution/2800-2899/2803.Factorial%20Generator/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a generator function that takes an integer <code>n</code> as an argument and returns a generator object which yields the <strong>factorial sequence</strong>.</p>
 
@@ -59,11 +63,17 @@ gen.next().value // 1
 	<li><code>0 &lt;= n &lt;= 18</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function* factorial(n: number): Generator<number> {
@@ -86,4 +96,6 @@ function* factorial(n: number): Generator<number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

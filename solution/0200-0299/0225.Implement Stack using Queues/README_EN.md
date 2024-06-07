@@ -8,11 +8,15 @@ tags:
     - Queue
 ---
 
+<!-- problem:start -->
+
 # [225. Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues)
 
 [中文文档](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement a last-in-first-out (LIFO) stack using only two queues. The implemented stack should support all the functions of a normal stack (<code>push</code>, <code>top</code>, <code>pop</code>, and <code>empty</code>).</p>
 
@@ -63,7 +67,11 @@ myStack.empty(); // return False
 <p>&nbsp;</p>
 <p><strong>Follow-up:</strong> Can you implement the stack using only one queue?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Queues
 
@@ -77,6 +85,8 @@ We use two queues $q_1$ and $q_2$, where $q_1$ is used to store the elements in 
 The space complexity is $O(n)$, where $n$ is the number of elements in the stack.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyStack:
@@ -107,6 +117,8 @@ class MyStack:
 # param_3 = obj.top()
 # param_4 = obj.empty()
 ```
+
+#### Java
 
 ```java
 import java.util.Deque;
@@ -150,6 +162,8 @@ class MyStack {
  * boolean param_4 = obj.empty();
  */
 ```
+
+#### C++
 
 ```cpp
 class MyStack {
@@ -195,6 +209,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MyStack struct {
 	q1 []int
@@ -238,6 +254,8 @@ func (this *MyStack) Empty() bool {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MyStack {
     q1: number[] = [];
@@ -275,6 +293,8 @@ class MyStack {
  * var param_4 = obj.empty()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -330,4 +350,6 @@ impl MyStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

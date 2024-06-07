@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1825.Finding%20MK%20Average/README_EN.md
 rating: 2395
+source: Weekly Contest 236 Q4
 tags:
     - Design
     - Queue
@@ -11,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1825. Finding MK Average](https://leetcode.com/problems/finding-mk-average)
 
 [中文文档](/solution/1800-1899/1825.Finding%20MK%20Average/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers, <code>m</code> and <code>k</code>, and a stream of integers. You are tasked to implement a data structure that calculates the <strong>MKAverage</strong> for the stream.</p>
 
@@ -72,7 +77,11 @@ obj.calculateMKAverage(); // The last 3 elements are [5,5,5].
 	<li>At most <code>10<sup>5</sup></code> calls will be made to <code>addElement</code> and <code>calculateMKAverage</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Ordered Set + Queue
 
@@ -97,6 +106,8 @@ When calling the $calculateMKAverage()$ function, if the length of $q$ is less t
 In terms of time complexity, each call to the $addElement(num)$ function has a time complexity of $O(\log m)$, and each call to the $calculateMKAverage()$ function has a time complexity of $O(1)$. The space complexity is $O(m)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -156,6 +167,8 @@ class MKAverage:
 # obj.addElement(num)
 # param_2 = obj.calculateMKAverage()
 ```
+
+#### Java
 
 ```java
 class MKAverage {
@@ -251,6 +264,8 @@ class MKAverage {
  */
 ```
 
+#### C++
+
 ```cpp
 class MKAverage {
 public:
@@ -326,6 +341,8 @@ private:
  * int param_2 = obj->calculateMKAverage();
  */
 ```
+
+#### Go
 
 ```go
 type MKAverage struct {
@@ -424,9 +441,15 @@ func (this *MKAverage) CalculateMKAverage() int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -477,4 +500,6 @@ class MKAverage:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [880. Decoded String at Index](https://leetcode.com/problems/decoded-string-at-index)
 
 [中文文档](/solution/0800-0899/0880.Decoded%20String%20at%20Index/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an encoded string <code>s</code>. To decode the string to a tape, the encoded string is read one character at a time and the following steps are taken:</p>
 
@@ -62,7 +66,11 @@ The 1<sup>st</sup> letter is &quot;a&quot;.
 	<li>The decoded string is guaranteed to have less than <code>2<sup>63</sup></code> letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Thinking
 
@@ -71,6 +79,8 @@ We can first calculate the total length $m$ of the decoded string, then traverse
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +100,8 @@ class Solution:
             else:
                 m -= 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func decodeAtIndex(s string, k int) string {
 	m := 0
@@ -167,6 +183,8 @@ func decodeAtIndex(s string, k int) string {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function decodeAtIndex(s: string, k: number): string {
@@ -196,4 +214,6 @@ function decodeAtIndex(s: string, k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

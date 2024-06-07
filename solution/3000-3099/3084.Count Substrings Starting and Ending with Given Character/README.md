@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3084.Count%20Substrings%20Starting%20and%20Ending%20with%20Given%20Character/README.md
 rating: 1323
+source: 第 389 场周赛 Q2
 tags:
     - 数学
     - 字符串
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [3084. 统计以给定字符开头和结尾的子字符串总数](https://leetcode.cn/problems/count-substrings-starting-and-ending-with-given-character)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> 和一个字符 <code>c </code>。返回在字符串 <code>s</code> 中并且以 <code>c</code> 字符开头和结尾的<span data-keyword="substring-nonempty">非空子字符串</span>的总数。</p>
 
@@ -50,7 +53,11 @@ tags:
 	<li><code>s</code> 和 <code>c</code> 均由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -64,12 +71,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubstrings(self, s: str, c: str) -> int:
         cnt = s.count(c)
         return cnt + cnt * (cnt - 1) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -90,12 +103,16 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubstrings(s string, c byte) int64 {
 	cnt := int64(strings.Count(s, string(c)))
 	return cnt + cnt*(cnt-1)/2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubstrings(s: string, c: string): number {
@@ -106,4 +123,6 @@ function countSubstrings(s: string, c: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [171. Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number)
 
 [中文文档](/solution/0100-0199/0171.Excel%20Sheet%20Column%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>columnTitle</code> that represents the column title as appears in an Excel sheet, return <em>its corresponding column number</em>.</p>
 
@@ -59,7 +63,11 @@ AB -&gt; 28
 	<li><code>columnTitle</code> is in the range <code>[&quot;A&quot;, &quot;FXSHRXW&quot;]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Base Conversion
 
@@ -71,6 +79,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string `columnTitl
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def titleToNumber(self, columnTitle: str) -> int:
@@ -79,6 +89,8 @@ class Solution:
             ans = ans * 26 + c - ord("A") + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func titleToNumber(columnTitle string) (ans int) {
 	for _, c := range columnTitle {
@@ -113,6 +129,8 @@ func titleToNumber(columnTitle string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function titleToNumber(columnTitle: string): number {
@@ -123,6 +141,8 @@ function titleToNumber(columnTitle: string): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -138,4 +158,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

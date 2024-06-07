@@ -7,13 +7,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [1708. 长度为 K 的最大子数组 🔒](https://leetcode.cn/problems/largest-subarray-length-k)
 
 [English Version](/solution/1700-1799/1708.Largest%20Subarray%20Length%20K/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在数组&nbsp;<code>A</code>&nbsp;和数组 <code>B</code>&nbsp;中，对于第一个满足 <code>A[i] != B[i]</code>&nbsp;的索引&nbsp;<code>i</code>&nbsp;，当 <code>A[i] &gt; B[i]</code>&nbsp;时，数组 <code>A</code> 大于数组 <code>B</code>。</p>
 
@@ -66,7 +68,11 @@ tags:
 <p>&nbsp;</p>
 <b>进阶：</b>如果允许&nbsp;<code>nums</code>&nbsp;中存在相同元素，你该如何解决该问题？
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -76,12 +82,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestSubarray(self, nums: List[int], k: int) -> List[int]:
         i = nums.index(max(nums[: len(nums) - k + 1]))
         return nums[i : i + k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +118,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestSubarray(nums []int, k int) []int {
@@ -119,6 +133,8 @@ func largestSubarray(nums []int, k int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function largestSubarray(nums: number[], k: number): number[] {
     let j = 0;
@@ -130,6 +146,8 @@ function largestSubarray(nums: number[], k: number): number[] {
     return nums.slice(j, j + k);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -147,4 +165,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

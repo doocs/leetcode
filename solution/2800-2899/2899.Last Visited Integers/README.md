@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2899.Last%20Visited%20Integers/README.md
 rating: 1372
+source: 第 115 场双周赛 Q1
 tags:
     - 数组
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [2899. 上一个遍历的整数](https://leetcode.cn/problems/last-visited-integers)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;，其中&nbsp;<code>nums[i]</code>&nbsp;要么是一个正整数，要么是&nbsp;<code>-1</code>&nbsp;。我们需要为每个 <code>-1</code> 找到相应的正整数，我们称之为最后访问的整数。</p>
 
@@ -71,7 +74,11 @@ tags:
 	<li><code>nums[i] == -1</code>&nbsp;或&nbsp;<code>1 &lt;= nums[i]&nbsp;&lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -80,6 +87,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $words$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +106,8 @@ class Solution:
                 nums.append(int(w))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastVisitedIntegers(words []string) (ans []int) {
@@ -164,6 +179,8 @@ func lastVisitedIntegers(words []string) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function lastVisitedIntegers(words: string[]): number[] {
     const nums: number[] = [];
@@ -182,6 +199,8 @@ function lastVisitedIntegers(words: string[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -208,4 +227,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

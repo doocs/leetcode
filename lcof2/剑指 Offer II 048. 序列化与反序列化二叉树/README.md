@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20048.%20%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 048. 序列化与反序列化二叉树](https://leetcode.cn/problems/h54YBf)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>序列化是将一个数据结构或者对象转换为连续的比特位的操作，进而可以将转换后的数据存储在一个文件或者内存中，同时也可以通过网络传输到另一个计算机环境，采取相反方式重构得到原数据。</p>
 
@@ -59,11 +61,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 297&nbsp;题相同：<a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/">https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/</a>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -121,6 +129,8 @@ class Codec:
 # deser = Codec()
 # ans = deser.deserialize(ser.serialize(root))
 ```
+
+#### Java
 
 ```java
 /**
@@ -186,6 +196,8 @@ public class Codec {
 // TreeNode ans = deser.deserialize(ser.serialize(root));
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -238,6 +250,8 @@ public:
 // Codec ser, deser;
 // TreeNode* ans = deser.deserialize(ser.serialize(root));
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -300,6 +314,80 @@ const rdeserialize = dataList => {
  */
 ```
 
+#### Swift
+
+```swift
+/* class TreeNode {
+*     var val: Int
+*     var left: TreeNode?
+*     var right: TreeNode?
+*     init() {
+*         self.val = 0
+*         self.left = nil
+*         self.right = nil
+*     }
+*     init(_ val: Int) {
+*         self.val = val
+*         self.left = nil
+*         self.right = nil
+*     }
+*     init(_ val: Int, _ left: TreeNode?, _ right: TreeNode?) {
+*         self.val = val
+*         self.left = left
+*         self.right = right
+*     }
+* }
+*/
+
+class Codec {
+    private let NULL = "#"
+    private let SEP = ","
+
+    func serialize(_ root: TreeNode?) -> String {
+        guard let root = root else { return "" }
+        var sb = ""
+        preorder(root, &sb)
+        return sb
+    }
+
+    private func preorder(_ root: TreeNode?, _ sb: inout String) {
+        guard let root = root else {
+            sb += NULL + SEP
+            return
+        }
+        sb += "\(root.val)" + SEP
+        preorder(root.left, &sb)
+        preorder(root.right, &sb)
+    }
+
+    func deserialize(_ data: String) -> TreeNode? {
+        guard !data.isEmpty else { return nil }
+        var vals = data.split(separator: Character(SEP)).map { String($0) }
+        return deserialize(&vals)
+    }
+
+    private func deserialize(_ vals: inout [String]) -> TreeNode? {
+        if vals.isEmpty { return nil }
+        let first = vals.removeFirst()
+        if first == NULL {
+            return nil
+        }
+        let root = TreeNode(Int(first)!)
+        root.left = deserialize(&vals)
+        root.right = deserialize(&vals)
+        return root
+    }
+}
+/**
+ * Your functions will be called as such:
+ * let codec = Codec()
+ * let serializedDatacodec.serialize(root);
+ * codec.deserialize(serializedData);
+ */
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2917.Find%20the%20K-or%20of%20an%20Array/README_EN.md
 rating: 1388
+source: Weekly Contest 369 Q1
 tags:
     - Bit Manipulation
     - Array
 ---
+
+<!-- problem:start -->
 
 # [2917. Find the K-or of an Array](https://leetcode.com/problems/find-the-k-or-of-an-array)
 
 [中文文档](/solution/2900-2999/2917.Find%20the%20K-or%20of%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>, and an integer <code>k</code>. Let&#39;s introduce&nbsp;<strong>K-or</strong> operation by extending the standard bitwise OR. In K-or, a bit position in the result is set to <code>1</code>&nbsp;if at least <code>k</code> numbers in <code>nums</code> have a <code>1</code> in that position.</p>
 
@@ -124,7 +129,11 @@ Only bits 0 and 3 qualify. The result is <code>(1001)<sub>2</sub> = 9</code>.</p
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -136,6 +145,8 @@ The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findKOr(self, nums: List[int], k: int) -> int:
@@ -146,6 +157,8 @@ class Solution:
                 ans |= 1 << i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +177,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -184,6 +199,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKOr(nums []int, k int) (ans int) {
 	for i := 0; i < 32; i++ {
@@ -198,6 +215,8 @@ func findKOr(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKOr(nums: number[], k: number): number {
@@ -214,6 +233,8 @@ function findKOr(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -235,4 +256,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1253.Reconstruct%20a%202-Row%20Binary%20Matrix/README_EN.md
 rating: 1505
+source: Weekly Contest 162 Q2
 tags:
     - Greedy
     - Array
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1253. Reconstruct a 2-Row Binary Matrix](https://leetcode.com/problems/reconstruct-a-2-row-binary-matrix)
 
 [中文文档](/solution/1200-1299/1253.Reconstruct%20a%202-Row%20Binary%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the following details of a matrix with <code>n</code> columns and <code>2</code> rows :</p>
 
@@ -64,7 +69,11 @@ tags:
 	<li><code>0 &lt;= colsum[i] &lt;= 2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -82,6 +91,8 @@ At the end of the traversal, if both $upper$ and $lower$ are $0$, then we return
 The time complexity is $O(n)$, where $n$ is the length of the array $colsum$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +116,8 @@ class Solution:
                 return []
         return ans if lower == upper == 0 else []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
@@ -201,6 +218,8 @@ func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reconstructMatrix(upper: number, lower: number, colsum: number[]): number[][] {
     const n = colsum.length;
@@ -231,4 +250,6 @@ function reconstructMatrix(upper: number, lower: number, colsum: number[]): numb
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

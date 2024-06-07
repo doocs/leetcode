@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [68. Text Justification](https://leetcode.com/problems/text-justification)
 
 [中文文档](/solution/0000-0099/0068.Text%20Justification/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of strings <code>words</code> and a width <code>maxWidth</code>, format the text such that each line has exactly <code>maxWidth</code> characters and is fully (left and right) justified.</p>
 
@@ -80,7 +84,11 @@ Note that the second line is also left-justified because it contains only one wo
 	<li><code>words[i].length &lt;= maxWidth</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -89,6 +97,8 @@ We can simulate the process according to the problem's requirements. Note that i
 The time complexity is $O(L)$, and the space complexity is $O(L)$. Here, $L$ is the sum of the lengths of all words.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -119,6 +129,8 @@ class Solution:
             ans.append(''.join(row))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +166,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -192,6 +206,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fullJustify(words []string, maxWidth int) (ans []string) {
 	for i, n := 0, len(words); i < n; {
@@ -227,6 +243,8 @@ func fullJustify(words []string, maxWidth int) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function fullJustify(words: string[], maxWidth: number): string[] {
     const ans: string[] = [];
@@ -257,6 +275,8 @@ function fullJustify(words: string[], maxWidth: number): string[] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -296,4 +316,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

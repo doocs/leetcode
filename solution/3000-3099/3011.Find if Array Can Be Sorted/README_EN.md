@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README_EN.md
 rating: 1496
+source: Biweekly Contest 122 Q2
 tags:
     - Bit Manipulation
     - Array
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3011. Find if Array Can Be Sorted](https://leetcode.com/problems/find-if-array-can-be-sorted)
 
 [中文文档](/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of <strong>positive</strong> integers <code>nums</code>.</p>
 
@@ -61,7 +66,11 @@ Note that there may be other sequences of operations which also sort the array.
 	<li><code>1 &lt;= nums[i] &lt;= 2<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -70,6 +79,8 @@ We can use two pointers to divide the array $nums$ into several subarrays, each 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +101,8 @@ class Solution:
             i = j
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canSortArray(nums []int) bool {
 	preMx := -300
@@ -164,6 +181,8 @@ func canSortArray(nums []int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canSortArray(nums: number[]): boolean {
@@ -199,4 +218,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

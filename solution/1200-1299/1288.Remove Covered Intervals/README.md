@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1288.Remove%20Covered%20Intervals/README.md
 rating: 1375
+source: 第 15 场双周赛 Q2
 tags:
     - 数组
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [1288. 删除被覆盖区间](https://leetcode.cn/problems/remove-covered-intervals)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个区间列表，请你删除列表中被其他区间所覆盖的区间。</p>
 
@@ -42,11 +45,17 @@ tags:
 	<li>对于所有的&nbsp;<code>i != j</code>：<code>intervals[i] != intervals[j]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +68,8 @@ class Solution:
                 pre = e
         return cnt
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +88,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +107,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func removeCoveredIntervals(intervals [][]int) int {
@@ -117,4 +132,6 @@ func removeCoveredIntervals(intervals [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

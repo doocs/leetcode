@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [599. Minimum Index Sum of Two Lists](https://leetcode.com/problems/minimum-index-sum-of-two-lists)
 
 [中文文档](/solution/0500-0599/0599.Minimum%20Index%20Sum%20of%20Two%20Lists/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two arrays of strings <code>list1</code> and <code>list2</code>, find the <strong>common strings with the least index sum</strong>.</p>
 
@@ -63,11 +67,17 @@ The strings with the least index sum are &quot;sad&quot; and &quot;happy&quot;.
 	<li>There is at least a common string between <code>list1</code> and <code>list2</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +95,8 @@ class Solution:
                     ans.append(v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findRestaurant(list1 []string, list2 []string) []string {
 	mp := make(map[string]int)
@@ -161,6 +177,8 @@ func findRestaurant(list1 []string, list2 []string) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findRestaurant(list1: string[], list2: string[]): string[] {
     let minI = Infinity;
@@ -181,6 +199,8 @@ function findRestaurant(list1: string[], list2: string[]): string[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -213,9 +233,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### C++
 
 ```cpp
 func findRestaurant(list1[] string, list2[] string)[] string {
@@ -244,4 +270,6 @@ mp:= make(map[string]int)
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

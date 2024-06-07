@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1239.Maximum%20Length%20of%20a%20Concatenated%20String%20with%20Unique%20Characters/README_EN.md
 rating: 1719
+source: Weekly Contest 160 Q3
 tags:
     - Bit Manipulation
     - Array
@@ -10,11 +11,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [1239. Maximum Length of a Concatenated String with Unique Characters](https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters)
 
 [中文文档](/solution/1200-1299/1239.Maximum%20Length%20of%20a%20Concatenated%20String%20with%20Unique%20Characters/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of strings <code>arr</code>. A string <code>s</code> is formed by the <strong>concatenation</strong> of a <strong>subsequence</strong> of <code>arr</code> that has <strong>unique characters</strong>.</p>
 
@@ -63,7 +68,11 @@ Maximum length is 4.
 	<li><code>arr[i]</code> contains only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation + State Compression
 
@@ -72,6 +81,8 @@ State compression is used, with a 32-bit number recording the occurrence of lett
 The time complexity is $O(2^n + L)$, and the space complexity is $O(2^n)$. Where $n$ and $L$ are the length of the string array and the sum of the lengths of the strings in the array, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +105,8 @@ class Solution:
                     ans = max(ans, (m | mask).bit_count())
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxLength(arr []string) (ans int) {
 	masks := []int{0}
@@ -191,4 +208,6 @@ func maxLength(arr []string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

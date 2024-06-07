@@ -6,13 +6,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [52. N 皇后 II](https://leetcode.cn/problems/n-queens-ii)
 
 [English Version](/solution/0000-0099/0052.N-Queens%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>n&nbsp;皇后问题</strong> 研究的是如何将 <code>n</code>&nbsp;个皇后放置在 <code>n × n</code> 的棋盘上，并且使皇后彼此之间不能相互攻击。</p>
 
@@ -47,7 +49,11 @@ tags:
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：回溯
 
@@ -64,6 +70,8 @@ tags:
 时间复杂度 $O(n!)$，空间复杂度 $O(n)$。其中 $n$ 是皇后的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +96,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func totalNQueens(n int) (ans int) {
 	cols := [10]bool{}
@@ -178,6 +192,8 @@ func totalNQueens(n int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function totalNQueens(n: number): number {
     const cols: boolean[] = Array(10).fill(false);
@@ -203,6 +219,8 @@ function totalNQueens(n: number): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -236,4 +254,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

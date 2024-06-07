@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2620.Counter/README.md
 ---
 
+<!-- problem:start -->
+
 # [2620. 计数器](https://leetcode.cn/problems/counter)
 
 [English Version](/solution/2600-2699/2620.Counter/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整型参数 <code>n</code>，请你编写并返回一个 <code>counter</code><strong>&nbsp;</strong>函数。这个&nbsp;<code>counter</code><strong>&nbsp;</strong>函数最初返回 <code>n</code>，每次调用它时会返回前一个值加 1 的值 ( <code>n</code> ,&nbsp; <code>n + 1</code> ,&nbsp; <code>n + 2</code> ，等等)。</p>
 
@@ -49,11 +51,17 @@ n = -2
 	<li><code>calls[i] === "call"</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function createCounter(n: number): () => number {
@@ -73,4 +81,6 @@ function createCounter(n: number): () => number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

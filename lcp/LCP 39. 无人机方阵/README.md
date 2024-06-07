@@ -4,11 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2039.%20%E6%97%A0%E4%BA%BA%E6%9C%BA%E6%96%B9%E9%98%B5/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 39. 无人机方阵](https://leetcode.cn/problems/0jQkd0)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 在 「力扣挑战赛」 开幕式的压轴节目 「无人机方阵」中，每一架无人机展示一种灯光颜色。 无人机方阵通过两种操作进行颜色图案变换：
 
@@ -48,7 +50,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2039.%20%E6%97%A0%
 `1 <= n, m <=100`
 `1 <= source[i][j], target[i][j] <=10^4`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表计数
 
@@ -57,6 +63,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2039.%20%E6%97%A0%
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是 $source$ 和 $target$ 的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +80,8 @@ class Solution:
                 cnt[x] -= 1
         return sum(abs(x) for x in cnt.values()) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSwitchingTimes(source [][]int, target [][]int) (ans int) {
 	cnt := map[int]int{}
@@ -141,6 +155,8 @@ func minimumSwitchingTimes(source [][]int, target [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSwitchingTimes(source: number[][], target: number[][]): number {
@@ -165,4 +181,6 @@ function minimumSwitchingTimes(source: number[][], target: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

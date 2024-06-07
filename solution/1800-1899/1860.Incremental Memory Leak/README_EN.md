@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1860.Incremental%20Memory%20Leak/README_EN.md
 rating: 1387
+source: Biweekly Contest 52 Q2
 tags:
     - Math
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [1860. Incremental Memory Leak](https://leetcode.com/problems/incremental-memory-leak)
 
 [中文文档](/solution/1800-1899/1860.Incremental%20Memory%20Leak/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>memory1</code> and <code>memory2</code> representing the available memory in bits on two memory sticks. There is currently a faulty program running that consumes an increasing amount of memory every second.</p>
 
@@ -53,7 +58,11 @@ tags:
 	<li><code>0 &lt;= memory1, memory2 &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -69,6 +78,8 @@ The time complexity is $O(\sqrt{m_1+m_2})$, where $m_1$ and $m_2$ are the sizes 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def memLeak(self, memory1: int, memory2: int) -> List[int]:
@@ -81,6 +92,8 @@ class Solution:
             i += 1
         return [i, memory1, memory2]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func memLeak(memory1 int, memory2 int) []int {
 	i := 1
@@ -129,6 +146,8 @@ func memLeak(memory1 int, memory2 int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function memLeak(memory1: number, memory2: number): number[] {
     let i = 1;
@@ -142,6 +161,8 @@ function memLeak(memory1: number, memory2: number): number[] {
     return [i, memory1, memory2];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -164,4 +185,6 @@ var memLeak = function (memory1, memory2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

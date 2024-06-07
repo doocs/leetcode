@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3055. 最高欺诈百分位数 🔒](https://leetcode.cn/problems/top-percentile-fraud)
 
 [English Version](/solution/3000-3099/3055.Top%20Percentile%20Fraud/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Fraud</code></p>
 
@@ -78,13 +80,19 @@ Fraud 表：
 输出表以&nbsp;<code>state</code>&nbsp;升序排序，<code>fraud_score</code>&nbsp;降序排序，<code>policy_id</code>&nbsp;升序排序。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用窗口函数
 
 我们可以使用 `RANK()` 窗口函数来计算每个州的欺诈分数的排名，然后筛选出排名为 1 的记录，并且按照题目要求排序。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -106,4 +114,6 @@ ORDER BY 2, 3 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

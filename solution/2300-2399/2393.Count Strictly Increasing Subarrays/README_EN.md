@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2393. Count Strictly Increasing Subarrays 🔒](https://leetcode.com/problems/count-strictly-increasing-subarrays)
 
 [中文文档](/solution/2300-2399/2393.Count%20Strictly%20Increasing%20Subarrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> consisting of <strong>positive</strong> integers.</p>
 
@@ -49,11 +53,17 @@ The total number of subarrays is 6 + 3 + 1 = 10.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +78,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubarrays(nums []int) int64 {
 	ans := 0
@@ -124,6 +140,8 @@ func countSubarrays(nums []int) int64 {
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubarrays(nums: number[]): number {
@@ -145,9 +163,15 @@ function countSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -162,6 +186,8 @@ class Solution:
             ans += cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -181,6 +207,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -202,6 +230,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubarrays(nums []int) (ans int64) {
 	pre, cnt := 0, 0
@@ -217,6 +247,8 @@ func countSubarrays(nums []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubarrays(nums: number[]): number {
@@ -238,4 +270,6 @@ function countSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

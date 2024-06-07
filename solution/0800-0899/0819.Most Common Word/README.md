@@ -9,13 +9,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [819. 最常见的单词](https://leetcode.cn/problems/most-common-word)
 
 [English Version](/solution/0800-0899/0819.Most%20Common%20Word/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>paragraph</code> 和一个表示禁用词的字符串数组 <code>banned</code> ，返回出现频率最高的非禁用词。题目数据 <strong>保证 </strong>至少存在一个非禁用词，且答案<strong> 唯一 </strong>。</p>
 
@@ -55,13 +57,19 @@ tags:
 	<li><code>banned[i]</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：正则匹配/双指针 + 哈希表
 
 正则匹配（或双指针）找出所有单词，用哈希表统计每个单词出现的频率，找到出现未在 banned 中出现且频率最大的单词。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +78,8 @@ class Solution:
         p = Counter(re.findall('[a-z]+', paragraph.lower()))
         return next(word for word, _ in p.most_common() if word not in s)
 ```
+
+#### Java
 
 ```java
 import java.util.regex.Matcher;
@@ -105,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mostCommonWord(paragraph string, banned []string) string {
@@ -167,6 +181,8 @@ func mostCommonWord(paragraph string, banned []string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mostCommonWord(paragraph: string, banned: string[]): string {
     const s = paragraph.toLocaleLowerCase();
@@ -181,6 +197,8 @@ function mostCommonWord(paragraph: string, banned: string[]): string {
     return [...map.entries()].reduce((r, v) => (v[1] > r[1] ? v : r), ['', 0])[0];
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::{ HashMap, HashSet };
@@ -206,4 +224,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

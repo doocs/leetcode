@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2923.Find%20Champion%20I/README.md
 rating: 1235
+source: 第 370 场周赛 Q1
 tags:
     - 数组
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [2923. 找到冠军 I](https://leetcode.cn/problems/find-champion-i)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一场比赛中共有 <code>n</code> 支队伍，按从 <code>0</code> 到&nbsp; <code>n - 1</code> 编号。</p>
 
@@ -60,7 +63,11 @@ grid[1][2] == 1 表示 1 队比 2 队强。
 	<li>生成的输入满足：如果 <code>a</code> 队比 <code>b</code> 队强，<code>b</code> 队比 <code>c</code> 队强，那么 <code>a</code> 队比 <code>c</code> 队强</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -70,6 +77,8 @@ grid[1][2] == 1 表示 1 队比 2 队强。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findChampion(self, grid: List[List[int]]) -> int:
@@ -77,6 +86,8 @@ class Solution:
             if all(x == 1 for j, x in enumerate(row) if i != j):
                 return i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findChampion(grid [][]int) int {
 	n := len(grid)
@@ -133,6 +148,8 @@ func findChampion(grid [][]int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findChampion(grid: number[][]): number {
@@ -152,4 +169,6 @@ function findChampion(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

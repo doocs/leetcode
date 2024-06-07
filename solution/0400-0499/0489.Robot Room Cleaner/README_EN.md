@@ -7,11 +7,15 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [489. Robot Room Cleaner 🔒](https://leetcode.com/problems/robot-room-cleaner)
 
 [中文文档](/solution/0400-0499/0489.Robot%20Room%20Cleaner/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are controlling a robot that is located somewhere in a room. The room is modeled as an <code>m x n</code> binary grid where <code>0</code> represents a wall and <code>1</code> represents an empty slot.</p>
 
@@ -81,11 +85,17 @@ From the top left corner, its position is one row below and three columns right.
 	<li>All the empty cells can be visited from the starting position.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -148,6 +158,8 @@ class Solution:
         dfs(0, 0, 0)
 ```
 
+#### Java
+
 ```java
 /**
  * // This is the robot's control interface.
@@ -197,6 +209,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * // This is the robot's control interface.
@@ -244,6 +258,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is the robot's control interface.
@@ -288,6 +304,8 @@ func cleanRoom(robot *Robot) {
 	dfs(0, 0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -335,4 +353,6 @@ function cleanRoom(robot: Robot) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

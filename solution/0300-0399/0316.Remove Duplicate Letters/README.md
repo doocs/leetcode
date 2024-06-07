@@ -9,13 +9,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [316. 去除重复字母](https://leetcode.cn/problems/remove-duplicate-letters)
 
 [English Version](/solution/0300-0399/0316.Remove%20Duplicate%20Letters/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> ，请你去除字符串中重复的字母，使得每个字母只出现一次。需保证 <strong>返回结果的<span data-keyword="lexicographically-smaller-string-alien">字典序</span>最小</strong>（要求不能打乱其他字符的相对位置）。</p>
 
@@ -47,7 +49,11 @@ tags:
 
 <p><strong>注意：</strong>该题与 1081 <a href="https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters">https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters</a> 相同</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈
 
@@ -60,6 +66,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +84,8 @@ class Solution:
             vis.add(c)
         return ''.join(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeDuplicateLetters(s string) string {
 	last := make([]int, 26)
@@ -160,9 +174,15 @@ func removeDuplicateLetters(s string) string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -185,6 +205,8 @@ class Solution:
             in_stack[ord(c)] = True
         return ''.join(stack)
 ```
+
+#### Go
 
 ```go
 func removeDuplicateLetters(s string) string {
@@ -212,4 +234,6 @@ func removeDuplicateLetters(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

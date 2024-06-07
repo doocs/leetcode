@@ -9,11 +9,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2174. Remove All Ones With Row and Column Flips II 🔒](https://leetcode.com/problems/remove-all-ones-with-row-and-column-flips-ii)
 
 [中文文档](/solution/2100-2199/2174.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> <strong>binary</strong> matrix <code>grid</code>.</p>
 
@@ -71,11 +75,17 @@ There are no 1&#39;s to remove so return 0.
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +115,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -155,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -192,6 +206,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func removeOnes(grid [][]int) int {
@@ -241,4 +257,6 @@ func removeOnes(grid [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

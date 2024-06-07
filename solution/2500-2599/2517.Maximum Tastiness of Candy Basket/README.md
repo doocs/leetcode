@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README.md
 rating: 2020
+source: 第 325 场周赛 Q3
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2517. 礼盒的最大甜蜜度](https://leetcode.cn/problems/maximum-tastiness-of-candy-basket)
 
 [English Version](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数数组 <code>price</code> ，其中 <code>price[i]</code> 表示第 <code>i</code> 类糖果的价格，另给你一个正整数 <code>k</code> 。</p>
 
@@ -63,7 +66,11 @@ tags:
 	<li><code>1 &lt;= price[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 二分查找
 
@@ -78,6 +85,8 @@ tags:
 时间复杂度 $O(n \times (\log n + \log M))$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $price$ 的长度；而 $M$ 是数组 $price$ 中的最大值，本题中 $M \leq 10^9$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +109,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumTastiness(price []int, k int) int {
 	sort.Ints(price)
@@ -174,6 +189,8 @@ func maximumTastiness(price []int, k int) int {
 	}) - 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumTastiness(price: number[], k: number): number {
@@ -201,6 +218,8 @@ function maximumTastiness(price: number[], k: number): number {
     return l;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -233,4 +252,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

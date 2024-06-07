@@ -10,11 +10,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [863. All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree)
 
 [中文文档](/solution/0800-0899/0863.All%20Nodes%20Distance%20K%20in%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, the value of a target node <code>target</code>, and an integer <code>k</code>, return <em>an array of the values of all nodes that have a distance </em><code>k</code><em> from the target node.</em></p>
 
@@ -47,11 +51,17 @@ Explanation: The nodes that are a distance 2 from the target node (with value 5)
 	<li><code>0 &lt;= k &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -91,6 +101,8 @@ class Solution:
         dfs(target, k)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -141,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -184,6 +198,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -226,11 +242,75 @@ func distanceK(root *TreeNode, target *TreeNode, k int) []int {
 }
 ```
 
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function distanceK(root: TreeNode | null, target: TreeNode | null, k: number): number[] {
+    if (!root) return [0];
+
+    const g: Record<number, number[]> = {};
+
+    const dfs = (node: TreeNode | null, parent: TreeNode | null = null) => {
+        if (!node) return;
+
+        g[node.val] ??= [];
+        if (parent) g[node.val].push(parent.val);
+        if (node.left) g[node.val].push(node.left.val);
+        if (node.right) g[node.val].push(node.right.val);
+
+        dfs(node.left, node);
+        dfs(node.right, node);
+    };
+
+    dfs(root);
+
+    const vis = new Set<number>();
+    let q = [target!.val];
+
+    while (q.length) {
+        if (!k--) return q;
+
+        const nextQ: number[] = [];
+
+        for (const x of q) {
+            if (vis.has(x)) continue;
+
+            vis.add(x);
+            nextQ.push(...g[x].filter(x => !vis.has(x)));
+        }
+
+        q = nextQ;
+    }
+
+    return [];
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -269,4 +349,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

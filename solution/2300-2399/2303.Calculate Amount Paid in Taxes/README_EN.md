@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README_EN.md
 rating: 1283
+source: Weekly Contest 297 Q1
 tags:
     - Array
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [2303. Calculate Amount Paid in Taxes](https://leetcode.com/problems/calculate-amount-paid-in-taxes)
 
 [中文文档](/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>brackets</code> where <code>brackets[i] = [upper<sub>i</sub>, percent<sub>i</sub>]</code> means that the <code>i<sup>th</sup></code> tax bracket has an upper bound of <code>upper<sub>i</sub></code> and is taxed at a rate of <code>percent<sub>i</sub></code>. The brackets are <strong>sorted</strong> by upper bound (i.e. <code>upper<sub>i-1</sub> &lt; upper<sub>i</sub></code> for <code>0 &lt; i &lt; brackets.length</code>).</p>
 
@@ -72,7 +77,11 @@ You have no income to tax, so you have to pay a total of $0 in taxes.
 	<li>The upper bound of the last tax bracket is greater than or equal to <code>income</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -81,6 +90,8 @@ We traverse `brackets`, and for each tax bracket, we calculate the tax amount fo
 The time complexity is $O(n)$, where $n$ is the length of `brackets`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +102,8 @@ class Solution:
             prev = upper
         return ans / 100
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func calculateTax(brackets [][]int, income int) float64 {
 	var ans, prev int
@@ -133,6 +150,8 @@ func calculateTax(brackets [][]int, income int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function calculateTax(brackets: number[][], income: number): number {
     let ans = 0;
@@ -144,6 +163,8 @@ function calculateTax(brackets: number[][], income: number): number {
     return ans / 100;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -164,4 +185,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

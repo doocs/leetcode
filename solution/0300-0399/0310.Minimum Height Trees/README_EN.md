@@ -9,11 +9,15 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [310. Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees)
 
 [中文文档](/solution/0300-0399/0310.Minimum%20Height%20Trees/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A tree is an undirected graph in which any two vertices are connected by&nbsp;<i>exactly</i>&nbsp;one path. In other words, any connected graph without simple cycles is a tree.</p>
 
@@ -51,7 +55,11 @@ tags:
 	<li>The given input is <strong>guaranteed</strong> to be a tree and there will be <strong>no repeated</strong> edges.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Topological Sorting
 
@@ -62,6 +70,8 @@ If the tree has multiple nodes, there must be leaf nodes. A leaf node is a node 
 The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +98,8 @@ class Solution:
                         q.append(b)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -170,6 +184,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMinHeightTrees(n int, edges [][]int) (ans []int) {
 	if n == 1 {
@@ -207,6 +223,8 @@ func findMinHeightTrees(n int, edges [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMinHeightTrees(n: number, edges: number[][]): number[] {
@@ -247,4 +265,6 @@ function findMinHeightTrees(n: number, edges: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

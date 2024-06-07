@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [591. Tag Validator](https://leetcode.com/problems/tag-validator)
 
 [中文文档](/solution/0500-0599/0591.Tag%20Validator/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string representing a code snippet, implement a tag validator to parse the code and return whether it is valid.</p>
 
@@ -74,11 +78,17 @@ The reason why cdata is NOT <b>&quot;&lt;![CDATA[&lt;div&gt;]&gt;]]&gt;]]&gt;&qu
 	<li><code>code</code> consists of English letters, digits, <code>&#39;&lt;&#39;</code>, <code>&#39;&gt;&#39;</code>, <code>&#39;/&#39;</code>, <code>&#39;!&#39;</code>, <code>&#39;[&#39;</code>, <code>&#39;]&#39;</code>, <code>&#39;.&#39;</code>, and <code>&#39; &#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -116,6 +126,8 @@ class Solution:
             i += 1
         return not stk
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -172,6 +184,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -212,6 +226,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isValid(code string) bool {
@@ -272,6 +288,8 @@ func check(tag string) bool {
 	return true
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -339,4 +357,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

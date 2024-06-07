@@ -10,11 +10,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [914. X of a Kind in a Deck of Cards](https://leetcode.com/problems/x-of-a-kind-in-a-deck-of-cards)
 
 [中文文档](/solution/0900-0999/0914.X%20of%20a%20Kind%20in%20a%20Deck%20of%20Cards/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>deck</code> where <code>deck[i]</code> represents the number written on the <code>i<sup>th</sup></code> card.</p>
 
@@ -52,31 +56,43 @@ tags:
 	<li><code>0 &lt;= deck[i] &lt; 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Greatest Common Divisor
+
+First, we use an array or hash table `cnt` to count the occurrence of each number. Only when $X$ is a divisor of the greatest common divisor of all `cnt[i]`, can it satisfy the problem's requirement.
+
+Therefore, we find the greatest common divisor $g$ of the occurrence of all numbers, and then check whether it is greater than or equal to $2$.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(n + \log M)$. Where $n$ and $M$ are the length of the array `deck` and the maximum value in the array `deck`, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def hasGroupsSizeX(self, deck: List[int]) -> bool:
-        vals = Counter(deck).values()
-        return reduce(gcd, vals) >= 2
+        cnt = Counter(deck)
+        return reduce(gcd, cnt.values()) >= 2
 ```
+
+#### Java
 
 ```java
 class Solution {
     public boolean hasGroupsSizeX(int[] deck) {
-        int[] cnt = new int[10000];
-        for (int v : deck) {
-            ++cnt[v];
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : deck) {
+            cnt.merge(x, 1, Integer::sum);
         }
-        int g = -1;
-        for (int v : cnt) {
-            if (v > 0) {
-                g = g == -1 ? v : gcd(g, v);
-            }
+        int g = cnt.get(deck[0]);
+        for (int x : cnt.values()) {
+            g = gcd(g, x);
         }
         return g >= 2;
     }
@@ -87,38 +103,36 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     bool hasGroupsSizeX(vector<int>& deck) {
-        int cnt[10000] = {0};
-        for (int& v : deck) ++cnt[v];
-        int g = -1;
-        for (int& v : cnt) {
-            if (v) {
-                g = g == -1 ? v : __gcd(g, v);
-            }
+        unordered_map<int, int> cnt;
+        for (int x : deck) {
+            ++cnt[x];
+        }
+        int g = cnt[deck[0]];
+        for (auto& [_, x] : cnt) {
+            g = gcd(g, x);
         }
         return g >= 2;
     }
 };
 ```
 
+#### Go
+
 ```go
 func hasGroupsSizeX(deck []int) bool {
-	cnt := make([]int, 10000)
-	for _, v := range deck {
-		cnt[v]++
+	cnt := map[int]int{}
+	for _, x := range deck {
+		cnt[x]++
 	}
-	g := -1
-	for _, v := range cnt {
-		if v > 0 {
-			if g == -1 {
-				g = v
-			} else {
-				g = gcd(g, v)
-			}
-		}
+	g := cnt[deck[0]]
+	for _, x := range cnt {
+		g = gcd(g, x)
 	}
 	return g >= 2
 }
@@ -131,6 +145,25 @@ func gcd(a, b int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function hasGroupsSizeX(deck: number[]): boolean {
+    const cnt: Record<number, number> = {};
+    for (const x of deck) {
+        cnt[x] = (cnt[x] || 0) + 1;
+    }
+    const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
+    let g = cnt[deck[0]];
+    for (const [_, x] of Object.entries(cnt)) {
+        g = gcd(g, x);
+    }
+    return g >= 2;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

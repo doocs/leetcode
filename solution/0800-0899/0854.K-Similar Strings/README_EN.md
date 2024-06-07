@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [854. K-Similar Strings](https://leetcode.com/problems/k-similar-strings)
 
 [中文文档](/solution/0800-0899/0854.K-Similar%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Strings <code>s1</code> and <code>s2</code> are <code>k</code><strong>-similar</strong> (for some non-negative integer <code>k</code>) if we can swap the positions of two letters in <code>s1</code> exactly <code>k</code> times so that the resulting string equals <code>s2</code>.</p>
 
@@ -44,11 +48,17 @@ tags:
 	<li><code>s2</code> is an anagram of <code>s1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +87,8 @@ class Solution:
                         q.append(nxt)
             ans += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -169,6 +183,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kSimilarity(s1 string, s2 string) int {
 	next := func(s string) []string {
@@ -208,9 +224,15 @@ func kSimilarity(s1 string, s2 string) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -241,6 +263,8 @@ class Solution:
                     dist[nxt] = dist[s] + 1
                     heappush(q, (dist[nxt] + f(nxt), nxt))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -299,6 +323,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using pis = pair<int, string>;
 
@@ -347,6 +373,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kSimilarity(s1 string, s2 string) int {
@@ -407,4 +435,6 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

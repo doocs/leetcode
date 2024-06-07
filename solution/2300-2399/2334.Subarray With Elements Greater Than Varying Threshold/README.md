@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README.md
 rating: 2381
+source: 第 82 场双周赛 Q4
 tags:
     - 栈
     - 并查集
@@ -10,13 +11,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [2334. 元素值大于变化阈值的子数组](https://leetcode.cn/problems/subarray-with-elements-greater-than-varying-threshold)
 
 [English Version](/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>threshold</code>&nbsp;。</p>
 
@@ -54,7 +57,11 @@ tags:
 	<li><code>1 &lt;= nums[i], threshold &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：并查集
 
@@ -75,6 +82,8 @@ $v$ 作为当前连通块的最小值，当前连通块的大小为 $size[find(i
 -   [1562. 查找大小为 M 的最新分组](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +115,8 @@ class Solution:
             vis[i] = True
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +172,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using pii = pair<int, int>;
 
@@ -201,6 +214,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validSubarraySize(nums []int, threshold int) int {
@@ -254,6 +269,10 @@ func validSubarraySize(nums []int, threshold int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：单调栈
 
 利用单调栈，得到以当前元素 $nums[i]$ 作为最小元素的左右边界 $left[i]$（左边第一个比 $nums[i]$ 小的元素的位置）, $right[i]$（右边第一个比 $nums[i]$ 小的元素的位置）。
@@ -265,6 +284,8 @@ func validSubarraySize(nums []int, threshold int) int {
 时间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -292,6 +313,8 @@ class Solution:
                 return k
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -335,6 +358,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -365,6 +390,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validSubarraySize(nums []int, threshold int) int {
@@ -408,4 +435,6 @@ func validSubarraySize(nums []int, threshold int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

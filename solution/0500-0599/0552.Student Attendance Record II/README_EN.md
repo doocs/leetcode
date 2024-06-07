@@ -6,11 +6,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [552. Student Attendance Record II](https://leetcode.com/problems/student-attendance-record-ii)
 
 [中文文档](/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An attendance record for a student can be represented as a string where each character signifies whether the student was absent, late, or present on that day. The record only contains the following three characters:</p>
 
@@ -61,11 +65,17 @@ Only &quot;AA&quot; is not eligible because there are 2 absences (there need to 
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +97,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 int f[100010][2][3];
@@ -152,6 +166,8 @@ private:
     int n;
 };
 ```
+
+#### Go
 
 ```go
 func checkRecord(n int) int {
@@ -190,9 +206,15 @@ func checkRecord(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -223,6 +245,8 @@ class Solution:
                 ans = (ans + dp[n - 1][j][k]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -260,6 +284,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 constexpr int MOD = 1e9 + 7;
 
@@ -295,6 +321,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const _mod int = 1e9 + 7
@@ -338,4 +366,6 @@ func checkRecord(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

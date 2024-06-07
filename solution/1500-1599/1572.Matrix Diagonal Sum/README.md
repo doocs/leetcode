@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README.md
 rating: 1280
+source: 第 34 场双周赛 Q1
 tags:
     - 数组
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [1572. 矩阵对角线元素的和](https://leetcode.cn/problems/matrix-diagonal-sum)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正方形矩阵 <code>mat</code>，请你返回矩阵对角线元素的和。</p>
 
@@ -62,7 +65,11 @@ tags:
 	<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：逐行遍历
 
@@ -74,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def diagonalSum(self, mat: List[List[int]]) -> int:
@@ -84,6 +93,8 @@ class Solution:
             ans += row[i] + (0 if j == i else row[j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func diagonalSum(mat [][]int) (ans int) {
 	n := len(mat)
@@ -127,6 +142,8 @@ func diagonalSum(mat [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function diagonalSum(mat: number[][]): number {
     let ans = 0;
@@ -138,6 +155,8 @@ function diagonalSum(mat: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -155,6 +174,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int diagonalSum(int** mat, int matSize, int* matColSize) {
     int ans = 0;
@@ -170,9 +191,15 @@ int diagonalSum(int** mat, int matSize, int* matColSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function diagonalSum(mat: number[][]): number {
@@ -190,4 +217,6 @@ function diagonalSum(mat: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2156.Find%20Substring%20With%20Given%20Hash%20Value/README_EN.md
 rating: 2062
+source: Weekly Contest 278 Q3
 tags:
     - String
     - Sliding Window
@@ -10,11 +11,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [2156. Find Substring With Given Hash Value](https://leetcode.com/problems/find-substring-with-given-hash-value)
 
 [中文文档](/solution/2100-2199/2156.Find%20Substring%20With%20Given%20Hash%20Value/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The hash of a <strong>0-indexed</strong> string <code>s</code> of length <code>k</code>, given integers <code>p</code> and <code>m</code>, is computed using the following function:</p>
 
@@ -62,7 +67,11 @@ Note that &quot;bxz&quot; also has a hash of 32 but it appears later than &quot;
 	<li>The test cases are generated such that an answer always <strong>exists</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window + Reverse Traversal
 
@@ -75,6 +84,8 @@ Finally, return the answer string.
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +108,8 @@ class Solution:
                 j = i
         return s[j : j + k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +136,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -151,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subStrHash(s string, power int, modulo int, k int, hashValue int) string {
 	h, p := 0, 1
@@ -174,6 +191,8 @@ func subStrHash(s string, power int, modulo int, k int, hashValue int) string {
 	return s[j : j+k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subStrHash(
@@ -206,6 +225,8 @@ function subStrHash(
     return s.substring(j, j + k);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -243,4 +264,6 @@ var subStrHash = function (s, power, modulo, k, hashValue) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

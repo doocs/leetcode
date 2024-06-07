@@ -6,13 +6,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [237. 删除链表中的节点](https://leetcode.cn/problems/delete-node-in-a-linked-list)
 
 [English Version](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个单链表的&nbsp;<code>head</code>，我们想删除它其中的一个节点&nbsp;<code>node</code>。</p>
 
@@ -65,7 +67,11 @@ tags:
 	<li>需要删除的节点 <code>node</code> 是 <strong>链表中的节点</strong> ，且 <strong>不是末尾节点</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：节点赋值
 
@@ -74,6 +80,8 @@ tags:
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -93,6 +101,8 @@ class Solution:
         node.next = node.next.next
 ```
 
+#### Java
+
 ```java
 /**
  * Definition for singly-linked list.
@@ -109,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -128,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -141,6 +155,8 @@ func deleteNode(node *ListNode) {
 	node.Next = node.Next.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -164,6 +180,8 @@ function deleteNode(node: ListNode | null): void {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -182,6 +200,8 @@ var deleteNode = function (node) {
 };
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for singly-linked list.
@@ -199,6 +219,8 @@ public class Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for singly-linked list.
@@ -215,4 +237,6 @@ void deleteNode(struct ListNode* node) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

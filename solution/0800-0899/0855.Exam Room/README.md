@@ -8,13 +8,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [855. 考场就座](https://leetcode.cn/problems/exam-room)
 
 [English Version](/solution/0800-0899/0855.Exam%20Room/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在考场里，一排有&nbsp;<code>N</code>&nbsp;个座位，分别编号为&nbsp;<code>0, 1, 2, ..., N-1</code>&nbsp;。</p>
 
@@ -48,7 +50,11 @@ seat() -&gt; 5，学生最后坐在 5 号座位上。
 	<li>保证在调用&nbsp;<code>ExamRoom.leave(p)</code>&nbsp;时有学生正坐在座位 <code>p</code> 上。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：有序集合 + 哈希表
 
@@ -59,6 +65,8 @@ seat() -&gt; 5，学生最后坐在 5 号座位上。
 时间复杂度 $O(\log n)$，空间复杂度 $O(n)$。其中 $n$ 为考场的座位数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -110,6 +118,8 @@ class ExamRoom:
 # param_1 = obj.seat()
 # obj.leave(p)
 ```
+
+#### Java
 
 ```java
 class ExamRoom {
@@ -172,6 +182,8 @@ class ExamRoom {
  * obj.leave(p);
  */
 ```
+
+#### C++
 
 ```cpp
 int N;
@@ -245,6 +257,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type ExamRoom struct {
 	rbt   *redblacktree.Tree
@@ -317,4 +331,6 @@ func (this *ExamRoom) del(s []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

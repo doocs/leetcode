@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README_EN.md
 rating: 1203
+source: Weekly Contest 305 Q1
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2367. Number of Arithmetic Triplets](https://leetcode.com/problems/number-of-arithmetic-triplets)
 
 [中文文档](/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong>, <strong>strictly increasing</strong> integer array <code>nums</code> and a positive integer <code>diff</code>. A triplet <code>(i, j, k)</code> is an <strong>arithmetic triplet</strong> if the following conditions are met:</p>
 
@@ -57,7 +62,11 @@ tags:
 	<li><code>nums</code> is <strong>strictly</strong> increasing.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Brute Force
 
@@ -67,11 +76,15 @@ The time complexity is $O(n^3)$, where $n$ is the length of the array $nums$. Th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
         return sum(b - a == diff and c - b == diff for a, b, c in combinations(nums, 3))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arithmeticTriplets(nums []int, diff int) (ans int) {
 	n := len(nums)
@@ -127,6 +144,8 @@ func arithmeticTriplets(nums []int, diff int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function arithmeticTriplets(nums: number[], diff: number): number {
@@ -147,6 +166,10 @@ function arithmeticTriplets(nums: number[], diff: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Array or Hash Table
 
 We can first store the elements of $nums$ in a hash table or array $vis$. Then, for each element $x$ in $nums$, we check if $x+diff$ and $x+diff+diff$ are also in $vis$. If they are, we increment the count of the triplet.
@@ -157,12 +180,16 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
         vis = set(nums)
         return sum(x + diff in vis and x + diff * 2 in vis for x in nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -182,6 +209,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -199,6 +228,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arithmeticTriplets(nums []int, diff int) (ans int) {
 	vis := [301]bool{}
@@ -213,6 +244,8 @@ func arithmeticTriplets(nums []int, diff int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function arithmeticTriplets(nums: number[], diff: number): number {
@@ -232,4 +265,6 @@ function arithmeticTriplets(nums: number[], diff: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

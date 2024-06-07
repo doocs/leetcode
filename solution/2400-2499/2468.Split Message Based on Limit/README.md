@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2468.Split%20Message%20Based%20on%20Limit/README.md
 rating: 2381
+source: 第 91 场双周赛 Q4
 tags:
     - 字符串
     - 二分查找
 ---
+
+<!-- problem:start -->
 
 # [2468. 根据限制分割消息](https://leetcode.cn/problems/split-message-based-on-limit)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>message</code>&nbsp;和一个正整数&nbsp;<code>limit</code>&nbsp;。</p>
 
@@ -57,7 +60,11 @@ tags:
 	<li><code>1 &lt;= limit &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举分段数量 + 模拟
 
@@ -74,6 +81,8 @@ tags:
 时间复杂度 $O(n\times \log n)$，其中 $n$ 为字符串 `message` 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +104,8 @@ class Solution:
                 return ans
         return []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func splitMessage(message string, limit int) (ans []string) {
 	n := len(message)
@@ -178,4 +193,6 @@ func splitMessage(message string, limit int) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

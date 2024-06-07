@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1613. Find the Missing IDs 🔒](https://leetcode.com/problems/find-the-missing-ids)
 
 [中文文档](/solution/1600-1699/1613.Find%20the%20Missing%20IDs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Customers</code></p>
 
@@ -59,11 +63,17 @@ Customers table:
 The maximum customer_id present in the table is 5, so in the range [1,5], IDs 2 and 3 are missing from the table.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -95,4 +105,6 @@ WHERE
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

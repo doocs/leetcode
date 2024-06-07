@@ -7,11 +7,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [704. Binary Search](https://leetcode.com/problems/binary-search)
 
 [中文文档](/solution/0700-0799/0704.Binary%20Search/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>nums</code> which is sorted in ascending order, and an integer <code>target</code>, write a function to search <code>target</code> in <code>nums</code>. If <code>target</code> exists, then return its index. Otherwise, return <code>-1</code>.</p>
 
@@ -44,7 +48,11 @@ tags:
 	<li><code>nums</code> is sorted in ascending order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -61,6 +69,8 @@ The time complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
@@ -73,6 +83,8 @@ class Solution:
                 left = mid + 1
         return left if nums[left] == target else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +121,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func search(nums []int, target int) int {
@@ -125,6 +141,8 @@ func search(nums []int, target int) int {
 	return -1
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -152,6 +170,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -173,6 +193,8 @@ var search = function (nums, target) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int Search(int[] nums, int target) {
@@ -192,4 +214,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

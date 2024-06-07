@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [100. 相同的树](https://leetcode.cn/problems/same-tree)
 
 [English Version](/solution/0100-0199/0100.Same%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两棵二叉树的根节点 <code>p</code> 和 <code>q</code> ，编写一个函数来检验这两棵树是否相同。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li><code>-10<sup>4</sup> <= Node.val <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -64,6 +70,8 @@ tags:
 时间复杂度 $O(\min(m, n))$，空间复杂度 $O(\min(m, n))$。其中 $m$ 和 $n$ 分别是两个二叉树的节点个数。空间复杂度主要取决于递归调用的层数，递归调用的层数不会超过较小的二叉树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -80,6 +88,8 @@ class Solution:
             return False
         return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 ```
+
+#### Java
 
 ```java
 /**
@@ -106,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -128,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -147,6 +161,8 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -173,6 +189,8 @@ function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
     return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -217,6 +235,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -239,6 +259,8 @@ var isSameTree = function (p, q) {
     return false;
 };
 ```
+
+#### PHP
 
 ```php
 /**
@@ -277,6 +299,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：BFS
 
 我们也可以使用 BFS 迭代的方法来解决这个问题。
@@ -286,6 +312,8 @@ class Solution {
 时间复杂度 $O(\min(m, n))$，空间复杂度 $O(\min(m, n))$。其中 $m$ 和 $n$ 分别是两个二叉树的节点个数。空间复杂度主要取决于队列中的元素个数，队列中的元素个数不会超过较小的二叉树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -319,6 +347,8 @@ class Solution:
                 q2.append(rb)
         return True
 ```
+
+#### Java
 
 ```java
 /**
@@ -376,6 +406,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -418,6 +450,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -463,6 +497,8 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -517,6 +553,8 @@ function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -591,4 +629,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

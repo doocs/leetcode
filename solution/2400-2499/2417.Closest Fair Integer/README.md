@@ -7,13 +7,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [2417. 最近的公平整数 🔒](https://leetcode.cn/problems/closest-fair-integer)
 
 [English Version](/solution/2400-2499/2417.Closest%20Fair%20Integer/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <strong>正整数</strong>&nbsp;<code>n</code>。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分类讨论
 
@@ -60,6 +66,8 @@ tags:
 时间复杂度 $O(\sqrt{n} \times \log_{10} n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +89,8 @@ class Solution:
             return n
         return self.closestFair(n + 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func closestFair(n int) int {
 	a, b := 0, 0
@@ -173,4 +187,6 @@ func closestFair(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

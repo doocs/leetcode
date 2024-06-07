@@ -9,13 +9,15 @@ tags:
     - 图
 ---
 
+<!-- problem:start -->
+
 # [1971. 寻找图中是否存在路径](https://leetcode.cn/problems/find-if-path-exists-in-graph)
 
 [English Version](/solution/1900-1999/1971.Find%20if%20Path%20Exists%20in%20Graph/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个具有 <code>n</code> 个顶点的 <strong>双向</strong> 图，其中每个顶点标记从 <code>0</code> 到 <code>n - 1</code>（包含 <code>0</code> 和 <code>n - 1</code>）。图中的边用一个二维整数数组 <code>edges</code> 表示，其中 <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> 表示顶点 <code>ui</code> 和顶点 <code>vi</code> 之间的双向边。 每个顶点对由 <strong>最多一条</strong> 边连接，并且没有顶点存在与自身相连的边。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li>不存在指向顶点自身的边</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -66,9 +72,11 @@ tags:
 
 过程中，我们用数组 `vis` 记录已经访问过的顶点，避免重复访问。
 
-时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是节点数和边数。
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数和边数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,7 +92,7 @@ class Solution:
                     return True
             return False
 
-        g = defaultdict(list)
+        g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)
             g[b].append(a)
@@ -92,13 +100,15 @@ class Solution:
         return dfs(source)
 ```
 
+#### Java
+
 ```java
 class Solution {
+    private int destination;
     private boolean[] vis;
     private List<Integer>[] g;
 
     public boolean validPath(int n, int[][] edges, int source, int destination) {
-        vis = new boolean[n];
         g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
         for (var e : edges) {
@@ -106,16 +116,18 @@ class Solution {
             g[a].add(b);
             g[b].add(a);
         }
-        return dfs(source, destination);
+        vis = new boolean[n];
+        this.destination = destination;
+        return dfs(source);
     }
 
-    private boolean dfs(int source, int destination) {
-        if (source == destination) {
+    private boolean dfs(int i) {
+        if (i == destination) {
             return true;
         }
-        vis[source] = true;
-        for (int nxt : g[source]) {
-            if (!vis[nxt] && dfs(nxt, destination)) {
+        vis[i] = true;
+        for (int j : g[i]) {
+            if (!vis[j] && dfs(j)) {
                 return true;
             }
         }
@@ -124,19 +136,23 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
         vector<bool> vis(n);
-        vector<vector<int>> g(n);
+        vector<int> g[n];
         for (auto& e : edges) {
             int a = e[0], b = e[1];
             g[a].emplace_back(b);
             g[b].emplace_back(a);
         }
         function<bool(int)> dfs = [&](int i) -> bool {
-            if (i == destination) return true;
+            if (i == destination) {
+                return true;
+            }
             vis[i] = true;
             for (int& j : g[i]) {
                 if (!vis[j] && dfs(j)) {
@@ -149,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validPath(n int, edges [][]int, source int, destination int) bool {
@@ -176,159 +194,296 @@ func validPath(n int, edges [][]int, source int, destination int) bool {
 }
 ```
 
-```rust
-impl Solution {
-    pub fn valid_path(n: i32, edges: Vec<Vec<i32>>, source: i32, destination: i32) -> bool {
-        let mut disjoint_set: Vec<i32> = vec![0; n as usize];
-        // Initialize the set
-        for i in 0..n {
-            disjoint_set[i as usize] = i;
-        }
+#### TypeScript
 
-        // Traverse the edges
-        for p_vec in &edges {
-            let parent_one = Solution::find(p_vec[0], &mut disjoint_set);
-            let parent_two = Solution::find(p_vec[1], &mut disjoint_set);
-            disjoint_set[parent_one as usize] = parent_two;
-        }
-
-        let p_s = Solution::find(source, &mut disjoint_set);
-        let p_d = Solution::find(destination, &mut disjoint_set);
-
-        p_s == p_d
+```ts
+function validPath(n: number, edges: number[][], source: number, destination: number): boolean {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
     }
 
-    pub fn find(x: i32, d_set: &mut Vec<i32>) -> i32 {
-        if d_set[x as usize] != x {
-            d_set[x as usize] = Solution::find(d_set[x as usize], d_set);
+    const vis = new Set<number>();
+    const dfs = (i: number) => {
+        if (i === destination) {
+            return true;
         }
-        d_set[x as usize]
+        if (vis.has(i)) {
+            return false;
+        }
+
+        vis.add(i);
+        return g[i].some(dfs);
+    };
+
+    return dfs(source);
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn valid_path(n: i32, edges: Vec<Vec<i32>>, source: i32, destination: i32) -> bool {
+        let mut vis = vec![false; n as usize];
+        let mut g = vec![HashSet::new(); n as usize];
+
+        for e in edges {
+            let a = e[0] as usize;
+            let b = e[1] as usize;
+            g[a].insert(b);
+            g[b].insert(a);
+        }
+
+        dfs(source as usize, destination as usize, &mut vis, &g)
+    }
+}
+
+fn dfs(i: usize, destination: usize, vis: &mut Vec<bool>, g: &Vec<HashSet<usize>>) -> bool {
+    if i == destination {
+        return true;
+    }
+    vis[i] = true;
+    for &j in &g[i] {
+        if !vis[j] && dfs(j, destination, vis, g) {
+            return true;
+        }
+    }
+    false
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：BFS
+
+我们也可以使用 BFS，判断是否存在从 `source` 到 `destination` 的路径。
+
+具体地，我们定义一个队列 $q$，初始时将 `source` 加入队列。另外，我们用一个集合 `vis` 记录已经访问过的顶点，避免重复访问。
+
+接下来，我们不断从队列中取出顶点 $i$，如果 $i = \text{destination}$，则说明存在从 `source` 到 `destination` 的路径，返回 `true`。否则，我们遍历 $i$ 的所有邻接顶点 $j$，如果 $j$ 没有被访问过，我们将 $j$ 加入队列 $q$，并且标记 $j$ 为已访问。
+
+最后，如果队列为空，说明不存在从 `source` 到 `destination` 的路径，返回 `false`。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数和边数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def validPath(
+        self, n: int, edges: List[List[int]], source: int, destination: int
+    ) -> bool:
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+
+        q = deque([source])
+        vis = {source}
+        while q:
+            i = q.popleft()
+            if i == destination:
+                return True
+            for j in g[i]:
+                if j not in vis:
+                    vis.add(j)
+                    q.append(j)
+        return False
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean validPath(int n, int[][] edges, int source, int destination) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(source);
+        boolean[] vis = new boolean[n];
+        vis[source] = true;
+        while (!q.isEmpty()) {
+            int i = q.poll();
+            if (i == destination) {
+                return true;
+            }
+            for (int j : g[i]) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    q.offer(j);
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        queue<int> q{{source}};
+        vector<bool> vis(n);
+        vis[source] = true;
+        while (q.size()) {
+            int i = q.front();
+            q.pop();
+            if (i == destination) {
+                return true;
+            }
+            for (int j : g[i]) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    q.push(j);
+                }
+            }
+        }
+        return false;
+    }
+};
+```
+
+#### Go
+
+```go
+func validPath(n int, edges [][]int, source int, destination int) bool {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	q := []int{source}
+	vis := make([]bool, n)
+	vis[source] = true
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		if i == destination {
+			return true
+		}
+		for _, j := range g[i] {
+			if !vis[j] {
+				vis[j] = true
+				q = append(q, j)
+			}
+		}
+	}
+	return false
+}
+```
+
+#### TypeScript
+
+```ts
+function validPath(n: number, edges: number[][], source: number, destination: number): boolean {
+    const g: number[][] = Array.from({ length: n }, () => []);
+
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+
+    const vis = new Set<number>();
+    const q = [source];
+
+    while (q.length) {
+        const i = q.pop()!;
+        if (i === destination) {
+            return true;
+        }
+        if (vis.has(i)) {
+            continue;
+        }
+        vis.add(i);
+        q.push(...g[i]);
+    }
+
+    return false;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::{ HashSet, VecDeque };
+
+impl Solution {
+    pub fn valid_path(n: i32, edges: Vec<Vec<i32>>, source: i32, destination: i32) -> bool {
+        let mut g = vec![HashSet::new(); n as usize];
+        for e in edges {
+            let a = e[0] as usize;
+            let b = e[1] as usize;
+            g[a].insert(b);
+            g[b].insert(a);
+        }
+
+        let mut q = VecDeque::new();
+        q.push_back(source as usize);
+        let mut vis = vec![false; n as usize];
+        vis[source as usize] = true;
+
+        while let Some(i) = q.pop_front() {
+            if i == (destination as usize) {
+                return true;
+            }
+            for &j in &g[i] {
+                if !vis[j] {
+                    vis[j] = true;
+                    q.push_back(j);
+                }
+            }
+        }
+
+        false
     }
 }
 ```
 
 <!-- tabs:end -->
 
-### 方法二：并查集
+<!-- solution:end -->
 
-判断图中两个节点是否连通，一种比较简单直接的方法是使用并查集。
+<!-- solution:start -->
 
-先构建并查集，然后将每条边的两个节点合并。
-
-最后查询 `source` 和 `destination` 的祖宗节点是否相同，相同则说明两个节点连通。
-
-时间复杂度 $O(n + m  \times \alpha(m))$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是节点数和边数。
-
-附并查集相关介绍以及常用模板：
+### 方法三：并查集
 
 并查集是一种树形的数据结构，顾名思义，它用于处理一些不交集的**合并**及**查询**问题。 它支持两种操作：
 
 1. 查找（Find）：确定某个元素处于哪个子集，单次操作时间复杂度 $O(\alpha(n))$
 1. 合并（Union）：将两个子集合并成一个集合，单次操作时间复杂度 $O(\alpha(n))$
 
-其中 $\alpha$ 为阿克曼函数的反函数，其增长极其缓慢，也就是说其单次操作的平均运行时间可以认为是一个很小的常数。
+对于本题，我们可以利用并查集，将 `edges` 中的边进行合并，然后判断 `source` 和 `destination` 是否在同一个集合中。
 
-以下是并查集的常用模板，需要熟练掌握。其中：
-
--   `n` 表示节点数
--   `p` 存储每个点的父节点，初始时每个点的父节点都是自己
--   `size` 只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
--   `find(x)` 函数用于查找 $x$ 所在集合的祖宗节点
--   `union(a, b)` 函数用于合并 $a$ 和 $b$ 所在的集合
-
-```python [sol1-Python3 模板]
-p = list(range(n))
-size = [1] * n
-
-def find(x):
-    if p[x] != x:
-        # 路径压缩
-        p[x] = find(p[x])
-    return p[x]
-
-
-def union(a, b):
-    pa, pb = find(a), find(b)
-    if pa == pb:
-        return
-    p[pa] = pb
-    size[pb] += size[pa]
-```
-
-```java [sol1-Java 模板]
-int[] p = new int[n];
-int[] size = new int[n];
-for (int i = 0; i < n; ++i) {
-    p[i] = i;
-    size[i] = 1;
-}
-
-int find(int x) {
-    if (p[x] != x) {
-        // 路径压缩
-        p[x] = find(p[x]);
-    }
-    return p[x];
-}
-
-void union(int a, int b) {
-    int pa = find(a), pb = find(b);
-    if (pa == pb) {
-        return;
-    }
-    p[pa] = pb;
-    size[pb] += size[pa];
-}
-```
-
-```cpp [sol1-C++ 模板]
-vector<int> p(n);
-iota(p.begin(), p.end(), 0);
-vector<int> size(n, 1);
-
-int find(int x) {
-    if (p[x] != x) {
-        // 路径压缩
-        p[x] = find(p[x]);
-    }
-    return p[x];
-}
-
-void unite(int a, int b) {
-    int pa = find(a), pb = find(b);
-    if (pa == pb) return;
-    p[pa] = pb;
-    size[pb] += size[pa];
-}
-```
-
-```go [sol1-Go 模板]
-p := make([]int, n)
-size := make([]int, n)
-for i := range p {
-    p[i] = i
-    size[i] = 1
-}
-
-func find(x int) int {
-    if p[x] != x {
-        // 路径压缩
-        p[x] = find(p[x])
-    }
-    return p[x]
-}
-
-func union(a, b int) {
-    pa, pb := find(a), find(b)
-    if pa == pb {
-        return
-    }
-    p[pa] = pb
-    size[pb] += size[pa]
-}
-```
+时间复杂度 $O(n \log n + m)$ 或 $O(n \alpha(n) + m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是节点数和边数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -345,6 +500,8 @@ class Solution:
             p[find(u)] = find(v)
         return find(source) == find(destination)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -370,6 +527,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -377,14 +536,20 @@ public:
         vector<int> p(n);
         iota(p.begin(), p.end(), 0);
         function<int(int)> find = [&](int x) -> int {
-            if (p[x] != x) p[x] = find(p[x]);
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
             return p[x];
         };
-        for (auto& e : edges) p[find(e[0])] = find(e[1]);
+        for (auto& e : edges) {
+            p[find(e[0])] = find(e[1]);
+        }
         return find(source) == find(destination);
     }
 };
 ```
+
+#### Go
 
 ```go
 func validPath(n int, edges [][]int, source int, destination int) bool {
@@ -406,6 +571,26 @@ func validPath(n int, edges [][]int, source int, destination int) bool {
 }
 ```
 
+#### TypeScript
+
+```ts
+function validPath(n: number, edges: number[][], source: number, destination: number): boolean {
+    const p: number[] = Array.from({ length: n }, (_, i) => i);
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+    for (const [a, b] of edges) {
+        p[find(a)] = find(b);
+    }
+    return find(source) === find(destination);
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

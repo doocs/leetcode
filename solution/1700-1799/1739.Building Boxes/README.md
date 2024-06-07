@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1739.Building%20Boxes/README.md
 rating: 2198
+source: 第 225 场周赛 Q4
 tags:
     - 贪心
     - 数学
     - 二分查找
 ---
+
+<!-- problem:start -->
 
 # [1739. 放置盒子](https://leetcode.cn/problems/building-boxes)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个立方体房间，其长度、宽度和高度都等于 <code>n</code> 个单位。请你在房间里放置 <code>n</code> 个盒子，每个盒子都是一个单位边长的立方体。放置规则如下：</p>
 
@@ -68,7 +71,11 @@ tags:
 	<li><code>1 <= n <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学规律
 
@@ -81,6 +88,8 @@ tags:
 时间复杂度 $O(\sqrt{n})$，其中 $n$ 为题目给定的盒子数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +107,8 @@ class Solution:
             k += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumBoxes(n int) int {
 	s, k := 0, 1
@@ -163,4 +178,6 @@ func minimumBoxes(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

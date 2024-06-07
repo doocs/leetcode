@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README.md
 rating: 2943
+source: 第 118 场双周赛 Q4
 tags:
     - 栈
     - 队列
@@ -13,13 +14,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [2945. 找到最大非递减数组的长度](https://leetcode.cn/problems/find-maximum-non-decreasing-array-length)
 
 [English Version](/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -70,11 +73,17 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +99,8 @@ class Solution:
             pre[j] = i
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaximumLength(nums []int) int {
 	n := len(nums)
@@ -154,6 +169,8 @@ func findMaximumLength(nums []int) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaximumLength(nums: number[]): number {
@@ -188,4 +205,6 @@ function findMaximumLength(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

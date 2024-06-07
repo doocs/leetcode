@@ -8,11 +8,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [156. Binary Tree Upside Down 🔒](https://leetcode.com/problems/binary-tree-upside-down)
 
 [中文文档](/solution/0100-0199/0156.Binary%20Tree%20Upside%20Down/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, turn the tree upside down and return <em>the new root</em>.</p>
 
@@ -58,11 +62,17 @@ tags:
 	<li>Every right node in the tree has no children.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -82,6 +92,8 @@ class Solution:
         root.right = None
         return new_root
 ```
+
+#### Java
 
 ```java
 /**
@@ -114,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -140,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -164,4 +180,6 @@ func upsideDownBinaryTree(root *TreeNode) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

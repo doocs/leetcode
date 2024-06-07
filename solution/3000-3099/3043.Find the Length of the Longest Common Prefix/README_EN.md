@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README_EN.md
 rating: 1688
+source: Weekly Contest 385 Q2
 tags:
     - Trie
     - Array
@@ -10,11 +11,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [3043. Find the Length of the Longest Common Prefix](https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix)
 
 [中文文档](/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two arrays with <strong>positive</strong> integers <code>arr1</code> and <code>arr2</code>.</p>
 
@@ -56,7 +61,11 @@ Note that common prefixes between elements of the same array do not count.
 	<li><code>1 &lt;= arr1[i], arr2[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -65,6 +74,8 @@ We can use a hash table to store all the prefixes of the numbers in `arr1`. Then
 The time complexity is $O(m \times \log M + n \times \log N)$, and the space complexity is $O(m \times \log M)$. Here, $m$ and $n$ are the lengths of `arr1` and `arr2` respectively, and $M$ and $N$ are the maximum values in `arr1` and `arr2` respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +94,8 @@ class Solution:
                 x //= 10
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestCommonPrefix(arr1 []int, arr2 []int) (ans int) {
 	s := map[int]bool{}
@@ -150,6 +167,8 @@ func longestCommonPrefix(arr1 []int, arr2 []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestCommonPrefix(arr1: number[], arr2: number[]): number {
@@ -173,4 +192,6 @@ function longestCommonPrefix(arr1: number[], arr2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

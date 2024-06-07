@@ -10,11 +10,15 @@ tags:
     - Hash Function
 ---
 
+<!-- problem:start -->
+
 # [706. Design HashMap](https://leetcode.com/problems/design-hashmap)
 
 [中文文档](/solution/0700-0799/0706.Design%20HashMap/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a HashMap without using any built-in hash table libraries.</p>
 
@@ -57,11 +61,17 @@ myHashMap.get(2);    // return -1 (i.e., not found), The map is now [[1,1]]
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>put</code>, <code>get</code>, and <code>remove</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyHashMap:
@@ -84,6 +94,8 @@ class MyHashMap:
 # param_2 = obj.get(key)
 # obj.remove(key)
 ```
+
+#### Java
 
 ```java
 class MyHashMap {
@@ -115,6 +127,8 @@ class MyHashMap {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyHashMap {
 public:
@@ -145,6 +159,8 @@ public:
  * obj->remove(key);
  */
 ```
+
+#### Go
 
 ```go
 type MyHashMap struct {
@@ -180,6 +196,8 @@ func (this *MyHashMap) Remove(key int) {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MyHashMap {
     data: Array<number>;
@@ -211,4 +229,6 @@ class MyHashMap {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

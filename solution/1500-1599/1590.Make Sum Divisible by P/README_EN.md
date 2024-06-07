@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1590.Make%20Sum%20Divisible%20by%20P/README_EN.md
 rating: 2038
+source: Biweekly Contest 35 Q3
 tags:
     - Array
     - Hash Table
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1590. Make Sum Divisible by P](https://leetcode.com/problems/make-sum-divisible-by-p)
 
 [中文文档](/solution/1500-1599/1590.Make%20Sum%20Divisible%20by%20P/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of positive integers <code>nums</code>, remove the <strong>smallest</strong> subarray (possibly <strong>empty</strong>) such that the <strong>sum</strong> of the remaining elements is divisible by <code>p</code>. It is <strong>not</strong> allowed to remove the whole array.</p>
 
@@ -55,11 +60,17 @@ tags:
 	<li><code>1 &lt;= p &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +89,8 @@ class Solution:
             last[cur] = i
         return -1 if ans == len(nums) else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSubarray(nums []int, p int) int {
 	k := 0
@@ -163,6 +180,8 @@ func minSubarray(nums []int, p int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minSubarray(nums: number[], p: number): number {
@@ -193,4 +212,6 @@ function minSubarray(nums: number[], p: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

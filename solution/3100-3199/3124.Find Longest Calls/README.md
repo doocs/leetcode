@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3124. 查找最长的电话 🔒](https://leetcode.cn/problems/find-longest-calls)
 
 [English Version](/solution/3100-3199/3124.Find%20Longest%20Calls/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Contacts</code></p>
 
@@ -40,7 +42,7 @@ id 是 Calls 表的外键（引用列）。
 | duration    | int  |
 +-------------+------+
 (contact_id, type, duration) 是这张表的主键（有不同值的列）。
-类型是 ('incoming', 'outgoing') 的 ENUM (category)。
+type 字段是 ('incoming', 'outgoing') 的 ENUM (category)。
 这张表的每一行包含有 calls, 包括 contact_id，type 和以秒为单位的 duration 的信息。
 </pre>
 
@@ -119,13 +121,19 @@ id 是 Calls 表的外键（引用列）。
 <p><b>注意：</b>输出表以&nbsp;type，duration&nbsp;和 first_name 降序排序。</p>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：等值连接 + 窗口函数
 
 我们可以使用等值连接将两张表连接起来，然后使用窗口函数 `RANK()` 计算每个类型的电话的排名。最后，我们只需要筛选出排名前三的电话即可。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 WITH
@@ -150,6 +158,8 @@ FROM T
 WHERE rk <= 3
 ORDER BY 2, 3 DESC, 1 DESC;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -178,4 +188,6 @@ def find_longest_calls(contacts: pd.DataFrame, calls: pd.DataFrame) -> pd.DataFr
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

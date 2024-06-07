@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2110.Number%20of%20Smooth%20Descent%20Periods%20of%20a%20Stock/README_EN.md
 rating: 1408
+source: Weekly Contest 272 Q3
 tags:
     - Array
     - Math
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2110. Number of Smooth Descent Periods of a Stock](https://leetcode.com/problems/number-of-smooth-descent-periods-of-a-stock)
 
 [中文文档](/solution/2100-2199/2110.Number%20of%20Smooth%20Descent%20Periods%20of%20a%20Stock/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>prices</code> representing the daily price history of a stock, where <code>prices[i]</code> is the stock price on the <code>i<sup>th</sup></code> day.</p>
 
@@ -57,11 +62,17 @@ Note that [8,6] is not a smooth descent period as 8 - 6 &ne; 1.
 	<li><code>1 &lt;= prices[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +88,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getDescentPeriods(prices []int) (ans int64) {
 	n := len(prices)
@@ -129,6 +146,8 @@ func getDescentPeriods(prices []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getDescentPeriods(prices: number[]): number {
@@ -148,4 +167,6 @@ function getDescentPeriods(prices: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

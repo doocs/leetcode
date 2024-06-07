@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2465.Number%20of%20Distinct%20Averages/README_EN.md
 rating: 1250
+source: Biweekly Contest 91 Q1
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2465. Number of Distinct Averages](https://leetcode.com/problems/number-of-distinct-averages)
 
 [中文文档](/solution/2400-2499/2465.Number%20of%20Distinct%20Averages/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of <strong>even</strong> length.</p>
 
@@ -67,7 +72,11 @@ There is only one average to be calculated after removing 1 and 100, so we retur
 	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -77,12 +86,16 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distinctAverages(self, nums: List[int]) -> int:
         nums.sort()
         return len(set(nums[i] + nums[-i - 1] for i in range(len(nums) >> 1)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctAverages(nums []int) (ans int) {
 	sort.Ints(nums)
@@ -125,6 +142,8 @@ func distinctAverages(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distinctAverages(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -136,6 +155,8 @@ function distinctAverages(nums: number[]): number {
     return s.size;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -162,9 +183,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -179,6 +206,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -196,6 +225,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -215,6 +246,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctAverages(nums []int) (ans int) {
 	sort.Ints(nums)
@@ -231,6 +264,8 @@ func distinctAverages(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distinctAverages(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -245,6 +280,8 @@ function distinctAverages(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -273,9 +310,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -306,4 +349,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

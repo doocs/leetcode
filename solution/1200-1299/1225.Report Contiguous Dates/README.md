@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1225. 报告系统状态的连续日期 🔒](https://leetcode.cn/problems/report-contiguous-dates)
 
 [English Version](/solution/1200-1299/1225.Report%20Contiguous%20Dates/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Failed</code></p>
 
@@ -91,13 +93,19 @@ Succeeded table:
 从 2019-01-06 到 2019-01-06 所有任务成功，系统状态为 "succeeded"。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：合并 + 窗口函数 + 分组求最大最小值
 
 我们可以将两个表合并，用一个字段 $st$ 表示状态，其中 `failed` 表示失败，`succeeded` 表示成功。然后我们可以使用窗口函数，将相同状态的记录分到一组，求出每个日期与其所在组排名的差值 $pt$，作为同一个连续状态的标识。最后我们可以按照 $st$ 和 $pt$ 分组，求出每组的最小日期和最大日期，然后按照最小日期排序即可。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -134,4 +142,6 @@ ORDER BY 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

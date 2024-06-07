@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README_EN.md
 rating: 1759
+source: Weekly Contest 267 Q3
 tags:
     - String
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [2075. Decode the Slanted Ciphertext](https://leetcode.com/problems/decode-the-slanted-ciphertext)
 
 [中文文档](/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A string <code>originalText</code> is encoded using a <strong>slanted transposition cipher</strong> to a string <code>encodedText</code> with the help of a matrix having a <strong>fixed number of rows</strong> <code>rows</code>.</p>
 
@@ -69,7 +74,11 @@ The blue arrows show how we can find originalText from encodedText.
 	<li>The testcases are generated such that there is <strong>only one</strong> possible <code>originalText</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -80,6 +89,8 @@ Finally, we return the answer, making sure to remove any trailing spaces.
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $encodedText$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +104,8 @@ class Solution:
                 x, y = x + 1, y + 1
         return ''.join(ans).rstrip()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func decodeCiphertext(encodedText string, rows int) string {
 	ans := []byte{}
@@ -147,6 +164,8 @@ func decodeCiphertext(encodedText string, rows int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function decodeCiphertext(encodedText: string, rows: number): string {
     const cols = Math.ceil(encodedText.length / rows);
@@ -162,4 +181,6 @@ function decodeCiphertext(encodedText: string, rows: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

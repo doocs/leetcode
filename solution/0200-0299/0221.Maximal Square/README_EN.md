@@ -8,11 +8,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [221. Maximal Square](https://leetcode.com/problems/maximal-square)
 
 [中文文档](/solution/0200-0299/0221.Maximal%20Square/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> binary <code>matrix</code> filled with <code>0</code>&#39;s and <code>1</code>&#39;s, <em>find the largest square containing only</em> <code>1</code>&#39;s <em>and return its area</em>.</p>
 
@@ -48,7 +52,11 @@ tags:
 	<li><code>matrix[i][j]</code> is <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -68,6 +76,8 @@ The time complexity is $O(m\times n)$, and the space complexity is $O(m\times n)
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
@@ -81,6 +91,8 @@ class Solution:
                     mx = max(mx, dp[i + 1][j + 1])
         return mx * mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximalSquare(matrix [][]byte) int {
 	m, n := len(matrix), len(matrix[0])
@@ -140,6 +156,8 @@ func maximalSquare(matrix [][]byte) int {
 	return mx * mx
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -165,4 +183,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

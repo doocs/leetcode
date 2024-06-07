@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README_EN.md
 rating: 1882
+source: Weekly Contest 377 Q3
 tags:
     - Graph
     - Array
@@ -10,11 +11,15 @@ tags:
     - Shortest Path
 ---
 
+<!-- problem:start -->
+
 # [2976. Minimum Cost to Convert String I](https://leetcode.com/problems/minimum-cost-to-convert-string-i)
 
 [中文文档](/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> strings <code>source</code> and <code>target</code>, both of length <code>n</code> and consisting of <strong>lowercase</strong> English letters. You are also given two <strong>0-indexed</strong> character arrays <code>original</code> and <code>changed</code>, and an integer array <code>cost</code>, where <code>cost[i]</code> represents the cost of changing the character <code>original[i]</code> to the character <code>changed[i]</code>.</p>
 
@@ -67,7 +72,11 @@ It can be shown that this is the minimum possible cost.
 	<li><code>original[i] != changed[i]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Floyd Algorithm
 
@@ -82,6 +91,8 @@ After the traversal ends, we return the answer.
 The time complexity is $O(m + n + |\Sigma|^3)$, and the space complexity is $O(|\Sigma|^2)$. Where $m$ and $n$ are the lengths of the arrays $original$ and $source$ respectively; and $|\Sigma|$ is the size of the alphabet, that is, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -113,6 +124,8 @@ class Solution:
                 ans += g[x][y]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +166,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -197,6 +212,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCost(source string, target string, original []byte, changed []byte, cost []int) (ans int64) {
 	const inf = 1 << 29
@@ -240,6 +257,8 @@ func minimumCost(source string, target string, original []byte, changed []byte, 
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCost(
@@ -286,4 +305,6 @@ function minimumCost(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

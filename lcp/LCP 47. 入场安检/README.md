@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2047.%20%E5%85%A5%E5%9C%BA%E5%AE%89%E6%A3%80/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 47. 入场安检](https://leetcode.cn/problems/oPs9Bm)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 「力扣挑战赛」 的入场仪式马上就要开始了，由于安保工作的需要，设置了可容纳人数总和为 `M` 的 `N` 个安检室，`capacities[i]` 记录第 `i` 个安检室可容纳人数。安检室拥有两种类型：
 
@@ -64,6 +66,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2047.%20%E5%85%A5%
 -   `1 <= capacities[i] <= 200`
 -   `0 <= k <= sum(capacities)`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

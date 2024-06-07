@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README_EN.md
 rating: 2556
+source: Weekly Contest 388 Q4
 tags:
     - Array
     - Dynamic Programming
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [3077. Maximum Strength of K Disjoint Subarrays](https://leetcode.com/problems/maximum-strength-of-k-disjoint-subarrays)
 
 [中文文档](/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of integers <code>nums</code> of length <code>n</code>, and a <strong>positive</strong> <strong>odd</strong> integer <code>k</code>.</p>
 
@@ -61,7 +66,11 @@ tags:
 	<li><code>k</code> is odd.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -81,6 +90,8 @@ The time complexity is $O(n \times k)$, and the space complexity is $O(n \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumStrength(self, nums: List[int], k: int) -> int:
@@ -98,6 +109,8 @@ class Solution:
                     )
         return max(f[n][k])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +168,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumStrength(nums []int, k int) int64 {
@@ -186,6 +203,8 @@ func maximumStrength(nums []int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumStrength(nums: number[], k: number): number {
     const n: number = nums.length;
@@ -211,4 +230,6 @@ function maximumStrength(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

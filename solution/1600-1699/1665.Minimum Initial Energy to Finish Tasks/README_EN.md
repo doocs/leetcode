@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1665.Minimum%20Initial%20Energy%20to%20Finish%20Tasks/README_EN.md
 rating: 1900
+source: Weekly Contest 216 Q4
 tags:
     - Greedy
     - Array
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1665. Minimum Initial Energy to Finish Tasks](https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks)
 
 [中文文档](/solution/1600-1699/1665.Minimum%20Initial%20Energy%20to%20Finish%20Tasks/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>tasks</code> where <code>tasks[i] = [actual<sub>i</sub>, minimum<sub>i</sub>]</code>:</p>
 
@@ -77,7 +82,11 @@ Starting with 27 energy, we finish the tasks in the following order:
 	<li><code>1 &lt;= actual<sub>​i</sub>&nbsp;&lt;= minimum<sub>i</sub>&nbsp;&lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Custom Sorting
 
@@ -107,6 +116,8 @@ The time complexity is $O(n\times \log n)$, where $n$ is the number of tasks. Ig
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumEffort(self, tasks: List[List[int]]) -> int:
@@ -118,6 +129,8 @@ class Solution:
             cur -= a
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +149,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -156,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumEffort(tasks [][]int) (ans int) {
 	sort.Slice(tasks, func(i, j int) bool { return tasks[i][0]-tasks[i][1] < tasks[j][0]-tasks[j][1] })
@@ -171,6 +188,8 @@ func minimumEffort(tasks [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumEffort(tasks: number[][]): number {
@@ -190,4 +209,6 @@ function minimumEffort(tasks: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

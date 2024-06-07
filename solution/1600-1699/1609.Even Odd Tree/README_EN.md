@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1609.Even%20Odd%20Tree/README_EN.md
 rating: 1438
+source: Weekly Contest 209 Q2
 tags:
     - Tree
     - Breadth-First Search
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1609. Even Odd Tree](https://leetcode.com/problems/even-odd-tree)
 
 [中文文档](/solution/1600-1699/1609.Even%20Odd%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A binary tree is named <strong>Even-Odd</strong> if it meets the following conditions:</p>
 
@@ -67,7 +72,11 @@ Node values in level 2 must be in strictly increasing order, so the tree is not 
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -76,6 +85,8 @@ BFS traverses level by level. Each level is judged by its parity. The node value
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -104,6 +115,8 @@ class Solution:
             even ^= 1
         return True
 ```
+
+#### Java
 
 ```java
 /**
@@ -151,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -194,6 +209,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -236,6 +253,10 @@ func isEvenOddTree(root *TreeNode) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: DFS
 
 DFS performs a pre-order traversal of the binary tree, and similarly judges whether it meets the conditions based on the parity of the layer where the node is located. During the traversal, a hash table is used to record the node value that was most recently visited at each layer.
@@ -243,6 +264,8 @@ DFS performs a pre-order traversal of the binary tree, and similarly judges whet
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -268,6 +291,8 @@ class Solution:
         d = {}
         return dfs(root, 0)
 ```
+
+#### Java
 
 ```java
 /**
@@ -310,6 +335,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -347,6 +374,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -388,4 +417,6 @@ func isEvenOddTree(root *TreeNode) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

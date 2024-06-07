@@ -7,11 +7,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1708. Largest Subarray Length K 🔒](https://leetcode.com/problems/largest-subarray-length-k)
 
 [中文文档](/solution/1700-1799/1708.Largest%20Subarray%20Length%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An array <code>A</code> is larger than some array <code>B</code> if for the first index <code>i</code> where <code>A[i] != B[i]</code>, <code>A[i] &gt; B[i]</code>.</p>
 
@@ -62,7 +66,11 @@ Of these, [4,5,2,3] is the largest.</pre>
 <p>&nbsp;</p>
 <strong>Follow up:</strong> What if the integers in <code>nums</code> are not distinct?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -72,12 +80,16 @@ The time complexity is $O(n)$, where $n$ is the length of the array. Ignoring th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestSubarray(self, nums: List[int], k: int) -> List[int]:
         i = nums.index(max(nums[: len(nums) - k + 1]))
         return nums[i : i + k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +116,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestSubarray(nums []int, k int) []int {
@@ -115,6 +131,8 @@ func largestSubarray(nums []int, k int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function largestSubarray(nums: number[], k: number): number[] {
     let j = 0;
@@ -126,6 +144,8 @@ function largestSubarray(nums: number[], k: number): number[] {
     return nums.slice(j, j + k);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -143,4 +163,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

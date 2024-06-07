@@ -6,11 +6,15 @@ tags:
     - Shell
 ---
 
+<!-- problem:start -->
+
 # [192. Word Frequency](https://leetcode.com/problems/word-frequency)
 
 [中文文档](/solution/0100-0199/0192.Word%20Frequency/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a bash script to calculate the <span data-keyword="frequency-textfile">frequency</span> of each word in a text file <code>words.txt</code>.</p>
 
@@ -47,11 +51,17 @@ day 1
 	<li>Could you write it in one-line using <a href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-4.html">Unix pipes</a>?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: awk
 
 <!-- tabs:start -->
+
+#### Shell
 
 ```bash
 # Read from the file words.txt and output the word frequency list to stdout.
@@ -60,4 +70,6 @@ cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -nr | awk '{print $2, $1}
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

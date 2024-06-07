@@ -10,13 +10,15 @@ tags:
     - 博弈
 ---
 
+<!-- problem:start -->
+
 # [2868. 单词游戏 🔒](https://leetcode.cn/problems/the-wording-game)
 
 [English Version](/solution/2800-2899/2868.The%20Wording%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 分别拥有一个&nbsp;<strong>按字典序排序&nbsp;</strong>的字符串数组，分别命名为 <code>a</code>&nbsp;和 <code>b</code>。</p>
 
@@ -94,7 +96,11 @@ Bob 无法出牌，因为他的两个单词的第一个字母都比 Alice 的单
 	<li><code>a</code> 和 <code>b</code> 中所有单词的长度之和不超过 <code>10<sup>6</sup></code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -109,6 +115,8 @@ Bob 无法出牌，因为他的两个单词的第一个字母都比 Alice 的单
 时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是数组 $a$ 和 $b$ 的长度。我们只需要遍历数组一次。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -131,6 +139,8 @@ class Solution:
                     k ^= 1
                 i += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -165,6 +175,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -196,6 +208,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canAliceWin(a []string, b []string) bool {
 	i, j, k := 1, 0, 1
@@ -223,6 +237,8 @@ func canAliceWin(a []string, b []string) bool {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canAliceWin(a: string[], b: string[]): boolean {
@@ -254,4 +270,6 @@ function canAliceWin(a: string[], b: string[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

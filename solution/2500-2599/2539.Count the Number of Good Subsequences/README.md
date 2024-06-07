@@ -10,13 +10,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2539. 好子序列的个数 🔒](https://leetcode.cn/problems/count-the-number-of-good-subsequences)
 
 [English Version](/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果字符串的某个 <strong>子序列</strong> 不为空，且其中每一个字符出现的频率都相同，就认为该子序列是一个好子序列。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>s</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 组合计数
 
@@ -71,6 +77,8 @@ tags:
 时间复杂度 $O(n \times C)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 是字符集的大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 N = 10001
@@ -98,6 +106,8 @@ class Solution:
             ans = (ans + x - 1) % MOD
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +161,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 int N = 10001;
@@ -207,6 +219,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 const n = 1e4 + 1
 const mod = 1e9 + 7
@@ -260,4 +274,6 @@ func countGoodSubsequences(s string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

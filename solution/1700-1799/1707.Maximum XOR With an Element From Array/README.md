@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1707.Maximum%20XOR%20With%20an%20Element%20From%20Array/README.md
 rating: 2358
+source: 第 221 场周赛 Q4
 tags:
     - 位运算
     - 字典树
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [1707. 与数组中元素的最大异或值](https://leetcode.cn/problems/maximum-xor-with-an-element-from-array)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由非负整数组成的数组 <code>nums</code> 。另有一个查询数组 <code>queries</code> ，其中 <code>queries[i] = [x<sub>i</sub>, m<sub>i</sub>]</code> 。</p>
 
@@ -51,7 +54,11 @@ tags:
 	<li><code>0 &lt;= nums[j], x<sub>i</sub>, m<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：离线查询 + 0-1 字典树
 
@@ -62,6 +69,8 @@ tags:
 时间复杂度 $O(m \times \log m + n \times (\log n + \log M))$，空间复杂度 $O(n \times \log M)$，其中 $m$ 和 $n$ 分别是数组 $nums$ 和 $queries$ 的长度，而 $M$ 是数组 $nums$ 中的最大值，本题中 $M \le 10^9$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -106,6 +115,8 @@ class Solution:
             ans[i] = trie.search(x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -163,6 +174,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -224,6 +237,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -287,6 +302,8 @@ func maximizeXor(nums []int, queries [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class Trie {
     children: (Trie | null)[];
@@ -346,4 +363,6 @@ function maximizeXor(nums: number[], queries: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

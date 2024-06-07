@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1567.Maximum%20Length%20of%20Subarray%20With%20Positive%20Product/README.md
 rating: 1710
+source: 第 204 场周赛 Q2
 tags:
     - 贪心
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [1567. 乘积为正数的最长子数组长度](https://leetcode.cn/problems/maximum-length-of-subarray-with-positive-product)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code>&nbsp;，请你求出乘积为正数的最长子数组的长度。</p>
 
@@ -60,11 +63,17 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +103,8 @@ class Solution:
         return res
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int getMaxLen(int[] nums) {
@@ -118,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +157,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMaxLen(nums []int) int {
@@ -180,6 +195,8 @@ func getMaxLen(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getMaxLen(nums: number[]): number {
     // 连续正数计数n1, 连续负数计数n2
@@ -207,4 +224,6 @@ function getMaxLen(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

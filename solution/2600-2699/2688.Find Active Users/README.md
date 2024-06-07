@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2688. 查找活跃用户 🔒](https://leetcode.cn/problems/find-active-users)
 
 [English Version](/solution/2600-2699/2688.Find%20Active%20Users/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><font face="monospace"><code>Users</code> 表：</font></p>
 
@@ -65,11 +67,17 @@ tags:
 – user_id 为 8 的用户只有一笔交易，因此他不是活跃用户。
 – user_id 为 4 的用户有两笔交易，第一笔交易是在2021年9月2日，第二笔交易是在2021年9月13日。第一笔和第二笔交易之间的时间间隔大于7天。因此，他不是活跃用户。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement
@@ -97,4 +105,6 @@ WHERE
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [893. Groups of Special-Equivalent Strings](https://leetcode.com/problems/groups-of-special-equivalent-strings)
 
 [中文文档](/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of strings of the same length <code>words</code>.</p>
 
@@ -63,11 +67,17 @@ Note that in particular, &quot;zzxy&quot; is not special equivalent to &quot;zzy
 	<li>All the strings are of the same length.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +85,8 @@ class Solution:
         s = {''.join(sorted(word[::2]) + sorted(word[1::2])) for word in words}
         return len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSpecialEquivGroups(words []string) int {
@@ -159,4 +175,6 @@ func numSpecialEquivGroups(words []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [24. 两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs)
 
 [English Version](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题（即，只能进行节点交换）。</p>
 
@@ -49,7 +51,11 @@ tags:
 	<li><code>0 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -62,6 +68,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -79,6 +87,8 @@ class Solution:
         head.next = t
         return p
 ```
+
+#### Java
 
 ```java
 /**
@@ -104,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -131,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -150,6 +164,8 @@ func swapPairs(head *ListNode) *ListNode {
 	return p
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -175,6 +191,8 @@ function swapPairs(head: ListNode | null): ListNode | null {
     return p;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -212,6 +230,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -235,6 +255,8 @@ var swapPairs = function (head) {
     return p;
 };
 ```
+
+#### Ruby
 
 ```rb
 # Definition for singly-linked list.
@@ -265,6 +287,10 @@ end
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：迭代
 
 我们设置一个虚拟头节点 $dummy$，初始时指向 $head$，然后设置两个指针 $pre$ 和 $cur$，初始时 $pre$ 指向 $dummy$，而 $cur$ 指向 $head$。
@@ -274,6 +300,8 @@ end
 时间复杂度 $O(n)$，空间复杂度 $O(1)$，其中 $n$ 是链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -293,6 +321,8 @@ class Solution:
             pre, cur = cur, cur.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -322,6 +352,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -353,6 +385,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -374,6 +408,8 @@ func swapPairs(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -402,6 +438,8 @@ function swapPairs(head: ListNode | null): ListNode | null {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -427,6 +465,8 @@ var swapPairs = function (head) {
     return dummy.next;
 };
 ```
+
+#### PHP
 
 ```php
 # Definition for singly-linked list.
@@ -470,4 +510,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

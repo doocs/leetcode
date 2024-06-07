@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2187.Minimum%20Time%20to%20Complete%20Trips/README_EN.md
 rating: 1640
+source: Weekly Contest 282 Q3
 tags:
     - Array
     - Binary Search
 ---
+
+<!-- problem:start -->
 
 # [2187. Minimum Time to Complete Trips](https://leetcode.com/problems/minimum-time-to-complete-trips)
 
 [中文文档](/solution/2100-2199/2187.Minimum%20Time%20to%20Complete%20Trips/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>time</code> where <code>time[i]</code> denotes the time taken by the <code>i<sup>th</sup></code> bus to complete <strong>one trip</strong>.</p>
 
@@ -54,7 +59,11 @@ So the minimum time needed to complete 1 trip is 2.
 	<li><code>1 &lt;= time[i], totalTrips &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -68,6 +77,8 @@ The time complexity is $O(n \times \log(m \times k))$, where $n$ and $k$ are the
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTime(self, time: List[int], totalTrips: int) -> int:
@@ -76,6 +87,8 @@ class Solution:
             range(mx), totalTrips, key=lambda x: sum(x // v for v in time)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTime(time []int, totalTrips int) int64 {
 	mx := slices.Min(time) * totalTrips
@@ -137,6 +154,8 @@ func minimumTime(time []int, totalTrips int) int64 {
 	}))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTime(time: number[], totalTrips: number): number {
@@ -157,4 +176,6 @@ function minimumTime(time: number[], totalTrips: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

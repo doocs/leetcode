@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1134.Armstrong%20Number/README_EN.md
 rating: 1231
+source: Biweekly Contest 5 Q2
 tags:
     - Math
 ---
+
+<!-- problem:start -->
 
 # [1134. Armstrong Number 🔒](https://leetcode.com/problems/armstrong-number)
 
 [中文文档](/solution/1100-1199/1134.Armstrong%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, return <code>true</code> <em>if and only if it is an <strong>Armstrong number</strong></em>.</p>
 
@@ -41,7 +46,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -50,6 +59,8 @@ We can first calculate the number of digits $k$, then calculate the sum $s$ of t
 The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the given number.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +72,8 @@ class Solution:
             x //= 10
         return s == n
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -89,6 +104,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isArmstrong(n int) bool {
 	k := 0
@@ -103,6 +120,8 @@ func isArmstrong(n int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isArmstrong(n: number): boolean {
     const k = String(n).length;
@@ -113,6 +132,8 @@ function isArmstrong(n: number): boolean {
     return s == n;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -131,4 +152,6 @@ var isArmstrong = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

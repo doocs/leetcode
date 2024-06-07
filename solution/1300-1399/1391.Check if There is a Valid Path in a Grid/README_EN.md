@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1391.Check%20if%20There%20is%20a%20Valid%20Path%20in%20a%20Grid/README_EN.md
 rating: 1745
+source: Weekly Contest 181 Q3
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -11,11 +12,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1391. Check if There is a Valid Path in a Grid](https://leetcode.com/problems/check-if-there-is-a-valid-path-in-a-grid)
 
 [中文文档](/solution/1300-1399/1391.Check%20if%20There%20is%20a%20Valid%20Path%20in%20a%20Grid/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> <code>grid</code>. Each cell of <code>grid</code> represents a street. The street of <code>grid[i][j]</code> can be:</p>
 
@@ -69,11 +74,17 @@ tags:
 	<li><code>1 &lt;= grid[i][j] &lt;= 6</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -125,6 +136,8 @@ class Solution:
                     up(i, j)
         return find(0) == find(m * n - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -201,6 +214,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -265,6 +280,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hasValidPath(grid [][]int) bool {
 	m, n := len(grid), len(grid[0])
@@ -328,4 +345,6 @@ func hasValidPath(grid [][]int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

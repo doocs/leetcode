@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1461.Check%20If%20a%20String%20Contains%20All%20Binary%20Codes%20of%20Size%20K/README.md
 rating: 1504
+source: 第 27 场双周赛 Q2
 tags:
     - 位运算
     - 哈希表
@@ -11,13 +12,15 @@ tags:
     - 滚动哈希
 ---
 
+<!-- problem:start -->
+
 # [1461. 检查一个字符串是否包含所有长度为 K 的二进制子串](https://leetcode.cn/problems/check-if-a-string-contains-all-binary-codes-of-size-k)
 
 [English Version](/solution/1400-1499/1461.Check%20If%20a%20String%20Contains%20All%20Binary%20Codes%20of%20Size%20K/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二进制字符串&nbsp;<code>s</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。如果所有长度为 <code>k</code>&nbsp;的二进制字符串都是 <code>s</code>&nbsp;的子串，请返回 <code>true</code> ，否则请返回 <code>false</code> 。</p>
 
@@ -57,7 +60,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -67,12 +74,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hasAllCodes(self, s: str, k: int) -> bool:
         ss = {s[i : i + k] for i in range(len(s) - k + 1)}
         return len(ss) == 1 << k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hasAllCodes(s string, k int) bool {
 	ss := map[string]bool{}
@@ -111,6 +126,10 @@ func hasAllCodes(s string, k int) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：滑动窗口
 
 方法一中，我们存储了所有长度为 $k$ 的不同子串，子串的处理需要 $O(k)$ 的时间，我们可以改用滑动窗口，每次添加最新字符时，删除窗口最左边的字符。此过程中用一个整型数字 $num$ 来存放子串。
@@ -118,6 +137,8 @@ func hasAllCodes(s string, k int) bool {
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -134,6 +155,8 @@ class Solution:
             vis[num] = True
         return all(v for v in vis)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +184,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -182,6 +207,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func hasAllCodes(s string, k int) bool {
@@ -211,4 +238,6 @@ func hasAllCodes(s string, k int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

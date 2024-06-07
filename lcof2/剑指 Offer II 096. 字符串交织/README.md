@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20096.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BA%A4%E7%BB%87/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 096. 字符串交织](https://leetcode.cn/problems/IY6buf)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定三个字符串&nbsp;<code>s1</code>、<code>s2</code>、<code>s3</code>，请判断&nbsp;<code>s3</code>&nbsp;能不能由&nbsp;<code>s1</code>&nbsp;和&nbsp;<code>s2</code><em>&nbsp;</em><strong>交织（交错）</strong>&nbsp;组成。</p>
 
@@ -61,7 +63,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 97&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/interleaving-string/">https://leetcode.cn/problems/interleaving-string/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -85,6 +91,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
@@ -104,6 +112,8 @@ class Solution:
             return False
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -179,6 +191,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isInterleave(s1 string, s2 string, s3 string) bool {
 	m, n := len(s1), len(s2)
@@ -202,6 +216,8 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 	return dfs(0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isInterleave(s1: string, s2: string, s3: string): boolean {
@@ -230,6 +246,8 @@ function isInterleave(s1: string, s2: string, s3: string): boolean {
     return dfs(0, 0);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -274,6 +292,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：动态规划
 
 我们可以将方法一中的记忆化搜索转化为动态规划。
@@ -298,6 +320,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
@@ -315,6 +339,8 @@ class Solution:
                     f[i][j] |= f[i][j - 1]
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -340,6 +366,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -368,6 +396,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isInterleave(s1 string, s2 string, s3 string) bool {
 	m, n := len(s1), len(s2)
@@ -394,6 +424,8 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isInterleave(s1: string, s2: string, s3: string): boolean {
     const m = s1.length;
@@ -417,6 +449,8 @@ function isInterleave(s1: string, s2: string, s3: string): boolean {
     return f[m][n];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -445,9 +479,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -465,6 +505,8 @@ class Solution:
                     f[j] |= f[j - 1] and s2[j - 1] == s3[k]
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -490,6 +532,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -518,6 +562,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isInterleave(s1 string, s2 string, s3 string) bool {
 	m, n := len(s1), len(s2)
@@ -540,6 +586,8 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isInterleave(s1: string, s2: string, s3: string): boolean {
@@ -564,6 +612,8 @@ function isInterleave(s1: string, s2: string, s3: string): boolean {
     return f[n];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -592,4 +642,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

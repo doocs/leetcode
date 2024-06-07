@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1353.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended/README_EN.md
 rating: 2015
+source: Weekly Contest 176 Q3
 tags:
     - Greedy
     - Array
@@ -10,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1353. Maximum Number of Events That Can Be Attended](https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended)
 
 [中文文档](/solution/1300-1399/1353.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <code>events</code> where <code>events[i] = [startDay<sub>i</sub>, endDay<sub>i</sub>]</code>. Every event <code>i</code> starts at <code>startDay<sub>i</sub></code><sub> </sub>and ends at <code>endDay<sub>i</sub></code>.</p>
 
@@ -51,7 +56,11 @@ Attend the third event on day 3.
 	<li><code>1 &lt;= startDay<sub>i</sub> &lt;= endDay<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Greedy + Priority Queue
 
@@ -64,6 +73,8 @@ Then, take out the meeting with the smallest end time from the priority queue, w
 The time complexity is $O(m \times \log n)$, and the space complexity is $O(n)$. Where $m$ and $n$ represent the maximum end time of the meetings and the number of meetings, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +97,8 @@ class Solution:
                 heappop(h)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxEvents(events [][]int) int {
@@ -189,4 +206,6 @@ func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

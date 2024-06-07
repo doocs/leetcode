@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1947.Maximum%20Compatibility%20Score%20Sum/README_EN.md
 rating: 1704
+source: Weekly Contest 251 Q3
 tags:
     - Bit Manipulation
     - Array
@@ -11,11 +12,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1947. Maximum Compatibility Score Sum](https://leetcode.com/problems/maximum-compatibility-score-sum)
 
 [中文文档](/solution/1900-1999/1947.Maximum%20Compatibility%20Score%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a survey that consists of <code>n</code> questions where each question&#39;s answer is either <code>0</code> (no) or <code>1</code> (yes).</p>
 
@@ -63,11 +68,17 @@ The compatibility score sum is 3 + 2 + 3 = 8.
 	<li><code>mentors[j][k]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +106,8 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +186,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxCompatibilitySum(students [][]int, mentors [][]int) (ans int) {
 	m, n := len(students), len(students[0])
@@ -207,4 +224,6 @@ func maxCompatibilitySum(students [][]int, mentors [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

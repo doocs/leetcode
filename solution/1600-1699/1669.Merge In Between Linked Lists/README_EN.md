@@ -3,15 +3,20 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README_EN.md
 rating: 1428
+source: Biweekly Contest 40 Q2
 tags:
     - Linked List
 ---
+
+<!-- problem:start -->
 
 # [1669. Merge In Between Linked Lists](https://leetcode.com/problems/merge-in-between-linked-lists)
 
 [中文文档](/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two linked lists: <code>list1</code> and <code>list2</code> of sizes <code>n</code> and <code>m</code> respectively.</p>
 
@@ -47,7 +52,11 @@ tags:
 	<li><code>1 &lt;= list2.length &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -60,6 +69,8 @@ Then we move pointers $p$ and $q$ forward, until pointer $p$ points to the node 
 The time complexity is $O(m + n)$, and the space complexity is $O(1)$. Where $m$ and $n$ are the lengths of `list1` and `list2` respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -83,6 +94,8 @@ class Solution:
         q.next = None
         return list1
 ```
+
+#### Java
 
 ```java
 /**
@@ -114,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -147,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -172,6 +189,8 @@ func mergeInBetween(list1 *ListNode, a int, b int, list2 *ListNode) *ListNode {
 	return list1
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -210,6 +229,8 @@ function mergeInBetween(
 }
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for singly-linked list.
@@ -244,4 +265,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

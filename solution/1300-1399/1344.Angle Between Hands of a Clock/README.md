@@ -3,9 +3,12 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/README.md
 rating: 1324
+source: 第 19 场双周赛 Q3
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1344. 时钟指针的夹角](https://leetcode.cn/problems/angle-between-hands-of-a-clock)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个数&nbsp;<code>hour</code>&nbsp;和&nbsp;<code>minutes</code>&nbsp;。请你返回在时钟上，由给定时间的时针和分针组成的较小角的角度（60 单位制）。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li>与标准答案误差在&nbsp;<code>10^-5</code>&nbsp;以内的结果都被视为正确结果。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -75,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def angleClock(self, hour: int, minutes: int) -> float:
@@ -83,6 +92,8 @@ class Solution:
         diff = abs(h - m)
         return min(diff, 360 - diff)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func angleClock(hour int, minutes int) float64 {
 	h := 30*float64(hour) + 0.5*float64(minutes)
@@ -115,6 +130,8 @@ func angleClock(hour int, minutes int) float64 {
 	return math.Min(diff, 360-diff)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function angleClock(hour: number, minutes: number): number {
@@ -127,4 +144,6 @@ function angleClock(hour: number, minutes: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

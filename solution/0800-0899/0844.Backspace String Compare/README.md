@@ -9,13 +9,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [844. 比较含退格的字符串](https://leetcode.cn/problems/backspace-string-compare)
 
 [English Version](/solution/0800-0899/0844.Backspace%20String%20Compare/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定 <code>s</code> 和 <code>t</code> 两个字符串，当它们分别被输入到空白的文本编辑器后，如果两者相等，返回 <code>true</code> 。<code>#</code> 代表退格字符。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li>你可以用 <code>O(n)</code> 的时间复杂度和 <code>O(1)</code> 的空间复杂度解决该问题吗？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -76,6 +82,8 @@ tags:
 时间复杂度 $O(m + n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是字符串 $s$ 和 $t$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -108,6 +116,8 @@ class Solution:
             i, j = i - 1, j - 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -186,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func backspaceCompare(s string, t string) bool {
@@ -226,6 +240,8 @@ func backspaceCompare(s string, t string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function backspaceCompare(s: string, t: string): boolean {
     let i = s.length - 1;
@@ -262,6 +278,8 @@ function backspaceCompare(s: string, t: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -310,4 +328,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

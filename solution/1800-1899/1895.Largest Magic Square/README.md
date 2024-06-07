@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1895.Largest%20Magic%20Square/README.md
 rating: 1781
+source: 第 54 场双周赛 Q3
 tags:
     - 数组
     - 矩阵
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [1895. 最大的幻方](https://leetcode.cn/problems/largest-magic-square)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个 <code>k x k</code> 的<strong> 幻方</strong> 指的是一个 <code>k x k</code> 填满整数的方格阵，且每一行、每一列以及两条对角线的和 <strong>全部</strong><strong>相等</strong> 。幻方中的整数 <strong>不需要互不相同</strong> 。显然，每个 <code>1 x 1</code> 的方格都是一个幻方。</p>
 
@@ -51,11 +54,17 @@ tags:
 	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -104,6 +113,8 @@ class Solution:
                 i += 1
         return 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +175,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -211,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestMagicSquare(grid [][]int) int {
@@ -269,6 +284,8 @@ func check(grid, rowsum, colsum [][]int, x1, y1, x2, y2 int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestMagicSquare(grid: number[][]): number {
@@ -346,4 +363,6 @@ function valid(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

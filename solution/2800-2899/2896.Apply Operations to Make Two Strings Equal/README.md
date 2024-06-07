@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2896.Apply%20Operations%20to%20Make%20Two%20Strings%20Equal/README.md
 rating: 2172
+source: 第 366 场周赛 Q3
 tags:
     - 字符串
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2896. 执行操作使两个字符串相等](https://leetcode.cn/problems/apply-operations-to-make-two-strings-equal)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong>&nbsp;开始的二进制字符串&nbsp;<code>s1</code> 和&nbsp;<code>s2</code>&nbsp;，两个字符串的长度都是&nbsp;<code>n</code>&nbsp;，再给你一个正整数&nbsp;<code>x</code>&nbsp;。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>s1</code> 和&nbsp;<code>s2</code>&nbsp;只包含字符&nbsp;<code>'0'</code> 和&nbsp;<code>'1'</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -87,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, s1: str, s2: str, x: int) -> int:
@@ -106,6 +115,8 @@ class Solution:
             return -1
         return dfs(0, m - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -177,6 +190,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(s1 string, s2 string, x int) int {
@@ -214,6 +229,8 @@ func minOperations(s1 string, s2 string, x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(s1: string, s2: string, x: number): number {
     const idx: number[] = [];
@@ -248,9 +265,15 @@ function minOperations(s1: string, s2: string, x: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -284,4 +307,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

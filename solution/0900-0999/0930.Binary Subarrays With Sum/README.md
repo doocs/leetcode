@@ -9,13 +9,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [930. 和相同的二元子数组](https://leetcode.cn/problems/binary-subarrays-with-sum)
 
 [English Version](/solution/0900-0999/0930.Binary%20Subarrays%20With%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二元数组 <code>nums</code> ，和一个整数 <code>goal</code> ，请你统计并返回有多少个和为 <code>goal</code> 的<strong> 非空</strong> 子数组。</p>
 
@@ -49,7 +51,11 @@ tags:
 	<li><code>0 <= goal <= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表 + 前缀和
 
@@ -63,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
@@ -74,6 +82,8 @@ class Solution:
             cnt[s] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSubarraysWithSum(nums []int, goal int) (ans int) {
 	cnt := map[int]int{0: 1}
@@ -125,6 +139,8 @@ func numSubarraysWithSum(nums []int, goal int) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -150,9 +166,15 @@ var numSubarraysWithSum = function (nums, goal) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：双指针
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -172,6 +194,8 @@ class Solution:
             j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -195,6 +219,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -213,6 +239,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSubarraysWithSum(nums []int, goal int) int {
@@ -234,6 +262,8 @@ func numSubarraysWithSum(nums []int, goal int) int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -263,4 +293,6 @@ var numSubarraysWithSum = function (nums, goal) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

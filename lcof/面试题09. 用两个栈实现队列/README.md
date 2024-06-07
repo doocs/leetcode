@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9809.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 09. 用两个栈实现队列](https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 <code>appendTail</code> 和 <code>deleteHead</code> ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，<code>deleteHead</code>&nbsp;操作返回 -1 )</p>
 
@@ -35,7 +39,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 	<li><code>最多会对&nbsp;appendTail、deleteHead 进行&nbsp;10000&nbsp;次调用</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双栈
 
@@ -48,6 +56,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 时间复杂度上，对于 `appendTail()` 方法，时间复杂度为 $O(1)$；对于 `deleteHead()` 方法，时间复杂度为 $O(n)$；空间复杂度为 $O(n)$。其中 $n$ 为队列中的元素个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class CQueue:
@@ -70,6 +80,8 @@ class CQueue:
 # obj.appendTail(value)
 # param_2 = obj.deleteHead()
 ```
+
+#### Java
 
 ```java
 class CQueue {
@@ -100,6 +112,8 @@ class CQueue {
  * int param_2 = obj.deleteHead();
  */
 ```
+
+#### C++
 
 ```cpp
 class CQueue {
@@ -138,6 +152,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type CQueue struct {
 	stk1, stk2 []int
@@ -174,6 +190,8 @@ func (this *CQueue) DeleteHead() int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class CQueue {
     private stk1: number[];
@@ -205,6 +223,8 @@ class CQueue {
  * var param_2 = obj.deleteHead()
  */
 ```
+
+#### Rust
 
 ```rust
 struct CQueue {
@@ -247,6 +267,8 @@ impl CQueue {
  */
 ```
 
+#### JavaScript
+
 ```js
 var CQueue = function () {
     this.stk1 = [];
@@ -281,6 +303,8 @@ CQueue.prototype.deleteHead = function () {
  */
 ```
 
+#### C#
+
 ```cs
 public class CQueue {
     private Stack<int> stk1 = new Stack<int>();
@@ -312,6 +336,40 @@ public class CQueue {
  */
 ```
 
+#### Swift
+
+```swift
+class CQueue {
+    private var stk1: [Int] = []
+    private var stk2: [Int] = []
+
+    init() {
+    }
+
+    func appendTail(_ value: Int) {
+        stk1.append(value)
+    }
+
+    func deleteHead() -> Int {
+        if stk2.isEmpty {
+            while !stk1.isEmpty {
+                stk2.append(stk1.removeLast())
+            }
+        }
+        return stk2.isEmpty ? -1 : stk2.removeLast()
+    }
+}
+
+/**
+ * Your CQueue object will be instantiated and called as such:
+ * let obj = CQueue();
+ * obj.appendTail(value);
+ * let param_2 = obj.DeleteHead();
+ */
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

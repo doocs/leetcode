@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1463.Cherry%20Pickup%20II/README.md
 rating: 1956
+source: 第 27 场双周赛 Q4
 tags:
     - 数组
     - 动态规划
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [1463. 摘樱桃 II](https://leetcode.cn/problems/cherry-pickup-ii)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个&nbsp;<code>rows x cols</code> 的矩阵&nbsp;<code>grid</code>&nbsp;来表示一块樱桃地。 <code>grid</code>&nbsp;中每个格子的数字表示你能获得的樱桃数目。</p>
 
@@ -80,7 +83,11 @@ tags:
 	<li><code>0 &lt;= grid[i][j] &lt;= 100&nbsp;</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -100,6 +107,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def cherryPickup(self, grid: List[List[int]]) -> int:
@@ -116,6 +125,8 @@ class Solution:
                                 f[i][j1][j2] = max(f[i][j1][j2], f[i - 1][y1][y2] + x)
         return max(f[-1][j1][j2] for j1, j2 in product(range(n), range(n)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -185,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func cherryPickup(grid [][]int) (ans int) {
@@ -224,6 +239,8 @@ func cherryPickup(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function cherryPickup(grid: number[][]): number {
     const m = grid.length;
@@ -252,11 +269,17 @@ function cherryPickup(grid: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划（空间优化）
 
 注意到 $f[i][j_1][j_2]$ 的计算只和 $f[i-1][y_1][y_2]$ 有关，因此我们可以使用滚动数组优化空间复杂度，空间复杂度优化后的时间复杂度为 $O(n^2)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -276,6 +299,8 @@ class Solution:
             f, g = g, f
         return max(f[j1][j2] for j1, j2 in product(range(n), range(n)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -316,6 +341,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -349,6 +376,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func cherryPickup(grid [][]int) (ans int) {
@@ -389,6 +418,8 @@ func cherryPickup(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function cherryPickup(grid: number[][]): number {
     const m = grid.length;
@@ -417,4 +448,6 @@ function cherryPickup(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

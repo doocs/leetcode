@@ -10,13 +10,15 @@ tags:
     - 哈希函数
 ---
 
+<!-- problem:start -->
+
 # [705. 设计哈希集合](https://leetcode.cn/problems/design-hashset)
 
 [English Version](/solution/0700-0799/0705.Design%20HashSet/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>不使用任何内建的哈希表库设计一个哈希集合（HashSet）。</p>
 
@@ -58,7 +60,11 @@ myHashSet.contains(2); // 返回 False ，（已移除）</pre>
 	<li>最多调用 <code>10<sup>4</sup></code> 次 <code>add</code>、<code>remove</code> 和 <code>contains</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：静态数组实现
 
@@ -69,6 +75,8 @@ myHashSet.contains(2); // 返回 False ，（已移除）</pre>
 以上操作的时间复杂度均为 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyHashSet:
@@ -91,6 +99,8 @@ class MyHashSet:
 # obj.remove(key)
 # param_3 = obj.contains(key)
 ```
+
+#### Java
 
 ```java
 class MyHashSet {
@@ -120,6 +130,8 @@ class MyHashSet {
  * boolean param_3 = obj.contains(key);
  */
 ```
+
+#### C++
 
 ```cpp
 class MyHashSet {
@@ -152,6 +164,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type MyHashSet struct {
 	data []bool
@@ -182,6 +196,8 @@ func (this *MyHashSet) Contains(key int) bool {
  * param_3 := obj.Contains(key);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class MyHashSet {
@@ -214,11 +230,17 @@ class MyHashSet {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：数组嵌套链表
 
 我们也可以开辟一个大小为 `SIZE=1000` 的数组，数组的每个位置是一个链表。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyHashSet:
@@ -252,6 +274,8 @@ class MyHashSet:
 # obj.remove(key)
 # param_3 = obj.contains(key)
 ```
+
+#### Java
 
 ```java
 class MyHashSet {
@@ -307,6 +331,8 @@ class MyHashSet {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyHashSet {
 private:
@@ -357,6 +383,8 @@ public:
  * bool param_3 = obj->contains(key);
  */
 ```
+
+#### Go
 
 ```go
 type MyHashSet struct {
@@ -409,4 +437,6 @@ func (this *MyHashSet) hash(key int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

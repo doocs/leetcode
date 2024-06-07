@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1657.Determine%20if%20Two%20Strings%20Are%20Close/README_EN.md
 rating: 1530
+source: Weekly Contest 215 Q2
 tags:
     - Hash Table
     - String
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1657. Determine if Two Strings Are Close](https://leetcode.com/problems/determine-if-two-strings-are-close)
 
 [中文文档](/solution/1600-1699/1657.Determine%20if%20Two%20Strings%20Are%20Close/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Two strings are considered <strong>close</strong> if you can attain one from the other using the following operations:</p>
 
@@ -75,7 +80,11 @@ Apply Operation 2: &quot;<u>baa</u>ccc&quot; -&gt; &quot;<u>abb</u>ccc&quot;
 	<li><code>word1</code> and <code>word2</code> contain only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Sorting
 
@@ -94,6 +103,8 @@ The time complexity is $O(m + n + C \times \log C)$, and the space complexity is
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def closeStrings(self, word1: str, word2: str) -> bool:
@@ -102,6 +113,8 @@ class Solution:
             cnt1.keys()
         ) == set(cnt2.keys())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -150,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func closeStrings(word1 string, word2 string) bool {
 	cnt1 := make([]int, 26)
@@ -168,6 +185,8 @@ func closeStrings(word1 string, word2 string) bool {
 	return slices.Equal(cnt1, cnt2)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function closeStrings(word1: string, word2: string): boolean {
@@ -189,6 +208,8 @@ function closeStrings(word1: string, word2: string): boolean {
     return cnt1.join('.') === cnt2.join('.');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -215,4 +236,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1082. 销售分析 I 🔒](https://leetcode.cn/problems/sales-analysis-i)
 
 [English Version](/solution/1000-1099/1082.Sales%20Analysis%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>产品表：<code>Product</code></p>
 
@@ -86,11 +88,17 @@ Product 表：
 +-------------+
 <strong>解释：</strong>Id 为 1 和 3 的销售者，销售总金额都为最高的 2800。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -107,9 +115,15 @@ HAVING
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -129,4 +143,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

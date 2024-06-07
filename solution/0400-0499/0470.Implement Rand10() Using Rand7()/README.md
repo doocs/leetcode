@@ -9,13 +9,15 @@ tags:
     - 随机化
 ---
 
+<!-- problem:start -->
+
 # [470. 用 Rand7() 实现 Rand10()](https://leetcode.cn/problems/implement-rand10-using-rand7)
 
 [English Version](/solution/0400-0499/0470.Implement%20Rand10%28%29%20Using%20Rand7%28%29/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定方法&nbsp;<code>rand7</code>&nbsp;可生成 <code>[1,7]</code> 范围内的均匀随机整数，试写一个方法&nbsp;<code>rand10</code>&nbsp;生成 <code>[1,10]</code> 范围内的均匀随机整数。</p>
 
@@ -66,7 +68,11 @@ tags:
 	<li>你能否尽量少调用 <code>rand7()</code> ?</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拒绝采样
 
@@ -79,6 +85,8 @@ tags:
 期望时间复杂度为 $O(1)$，但是最坏情况下会达到无穷大的时间复杂度。空间复杂度为 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # The rand7() API is already defined for you.
@@ -98,6 +106,8 @@ class Solution:
             if x <= 40:
                 return x % 10 + 1
 ```
+
+#### Java
 
 ```java
 /**
@@ -119,6 +129,8 @@ class Solution extends SolBase {
 }
 ```
 
+#### C++
+
 ```cpp
 // The rand7() API is already defined for you.
 // int rand7();
@@ -139,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rand10() int {
 	for {
@@ -151,6 +165,8 @@ func rand10() int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -171,7 +187,10 @@ function rand10(): number {
 }
 ```
 
+#### Rust
+
 ```rust
+
 /**
  * The rand7() API is already defined for you.
  * @return a random integer in the range 1 to 7
@@ -194,4 +213,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

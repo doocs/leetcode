@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README.md
 rating: 2644
+source: 第 374 场周赛 Q4
 tags:
     - 数组
     - 数学
     - 组合数学
 ---
+
+<!-- problem:start -->
 
 # [2954. 统计感冒序列的数目](https://leetcode.cn/problems/count-the-number-of-infection-sequences)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;和一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>sick</code>&nbsp;，数组按 <strong>升序</strong>&nbsp;排序。</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>sick</code>&nbsp;按升序排列。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：组合数学 + 乘法逆元 + 快速幂
 
@@ -88,6 +95,8 @@ $$
 时间复杂度 $O(m)$，其中 $m$ 是数组 $sick$ 的长度。忽略预处理数组的空间消耗，空间复杂度 $O(m)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 mod = 10**9 + 7
@@ -111,6 +120,8 @@ class Solution:
                 ans = ans * pow(2, x - 1, mod) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +175,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 const int MX = 1e5;
 const int MOD = 1e9 + 7;
@@ -216,6 +229,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const MX = 1e5
@@ -271,6 +286,8 @@ func numberOfSequence(n int, sick []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 const MX = 1e5;
 const MOD: bigint = BigInt(1e9 + 7);
@@ -322,4 +339,6 @@ function numberOfSequence(n: number, sick: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [689. Maximum Sum of 3 Non-Overlapping Subarrays](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays)
 
 [中文文档](/solution/0600-0699/0689.Maximum%20Sum%20of%203%20Non-Overlapping%20Subarrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, find three non-overlapping subarrays of length <code>k</code> with maximum sum and return them.</p>
 
@@ -43,7 +47,11 @@ We could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicograph
 	<li><code>1 &lt;= k &lt;= floor(nums.length / 3)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -52,6 +60,8 @@ We use a sliding window to enumerate the position of the third subarray, while m
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +89,8 @@ class Solution:
                 s3 -= nums[i - k + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -151,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSumOfThreeSubarrays(nums []int, k int) []int {
 	ans := make([]int, 3)
@@ -183,6 +199,8 @@ func maxSumOfThreeSubarrays(nums []int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSumOfThreeSubarrays(nums: number[], k: number): number[] {
@@ -237,6 +255,10 @@ function maxSumOfThreeSubarrays(nums: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Preprocessing Prefix and Suffix + Enumerating Middle Subarray
 
 We can preprocess to get the prefix sum array $s$ of the array $nums$, where $s[i] = \sum_{j=0}^{i-1} nums[j]$. Then for any $i$, $j$, $s[j] - s[i]$ is the sum of the subarray $[i, j)$.
@@ -248,6 +270,8 @@ Then, we enumerate the starting position $i$ of the middle subarray. The sum of 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -278,6 +302,8 @@ class Solution:
                 t = cur
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -321,6 +347,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -371,6 +399,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSumOfThreeSubarrays(nums []int, k int) (ans []int) {
 	n := len(nums)
@@ -416,4 +446,6 @@ func maxSumOfThreeSubarrays(nums []int, k int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

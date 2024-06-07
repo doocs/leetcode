@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2961.Double%20Modular%20Exponentiation/README_EN.md
 rating: 1450
+source: Weekly Contest 375 Q2
 tags:
     - Array
     - Math
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2961. Double Modular Exponentiation](https://leetcode.com/problems/double-modular-exponentiation)
 
 [中文文档](/solution/2900-2999/2961.Double%20Modular%20Exponentiation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> 2D array <code>variables</code> where <code>variables[i] = [a<sub>i</sub>, b<sub>i</sub>, c<sub>i,</sub> m<sub>i</sub>]</code>, and an integer <code>target</code>.</p>
 
@@ -59,7 +64,11 @@ Therefore we return [] as the answer.
 	<li><code><font face="monospace">0 &lt;= target &lt;= 10<sup>3</sup></font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation + Fast Power
 
@@ -68,6 +77,8 @@ We can directly simulate according to the problem description. For the power ope
 The time complexity is $O(n \times \log M)$, where $n$ is the length of the array $variables$; and $M$ is the maximum value in $b_i$ and $c_i$, in this problem $M \le 10^3$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +89,8 @@ class Solution:
             if pow(pow(a, b, 10), c, m) == target
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getGoodIndices(variables [][]int, target int) (ans []int) {
 	qpow := func(a, n, mod int) int {
@@ -154,6 +171,8 @@ func getGoodIndices(variables [][]int, target int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getGoodIndices(variables: number[][], target: number): number[] {
@@ -180,4 +199,6 @@ function getGoodIndices(variables: number[][], target: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

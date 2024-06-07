@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1668.Maximum%20Repeating%20Substring/README.md
 rating: 1395
+source: 第 40 场双周赛 Q1
 tags:
     - 字符串
     - 动态规划
     - 字符串匹配
 ---
+
+<!-- problem:start -->
 
 # [1668. 最大重复子字符串](https://leetcode.cn/problems/maximum-repeating-substring)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>sequence</code> ，如果字符串 <code>word</code> 连续重复 <code>k</code> 次形成的字符串是 <code>sequence</code> 的一个子字符串，那么单词 <code>word</code> 的 <strong>重复值为 <code>k</code></strong><strong> </strong>。单词 <code>word</code> 的 <strong>最</strong><strong>大重复值</strong> 是单词 <code>word</code> 在 <code>sequence</code> 中最大的重复值。如果 <code>word</code> 不是 <code>sequence</code> 的子串，那么重复值 <code>k</code> 为 <code>0</code> 。</p>
 
@@ -57,7 +60,11 @@ tags:
 	<li><code>sequence</code> 和 <code>word</code> 都只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：直接枚举
 
@@ -67,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxRepeating(self, sequence: str, word: str) -> int:
@@ -74,6 +83,8 @@ class Solution:
             if word * k in sequence:
                 return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxRepeating(sequence string, word string) int {
 	for k := len(sequence) / len(word); k > 0; k-- {
@@ -117,6 +132,8 @@ func maxRepeating(sequence string, word string) int {
 	return 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxRepeating(sequence: string, word: string): number {
@@ -130,6 +147,8 @@ function maxRepeating(sequence: string, word: string): number {
     return 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -150,6 +169,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -177,4 +198,6 @@ int maxRepeating(char* sequence, char* word) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

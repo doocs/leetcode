@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2266.Count%20Number%20of%20Texts/README_EN.md
 rating: 1856
+source: Weekly Contest 292 Q3
 tags:
     - Hash Table
     - Math
@@ -10,11 +11,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2266. Count Number of Texts](https://leetcode.com/problems/count-number-of-texts)
 
 [中文文档](/solution/2200-2299/2266.Count%20Number%20of%20Texts/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice is texting Bob using her phone. The <strong>mapping</strong> of digits to letters is shown in the figure below.</p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2266.Count%20Number%20of%20Texts/images/1200px-telephone-keypad2svg.png" style="width: 200px; height: 162px;" />
@@ -65,11 +70,17 @@ Since we need to return the answer modulo 10<sup>9</sup> + 7, we return 20828761
 	<li><code>pressedKeys</code> only consists of digits from <code>&#39;2&#39;</code> - <code>&#39;9&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 mod = 10**9 + 7
@@ -88,6 +99,8 @@ class Solution:
             ans = ans * (g[m] if ch in "79" else f[m]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +140,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 const mod int = 1e9 + 7
 const n int = 1e5 + 10
@@ -163,4 +178,6 @@ func countTexts(pressedKeys string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

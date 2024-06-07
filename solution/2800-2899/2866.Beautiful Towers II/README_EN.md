@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2866.Beautiful%20Towers%20II/README_EN.md
 rating: 2071
+source: Weekly Contest 364 Q3
 tags:
     - Stack
     - Array
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2866. Beautiful Towers II](https://leetcode.com/problems/beautiful-towers-ii)
 
 [中文文档](/solution/2800-2899/2866.Beautiful%20Towers%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>maxHeights</code> of <code>n</code> integers.</p>
 
@@ -76,7 +81,11 @@ It can be shown that there exists no other beautiful configuration with a sum of
 	<li><code>1 &lt;= maxHeights[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Monotonic Stack
 
@@ -97,6 +106,8 @@ We can use a similar method to find $g[i]$, which represents the height sum of t
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $maxHeights$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -135,6 +146,8 @@ class Solution:
                 g[i] = maxHeights[i] * (j - i) + (g[j] if j != n else 0)
         return max(a + b - c for a, b, c in zip(f, g, maxHeights))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -195,6 +208,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -251,6 +266,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumSumOfHeights(maxHeights []int) (ans int64) {
@@ -314,6 +331,8 @@ func maximumSumOfHeights(maxHeights []int) (ans int64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumSumOfHeights(maxHeights: number[]): number {
     const n = maxHeights.length;
@@ -371,4 +390,6 @@ function maximumSumOfHeights(maxHeights: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [2847. 给定数字乘积的最小数字 🔒](https://leetcode.cn/problems/smallest-number-with-given-digit-product)
 
 [English Version](/solution/2800-2899/2847.Smallest%20Number%20With%20Given%20Digit%20Product/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <strong>正</strong> 整数 <code>n</code>，返回一个字符串，表示 <strong>最小的正整数</strong>，使其各位数字的乘积等于 <code>n</code>&nbsp;，如果不存在这样的数字，则返回 <code>"-1"</code>&nbsp;。</p>
 
@@ -51,7 +53,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>18</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：质因数分解 + 贪心
 
@@ -62,6 +68,8 @@ tags:
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +84,8 @@ class Solution:
         ans = "".join(str(i) * cnt[i] for i in range(2, 10))
         return ans if ans else "1"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestNumber(n int64) string {
@@ -154,4 +168,6 @@ func smallestNumber(n int64) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

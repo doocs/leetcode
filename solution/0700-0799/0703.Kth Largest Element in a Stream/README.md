@@ -11,13 +11,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [703. 数据流中的第 K 大元素](https://leetcode.cn/problems/kth-largest-element-in-a-stream)
 
 [English Version](/solution/0700-0799/0703.Kth%20Largest%20Element%20in%20a%20Stream/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个找到数据流中第 <code>k</code> 大元素的类（class）。注意是排序后的第 <code>k</code> 大元素，不是第 <code>k</code> 个不同的元素。</p>
 
@@ -60,11 +62,17 @@ kthLargest.add(4);   // return 8
 	<li>题目数据保证，在查找第 <code>k</code> 大元素时，数组中至少有 <code>k</code> 个元素</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class KthLargest:
@@ -85,6 +93,8 @@ class KthLargest:
 # obj = KthLargest(k, nums)
 # param_1 = obj.add(val)
 ```
+
+#### Java
 
 ```java
 class KthLargest {
@@ -115,6 +125,8 @@ class KthLargest {
  */
 ```
 
+#### C++
+
 ```cpp
 class KthLargest {
 public:
@@ -139,6 +151,8 @@ public:
  * int param_1 = obj->add(val);
  */
 ```
+
+#### Go
 
 ```go
 type KthLargest struct {
@@ -215,6 +229,8 @@ func (h *IntHeap) Top() int {
  * param_1 := obj.Add(val);
  */
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -335,4 +351,6 @@ class MinHeap {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

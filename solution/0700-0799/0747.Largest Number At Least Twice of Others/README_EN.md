@@ -7,11 +7,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [747. Largest Number At Least Twice of Others](https://leetcode.com/problems/largest-number-at-least-twice-of-others)
 
 [中文文档](/solution/0700-0799/0747.Largest%20Number%20At%20Least%20Twice%20of%20Others/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> where the largest integer is <strong>unique</strong>.</p>
 
@@ -45,7 +49,11 @@ The index of value 6 is 1, so we return 1.
 	<li>The largest element in <code>nums</code> is unique.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal
 
@@ -57,12 +65,16 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dominantIndex(self, nums: List[int]) -> int:
         x, y = nlargest(2, nums)
         return nums.index(x) if x >= 2 * y else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dominantIndex(nums []int) int {
 	k := 0
@@ -122,6 +138,8 @@ func dominantIndex(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function dominantIndex(nums: number[]): number {
     let k = 0;
@@ -138,6 +156,8 @@ function dominantIndex(nums: number[]): number {
     return k;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -162,4 +182,6 @@ var dominantIndex = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

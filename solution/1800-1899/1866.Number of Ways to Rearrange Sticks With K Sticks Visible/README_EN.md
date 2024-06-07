@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1866.Number%20of%20Ways%20to%20Rearrange%20Sticks%20With%20K%20Sticks%20Visible/README_EN.md
 rating: 2333
+source: Weekly Contest 241 Q4
 tags:
     - Math
     - Dynamic Programming
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [1866. Number of Ways to Rearrange Sticks With K Sticks Visible](https://leetcode.com/problems/number-of-ways-to-rearrange-sticks-with-k-sticks-visible)
 
 [中文文档](/solution/1800-1899/1866.Number%20of%20Ways%20to%20Rearrange%20Sticks%20With%20K%20Sticks%20Visible/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> uniquely-sized sticks whose lengths are integers from <code>1</code> to <code>n</code>. You want to arrange the sticks such that <strong>exactly</strong> <code>k</code>&nbsp;sticks are <strong>visible</strong> from the left. A stick&nbsp;is <strong>visible</strong> from the left if there are no <strong>longer</strong>&nbsp;sticks to the <strong>left</strong> of it.</p>
 
@@ -58,7 +63,11 @@ The visible sticks are underlined.
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -80,6 +89,8 @@ The time complexity is $O(n \times k)$, and the space complexity is $O(k)$. Here
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rearrangeSticks(self, n: int, k: int) -> int:
@@ -91,6 +102,8 @@ class Solution:
                 f[i][j] = (f[i - 1][j - 1] + f[i - 1][j] * (i - 1)) % mod
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rearrangeSticks(n int, k int) int {
 	const mod = 1e9 + 7
@@ -142,6 +159,8 @@ func rearrangeSticks(n int, k int) int {
 	return f[n][k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function rearrangeSticks(n: number, k: number): number {
@@ -161,9 +180,15 @@ function rearrangeSticks(n: number, k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -176,6 +201,8 @@ class Solution:
             f[0] = 0
         return f[k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -193,6 +220,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -213,6 +242,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rearrangeSticks(n int, k int) int {
 	const mod = 1e9 + 7
@@ -227,6 +258,8 @@ func rearrangeSticks(n int, k int) int {
 	return f[k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function rearrangeSticks(n: number, k: number): number {
@@ -245,4 +278,6 @@ function rearrangeSticks(n: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

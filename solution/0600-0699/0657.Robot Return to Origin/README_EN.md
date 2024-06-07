@@ -7,11 +7,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [657. Robot Return to Origin](https://leetcode.com/problems/robot-return-to-origin)
 
 [中文文档](/solution/0600-0699/0657.Robot%20Return%20to%20Origin/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a robot starting at the position <code>(0, 0)</code>, the origin, on a 2D plane. Given a sequence of its moves, judge if this robot <strong>ends up at </strong><code>(0, 0)</code> after it completes its moves.</p>
 
@@ -46,11 +50,17 @@ tags:
 	<li><code>moves</code> only contains the characters <code>&#39;U&#39;</code>, <code>&#39;D&#39;</code>, <code>&#39;L&#39;</code> and <code>&#39;R&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +77,8 @@ class Solution:
                 y -= 1
         return x == 0 and y == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 function judgeCircle(moves: string): boolean {
@@ -109,4 +123,6 @@ function judgeCircle(moves: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

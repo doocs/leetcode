@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.02.Words%20Frequency/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.02. 单词频率](https://leetcode.cn/problems/words-frequency-lcci)
 
 [English Version](/lcci/16.02.Words%20Frequency/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个方法，找出任意指定单词在一本书中的出现频率。</p>
 <p>你的实现应该支持如下操作：</p>
@@ -34,7 +36,11 @@ wordsFrequency.get("pen"); //返回1
 <li><code>get</code>函数的调用次数不会超过100000</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -45,6 +51,8 @@ wordsFrequency.get("pen"); //返回1
 时间复杂度方面，初始化哈希表 $cnt$ 的时间复杂度为 $O(n)$，其中 $n$ 为 $book$ 的长度。`get` 函数的时间复杂度为 $O(1)$。空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class WordsFrequency:
@@ -59,6 +67,8 @@ class WordsFrequency:
 # obj = WordsFrequency(book)
 # param_1 = obj.get(word)
 ```
+
+#### Java
 
 ```java
 class WordsFrequency {
@@ -81,6 +91,8 @@ class WordsFrequency {
  * int param_1 = obj.get(word);
  */
 ```
+
+#### C++
 
 ```cpp
 class WordsFrequency {
@@ -106,6 +118,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type WordsFrequency struct {
 	cnt map[string]int
@@ -130,6 +144,8 @@ func (this *WordsFrequency) Get(word string) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class WordsFrequency {
     private cnt: Map<string, number>;
@@ -153,6 +169,8 @@ class WordsFrequency {
  * var param_1 = obj.get(word)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -183,6 +201,8 @@ impl WordsFrequency {
  */
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string[]} book
@@ -209,6 +229,8 @@ WordsFrequency.prototype.get = function (word) {
  */
 ```
 
+#### Swift
+
 ```swift
 class WordsFrequency {
     private var cnt: [String: Int] = [:]
@@ -227,4 +249,6 @@ class WordsFrequency {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

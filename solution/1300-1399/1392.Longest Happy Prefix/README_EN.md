@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1392.Longest%20Happy%20Prefix/README_EN.md
 rating: 1876
+source: Weekly Contest 181 Q4
 tags:
     - String
     - String Matching
@@ -10,11 +11,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [1392. Longest Happy Prefix](https://leetcode.com/problems/longest-happy-prefix)
 
 [中文文档](/solution/1300-1399/1392.Longest%20Happy%20Prefix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A string is called a <strong>happy prefix</strong> if is a <strong>non-empty</strong> prefix which is also a suffix (excluding itself).</p>
 
@@ -45,7 +50,11 @@ tags:
 	<li><code>s</code> contains only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: String Hashing
 
@@ -59,6 +68,8 @@ Except for extremely specially constructed data, the above hash algorithm is unl
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestPrefix(self, s: str) -> str:
@@ -67,6 +78,8 @@ class Solution:
                 return s[i:]
         return ''
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef unsigned long long ULL;
 
@@ -123,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestPrefix(s string) string {
 	base := 131
@@ -144,6 +161,8 @@ func longestPrefix(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestPrefix(s: string): string {
     const n = s.length;
@@ -155,6 +174,8 @@ function longestPrefix(s: string): string {
     return '';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,4 +193,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

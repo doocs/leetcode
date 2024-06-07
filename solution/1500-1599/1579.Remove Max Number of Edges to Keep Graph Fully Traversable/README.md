@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1579.Remove%20Max%20Number%20of%20Edges%20to%20Keep%20Graph%20Fully%20Traversable/README.md
 rating: 2131
+source: 第 205 场周赛 Q4
 tags:
     - 并查集
     - 图
 ---
+
+<!-- problem:start -->
 
 # [1579. 保证图可完全遍历](https://leetcode.cn/problems/remove-max-number-of-edges-to-keep-graph-fully-traversable)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 共有一个无向图，其中包含 n 个节点和 3&nbsp; 种类型的边：</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li>所有元组 <code>(type<sub>i</sub>, u<sub>i</sub>, v<sub>i</sub>)</code> 互不相同</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 并查集
 
@@ -86,6 +93,8 @@ tags:
 时间复杂度 $O(m \times \alpha(n))$，空间复杂度 $O(n)$。其中 $m$ 是边数，而 $\alpha(n)$ 是阿克曼函数的反函数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -131,6 +140,8 @@ class Solution:
                 ans += not ufb.union(u, v)
         return ans if ufa.cnt == 1 and ufb.cnt == 1 else -1
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -201,6 +212,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -265,6 +278,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -336,4 +351,6 @@ func maxNumEdgesToRemove(n int, edges [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,14 +1,13 @@
 func maxSubarraySumCircular(nums []int) int {
-	s1, s2, f1, f2, total := nums[0], nums[0], nums[0], nums[0], nums[0]
-	for i := 1; i < len(nums); i++ {
-		total += nums[i]
-		f1 = nums[i] + max(f1, 0)
-		f2 = nums[i] + min(f2, 0)
-		s1 = max(s1, f1)
-		s2 = min(s2, f2)
+	const inf = 1 << 30
+	pmi, pmx := 0, -inf
+	ans, s, smi := -inf, 0, inf
+	for _, x := range nums {
+		s += x
+		ans = max(ans, s-pmi)
+		smi = min(smi, s-pmx)
+		pmi = min(pmi, s)
+		pmx = max(pmx, s)
 	}
-	if s1 <= 0 {
-		return s1
-	}
-	return max(s1, total-s2)
+	return max(ans, s-smi)
 }

@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [923. 3Sum With Multiplicity](https://leetcode.com/problems/3sum-with-multiplicity)
 
 [中文文档](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>arr</code>, and an integer <code>target</code>, return the number of tuples <code>i, j, k</code> such that <code>i &lt; j &lt; k</code> and <code>arr[i] + arr[j] + arr[k] == target</code>.</p>
 
@@ -62,7 +66,11 @@ and two 2s from [2,2,2,2] in 6 ways.
 	<li><code>0 &lt;= target &lt;= 300</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
 
@@ -75,6 +83,8 @@ Note that the answer may exceed ${10}^9 + 7$, so take the modulus after each add
 The time complexity is $O(n^2)$, where $n$ is the length of the array $arr$. The space complexity is $O(C)$, where $C$ is the maximum value of the elements in the array $arr$, in this problem $C = 100$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +99,8 @@ class Solution:
                 ans = (ans + cnt[c]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func threeSumMulti(arr []int, target int) (ans int) {
 	const mod int = 1e9 + 7
@@ -157,6 +173,8 @@ func threeSumMulti(arr []int, target int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function threeSumMulti(arr: number[], target: number): number {
@@ -182,4 +200,6 @@ function threeSumMulti(arr: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

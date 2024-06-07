@@ -4,11 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2077.%20%E7%AC%A6%E6%96%87%E5%82%A8%E5%A4%87/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 77. 符文储备](https://leetcode.cn/problems/W2ZX4X)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 远征队在出发前需要携带一些「符文」，作为后续的冒险储备。`runes[i]` 表示第 `i` 枚符文的魔力值。
 
@@ -40,7 +42,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2077.%20%E7%AC%A6%
 -   `1 <= runes.length <= 10^4`
 -   `0 <= runes[i] <= 10^4`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -49,6 +55,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2077.%20%E7%AC%A6%
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $runes$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +70,8 @@ class Solution:
                 ans = max(ans, j - i + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -98,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func runeReserve(runes []int) (ans int) {
 	sort.Ints(runes)
@@ -112,6 +126,8 @@ func runeReserve(runes []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function runeReserve(runes: number[]): number {
@@ -131,4 +147,6 @@ function runeReserve(runes: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

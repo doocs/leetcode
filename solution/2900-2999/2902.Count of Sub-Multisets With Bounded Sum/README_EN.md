@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2902.Count%20of%20Sub-Multisets%20With%20Bounded%20Sum/README_EN.md
 rating: 2758
+source: Biweekly Contest 115 Q4
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2902. Count of Sub-Multisets With Bounded Sum](https://leetcode.com/problems/count-of-sub-multisets-with-bounded-sum)
 
 [中文文档](/solution/2900-2999/2902.Count%20of%20Sub-Multisets%20With%20Bounded%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of non-negative integers, and two integers <code>l</code> and <code>r</code>.</p>
 
@@ -65,11 +70,17 @@ tags:
 	<li><code>0 &lt;= l &lt;= r &lt;= 2 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +105,8 @@ class Solution:
 
         return (zeros + 1) * sum(dp[l : r + 1]) % kMod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSubMultisets(nums []int, l int, r int) int {
@@ -206,6 +223,8 @@ func countSubMultisets(nums []int, l int, r int) int {
 var mod int = 1e9 + 7
 ```
 
+#### TypeScript
+
 ```ts
 function countSubMultisets(nums: number[], l: number, r: number): number {
     const cnt: number[] = Array(20001).fill(0);
@@ -239,4 +258,6 @@ function countSubMultisets(nums: number[], l: number, r: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

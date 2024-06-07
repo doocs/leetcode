@@ -8,13 +8,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [874. 模拟行走机器人](https://leetcode.cn/problems/walking-robot-simulation)
 
 [English Version](/solution/0800-0899/0874.Walking%20Robot%20Simulation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>机器人在一个无限大小的 XY 网格平面上行走，从点&nbsp;<code>(0, 0)</code> 处开始出发，面向北方。该机器人可以接收以下三种类型的命令 <code>commands</code> ：</p>
 
@@ -101,7 +103,11 @@ tags:
 	<li>答案保证小于 <code>2<sup>31</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 模拟
 
@@ -122,6 +128,8 @@ tags:
 时间复杂度 $O(C \times n + m)$，空间复杂度 $O(m)$。其中 $C$ 表示每次可以移动的最大步数，而 $n$ 和 $m$ 分别表示数组 $commands$ 和数组 $obstacles$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -144,6 +152,8 @@ class Solution:
                     ans = max(ans, x * x + y * y)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -181,6 +191,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -217,6 +229,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func robotSim(commands []int, obstacles [][]int) (ans int) {
 	dirs := [5]int{0, 1, 0, -1, 0}
@@ -242,6 +256,8 @@ func robotSim(commands []int, obstacles [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function robotSim(commands: number[], obstacles: number[][]): number {
@@ -274,4 +290,6 @@ function robotSim(commands: number[], obstacles: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

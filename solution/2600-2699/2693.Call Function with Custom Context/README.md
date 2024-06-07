@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README.md
 ---
 
+<!-- problem:start -->
+
 # [2693. 使用自定义上下文调用函数](https://leetcode.cn/problems/call-function-with-custom-context)
 
 [English Version](/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>增强所有函数，使其具有&nbsp;<code>callPolyfill</code>&nbsp;方法。该方法接受一个对象&nbsp;<code>obj</code>&nbsp;作为第一个参数，以及任意数量的附加参数。<code>obj</code>&nbsp;成为函数的&nbsp;<code>this</code>&nbsp;上下文。附加参数将传递给该函数（即&nbsp;<code>callPolyfill</code>&nbsp;方法所属的函数）。</p>
 
@@ -67,11 +69,17 @@ args = [{"item": "burger"}, 10, 1,1]
 	<li><code>2 &lt;= JSON.stringify(args[0]).length &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 declare global {
@@ -93,4 +101,6 @@ Function.prototype.callPolyfill = function (context, ...args): any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

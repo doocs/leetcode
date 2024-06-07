@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1273.Delete%20Tree%20Nodes/README.md
 rating: 1732
+source: 第 14 场双周赛 Q3
 tags:
     - 树
     - 深度优先搜索
@@ -10,13 +11,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [1273. 删除树节点 🔒](https://leetcode.cn/problems/delete-tree-nodes)
 
 [English Version](/solution/1200-1299/1273.Delete%20Tree%20Nodes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵以节点 0 为根节点的树，定义如下：</p>
 
@@ -72,7 +75,11 @@ tags:
 	<li>题目输入数据 <strong>保证</strong> 是一棵 <strong>有效的树</strong> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -85,6 +92,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数目。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -104,6 +113,8 @@ class Solution:
             g[parent[i]].append(i)
         return dfs(0)[1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func deleteTreeNodes(nodes int, parent []int, value []int) int {
@@ -186,4 +201,6 @@ func deleteTreeNodes(nodes int, parent []int, value []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

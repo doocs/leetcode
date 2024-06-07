@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2640.Find%20the%20Score%20of%20All%20Prefixes%20of%20an%20Array/README.md
 rating: 1314
+source: 第 102 场双周赛 Q2
 tags:
     - 数组
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [2640. 一个数组所有前缀的分数](https://leetcode.cn/problems/find-the-score-of-all-prefixes-of-an-array)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>定义一个数组 <code>arr</code>&nbsp;的 <strong>转换数组</strong>&nbsp;<code>conver</code>&nbsp;为：</p>
 
@@ -62,7 +65,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和
 
@@ -73,6 +80,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +94,8 @@ class Solution:
             ans[i] = x + mx + (0 if i == 0 else ans[i - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findPrefixScore(nums []int) []int64 {
 	n := len(nums)
@@ -133,6 +148,8 @@ func findPrefixScore(nums []int) []int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findPrefixScore(nums: number[]): number[] {
     const n = nums.length;
@@ -148,4 +165,6 @@ function findPrefixScore(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

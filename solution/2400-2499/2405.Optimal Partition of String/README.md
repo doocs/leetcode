@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README.md
 rating: 1355
+source: 第 310 场周赛 Q2
 tags:
     - 贪心
     - 哈希表
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2405. 子字符串的最优划分](https://leetcode.cn/problems/optimal-partition-of-string)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> ，请你将该字符串划分成一个或多个 <strong>子字符串</strong> ，并满足每个子字符串中的字符都是 <strong>唯一</strong> 的。也就是说，在单个子字符串中，字母的出现次数都不超过 <strong>一次</strong> 。</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>s</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -64,6 +71,8 @@ tags:
 时间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +86,8 @@ class Solution:
             ss.add(c)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func partitionString(s string) int {
 	ss := map[rune]bool{}
@@ -128,6 +143,8 @@ func partitionString(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function partitionString(s: string): number {
     const set = new Set();
@@ -142,6 +159,8 @@ function partitionString(s: string): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -163,9 +182,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -179,6 +204,8 @@ class Solution:
             v |= 1 << i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -197,6 +224,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -217,6 +246,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func partitionString(s string) int {
 	ans, v := 1, 0
@@ -234,4 +265,6 @@ func partitionString(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

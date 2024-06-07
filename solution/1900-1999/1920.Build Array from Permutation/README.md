@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1920.Build%20Array%20from%20Permutation/README.md
 rating: 1160
+source: 第 248 场周赛 Q1
 tags:
     - 数组
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1920. 基于排列构建数组](https://leetcode.cn/problems/build-array-from-permutation)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>从 0 开始的排列</strong> <code>nums</code>（<strong>下标也从 0 开始</strong>）。请你构建一个 <strong>同样长度</strong> 的数组 <code>ans</code> ，其中，对于每个 <code>i</code>（<code>0 &lt;= i &lt; nums.length</code>），都满足 <code>ans[i] = nums[nums[i]]</code> 。返回构建好的数组 <code>ans</code> 。</p>
 
@@ -56,17 +59,25 @@ ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]]
 
 <p><strong>进阶：</strong>你能在不使用额外空间的情况下解决此问题吗（即 <code>O(1)</code> 内存）？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def buildArray(self, nums: List[int]) -> List[int]:
         return [nums[num] for num in nums]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -93,6 +106,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func buildArray(nums []int) []int {
 	ans := make([]int, len(nums))
@@ -103,11 +118,15 @@ func buildArray(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function buildArray(nums: number[]): number[] {
     return nums.map(v => nums[v]);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -118,6 +137,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -132,6 +153,8 @@ var buildArray = function (nums) {
     return ans;
 };
 ```
+
+#### C
 
 ```c
 /**
@@ -149,4 +172,6 @@ int* buildArray(int* nums, int numsSize, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

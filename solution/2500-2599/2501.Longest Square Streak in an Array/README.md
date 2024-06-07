@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2501.Longest%20Square%20Streak%20in%20an%20Array/README.md
 rating: 1479
+source: 第 323 场周赛 Q2
 tags:
     - 数组
     - 哈希表
@@ -11,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2501. 数组中最长的方波](https://leetcode.cn/problems/longest-square-streak-in-an-array)
 
 [English Version](/solution/2500-2599/2501.Longest%20Square%20Streak%20in%20an%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 。如果 <code>nums</code> 的子序列满足下述条件，则认为该子序列是一个 <strong>方波</strong> ：</p>
 
@@ -59,7 +62,11 @@ tags:
 	<li><code>2 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -68,6 +75,8 @@ tags:
 时间复杂度 $O(n \times \log \log M)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度，而 $M$ 为数组 `nums` 中的最大元素。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +92,8 @@ class Solution:
                 ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestSquareStreak(nums []int) int {
@@ -150,6 +165,10 @@ func longestSquareStreak(nums []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：记忆化搜索
 
 与方法一类似，我们先用哈希表记录数组中的所有元素。然后设计一个函数 $dfs(x)$，表示以 $x$ 为第一个元素的方波的长度。那么答案就是 $max(dfs(x))$，其中 $x$ 为数组 `nums` 中的元素。
@@ -165,6 +184,8 @@ func longestSquareStreak(nums []int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestSquareStreak(self, nums: List[int]) -> int:
@@ -178,6 +199,8 @@ class Solution:
         ans = max(dfs(x) for x in nums)
         return -1 if ans < 2 else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -209,6 +232,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -229,6 +254,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestSquareStreak(nums []int) (ans int) {
@@ -262,4 +289,6 @@ func longestSquareStreak(nums []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

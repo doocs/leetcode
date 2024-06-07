@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1688.Count%20of%20Matches%20in%20Tournament/README.md
 rating: 1203
+source: 第 219 场周赛 Q1
 tags:
     - 数学
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1688. 比赛中的配对次数](https://leetcode.cn/problems/count-of-matches-in-tournament)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，表示比赛中的队伍数。比赛遵循一种独特的赛制：</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯
 
@@ -68,11 +75,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfMatches(self, n: int) -> int:
         return n - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,17 +104,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfMatches(n int) int {
 	return n - 1
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfMatches(n: number): number {
     return n - 1;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -115,4 +134,6 @@ var numberOfMatches = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

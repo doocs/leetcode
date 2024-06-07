@@ -6,13 +6,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [674. 最长连续递增序列](https://leetcode.cn/problems/longest-continuous-increasing-subsequence)
 
 [English Version](/solution/0600-0699/0674.Longest%20Continuous%20Increasing%20Subsequence/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个未经排序的整数数组，找到最长且<strong> 连续递增的子序列</strong>，并返回该序列的长度。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -60,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLengthOfLCIS(self, nums: List[int]) -> int:
@@ -72,6 +80,8 @@ class Solution:
                 cnt = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLengthOfLCIS(nums []int) int {
 	ans, cnt := 1, 1
@@ -121,6 +135,8 @@ func findLengthOfLCIS(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLengthOfLCIS(nums: number[]): number {
     let [ans, cnt] = [1, 1];
@@ -134,6 +150,8 @@ function findLengthOfLCIS(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -152,6 +170,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -176,6 +196,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：双指针
 
 我们也可以用双指针 $i$ 和 $j$ 找到每一段连续递增序列，找出最长的连续递增序列的长度作为答案。
@@ -183,6 +207,8 @@ class Solution {
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -197,6 +223,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -215,6 +243,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -235,6 +265,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLengthOfLCIS(nums []int) int {
 	ans := 1
@@ -251,6 +283,8 @@ func findLengthOfLCIS(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLengthOfLCIS(nums: number[]): number {
     let ans = 1;
@@ -266,6 +300,8 @@ function findLengthOfLCIS(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -285,6 +321,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -311,4 +349,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [919. Complete Binary Tree Inserter](https://leetcode.com/problems/complete-binary-tree-inserter)
 
 [中文文档](/solution/0900-0999/0919.Complete%20Binary%20Tree%20Inserter/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>complete binary tree</strong> is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible.</p>
 
@@ -56,7 +60,11 @@ cBTInserter.get_root(); // return [1, 2, 3, 4]
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>insert</code> and <code>get_root</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -69,6 +77,8 @@ When getting the root node, we directly return the first element of the array $t
 In terms of time complexity, it takes $O(n)$ time for initialization, and the time complexity for inserting a node and getting the root node are both $O(1)$. The space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -110,6 +120,8 @@ class CBTInserter:
 # param_1 = obj.insert(val)
 # param_2 = obj.get_root()
 ```
+
+#### Java
 
 ```java
 /**
@@ -172,6 +184,8 @@ class CBTInserter {
  */
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -231,6 +245,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -286,6 +302,8 @@ func (this *CBTInserter) Get_root() *TreeNode {
  * param_2 := obj.Get_root();
  */
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -345,6 +363,8 @@ class CBTInserter {
  * var param_2 = obj.get_root()
  */
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -408,4 +428,6 @@ CBTInserter.prototype.get_root = function () {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

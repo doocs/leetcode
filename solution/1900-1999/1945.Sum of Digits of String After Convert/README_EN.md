@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1945.Sum%20of%20Digits%20of%20String%20After%20Convert/README_EN.md
 rating: 1254
+source: Weekly Contest 251 Q1
 tags:
     - String
     - Simulation
 ---
+
+<!-- problem:start -->
 
 # [1945. Sum of Digits of String After Convert](https://leetcode.com/problems/sum-of-digits-of-string-after-convert)
 
 [中文文档](/solution/1900-1999/1945.Sum%20of%20Digits%20of%20String%20After%20Convert/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> consisting of lowercase English letters, and an integer <code>k</code>.</p>
 
@@ -68,11 +73,17 @@ Thus the resulting integer is 6.
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +94,8 @@ class Solution:
             s = str(t)
         return int(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getLucky(s string, k int) int {
@@ -141,6 +158,8 @@ func getLucky(s string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getLucky(s: string, k: number): number {
     let ans = '';
@@ -157,6 +176,8 @@ function getLucky(s: string, k: number): number {
     return Number(ans);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -176,6 +197,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -205,4 +228,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

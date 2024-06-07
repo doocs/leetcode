@@ -8,13 +8,15 @@ tags:
     - 交互
 ---
 
+<!-- problem:start -->
+
 # [2936. 包含相等值数字块的数量 🔒](https://leetcode.cn/problems/number-of-equal-numbers-blocks)
 
 [English Version](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组 <code>nums</code>，其&nbsp;<strong>下标从 0 开始</strong>。对于 <code>nums</code>，有以下性质：</p>
 
@@ -75,7 +77,11 @@ tags:
 	<li><code>nums</code> 的所有元素之和最多为<meta charset="UTF-8" />&nbsp;<code>10<sup>15</sup></code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -84,6 +90,8 @@ tags:
 时间复杂度 $O(m \times \log n)$，其中 $m$ 是数组 $num$ 中不同元素的个数，而 $n$ 是数组 $num$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for BigArray.
@@ -105,6 +113,8 @@ class Solution(object):
                 i += bisect_left(range(i, n), True, key=lambda j: nums.at(j) != x)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -139,6 +149,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -177,6 +189,8 @@ public:
 };
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for BigArray.
@@ -212,6 +226,10 @@ function countBlocks(nums: BigArray | null): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：分治
 
 我们可以使用分治的方法来计算答案。具体地，我们将数组分成两个子数组，递归地计算每个子数组的答案，然后将答案合并起来。如果第一个子数组的最后一个元素和第二个子数组的第一个元素相等，那么我们需要将答案减一。
@@ -219,6 +237,8 @@ function countBlocks(nums: BigArray | null): number {
 时间复杂度 $O(\log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $num$ 的长度。
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 /**
@@ -245,6 +265,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -274,6 +296,8 @@ public:
 };
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for BigArray.
@@ -299,4 +323,6 @@ function countBlocks(nums: BigArray | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

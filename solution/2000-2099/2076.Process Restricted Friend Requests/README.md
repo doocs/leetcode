@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2076.Process%20Restricted%20Friend%20Requests/README.md
 rating: 2130
+source: 第 267 场周赛 Q4
 tags:
     - 并查集
     - 图
 ---
+
+<!-- problem:start -->
 
 # [2076. 处理含限制条件的好友请求](https://leetcode.cn/problems/process-restricted-friend-requests)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，表示网络上的用户数目。每个用户按从 <code>0</code> 到 <code>n - 1</code> 进行编号。</p>
 
@@ -78,7 +81,11 @@ tags:
 	<li><code>u<sub>j</sub> != v<sub>j</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：并查集
 
@@ -89,6 +96,8 @@ tags:
 时间复杂度 $O(q \times m \times \log(n))$，空间复杂度 $O(n)$。其中 $q$ 和 $m$ 分别是请求的数量和限制条件的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -118,6 +127,8 @@ class Solution:
                     p[pu] = pv
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -162,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -200,6 +213,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func friendRequests(n int, restrictions [][]int, requests [][]int) (ans []bool) {
 	p := make([]int, n)
@@ -235,6 +250,8 @@ func friendRequests(n int, restrictions [][]int, requests [][]int) (ans []bool) 
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function friendRequests(n: number, restrictions: number[][], requests: number[][]): boolean[] {
@@ -273,4 +290,6 @@ function friendRequests(n: number, restrictions: number[][], requests: number[][
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

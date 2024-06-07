@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [178. Rank Scores](https://leetcode.com/problems/rank-scores)
 
 [中文文档](/solution/0100-0199/0178.Rank%20Scores/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Scores</code></p>
 
@@ -68,11 +72,17 @@ Scores table:
 +-------+------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -88,6 +98,8 @@ def order_scores(scores: pd.DataFrame) -> pd.DataFrame:
     return result_df
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -98,9 +110,15 @@ FROM Scores;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -126,4 +144,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

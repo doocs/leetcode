@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2103.Rings%20and%20Rods/README_EN.md
 rating: 1257
+source: Weekly Contest 271 Q1
 tags:
     - Hash Table
     - String
 ---
+
+<!-- problem:start -->
 
 # [2103. Rings and Rods](https://leetcode.com/problems/rings-and-rods)
 
 [中文文档](/solution/2100-2199/2103.Rings%20and%20Rods/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> rings and each ring is either red, green, or blue. The rings are distributed <strong>across ten rods</strong> labeled from <code>0</code> to <code>9</code>.</p>
 
@@ -70,7 +75,11 @@ Only one ring is given. Thus, no rods have all three colors.
 	<li><code>rings[i]</code> where <code>i</code> is <strong>odd</strong> is a digit from <code>&#39;0&#39;</code> to <code>&#39;9&#39;</code> (<strong>0-indexed</strong>).</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -84,6 +93,8 @@ The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPoints(self, rings: str) -> int:
@@ -95,6 +106,8 @@ class Solution:
             mask[j] |= d[c]
         return mask.count(7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countPoints(rings string) (ans int) {
@@ -154,6 +171,8 @@ func countPoints(rings string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countPoints(rings: string): number {
     const idx = (c: string) => c.charCodeAt(0) - 'A'.charCodeAt(0);
@@ -170,6 +189,8 @@ function countPoints(rings: string): number {
     return mask.filter(x => x === 7).length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -196,6 +217,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int countPoints(char* rings) {
@@ -227,9 +250,15 @@ int countPoints(char* rings) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function countPoints(rings: string): number {
@@ -243,4 +272,6 @@ function countPoints(rings: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

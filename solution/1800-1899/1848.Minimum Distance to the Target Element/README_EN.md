@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1848.Minimum%20Distance%20to%20the%20Target%20Element/README_EN.md
 rating: 1216
+source: Weekly Contest 239 Q1
 tags:
     - Array
 ---
+
+<!-- problem:start -->
 
 # [1848. Minimum Distance to the Target Element](https://leetcode.com/problems/minimum-distance-to-the-target-element)
 
 [中文文档](/solution/1800-1899/1848.Minimum%20Distance%20to%20the%20Target%20Element/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> <strong>(0-indexed)</strong> and two integers <code>target</code> and <code>start</code>, find an index <code>i</code> such that <code>nums[i] == target</code> and <code>abs(i - start)</code> is <strong>minimized</strong>. Note that&nbsp;<code>abs(x)</code>&nbsp;is the absolute value of <code>x</code>.</p>
 
@@ -54,7 +59,11 @@ tags:
 	<li><code>target</code> is in <code>nums</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Pass
 
@@ -64,11 +73,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMinDistance(self, nums: List[int], target: int, start: int) -> int:
         return min(abs(i - start) for i, x in enumerate(nums) if x == target)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -100,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMinDistance(nums []int, target int, start int) int {
@@ -120,6 +137,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getMinDistance(nums: number[], target: number, start: number): number {
     let ans = Infinity;
@@ -131,6 +150,8 @@ function getMinDistance(nums: number[], target: number, start: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -147,4 +168,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

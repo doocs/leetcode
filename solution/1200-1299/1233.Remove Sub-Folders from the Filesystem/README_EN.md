@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1233.Remove%20Sub-Folders%20from%20the%20Filesystem/README_EN.md
 rating: 1544
+source: Weekly Contest 159 Q2
 tags:
     - Depth-First Search
     - Trie
@@ -10,11 +11,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1233. Remove Sub-Folders from the Filesystem](https://leetcode.com/problems/remove-sub-folders-from-the-filesystem)
 
 [中文文档](/solution/1200-1299/1233.Remove%20Sub-Folders%20from%20the%20Filesystem/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a list of folders <code>folder</code>, return <em>the folders after removing all <strong>sub-folders</strong> in those folders</em>. You may return the answer in <strong>any order</strong>.</p>
 
@@ -61,7 +66,11 @@ tags:
 	<li>Each folder name is <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -72,6 +81,8 @@ After the traversal ends, the folders in the answer array are the answer require
 The time complexity is $O(n \times \log n \times m)$, and the space complexity is $O(m)$. Where $n$ and $m$ are the length of the array `folder` and the maximum length of the strings in the array `folder`, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +95,8 @@ class Solution:
                 ans.append(f)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeSubfolders(folder []string) []string {
 	sort.Strings(folder)
@@ -139,6 +156,10 @@ func removeSubfolders(folder []string) []string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Trie
 
 We can use a trie to store all the folders in the array `folder`. Each node of the trie contains a `children` field, used to store the child nodes of the current node, and a `fid` field, used to store the index of the folder corresponding to the current node in the array `folder`.
@@ -148,6 +169,8 @@ For each folder $f$ in the array `folder`, we first split $f$ into several subst
 The time complexity is $O(n \times m)$, and the space complexity is $O(n \times m)$. Where $n$ and $m$ are the length of the array `folder` and the maximum length of the strings in the array `folder`, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -184,6 +207,8 @@ class Solution:
             trie.insert(i, f)
         return [folder[i] for i in trie.search()]
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -234,6 +259,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -297,6 +324,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children map[string]*Trie
@@ -351,9 +380,15 @@ func removeSubfolders(folder []string) []string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 type Trie struct {
@@ -406,4 +441,6 @@ func removeSubfolders(folder []string) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

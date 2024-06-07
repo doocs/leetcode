@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence)
 
 [中文文档](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, return <em>the length of the longest <strong>strictly increasing </strong></em><span data-keyword="subsequence-array"><em><strong>subsequence</strong></em></span>.</p>
 
@@ -50,11 +54,17 @@ tags:
 <p>&nbsp;</p>
 <p><b>Follow up:</b>&nbsp;Can you come up with an algorithm that runs in&nbsp;<code>O(n log(n))</code> time complexity?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +77,8 @@ class Solution:
                     f[i] = max(f[i], f[j] + 1)
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +119,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lengthOfLIS(nums []int) int {
@@ -126,6 +142,8 @@ func lengthOfLIS(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function lengthOfLIS(nums: number[]): number {
     const n = nums.length;
@@ -140,6 +158,8 @@ function lengthOfLIS(nums: number[]): number {
     return Math.max(...f);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -160,9 +180,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -194,6 +220,8 @@ class Solution:
             tree.update(x, t)
         return tree.query(m)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -257,6 +285,8 @@ class BinaryIndexedTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -301,6 +331,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -349,6 +381,8 @@ func lengthOfLIS(nums []int) int {
 	return tree.query(m)
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -406,4 +440,6 @@ function search(nums: number[], x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

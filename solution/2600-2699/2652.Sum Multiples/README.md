@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2652.Sum%20Multiples/README.md
 rating: 1182
+source: 第 342 场周赛 Q2
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [2652. 倍数求和](https://leetcode.cn/problems/sum-multiples)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数 <code>n</code> ，请你计算在 <code>[1，n]</code> 范围内能被 <code>3</code>、<code>5</code>、<code>7</code> 整除的所有整数之和。</p>
 
@@ -51,7 +54,11 @@ tags:
 	<li>1 &lt;= n &lt;= 10<sup>3</sup></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -63,11 +70,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfMultiples(self, n: int) -> int:
         return sum(x for x in range(1, n + 1) if x % 3 == 0 or x % 5 == 0 or x % 7 == 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -98,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfMultiples(n int) (ans int) {
 	for x := 1; x <= n; x++ {
@@ -108,6 +123,8 @@ func sumOfMultiples(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfMultiples(n: number): number {
@@ -120,6 +137,8 @@ function sumOfMultiples(n: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -139,6 +158,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：数学（容斥原理）
 
 我们定义函数 $f(x)$ 表示 $[1,..n]$ 中能被 $x$ 整除的数之和，那么一共有 $m = \left\lfloor \frac{n}{x} \right\rfloor$ 个数能被 $x$ 整除，这些数字分别为 $x$, $2x$, $3x$, $\cdots$, $mx$，构成一个等差数列，首项为 $x$，末项为 $mx$，项数为 $m$，因此 $f(x) = \frac{(x + mx) \times m}{2}$。
@@ -153,6 +176,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfMultiples(self, n: int) -> int:
@@ -162,6 +187,8 @@ class Solution:
 
         return f(3) + f(5) + f(7) - f(3 * 5) - f(3 * 7) - f(5 * 7) + f(3 * 5 * 7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -179,6 +206,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -192,6 +221,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfMultiples(n int) int {
 	f := func(x int) int {
@@ -201,6 +232,8 @@ func sumOfMultiples(n int) int {
 	return f(3) + f(5) + f(7) - f(3*5) - f(3*7) - f(5*7) + f(3*5*7)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfMultiples(n: number): number {
@@ -212,6 +245,8 @@ function sumOfMultiples(n: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn sum_of_multiples(n: i32) -> i32 {
@@ -222,9 +257,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -241,4 +282,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

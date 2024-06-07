@@ -9,11 +9,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2355. Maximum Number of Books You Can Take 🔒](https://leetcode.com/problems/maximum-number-of-books-you-can-take)
 
 [中文文档](/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>books</code> of length <code>n</code> where <code>books[i]</code> denotes the number of books on the <code>i<sup>th</sup></code> shelf of a bookshelf.</p>
 
@@ -71,7 +75,11 @@ It can be proven that 13 is the maximum number of books you can take.
 	<li><code>0 &lt;= books[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -80,6 +88,8 @@ We directly compare each row and column of the matrix $grid$. If they are equal,
 The time complexity is $O(n^3)$, where $n$ is the number of rows or columns in the matrix $grid$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +116,8 @@ class Solution:
             ans = max(ans, dp[i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -176,6 +190,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumBooks(books []int) int64 {
@@ -216,4 +232,6 @@ func maximumBooks(books []int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

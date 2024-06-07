@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1524.Number%20of%20Sub-arrays%20With%20Odd%20Sum/README.md
 rating: 1610
+source: 第 31 场双周赛 Q2
 tags:
     - 数组
     - 数学
@@ -10,13 +11,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [1524. 和为奇数的子数组数目](https://leetcode.cn/problems/number-of-sub-arrays-with-odd-sum)
 
 [English Version](/solution/1500-1599/1524.Number%20of%20Sub-arrays%20With%20Odd%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>arr</code>&nbsp;。请你返回和为 <strong>奇数</strong>&nbsp;的子数组数目。</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li><code>1 &lt;= arr[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 计数器
 
@@ -85,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfSubarrays(self, arr: List[int]) -> int:
@@ -97,6 +106,8 @@ class Solution:
             cnt[s & 1] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfSubarrays(arr []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -144,6 +159,8 @@ func numOfSubarrays(arr []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numOfSubarrays(arr: number[]): number {
@@ -162,4 +179,6 @@ function numOfSubarrays(arr: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

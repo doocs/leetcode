@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1111.Maximum%20Nesting%20Depth%20of%20Two%20Valid%20Parentheses%20Strings/README_EN.md
 rating: 1749
+source: Weekly Contest 144 Q4
 tags:
     - Stack
     - String
 ---
+
+<!-- problem:start -->
 
 # [1111. Maximum Nesting Depth of Two Valid Parentheses Strings](https://leetcode.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings)
 
 [中文文档](/solution/1100-1199/1111.Maximum%20Nesting%20Depth%20of%20Two%20Valid%20Parentheses%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A string is a <em>valid parentheses string</em>&nbsp;(denoted VPS) if and only if it consists of <code>&quot;(&quot;</code> and <code>&quot;)&quot;</code> characters only, and:</p>
 
@@ -70,7 +75,11 @@ tags:
 	<li><code>1 &lt;= seq.size &lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -81,6 +90,8 @@ We traverse the string $seq$, updating the value of $x$. If $x$ is odd, we assig
 The time complexity is $O(n)$, where $n$ is the length of the string $seq$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +107,8 @@ class Solution:
                 ans[i] = x & 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDepthAfterSplit(seq string) []int {
 	n := len(seq)
@@ -148,6 +165,8 @@ func maxDepthAfterSplit(seq string) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxDepthAfterSplit(seq: string): number[] {
@@ -166,4 +185,6 @@ function maxDepthAfterSplit(seq: string): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

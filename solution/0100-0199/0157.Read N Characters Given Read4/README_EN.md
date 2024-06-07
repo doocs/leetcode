@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [157. Read N Characters Given Read4 🔒](https://leetcode.com/problems/read-n-characters-given-read4)
 
 [中文文档](/solution/0100-0199/0157.Read%20N%20Characters%20Given%20Read4/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>file</code> and assume that you can only read the file using a given method <code>read4</code>, implement a method to read <code>n</code> characters.</p>
 
@@ -103,11 +107,17 @@ Note that &quot;abc&quot; is the file&#39;s content, not buf. buf is the destina
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -146,6 +156,8 @@ class Solution:
         return i
 ```
 
+#### Java
+
 ```java
 /**
  * The read4 API is defined in the parent class Reader4.
@@ -174,6 +186,8 @@ public class Solution extends Reader4 {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -204,6 +218,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -241,4 +257,6 @@ var solution = func(read4 func([]byte) int) func([]byte, int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

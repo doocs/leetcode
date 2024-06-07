@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.05.Recursive%20Mulitply/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.05. Recursive Mulitply](https://leetcode.cn/problems/recursive-mulitply-lcci)
 
 [中文文档](/lcci/08.05.Recursive%20Mulitply/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a recursive function to multiply two positive integers without using the * operator. You can use addition, subtraction, and bit shifting, but you should minimize the number of those operations.</p>
 <p><strong>Example 1:</strong></p>
@@ -32,7 +36,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.05.Recursive%20Mul
 	<li>The result will not overflow.</li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion + Bit Manipulation
 
@@ -44,6 +52,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Her
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def multiply(self, A: int, B: int) -> int:
@@ -53,6 +63,8 @@ class Solution:
             return (self.multiply(A, B >> 1) << 1) + A
         return self.multiply(A, B >> 1) << 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -67,6 +79,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -83,6 +97,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func multiply(A int, B int) int {
 	if B == 1 {
@@ -95,6 +111,8 @@ func multiply(A int, B int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function multiply(A: number, B: number): number {
     if (B === 1) {
@@ -106,6 +124,8 @@ function multiply(A: number, B: number): number {
     return multiply(A, B >> 1) << 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -120,6 +140,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -137,4 +159,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

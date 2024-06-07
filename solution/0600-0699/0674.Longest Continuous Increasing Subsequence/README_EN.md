@@ -6,11 +6,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [674. Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence)
 
 [中文文档](/solution/0600-0699/0674.Longest%20Continuous%20Increasing%20Subsequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an unsorted array of integers <code>nums</code>, return <em>the length of the longest <strong>continuous increasing subsequence</strong> (i.e. subarray)</em>. The subsequence must be <strong>strictly</strong> increasing.</p>
 
@@ -44,7 +48,11 @@ increasing.
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: One-pass Scan
 
@@ -58,6 +66,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLengthOfLCIS(self, nums: List[int]) -> int:
@@ -70,6 +80,8 @@ class Solution:
                 cnt = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLengthOfLCIS(nums []int) int {
 	ans, cnt := 1, 1
@@ -119,6 +135,8 @@ func findLengthOfLCIS(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLengthOfLCIS(nums: number[]): number {
     let [ans, cnt] = [1, 1];
@@ -132,6 +150,8 @@ function findLengthOfLCIS(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -150,6 +170,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -174,6 +196,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Two Pointers
 
 We can also use two pointers $i$ and $j$ to find each consecutive increasing sequence, and find the length of the longest consecutive increasing sequence as the answer.
@@ -181,6 +207,8 @@ We can also use two pointers $i$ and $j$ to find each consecutive increasing seq
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -195,6 +223,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -213,6 +243,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -233,6 +265,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLengthOfLCIS(nums []int) int {
 	ans := 1
@@ -249,6 +283,8 @@ func findLengthOfLCIS(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLengthOfLCIS(nums: number[]): number {
     let ans = 1;
@@ -264,6 +300,8 @@ function findLengthOfLCIS(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -283,6 +321,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -309,4 +349,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

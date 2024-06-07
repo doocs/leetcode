@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2432.The%20Employee%20That%20Worked%20on%20the%20Longest%20Task/README_EN.md
 rating: 1266
+source: Weekly Contest 314 Q1
 tags:
     - Array
 ---
+
+<!-- problem:start -->
 
 # [2432. The Employee That Worked on the Longest Task](https://leetcode.com/problems/the-employee-that-worked-on-the-longest-task)
 
 [中文文档](/solution/2400-2499/2432.The%20Employee%20That%20Worked%20on%20the%20Longest%20Task/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> employees, each with a unique id from <code>0</code> to <code>n - 1</code>.</p>
 
@@ -77,7 +82,11 @@ The tasks with the longest time are tasks 0 and 1. The employees that worked on 
 	<li><code>leaveTime<sub>i</sub></code> are sorted in a strictly increasing order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Direct Traversal
 
@@ -91,6 +100,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $logs$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hardestWorker(self, n: int, logs: List[List[int]]) -> int:
@@ -102,6 +113,8 @@ class Solution:
             last += t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hardestWorker(n int, logs [][]int) (ans int) {
 	var mx, last int
@@ -157,6 +174,8 @@ func hardestWorker(n int, logs [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function hardestWorker(n: number, logs: number[][]): number {
     let [ans, mx, last] = [0, 0, 0];
@@ -171,6 +190,8 @@ function hardestWorker(n: number, logs: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -190,6 +211,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -212,9 +235,15 @@ int hardestWorker(int n, int** logs, int logsSize, int* logsColSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -243,4 +272,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

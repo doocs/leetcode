@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1753.Maximum%20Score%20From%20Removing%20Stones/README.md
 rating: 1487
+source: 第 227 场周赛 Q2
 tags:
     - 贪心
     - 数学
     - 堆（优先队列）
 ---
+
+<!-- problem:start -->
 
 # [1753. 移除石子的最大得分](https://leetcode.cn/problems/maximum-score-from-removing-stones)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你正在玩一个单人游戏，面前放置着大小分别为 <code>a</code>​​​​​​、<code>b</code> 和 <code>c</code>​​​​​​ 的 <strong>三堆</strong> 石子。</p>
 
@@ -72,7 +75,11 @@ tags:
 	<li><code>1 <= a, b, c <= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 模拟
 
@@ -81,6 +88,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为石子总数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +103,8 @@ class Solution:
             s.sort()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumScore(a int, b int, c int) (ans int) {
 	s := []int{a, b, c}
@@ -146,6 +161,10 @@ func maximumScore(a int, b int, c int) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：贪心 + 数学
 
 我们不妨设 $a \le b \le c$，那么：
@@ -157,6 +176,8 @@ func maximumScore(a int, b int, c int) (ans int) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumScore(self, a: int, b: int, c: int) -> int:
@@ -165,6 +186,8 @@ class Solution:
             return a + b
         return (a + b + c) >> 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -179,6 +202,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -190,6 +215,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumScore(a int, b int, c int) int {
@@ -204,4 +231,6 @@ func maximumScore(a int, b int, c int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

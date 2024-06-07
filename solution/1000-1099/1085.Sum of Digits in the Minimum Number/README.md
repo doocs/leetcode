@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1085.Sum%20of%20Digits%20in%20the%20Minimum%20Number/README.md
 rating: 1256
+source: 第 2 场双周赛 Q1
 tags:
     - 数组
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1085. 最小元素各数位之和 🔒](https://leetcode.cn/problems/sum-of-digits-in-the-minimum-number)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数的数组 <code>A</code>。</p>
 
@@ -51,7 +54,11 @@ tags:
 	<li><code>1 <= A[i] <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -60,6 +67,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +80,8 @@ class Solution:
             x //= 10
         return s & 1 ^ 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfDigits(nums []int) int {
 	s := 0
@@ -114,4 +129,6 @@ func sumOfDigits(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

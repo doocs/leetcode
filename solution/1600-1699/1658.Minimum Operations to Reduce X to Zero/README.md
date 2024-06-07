@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1658.Minimum%20Operations%20to%20Reduce%20X%20to%20Zero/README.md
 rating: 1817
+source: 第 215 场周赛 Q3
 tags:
     - 数组
     - 哈希表
@@ -11,13 +12,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [1658. 将 x 减到 0 的最小操作数](https://leetcode.cn/problems/minimum-operations-to-reduce-x-to-zero)
 
 [English Version](/solution/1600-1699/1658.Minimum%20Operations%20to%20Reduce%20X%20to%20Zero/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 和一个整数 <code>x</code> 。每一次操作时，你应当移除数组 <code>nums</code> 最左边或最右边的元素，然后从 <code>x</code> 中减去该元素的值。请注意，需要 <strong>修改</strong> 数组以供接下来的操作使用。</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>1 <= x <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 前缀和
 
@@ -74,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int], x: int) -> int:
@@ -88,6 +97,8 @@ class Solution:
                 mx = max(mx, i - vis[t - s])
         return -1 if mx == -1 else len(nums) - mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums []int, x int) int {
@@ -158,6 +173,8 @@ func minOperations(nums []int, x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(nums: number[], x: number): number {
     const s = nums.reduce((acc, cur) => acc + cur, -x);
@@ -176,6 +193,8 @@ function minOperations(nums: number[], x: number): number {
     return ~mx ? n - mx : -1;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -207,6 +226,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：双指针
 
 基于方法一的分析，我们需要求解数组 $nums$ 中和为 $s$ 的最长连续子数组的长度 $mx$。由于数组 $nums$ 中的元素都是正整数，数组的前缀和只会单调递增，因此我们可以使用双指针来求解。
@@ -220,6 +243,8 @@ impl Solution {
 时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -236,6 +261,8 @@ class Solution:
                 mx = max(mx, i - j + 1)
         return -1 if mx == -1 else len(nums) - mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -260,6 +287,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -280,6 +309,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums []int, x int) int {
@@ -304,6 +335,8 @@ func minOperations(nums []int, x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(nums: number[], x: number): number {
     const s = nums.reduce((acc, cur) => acc + cur, -x);
@@ -321,6 +354,8 @@ function minOperations(nums: number[], x: number): number {
     return ~mx ? n - mx : -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -350,4 +385,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

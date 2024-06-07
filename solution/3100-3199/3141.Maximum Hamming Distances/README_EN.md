@@ -2,13 +2,21 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3141.Maximum%20Hamming%20Distances/README_EN.md
+tags:
+    - Bit Manipulation
+    - Breadth-First Search
+    - Array
 ---
+
+<!-- problem:start -->
 
 # [3141. Maximum Hamming Distances 🔒](https://leetcode.com/problems/maximum-hamming-distances)
 
 [中文文档](/solution/3100-3199/3141.Maximum%20Hamming%20Distances/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>nums</code> and an integer <code>m</code>, with each element <code>nums[i]</code> satisfying <code>0 &lt;= nums[i] &lt; 2<sup>m</sup></code>, return an array <code>answer</code>. The <code>answer</code> array should be of the same length as <code>nums</code>, where each element <code>answer[i]</code> represents the <em>maximum</em> <strong>Hamming distance </strong>between <code>nums[i]</code> and any other element <code>nums[j]</code> in the array.</p>
 
@@ -66,7 +74,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3141.Ma
 	<li><code>0 &lt;= nums[i] &lt; 2<sup>m</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Thinking + BFS
 
@@ -86,6 +98,8 @@ Finally, we traverse the array $\text{nums}$, take the complement of each elemen
 The time complexity is $O(2^m)$, and the space complexity is $O(2^m)$, where $m$ is the integer given in the problem.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -107,6 +121,8 @@ class Solution:
             k += 1
         return [m - dist[x ^ ((1 << m) - 1)] for x in nums]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +153,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -170,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxHammingDistances(nums []int, m int) []int {
 	dist := make([]int, 1<<m)
@@ -201,6 +221,8 @@ func maxHammingDistances(nums []int, m int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxHammingDistances(nums: number[], m: number): number[] {
     const dist: number[] = Array.from({ length: 1 << m }, () => -1);
@@ -231,4 +253,6 @@ function maxHammingDistances(nums: number[], m: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

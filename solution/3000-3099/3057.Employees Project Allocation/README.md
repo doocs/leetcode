@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3057. 员工项目分配 🔒](https://leetcode.cn/problems/employees-project-allocation)
 
 [English Version](/solution/3000-3099/3057.Employees%20Project%20Allocation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Project</code></p>
 
@@ -88,7 +90,11 @@ Employees 表：
 结果表以 employee_id，project_id 升序排序。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组统计 + 等值连接
 
@@ -97,6 +103,8 @@ Employees 表：
 然后，我们再次连接 `Project` 表和 `Employees` 表，同时连接 `T` 表，找出工作量大于团队平均工作量的员工，并且按照 `employee_id` 和 `project_id` 排序。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -121,6 +129,8 @@ WHERE workload > avg_workload
 ORDER BY 1, 2;
 ```
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -141,4 +151,6 @@ def employees_with_above_avg_workload(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

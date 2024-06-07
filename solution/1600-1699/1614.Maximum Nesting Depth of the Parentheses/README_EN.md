@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1614.Maximum%20Nesting%20Depth%20of%20the%20Parentheses/README_EN.md
 rating: 1322
+source: Weekly Contest 210 Q1
 tags:
     - Stack
     - String
 ---
+
+<!-- problem:start -->
 
 # [1614. Maximum Nesting Depth of the Parentheses](https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses)
 
 [中文文档](/solution/1600-1699/1614.Maximum%20Nesting%20Depth%20of%20the%20Parentheses/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>valid parentheses string</strong> <code>s</code>, return the <strong>nesting depth</strong> of<em> </em><code>s</code>. The nesting depth is the <strong>maximum</strong> number of nested parentheses.</p>
 
@@ -58,11 +63,17 @@ tags:
 	<li>It is guaranteed that parentheses expression <code>s</code> is a VPS.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +87,8 @@ class Solution:
                 d -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDepth(s string) (ans int) {
 	d := 0
@@ -126,6 +143,8 @@ func maxDepth(s string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxDepth(s: string): number {
     let ans = 0;
@@ -140,6 +159,8 @@ function maxDepth(s: string): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -160,6 +181,8 @@ var maxDepth = function (s) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MaxDepth(string s) {
@@ -178,4 +201,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

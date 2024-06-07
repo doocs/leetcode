@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md
 rating: 2768
+source: 第 360 场周赛 Q4
 tags:
     - 位运算
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2836. 在传球游戏中最大化函数值](https://leetcode.cn/problems/maximize-value-of-function-in-a-ball-passing-game)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>receiver</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -145,7 +148,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>10</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划 + 倍增
 
@@ -168,6 +175,8 @@ tags:
 -   [1483. 树节点的第 K 个祖先](https://github.com/doocs/leetcode/blob/main/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -192,6 +201,8 @@ class Solution:
             ans = max(ans, t + p)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -225,6 +236,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -260,6 +273,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getMaxFunctionValue(receiver []int, k int64) (ans int64) {
 	n, m := len(receiver), bits.Len(uint(k))
@@ -294,4 +309,6 @@ func getMaxFunctionValue(receiver []int, k int64) (ans int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

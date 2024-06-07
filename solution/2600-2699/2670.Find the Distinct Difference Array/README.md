@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README.md
 rating: 1266
+source: 第 344 场周赛 Q1
 tags:
     - 数组
     - 哈希表
 ---
+
+<!-- problem:start -->
 
 # [2670. 找出不同元素数目差数组](https://leetcode.cn/problems/find-the-distinct-difference-array)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的数组 <code>nums</code> ，数组长度为 <code>n</code> 。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 预处理后缀
 
@@ -72,6 +79,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +98,8 @@ class Solution:
             ans[i] = len(s) - suf[i + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctDifferenceArray(nums []int) []int {
 	n := len(nums)
@@ -152,6 +167,8 @@ func distinctDifferenceArray(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distinctDifferenceArray(nums: number[]): number[] {
     const n = nums.length;
@@ -170,6 +187,8 @@ function distinctDifferenceArray(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -199,4 +218,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

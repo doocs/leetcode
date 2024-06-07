@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README_EN.md
 rating: 2075
+source: Weekly Contest 303 Q4
 tags:
     - Bit Manipulation
     - Array
@@ -10,11 +11,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2354. Number of Excellent Pairs](https://leetcode.com/problems/number-of-excellent-pairs)
 
 [中文文档](/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> positive integer array <code>nums</code> and a positive integer <code>k</code>.</p>
 
@@ -60,11 +65,17 @@ So the number of excellent pairs is 5.</pre>
 	<li><code>1 &lt;= k &lt;= 60</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +92,8 @@ class Solution:
                     ans += x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countExcellentPairs(nums []int, k int) int64 {
@@ -155,4 +172,6 @@ func countExcellentPairs(nums []int, k int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

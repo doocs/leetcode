@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2887.Fill%20Missing%20Data/README.md
 ---
 
+<!-- problem:start -->
+
 # [2887. 填充缺失值](https://leetcode.cn/problems/fill-missing-data)
 
 [English Version](/solution/2800-2899/2887.Fill%20Missing%20Data/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <pre>
 DataFrame <code>products</code>
@@ -52,11 +54,17 @@ DataFrame <code>products</code>
 <b>解释：</b>
 Toaster 和 Headphones 的数量被填充为 0。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -69,4 +77,6 @@ def fillMissingValues(products: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

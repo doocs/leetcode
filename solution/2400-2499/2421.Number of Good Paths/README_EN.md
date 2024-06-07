@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2421.Number%20of%20Good%20Paths/README_EN.md
 rating: 2444
+source: Weekly Contest 312 Q4
 tags:
     - Tree
     - Union Find
@@ -12,11 +13,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2421. Number of Good Paths](https://leetcode.com/problems/number-of-good-paths)
 
 [中文文档](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a tree (i.e. a connected, undirected graph with no cycles) consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> and exactly <code>n - 1</code> edges.</p>
 
@@ -76,7 +81,11 @@ There are 2 additional good paths: 0 -&gt; 1 and 2 -&gt; 3.
 	<li><code>edges</code> represents a valid tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Union Find
 
@@ -87,6 +96,8 @@ When traversing to point $a$, for the adjacent point $b$ that is less than or eq
 The time complexity is $O(n \times \log n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -119,6 +130,8 @@ class Solution:
                     size[pb][v] += size[pa][v]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -170,6 +183,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -215,6 +230,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfGoodPaths(vals []int, edges [][]int) int {
@@ -268,4 +285,6 @@ func numberOfGoodPaths(vals []int, edges [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

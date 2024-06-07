@@ -8,13 +8,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [1762. 能看到海景的建筑物 🔒](https://leetcode.cn/problems/buildings-with-an-ocean-view)
 
 [English Version](/solution/1700-1799/1762.Buildings%20With%20an%20Ocean%20View/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有 <code>n</code> 座建筑物。给你一个大小为 <code>n</code> 的整数数组 <code>heights</code> 表示每一个建筑物的高度。</p>
 
@@ -62,7 +64,11 @@ tags:
 	<li><code>1 <= heights[i] <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：逆序遍历求右侧最大值
 
@@ -73,6 +79,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为数组长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +93,8 @@ class Solution:
                 mx = heights[i]
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findBuildings(heights []int) (ans []int) {
 	mx := 0
@@ -138,6 +152,8 @@ func findBuildings(heights []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findBuildings(heights: number[]): number[] {
     const ans: number[] = [];
@@ -151,6 +167,8 @@ function findBuildings(heights: number[]): number[] {
     return ans.reverse();
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -172,4 +190,6 @@ var findBuildings = function (heights) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2837. Total Traveled Distance 🔒](https://leetcode.com/problems/total-traveled-distance)
 
 [中文文档](/solution/2800-2899/2837.Total%20Traveled%20Distance/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code><font face="monospace">Users</font></code></p>
 
@@ -90,13 +94,19 @@ Rides table:
 -  User id 10 did not complete any journeys, thus the total travel distance remains at 0.
 Returning the table orderd by user_id in ascending order.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Left Join + Group By Sum
 
 We can use a left join to connect the two tables, and then use group by sum to calculate the total distance for each user. Note that if a user has not completed any rides, their distance should be considered as $0$.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -110,4 +120,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

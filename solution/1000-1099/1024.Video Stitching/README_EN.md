@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1024.Video%20Stitching/README_EN.md
 rating: 1746
+source: Weekly Contest 131 Q4
 tags:
     - Greedy
     - Array
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1024. Video Stitching](https://leetcode.com/problems/video-stitching)
 
 [中文文档](/solution/1000-1099/1024.Video%20Stitching/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a series of video clips from a sporting event that lasted <code>time</code> seconds. These video clips can be overlapping with each other and have varying lengths.</p>
 
@@ -64,7 +69,11 @@ Now we have segments [0,2] + [2,8] + [8,10] which cover the sporting event [0, 1
 	<li><code>1 &lt;= time &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -90,6 +99,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def videoStitching(self, clips: List[List[int]], time: int) -> int:
@@ -107,6 +118,8 @@ class Solution:
                 pre = mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +146,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -162,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func videoStitching(clips [][]int, time int) int {
 	last := make([]int, time)
@@ -188,4 +205,6 @@ func videoStitching(clips [][]int, time int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

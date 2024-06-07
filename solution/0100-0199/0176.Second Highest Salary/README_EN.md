@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [176. Second Highest Salary](https://leetcode.com/problems/second-highest-salary)
 
 [中文文档](/solution/0100-0199/0176.Second%20Highest%20Salary/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employee</code></p>
 
@@ -70,11 +74,17 @@ Employee table:
 +---------------------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Use Sub Query and LIMIT
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -99,6 +109,8 @@ def second_highest_salary(employee: pd.DataFrame) -> pd.DataFrame:
     return result_df
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -112,9 +124,15 @@ SELECT
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Use `MAX()` function
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -125,9 +143,15 @@ WHERE salary < (SELECT MAX(salary) FROM Employee);
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3: Use `IFNULL()` and window function
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -137,4 +161,6 @@ SELECT (SELECT DISTINCT salary FROM T WHERE rk = 2) AS SecondHighestSalary;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

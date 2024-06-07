@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2073.%20%E6%8E%A2%E9%99%A9%E8%90%A5%E5%9C%B0/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 73. 探险营地](https://leetcode.cn/problems/0Zeoeg)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 探险家小扣的行动轨迹，都将保存在记录仪中。`expeditions[i]` 表示小扣第 `i` 次探险记录，用一个字符串数组表示。其中的每个「营地」由大小写字母组成，通过子串 `->` 连接。
 
@@ -67,6 +69,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2073.%20%E6%8E%A2%
 -   `0 <= expeditions[i].length <= 1000`
 -   探险记录中只包含大小写字母和子串"->"
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

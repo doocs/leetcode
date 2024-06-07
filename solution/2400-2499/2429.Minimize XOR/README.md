@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2429.Minimize%20XOR/README.md
 rating: 1532
+source: 第 313 场周赛 Q3
 tags:
     - 贪心
     - 位运算
 ---
+
+<!-- problem:start -->
 
 # [2429. 最小异或](https://leetcode.cn/problems/minimize-xor)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数 <code>num1</code> 和 <code>num2</code> ，找出满足下述条件的正整数 <code>x</code> ：</p>
 
@@ -59,7 +62,11 @@ num1 和 num2 的二进制表示分别是 0001 和 1100 。
 	<li><code>1 &lt;= num1, num2 &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 位运算
 
@@ -68,6 +75,8 @@ num1 和 num2 的二进制表示分别是 0001 和 1100 。
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为 $num1$ 和 $num2$ 的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +93,8 @@ class Solution:
                 cnt -= 1
         return x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimizeXor(num1 int, num2 int) int {
 	cnt := bits.OnesCount(uint(num2))
@@ -149,6 +164,8 @@ func minimizeXor(num1 int, num2 int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimizeXor(num1: number, num2: number): number {
@@ -176,9 +193,15 @@ function minimizeXor(num1: number, num2: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -193,6 +216,8 @@ class Solution:
             cnt1 += 1
         return num1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -209,6 +234,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -227,6 +254,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimizeXor(num1 int, num2 int) int {
 	cnt1 := bits.OnesCount(uint(num1))
@@ -240,6 +269,8 @@ func minimizeXor(num1 int, num2 int) int {
 	return num1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimizeXor(num1: number, num2: number): number {
@@ -266,4 +297,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

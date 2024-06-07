@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [807. 保持城市天际线](https://leetcode.cn/problems/max-increase-to-keep-city-skyline)
 
 [English Version](/solution/0800-0899/0807.Max%20Increase%20to%20Keep%20City%20Skyline/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一座由 <code>n x n</code> 个街区组成的城市，每个街区都包含一座立方体建筑。给你一个下标从 <strong>0</strong> 开始的 <code>n x n</code> 整数矩阵 <code>grid</code> ，其中 <code>grid[r][c]</code> 表示坐落于 <code>r</code> 行 <code>c</code> 列的建筑物的 <strong>高度</strong> 。</p>
 
@@ -59,11 +61,17 @@ gridNew = [ [8, 4, 8, 7],
 	<li><code>0 &lt;= grid[r][c] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +84,8 @@ class Solution:
             for j in range(len(grid[0]))
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxIncreaseKeepingSkyline(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -142,6 +156,8 @@ func maxIncreaseKeepingSkyline(grid [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxIncreaseKeepingSkyline(grid: number[][]): number {
@@ -168,4 +184,6 @@ function maxIncreaseKeepingSkyline(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

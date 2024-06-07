@@ -6,11 +6,15 @@ tags:
     - Concurrency
 ---
 
+<!-- problem:start -->
+
 # [1115. Print FooBar Alternately](https://leetcode.com/problems/print-foobar-alternately)
 
 [中文文档](/solution/1100-1199/1115.Print%20FooBar%20Alternately/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Suppose you are given the following code:</p>
 
@@ -64,7 +68,11 @@ class FooBar {
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Multithreading + Semaphore
 
@@ -79,6 +87,8 @@ Therefore, we only need to loop $n$ times, each time executing the $foo$ and $ba
 The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from threading import Semaphore
@@ -104,6 +114,8 @@ class FooBar:
             printBar()
             self.f.release()
 ```
+
+#### Java
 
 ```java
 class FooBar {
@@ -134,6 +146,8 @@ class FooBar {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 #include <semaphore.h>
@@ -172,4 +186,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

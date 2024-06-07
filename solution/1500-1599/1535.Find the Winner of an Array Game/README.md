@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README.md
 rating: 1433
+source: 第 200 场周赛 Q2
 tags:
     - 数组
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1535. 找出数组游戏的赢家](https://leetcode.cn/problems/find-the-winner-of-an-array-game)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由 <strong>不同</strong> 整数组成的整数数组 <code>arr</code> 和一个整数 <code>k</code> 。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯
 
@@ -74,6 +81,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +99,8 @@ class Solution:
                 break
         return mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getWinner(arr []int, k int) int {
 	mx, cnt := arr[0], 0
@@ -149,6 +164,8 @@ func getWinner(arr []int, k int) int {
 	return mx
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getWinner(arr: number[], k: number): number {
@@ -168,6 +185,8 @@ function getWinner(arr: number[], k: number): number {
     return mx;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -191,4 +210,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

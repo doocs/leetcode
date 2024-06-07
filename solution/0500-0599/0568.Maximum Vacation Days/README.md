@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [568. 最大休假天数 🔒](https://leetcode.cn/problems/maximum-vacation-days)
 
 [English Version](/solution/0500-0599/0568.Maximum%20Vacation%20Days/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>力扣想让一个最优秀的员工在 <strong>N</strong> 个城市间旅行来收集算法问题。 但只工作不玩耍，聪明的孩子也会变傻，所以您可以在某些特定的城市和星期休假。您的工作就是安排旅行使得最大化你可以休假的天数，但是您需要遵守一些规则和限制。</p>
 
@@ -86,7 +88,11 @@ Ans = 7 + 7 + 7 = 21
 	<li><code>0 &lt;= days[i] &lt;= 7</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -99,6 +105,8 @@ Ans = 7 + 7 + 7 = 21
 时间复杂度 $O(K \times n^2)$，空间复杂度 $O(K \times n)$。其中 $K$ 和 $n$ 分别为周数和城市数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -116,6 +124,8 @@ class Solution:
                 f[k][j] += days[j][k - 1]
         return max(f[-1][j] for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +188,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxVacationDays(flights [][]int, days [][]int) (ans int) {
@@ -208,4 +222,6 @@ func maxVacationDays(flights [][]int, days [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

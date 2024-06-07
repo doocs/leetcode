@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1328.Break%20a%20Palindrome/README_EN.md
 rating: 1473
+source: Biweekly Contest 18 Q2
 tags:
     - Greedy
     - String
 ---
+
+<!-- problem:start -->
 
 # [1328. Break a Palindrome](https://leetcode.com/problems/break-a-palindrome)
 
 [中文文档](/solution/1300-1399/1328.Break%20a%20Palindrome/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a palindromic string of lowercase English letters <code>palindrome</code>, replace <strong>exactly one</strong> character with any lowercase English letter so that the resulting string is <strong>not</strong> a palindrome and that it is the <strong>lexicographically smallest</strong> one possible.</p>
 
@@ -46,11 +51,17 @@ Of all the ways, &quot;aaccba&quot; is the lexicographically smallest.
 	<li><code>palindrome</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +79,8 @@ class Solution:
             s[i] = "a"
         return "".join(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func breakPalindrome(palindrome string) string {
 	n := len(palindrome)
@@ -132,6 +149,8 @@ func breakPalindrome(palindrome string) string {
 	return string(s)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function breakPalindrome(palindrome: string): string {
@@ -155,4 +174,6 @@ function breakPalindrome(palindrome: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [600. 不含连续 1 的非负整数](https://leetcode.cn/problems/non-negative-integers-without-consecutive-ones)
 
 [English Version](/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个正整数 <code>n</code> ，请你统计在&nbsp;<code>[0, n]</code> 范围的非负整数中，有多少个整数的二进制表示中不存在 <strong>连续的 1 </strong>。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数位 DP
 
@@ -97,6 +103,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findIntegers(self, n: int) -> int:
@@ -120,6 +128,8 @@ class Solution:
             n >>= 1
         return dfs(l, 0, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -197,6 +209,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findIntegers(n int) int {
@@ -240,4 +254,6 @@ func findIntegers(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

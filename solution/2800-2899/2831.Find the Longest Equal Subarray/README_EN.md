@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README_EN.md
 rating: 1975
+source: Weekly Contest 359 Q4
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2831. Find the Longest Equal Subarray](https://leetcode.com/problems/find-the-longest-equal-subarray)
 
 [中文文档](/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>k</code>.</p>
 
@@ -56,7 +61,11 @@ It can be proven that no longer equal subarrays can be created.
 	<li><code>0 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Two Pointers
 
@@ -72,6 +81,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestEqualSubarray(self, nums: List[int], k: int) -> int:
@@ -86,6 +97,8 @@ class Solution:
                 l += 1
         return mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestEqualSubarray(nums []int, k int) int {
 	cnt := map[int]int{}
@@ -136,6 +153,8 @@ func longestEqualSubarray(nums []int, k int) int {
 	return mx
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestEqualSubarray(nums: number[], k: number): number {
@@ -156,4 +175,136 @@ function longestEqualSubarray(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- source:start -->
+
+### Solution 2: Hash Table + Two Pointers (Method 2)
+
+We can use a hash table $g$ to maintain the index list of each element.
+
+Next, we enumerate each element as the equal value element. We take out the index list $ids$ of this element from the hash table $g$. Then we define two pointers $l$ and $r$ to maintain a window, so that the number of elements in the window minus the number of equal value elements does not exceed $k$. Therefore, we only need to find the largest window that meets the condition.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def longestEqualSubarray(self, nums: List[int], k: int) -> int:
+        g = defaultdict(list)
+        for i, x in enumerate(nums):
+            g[x].append(i)
+        ans = 0
+        for ids in g.values():
+            l = 0
+            for r in range(len(ids)):
+                while ids[r] - ids[l] - (r - l) > k:
+                    l += 1
+                ans = max(ans, r - l + 1)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int longestEqualSubarray(List<Integer> nums, int k) {
+        int n = nums.size();
+        List<Integer>[] g = new List[n + 1];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (int i = 0; i < n; ++i) {
+            g[nums.get(i)].add(i);
+        }
+        int ans = 0;
+        for (List<Integer> ids : g) {
+            int l = 0;
+            for (int r = 0; r < ids.size(); ++r) {
+                while (ids.get(r) - ids.get(l) - (r - l) > k) {
+                    ++l;
+                }
+                ans = Math.max(ans, r - l + 1);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int longestEqualSubarray(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<int> g[n + 1];
+        for (int i = 0; i < n; ++i) {
+            g[nums[i]].push_back(i);
+        }
+        int ans = 0;
+        for (const auto& ids : g) {
+            int l = 0;
+            for (int r = 0; r < ids.size(); ++r) {
+                while (ids[r] - ids[l] - (r - l) > k) {
+                    ++l;
+                }
+                ans = max(ans, r - l + 1);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func longestEqualSubarray(nums []int, k int) (ans int) {
+	g := make([][]int, len(nums)+1)
+	for i, x := range nums {
+		g[x] = append(g[x], i)
+	}
+	for _, ids := range g {
+		l := 0
+		for r := range ids {
+			for ids[r]-ids[l]-(r-l) > k {
+				l++
+			}
+			ans = max(ans, r-l+1)
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function longestEqualSubarray(nums: number[], k: number): number {
+    const n = nums.length;
+    const g: number[][] = Array.from({ length: n + 1 }, () => []);
+    for (let i = 0; i < n; ++i) {
+        g[nums[i]].push(i);
+    }
+    let ans = 0;
+    for (const ids of g) {
+        let l = 0;
+        for (let r = 0; r < ids.length; ++r) {
+            while (ids[r] - ids[l] - (r - l) > k) {
+                ++l;
+            }
+            ans = Math.max(ans, r - l + 1);
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

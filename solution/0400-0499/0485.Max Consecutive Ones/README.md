@@ -6,13 +6,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [485. 最大连续 1 的个数](https://leetcode.cn/problems/max-consecutive-ones)
 
 [English Version](/solution/0400-0499/0485.Max%20Consecutive%20Ones/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二进制数组 <code>nums</code> ， 计算其中最大连续 <code>1</code> 的个数。</p>
 
@@ -42,7 +44,11 @@ tags:
 	<li><code>nums[i]</code>&nbsp;不是&nbsp;<code>0</code>&nbsp;就是&nbsp;<code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -51,6 +57,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +72,8 @@ class Solution:
                 cnt = 0
         return max(ans, cnt)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaxConsecutiveOnes(nums []int) int {
 	ans, cnt := 0, 0
@@ -114,6 +128,8 @@ func findMaxConsecutiveOnes(nums []int) int {
 	return max(ans, cnt)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaxConsecutiveOnes(nums: number[]): number {
@@ -130,6 +146,8 @@ function findMaxConsecutiveOnes(nums: number[]): number {
     return Math.max(res, count);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -148,6 +166,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -168,6 +188,8 @@ var findMaxConsecutiveOnes = function (nums) {
     return Math.max(res, t);
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -192,4 +214,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

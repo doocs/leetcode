@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [185. 部门工资前三高的所有员工](https://leetcode.cn/problems/department-top-three-salaries)
 
 [English Version](/solution/0100-0199/0185.Department%20Top%20Three%20Salaries/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表:&nbsp;<code>Employee</code></p>
 
@@ -102,11 +104,17 @@ Department  表:
 - 山姆的薪水第二高
 - 没有第三高的工资，因为只有两名员工</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -131,6 +139,8 @@ def top_three_salaries(
     )[["Department", "Employee", "Salary"]]
 ```
 
+#### MySQL
+
 ```sql
 SELECT
     Department.NAME AS Department,
@@ -151,9 +161,15 @@ WHERE
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -176,4 +192,6 @@ WHERE rk <= 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

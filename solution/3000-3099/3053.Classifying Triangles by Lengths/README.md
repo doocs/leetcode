@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3053. 根据长度分类三角形 🔒](https://leetcode.cn/problems/classifying-triangles-by-lengths)
 
 [English Version](/solution/3000-3099/3053.Classifying%20Triangles%20by%20Lengths/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<font face="monospace"><code>Triangles</code></font></p>
 
@@ -71,7 +73,11 @@ Triangles 表：
 - 第三行的值形成了斜三角形，因为 A != B != C.
 - 第四行中的值不能形成三角形，因为边 A 和边 B 的和不大于边 C。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用 CASE WHEN 语句
 
@@ -86,6 +92,8 @@ Triangles 表：
 否则，说明三个边的长度都不相等，我们返回 `Scalene`。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -104,4 +112,6 @@ FROM Triangles;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

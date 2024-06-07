@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2798.Number%20of%20Employees%20Who%20Met%20the%20Target/README_EN.md
 rating: 1142
+source: Weekly Contest 356 Q1
 tags:
     - Array
 ---
+
+<!-- problem:start -->
 
 # [2798. Number of Employees Who Met the Target](https://leetcode.com/problems/number-of-employees-who-met-the-target)
 
 [中文文档](/solution/2700-2799/2798.Number%20of%20Employees%20Who%20Met%20the%20Target/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> employees in a company, numbered from <code>0</code> to <code>n - 1</code>. Each employee <code>i</code> has worked for <code>hours[i]</code> hours in the company.</p>
 
@@ -53,7 +58,11 @@ There are 0 employees who met the target.
 	<li><code>0 &lt;=&nbsp;hours[i], target &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Iteration and Counting
 
@@ -65,11 +74,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array $hours$. The
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfEmployeesWhoMetTarget(self, hours: List[int], target: int) -> int:
         return sum(x >= target for x in hours)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -93,6 +108,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfEmployeesWhoMetTarget(hours []int, target int) (ans int) {
@@ -105,11 +122,15 @@ func numberOfEmployeesWhoMetTarget(hours []int, target int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfEmployeesWhoMetTarget(hours: number[], target: number): number {
     return hours.filter(x => x >= target).length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -124,4 +145,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

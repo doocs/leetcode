@@ -9,11 +9,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [229. Majority Element II](https://leetcode.com/problems/majority-element-ii)
 
 [中文文档](/solution/0200-0299/0229.Majority%20Element%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array of size <code>n</code>, find all elements that appear more than <code>&lfloor; n/3 &rfloor;</code> times.</p>
 
@@ -50,11 +54,17 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve the problem in linear time and in <code>O(1)</code> space?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +84,8 @@ class Solution:
                 n1, n2 = n1 - 1, n2 - 1
         return [m for m in [m1, m2] if nums.count(m) > len(nums) // 3]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func majorityElement(nums []int) []int {
@@ -182,6 +198,8 @@ func majorityElement(nums []int) []int {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -222,6 +240,8 @@ public class Solution {
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -244,4 +264,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

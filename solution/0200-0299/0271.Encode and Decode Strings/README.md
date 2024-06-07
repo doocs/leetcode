@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [271. 字符串的编码与解码 🔒](https://leetcode.cn/problems/encode-and-decode-strings)
 
 [English Version](/solution/0200-0299/0271.Encode%20and%20Decode%20Strings/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你设计一个算法，可以将一个&nbsp;<strong>字符串列表&nbsp;</strong>编码成为一个&nbsp;<strong>字符串</strong>。这个编码后的字符串是可以通过网络进行高效传送的，并且可以在接收端被解码回原来的字符串列表。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li>请不要依赖任何方法库，例如 <code>eval</code>&nbsp;又或者是&nbsp;<code>serialize</code>&nbsp;之类的方法。本题的宗旨是需要您自己实现 &ldquo;编码&rdquo; 和 &ldquo;解码&rdquo; 算法。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：编码字符串长度
 
@@ -66,6 +72,8 @@ tags:
 时间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Codec:
@@ -92,6 +100,8 @@ class Codec:
 # codec = Codec()
 # codec.decode(codec.encode(strs))
 ```
+
+#### Java
 
 ```java
 public class Codec {
@@ -122,6 +132,8 @@ public class Codec {
 // Codec codec = new Codec();
 // codec.decode(codec.encode(strs));
 ```
+
+#### C++
 
 ```cpp
 class Codec {
@@ -156,6 +168,8 @@ public:
 // Codec codec;
 // codec.decode(codec.encode(strs));
 ```
+
+#### Go
 
 ```go
 type Codec struct {
@@ -193,4 +207,6 @@ func (codec *Codec) Decode(strs string) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

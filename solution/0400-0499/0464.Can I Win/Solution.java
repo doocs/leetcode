@@ -1,29 +1,30 @@
 class Solution {
-    private Map<Integer, Boolean> memo = new HashMap<>();
+    private Map<Integer, Boolean> f = new HashMap<>();
+    private int maxChoosableInteger;
+    private int desiredTotal;
 
     public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
-        int s = (1 + maxChoosableInteger) * maxChoosableInteger / 2;
-        if (s < desiredTotal) {
+        if ((1 + maxChoosableInteger) * maxChoosableInteger / 2 < desiredTotal) {
             return false;
         }
-        return dfs(0, 0, maxChoosableInteger, desiredTotal);
+        this.maxChoosableInteger = maxChoosableInteger;
+        this.desiredTotal = desiredTotal;
+        return dfs(0, 0);
     }
 
-    private boolean dfs(int state, int t, int maxChoosableInteger, int desiredTotal) {
-        if (memo.containsKey(state)) {
-            return memo.get(state);
+    private boolean dfs(int mask, int s) {
+        if (f.containsKey(mask)) {
+            return f.get(mask);
         }
-        boolean res = false;
-        for (int i = 1; i <= maxChoosableInteger; ++i) {
-            if (((state >> i) & 1) == 0) {
-                if (t + i >= desiredTotal
-                    || !dfs(state | 1 << i, t + i, maxChoosableInteger, desiredTotal)) {
-                    res = true;
-                    break;
+        for (int i = 0; i < maxChoosableInteger; ++i) {
+            if ((mask >> i & 1) == 0) {
+                if (s + i + 1 >= desiredTotal || !dfs(mask | 1 << i, s + i + 1)) {
+                    f.put(mask, true);
+                    return true;
                 }
             }
         }
-        memo.put(state, res);
-        return res;
+        f.put(mask, false);
+        return false;
     }
 }

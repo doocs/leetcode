@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README_EN.md
 rating: 1857
+source: Weekly Contest 206 Q3
 tags:
     - Union Find
     - Graph
@@ -10,11 +11,15 @@ tags:
     - Minimum Spanning Tree
 ---
 
+<!-- problem:start -->
+
 # [1584. Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points)
 
 [中文文档](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>points</code> representing integer coordinates of some points on a 2D-plane, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>
 
@@ -50,11 +55,17 @@ Notice that there is a unique path between every pair of points.
 	<li>All pairs <code>(x<sub>i</sub>, y<sub>i</sub>)</code> are distinct.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +93,8 @@ class Solution:
                     dist[j] = min(dist[j], g[i][j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +178,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCostConnectPoints(points [][]int) (ans int) {
@@ -210,6 +227,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCostConnectPoints(points: number[][]): number {
     const n = points.length;
@@ -250,9 +269,15 @@ function minCostConnectPoints(points: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -282,6 +307,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -326,6 +353,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -361,6 +390,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCostConnectPoints(points [][]int) int {
@@ -413,4 +444,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

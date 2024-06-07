@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1140.Stone%20Game%20II/README.md
 rating: 2034
+source: 第 147 场周赛 Q4
 tags:
     - 数组
     - 数学
@@ -11,13 +12,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [1140. 石子游戏 II](https://leetcode.cn/problems/stone-game-ii)
 
 [English Version](/solution/1100-1199/1140.Stone%20Game%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>爱丽丝和鲍勃继续他们的石子游戏。许多堆石子&nbsp;<strong>排成一行</strong>，每堆都有正整数颗石子&nbsp;<code>piles[i]</code>。游戏以谁手中的石子最多来决出胜负。</p>
 
@@ -55,7 +58,11 @@ tags:
 	<li><meta charset="UTF-8" /><code>1 &lt;= piles[i]&nbsp;&lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 记忆化搜索
 
@@ -76,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameII(self, piles: List[int]) -> int:
@@ -91,6 +100,8 @@ class Solution:
         s = list(accumulate(piles, initial=0))
         return dfs(0, 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGameII(piles []int) int {
 	n := len(piles)
@@ -180,6 +195,8 @@ func stoneGameII(piles []int) int {
 	return dfs(0, 1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stoneGameII(piles: number[]): number {
@@ -208,9 +225,15 @@ function stoneGameII(piles: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -230,4 +253,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

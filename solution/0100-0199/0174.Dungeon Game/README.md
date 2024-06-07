@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [174. 地下城游戏](https://leetcode.cn/problems/dungeon-game)
 
 [English Version](/solution/0100-0199/0174.Dungeon%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <style type="text/css">table.dungeon, .dungeon th, .dungeon td {
   border:3px solid black;
@@ -65,7 +67,11 @@ tags:
 	<li><code>-1000 &lt;= dungeon[i][j] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -81,6 +87,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def calculateMinimumHP(self, dungeon: List[List[int]]) -> int:
@@ -92,6 +100,8 @@ class Solution:
                 dp[i][j] = max(1, min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j])
         return dp[0][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func calculateMinimumHP(dungeon [][]int) int {
@@ -149,6 +163,8 @@ func calculateMinimumHP(dungeon [][]int) int {
 	return dp[0][0]
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -172,4 +188,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [820. 单词的压缩编码](https://leetcode.cn/problems/short-encoding-of-words)
 
 [English Version](/solution/0800-0899/0820.Short%20Encoding%20of%20Words/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>单词数组 <code>words</code> 的 <strong>有效编码</strong> 由任意助记字符串 <code>s</code> 和下标数组 <code>indices</code> 组成，且满足：</p>
 
@@ -58,7 +60,11 @@ words[2] = "bell" ，s 开始于 indices[2] = 5 到下一个 '#' 结束的子字
 	<li><code>words[i]</code> 仅由小写字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树
 
@@ -67,6 +73,8 @@ words[2] = "bell" ，s 开始于 indices[2] = 5 到下一个 '#' 结束的子字
 判断当前单词是否是其他单词的后缀，若是，就不用写入助记字符串中，否则需要写入并且加上一个 # 后缀。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -96,6 +104,8 @@ class Solution:
             ans += l
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -134,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 struct Trie {
@@ -174,6 +186,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 type trie struct {
 	children [26]*trie
@@ -210,9 +224,15 @@ func dfs(cur *trie, l int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -237,6 +257,8 @@ class Solution:
         trie = Trie()
         return sum(trie.insert(w[::-1]) for w in words)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -269,6 +291,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -306,6 +330,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -346,4 +372,6 @@ func minimumLengthEncoding(words []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

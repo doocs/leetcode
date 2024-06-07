@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [2408. 设计 SQL 🔒](https://leetcode.cn/problems/design-sql)
 
 [English Version](/solution/2400-2499/2408.Design%20SQL/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定 <code>n</code> 个表，用两个数组 <code>names</code> 和 <code>columns</code>&nbsp;表示，其中 <code>names[i]</code> 是第 <code>i</code> 个表的名称，<code>columns[i]</code> 是第 <code>i</code> 个表的列数。</p>
 
@@ -74,7 +76,11 @@ sql.selectCell("two", 2, 2); // 返回 "fifth"，查找表 "two" 中 id 为 2 �
 	<li><code><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><span style="font-size:14px"><span style="background-color:#ffffff">最多&nbsp;</span></span></font></font>10<sup>4</sup></code> 次调用&nbsp;<code>selectCell</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -83,6 +89,8 @@ sql.selectCell("two", 2, 2); // 返回 "fifth"，查找表 "two" 中 id 为 2 �
 每个操作的时间复杂度均为 $O(1)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class SQL:
@@ -105,6 +113,8 @@ class SQL:
 # obj.deleteRow(name,rowId)
 # param_3 = obj.selectCell(name,rowId,columnId)
 ```
+
+#### Java
 
 ```java
 class SQL {
@@ -135,6 +145,8 @@ class SQL {
  */
 ```
 
+#### C++
+
 ```cpp
 class SQL {
 public:
@@ -162,6 +174,8 @@ public:
  * string param_3 = obj->selectCell(name,rowId,columnId);
  */
 ```
+
+#### Go
 
 ```go
 type SQL struct {
@@ -195,4 +209,6 @@ func (this *SQL) SelectCell(name string, rowId int, columnId int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

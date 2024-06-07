@@ -10,13 +10,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [768. 最多能完成排序的块 II](https://leetcode.cn/problems/max-chunks-to-make-sorted-ii)
 
 [English Version](/solution/0700-0799/0768.Max%20Chunks%20To%20Make%20Sorted%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>arr</code> 。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -63,6 +69,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 表示 $arr$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +86,8 @@ class Solution:
                 stk.append(mx)
         return len(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxChunksToSorted(arr []int) int {
 	var stk []int
@@ -138,6 +152,8 @@ func maxChunksToSorted(arr []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxChunksToSorted(arr: number[]): number {
     const stack = [];
@@ -155,6 +171,8 @@ function maxChunksToSorted(arr: number[]): number {
     return stack.length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,4 +196,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

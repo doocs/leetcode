@@ -11,13 +11,15 @@ tags:
     - 随机化
 ---
 
+<!-- problem:start -->
+
 # [710. 黑名单中的随机数](https://leetcode.cn/problems/random-pick-with-blacklist)
 
 [English Version](/solution/0700-0799/0710.Random%20Pick%20with%20Blacklist/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数 <code>n</code> 和一个 <strong>无重复</strong> 黑名单整数数组&nbsp;<code>blacklist</code>&nbsp;。设计一种算法，从 <code>[0, n - 1]</code> 范围内的任意整数中选取一个&nbsp;<strong>未加入&nbsp;</strong>黑名单&nbsp;<code>blacklist</code>&nbsp;的整数。任何在上述范围内且不在黑名单&nbsp;<code>blacklist</code>&nbsp;中的整数都应该有 <strong>同等的可能性</strong> 被返回。</p>
 
@@ -65,11 +67,17 @@ solution.pick(); // 返回 4
 	<li>&nbsp;<code>pick</code>&nbsp;最多被调用&nbsp;<code>2 * 10<sup>4</sup></code>&nbsp;次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +102,8 @@ class Solution:
 # obj = Solution(n, blacklist)
 # param_1 = obj.pick()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +141,8 @@ class Solution {
  */
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +173,8 @@ public:
  * int param_1 = obj->pick();
  */
 ```
+
+#### Go
 
 ```go
 type Solution struct {
@@ -205,4 +219,6 @@ func (this *Solution) Pick() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

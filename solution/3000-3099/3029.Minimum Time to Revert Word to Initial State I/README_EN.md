@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3029.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20I/README_EN.md
 rating: 1659
+source: Weekly Contest 383 Q2
 tags:
     - String
     - String Matching
@@ -10,11 +11,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [3029. Minimum Time to Revert Word to Initial State I](https://leetcode.com/problems/minimum-time-to-revert-word-to-initial-state-i)
 
 [中文文档](/solution/3000-3099/3029.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string <code>word</code> and an integer <code>k</code>.</p>
 
@@ -68,7 +73,11 @@ It can be shown that 4 seconds is the minimum time greater than zero required fo
 	<li><code>word</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -82,6 +91,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTimeToInitialState(self, word: str, k: int) -> int:
@@ -91,6 +102,8 @@ class Solution:
                 return i // k
         return (n + k - 1) // k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTimeToInitialState(word string, k int) int {
 	n := len(word)
@@ -132,6 +149,8 @@ func minimumTimeToInitialState(word string, k int) int {
 	return (n + k - 1) / k
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTimeToInitialState(word: string, k: number): number {
@@ -147,6 +166,10 @@ function minimumTimeToInitialState(word: string, k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Enumeration + String Hash
 
 Based on Solution 1, we can also use string hashing to determine whether two strings are equal.
@@ -154,6 +177,8 @@ Based on Solution 1, we can also use string hashing to determine whether two str
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of `word`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Hashing:
@@ -180,6 +205,8 @@ class Solution:
                 return i // k
         return (n + k - 1) // k
 ```
+
+#### Java
 
 ```java
 class Hashing {
@@ -217,6 +244,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Hashing {
@@ -258,6 +287,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Hashing struct {
 	p   []int64
@@ -295,4 +326,6 @@ func minimumTimeToInitialState(word string, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

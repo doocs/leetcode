@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README.md
 rating: 1200
+source: 第 299 场周赛 Q1
 tags:
     - 数组
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [2319. 判断矩阵是否是一个 X 矩阵](https://leetcode.cn/problems/check-if-matrix-is-x-matrix)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果一个正方形矩阵满足下述 <strong>全部</strong> 条件，则称之为一个 <strong>X 矩阵</strong> ：</p>
 
@@ -55,7 +58,11 @@ X 矩阵应该满足：绿色元素（对角线上）都不是 0 ，红色元素
 	<li><code>0 &lt;= grid[i][j] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -64,6 +71,8 @@ X 矩阵应该满足：绿色元素（对角线上）都不是 0 ，红色元素
 时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 为矩阵的行数或列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +86,8 @@ class Solution:
                     return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkXMatrix(grid [][]int) bool {
 	for i, row := range grid {
@@ -135,6 +150,8 @@ func checkXMatrix(grid [][]int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkXMatrix(grid: number[][]): boolean {
@@ -153,6 +170,8 @@ function checkXMatrix(grid: number[][]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -174,6 +193,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool CheckXMatrix(int[][] grid) {
@@ -194,6 +215,8 @@ public class Solution {
 }
 ```
 
+#### C
+
 ```c
 bool checkXMatrix(int** grid, int gridSize, int* gridColSize) {
     for (int i = 0; i < gridSize; i++) {
@@ -213,4 +236,6 @@ bool checkXMatrix(int** grid, int gridSize, int* gridColSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

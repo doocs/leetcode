@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README_EN.md
 rating: 1928
+source: Weekly Contest 203 Q3
 tags:
     - Array
     - Binary Search
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1562. Find Latest Group of Size M](https://leetcode.com/problems/find-latest-group-of-size-m)
 
 [中文文档](/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>arr</code> that represents a permutation of numbers from <code>1</code> to <code>n</code>.</p>
 
@@ -62,11 +67,17 @@ No group of size 2 exists during any step.
 	<li>All integers in <code>arr</code> are <strong>distinct</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -103,6 +114,8 @@ class Solution:
             vis[v] = True
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +172,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +216,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLatestStep(arr []int, m int) int {
@@ -254,9 +271,15 @@ func findLatestStep(arr []int, m int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -274,6 +297,8 @@ class Solution:
             cnt[v - l] = cnt[v + r] = l + r + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -298,6 +323,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -316,6 +343,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLatestStep(arr []int, m int) int {
@@ -338,4 +367,6 @@ func findLatestStep(arr []int, m int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README_EN.md
 rating: 1418
+source: Weekly Contest 215 Q1
 tags:
     - Design
     - Array
@@ -10,11 +11,15 @@ tags:
     - Data Stream
 ---
 
+<!-- problem:start -->
+
 # [1656. Design an Ordered Stream](https://leetcode.com/problems/design-an-ordered-stream)
 
 [中文文档](/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a stream of <code>n</code> <code>(idKey, value)</code> pairs arriving in an <strong>arbitrary</strong> order, where <code>idKey</code> is an integer between <code>1</code> and <code>n</code> and <code>value</code> is a string. No two pairs have the same <code>id</code>.</p>
 
@@ -64,11 +69,17 @@ os.insert(4, &quot;ddddd&quot;); // Inserts (4, &quot;ddddd&quot;), returns [&qu
 	<li>Exactly <code>n</code> calls will be made to <code>insert</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class OrderedStream:
@@ -89,6 +100,8 @@ class OrderedStream:
 # obj = OrderedStream(n)
 # param_1 = obj.insert(idKey,value)
 ```
+
+#### Java
 
 ```java
 class OrderedStream {
@@ -117,6 +130,8 @@ class OrderedStream {
  */
 ```
 
+#### C++
+
 ```cpp
 class OrderedStream {
 public:
@@ -141,6 +156,8 @@ public:
  * vector<string> param_1 = obj->insert(idKey,value);
  */
 ```
+
+#### Go
 
 ```go
 type OrderedStream struct {
@@ -170,6 +187,8 @@ func (this *OrderedStream) Insert(idKey int, value string) []string {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class OrderedStream {
     private ptr: number;
@@ -197,6 +216,8 @@ class OrderedStream {
  * var param_1 = obj.insert(idKey,value)
  */
 ```
+
+#### Rust
 
 ```rust
 struct OrderedStream {
@@ -235,4 +256,6 @@ impl OrderedStream {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

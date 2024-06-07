@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1139.Largest%201-Bordered%20Square/README.md
 rating: 1744
+source: 第 147 场周赛 Q3
 tags:
     - 数组
     - 动态规划
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [1139. 最大的以 1 为边界的正方形](https://leetcode.cn/problems/largest-1-bordered-square)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由若干 <code>0</code> 和 <code>1</code> 组成的二维网格&nbsp;<code>grid</code>，请你找出边界全部由 <code>1</code> 组成的最大 <strong>正方形</strong> 子网格，并返回该子网格中的元素数量。如果不存在，则返回 <code>0</code>。</p>
 
@@ -43,7 +46,11 @@ tags:
 	<li><code>grid[i][j]</code> 为&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 枚举
 
@@ -54,6 +61,8 @@ tags:
 时间复杂度 $O(m \times n \times \min(m, n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +87,8 @@ class Solution:
                         return k * k
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largest1BorderedSquare(grid [][]int) int {
@@ -177,4 +192,6 @@ func largest1BorderedSquare(grid [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

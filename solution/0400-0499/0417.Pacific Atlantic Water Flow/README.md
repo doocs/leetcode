@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [417. 太平洋大西洋水流问题](https://leetcode.cn/problems/pacific-atlantic-water-flow)
 
 [English Version](/solution/0400-0499/0417.Pacific%20Atlantic%20Water%20Flow/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个 <code>m × n</code> 的矩形岛屿，与 <strong>太平洋</strong> 和 <strong>大西洋</strong> 相邻。&nbsp;<strong>“太平洋”&nbsp;</strong>处于大陆的左边界和上边界，而 <strong>“大西洋”</strong> 处于大陆的右边界和下边界。</p>
 
@@ -54,11 +56,17 @@ tags:
 	<li><code>0 &lt;= heights[r][c] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +107,8 @@ class Solution:
             if (i, j) in vis1 and (i, j) in vis2
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +169,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 typedef pair<int, int> pii;
@@ -223,6 +235,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pacificAtlantic(heights [][]int) [][]int {
 	m, n := len(heights), len(heights[0])
@@ -272,6 +286,8 @@ func pacificAtlantic(heights [][]int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function pacificAtlantic(heights: number[][]): number[][] {
@@ -328,4 +344,6 @@ function pacificAtlantic(heights: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README_EN.md
 rating: 1822
+source: Biweekly Contest 117 Q4
 tags:
     - Greedy
     - Array
@@ -11,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2931. Maximum Spending After Buying Items](https://leetcode.com/problems/maximum-spending-after-buying-items)
 
 [中文文档](/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> <code>m * n</code> integer matrix <code>values</code>, representing the values of <code>m * n</code> different items in <code>m</code> different shops. Each shop has <code>n</code> items where the <code>j<sup>th</sup></code> item in the <code>i<sup>th</sup></code> shop has a value of <code>values[i][j]</code>. Additionally, the items in the <code>i<sup>th</sup></code> shop are sorted in non-increasing order of value. That is, <code>values[i][j] &gt;= values[i][j + 1]</code> for all <code>0 &lt;= j &lt; n - 1</code>.</p>
 
@@ -78,7 +83,11 @@ It can be shown that 386 is the maximum amount of money that can be spent buying
 	<li><code>values[i]</code> are sorted in non-increasing order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue
 
@@ -89,6 +98,8 @@ Each day, we take out the item with the smallest value from the priority queue, 
 The time complexity is $O(m \times n \times \log m)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the number of rows and columns of the array $values$, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +116,8 @@ class Solution:
                 heappush(pq, (values[i][j - 1], i, j - 1))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxSpending(values [][]int) (ans int64) {
@@ -178,6 +195,8 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSpending(values: number[][]): number {
     const m = values.length;
@@ -201,4 +220,6 @@ function maxSpending(values: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

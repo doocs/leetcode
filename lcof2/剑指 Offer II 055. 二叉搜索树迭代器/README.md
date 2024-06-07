@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20055.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BF%AD%E4%BB%A3%E5%99%A8/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 055. 二叉搜索树迭代器](https://leetcode.cn/problems/kTOapQ)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实现一个二叉搜索树迭代器类<code>BSTIterator</code> ，表示一个按中序遍历二叉搜索树（BST）的迭代器：</p>
 
@@ -73,7 +75,11 @@ bSTIterator.hasNext(); // 返回 False
 
 <p><meta charset="UTF-8" />注意：本题与主站 173&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/binary-search-tree-iterator/">https://leetcode.cn/problems/binary-search-tree-iterator/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -82,6 +88,8 @@ bSTIterator.hasNext(); // 返回 False
 调用 `next()` 时，返回 `vals[cur]`，同时 `cur` 指针自增。调用 `hasNext()` 时，判断 `cur` 指针是否已经达到 `len(vals)` 个数，若是，说明已经遍历结束，返回 false，否则返回 true。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -116,6 +124,8 @@ class BSTIterator:
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
 ```
+
+#### Java
 
 ```java
 /**
@@ -166,6 +176,8 @@ class BSTIterator {
  */
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -212,6 +224,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -255,6 +269,8 @@ func (this *BSTIterator) HasNext() bool {
  * param_2 := obj.HasNext();
  */
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -300,6 +316,8 @@ class BSTIterator {
  * var param_2 = obj.hasNext()
  */
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -365,6 +383,8 @@ impl BSTIterator {
  */
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -413,6 +433,10 @@ BSTIterator.prototype.hasNext = function () {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：栈迭代
 
 初始化时，从根节点一路遍历所有左子节点，压入栈 `stack` 中。
@@ -420,6 +444,8 @@ BSTIterator.prototype.hasNext = function () {
 调用 `next()`时，弹出栈顶元素 `cur`，获取 `cur` 的右子节点 `node`，若 `node` 不为空，一直循环压入左节点。最后返回 `cur.val` 即可。调用 `hasNext()` 时，判断 `stack` 是否为空，空则表示迭代结束。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -452,6 +478,8 @@ class BSTIterator:
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
 ```
+
+#### Java
 
 ```java
 /**
@@ -499,6 +527,8 @@ class BSTIterator {
  */
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -545,4 +575,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

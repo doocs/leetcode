@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2984. 找到每座城市的高峰通话时间 🔒](https://leetcode.cn/problems/find-peak-calling-hours-for-each-city)
 
 [English Version](/solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Calls</code></p>
 
@@ -67,11 +69,17 @@ Calls table:
   - 3:00 和 14:00 都有相同数量的通话，因此这两个时间都被视为高峰时间。
 输出表按照高峰时间和城市按降序排序。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -101,4 +109,6 @@ ORDER BY 2 DESC, 1 DESC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water)
 
 [中文文档](/solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given <code>n</code> non-negative integers representing an elevation map where the width of each bar is <code>1</code>, compute how much water it can trap after raining.</p>
 
@@ -43,7 +47,11 @@ tags:
 	<li><code>0 &lt;= height[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -52,6 +60,8 @@ We define $left[i]$ as the height of the highest bar to the left of and includin
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +74,8 @@ class Solution:
             right[n - i - 1] = max(right[n - i], height[n - i - 1])
         return sum(min(l, r) - h for l, r, h in zip(left, right, height))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func trap(height []int) (ans int) {
 	n := len(height)
@@ -124,6 +140,8 @@ func trap(height []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function trap(height: number[]): number {
     const n = height.length;
@@ -140,6 +158,8 @@ function trap(height: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -170,6 +190,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int Trap(int[] height) {
@@ -190,6 +212,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -235,4 +259,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

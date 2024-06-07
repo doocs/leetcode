@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1488.Avoid%20Flood%20in%20The%20City/README.md
 rating: 1973
+source: 第 194 场周赛 Q3
 tags:
     - 贪心
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1488. 避免洪水泛滥](https://leetcode.cn/problems/avoid-flood-in-the-city)
 
 [English Version](/solution/1400-1499/1488.Avoid%20Flood%20in%20The%20City/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你的国家有无数个湖泊，所有湖泊一开始都是空的。当第 <code>n</code>&nbsp;个湖泊下雨前是空的，那么它就会装满水。如果第 <code>n</code>&nbsp;个湖泊下雨前是 <strong>满的&nbsp;</strong>，这个湖泊会发生 <strong>洪水</strong> 。你的目标是避免任意一个湖泊发生洪水。</p>
 
@@ -86,7 +89,11 @@ tags:
 	<li><code>0 &lt;= rains[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 二分查找
 
@@ -99,6 +106,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为 $rains$ 数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -124,6 +133,8 @@ class Solution:
                 ans[i] = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -155,6 +166,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -185,6 +198,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func avoidFlood(rains []int) []int {
 	n := len(rains)
@@ -213,6 +228,8 @@ func avoidFlood(rains []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function avoidFlood(rains: number[]): number[] {
@@ -733,4 +750,6 @@ class TreeSet<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

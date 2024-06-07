@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.08.Zero%20Matrix/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 01.08. 零矩阵](https://leetcode.cn/problems/zero-matrix-lcci)
 
 [English Version](/lcci/01.08.Zero%20Matrix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>编写一种算法，若M × N矩阵中某个元素为0，则将其所在的行与列清零。</p>
 
 <p>&nbsp;</p>
@@ -47,7 +50,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.08.Zero%20Matrix/R
 ]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组标记
 
@@ -58,6 +65,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.08.Zero%20Matrix/R
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +83,8 @@ class Solution:
                 if rows[i] or cols[j]:
                     matrix[i][j] = 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func setZeroes(matrix [][]int) {
 	m, n := len(matrix), len(matrix[0])
@@ -148,6 +163,8 @@ func setZeroes(matrix [][]int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -176,6 +193,8 @@ function setZeroes(matrix: number[][]): void {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
@@ -201,6 +220,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -230,6 +251,8 @@ var setZeroes = function (matrix) {
 };
 ```
 
+#### C
+
 ```c
 void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
     int m = matrixSize;
@@ -257,6 +280,8 @@ void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
     free(cols);
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -289,6 +314,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：原地标记
 
 方法一中使用了额外的数组标记待清零的行和列，实际上我们也可以直接用矩阵的第一行和第一列来标记，不需要开辟额外的数组空间。
@@ -298,6 +327,8 @@ class Solution {
 时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别为矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -320,6 +351,8 @@ class Solution:
             for i in range(m):
                 matrix[i][0] = 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -366,6 +399,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -414,6 +449,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func setZeroes(matrix [][]int) {
 	m, n := len(matrix), len(matrix[0])
@@ -456,6 +493,8 @@ func setZeroes(matrix [][]int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -505,6 +544,8 @@ function setZeroes(matrix: number[][]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -560,6 +601,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -603,6 +646,8 @@ var setZeroes = function (matrix) {
     }
 };
 ```
+
+#### C
 
 ```c
 void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
@@ -652,4 +697,6 @@ void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9858%20-%20II.%20%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 58 - II. 左旋转字符串](https://leetcode.cn/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。请定义一个函数实现字符串左旋转操作的功能。比如，输入字符串&quot;abcdefg&quot;和数字2，该函数将返回左旋转两位得到的结果&quot;cdefgab&quot;。</p>
 
@@ -32,7 +36,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 	<li><code>1 &lt;= k &lt; s.length &lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -42,11 +50,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseLeftWords(self, s: str, n: int) -> str:
         return s[n:] + s[:n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -55,6 +67,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -65,11 +79,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseLeftWords(s string, n int) string {
 	return s[n:] + s[:n]
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -79,6 +97,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -91,6 +111,8 @@ var reverseLeftWords = function (s, n) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string ReverseLeftWords(string s, int n) {
@@ -99,24 +121,21 @@ public class Solution {
 }
 ```
 
-<!-- tabs:end -->
+#### Swift
 
-### 方法二
-
-<!-- tabs:start -->
-
-```cpp
+```swift
 class Solution {
-public:
-    string reverseLeftWords(string s, int n) {
-        reverse(s.begin(), s.begin() + n);
-        reverse(s.begin() + n, s.end());
-        reverse(s.begin(), s.end());
-        return s;
+    func reverseLeftWords(_ s: String, _ n: Int) -> String {
+        let leftIndex = s.index(s.startIndex, offsetBy: n)
+        let rightPart = s[leftIndex..<s.endIndex]
+        let leftPart = s[s.startIndex..<leftIndex]
+        return String(rightPart) + String(leftPart)
     }
-};
+}
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

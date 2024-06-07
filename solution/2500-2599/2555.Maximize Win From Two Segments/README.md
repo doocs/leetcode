@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2555.Maximize%20Win%20From%20Two%20Segments/README.md
 rating: 2080
+source: 第 97 场双周赛 Q3
 tags:
     - 数组
     - 二分查找
     - 滑动窗口
 ---
+
+<!-- problem:start -->
 
 # [2555. 两个线段获得的最多奖品](https://leetcode.cn/problems/maximize-win-from-two-segments)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在 <strong>X轴</strong>&nbsp;上有一些奖品。给你一个整数数组&nbsp;<code>prizePositions</code>&nbsp;，它按照 <strong>非递减</strong>&nbsp;顺序排列，其中&nbsp;<code>prizePositions[i]</code>&nbsp;是第&nbsp;<code>i</code>&nbsp;件奖品的位置。数轴上一个位置可能会有多件奖品。再给你一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -56,7 +59,11 @@ tags:
 	<li><code>prizePositions</code>&nbsp;有序非递减。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划 + 二分查找
 
@@ -70,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximizeWin(self, prizePositions: List[int], k: int) -> int:
@@ -82,6 +91,8 @@ class Solution:
             f[i] = max(f[i - 1], i - j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximizeWin(prizePositions []int, k int) (ans int) {
 	n := len(prizePositions)
@@ -143,6 +158,8 @@ func maximizeWin(prizePositions []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximizeWin(prizePositions: number[], k: number): number {
@@ -174,4 +191,6 @@ function maximizeWin(prizePositions: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

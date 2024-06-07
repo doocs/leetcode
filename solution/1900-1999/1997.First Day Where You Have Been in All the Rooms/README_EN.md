@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1997.First%20Day%20Where%20You%20Have%20Been%20in%20All%20the%20Rooms/README_EN.md
 rating: 2260
+source: Weekly Contest 257 Q3
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [1997. First Day Where You Have Been in All the Rooms](https://leetcode.com/problems/first-day-where-you-have-been-in-all-the-rooms)
 
 [中文文档](/solution/1900-1999/1997.First%20Day%20Where%20You%20Have%20Been%20in%20All%20the%20Rooms/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> rooms you need to visit, labeled from <code>0</code> to <code>n - 1</code>. Each day is labeled, starting from <code>0</code>. You will go in and visit one room a day.</p>
 
@@ -69,7 +74,11 @@ Day 6 is the first day where you have been in all the rooms.
 	<li><code>0 &lt;= nextVisit[i] &lt;= i</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -85,6 +94,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def firstDayBeenInAllRooms(self, nextVisit: List[int]) -> int:
@@ -95,6 +106,8 @@ class Solution:
             f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1) % mod
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func firstDayBeenInAllRooms(nextVisit []int) int {
 	n := len(nextVisit)
@@ -137,6 +154,8 @@ func firstDayBeenInAllRooms(nextVisit []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function firstDayBeenInAllRooms(nextVisit: number[]): number {
     const n = nextVisit.length;
@@ -148,6 +167,8 @@ function firstDayBeenInAllRooms(nextVisit: number[]): number {
     return f[n - 1];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -165,4 +186,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

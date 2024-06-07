@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2157.Groups%20of%20Strings/README_EN.md
 rating: 2499
+source: Weekly Contest 278 Q4
 tags:
     - Bit Manipulation
     - Union Find
     - String
 ---
 
+<!-- problem:start -->
+
 # [2157. Groups of Strings](https://leetcode.com/problems/groups-of-strings)
 
 [中文文档](/solution/2100-2199/2157.Groups%20of%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of strings <code>words</code>. Each string consists of <strong>lowercase English letters</strong> only. No letter occurs more than once in any string of <code>words</code>.</p>
 
@@ -78,11 +83,17 @@ Thus, the size of the largest group is 3.
 	<li>No letter occurs more than once in <code>words[i]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -126,6 +137,8 @@ class Solution:
                             union(x, x ^ (1 << i) | (1 << j))
         return [n, mx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -189,6 +202,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -236,6 +251,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func groupStrings(words []string) []int {
@@ -293,4 +310,6 @@ func groupStrings(words []string) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

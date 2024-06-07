@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [71. 简化路径](https://leetcode.cn/problems/simplify-path)
 
 [English Version](/solution/0000-0099/0071.Simplify%20Path/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>path</code> ，表示指向某一文件或目录的 Unix 风格 <strong>绝对路径 </strong>（以 <code>'/'</code> 开头），请你将其转化为更加简洁的规范路径。</p>
 
@@ -72,7 +74,11 @@ tags:
 	<li><code>path</code> 是一个有效的 Unix 风格绝对路径。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈
 
@@ -88,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def simplifyPath(self, path: str) -> str:
@@ -102,6 +110,8 @@ class Solution:
                 stk.append(s)
         return '/' + '/'.join(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -153,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func simplifyPath(path string) string {
 	var stk []string
@@ -172,6 +186,8 @@ func simplifyPath(path string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function simplifyPath(path: string): string {
     const stk: string[] = [];
@@ -190,6 +206,8 @@ function simplifyPath(path: string): string {
     return '/' + stk.join('/');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -221,6 +239,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string SimplifyPath(string path) {
@@ -248,9 +268,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func simplifyPath(path string) string {
@@ -260,4 +286,6 @@ func simplifyPath(path string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

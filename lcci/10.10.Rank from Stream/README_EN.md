@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.10.Rank%20from%20Stream/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [10.10. Rank from Stream](https://leetcode.cn/problems/rank-from-stream-lcci)
 
 [中文文档](/lcci/10.10.Rank%20from%20Stream/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Imagine you are reading in a stream of integers. Periodically, you wish to be able to look up the rank of a number <code>x</code> (the number of values less than or equal to <code>x</code>). lmplement the data structures and algorithms to support these operations. That is, implement the method <code>track (int x)</code>, which is called when each number is generated, and the method <code>getRankOfNumber(int x)</code>, which returns the number of values less than or equal to <code>x</code>.</p>
 
@@ -37,7 +41,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.10.Rank%20from%20S
 	<li>The number of calls of both&nbsp;<code>track</code>&nbsp;and&nbsp;<code>getRankOfNumber</code>&nbsp;methods are less than or equal to 2000.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
 
@@ -48,6 +56,8 @@ We create a Binary Indexed Tree with a length of $50010$. For the `track` method
 In terms of time complexity, both the update and query operations of the Binary Indexed Tree have a time complexity of $O(\log n)$, where $n$ is the length of the Binary Indexed Tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -87,6 +97,8 @@ class StreamRank:
 # obj.track(x)
 # param_2 = obj.getRankOfNumber(x)
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -136,6 +148,8 @@ class StreamRank {
  * int param_2 = obj.getRankOfNumber(x);
  */
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -188,6 +202,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -236,6 +252,8 @@ func (this *StreamRank) GetRankOfNumber(x int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class BinaryIndexedTree {
     private n: number;
@@ -282,6 +300,8 @@ class StreamRank {
  * var param_2 = obj.getRankOfNumber(x)
  */
 ```
+
+#### Swift
 
 ```swift
 class BinaryIndexedTree {
@@ -331,4 +351,6 @@ class StreamRank {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

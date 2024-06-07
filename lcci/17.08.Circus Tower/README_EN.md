@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.08.Circus%20Tower/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.08. Circus Tower](https://leetcode.cn/problems/circus-tower-lcci)
 
 [中文文档](/lcci/17.08.Circus%20Tower/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A circus is designing a tower routine consisting of people standing atop one anoth&shy;er&#39;s shoulders. For practical and aesthetic reasons, each person must be both shorter and lighter than the person below him or her. Given the heights and weights of each person in the circus, write a method to compute the largest possible number of people in such a tower.</p>
 <p><strong>Example: </strong></p>
@@ -25,7 +29,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.08.Circus%20Tower/
 	<li><code>height.length == weight.length &lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Discretization + Binary Indexed Tree
 
@@ -36,6 +44,8 @@ The longest increasing subsequence problem can be solved using dynamic programmi
 The space complexity is $O(n)$, where $n$ is the number of people.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -71,6 +81,8 @@ class Solution:
             tree.update(x, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -130,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -187,6 +201,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -247,6 +263,8 @@ func bestSeqAtIndex(height []int, weight []int) int {
 	return ans
 }
 ```
+
+#### Swift
 
 ```swift
 class BinaryIndexedTree {
@@ -312,4 +330,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

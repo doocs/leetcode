@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README_EN.md
 rating: 1896
+source: Weekly Contest 383 Q3
 tags:
     - Array
     - Matrix
 ---
+
+<!-- problem:start -->
 
 # [3030. Find the Grid of Region Average](https://leetcode.com/problems/find-the-grid-of-region-average)
 
 [中文文档](/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> grid <code>image</code> which represents a grayscale image, where <code>image[i][j]</code> represents a pixel with intensity in the range<code>[0..255]</code>. You are also given a <strong>non-negative</strong> integer <code>threshold</code>.</p>
 
@@ -61,11 +66,17 @@ Please note that the rounded-down values are used when calculating the average o
 	<li><code>0 &lt;= threshold &lt;= 255</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -108,6 +119,8 @@ class Solution:
 
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +174,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -210,6 +225,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func resultGrid(image [][]int, threshold int) [][]int {
@@ -269,6 +286,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function resultGrid(image: number[][], threshold: number): number[][] {
     const n: number = image.length;
@@ -320,4 +339,6 @@ function resultGrid(image: number[][], threshold: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

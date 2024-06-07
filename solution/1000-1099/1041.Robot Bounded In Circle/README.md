@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1041.Robot%20Bounded%20In%20Circle/README.md
 rating: 1521
+source: 第 136 场周赛 Q1
 tags:
     - 数学
     - 字符串
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1041. 困于环中的机器人](https://leetcode.cn/problems/robot-bounded-in-circle)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在无限的平面上，机器人最初位于&nbsp;<code>(0, 0)</code>&nbsp;处，面朝北方。注意:</p>
 
@@ -94,7 +97,11 @@ tags:
 	<li><code>instructions[i]</code>&nbsp;仅包含&nbsp;<code>'G', 'L', 'R'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -117,6 +124,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isRobotBounded(self, instructions: str) -> bool:
@@ -131,6 +140,8 @@ class Solution:
                 dist[k] += 1
         return (dist[0] == dist[2] and dist[1] == dist[3]) or k != 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +163,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +185,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isRobotBounded(instructions string) bool {
 	dist := [4]int{}
@@ -188,6 +203,8 @@ func isRobotBounded(instructions string) bool {
 	return (dist[0] == dist[2] && dist[1] == dist[3]) || k != 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isRobotBounded(instructions: string): boolean {
@@ -208,4 +225,6 @@ function isRobotBounded(instructions: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

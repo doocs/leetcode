@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2194.Cells%20in%20a%20Range%20on%20an%20Excel%20Sheet/README_EN.md
 rating: 1253
+source: Weekly Contest 283 Q1
 tags:
     - String
 ---
+
+<!-- problem:start -->
 
 # [2194. Cells in a Range on an Excel Sheet](https://leetcode.com/problems/cells-in-a-range-on-an-excel-sheet)
 
 [中文文档](/solution/2100-2199/2194.Cells%20in%20a%20Range%20on%20an%20Excel%20Sheet/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A cell <code>(r, c)</code> of an excel sheet is represented as a string <code>&quot;&lt;col&gt;&lt;row&gt;&quot;</code> where:</p>
 
@@ -61,7 +66,11 @@ The red arrow denotes the order in which the cells should be presented.
 	<li><code>s</code> consists of uppercase English letters, digits and <code>&#39;:&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -70,6 +79,8 @@ We directly traverse all the cells within the range and add them to the answer a
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the range of rows and columns, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +91,8 @@ class Solution:
             for j in range(int(s[1]), int(s[-1]) + 1)
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func cellsInRange(s string) (ans []string) {
 	for i := s[0]; i <= s[3]; i++ {
@@ -120,6 +137,8 @@ func cellsInRange(s string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function cellsInRange(s: string): string[] {
@@ -135,4 +154,6 @@ function cellsInRange(s: string): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

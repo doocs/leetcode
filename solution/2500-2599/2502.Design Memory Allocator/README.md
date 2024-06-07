@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2502.Design%20Memory%20Allocator/README.md
 rating: 1745
+source: 第 323 场周赛 Q3
 tags:
     - 设计
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [2502. 设计内存分配器](https://leetcode.cn/problems/design-memory-allocator)
 
 [English Version](/solution/2500-2599/2502.Design%20Memory%20Allocator/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，表示下标从 <strong>0</strong> 开始的内存数组的大小。所有内存单元开始都是空闲的。</p>
 
@@ -75,13 +78,17 @@ loc.free(7); // 释放 mID 为 7 的所有内存单元。内存数组保持原�
 	<li>最多调用 <code>allocate</code> 和 <code>free</code> 方法 <code>1000</code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力模拟
 
 题目数据范围不大，可以直接用数组模拟内存空间。
 
-初始化时，将数组中的每个元素置为 0，表示空闲。
+初始化时，将数组中的每个元素置为 $0$，表示空闲。
 
 当调用 `allocate` 方法时，遍历数组，找到连续的 `size` 个空闲内存单元，将其置为 `mID`，并返回第一个下标。
 
@@ -90,6 +97,8 @@ loc.free(7); // 释放 mID 为 7 的所有内存单元。内存数组保持原�
 时间复杂度 $O(n \times q)$，空间复杂度 $O(n)$，其中 $n$ 和 $q$ 分别为内存空间的大小和方法调用的次数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Allocator:
@@ -122,6 +131,8 @@ class Allocator:
 # param_1 = obj.allocate(size,mID)
 # param_2 = obj.free(mID)
 ```
+
+#### Java
 
 ```java
 class Allocator {
@@ -163,6 +174,8 @@ class Allocator {
  * int param_2 = obj.free(mID);
  */
 ```
+
+#### C++
 
 ```cpp
 class Allocator {
@@ -213,6 +226,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type Allocator struct {
 	m []int
@@ -260,6 +275,10 @@ func (this *Allocator) Free(mID int) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：哈希表 + 有序集合
 
 我们可以用有序集合维护所有已分配的内存单元的起始下标和结束下标，其中起始下标为键，结束下标为值；另外用哈希表维护 `mID` 和其对应的内存单元的起始下标。
@@ -271,6 +290,8 @@ func (this *Allocator) Free(mID int) (ans int) {
 时间复杂度 $O(q \log n)$，空间复杂度 $O(n)$，其中 $n$ 和 $q$ 分别为内存空间的大小和方法调用的次数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -304,6 +325,8 @@ class Allocator:
 # param_1 = obj.allocate(size,mID)
 # param_2 = obj.free(mID)
 ```
+
+#### Java
 
 ```java
 class Allocator {
@@ -350,6 +373,8 @@ class Allocator {
  * int param_2 = obj.free(mID);
  */
 ```
+
+#### C++
 
 ```cpp
 class Allocator {
@@ -398,6 +423,8 @@ private:
  * int param_2 = obj->free(mID);
  */
 ```
+
+#### Go
 
 ```go
 type Allocator struct {
@@ -452,4 +479,6 @@ func (this *Allocator) Free(mID int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

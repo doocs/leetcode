@@ -10,13 +10,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [169. 多数元素](https://leetcode.cn/problems/majority-element)
 
 [English Version](/solution/0100-0199/0169.Majority%20Element/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个大小为 <code>n</code><em> </em>的数组&nbsp;<code>nums</code> ，返回其中的多数元素。多数元素是指在数组中出现次数 <strong>大于</strong>&nbsp;<code>⌊ n/2 ⌋</code>&nbsp;的元素。</p>
 
@@ -50,7 +52,11 @@ tags:
 
 <p><strong>进阶：</strong>尝试设计时间复杂度为 O(n)、空间复杂度为 O(1) 的算法解决此问题。</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：摩尔投票法
 
@@ -67,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
@@ -78,6 +86,8 @@ class Solution:
                 cnt += 1 if m == x else -1
         return m
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func majorityElement(nums []int) int {
 	var cnt, m int
@@ -132,6 +146,8 @@ func majorityElement(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function majorityElement(nums: number[]): number {
     let cnt: number = 0;
@@ -147,6 +163,8 @@ function majorityElement(nums: number[]): number {
     return m;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -165,6 +183,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -186,6 +206,8 @@ var majorityElement = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MajorityElement(int[] nums) {
@@ -202,6 +224,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -229,4 +253,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

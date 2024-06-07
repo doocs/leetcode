@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1282.Group%20the%20People%20Given%20the%20Group%20Size%20They%20Belong%20To/README_EN.md
 rating: 1267
+source: Weekly Contest 166 Q2
 tags:
     - Array
     - Hash Table
 ---
+
+<!-- problem:start -->
 
 # [1282. Group the People Given the Group Size They Belong To](https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to)
 
 [中文文档](/solution/1200-1299/1282.Group%20the%20People%20Given%20the%20Group%20Size%20They%20Belong%20To/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> people&nbsp;that are split into some unknown number of groups. Each person is labeled with a&nbsp;<strong>unique ID</strong>&nbsp;from&nbsp;<code>0</code>&nbsp;to&nbsp;<code>n - 1</code>.</p>
 
@@ -51,7 +56,11 @@ Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
 	<li><code>1 &lt;=&nbsp;groupSizes[i] &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -63,6 +72,8 @@ Time complexity is $O(n)$, and space complexity is $O(n)$. Here, $n$ is the leng
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
@@ -71,6 +82,8 @@ class Solution:
             g[v].append(i)
         return [v[j : j + i] for i, v in g.items() for j in range(0, len(v), i)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func groupThePeople(groupSizes []int) [][]int {
 	n := len(groupSizes)
@@ -130,6 +147,8 @@ func groupThePeople(groupSizes []int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function groupThePeople(groupSizes: number[]): number[][] {
@@ -152,6 +171,8 @@ function groupThePeople(groupSizes: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -182,4 +203,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

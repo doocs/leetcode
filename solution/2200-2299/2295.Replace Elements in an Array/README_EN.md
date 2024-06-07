@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README_EN.md
 rating: 1445
+source: Weekly Contest 296 Q3
 tags:
     - Array
     - Hash Table
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2295. Replace Elements in an Array](https://leetcode.com/problems/replace-elements-in-an-array)
 
 [中文文档](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> that consists of <code>n</code> <strong>distinct</strong> positive integers. Apply <code>m</code> operations to this array, where in the <code>i<sup>th</sup></code> operation you replace the number <code>operations[i][0]</code> with <code>operations[i][1]</code>.</p>
 
@@ -65,11 +70,17 @@ We return the array [2,1].
 	<li><code>operations[i][1]</code> will not exist in <code>nums</code> when applying the <code>i<sup>th</sup></code> operation.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +91,8 @@ class Solution:
             d[b] = d[a]
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arrayChange(nums []int, operations [][]int) []int {
 	d := map[int]int{}
@@ -131,6 +148,8 @@ func arrayChange(nums []int, operations [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function arrayChange(nums: number[], operations: number[][]): number[] {
     const d = new Map(nums.map((v, i) => [v, i]));
@@ -144,4 +163,6 @@ function arrayChange(nums: number[], operations: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

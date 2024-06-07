@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md
 rating: 1791
+source: Weekly Contest 347 Q3
 tags:
     - Greedy
     - String
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2712. Minimum Cost to Make All Characters Equal](https://leetcode.com/problems/minimum-cost-to-make-all-characters-equal)
 
 [中文文档](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> binary string <code>s</code> of length <code>n</code> on which you can apply two types of operations:</p>
 
@@ -56,11 +61,17 @@ The total cost to make all characters equal is 9. It can be shown that 9 is the 
 	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +82,8 @@ class Solution:
                 ans += min(i, n - i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCost(s string) (ans int64) {
 	n := len(s)
@@ -114,6 +131,8 @@ func minimumCost(s string) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCost(s: string): number {
@@ -130,4 +149,6 @@ function minimumCost(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

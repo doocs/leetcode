@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1181.Before%20and%20After%20Puzzle/README_EN.md
 rating: 1558
+source: Biweekly Contest 8 Q2
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1181. Before and After Puzzle 🔒](https://leetcode.com/problems/before-and-after-puzzle)
 
 [中文文档](/solution/1100-1199/1181.Before%20and%20After%20Puzzle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a list of <code>phrases</code>, generate a list of&nbsp;Before and After puzzles.</p>
 
@@ -68,7 +73,11 @@ tags:
 	<li><code>1 &lt;= phrases[i].length &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
 
@@ -81,6 +90,8 @@ Finally, we convert the hash table $s$ into an array and sort it to get the answ
 The time complexity is $O(n^2 \times m \times (\log n + \log m))$, and the space complexity is $O(n^2 \times m)$. Here, $n$ and $m$ represent the length of the `phrases` array and the average length of each phrase, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +108,8 @@ class Solution:
                     ans.append(phrases[i] + phrases[j][len(ps[j][0]) :])
         return sorted(set(ans))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beforeAndAfterPuzzles(phrases []string) []string {
 	n := len(phrases)
@@ -177,6 +194,8 @@ func beforeAndAfterPuzzles(phrases []string) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function beforeAndAfterPuzzles(phrases: string[]): string[] {
     const ps: string[][] = [];
@@ -199,4 +218,6 @@ function beforeAndAfterPuzzles(phrases: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

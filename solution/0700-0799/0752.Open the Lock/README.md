@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [752. 打开转盘锁](https://leetcode.cn/problems/open-the-lock)
 
 [English Version](/solution/0700-0799/0752.Open%20the%20Lock/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一个带有四个圆形拨轮的转盘锁。每个拨轮都有10个数字： <code>'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'</code> 。每个拨轮可以自由旋转：例如把 <code>'9'</code> 变为&nbsp;<code>'0'</code>，<code>'0'</code> 变为 <code>'9'</code> 。每次旋转都只能旋转一个拨轮的一位数字。</p>
 
@@ -66,13 +68,19 @@ tags:
 	<li><code>target</code> 和 <code>deadends[i]</code> 仅由若干位数字组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：朴素 BFS
 
 直接用朴素 BFS。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -109,6 +117,8 @@ class Solution:
                         s.add(t)
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -199,6 +211,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func openLock(deadends []string, target string) int {
@@ -253,7 +267,44 @@ func openLock(deadends []string, target string) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function openLock(deadends: string[], target: string): number {
+    const vis = Array<boolean>(10_000);
+    const q = [[0, 0, 0, 0, 0]];
+    const t = +target;
+    deadends.forEach(s => (vis[+s] = true));
+
+    for (const [a, b, c, d, ans] of q) {
+        const key = a * 1000 + b * 100 + c * 10 + d;
+        if (vis[key]) {
+            continue;
+        }
+
+        vis[key] = true;
+        if (key === t) {
+            return ans;
+        }
+
+        for (let i = 0; i < 4; i++) {
+            const next = [a, b, c, d, ans + 1];
+            const prev = [a, b, c, d, ans + 1];
+            next[i] = (next[i] + 11) % 10;
+            prev[i] = (prev[i] + 9) % 10;
+            q.push(prev, next);
+        }
+    }
+
+    return -1;
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：双向 BFS
 
@@ -292,6 +343,8 @@ def extend(m1, m2, q):
 ```
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -337,6 +390,8 @@ class Solution:
             return -1
         return bfs()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -411,6 +466,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -470,6 +527,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func openLock(deadends []string, target string) int {
@@ -549,6 +608,10 @@ func openLock(deadends []string, target string) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：A\*算法
 
 A\* 算法主要思想如下：
@@ -560,6 +623,8 @@ A\* 算法主要思想如下：
 1. A\* 算法只能保证终点第一次出队时，即找到了一条从起点到终点的最小路径，不能保证其他点出队时也是从起点到当前点的最短路径。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -606,6 +671,8 @@ class Solution:
                     heappush(q, (dist[t] + f(t), t))
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -679,6 +746,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -744,4 +813,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

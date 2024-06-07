@@ -9,11 +9,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [204. Count Primes](https://leetcode.com/problems/count-primes)
 
 [中文文档](/solution/0200-0299/0204.Count%20Primes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, return <em>the number of prime numbers that are strictly less than</em> <code>n</code>.</p>
 
@@ -47,11 +51,17 @@ tags:
 	<li><code>0 &lt;= n &lt;= 5 * 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +75,8 @@ class Solution:
                     primes[j] = False
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countPrimes(n int) int {
@@ -121,6 +137,8 @@ func countPrimes(n int) int {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -140,6 +158,8 @@ var countPrimes = function (n) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -164,4 +184,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README_EN.md
 rating: 1917
+source: Biweekly Contest 86 Q4
 tags:
     - Queue
     - Array
@@ -12,11 +13,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2398. Maximum Number of Robots Within Budget](https://leetcode.com/problems/maximum-number-of-robots-within-budget)
 
 [中文文档](/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code> robots. You are given two <strong>0-indexed</strong> integer arrays, <code>chargeTimes</code> and <code>runningCosts</code>, both of length <code>n</code>. The <code>i<sup>th</sup></code> robot costs <code>chargeTimes[i]</code> units to charge and costs <code>runningCosts[i]</code> units to run. You are also given an integer <code>budget</code>.</p>
 
@@ -54,7 +59,11 @@ It can be shown that it is not possible to run more than 3 consecutive robots wi
 	<li><code>1 &lt;= budget &lt;= 10<sup>15</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers + Monotonic Queue
 
@@ -67,6 +76,8 @@ In the implementation process, we don't actually need to perform binary search e
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of robots in the problem.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +99,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +156,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumRobots(chargeTimes []int, runningCosts []int, budget int64) int {
@@ -168,4 +185,6 @@ func maximumRobots(chargeTimes []int, runningCosts []int, budget int64) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

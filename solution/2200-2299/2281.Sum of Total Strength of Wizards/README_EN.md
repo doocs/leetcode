@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README_EN.md
 rating: 2621
+source: Weekly Contest 294 Q4
 tags:
     - Stack
     - Array
@@ -10,11 +11,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2281. Sum of Total Strength of Wizards](https://leetcode.com/problems/sum-of-total-strength-of-wizards)
 
 [中文文档](/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>As the ruler of a kingdom, you have an army of wizards at your command.</p>
 
@@ -72,11 +77,17 @@ The sum of all the total strengths is 25 + 16 + 36 + 36 + 40 + 60 = 213.
 	<li><code>1 &lt;= strength[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -109,6 +120,8 @@ class Solution:
             ans = (ans + (a - b) * v) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -196,6 +211,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func totalStrength(strength []int) int {
@@ -248,4 +265,6 @@ func totalStrength(strength []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

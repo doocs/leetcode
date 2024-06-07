@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README.md
 rating: 1496
+source: 第 122 场双周赛 Q2
 tags:
     - 位运算
     - 数组
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [3011. 判断一个数组是否可以变为有序](https://leetcode.cn/problems/find-if-array-can-be-sorted)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始且全是 <strong>正</strong>&nbsp;整数的数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 2<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -74,6 +81,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +103,8 @@ class Solution:
             i = j
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -146,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canSortArray(nums []int) bool {
 	preMx := -300
@@ -168,6 +183,8 @@ func canSortArray(nums []int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canSortArray(nums: number[]): boolean {
@@ -203,4 +220,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

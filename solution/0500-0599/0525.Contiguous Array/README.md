@@ -8,13 +8,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [525. 连续数组](https://leetcode.cn/problems/contiguous-array)
 
 [English Version](/solution/0500-0599/0525.Contiguous%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二进制数组 <code>nums</code> , 找到含有相同数量的 <code>0</code> 和 <code>1</code> 的最长连续子数组，并返回该子数组的长度。</p>
 
@@ -43,11 +45,17 @@ tags:
 	<li><code>nums[i]</code> 不是 <code>0</code> 就是 <code>1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +70,8 @@ class Solution:
                 mp[s] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaxLength(nums []int) int {
 	mp := map[int]int{0: -1}
@@ -119,6 +133,8 @@ func findMaxLength(nums []int) int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -141,4 +157,6 @@ var findMaxLength = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

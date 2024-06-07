@@ -4,9 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9814-%20II.%20%E5%89%AA%E7%BB%B3%E5%AD%90%20II/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 14- II. 剪绳子 II](https://leetcode.cn/problems/jian-sheng-zi-ii-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>给你一根长度为 <code>n</code> 的绳子，请把绳子剪成整数长度的 <code>m</code>&nbsp;段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 <code>k[0],k[1]...k[m - 1]</code> 。请问 <code>k[0]*k[1]*...*k[m - 1]</code> 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
 
@@ -36,7 +40,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p>注意：本题与主站 343 题相同：<a href="https://leetcode.cn/problems/integer-break/">https://leetcode.cn/problems/integer-break/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学（快速幂）
 
@@ -45,6 +53,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -58,6 +68,8 @@ class Solution:
             return (pow(3, n // 3 - 1, mod) * 4) % mod
         return pow(3, n // 3, mod) * 2 % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func cuttingRope(n int) int {
 	if n < 4 {
@@ -144,6 +160,8 @@ func cuttingRope(n int) int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn cutting_rope(mut n: i32) -> i32 {
@@ -159,6 +177,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -191,6 +211,8 @@ var cuttingRope = function (n) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int CuttingRope(int n) {
@@ -210,6 +232,43 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    private let mod = 1000000007
+
+    func cuttingRope(_ n: Int) -> Int {
+        if n < 4 {
+            return n - 1
+        }
+        if n % 3 == 0 {
+            return qpow(3, n / 3)
+        }
+        if n % 3 == 1 {
+            return (4 * qpow(3, n / 3 - 1)) % mod
+        }
+        return (2 * qpow(3, n / 3)) % mod
+    }
+
+    private func qpow(_ a: Int, _ n: Int) -> Int {
+        var a = a
+        var n = n
+        var ans: Int = 1
+        while n > 0 {
+            if (n & 1) == 1 {
+                ans = (ans * a) % mod
+            }
+            a = (a * a) % mod
+            n >>= 1
+        }
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

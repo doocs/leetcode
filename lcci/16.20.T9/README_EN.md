@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.20.T9/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.20. T9](https://leetcode.cn/problems/t9-lcci)
 
 [中文文档](/lcci/16.20.T9/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>On old cell phones, users typed on a numeric keypad and the phone would provide a list of words that matched these numbers. Each digit mapped to a set of 0&nbsp;- 4 letters. Implement an algo&shy;rithm to return a list of matching words, given a sequence of digits. You are provided a list of valid words. The mapping is shown in the diagram below:</p>
 ![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcci/16.20.T9/images/17_telephone_keypad.png)
@@ -35,7 +39,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.20.T9/README_EN.md
 	<li><code>There are no number 0 and 1 in num</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Thinking
 
@@ -47,6 +55,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(C)$. Here
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getValidT9Words(self, num: str, words: List[str]) -> List[str]:
@@ -57,12 +67,16 @@ class Solution:
         return [w for w in words if check(w)]
 ```
 
+#### Python3
+
 ```python
 class Solution:
     def getValidT9Words(self, num: str, words: List[str]) -> List[str]:
         trans = str.maketrans(ascii_lowercase, "22233344455566677778889999")
         return [w for w in words if w.translate(trans) == num]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getValidT9Words(num string, words []string) (ans []string) {
 	s := "22233344455566677778889999"
@@ -140,6 +158,8 @@ func getValidT9Words(num string, words []string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getValidT9Words(num: string, words: string[]): string[] {
@@ -165,6 +185,8 @@ function getValidT9Words(num: string, words: string[]): string[] {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -196,4 +218,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2296.Design%20a%20Text%20Editor/README_EN.md
 rating: 1911
+source: Weekly Contest 296 Q4
 tags:
     - Stack
     - Design
@@ -12,11 +13,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2296. Design a Text Editor](https://leetcode.com/problems/design-a-text-editor)
 
 [中文文档](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a text editor with a cursor that can do the following:</p>
 
@@ -86,11 +91,17 @@ textEditor.cursorRight(6); // return &quot;practi&quot;
 <p>&nbsp;</p>
 <p><strong>Follow-up:</strong> Could you find a solution with time complexity of <code>O(k)</code> per call?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class TextEditor:
@@ -127,6 +138,8 @@ class TextEditor:
 # param_3 = obj.cursorLeft(k)
 # param_4 = obj.cursorRight(k)
 ```
+
+#### Java
 
 ```java
 class TextEditor {
@@ -175,6 +188,8 @@ class TextEditor {
  */
 ```
 
+#### C++
+
 ```cpp
 class TextEditor {
 public:
@@ -222,6 +237,8 @@ private:
  * string param_4 = obj->cursorRight(k);
  */
 ```
+
+#### Go
 
 ```go
 type TextEditor struct {
@@ -276,4 +293,6 @@ func (this *TextEditor) CursorRight(k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [365. 水壶问题](https://leetcode.cn/problems/water-and-jug-problem)
 
 [English Version](/solution/0300-0399/0365.Water%20and%20Jug%20Problem/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有两个水壶，容量分别为&nbsp;<code>x</code>&nbsp;和 <code>y</code> 升。水的供应是无限的。确定是否有可能使用这两个壶准确得到&nbsp;<code>target</code>&nbsp;升。</p>
 
@@ -66,11 +68,15 @@ tags:
 	<li><code>1 &lt;= x, y, target &lt;= 10<sup>3</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
-我们不妨记 $jug1Capacity$ 为 $x$, $jug2Capacity$ 为 $y$, $targetCapacity$ 为 $z$。
+我们不妨记 $\text{jug1Capacity}$ 为 $x$, $\text{jug2Capacity}$ 为 $y$, $\text{targetCapacity}$ 为 $z$。
 
 接下来，我们设计一个函数 $dfs(i, j)$，表示当前 $jug1$ 中有 $i$ 升水，$jug2$ 中有 $j$ 升水，是否可以得到 $z$ 升水。
 
@@ -83,9 +89,11 @@ tags:
 
 答案即为 $dfs(0, 0)$。
 
-时间复杂度 $O(x + y)$，空间复杂度 $O(x + y)$。其中 $x$ 和 $y$ 分别为 $jug1Capacity$ 和 $jug2Capacity$ 的大小。
+时间复杂度 $O(x + y)$，空间复杂度 $O(x + y)$。其中 $x$ 和 $y$ 分别为 $\text{jug1Capacity}$ 和 $\text{jug2Capacity}$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +113,8 @@ class Solution:
         vis = set()
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -174,6 +186,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canMeasureWater(x int, y int, z int) bool {
 	type pair struct{ x, y int }
@@ -201,4 +215,6 @@ func canMeasureWater(x int, y int, z int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

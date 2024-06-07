@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1143. 最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence)
 
 [English Version](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串 <code>text1</code> 和 <code>text2</code>，返回这两个字符串的最长 <strong>公共子序列</strong> 的长度。如果不存在 <strong>公共子序列</strong> ，返回 <code>0</code> 。</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li><code>text1</code> 和 <code>text2</code> 仅由小写英文字符组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -80,6 +86,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
@@ -93,6 +101,8 @@ class Solution:
                     f[i][j] = max(f[i - 1][j], f[i][j - 1])
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestCommonSubsequence(text1 string, text2 string) int {
 	m, n := len(text1), len(text2)
@@ -154,6 +168,8 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestCommonSubsequence(text1: string, text2: string): number {
     const m = text1.length;
@@ -171,6 +187,8 @@ function longestCommonSubsequence(text1: string, text2: string): number {
     return f[m][n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -191,6 +209,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -215,6 +235,8 @@ var longestCommonSubsequence = function (text1, text2) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int LongestCommonSubsequence(string text1, string text2) {
@@ -233,6 +255,8 @@ public class Solution {
     }
 }
 ```
+
+#### Kotlin
 
 ```kotlin
 class Solution {
@@ -256,4 +280,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

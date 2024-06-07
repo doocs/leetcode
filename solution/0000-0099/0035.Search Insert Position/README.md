@@ -7,13 +7,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position)
 
 [English Version](/solution/0000-0099/0035.Search%20Insert%20Position/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -62,6 +68,8 @@ tags:
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +83,8 @@ class Solution:
                 left = mid + 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchInsert(nums []int, target int) int {
 	left, right := 0, len(nums)
@@ -124,6 +138,8 @@ func searchInsert(nums []int, target int) int {
 	return left
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -150,6 +166,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -173,6 +191,10 @@ var searchInsert = function (nums, target) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二分查找（内置函数）
 
 我们也可以直接使用内置函数进行二分查找。
@@ -181,11 +203,15 @@ var searchInsert = function (nums, target) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         return bisect_left(nums, target)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -196,6 +222,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -205,11 +233,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchInsert(nums []int, target int) int {
 	return sort.SearchInts(nums, target)
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -234,4 +266,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

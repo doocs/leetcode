@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README_EN.md
 rating: 1387
+source: Biweekly Contest 16 Q3
 tags:
     - Tree
     - Depth-First Search
@@ -10,11 +11,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1302. Deepest Leaves Sum](https://leetcode.com/problems/deepest-leaves-sum)
 
 [中文文档](/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 Given the <code>root</code> of a binary tree, return <em>the sum of values of its deepest leaves</em>.
 
@@ -41,11 +46,17 @@ Given the <code>root</code> of a binary tree, return <em>the sum of values of it
 	<li><code>1 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -68,6 +79,8 @@ class Solution:
                     q.append(root.right)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -108,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -140,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -169,6 +186,8 @@ func deepestLeavesSum(root *TreeNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -202,6 +221,8 @@ function deepestLeavesSum(root: TreeNode | null): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -251,6 +272,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for a binary tree node.
@@ -289,9 +312,15 @@ int deepestLeavesSum(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -318,6 +347,8 @@ class Solution:
         dfs(root, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -360,6 +391,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -396,6 +429,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -425,6 +460,8 @@ func deepestLeavesSum(root *TreeNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -464,4 +501,6 @@ function deepestLeavesSum(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

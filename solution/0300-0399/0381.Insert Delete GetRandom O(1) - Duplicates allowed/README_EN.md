@@ -10,11 +10,15 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [381. Insert Delete GetRandom O(1) - Duplicates allowed](https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed)
 
 [中文文档](/solution/0300-0399/0381.Insert%20Delete%20GetRandom%20O%281%29%20-%20Duplicates%20allowed/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p><code>RandomizedCollection</code> is a data structure that contains a collection of numbers, possibly duplicates (i.e., a multiset). It should support inserting and removing specific elements and also reporting a random element.</p>
 
@@ -66,11 +70,17 @@ randomizedCollection.getRandom(); // getRandom should return 1 or 2, both equall
 	<li>There will be <strong>at least one</strong> element in the data structure when <code>getRandom</code> is called.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class RandomizedCollection:
@@ -126,6 +136,8 @@ class RandomizedCollection:
 # param_2 = obj.remove(val)
 # param_3 = obj.getRandom()
 ```
+
+#### Java
 
 ```java
 class RandomizedCollection {
@@ -194,4 +206,6 @@ class RandomizedCollection {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

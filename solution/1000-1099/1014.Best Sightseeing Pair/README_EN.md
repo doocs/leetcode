@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README_EN.md
 rating: 1730
+source: Weekly Contest 129 Q3
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [1014. Best Sightseeing Pair](https://leetcode.com/problems/best-sightseeing-pair)
 
 [中文文档](/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>values</code> where values[i] represents the value of the <code>i<sup>th</sup></code> sightseeing spot. Two sightseeing spots <code>i</code> and <code>j</code> have a <strong>distance</strong> <code>j - i</code> between them.</p>
 
@@ -44,11 +49,17 @@ tags:
 	<li><code>1 &lt;= values[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +70,8 @@ class Solution:
             mx = max(mx, values[j] + j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -87,6 +102,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxScoreSightseeingPair(values []int) (ans int) {
 	for j, mx := 1, values[0]; j < len(values); j++ {
@@ -96,6 +113,8 @@ func maxScoreSightseeingPair(values []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxScoreSightseeingPair(values: number[]): number {
@@ -111,4 +130,6 @@ function maxScoreSightseeingPair(values: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

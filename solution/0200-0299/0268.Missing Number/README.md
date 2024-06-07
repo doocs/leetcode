@@ -11,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [268. 丢失的数字](https://leetcode.cn/problems/missing-number)
 
 [English Version](/solution/0200-0299/0268.Missing%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个包含 <code>[0, n]</code>&nbsp;中&nbsp;<code>n</code>&nbsp;个数的数组 <code>nums</code> ，找出 <code>[0, n]</code> 这个范围内没有出现在数组中的那个数。</p>
 
@@ -69,7 +71,11 @@ tags:
 
 <p><strong>进阶：</strong>你能否实现线性时间复杂度、仅使用额外常数空间的算法解决此问题?</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -84,11 +90,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         return reduce(xor, (i ^ v for i, v in enumerate(nums, 1)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func missingNumber(nums []int) (ans int) {
 	n := len(nums)
@@ -128,6 +142,8 @@ func missingNumber(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function missingNumber(nums: number[]): number {
     const n = nums.length;
@@ -138,6 +154,8 @@ function missingNumber(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -151,6 +169,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -166,6 +186,8 @@ var missingNumber = function (nums) {
     return ans;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -186,6 +208,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：数学
 
 我们也可以用数学求解。求出 $[0,..n]$ 的和，减去数组中所有数的和，就得到了缺失的数字。
@@ -194,12 +220,16 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         n = len(nums)
         return (1 + n) * n // 2 - sum(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -214,6 +244,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -223,6 +255,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func missingNumber(nums []int) (ans int) {
@@ -235,6 +269,8 @@ func missingNumber(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function missingNumber(nums: number[]): number {
     const n = nums.length;
@@ -245,6 +281,8 @@ function missingNumber(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -258,6 +296,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -276,4 +316,6 @@ var missingNumber = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

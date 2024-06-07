@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1619.Mean%20of%20Array%20After%20Removing%20Some%20Elements/README.md
 rating: 1374
+source: 第 37 场双周赛 Q1
 tags:
     - 数组
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [1619. 删除某些元素后的数组均值](https://leetcode.cn/problems/mean-of-array-after-removing-some-elements)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>arr</code> ，请你删除最小 <code>5%</code> 的数字和最大 <code>5%</code> 的数字后，剩余数字的平均值。</p>
 
@@ -68,7 +71,11 @@ tags:
 	<li><code>0 <= arr[i] <= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -80,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def trimMean(self, arr: List[int]) -> float:
@@ -89,6 +98,8 @@ class Solution:
         t = arr[start:end]
         return round(sum(t) / len(t), 5)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func trimMean(arr []int) float64 {
 	sort.Ints(arr)
@@ -129,6 +144,8 @@ func trimMean(arr []int) float64 {
 	return sum / (float64(n) * 0.9)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function trimMean(arr: number[]): number {
@@ -142,6 +159,8 @@ function trimMean(arr: number[]): number {
     return sum / (n * 0.9);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -160,4 +179,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

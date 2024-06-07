@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2111.Minimum%20Operations%20to%20Make%20the%20Array%20K-Increasing/README.md
 rating: 1940
+source: 第 272 场周赛 Q4
 tags:
     - 数组
     - 二分查找
 ---
+
+<!-- problem:start -->
 
 # [2111. 使数组 K 递增的最少操作次数](https://leetcode.cn/problems/minimum-operations-to-make-the-array-k-increasing)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始包含 <code>n</code>&nbsp;个正整数的数组&nbsp;<code>arr</code>&nbsp;，和一个正整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -80,11 +83,17 @@ tags:
 	<li><code>1 &lt;= arr[i], k &lt;= arr.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +110,8 @@ class Solution:
 
         return sum(lis(arr[i::k]) for i in range(k))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +184,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kIncreasing(arr []int, k int) int {
@@ -215,4 +230,6 @@ func kIncreasing(arr []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

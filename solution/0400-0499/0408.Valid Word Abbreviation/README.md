@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [408. 有效单词缩写 🔒](https://leetcode.cn/problems/valid-word-abbreviation)
 
 [English Version](/solution/0400-0499/0408.Valid%20Word%20Abbreviation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>字符串可以用 <strong>缩写</strong> 进行表示，<strong>缩写</strong> 的方法是将任意数量的 <strong>不相邻</strong> 的子字符串替换为相应子串的长度。例如，字符串 <code>"substitution"</code> 可以缩写为（不止这几种方法）：</p>
 
@@ -67,7 +69,11 @@ tags:
 	<li><code>abbr</code> 中的所有数字均符合 32-bit 整数范围</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -89,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validWordAbbreviation(self, word: str, abbr: str) -> bool:
@@ -108,6 +116,8 @@ class Solution:
             j += 1
         return i + x == m and j == n
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +173,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validWordAbbreviation(word string, abbr string) bool {
 	m, n := len(word), len(abbr)
@@ -183,6 +197,8 @@ func validWordAbbreviation(word string, abbr string) bool {
 	return i+x == m && j == n
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validWordAbbreviation(word: string, abbr: string): boolean {
@@ -208,4 +224,6 @@ function validWordAbbreviation(word: string, abbr: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

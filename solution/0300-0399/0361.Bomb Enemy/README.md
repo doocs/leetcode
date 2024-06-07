@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [361. 轰炸敌人 🔒](https://leetcode.cn/problems/bomb-enemy)
 
 [English Version](/solution/0300-0399/0361.Bomb%20Enemy/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> 的矩阵 <code>grid</code> ，其中每个单元格都放置有一个字符：</p>
 
@@ -55,11 +57,17 @@ tags:
 	<li><code>grid[i][j]</code> 可以是 <code>'W'</code>、<code>'E'</code> 或 <code>'0'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +109,8 @@ class Solution:
             default=0,
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +171,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -213,6 +225,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxKilledEnemies(grid [][]byte) int {
@@ -275,4 +289,6 @@ func maxKilledEnemies(grid [][]byte) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

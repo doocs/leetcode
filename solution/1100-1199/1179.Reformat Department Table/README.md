@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1179. 重新格式化部门表](https://leetcode.cn/problems/reformat-department-table)
 
 [English Version](/solution/1100-1199/1179.Reformat%20Department%20Table/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表&nbsp;<code>Department</code>：</p>
 
@@ -64,11 +66,17 @@ Department table:
 <b>解释：</b>四月到十二月的收入为空。 
 请注意，结果表共有 13 列（1 列用于部门 ID，其余 12 列用于各个月份）。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -140,4 +148,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

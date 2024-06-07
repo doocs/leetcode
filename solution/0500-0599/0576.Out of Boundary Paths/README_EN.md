@@ -6,11 +6,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [576. Out of Boundary Paths](https://leetcode.com/problems/out-of-boundary-paths)
 
 [中文文档](/solution/0500-0599/0576.Out%20of%20Boundary%20Paths/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an <code>m x n</code> grid with a ball. The ball is initially at the position <code>[startRow, startColumn]</code>. You are allowed to move the ball to one of the four adjacent cells in the grid (possibly out of the grid crossing the grid boundary). You can apply <strong>at most</strong> <code>maxMove</code> moves to the ball.</p>
 
@@ -41,11 +45,17 @@ tags:
 	<li><code>0 &lt;= startColumn &lt; n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +78,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(startRow, startColumn, maxMove)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +157,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findPaths(m int, n int, maxMove int, startRow int, startColumn int) int {
@@ -184,9 +200,15 @@ func findPaths(m int, n int, maxMove int, startRow int, startColumn int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -221,4 +243,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

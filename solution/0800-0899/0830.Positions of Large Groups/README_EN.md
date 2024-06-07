@@ -6,11 +6,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [830. Positions of Large Groups](https://leetcode.com/problems/positions-of-large-groups)
 
 [中文文档](/solution/0800-0899/0830.Positions%20of%20Large%20Groups/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In a string <code><font face="monospace">s</font></code>&nbsp;of lowercase letters, these letters form consecutive groups of the same character.</p>
 
@@ -55,11 +59,17 @@ tags:
 	<li><code>s</code> contains lowercase English letters only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +85,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largeGroupPositions(s string) [][]int {
 	i, n := 0, len(s)
@@ -139,4 +155,6 @@ func largeGroupPositions(s string) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

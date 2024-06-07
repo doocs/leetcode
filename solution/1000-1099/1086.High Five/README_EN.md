@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1086.High%20Five/README_EN.md
 rating: 1327
+source: Biweekly Contest 2 Q2
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1086. High Five 🔒](https://leetcode.com/problems/high-five)
 
 [中文文档](/solution/1000-1099/1086.High%20Five/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a list of the scores of different students, <code>items</code>, where <code>items[i] = [ID<sub>i</sub>, score<sub>i</sub>]</code> represents one score from a student with <code>ID<sub>i</sub></code>, calculate each student&#39;s <strong>top five average</strong>.</p>
 
@@ -51,11 +56,17 @@ The student with ID = 2 got scores 93, 97, 77, 100, and 76. Their top five avera
 	<li>For each <code>ID<sub>i</sub></code>, there will be <strong>at least</strong> five scores.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +83,8 @@ class Solution:
                 ans.append([i, avg])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func highFive(items [][]int) (ans [][]int) {
 	d := make([][]int, 1001)
@@ -158,6 +175,8 @@ func highFive(items [][]int) (ans [][]int) {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function highFive(items: number[][]): number[][] {
@@ -181,4 +200,6 @@ function highFive(items: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

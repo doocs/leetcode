@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README.md
 rating: 2040
+source: 第 45 场双周赛 Q4
 tags:
     - 数组
     - 二分查找
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1751. 最多可以参加的会议数目 II](https://leetcode.cn/problems/maximum-number-of-events-that-can-be-attended-ii)
 
 [English Version](/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>events</code> 数组，其中 <code>events[i] = [startDay<sub>i</sub>, endDay<sub>i</sub>, value<sub>i</sub>]</code> ，表示第 <code>i</code> 个会议在 <code>startDay<sub>i</sub></code><sub> </sub>天开始，第 <code>endDay<sub>i</sub></code> 天结束，如果你参加这个会议，你能得到价值 <code>value<sub>i</sub></code> 。同时给你一个整数 <code>k</code> 表示你能参加的最多会议数目。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>1 <= value<sub>i</sub> <= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索 + 二分查找
 
@@ -87,6 +94,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxValue(self, events: List[List[int]], k: int) -> int:
@@ -104,6 +113,8 @@ class Solution:
         events.sort()
         return dfs(0, k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +185,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxValue(events [][]int, k int) int {
 	sort.Slice(events, func(i, j int) bool { return events[i][0] < events[j][0] })
@@ -196,6 +211,8 @@ func maxValue(events [][]int, k int) int {
 	return dfs(0, k)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxValue(events: number[][], k: number): number {
@@ -228,6 +245,10 @@ function maxValue(events: number[][], k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划 + 二分查找
 
 我们可以将方法一中的记忆化搜索改为动态规划。
@@ -251,6 +272,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxValue(self, events: List[List[int]], k: int) -> int:
@@ -263,6 +286,8 @@ class Solution:
                 f[i][j] = max(f[i - 1][j], f[p][j - 1] + val)
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -295,6 +320,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -315,6 +342,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxValue(events [][]int, k int) int {
@@ -337,4 +366,6 @@ func maxValue(events [][]int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

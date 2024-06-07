@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [833. 字符串中的查找与替换](https://leetcode.cn/problems/find-and-replace-in-string)
 
 [English Version](/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你会得到一个字符串 <code>s</code>&nbsp;(索引从 0 开始)，你必须对它执行 <code>k</code> 个替换操作。替换操作以三个长度均为 <code>k</code> 的并行数组给出：<code>indices</code>,&nbsp;<code>sources</code>,&nbsp;&nbsp;<code>targets</code>。</p>
 
@@ -76,7 +78,11 @@ tags:
 	<li><code>sources[i]</code> 和 <code>targets[i]</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -87,6 +93,8 @@ tags:
 时间复杂度 $O(L)$，空间复杂度 $O(n)$。其中 $L$ 是所有字符串的长度之和，而 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -109,6 +117,8 @@ class Solution:
                 i += 1
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findReplaceString(s string, indices []int, sources []string, targets []string) string {
 	n := len(s)
@@ -184,6 +198,8 @@ func findReplaceString(s string, indices []int, sources []string, targets []stri
 	return ans.String()
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findReplaceString(
@@ -215,4 +231,6 @@ function findReplaceString(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

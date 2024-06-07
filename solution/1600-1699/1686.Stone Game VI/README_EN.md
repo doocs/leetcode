@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1686.Stone%20Game%20VI/README_EN.md
 rating: 2000
+source: Biweekly Contest 41 Q3
 tags:
     - Greedy
     - Array
@@ -12,11 +13,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1686. Stone Game VI](https://leetcode.com/problems/stone-game-vi)
 
 [中文文档](/solution/1600-1699/1686.Stone%20Game%20VI/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob take turns playing a game, with Alice starting first.</p>
 
@@ -76,7 +81,11 @@ Bob wins.
 	<li><code>1 &lt;= aliceValues[i], bobValues[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -87,6 +96,8 @@ Next, we let Alice and Bob pick stones alternately according to the order of $va
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the arrays `aliceValues` and `bobValues`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +112,8 @@ class Solution:
             return -1
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -155,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGameVI(aliceValues []int, bobValues []int) int {
 	vals := make([][2]int, len(aliceValues))
@@ -180,6 +197,8 @@ func stoneGameVI(aliceValues []int, bobValues []int) int {
 	return 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stoneGameVI(aliceValues: number[], bobValues: number[]): number {
@@ -207,4 +226,6 @@ function stoneGameVI(aliceValues: number[], bobValues: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

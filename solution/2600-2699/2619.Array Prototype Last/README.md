@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2619.Array%20Prototype%20Last/README.md
 ---
 
+<!-- problem:start -->
+
 # [2619. 数组原型对象的最后一个元素](https://leetcode.cn/problems/array-prototype-last)
 
 [English Version](/solution/2600-2699/2619.Array%20Prototype%20Last/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你编写一段代码实现一个数组方法，使任何数组都可以调用 <code>array.last()</code> 方法，这个方法将返回数组最后一个元素。如果数组中没有元素，则返回&nbsp;<code>-1</code>&nbsp;。</p>
 
@@ -43,11 +45,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2619.Ar
 	<li><code>0 &lt;= arr.length &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 declare global {
@@ -70,4 +78,6 @@ export {};
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

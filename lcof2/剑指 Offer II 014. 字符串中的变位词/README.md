@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20014.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8F%98%E4%BD%8D%E8%AF%8D/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 014. 字符串中的变位词](https://leetcode.cn/problems/MPnaiL)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串&nbsp;<code>s1</code>&nbsp;和&nbsp;<code>s2</code>，写一个函数来判断 <code>s2</code> 是否包含 <code>s1</code><strong>&nbsp;</strong>的某个变位词。</p>
 
@@ -43,7 +45,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 567&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/permutation-in-string/">https://leetcode.cn/problems/permutation-in-string/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口
 
@@ -58,6 +64,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 时间复杂度 $(m + n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $m$ 和 $n$ 分别为字符串 $s1$ 和 $s2$ 的长度；而 $|\Sigma|$ 为字符集的大小，本题中 $|\Sigma|=26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +84,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkInclusion(s1 string, s2 string) bool {
 	m, n := len(s1), len(s2)
@@ -158,6 +172,8 @@ func checkInclusion(s1 string, s2 string) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkInclusion(s1: string, s2: string): boolean {
@@ -188,6 +204,10 @@ function checkInclusion(s1: string, s2: string): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：滑动窗口优化
 
 在方法一中，我们每次加入和移除一个字符时，都需要比较两个哈希表或数组，时间复杂度较高。我们可以维护一个变量 $diff$，表示两个大小为 $m$ 的字符串中，有多少种字符出现的个数不同。当 $diff=0$ 时，说明两个字符串中的字符个数相同。
@@ -195,6 +215,8 @@ function checkInclusion(s1: string, s2: string): boolean {
 时间复杂度 $O(m + n + |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $m$ 和 $n$ 分别为字符串 $s1$ 和 $s2$ 的长度；而 $|\Sigma|$ 为字符集的大小，本题中 $|\Sigma|=26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -225,6 +247,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -274,6 +298,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -322,6 +348,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkInclusion(s1 string, s2 string) bool {
 	m, n := len(s1), len(s2)
@@ -365,6 +393,8 @@ func checkInclusion(s1 string, s2 string) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkInclusion(s1: string, s2: string): boolean {
@@ -410,6 +440,46 @@ function checkInclusion(s1: string, s2: string): boolean {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func checkInclusion(_ s1: String, _ s2: String) -> Bool {
+        let m = s1.count
+        let n = s2.count
+        if m > n {
+            return false
+        }
+
+        var cnt1 = [Int](repeating: 0, count: 26)
+        var cnt2 = [Int](repeating: 0, count: 26)
+        let aAscii = Character("a").asciiValue!
+
+        for i in 0..<m {
+            cnt1[Int(s1[s1.index(s1.startIndex, offsetBy: i)].asciiValue! - aAscii)] += 1
+            cnt2[Int(s2[s2.index(s2.startIndex, offsetBy: i)].asciiValue! - aAscii)] += 1
+        }
+
+        if cnt1 == cnt2 {
+            return true
+        }
+
+        for i in m..<n {
+            cnt2[Int(s2[s2.index(s2.startIndex, offsetBy: i)].asciiValue! - aAscii)] += 1
+            cnt2[Int(s2[s2.index(s2.startIndex, offsetBy: i - m)].asciiValue! - aAscii)] -= 1
+
+            if cnt1 == cnt2 {
+                return true
+            }
+        }
+
+        return false
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2919.Minimum%20Increment%20Operations%20to%20Make%20Array%20Beautiful/README.md
 rating: 2030
+source: 第 369 场周赛 Q3
 tags:
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2919. 使数组变美的最小增量运算数](https://leetcode.cn/problems/minimum-increment-operations-to-make-array-beautiful)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、长度为 <code>n</code> 的整数数组 <code>nums</code> ，和一个整数 <code>k</code> 。</p>
 
@@ -81,7 +84,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -103,6 +110,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minIncrementOperations(self, nums: List[int], k: int) -> int:
@@ -111,6 +120,8 @@ class Solution:
             f, g, h = g, h, min(f, g, h) + max(k - x, 0)
         return min(f, g, h)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minIncrementOperations(nums []int, k int) int64 {
 	var f, g, h int
@@ -153,6 +168,8 @@ func minIncrementOperations(nums []int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minIncrementOperations(nums: number[], k: number): number {
     let [f, g, h] = [0, 0, 0];
@@ -162,6 +179,8 @@ function minIncrementOperations(nums: number[], k: number): number {
     return Math.min(f, g, h);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -180,4 +199,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

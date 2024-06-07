@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2381.Shifting%20Letters%20II/README.md
 rating: 1793
+source: 第 85 场双周赛 Q3
 tags:
     - 数组
     - 字符串
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [2381. 字母移位 II](https://leetcode.cn/problems/shifting-letters-ii)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个小写英文字母组成的字符串&nbsp;<code>s</code>&nbsp;和一个二维整数数组&nbsp;<code>shifts</code>&nbsp;，其中&nbsp;<code>shifts[i] = [start<sub>i</sub>, end<sub>i</sub>, direction<sub>i</sub>]</code>&nbsp;。对于每个&nbsp;<code>i</code>&nbsp;，将&nbsp;<code>s</code>&nbsp;中从下标&nbsp;<code>start<sub>i</sub></code>&nbsp;到下标&nbsp;<code>end<sub>i</sub></code>&nbsp;（两者都包含）所有字符都进行移位运算，如果&nbsp;<code>direction<sub>i</sub> = 1</code>&nbsp;将字符向后移位，如果&nbsp;<code>direction<sub>i</sub> = 0</code>&nbsp;将字符向前移位。</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>s</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
@@ -64,6 +71,8 @@ tags:
 时间复杂度 $O(n+m)$。其中 $n$ 是原字符串 $s$ 的长度，而 $m$ 是移位操作 $shifts$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +90,8 @@ class Solution:
             chr(ord('a') + (ord(s[i]) - ord('a') + d[i] + 26) % 26) for i in range(n)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shiftingLetters(s string, shifts [][]int) string {
 	n := len(s)
@@ -155,6 +170,8 @@ func shiftingLetters(s string, shifts [][]int) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function shiftingLetters(s: string, shifts: number[][]): string {
@@ -185,4 +202,6 @@ function shiftingLetters(s: string, shifts: number[][]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

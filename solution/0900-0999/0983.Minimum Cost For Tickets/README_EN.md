@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [983. Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets)
 
 [中文文档](/solution/0900-0999/0983.Minimum%20Cost%20For%20Tickets/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have planned some train traveling one year in advance. The days of the year in which you will travel are given as an integer array <code>days</code>. Each day is an integer from <code>1</code> to <code>365</code>.</p>
 
@@ -66,11 +70,17 @@ In total, you spent $17 and covered all the days of your travel.
 	<li><code>1 &lt;= costs[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +97,8 @@ class Solution:
 
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +181,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mincostTickets(days []int, costs []int) int {
@@ -209,6 +225,8 @@ func lowerBound(arr []int, x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mincostTickets(days: number[], costs: number[]): number {
     const n = days.length,
@@ -227,4 +245,6 @@ function mincostTickets(days: number[], costs: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

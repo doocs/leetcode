@@ -12,13 +12,15 @@ tags:
     - 归并排序
 ---
 
+<!-- problem:start -->
+
 # [327. 区间和的个数](https://leetcode.cn/problems/count-of-range-sum)
 
 [English Version](/solution/0300-0399/0327.Count%20of%20Range%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 以及两个整数 <code>lower</code> 和 <code>upper</code> 。求数组中，值位于范围 <code>[lower, upper]</code> （包含 <code>lower</code> 和 <code>upper</code>）之内的 <strong>区间和的个数</strong> 。</p>
 
@@ -51,7 +53,11 @@ tags:
 	<li>题目数据保证答案是一个 <strong>32 位</strong> 的整数</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 树状数组
 
@@ -64,6 +70,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -97,6 +105,8 @@ class Solution:
             tree.update(bisect_left(arr, x) + 1, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -171,6 +181,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -230,6 +242,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -288,6 +302,8 @@ func countRangeSum(nums []int, lower int, upper int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -363,4 +379,6 @@ function search(nums: number[], r: number, x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

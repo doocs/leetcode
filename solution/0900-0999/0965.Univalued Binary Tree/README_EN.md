@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [965. Univalued Binary Tree](https://leetcode.com/problems/univalued-binary-tree)
 
 [中文文档](/solution/0900-0999/0965.Univalued%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A binary tree is <strong>uni-valued</strong> if every node in the tree has the same value.</p>
 
@@ -42,11 +46,17 @@ tags:
 	<li><code>0 &lt;= Node.val &lt; 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -64,6 +74,8 @@ class Solution:
 
         return dfs(root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -95,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -120,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -140,6 +156,8 @@ func isUnivalTree(root *TreeNode) bool {
 	return dfs(root)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -167,6 +185,8 @@ function isUnivalTree(root: TreeNode | null): boolean {
     return dfs(root.left) && dfs(root.right);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -206,4 +226,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

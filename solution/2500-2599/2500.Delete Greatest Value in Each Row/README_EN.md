@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2500.Delete%20Greatest%20Value%20in%20Each%20Row/README_EN.md
 rating: 1309
+source: Weekly Contest 323 Q1
 tags:
     - Array
     - Matrix
@@ -11,11 +12,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2500. Delete Greatest Value in Each Row](https://leetcode.com/problems/delete-greatest-value-in-each-row)
 
 [中文文档](/solution/2500-2599/2500.Delete%20Greatest%20Value%20in%20Each%20Row/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> matrix <code>grid</code> consisting of positive integers.</p>
 
@@ -63,11 +68,17 @@ The final answer = 10.
 	<li><code>1 &lt;= grid[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +87,8 @@ class Solution:
             row.sort()
         return sum(max(col) for col in zip(*grid))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func deleteGreatestValue(grid [][]int) (ans int) {
@@ -132,6 +149,8 @@ func deleteGreatestValue(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function deleteGreatestValue(grid: number[][]): number {
     for (const row of grid) {
@@ -150,6 +169,8 @@ function deleteGreatestValue(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -179,4 +200,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

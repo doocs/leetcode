@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README.md
 rating: 2250
+source: 第 9 场双周赛 Q4
 tags:
     - 贪心
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1199. 建造街区的最短时间 🔒](https://leetcode.cn/problems/minimum-time-to-build-blocks)
 
 [English Version](/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你是个城市规划工作者，手里负责管辖一系列的街区。在这个街区列表中&nbsp;<code>blocks[i] = t</code>&nbsp;意味着第 &nbsp;<code>i</code>&nbsp;个街区需要&nbsp;<code>t</code>&nbsp;个单位的时间来建造。</p>
 
@@ -66,7 +69,11 @@ tags:
 	<li><code>1 &lt;= split &lt;= 100</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 优先队列（小根堆）
 
@@ -84,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minBuildTime(self, blocks: List[int], split: int) -> int:
@@ -93,6 +102,8 @@ class Solution:
             heappush(blocks, heappop(blocks) + split)
         return blocks[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minBuildTime(blocks []int, split int) int {
@@ -151,6 +166,8 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minBuildTime(blocks: number[], split: number): number {
     const pq = new MinPriorityQueue();
@@ -164,6 +181,8 @@ function minBuildTime(blocks: number[], split: number): number {
     return pq.dequeue()!.element;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::BinaryHeap;
@@ -190,4 +209,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1193. Monthly Transactions I](https://leetcode.com/problems/monthly-transactions-i)
 
 [中文文档](/solution/1100-1199/1193.Monthly%20Transactions%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Transactions</code></p>
 
@@ -61,13 +65,19 @@ Transactions table:
 +----------+---------+-------------+----------------+--------------------+-----------------------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping and Aggregation
 
 We can first group by month and country, and then use the `COUNT` and `SUM` functions to respectively calculate the number of transactions, the number of approved transactions, the total amount, and the total amount of approved transactions for each group.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -84,4 +94,6 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [639. Decode Ways II](https://leetcode.com/problems/decode-ways-ii)
 
 [中文文档](/solution/0600-0699/0639.Decode%20Ways%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A message containing letters from <code>A-Z</code> can be <strong>encoded</strong> into numbers using the following mapping:</p>
 
@@ -76,11 +80,17 @@ Hence, there are a total of (6 * 2) + (3 * 1) = 12 + 3 = 15 ways to decode &quot
 	<li><code>s[i]</code> is a digit or <code>&#39;*&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -123,6 +133,8 @@ class Solution:
 
         return c
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -175,6 +187,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 const mod int = 1e9 + 7
 
@@ -222,4 +236,6 @@ func numDecodings(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

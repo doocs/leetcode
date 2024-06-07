@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2395.Find%20Subarrays%20With%20Equal%20Sum/README.md
 rating: 1249
+source: 第 86 场双周赛 Q1
 tags:
     - 数组
     - 哈希表
 ---
+
+<!-- problem:start -->
 
 # [2395. 和相等的子数组](https://leetcode.cn/problems/find-subarrays-with-equal-sum)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;，判断是否存在&nbsp;<strong>两个</strong>&nbsp;长度为&nbsp;<code>2</code>&nbsp;的子数组且它们的&nbsp;<strong>和</strong>&nbsp;相等。注意，这两个子数组起始位置的下标必须&nbsp;<strong>不相同</strong>&nbsp;。</p>
 
@@ -55,7 +58,11 @@ tags:
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -67,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findSubarrays(self, nums: List[int]) -> bool:
@@ -77,6 +86,8 @@ class Solution:
             vis.add(x)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findSubarrays(nums []int) bool {
 	vis := map[int]bool{}
@@ -123,6 +138,8 @@ func findSubarrays(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findSubarrays(nums: number[]): boolean {
     const vis: Set<number> = new Set<number>();
@@ -136,6 +153,8 @@ function findSubarrays(nums: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -153,6 +172,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 bool findSubarrays(int* nums, int numsSize) {
     for (int i = 1; i < numsSize - 1; i++) {
@@ -168,4 +189,6 @@ bool findSubarrays(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README.md
 rating: 1265
+source: 第 330 场周赛 Q1
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [2549. 统计桌面上的不同数字](https://leetcode.cn/problems/count-distinct-numbers-on-board)
 
 [English Version](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数 <code>n</code> ，开始时，它放在桌面上。在 <code>10<sup>9</sup></code> 天内，每天都要执行下述步骤：</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯
 
@@ -77,11 +84,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distinctIntegers(self, n: int) -> int:
         return max(1, n - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,17 +113,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctIntegers(n int) int {
 	return max(1, n-1)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distinctIntegers(n: number): number {
     return Math.max(1, n - 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -122,4 +141,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

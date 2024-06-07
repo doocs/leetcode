@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [712. Minimum ASCII Delete Sum for Two Strings](https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings)
 
 [中文文档](/solution/0700-0799/0712.Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>s1</code> and&nbsp;<code>s2</code>, return <em>the lowest <strong>ASCII</strong> sum of deleted characters to make two strings equal</em>.</p>
 
@@ -46,11 +50,17 @@ If instead we turned both strings into &quot;lee&quot; or &quot;eet&quot;, we wo
 	<li><code>s1</code> and <code>s2</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +81,8 @@ class Solution:
                     )
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumDeleteSum(s1 string, s2 string) int {
 	m, n := len(s1), len(s2)
@@ -150,6 +166,8 @@ func minimumDeleteSum(s1 string, s2 string) int {
 	return f[m][n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDeleteSum(s1: string, s2: string): number {
@@ -177,6 +195,8 @@ function minimumDeleteSum(s1: string, s2: string): number {
     return f[m][n];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -212,4 +232,6 @@ var minimumDeleteSum = function (s1, s2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

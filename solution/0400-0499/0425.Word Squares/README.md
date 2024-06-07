@@ -9,13 +9,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [425. 单词方块 🔒](https://leetcode.cn/problems/word-squares)
 
 [English Version](/solution/0400-0499/0425.Word%20Squares/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个单词集合&nbsp;<code>words</code> <strong>（没有重复）</strong>，找出并返回其中所有的 <a href="https://en.wikipedia.org/wiki/Word_square">单词方块</a><strong>&nbsp;</strong>。&nbsp;<code>words</code>&nbsp;中的同一个单词可以被 <strong>多次</strong> 使用。你可以按 <strong>任意顺序</strong> 返回答案。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>words[i]</code>&nbsp;都 <strong>各不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树 + DFS
 
@@ -68,6 +74,8 @@ tags:
 比如已经添加了两个单词 $ball$ 和 $area$，要添加下一个单词，我们首先要获取下一个单词的前缀，第一个字母是第一个单词的第三个位置 $l$，第二个字母是第二个单词的第三个位置 $e$，这样就构成了前缀 $le$。然后找出所有前缀为 $le$ 的单词，作为下一个单词。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -116,6 +124,8 @@ class Solution:
             dfs([w])
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -187,6 +197,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -254,4 +266,6 @@ func wordSquares(words []string) [][]string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

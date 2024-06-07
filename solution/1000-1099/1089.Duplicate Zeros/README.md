@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1089.Duplicate%20Zeros/README.md
 rating: 1262
+source: 第 141 场周赛 Q1
 tags:
     - 数组
     - 双指针
 ---
+
+<!-- problem:start -->
 
 # [1089. 复写零](https://leetcode.cn/problems/duplicate-zeros)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度固定的整数数组&nbsp;<code>arr</code> ，请你将该数组中出现的每个零都复写一遍，并将其余的元素向右平移。</p>
 
@@ -46,7 +49,11 @@ tags:
 	<li><code>0 &lt;= arr[i] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -56,6 +63,8 @@ tags:
 -   空间复杂度：$O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +89,8 @@ class Solution:
                 arr[j] = arr[i]
             i, j = i - 1, j - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func duplicateZeros(arr []int) {
@@ -157,6 +172,8 @@ func duplicateZeros(arr []int) {
 	}
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -185,6 +202,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 void duplicateZeros(int* arr, int arrSize) {
@@ -215,9 +234,15 @@ void duplicateZeros(int* arr, int arrSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：双指针
 
 -   时间复杂度：$O(n)$。
 -   空间复杂度：$O(1)$。
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

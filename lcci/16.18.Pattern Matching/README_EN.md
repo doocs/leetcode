@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.18.Pattern%20Matching/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.18. Pattern Matching](https://leetcode.cn/problems/pattern-matching-lcci)
 
 [中文文档](/lcci/16.18.Pattern%20Matching/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings, pattern and value. The pattern string consists of just the letters a and b, describing a pattern within a string. For example, the string catcatgocatgo matches the pattern aabab (where cat is a and go is b). It also matches patterns like a, ab, and b. Write a method to determine if value matches pattern. a and b cannot be the same string.</p>
 <p><strong>Example 1: </strong></p>
@@ -52,7 +56,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.18.Pattern%20Match
 	<li><code>pattern</code>&nbsp;only contains&nbsp;<code>&quot;a&quot;</code>&nbsp;and&nbsp;<code>&quot;b&quot;</code>,&nbsp;<code>value</code> only contains lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -67,6 +75,8 @@ Next, we denote the length of the string matched by the character `'a'` as $la$,
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $value$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +112,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +170,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -218,6 +232,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func patternMatching(pattern string, value string) bool {
 	cnt := [2]int{}
@@ -266,6 +282,8 @@ func patternMatching(pattern string, value string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function patternMatching(pattern: string, value: string): boolean {
     const cnt: number[] = [0, 0];
@@ -312,6 +330,8 @@ function patternMatching(pattern: string, value: string): boolean {
     return false;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -381,4 +401,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

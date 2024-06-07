@@ -6,11 +6,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi)
 
 [中文文档](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement the <code>myAtoi(string s)</code> function, which converts a string to a 32-bit signed integer.</p>
 
@@ -123,7 +127,11 @@ Step 3: &quot;<u>0</u>-1&quot; (&quot;0&quot; is read in; reading stops because 
 	<li><code>s</code> consists of English letters (lower-case and upper-case), digits (<code>0-9</code>), <code>&#39; &#39;</code>, <code>&#39;+&#39;</code>, <code>&#39;-&#39;</code>, and <code>&#39;.&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traverse the String
 
@@ -138,6 +146,8 @@ After the traversal ends, we return the result according to the positive or nega
 The time complexity is $O(n)$, where $n$ is the length of the string. We only need to process all characters in turn. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -170,6 +180,8 @@ class Solution:
         return sign * res
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int myAtoi(String s) {
@@ -197,6 +209,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func myAtoi(s string) int {
@@ -236,6 +250,8 @@ func myAtoi(s string) int {
 }
 ```
 
+#### JavaScript
+
 ```js
 const myAtoi = function (str) {
     str = str.trim();
@@ -262,6 +278,8 @@ const myAtoi = function (str) {
     return isPositive ? ans : -ans;
 };
 ```
+
+#### C#
 
 ```cs
 ﻿// https://leetcode.com/problems/string-to-integer-atoi/
@@ -312,6 +330,8 @@ public partial class Solution
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -334,4 +354,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README_EN.md
 rating: 2205
+source: Weekly Contest 149 Q4
 tags:
     - Design
     - Binary Indexed Tree
@@ -11,11 +12,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1157. Online Majority Element In Subarray](https://leetcode.com/problems/online-majority-element-in-subarray)
 
 [中文文档](/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a data structure that efficiently finds the <strong>majority element</strong> of a given subarray.</p>
 
@@ -57,7 +62,11 @@ majorityChecker.query(2, 3, 2); // return 2
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>query</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Segment Tree + Boyer-Moore Voting Algorithm + Binary Search
 
@@ -83,6 +92,8 @@ In the `query(left, right, threshold)` method, we directly call the `query` meth
 In terms of time complexity, the time complexity of the initialization method is $O(n)$, and the time complexity of the query method is $O(\log n)$. The space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -158,6 +169,8 @@ class MajorityChecker:
 # obj = MajorityChecker(arr)
 # param_1 = obj.query(left,right,threshold)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -270,6 +283,8 @@ class MajorityChecker {
  */
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -374,6 +389,8 @@ private:
  * int param_1 = obj->query(left,right,threshold);
  */
 ```
+
+#### Go
 
 ```go
 type node struct {
@@ -480,4 +497,6 @@ func (this *MajorityChecker) Query(left int, right int, threshold int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

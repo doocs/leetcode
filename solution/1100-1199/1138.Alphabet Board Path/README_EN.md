@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1138.Alphabet%20Board%20Path/README_EN.md
 rating: 1410
+source: Weekly Contest 147 Q2
 tags:
     - Hash Table
     - String
 ---
+
+<!-- problem:start -->
 
 # [1138. Alphabet Board Path](https://leetcode.com/problems/alphabet-board-path)
 
 [中文文档](/solution/1100-1199/1138.Alphabet%20Board%20Path/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>On an alphabet board, we start at position <code>(0, 0)</code>, corresponding to character&nbsp;<code>board[0][0]</code>.</p>
 
@@ -68,7 +73,11 @@ tags:
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -77,6 +86,8 @@ Starting from the origin point $(0, 0)$, simulate each step of the movement, app
 The time complexity is $O(n)$, where $n$ is the length of the string target, as each character in the string target needs to be traversed. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +112,8 @@ class Solution:
             ans.append("!")
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +145,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -165,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func alphabetBoardPath(target string) string {
 	ans := []byte{}
@@ -196,4 +213,6 @@ func alphabetBoardPath(target string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2760.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README.md
 rating: 1420
+source: 第 352 场周赛 Q1
 tags:
     - 数组
     - 滑动窗口
 ---
+
+<!-- problem:start -->
 
 # [2760. 最长奇偶子数组](https://leetcode.cn/problems/longest-even-odd-subarray-with-threshold)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 和一个整数 <code>threshold</code> 。</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>1 &lt;= threshold &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -76,6 +83,8 @@ tags:
 时间复杂度 $O(n^2)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +98,8 @@ class Solution:
                 ans = max(ans, r - l)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestAlternatingSubarray(nums []int, threshold int) (ans int) {
 	n := len(nums)
@@ -142,6 +157,8 @@ func longestAlternatingSubarray(nums []int, threshold int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestAlternatingSubarray(nums: number[], threshold: number): number {
@@ -162,6 +179,10 @@ function longestAlternatingSubarray(nums: number[], threshold: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：枚举优化
 
 我们注意到，题目实际上会把数组划分成不相交的若干个满足条件的子数组，我们只需要找到这些子数组中最长的一个即可。因此，在枚举 $l$ 和 $r$ 时，我们不需要回退，只需要从左往右遍历一遍即可。
@@ -169,6 +190,8 @@ function longestAlternatingSubarray(nums: number[], threshold: number): number {
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -185,6 +208,8 @@ class Solution:
                 l += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +231,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -229,6 +256,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestAlternatingSubarray(nums []int, threshold int) (ans int) {
 	for l, n := 0, len(nums); l < n; {
@@ -246,6 +275,8 @@ func longestAlternatingSubarray(nums []int, threshold int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestAlternatingSubarray(nums: number[], threshold: number): number {
@@ -269,4 +300,6 @@ function longestAlternatingSubarray(nums: number[], threshold: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [1426. 数元素 🔒](https://leetcode.cn/problems/counting-elements)
 
 [English Version](/solution/1400-1499/1426.Counting%20Elements/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>arr</code>， 对于元素 <code>x</code> ，只有当 <code>x + 1</code> 也在数组&nbsp;<code>arr</code> 里时，才能记为 <code>1</code> 个数。</p>
 
@@ -45,7 +47,11 @@ tags:
 	<li><code>0 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -55,12 +61,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countElements(self, arr: List[int]) -> int:
         cnt = Counter(arr)
         return sum(v for x, v in cnt.items() if cnt[x + 1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countElements(arr []int) (ans int) {
 	mx := slices.Max(arr)
@@ -114,6 +128,8 @@ func countElements(arr []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countElements(arr: number[]): number {
@@ -132,6 +148,8 @@ function countElements(arr: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::HashMap;
 
@@ -148,6 +166,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -170,6 +190,8 @@ var countElements = function (arr) {
 };
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -191,4 +213,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

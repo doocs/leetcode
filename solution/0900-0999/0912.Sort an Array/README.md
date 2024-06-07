@@ -13,13 +13,15 @@ tags:
     - 归并排序
 ---
 
+<!-- problem:start -->
+
 # [912. 排序数组](https://leetcode.cn/problems/sort-an-array)
 
 [English Version](/solution/0900-0999/0912.Sort%20an%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>，请你将该数组升序排列。</p>
 
@@ -51,7 +53,11 @@ tags:
 	<li><code>-5 * 10<sup>4</sup> &lt;= nums[i] &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：快速排序
 
@@ -60,6 +66,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +92,8 @@ class Solution:
         quick_sort(0, len(nums) - 1)
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +157,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sortArray(nums []int) []int {
@@ -180,6 +194,8 @@ func quickSort(nums []int, l, r int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sortArray(nums: number[]): number[] {
     function quickSort(l: number, r: number) {
@@ -204,6 +220,8 @@ function sortArray(nums: number[]): number[] {
     return nums;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -236,6 +254,10 @@ var sortArray = function (nums) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：归并排序
 
 归并排序是一种分治算法，其思想是将待排序的数据序列不断地折半拆分，直到每个数据块只有一个元素为止，然后再按照拆分的顺序将每个数据块两两合并，在合并的过程中进行排序，最终得到一个有序的数据序列。
@@ -243,6 +265,8 @@ var sortArray = function (nums) {
 归并排序是一种稳定的排序算法，时间复杂度为 $O(n \times \log n)$，空间复杂度为 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -272,6 +296,8 @@ class Solution:
         merge_sort(0, len(nums) - 1)
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -310,6 +336,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -345,6 +373,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sortArray(nums []int) []int {
@@ -385,6 +415,8 @@ func mergeSort(nums []int, l, r int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sortArray(nums: number[]): number[] {
     function mergetSort(l: number, r: number) {
@@ -418,6 +450,8 @@ function sortArray(nums: number[]): number[] {
     return nums;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -459,9 +493,15 @@ var sortArray = function (nums) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -504,4 +544,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

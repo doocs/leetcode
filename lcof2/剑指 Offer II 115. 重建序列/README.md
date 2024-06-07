@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20115.%20%E9%87%8D%E5%BB%BA%E5%BA%8F%E5%88%97/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 115. 重建序列](https://leetcode.cn/problems/ur2n8P)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个长度为 <code>n</code> 的整数数组 <code>nums</code> ，其中 <code>nums</code> 是范围为 <code>[1，n]</code> 的整数的排列。还提供了一个 2D 整数数组&nbsp;<code>sequences</code>&nbsp;，其中&nbsp;<code>sequences[i]</code>&nbsp;是&nbsp;<code>nums</code>&nbsp;的子序列。<br />
 检查 <code>nums</code> 是否是唯一的最短&nbsp;<strong>超序列</strong> 。最短 <strong>超序列</strong> 是 <strong>长度最短</strong> 的序列，并且所有序列&nbsp;<code>sequences[i]</code>&nbsp;都是它的子序列。对于给定的数组&nbsp;<code>sequences</code>&nbsp;，可能存在多个有效的 <strong>超序列</strong> 。</p>
@@ -74,7 +76,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p>注意：本题与主站 444&nbsp;题相同：<a href="https://leetcode.cn/problems/sequence-reconstruction/">https://leetcode.cn/problems/sequence-reconstruction/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拓扑排序
 
@@ -85,6 +91,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点的个数和边的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -108,6 +116,8 @@ class Solution:
                     q.append(j)
         return len(q) == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -176,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sequenceReconstruction(nums []int, sequences [][]int) bool {
 	n := len(nums)
@@ -209,6 +223,8 @@ func sequenceReconstruction(nums []int, sequences [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sequenceReconstruction(nums: number[], sequences: number[][]): boolean {
     const n = nums.length;
@@ -236,4 +252,6 @@ function sequenceReconstruction(nums: number[], sequences: number[][]): boolean 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

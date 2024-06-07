@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1937.Maximum%20Number%20of%20Points%20with%20Cost/README.md
 rating: 2105
+source: 第 250 场周赛 Q3
 tags:
     - 数组
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [1937. 扣分后的最大得分](https://leetcode.cn/problems/maximum-number-of-points-with-cost)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>m x n</code> 的整数矩阵 <code>points</code> （下标从 <strong>0</strong> 开始）。一开始你的得分为 <code>0</code> ，你想最大化从矩阵中得到的分数。</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li><code>0 <= points[r][c] <= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -93,6 +100,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPoints(self, points: List[List[int]]) -> int:
@@ -111,6 +120,8 @@ class Solution:
             f = g
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPoints(points [][]int) int64 {
 	n := len(points[0])
@@ -187,6 +202,8 @@ func maxPoints(points [][]int) int64 {
 	return slices.Max(f)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPoints(points: number[][]): number {
@@ -212,4 +229,6 @@ function maxPoints(points: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

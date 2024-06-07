@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [649. Dota2 参议院](https://leetcode.cn/problems/dota2-senate)
 
 [English Version](/solution/0600-0699/0649.Dota2%20Senate/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Dota2 的世界里有两个阵营：<code>Radiant</code>（天辉）和&nbsp;<code>Dire</code>（夜魇）</p>
 
@@ -33,7 +35,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>senate = "RD"
@@ -44,7 +46,7 @@ tags:
 第 2 轮时，第一个参议员可以宣布胜利，因为他是唯一一个有投票权的人</code>。
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>senate = "RDD"
@@ -66,7 +68,11 @@ tags:
 	<li><code>senate[i]</code> 为 <code>'R'</code> 或 <code>'D'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：队列 + 模拟
 
@@ -80,6 +86,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为参议员的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +109,8 @@ class Solution:
             qd.popleft()
         return "Radiant" if qr else "Dire"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -159,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func predictPartyVictory(senate string) string {
 	n := len(senate)
@@ -187,6 +201,8 @@ func predictPartyVictory(senate string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function predictPartyVictory(senate: string): string {
     const n = senate.length;
@@ -211,6 +227,8 @@ function predictPartyVictory(senate: string): string {
     return qr.length > 0 ? 'Radiant' : 'Dire';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -247,4 +265,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

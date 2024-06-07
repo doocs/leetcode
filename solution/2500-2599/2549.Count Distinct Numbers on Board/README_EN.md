@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README_EN.md
 rating: 1265
+source: Weekly Contest 330 Q1
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2549. Count Distinct Numbers on Board](https://leetcode.com/problems/count-distinct-numbers-on-board)
 
 [中文文档](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer <code>n</code>, that is initially placed on a board. Every day, for <code>10<sup>9</sup></code> days, you perform the following procedure:</p>
 
@@ -61,7 +66,11 @@ After a billion days, the only two distinct numbers on the board are 2 and 3.
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Lateral Thinking
 
@@ -73,11 +82,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distinctIntegers(self, n: int) -> int:
         return max(1, n - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,17 +111,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctIntegers(n int) int {
 	return max(1, n-1)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distinctIntegers(n: number): number {
     return Math.max(1, n - 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -118,4 +139,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

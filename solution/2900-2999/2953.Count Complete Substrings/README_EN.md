@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2953.Count%20Complete%20Substrings/README_EN.md
 rating: 2449
+source: Weekly Contest 374 Q3
 tags:
     - Hash Table
     - String
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2953. Count Complete Substrings](https://leetcode.com/problems/count-complete-substrings)
 
 [中文文档](/solution/2900-2999/2953.Count%20Complete%20Substrings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>word</code> and an integer <code>k</code>.</p>
 
@@ -54,7 +59,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= word.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumerate Character Types + Sliding Window
 
@@ -67,6 +76,8 @@ We can use an array or hash table $cnt$ to maintain the number of times each cha
 The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $word$; and $\Sigma$ is the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -103,6 +114,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +171,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -212,6 +227,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countCompleteSubstrings(word string, k int) (ans int) {
@@ -269,6 +286,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countCompleteSubstrings(word: string, k: number): number {
@@ -328,4 +347,6 @@ function countCompleteSubstrings(word: string, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

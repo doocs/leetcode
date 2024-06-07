@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2078.%20%E5%9F%8E%E5%A2%99%E9%98%B2%E7%BA%BF/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 78. 城墙防线](https://leetcode.cn/problems/Nsibyl)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 在探险营地间，小扣意外发现了一片城墙遗迹，在探索期间，却不巧遇到迁徙中的兽群向他迎面冲来。情急之下小扣吹响了他的苍蓝笛，随着笛声响起，遗迹中的城墙逐渐发生了横向膨胀。
 已知 `rampart[i] = [x,y]` 表示第 `i` 段城墙的初始所在区间。当城墙发生膨胀时，将遵循以下规则：
@@ -48,7 +50,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2078.%20%E5%9F%8E%
 -   `rampart[i].length == 2`
 -   `0 <= rampart[i][0] < rampart[i][1] <= rampart[i+1][0] <= 10^8`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -63,6 +69,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2078.%20%E5%9F%8E%
 时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组 $rampart$ 的长度和二分查找的右边界，本题中右边界最大为 $range=rampart[1][0]-rampart[0][1]+rampart[2][0]-rampart[1][1]$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +95,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rampartDefensiveLine(rampart [][]int) int {
 	check := func(w int) bool {
@@ -182,6 +196,8 @@ func rampartDefensiveLine(rampart [][]int) int {
 	return left
 }
 ```
+
+#### TypeScript
 
 ```ts
 function rampartDefensiveLine(rampart: number[][]): number {
@@ -214,4 +230,6 @@ function rampartDefensiveLine(rampart: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

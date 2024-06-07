@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2851.String%20Transformation/README_EN.md
 rating: 2857
+source: Weekly Contest 362 Q4
 tags:
     - Math
     - String
@@ -10,11 +11,15 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [2851. String Transformation](https://leetcode.com/problems/string-transformation)
 
 [中文文档](/solution/2800-2899/2851.String%20Transformation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>s</code> and <code>t</code> of equal length <code>n</code>. You can perform the following operation on the string <code>s</code>:</p>
 
@@ -66,11 +71,17 @@ Choose suffix from index = 4, so resulting s = &quot;ababab&quot;.
 	<li><code>s</code> and <code>t</code> consist of only lowercase English alphabets.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -175,6 +186,8 @@ class Solution:
         return result
 ```
 
+#### Java
+
 ```java
 class Solution {
     private static final int M = 1000000007;
@@ -261,6 +274,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
     const int M = 1000000007;
@@ -344,4 +359,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

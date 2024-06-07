@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1462.Course%20Schedule%20IV/README_EN.md
 rating: 1692
+source: Biweekly Contest 27 Q3
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -10,11 +11,15 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [1462. Course Schedule IV](https://leetcode.com/problems/course-schedule-iv)
 
 [中文文档](/solution/1400-1499/1462.Course%20Schedule%20IV/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are a total of <code>numCourses</code> courses you have to take, labeled from <code>0</code> to <code>numCourses - 1</code>. You are given an array <code>prerequisites</code> where <code>prerequisites[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that you <strong>must</strong> take course <code>a<sub>i</sub></code> first if you want to take course <code>b<sub>i</sub></code>.</p>
 
@@ -69,11 +74,17 @@ Course 0 is not a prerequisite of course 1, but the opposite is true.
 	<li><code>u<sub>i</sub> != v<sub>i</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +101,8 @@ class Solution:
                         f[i][j] = True
         return [f[a][b] for a, b in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []bool) {
 	f := make([][]bool, n)
@@ -162,6 +179,8 @@ func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []b
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkIfPrerequisite(n: number, prerequisites: number[][], queries: number[][]): boolean[] {
     const f = Array.from({ length: n }, () => Array(n).fill(false));
@@ -179,9 +198,15 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -206,6 +231,8 @@ class Solution:
                     q.append(j)
         return [f[a][b] for a, b in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -244,6 +271,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -285,6 +314,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []bool) {
 	f := make([][]bool, n)
@@ -325,6 +356,8 @@ func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []b
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkIfPrerequisite(n: number, prerequisites: number[][], queries: number[][]): boolean[] {
     const f = Array.from({ length: n }, () => Array(n).fill(false));
@@ -358,4 +391,6 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

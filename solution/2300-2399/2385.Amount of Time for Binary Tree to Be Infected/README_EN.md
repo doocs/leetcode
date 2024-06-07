@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2385.Amount%20of%20Time%20for%20Binary%20Tree%20to%20Be%20Infected/README_EN.md
 rating: 1711
+source: Weekly Contest 307 Q3
 tags:
     - Tree
     - Depth-First Search
@@ -11,11 +12,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2385. Amount of Time for Binary Tree to Be Infected](https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected)
 
 [中文文档](/solution/2300-2399/2385.Amount%20of%20Time%20for%20Binary%20Tree%20to%20Be%20Infected/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>root</code> of a binary tree with <strong>unique</strong> values, and an integer <code>start</code>. At minute <code>0</code>, an <strong>infection</strong> starts from the node with value <code>start</code>.</p>
 
@@ -61,7 +66,11 @@ It takes 4 minutes for the whole tree to be infected so we return 4.
 	<li>A node with a value of <code>start</code> exists in the tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two DFS
 
@@ -72,6 +81,8 @@ Then, we use $start$ as the starting point, and search the entire tree through D
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -102,6 +113,8 @@ class Solution:
         dfs(root, None)
         return dfs2(start, -1)
 ```
+
+#### Java
 
 ```java
 /**
@@ -151,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -193,6 +208,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -229,6 +246,8 @@ func amountOfTime(root *TreeNode, start int) int {
 	return dfs2(start, -1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -280,4 +299,6 @@ function amountOfTime(root: TreeNode | null, start: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

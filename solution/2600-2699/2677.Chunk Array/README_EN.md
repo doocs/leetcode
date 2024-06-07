@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2677.Chunk%20Array/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2677. Chunk Array](https://leetcode.com/problems/chunk-array)
 
 [中文文档](/solution/2600-2699/2677.Chunk%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>arr</code> and&nbsp;a chunk size&nbsp;<code>size</code>, return a&nbsp;<strong>chunked</strong> array.</p>
 
@@ -59,11 +63,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2677.Ch
 	<li><code>1 &lt;= size &lt;= arr.length + 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function chunk(arr: any[], size: number): any[][] {
@@ -74,6 +84,8 @@ function chunk(arr: any[], size: number): any[][] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -92,4 +104,6 @@ var chunk = function (arr, size) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

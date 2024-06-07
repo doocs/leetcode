@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README_EN.md
 rating: 1846
+source: Weekly Contest 197 Q3
 tags:
     - Graph
     - Array
@@ -10,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1514. Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability)
 
 [中文文档](/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an undirected weighted graph of&nbsp;<code>n</code>&nbsp;nodes (0-indexed), represented by an edge list where&nbsp;<code>edges[i] = [a, b]</code>&nbsp;is an undirected edge connecting the nodes&nbsp;<code>a</code>&nbsp;and&nbsp;<code>b</code>&nbsp;with a probability of success of traversing that edge&nbsp;<code>succProb[i]</code>.</p>
 
@@ -66,11 +71,17 @@ tags:
 	<li>There is at most one edge between every two nodes.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +111,8 @@ class Solution:
                     heappush(q, (-d[v], v))
         return d[end]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProbability(n int, edges [][]int, succProb []float64, start int, end int) float64 {
@@ -210,9 +227,15 @@ type pair struct {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -244,6 +267,8 @@ class Solution:
                         vis[j] = True
         return d[end]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -281,6 +306,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -321,4 +348,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

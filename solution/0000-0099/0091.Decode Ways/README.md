@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [91. 解码方法](https://leetcode.cn/problems/decode-ways)
 
 [English Version](/solution/0000-0099/0091.Decode%20Ways/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一条包含字母&nbsp;<code>A-Z</code> 的消息通过以下映射进行了 <strong>编码</strong> ：</p>
 
@@ -71,7 +73,11 @@ tags:
 	<li><code>s</code> 只包含数字，并且可能包含前导零。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -86,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDecodings(self, s: str) -> int:
@@ -98,6 +106,8 @@ class Solution:
                 f[i] += f[i - 2]
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numDecodings(s string) int {
 	n := len(s)
@@ -156,6 +170,8 @@ func numDecodings(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numDecodings(s: string): number {
     const n = s.length;
@@ -172,6 +188,8 @@ function numDecodings(s: string): number {
     return f[n];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -198,6 +216,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDecodings(self, s: str) -> int:
@@ -209,6 +229,8 @@ class Solution:
             f, g = g, h
         return g
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -227,6 +249,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -247,6 +271,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numDecodings(s string) int {
 	n := len(s)
@@ -265,6 +291,8 @@ func numDecodings(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numDecodings(s: string): number {
     const n = s.length;
@@ -279,6 +307,8 @@ function numDecodings(s: string): number {
     return g;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -300,4 +330,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

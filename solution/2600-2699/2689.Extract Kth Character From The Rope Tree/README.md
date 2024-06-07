@@ -8,13 +8,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [2689. 从 Rope 树中提取第 K 个字符 🔒](https://leetcode.cn/problems/extract-kth-character-from-the-rope-tree)
 
 [English Version](/solution/2600-2699/2689.Extract%20Kth%20Character%20From%20The%20Rope%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二叉树的根节点 <code>root</code> 和整数 <code>k</code>。除了左右孩子之外，该树的每个节点还有另外两个属性：一个仅包含小写英文字母（可能为空）的 <strong>字符串</strong> <code>node.val</code> 和一个非负整数 <code>node.len</code>。这棵树中有两种类型的节点：</p>
 
@@ -80,7 +82,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= S[root].length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -95,6 +101,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是树中节点的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a rope tree node.
@@ -115,6 +123,8 @@ class Solution:
 
         return dfs(root)[k - 1]
 ```
+
+#### Java
 
 ```java
 /**
@@ -160,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a rope tree node.
@@ -193,6 +205,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a rope tree node.
@@ -221,4 +235,6 @@ func getKthCharacter(root *RopeTreeNode, k int) byte {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README_EN.md
 rating: 1174
+source: Weekly Contest 341 Q1
 tags:
     - Array
     - Matrix
 ---
+
+<!-- problem:start -->
 
 # [2643. Row With Maximum Ones](https://leetcode.com/problems/row-with-maximum-ones)
 
 [中文文档](/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>m x n</code> binary matrix <code>mat</code>, find the <strong>0-indexed</strong> position of the row that contains the <strong>maximum</strong> count of <strong>ones,</strong> and the number of ones in that row.</p>
 
@@ -55,7 +60,11 @@ tags:
 	<li><code>mat[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -64,6 +73,8 @@ We directly traverse the matrix, count the number of $1$s in each row, and updat
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +86,8 @@ class Solution:
                 ans = [i, cnt]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rowAndMaximumOnes(mat [][]int) []int {
 	ans := make([]int, 2)
@@ -135,6 +152,8 @@ func rowAndMaximumOnes(mat [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function rowAndMaximumOnes(mat: number[][]): number[] {
     const ans: number[] = [0, 0];
@@ -148,6 +167,8 @@ function rowAndMaximumOnes(mat: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,4 +193,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

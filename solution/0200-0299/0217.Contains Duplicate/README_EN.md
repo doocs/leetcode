@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate)
 
 [中文文档](/solution/0200-0299/0217.Contains%20Duplicate/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, return <code>true</code> if any value appears <strong>at least twice</strong> in the array, and return <code>false</code> if every element is distinct.</p>
 
@@ -35,7 +39,11 @@ tags:
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -49,11 +57,15 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         return any(a == b for a, b in pairwise(sorted(nums)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -68,6 +80,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -84,6 +98,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func containsDuplicate(nums []int) bool {
 	sort.Ints(nums)
@@ -95,6 +111,8 @@ func containsDuplicate(nums []int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function containsDuplicate(nums: number[]): boolean {
@@ -108,6 +126,8 @@ function containsDuplicate(nums: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -124,6 +144,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -134,6 +156,8 @@ var containsDuplicate = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool ContainsDuplicate(int[] nums) {
@@ -141,6 +165,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -154,6 +180,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -173,6 +201,10 @@ bool containsDuplicate(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Hash Table
 
 We traverse the array and record the elements that have appeared in the hash table $s$. If an element appears for the second time, it means that there are duplicate elements in the array, and we directly return `true`.
@@ -181,11 +213,15 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         return len(set(nums)) < len(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -201,6 +237,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -210,6 +248,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func containsDuplicate(nums []int) bool {
@@ -224,11 +264,15 @@ func containsDuplicate(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function containsDuplicate(nums: number[]): boolean {
     return new Set<number>(nums).size !== nums.length;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -241,4 +285,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

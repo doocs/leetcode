@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2245.Maximum%20Trailing%20Zeros%20in%20a%20Cornered%20Path/README_EN.md
 rating: 2036
+source: Weekly Contest 289 Q3
 tags:
     - Array
     - Matrix
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2245. Maximum Trailing Zeros in a Cornered Path](https://leetcode.com/problems/maximum-trailing-zeros-in-a-cornered-path)
 
 [中文文档](/solution/2200-2299/2245.Maximum%20Trailing%20Zeros%20in%20a%20Cornered%20Path/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D integer array <code>grid</code> of size <code>m x n</code>, where each cell contains a positive integer.</p>
 
@@ -65,7 +70,11 @@ There are no cornered paths in the grid that result in a product with a trailing
 	<li><code>1 &lt;= grid[i][j] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Enumerate Turning Point
 
@@ -94,6 +103,8 @@ Finally, we return the answer.
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the `grid` array, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -129,6 +140,8 @@ class Solution:
                 ans = max(ans, a, b, c, d)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -170,6 +183,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -209,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxTrailingZeros(grid [][]int) (ans int) {
@@ -254,6 +271,8 @@ func get(m, n int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxTrailingZeros(grid: number[][]): number {
     const m = grid.length;
@@ -298,4 +317,6 @@ function maxTrailingZeros(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

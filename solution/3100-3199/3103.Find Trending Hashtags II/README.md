@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3103. 查找热门话题标签 II 🔒](https://leetcode.cn/problems/find-trending-hashtags-ii)
 
 [English Version](/solution/3100-3199/3103.Find%20Trending%20Hashtags%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Tweets</code></p>
 
@@ -82,13 +84,19 @@ tweet_id 是这张表的主键 (值互不相同的列)。
 <p><b>注意：</b>输出表分别按 count 和 hashtag 降序排序。</p>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：正则匹配
 
 我们可以使用正则表达式来匹配每条推文中的所有标签，然后统计每个标签的出现次数。最后，我们可以按标签出现的次数降序排序，如果出现次数相同，则按标签名称降序排序，返回前三个标签。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -121,4 +129,6 @@ def find_trending_hashtags(tweets: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

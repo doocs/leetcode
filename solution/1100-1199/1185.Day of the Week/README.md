@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1185.Day%20of%20the%20Week/README.md
 rating: 1382
+source: 第 153 场周赛 Q2
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1185. 一周中的第几天](https://leetcode.cn/problems/day-of-the-week)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。</p>
 
@@ -49,7 +52,11 @@ tags:
 	<li>给出的日期一定是在&nbsp;<code>1971</code> 到&nbsp;<code>2100</code>&nbsp;年之间的有效日期。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：蔡勒公式
 
@@ -73,11 +80,15 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dayOfTheWeek(self, day: int, month: int, year: int) -> str:
         return datetime.date(year, month, day).strftime('%A')
 ```
+
+#### Java
 
 ```java
 import java.util.Calendar;
@@ -93,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dayOfTheWeek(d int, m int, y int) string {
 	if m < 3 {
@@ -124,6 +139,8 @@ func dayOfTheWeek(d int, m int, y int) string {
 	return weeks[(w+7)%7]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function dayOfTheWeek(d: number, m: number, y: number): string {
@@ -149,9 +166,15 @@ function dayOfTheWeek(d: number, m: number, y: number): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -173,6 +196,8 @@ class Solution:
         ][w]
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String dayOfTheWeek(int d, int m, int y) {
@@ -191,4 +216,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

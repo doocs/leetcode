@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1252.Cells%20with%20Odd%20Values%20in%20a%20Matrix/README.md
 rating: 1283
+source: 第 162 场周赛 Q1
 tags:
     - 数组
     - 数学
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1252. 奇数值单元格的数目](https://leetcode.cn/problems/cells-with-odd-values-in-a-matrix)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>m x n</code> 的矩阵，最开始的时候，每个单元格中的值都是 <code>0</code>。</p>
 
@@ -69,7 +72,11 @@ tags:
 
 <p><strong>进阶：</strong>你可以设计一个时间复杂度为 <code>O(n + m + indices.length)</code> 且仅用 <code>O(n + m)</code> 额外空间的算法来解决此问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -80,6 +87,8 @@ tags:
 时间复杂度 $O(indices.length*(m+n)+mn)$，空间复杂度 $O(mn)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +101,8 @@ class Solution:
                 g[r][j] += 1
         return sum(v % 2 for row in g for v in row)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func oddCells(m int, n int, indices [][]int) int {
@@ -162,6 +177,10 @@ func oddCells(m int, n int, indices [][]int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：空间优化
 
 用行数组 $row$ 和列数组 $col$ 来记录每一行、每一列被增加的次数。对于 $indices$ 中的每一对 $(r_i, c_i)$，我们将 $row[r_i]$ 和 $col[c_i]$ 分别加 $1$。
@@ -171,6 +190,8 @@ func oddCells(m int, n int, indices [][]int) int {
 时间复杂度 $O(indices.length+mn)$，空间复杂度 $O(m+n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -182,6 +203,8 @@ class Solution:
             col[c] += 1
         return sum((i + j) % 2 for i in row for j in col)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -204,6 +227,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -222,6 +247,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func oddCells(m int, n int, indices [][]int) int {
@@ -244,6 +271,10 @@ func oddCells(m int, n int, indices [][]int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：数学优化
 
 我们注意到，只有当 $row[i]$ 和 $col[j]$ 中恰好为“一奇一偶”时，矩阵 $(i, j)$ 位置的数才会是奇数。
@@ -253,6 +284,8 @@ func oddCells(m int, n int, indices [][]int) int {
 时间复杂度 $O(indices.length+m+n)$，空间复杂度 $O(m+n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -266,6 +299,8 @@ class Solution:
         cnt2 = sum(v % 2 for v in col)
         return cnt1 * (n - cnt2) + cnt2 * (m - cnt1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -289,6 +324,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -307,6 +344,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func oddCells(m int, n int, indices [][]int) int {
@@ -330,4 +369,6 @@ func oddCells(m int, n int, indices [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2848.Points%20That%20Intersect%20With%20Cars/README.md
 rating: 1229
+source: 第 362 场周赛 Q1
 tags:
     - 数组
     - 哈希表
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [2848. 与车相交的点](https://leetcode.cn/problems/points-that-intersect-with-cars)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的二维整数数组 <code>nums</code> 表示汽车停放在数轴上的坐标。对于任意下标 <code>i</code>，<code>nums[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> ，其中 <code>start<sub>i</sub></code> 是第 <code>i</code> 辆车的起点，<code>end<sub>i</sub></code> 是第 <code>i</code> 辆车的终点。</p>
 
@@ -49,7 +52,11 @@ tags:
 	<li><code><font face="monospace">1 &lt;= start<sub>i</sub>&nbsp;&lt;= end<sub>i</sub>&nbsp;&lt;= 100</font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
@@ -58,6 +65,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(M)$。其中 $n$ 是给定数组的长度，而 $M$ 是数组中元素的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +77,8 @@ class Solution:
             d[b + 1] -= 1
         return sum(s > 0 for s in accumulate(d))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfPoints(nums [][]int) (ans int) {
 	d := [110]int{}
@@ -125,6 +140,8 @@ func numberOfPoints(nums [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfPoints(nums: number[][]): number {
@@ -147,4 +164,6 @@ function numberOfPoints(nums: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

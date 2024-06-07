@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.06.Palindrome%20Linked%20List/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 02.06. 回文链表](https://leetcode.cn/problems/palindrome-linked-list-lcci)
 
 [English Version](/lcci/02.06.Palindrome%20Linked%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>编写一个函数，检查输入的链表是否是回文的。</p>
 
 <p>&nbsp;</p>
@@ -32,7 +35,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.06.Palindrome%20Li
 <p><strong>进阶：</strong><br>
 你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：快慢指针 + 反转链表
 
@@ -47,6 +54,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.06.Palindrome%20Li
 时间复杂度 $O(n)$，其中 $n$ 为链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -78,6 +87,8 @@ class Solution:
             p = p.next
         return True
 ```
+
+#### Java
 
 ```java
 /**
@@ -120,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -164,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -200,6 +215,8 @@ func isPalindrome(head *ListNode) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -245,6 +262,8 @@ function isPalindrome(head: ListNode | null): boolean {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -288,6 +307,8 @@ var isPalindrome = function (head) {
 };
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for singly-linked list.
@@ -329,6 +350,8 @@ public class Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 /**
@@ -383,4 +406,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

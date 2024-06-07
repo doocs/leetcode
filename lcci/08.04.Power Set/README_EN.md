@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.04.Power%20Set/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.04. Power Set](https://leetcode.cn/problems/power-set-lcci)
 
 [中文文档](/lcci/08.04.Power%20Set/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a method to return all subsets of a set. The elements in a set are&nbsp;pairwise distinct.</p>
 
@@ -44,7 +48,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.04.Power%20Set/REA
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursive Enumeration
 
@@ -55,6 +63,8 @@ For the current element with index $u$, we can choose to add it to the subset $t
 The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array. Each element in the array has two states, namely chosen or not chosen, for a total of $2^n$ states. Each state requires $O(n)$ time to construct the subset.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +82,8 @@ class Solution:
         dfs(0, [])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsets(nums []int) [][]int {
 	var ans [][]int
@@ -140,6 +156,8 @@ func subsets(nums []int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subsets(nums: number[]): number[][] {
     const res = [[]];
@@ -151,6 +169,8 @@ function subsets(nums: number[]): number[][] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -166,6 +186,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -189,6 +211,8 @@ function dfs(nums, depth, prev, res) {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -216,6 +240,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary Enumeration
 
 We can rewrite the recursive process in Method 1 into an iterative form, that is, using binary enumeration to enumerate all subsets.
@@ -225,6 +253,8 @@ We can use $2^n$ binary numbers to represent all subsets of $n$ elements. If the
 The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array. There are a total of $2^n$ subsets, and each subset requires $O(n)$ time to construct.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -238,6 +268,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -257,6 +289,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -279,6 +313,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsets(nums []int) [][]int {
 	var ans [][]int
@@ -295,6 +331,8 @@ func subsets(nums []int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subsets(nums: number[]): number[][] {
@@ -315,6 +353,8 @@ function subsets(nums: number[]): number[][] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -339,4 +379,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1659.Maximize%20Grid%20Happiness/README_EN.md
 rating: 2655
+source: Weekly Contest 215 Q4
 tags:
     - Bit Manipulation
     - Memoization
@@ -10,11 +11,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1659. Maximize Grid Happiness](https://leetcode.com/problems/maximize-grid-happiness)
 
 [中文文档](/solution/1600-1699/1659.Maximize%20Grid%20Happiness/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given four integers, <code>m</code>, <code>n</code>, <code>introvertsCount</code>, and <code>extrovertsCount</code>. You have an <code>m x n</code> grid, and there are two types of people: introverts and extroverts. There are <code>introvertsCount</code> introverts and <code>extrovertsCount</code> extroverts.</p>
 
@@ -73,7 +78,11 @@ The grid happiness is 90 + 80 + 90 = 260.
 	<li><code>0 &lt;= introvertsCount, extrovertsCount &lt;= min(m * n, 6)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Ternary State Compression + Memoization
 
@@ -105,6 +114,8 @@ These values can be obtained through preprocessing. And we can use the method of
 The time complexity is $O(3^{2n} \times (m \times ic \times ec + n))$, and the space complexity is $O(3^{2n} + 3^n \times m \times ic \times ec)$. Where $ic$ and $ec$ represent the number of introverted and extroverted people, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -149,6 +160,8 @@ class Solution:
                     g[i][j] += h[bits[i][k]][bits[j][k]]
         return dfs(0, 0, introvertsCount, extrovertsCount)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -218,6 +231,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -280,6 +295,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int) int {
@@ -352,6 +369,8 @@ func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int)
 	return dfs(0, 0, introvertsCount, extrovertsCount)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMaxGridHappiness(
@@ -434,6 +453,10 @@ function getMaxGridHappiness(
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Contour Line Memorized Search
 
 We can consider searching each grid cell, each time searching a position $(i, j)$, we denote $pos = i \times n + j$. Then its left and upper adjacent grids will affect their happiness contribution.
@@ -455,6 +478,8 @@ Similar to Solution 1, we can also use the method of memoization to avoid repeat
 The time complexity is $O(3^{n+1} \times m \times n \times ic \times ec)$, and the space complexity is $O(3^n \times m \times n \times ic \times ec)$. Where $ic$ and $ec$ represent the number of introverted and extroverted people, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -486,6 +511,8 @@ class Solution:
         h = [[0, 0, 0], [0, -60, -10], [0, -10, 40]]
         return dfs(0, 0, introvertsCount, extrovertsCount)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -528,6 +555,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -562,6 +591,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int) int {
@@ -619,6 +650,8 @@ func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getMaxGridHappiness(
     m: number,
@@ -673,4 +706,6 @@ function getMaxGridHappiness(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

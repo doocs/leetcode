@@ -7,13 +7,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [69. x 的平方根](https://leetcode.cn/problems/sqrtx)
 
 [English Version](/solution/0000-0099/0069.Sqrt%28x%29/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个非负整数 <code>x</code> ，计算并返回&nbsp;<code>x</code>&nbsp;的 <strong>算术平方根</strong> 。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>0 &lt;= x &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -60,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mySqrt(self, x: int) -> int:
@@ -72,6 +80,8 @@ class Solution:
                 l = mid
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,11 +120,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mySqrt(x int) int {
 	return sort.Search(x+1, func(i int) bool { return i*i > x }) - 1
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -135,6 +151,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} x
@@ -153,6 +171,8 @@ var mySqrt = function (x) {
     return l;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -173,4 +193,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

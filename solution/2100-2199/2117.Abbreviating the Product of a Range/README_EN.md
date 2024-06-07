@@ -3,15 +3,20 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2117.Abbreviating%20the%20Product%20of%20a%20Range/README_EN.md
 rating: 2476
+source: Biweekly Contest 68 Q4
 tags:
     - Math
 ---
+
+<!-- problem:start -->
 
 # [2117. Abbreviating the Product of a Range](https://leetcode.com/problems/abbreviating-the-product-of-a-range)
 
 [中文文档](/solution/2100-2199/2117.Abbreviating%20the%20Product%20of%20a%20Range/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two positive integers <code>left</code> and <code>right</code> with <code>left &lt;= right</code>. Calculate the <strong>product</strong> of all integers in the <strong>inclusive</strong> range <code>[left, right]</code>.</p>
 
@@ -77,11 +82,17 @@ Hence, the abbreviated product is &quot;399168e2&quot;.
 	<li><code>1 &lt;= left &lt;= right &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import numpy
@@ -118,6 +129,8 @@ class Solution:
         pre = int(pow(10, z - int(z) + 4))
         return str(pre) + "..." + str(suf).zfill(5) + "e" + str(c)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +172,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -202,6 +217,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func abbreviateProduct(left int, right int) string {
@@ -249,9 +266,15 @@ func abbreviateProduct(left int, right int) string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -288,4 +311,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

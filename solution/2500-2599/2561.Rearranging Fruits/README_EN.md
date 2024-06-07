@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2561.Rearranging%20Fruits/README_EN.md
 rating: 2221
+source: Weekly Contest 331 Q4
 tags:
     - Greedy
     - Array
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2561. Rearranging Fruits](https://leetcode.com/problems/rearranging-fruits)
 
 [中文文档](/solution/2500-2599/2561.Rearranging%20Fruits/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have two fruit baskets containing <code>n</code> fruits each. You are given two <strong>0-indexed</strong> integer arrays <code>basket1</code> and <code>basket2</code> representing the cost of fruit in each basket. You want to make both baskets <strong>equal</strong>. To do so, you can use the following operation as many times as you want:</p>
 
@@ -52,7 +57,11 @@ tags:
 	<li><code>1 &lt;= basket1[i],basket2[i]&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Construction
 
@@ -69,6 +78,8 @@ In the code implementation, we can directly merge arrays $a$ and $b$ into an arr
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +98,8 @@ class Solution:
         m = len(nums) // 2
         return sum(min(x, mi * 2) for x in nums[:m])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +166,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCost(basket1 []int, basket2 []int) (ans int64) {
@@ -188,4 +205,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

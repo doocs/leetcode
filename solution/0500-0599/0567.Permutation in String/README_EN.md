@@ -9,11 +9,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [567. Permutation in String](https://leetcode.com/problems/permutation-in-string)
 
 [中文文档](/solution/0500-0599/0567.Permutation%20in%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>s1</code> and <code>s2</code>, return <code>true</code><em> if </em><code>s2</code><em> contains a permutation of </em><code>s1</code><em>, or </em><code>false</code><em> otherwise</em>.</p>
 
@@ -43,11 +47,17 @@ tags:
 	<li><code>s1</code> and <code>s2</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +74,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkInclusion(s1 string, s2 string) bool {
 	n, m := len(s1), len(s2)
@@ -147,6 +163,8 @@ func checkInclusion(s1 string, s2 string) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkInclusion(s1: string, s2: string): boolean {
@@ -193,6 +211,8 @@ function checkInclusion(s1: string, s2: string): boolean {
     return isMatch();
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -245,9 +265,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -281,6 +307,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -328,6 +356,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -373,6 +403,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkInclusion(s1 string, s2 string) bool {
@@ -420,9 +452,15 @@ func checkInclusion(s1 string, s2 string) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func checkInclusion(s1 string, s2 string) bool {
@@ -455,4 +493,6 @@ func checkInclusion(s1 string, s2 string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

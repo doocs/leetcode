@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2034.Stock%20Price%20Fluctuation/README.md
 rating: 1831
+source: 第 262 场周赛 Q3
 tags:
     - 设计
     - 哈希表
@@ -11,13 +12,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [2034. 股票价格波动](https://leetcode.cn/problems/stock-price-fluctuation)
 
 [English Version](/solution/2000-2099/2034.Stock%20Price%20Fluctuation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一支股票价格的数据流。数据流中每一条记录包含一个 <strong>时间戳</strong>&nbsp;和该时间点股票对应的 <strong>价格</strong>&nbsp;。</p>
 
@@ -75,7 +78,11 @@ stockPrice.minimum();     // 返回 2 ，最低价格时间戳为 4 ，价格为
 	<li><code>current</code>，<code>maximum</code>&nbsp;和&nbsp;<code>minimum</code>&nbsp;被调用时，<code>update</code>&nbsp;操作 <strong>至少</strong>&nbsp;已经被调用过 <strong>一次</strong>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 有序集合
 
@@ -95,6 +102,8 @@ stockPrice.minimum();     // 返回 2 ，最低价格时间戳为 4 ，价格为
 空间复杂度为 $O(n)$。其中，$n$ 为 `update` 操作的次数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -130,6 +139,8 @@ class StockPrice:
 # param_3 = obj.maximum()
 # param_4 = obj.minimum()
 ```
+
+#### Java
 
 ```java
 class StockPrice {
@@ -175,6 +186,8 @@ class StockPrice {
  */
 ```
 
+#### C++
+
 ```cpp
 class StockPrice {
 public:
@@ -217,6 +230,8 @@ private:
  * int param_4 = obj->minimum();
  */
 ```
+
+#### Go
 
 ```go
 type StockPrice struct {
@@ -278,4 +293,6 @@ func (this *StockPrice) Minimum() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [100. Same Tree](https://leetcode.com/problems/same-tree)
 
 [中文文档](/solution/0100-0199/0100.Same%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the roots of two binary trees <code>p</code> and <code>q</code>, write a function to check if they are the same or not.</p>
 
@@ -49,7 +53,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -60,6 +68,8 @@ First, determine whether the root nodes of the two binary trees are the same. If
 The time complexity is $O(\min(m, n))$, and the space complexity is $O(\min(m, n))$. Here, $m$ and $n$ are the number of nodes in the two binary trees, respectively. The space complexity mainly depends on the number of layers of recursive calls, which will not exceed the number of nodes in the smaller binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -76,6 +86,8 @@ class Solution:
             return False
         return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 ```
+
+#### Java
 
 ```java
 /**
@@ -102,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -124,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -143,6 +159,8 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -169,6 +187,8 @@ function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
     return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -213,6 +233,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -235,6 +257,8 @@ var isSameTree = function (p, q) {
     return false;
 };
 ```
+
+#### PHP
 
 ```php
 /**
@@ -273,6 +297,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: BFS
 
 We can also use the BFS iterative method to solve this problem.
@@ -282,6 +310,8 @@ First, add the root nodes of the two binary trees to two queues. Each time, take
 The time complexity is $O(\min(m, n))$, and the space complexity is $O(\min(m, n))$. Here, $m$ and $n$ are the number of nodes in the two binary trees, respectively. The space complexity mainly depends on the number of elements in the queue, which will not exceed the number of nodes in the smaller binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -315,6 +345,8 @@ class Solution:
                 q2.append(rb)
         return True
 ```
+
+#### Java
 
 ```java
 /**
@@ -372,6 +404,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -414,6 +448,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -459,6 +495,8 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -513,6 +551,8 @@ function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -587,4 +627,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

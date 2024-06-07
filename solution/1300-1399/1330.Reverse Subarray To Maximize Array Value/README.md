@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/README.md
 rating: 2481
+source: 第 18 场双周赛 Q4
 tags:
     - 贪心
     - 数组
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1330. 翻转子数组得到最大的数组值](https://leetcode.cn/problems/reverse-subarray-to-maximize-array-value)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code> 。「数组值」定义为所有满足&nbsp;<code>0 &lt;= i &lt; nums.length-1</code>&nbsp;的&nbsp;<code>|nums[i]-nums[i+1]|</code>&nbsp;的和。</p>
 
@@ -47,7 +50,11 @@ tags:
 	<li><code>-10^5 &lt;= nums[i] &lt;= 10^5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分类讨论 + 枚举
 
@@ -98,6 +105,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxValueAfterReverse(self, nums: List[int]) -> int:
@@ -115,6 +124,8 @@ class Solution:
             ans = max(ans, s + max(mx - mi, 0))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -180,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxValueAfterReverse(nums []int) int {
@@ -219,6 +234,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxValueAfterReverse(nums: number[]): number {
     const n = nums.length;
@@ -251,4 +268,6 @@ function maxValueAfterReverse(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

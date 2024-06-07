@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1545.Find%20Kth%20Bit%20in%20Nth%20Binary%20String/README_EN.md
 rating: 1479
+source: Weekly Contest 201 Q2
 tags:
     - Recursion
     - String
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1545. Find Kth Bit in Nth Binary String](https://leetcode.com/problems/find-kth-bit-in-nth-binary-string)
 
 [中文文档](/solution/1500-1599/1545.Find%20Kth%20Bit%20in%20Nth%20Binary%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two positive integers <code>n</code> and <code>k</code>, the binary string <code>S<sub>n</sub></code> is formed as follows:</p>
 
@@ -62,7 +67,11 @@ The 11<sup>th</sup> bit is &quot;1&quot;.
 	<li><code>1 &lt;= k &lt;= 2<sup>n</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case Analysis + Recursion
 
@@ -79,6 +88,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findKthBit(self, n: int, k: int) -> str:
@@ -94,6 +105,8 @@ class Solution:
 
         return str(dfs(n, k))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKthBit(n int, k int) byte {
 	var dfs func(n, k int) int
@@ -158,6 +175,8 @@ func findKthBit(n int, k int) byte {
 	return byte('0' + dfs(n, k))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKthBit(n: number, k: number): string {
@@ -180,4 +199,6 @@ function findKthBit(n: number, k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

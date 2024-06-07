@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README.md
 rating: 1896
+source: 第 383 场周赛 Q3
 tags:
     - 数组
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [3030. 找出网格的区域平均强度](https://leetcode.cn/problems/find-the-grid-of-region-average)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、大小为 <code>m x n</code> 的网格 <code>image</code> ，表示一个灰度图像，其中 <code>image[i][j]</code> 表示在范围 <code>[0..255]</code> 内的某个像素强度。另给你一个<strong> 非负 </strong>整数 <code>threshold</code> 。</p>
 
@@ -65,11 +68,17 @@ tags:
 	<li><code>0 &lt;= threshold &lt;= 255</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -112,6 +121,8 @@ class Solution:
 
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -165,6 +176,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -214,6 +227,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func resultGrid(image [][]int, threshold int) [][]int {
@@ -273,6 +288,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function resultGrid(image: number[][], threshold: number): number[][] {
     const n: number = image.length;
@@ -324,4 +341,6 @@ function resultGrid(image: number[][], threshold: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

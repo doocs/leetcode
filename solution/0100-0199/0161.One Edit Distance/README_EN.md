@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [161. One Edit Distance 🔒](https://leetcode.com/problems/one-edit-distance)
 
 [中文文档](/solution/0100-0199/0161.One%20Edit%20Distance/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> if they are both one edit distance apart, otherwise return <code>false</code>.</p>
 
@@ -48,7 +52,11 @@ tags:
 	<li><code>s</code> and <code>t</code> consist of lowercase letters, uppercase letters, and digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Discuss Different Cases
 
@@ -67,6 +75,8 @@ The time complexity is $O(m)$, where $m$ is the length of string $s$. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isOneEditDistance(self, s: str, t: str) -> bool:
@@ -80,6 +90,8 @@ class Solution:
                 return s[i + 1 :] == t[i + 1 :] if m == n else s[i + 1 :] == t[i:]
         return m == n + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isOneEditDistance(s string, t string) bool {
@@ -143,6 +159,8 @@ func isOneEditDistance(s string, t string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isOneEditDistance(s: string, t: string): boolean {
     const [m, n] = [s.length, t.length];
@@ -163,4 +181,6 @@ function isOneEditDistance(s: string, t: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

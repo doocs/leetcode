@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README_EN.md
 rating: 1981
+source: Weekly Contest 363 Q3
 tags:
     - Array
     - Binary Search
 ---
+
+<!-- problem:start -->
 
 # [2861. Maximum Number of Alloys](https://leetcode.com/problems/maximum-number-of-alloys)
 
 [中文文档](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are the owner of a company that creates alloys using various types of metals. There are <code>n</code> different types of metals available, and you have access to <code>k</code> machines that can be used to create alloys. Each machine requires a specific amount of each metal type to create an alloy.</p>
 
@@ -81,7 +86,11 @@ It can be proven that we can create at most 2 alloys.
 	<li><code>1 &lt;= cost[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -92,6 +101,8 @@ For each machine, we can use binary search to find the maximum integer $x$ such 
 The time complexity is $O(n \times k \times \log M)$, where $M$ is the upper bound of the binary search, and in this problem, $M \leq 2 \times 10^8$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -117,6 +128,8 @@ class Solution:
             ans = max(ans, l)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -162,6 +175,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -194,6 +209,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNumberOfAlloys(n int, k int, budget int, composition [][]int, stock []int, cost []int) int {
 	isValid := func(target int) bool {
@@ -222,6 +239,8 @@ func maxNumberOfAlloys(n int, k int, budget int, composition [][]int, stock []in
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxNumberOfAlloys(
@@ -261,4 +280,6 @@ function maxNumberOfAlloys(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

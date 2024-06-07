@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1363.Largest%20Multiple%20of%20Three/README_EN.md
 rating: 1822
+source: Weekly Contest 177 Q4
 tags:
     - Greedy
     - Array
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1363. Largest Multiple of Three](https://leetcode.com/problems/largest-multiple-of-three)
 
 [中文文档](/solution/1300-1399/1363.Largest%20Multiple%20of%20Three/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of digits <code>digits</code>, return <em>the largest multiple of <strong>three</strong> that can be formed by concatenating some of the given digits in <strong>any order</strong></em>. If there is no answer return an empty string.</p>
 
@@ -49,7 +54,11 @@ tags:
 	<li><code>0 &lt;= digits[i] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Dynamic Programming + Backtracking
 
@@ -68,6 +77,8 @@ Define $i = n$, $j = 0$, start backtracking from $f[i][j]$, let $k = (j - x_i \b
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +104,8 @@ class Solution:
             i += 1
         return "".join(map(str, arr[i:]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +178,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestMultipleOfThree(digits []int) string {
@@ -201,6 +218,8 @@ func largestMultipleOfThree(digits []int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function largestMultipleOfThree(digits: number[]): string {
     digits.sort((a, b) => a - b);
@@ -233,4 +252,6 @@ function largestMultipleOfThree(digits: number[]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

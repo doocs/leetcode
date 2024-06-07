@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README_EN.md
 rating: 1214
+source: Weekly Contest 385 Q1
 tags:
     - Trie
     - Array
@@ -12,11 +13,15 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [3042. Count Prefix and Suffix Pairs I](https://leetcode.com/problems/count-prefix-and-suffix-pairs-i)
 
 [中文文档](/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string array <code>words</code>.</p>
 
@@ -70,7 +75,11 @@ Therefore, the answer is 0.</pre>
 	<li><code>words[i]</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -79,6 +88,8 @@ We can enumerate all index pairs $(i, j)$, where $i < j$, and then determine whe
 The time complexity is $O(n^2 \times m)$, where $n$ and $m$ are the length of `words` and the maximum length of the strings, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +100,8 @@ class Solution:
                 ans += t.endswith(s) and t.startswith(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPrefixSuffixPairs(words []string) (ans int) {
 	for i, s := range words {
@@ -141,6 +158,8 @@ func countPrefixSuffixPairs(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countPrefixSuffixPairs(words: string[]): number {
@@ -159,6 +178,10 @@ function countPrefixSuffixPairs(words: string[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Trie
 
 We can treat each string $s$ in the string array as a list of character pairs, where each character pair $(s[i], s[m - i - 1])$ represents the $i$th character pair of the prefix and suffix of string $s$.
@@ -168,6 +191,8 @@ We can use a trie to store all the character pairs, and then for each string $s$
 The time complexity is $O(n \times m)$, and the space complexity is $O(n \times m)$. Here, $n$ and $m$ are the lengths of `words` and the maximum length of the strings, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -192,6 +217,8 @@ class Solution:
             node.cnt += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -218,6 +245,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -252,6 +281,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Node struct {
 	children map[int]*Node
@@ -279,4 +310,6 @@ func countPrefixSuffixPairs(words []string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

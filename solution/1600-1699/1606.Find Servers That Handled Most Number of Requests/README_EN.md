@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1606.Find%20Servers%20That%20Handled%20Most%20Number%20of%20Requests/README_EN.md
 rating: 2275
+source: Biweekly Contest 36 Q4
 tags:
     - Greedy
     - Array
@@ -10,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1606. Find Servers That Handled Most Number of Requests](https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests)
 
 [中文文档](/solution/1600-1699/1606.Find%20Servers%20That%20Handled%20Most%20Number%20of%20Requests/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>k</code> servers numbered from <code>0</code> to <code>k-1</code> that are being used to handle multiple requests simultaneously. Each server has infinite computational capacity but <strong>cannot handle more than one request at a time</strong>. The requests are assigned to servers according to a specific algorithm:</p>
 
@@ -73,11 +78,17 @@ Server 0 handled two requests, while servers 1 and 2 handled one request each. H
 	<li><code>arrival</code> is <strong>strictly increasing</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -105,6 +116,8 @@ class Solution:
         mx = max(cnt)
         return [i for i, v in enumerate(cnt) if v == mx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -178,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func busiestServers(k int, arrival, load []int) (ans []int) {
@@ -225,4 +242,6 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

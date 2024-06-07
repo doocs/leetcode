@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/README.md
 rating: 1947
+source: 第 212 场周赛 Q3
 tags:
     - 深度优先搜索
     - 广度优先搜索
@@ -13,13 +14,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1631. 最小体力消耗路径](https://leetcode.cn/problems/path-with-minimum-effort)
 
 [English Version](/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你准备参加一场远足活动。给你一个二维 <code>rows x columns</code> 的地图 <code>heights</code> ，其中 <code>heights[row][col]</code> 表示格子 <code>(row, col)</code> 的高度。一开始你在最左上角的格子 <code>(0, 0)</code> ，且你希望去最右下角的格子 <code>(rows-1, columns-1)</code> （注意下标从 <strong>0</strong> 开始编号）。你每次可以往 <strong>上</strong>，<strong>下</strong>，<strong>左</strong>，<strong>右</strong> 四个方向之一移动，你想要找到耗费 <strong>体力</strong> 最小的一条路径。</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li><code>1 <= heights[i][j] <= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：并查集
 
@@ -80,6 +87,8 @@ tags:
 时间复杂度 $O(m \times n \times \log(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维数组的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -129,6 +138,8 @@ class Solution:
                 return h
         return 0
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -200,6 +211,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -267,6 +280,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -342,6 +357,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class UnionFind {
     private p: number[];
@@ -415,6 +432,10 @@ function minimumEffortPath(heights: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二分查找 + BFS
 
 我们注意到，如果一个路径的最大体力消耗值为 $x$，那么对于任意 $y > x$，该路径也是满足条件的，这存在着单调性，因此我们可以使用二分查找的方法，找到最小的满足条件的体力消耗值。
@@ -424,6 +445,8 @@ function minimumEffortPath(heights: number[][]): number {
 时间复杂度 $O(m \times n \times \log M)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维数组的行数和列数，而 $M$ 是二维数组中的最大值，本题中 $M=10^6$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -452,6 +475,8 @@ class Solution:
         m, n = len(heights), len(heights[0])
         return bisect_left(range(10**6), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -495,6 +520,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -536,6 +563,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumEffortPath(heights [][]int) int {
 	return sort.Search(1e6, func(h int) bool {
@@ -574,6 +603,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumEffortPath(heights: number[][]): number {
@@ -625,6 +656,10 @@ function minimumEffortPath(heights: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：堆优化的 Dijkstra 算法
 
 我们可以把每个格子当做图的一个节点，把相邻两个格子的高度差绝对值当做边的权重，因此本题是求解从最左上角的节点到最右下角的节点的最短路径问题。
@@ -636,6 +671,8 @@ function minimumEffortPath(heights: number[][]): number {
 时间复杂度 $O(m \times n \times \log(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维数组的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -658,6 +695,8 @@ class Solution:
                     heappush(q, (d, x, y))
         return int(dist[-1][-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -690,6 +729,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -721,6 +762,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumEffortPath(heights [][]int) int {
@@ -769,6 +812,8 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumEffortPath(heights: number[][]): number {
     const m = heights.length;
@@ -797,4 +842,6 @@ function minimumEffortPath(heights: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

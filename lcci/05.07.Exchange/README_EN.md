@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.07.Exchange/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [05.07. Exchange](https://leetcode.cn/problems/exchange-lcci)
 
 [中文文档](/lcci/05.07.Exchange/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a program to swap odd and even bits in an integer with as few instructions as possible (e.g., bit 0 and bit 1 are swapped, bit 2 and bit 3 are swapped, and so on).</p>
 
@@ -39,7 +43,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.07.Exchange/README
 	<li>The result integer fits into 32-bit integer.</li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -49,11 +57,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def exchangeBits(self, num: int) -> int:
         return ((num & 0x55555555) << 1) | ((num & 0xAAAAAAAA) >> 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -62,6 +74,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -72,17 +86,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func exchangeBits(num int) int {
 	return ((num & 0x55555555) << 1) | (num&0xaaaaaaaa)>>1
 }
 ```
 
+#### TypeScript
+
 ```ts
 function exchangeBits(num: number): number {
     return ((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa) >>> 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -92,6 +112,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -107,4 +129,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

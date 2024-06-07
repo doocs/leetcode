@@ -9,11 +9,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [336. Palindrome Pairs](https://leetcode.com/problems/palindrome-pairs)
 
 [中文文档](/solution/0300-0399/0336.Palindrome%20Pairs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of <strong>unique</strong> strings <code>words</code>.</p>
 
@@ -63,11 +67,17 @@ tags:
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +94,8 @@ class Solution:
                     ans.append([d[rb], i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +144,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 func palindromePairs(words []string) [][]int {
 	base := 131
@@ -172,6 +186,8 @@ func palindromePairs(words []string) [][]int {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;
@@ -228,9 +244,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Trie {
@@ -315,4 +337,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

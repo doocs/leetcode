@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2626.Array%20Reduce%20Transformation/README.md
 ---
 
+<!-- problem:start -->
+
 # [2626. 数组归约运算](https://leetcode.cn/problems/array-reduce-transformation)
 
 [English Version](/solution/2600-2699/2626.Array%20Reduce%20Transformation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组 <code>nums</code>、一个 reducer 函数 <code>fn</code> 和一个初始值 <code>init</code>，返回通过依次对数组的每个元素执行 <code>fn</code> 函数得到的最终结果。</p>
 
@@ -77,11 +79,17 @@ init = 25
 	<li><code>0 &lt;= init &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 type Fn = (accum: number, curr: number) => number;
@@ -97,4 +105,6 @@ function reduce(nums: number[], fn: Fn, init: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1046.Last%20Stone%20Weight/README_EN.md
 rating: 1172
+source: Weekly Contest 137 Q1
 tags:
     - Array
     - Heap (Priority Queue)
 ---
+
+<!-- problem:start -->
 
 # [1046. Last Stone Weight](https://leetcode.com/problems/last-stone-weight)
 
 [中文文档](/solution/1000-1099/1046.Last%20Stone%20Weight/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of integers <code>stones</code> where <code>stones[i]</code> is the weight of the <code>i<sup>th</sup></code> stone.</p>
 
@@ -55,11 +60,17 @@ we combine 1 and 1 to get 0 so the array converts to [1] then that&#39;s the val
 	<li><code>1 &lt;= stones[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +83,8 @@ class Solution:
                 heappush(h, x - y)
         return 0 if not h else -h[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastStoneWeight(stones []int) int {
@@ -144,6 +161,8 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
+#### TypeScript
+
 ```ts
 function lastStoneWeight(stones: number[]): number {
     const pq = new MaxPriorityQueue();
@@ -160,6 +179,8 @@ function lastStoneWeight(stones: number[]): number {
     return pq.isEmpty() ? 0 : pq.dequeue().element;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -184,4 +205,6 @@ var lastStoneWeight = function (stones) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

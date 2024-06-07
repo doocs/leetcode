@@ -8,11 +8,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [2422. Merge Operations to Turn Array Into a Palindrome 🔒](https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome)
 
 [中文文档](/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> consisting of <strong>positive</strong> integers.</p>
 
@@ -59,7 +63,11 @@ It can be shown that 2 is the minimum number of operations needed.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
 
@@ -76,6 +84,8 @@ Repeat the above process until $i \ge j$, return the operation count $ans$.
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +107,8 @@ class Solution:
                 a, b = nums[i], nums[j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumOperations(nums []int) int {
@@ -170,4 +186,6 @@ func minimumOperations(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [471. 编码最短长度的字符串 🔒](https://leetcode.cn/problems/encode-string-with-shortest-length)
 
 [English Version](/solution/0400-0499/0471.Encode%20String%20with%20Shortest%20Length/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <strong>非空</strong> 字符串，将其编码为具有最短长度的字符串。</p>
 
@@ -77,7 +79,11 @@ tags:
 	<li><code>s</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划（区间 DP）
 
@@ -92,6 +98,8 @@ tags:
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -118,6 +126,8 @@ class Solution:
                             f[i][j] = t
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +169,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -197,6 +209,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func encode(s string) string {
 	n := len(s)
@@ -233,6 +247,8 @@ func encode(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function encode(s: string): string {
     const n = s.length;
@@ -268,4 +284,6 @@ function encode(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

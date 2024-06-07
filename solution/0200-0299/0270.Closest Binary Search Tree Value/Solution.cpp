@@ -13,18 +13,18 @@ class Solution {
 public:
     int closestValue(TreeNode* root, double target) {
         int ans = root->val;
-        double mi = INT_MAX;
-        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
-            if (!root) {
+        double diff = INT_MAX;
+        function<void(TreeNode*)> dfs = [&](TreeNode* node) {
+            if (!node) {
                 return;
             }
-            dfs(root->left);
-            double t = abs(root->val - target);
-            if (t < mi) {
-                mi = t;
-                ans = root->val;
+            double nxt = abs(node->val - target);
+            if (nxt < diff || (nxt == diff && node->val < ans)) {
+                diff = nxt;
+                ans = node->val;
             }
-            dfs(root->right);
+            node = target < node->val ? node->left : node->right;
+            dfs(node);
         };
         dfs(root);
         return ans;

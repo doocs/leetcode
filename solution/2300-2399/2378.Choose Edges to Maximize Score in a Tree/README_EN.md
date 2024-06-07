@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2378. Choose Edges to Maximize Score in a Tree 🔒](https://leetcode.com/problems/choose-edges-to-maximize-score-in-a-tree)
 
 [中文文档](/solution/2300-2399/2378.Choose%20Edges%20to%20Maximize%20Score%20in%20a%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>weighted</strong> tree consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>.</p>
 
@@ -67,11 +71,17 @@ Note that we cannot choose more than one edge because all edges are adjacent to 
 	<li><code>edges</code> represents a valid tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +101,8 @@ class Solution:
             g[p].append((i, w))
         return dfs(0)[1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxScore(edges [][]int) int64 {
 	n := len(edges)
@@ -177,4 +193,6 @@ func maxScore(edges [][]int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

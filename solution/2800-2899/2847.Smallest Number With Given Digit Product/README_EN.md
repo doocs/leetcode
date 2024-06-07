@@ -7,11 +7,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2847. Smallest Number With Given Digit Product 🔒](https://leetcode.com/problems/smallest-number-with-given-digit-product)
 
 [中文文档](/solution/2800-2899/2847.Smallest%20Number%20With%20Given%20Digit%20Product/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>positive</strong> integer <code>n</code>, return <em>a string representing the <strong>smallest positive</strong> integer such that the product of its digits is equal to</em> <code>n</code><em>, or </em><code>&quot;-1&quot;</code><em> if no such number exists</em>.</p>
 
@@ -47,7 +51,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>18</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prime Factorization + Greedy
 
@@ -58,6 +66,8 @@ Otherwise, if the prime factors include $7$ and $5$, then the number $n$ can fir
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +82,8 @@ class Solution:
         ans = "".join(str(i) * cnt[i] for i in range(2, 10))
         return ans if ans else "1"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestNumber(n int64) string {
@@ -150,4 +166,6 @@ func smallestNumber(n int64) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1037.Valid%20Boomerang/README.md
 rating: 1255
+source: 第 135 场周赛 Q1
 tags:
     - 几何
     - 数组
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1037. 有效的回旋镖](https://leetcode.cn/problems/valid-boomerang)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数组<meta charset="UTF-8" />&nbsp;<code>points</code>&nbsp;，其中<meta charset="UTF-8" />&nbsp;<code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>&nbsp;表示 <strong>X-Y</strong> 平面上的一个点，<em>如果这些点构成一个&nbsp;</em><strong>回旋镖</strong>&nbsp;则返回&nbsp;<code>true</code>&nbsp;。</p>
 
@@ -47,7 +50,11 @@ tags:
 	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub>&nbsp;&lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：斜率比较
 
@@ -64,12 +71,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isBoomerang(self, points: List[List[int]]) -> bool:
         (x1, y1), (x2, y2), (x3, y3) = points
         return (y2 - y1) * (x3 - x2) != (y3 - y2) * (x2 - x1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -94,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isBoomerang(points [][]int) bool {
 	x1, y1 := points[0][0], points[0][1]
@@ -103,6 +118,8 @@ func isBoomerang(points [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isBoomerang(points: number[][]): boolean {
     const [x1, y1] = points[0];
@@ -111,6 +128,8 @@ function isBoomerang(points: number[][]): boolean {
     return (x1 - x2) * (y2 - y3) !== (x2 - x3) * (y1 - y2);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -125,4 +144,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

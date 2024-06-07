@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20102.%20%E5%8A%A0%E5%87%8F%E7%9A%84%E7%9B%AE%E6%A0%87%E5%80%BC/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 102. 加减的目标值](https://leetcode.cn/problems/YaVDxD)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个正整数数组 <code>nums</code> 和一个整数 <code>target</code> 。</p>
 
@@ -56,11 +58,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 494&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/target-sum/">https://leetcode.cn/problems/target-sum/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +86,8 @@ class Solution:
                     dp[i][j - nums[i] + 1000] += dp[i - 1][j + 1000]
         return dp[n - 1][target + 1000]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findTargetSumWays(nums []int, target int) int {
@@ -151,9 +165,15 @@ func findTargetSumWays(nums []int, target int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -172,6 +192,8 @@ class Solution:
                     dp[i][j] += dp[i - 1][j - nums[i - 1]]
         return dp[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -196,6 +218,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 func findTargetSumWays(nums []int, target int) int {
 	s := 0
@@ -219,9 +243,15 @@ func findTargetSumWays(nums []int, target int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -241,9 +271,15 @@ class Solution:
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法四
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -262,4 +298,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

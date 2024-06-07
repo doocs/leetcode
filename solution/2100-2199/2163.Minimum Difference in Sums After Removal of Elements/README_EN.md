@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2163.Minimum%20Difference%20in%20Sums%20After%20Removal%20of%20Elements/README_EN.md
 rating: 2225
+source: Biweekly Contest 71 Q4
 tags:
     - Array
     - Dynamic Programming
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2163. Minimum Difference in Sums After Removal of Elements](https://leetcode.com/problems/minimum-difference-in-sums-after-removal-of-elements)
 
 [中文文档](/solution/2100-2199/2163.Minimum%20Difference%20in%20Sums%20After%20Removal%20of%20Elements/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> consisting of <code>3 * n</code> elements.</p>
 
@@ -67,11 +72,17 @@ It can be shown that it is not possible to obtain a difference smaller than 1.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +113,8 @@ class Solution:
 
         return min(pre[i] - suf[i + 1] for i in range(n, n * 2 + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +153,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -183,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumDifference(nums []int) int64 {
@@ -231,6 +248,8 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumDifference(nums: number[]): number {
     const m = nums.length;
@@ -269,4 +288,6 @@ function minimumDifference(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README.md
 rating: 1874
+source: 第 129 场周赛 Q2
 tags:
     - 哈希表
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1015. 可被 K 整除的最小整数](https://leetcode.cn/problems/smallest-integer-divisible-by-k)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定正整数 <code>k</code>&nbsp;，你需要找出可以被 <code>k</code>&nbsp;整除的、仅包含数字 <code><strong>1</strong></code> 的最 <strong>小</strong> 正整数 <code>n</code>&nbsp;的长度。</p>
 
@@ -53,7 +56,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -65,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestRepunitDivByK(self, k: int) -> int:
@@ -75,6 +84,8 @@ class Solution:
             n = (n * 10 + 1) % k
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestRepunitDivByK(k int) int {
 	n := 1 % k
@@ -119,6 +134,8 @@ func smallestRepunitDivByK(k int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestRepunitDivByK(k: number): number {
@@ -135,4 +152,6 @@ function smallestRepunitDivByK(k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.07.Baby%20Names/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.07. 婴儿名字](https://leetcode.cn/problems/baby-names-lcci)
 
 [English Version](/lcci/17.07.Baby%20Names/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>每年，政府都会公布一万个最常见的婴儿名字和它们出现的频率，也就是同名婴儿的数量。有些名字有多种拼法，例如，John 和 Jon 本质上是相同的名字，但被当成了两个名字公布出来。给定两个列表，一个是名字及对应的频率，另一个是本质相同的名字对。设计一个算法打印出每个真实名字的实际频率。注意，如果 John 和 Jon 是相同的，并且 Jon 和 Johnny 相同，则 John 与 Johnny 也相同，即它们有传递和对称性。</p>
 
 <p>在结果列表中，选择<strong>字典序最小</strong>的名字作为真实名字。</p>
@@ -26,7 +29,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.07.Baby%20Names/RE
 	<li><code>names.length &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + DFS
 
@@ -39,6 +46,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.07.Baby%20Names/RE
 时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为名字数组和同义词数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +82,8 @@ class Solution:
                 ans.append(f"{name}({freq})")
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -174,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func trulyMostPopular(names []string, synonyms []string) (ans []string) {
 	g := map[string][]string{}
@@ -220,6 +235,8 @@ func trulyMostPopular(names []string, synonyms []string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function trulyMostPopular(names: string[], synonyms: string[]): string[] {
     const map = new Map<string, string>();
@@ -250,6 +267,8 @@ function trulyMostPopular(names: string[], synonyms: string[]): string[] {
     return [...keyCount.entries()].map(([k, v]) => `${k}(${v})`);
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -307,4 +326,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

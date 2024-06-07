@@ -7,13 +7,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [875. 爱吃香蕉的珂珂](https://leetcode.cn/problems/koko-eating-bananas)
 
 [English Version](/solution/0800-0899/0875.Koko%20Eating%20Bananas/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>珂珂喜欢吃香蕉。这里有 <code>n</code> 堆香蕉，第 <code>i</code> 堆中有&nbsp;<code>piles[i]</code>&nbsp;根香蕉。警卫已经离开了，将在 <code>h</code> 小时后回来。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>1 &lt;= piles[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -71,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
@@ -79,6 +87,8 @@ class Solution:
 
         return 1 + bisect_left(range(1, max(piles) + 1), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minEatingSpeed(piles []int, h int) int {
 	return 1 + sort.Search(slices.Max(piles), func(k int) bool {
@@ -135,6 +149,8 @@ func minEatingSpeed(piles []int, h int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minEatingSpeed(piles: number[], h: number): number {
@@ -151,6 +167,8 @@ function minEatingSpeed(piles: number[], h: number): number {
     return l;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,6 +191,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -197,4 +217,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

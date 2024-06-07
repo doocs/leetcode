@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1480.Running%20Sum%20of%201d%20Array/README_EN.md
 rating: 1104
+source: Weekly Contest 193 Q1
 tags:
     - Array
     - Prefix Sum
 ---
+
+<!-- problem:start -->
 
 # [1480. Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array)
 
 [中文文档](/solution/1400-1499/1480.Running%20Sum%20of%201d%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>nums</code>. We define a running sum of an array as&nbsp;<code>runningSum[i] = sum(nums[0]&hellip;nums[i])</code>.</p>
 
@@ -48,7 +53,11 @@ tags:
 	<li><code>-10^6&nbsp;&lt;= nums[i] &lt;=&nbsp;10^6</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum
 
@@ -58,11 +67,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
         return list(accumulate(nums))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +88,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -85,6 +100,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func runningSum(nums []int) []int {
 	for i := 1; i < len(nums); i++ {
@@ -94,6 +111,8 @@ func runningSum(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function runningSum(nums: number[]): number[] {
     for (let i = 1; i < nums.length; ++i) {
@@ -102,6 +121,8 @@ function runningSum(nums: number[]): number[] {
     return nums;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -113,6 +134,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -131,4 +154,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

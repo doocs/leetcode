@@ -9,13 +9,15 @@ tags:
     - 有序集合
 ---
 
+<!-- problem:start -->
+
 # [895. 最大频率栈](https://leetcode.cn/problems/maximum-frequency-stack)
 
 [English Version](/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个类似堆栈的数据结构，将元素推入堆栈，并从堆栈中弹出<strong>出现频率</strong>最高的元素。</p>
 
@@ -63,7 +65,11 @@ freqStack.pop ();//返回 4 ，因为 4, 5 和 7 出现频率最高，但 4 是�
 	<li>输入保证在调用&nbsp;<code>pop</code>&nbsp;之前堆栈中至少有一个元素。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 优先队列（大根堆）
 
@@ -76,6 +82,8 @@ freqStack.pop ();//返回 4 ，因为 4, 5 和 7 出现频率最高，但 4 是�
 执行弹栈操作时，我们直接从优先队列 $q$ 中弹出一个元素即可。由于优先队列 $q$ 中的元素按照频率降序排序，因此弹出的元素一定是出现频率最高的元素。如果存在多个元素出现频率相同，那么弹出最接近栈顶的元素，即弹出时间戳最大的元素。弹出后，我们将弹出元素的频率减一，即 $cnt[val] \gets cnt[val] - 1$。弹栈操作的时间复杂度为 $O(\log n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class FreqStack:
@@ -100,6 +108,8 @@ class FreqStack:
 # obj.push(val)
 # param_2 = obj.pop()
 ```
+
+#### Java
 
 ```java
 class FreqStack {
@@ -130,6 +140,8 @@ class FreqStack {
  * int param_2 = obj.pop();
  */
 ```
+
+#### C++
 
 ```cpp
 class FreqStack {
@@ -162,6 +174,8 @@ private:
  * int param_2 = obj->pop();
  */
 ```
+
+#### Go
 
 ```go
 type FreqStack struct {
@@ -207,6 +221,10 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：双哈希表
 
 在方法一中，为了能弹出符合要求的元素，我们维护了一个优先队列，每次都需要对优先队列进行操作，时间复杂度为 $O(\log n)$。如果我们能够在 $O(1)$ 的时间内找到符合要求的元素，那么整个数据结构每次操作的时间复杂度就可以降低到 $O(1)$。
@@ -218,6 +236,8 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 执行弹栈操作时，我们从哈希表 $d$ 中取出频率为 $mx$ 的元素列表，弹出列表中的最后一个元素 $val$，然后将 $val$ 从哈希表 $d$ 中移除，即 $d[mx].pop()$。最后将 $val$ 的频率减一，即 $cnt[val] \gets cnt[val] - 1$。如果 $d[mx]$ 列表为空，说明当前出现频率最大的元素已经全部弹出，我们需要将 $mx$ 减一，即 $mx \gets mx - 1$。弹栈操作的时间复杂度为 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class FreqStack:
@@ -244,6 +264,8 @@ class FreqStack:
 # obj.push(val)
 # param_2 = obj.pop()
 ```
+
+#### Java
 
 ```java
 class FreqStack {
@@ -279,6 +301,8 @@ class FreqStack {
  */
 ```
 
+#### C++
+
 ```cpp
 class FreqStack {
 public:
@@ -312,6 +336,8 @@ private:
  * int param_2 = obj->pop();
  */
 ```
+
+#### Go
 
 ```go
 type FreqStack struct {
@@ -350,4 +376,6 @@ func (this *FreqStack) Pop() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

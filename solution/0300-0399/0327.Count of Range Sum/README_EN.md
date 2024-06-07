@@ -12,11 +12,15 @@ tags:
     - Merge Sort
 ---
 
+<!-- problem:start -->
+
 # [327. Count of Range Sum](https://leetcode.com/problems/count-of-range-sum)
 
 [中文文档](/solution/0300-0399/0327.Count%20of%20Range%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> and two integers <code>lower</code> and <code>upper</code>, return <em>the number of range sums that lie in</em> <code>[lower, upper]</code> <em>inclusive</em>.</p>
 
@@ -48,11 +52,17 @@ tags:
 	<li>The answer is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -86,6 +96,8 @@ class Solution:
             tree.update(bisect_left(arr, x) + 1, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -160,6 +172,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -219,6 +233,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -277,6 +293,8 @@ func countRangeSum(nums []int, lower int, upper int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -352,4 +370,6 @@ function search(nums: number[], r: number, x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

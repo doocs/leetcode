@@ -8,11 +8,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [531. Lonely Pixel I 🔒](https://leetcode.com/problems/lonely-pixel-i)
 
 [中文文档](/solution/0500-0599/0531.Lonely%20Pixel%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> <code>picture</code> consisting of black <code>&#39;B&#39;</code> and white <code>&#39;W&#39;</code> pixels, return <em>the number of <b>black</b> lonely pixels</em>.</p>
 
@@ -44,7 +48,11 @@ tags:
 	<li><code>picture[i][j]</code> is <code>&#39;W&#39;</code> or <code>&#39;B&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
 
@@ -53,6 +61,8 @@ According to the problem description, we need to count the number of black pixel
 The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns in the matrix respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +81,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLonelyPixel(picture [][]byte) (ans int) {
 	rows := make([]int, len(picture))
@@ -149,6 +165,8 @@ func findLonelyPixel(picture [][]byte) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findLonelyPixel(picture: string[][]): number {
@@ -178,4 +196,6 @@ function findLonelyPixel(picture: string[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

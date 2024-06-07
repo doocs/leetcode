@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1923.Longest%20Common%20Subpath/README.md
 rating: 2661
+source: 第 248 场周赛 Q4
 tags:
     - 数组
     - 二分查找
@@ -11,13 +12,15 @@ tags:
     - 滚动哈希
 ---
 
+<!-- problem:start -->
+
 # [1923. 最长公共子路径](https://leetcode.cn/problems/longest-common-subpath)
 
 [English Version](/solution/1900-1999/1923.Longest%20Common%20Subpath/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个国家由 <code>n</code> 个编号为 <code>0</code> 到 <code>n - 1</code> 的城市组成。在这个国家里，<strong>每两个</strong> 城市之间都有一条道路连接。</p>
 
@@ -68,7 +71,11 @@ tags:
 	<li><code>paths[i]</code> 中同一个城市不会连续重复出现。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符串哈希
 
@@ -81,6 +88,8 @@ tags:
 除了在极特殊构造的数据上，上述 hash 算法很难产生冲突，一般情况下上述 hash 算法完全可以出现在题目的标准答案中。我们还可以多取一些恰当的 BASE 和 MOD 的值（例如大质数），多进行几组 hash 运算，当结果都相同时才认为原字符串相等，就更加难以构造出使这个 hash 产生错误的数据。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -121,6 +130,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -181,4 +192,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

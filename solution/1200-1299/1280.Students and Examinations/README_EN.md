@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1280. Students and Examinations](https://leetcode.com/problems/students-and-examinations)
 
 [中文文档](/solution/1200-1299/1280.Students%20and%20Examinations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Students</code></p>
 
@@ -126,13 +130,19 @@ Alex did not attend any exams.
 John attended the Math exam 1 time, the Physics exam 1 time, and the Programming exam 1 time.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Joins + Grouping
 
 We can first join the `Students` table and the `Subjects` table to obtain all combinations of students and subjects, and then join the `Examinations` table with the condition of `student_id` and `subject_name`. This way, we can get the number of times each student has taken each subject's test. Finally, we can group by `student_id` and `subject_name` to count the number of times each student has taken each subject's test.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -147,4 +157,6 @@ ORDER BY 1, 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

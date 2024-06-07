@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README.md
 rating: 1749
+source: 第 113 场双周赛 Q2
 tags:
     - 贪心
     - 数组
@@ -12,65 +13,76 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2856. 删除数对后的最小数组长度](https://leetcode.cn/problems/minimum-array-length-after-pair-removals)
 
 [English Version](/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的 <strong>非递减</strong> 整数数组&nbsp;<code>nums</code>&nbsp;。</p>
 
 <p>你可以执行以下操作任意次：</p>
 
 <ul>
-	<li>选择 <strong>两个&nbsp;</strong>下标&nbsp;<code>i</code> 和&nbsp;<code>j</code>&nbsp;，满足&nbsp;<code>i &lt; j</code>&nbsp;且&nbsp;<code>nums[i] &lt; nums[j]</code>&nbsp;。</li>
+	<li>选择 <strong>两个&nbsp;</strong>下标&nbsp;<code>i</code> 和&nbsp;<code>j</code>&nbsp;，满足&nbsp;<code>nums[i] &lt; nums[j]</code>&nbsp;。</li>
 	<li>将 <code>nums</code>&nbsp;中下标在&nbsp;<code>i</code> 和&nbsp;<code>j</code>&nbsp;处的元素删除。剩余元素按照原来的顺序组成新的数组，下标也重新从 <strong>0</strong>&nbsp;开始编号。</li>
 </ul>
 
 <p>请你返回一个整数，表示执行以上操作任意次后（可以执行 <strong>0</strong> 次），<code>nums</code>&nbsp;数组的 <strong>最小</strong>&nbsp;数组长度。</p>
 
-<p>请注意，<code>nums</code> 数组是按&nbsp;<strong>非降序&nbsp;</strong>排序的。</p>
-
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>nums = [1,3,4,9]
-<strong>输出：</strong>0
-<strong>解释：</strong>一开始，nums = [1, 3, 4, 9] 。
-第一次操作，我们选择下标 0 和 1 ，满足 nums[0] &lt; nums[1] &lt;=&gt; 1 &lt; 3 。
-删除下标 0 和 1 处的元素，nums 变成 [4, 9] 。
-下一次操作，我们选择下标 0 和 1 ，满足 nums[0] &lt; nums[1] &lt;=&gt; 4 &lt; 9 。
-删除下标 0 和 1 处的元素，nums 变成空数组 [] 。
-所以，可以得到的最小数组长度为 0 。</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">nums = [1,2,3,4]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">0</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/images/1716779983-AHhkVn-tcase1.gif" style="width: 160px; height: 70px;" /></p>
+</div>
 
 <p><strong class="example">示例 2：</strong></p>
 
-<pre>
-<strong>输入：</strong>nums = [2,3,6,9]
-<strong>输出：</strong>0
-<strong>解释：</strong>一开始，nums = [2, 3, 6, 9] 。
-第一次操作，我们选择下标 0 和 2 ，满足 nums[0] &lt; nums[2] &lt;=&gt; 2 &lt; 6 。
-删除下标 0 和 2 处的元素，nums 变成 [3, 9] 。
-下一次操作，我们选择下标 0 和 1 ，满足 nums[0] &lt; nums[1] &lt;=&gt; 3 &lt; 9 。
-删除下标 0 和 1 处的元素，nums 变成空数组 [] 。
-所以，可以得到的最小数组长度为 0 。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">nums = [1,1,2,2,3,3]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">0</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/images/1716779979-GyQhVf-tcase2.gif" style="width: 240px; height: 70px;" /></p>
+</div>
 
 <p><strong class="example">示例 3：</strong></p>
 
-<pre>
-<strong>输入：</strong>nums = [1,1,2]
-<strong>输出：</strong>1
-<strong>解释：</strong>一开始，nums = [1, 1, 2] 。
-第一次操作，我们选择下标 0 和 2 ，满足 nums[0] &lt; nums[2] &lt;=&gt; 1 &lt; 2 。
-删除下标 0 和 2 处的元素，nums 变成 [1] 。
-无法对数组再执行操作。
-所以，可以得到的最小数组长度为 1 。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">nums = [1000000000,1000000000]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">2</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>由于两个数字相等，不能删除它们。</p>
+</div>
+
+<p><strong class="example">示例 4：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">nums = [2,3,4,4,4]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">1</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/images/1716779940-qRRlHk-tcase3.gif" style="width: 210px; height: 70px;" /></p>
+</div>
 
 <p>&nbsp;</p>
 
@@ -82,7 +94,11 @@ tags:
 	<li><code>nums</code>&nbsp;是 <strong>非递减</strong>&nbsp;数组。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 优先队列（大根堆）
 
@@ -91,6 +107,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -110,6 +128,8 @@ class Solution:
             ans -= 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +160,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -173,6 +195,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minLengthAfterRemovals(nums []int) int {
@@ -212,6 +236,8 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
+#### TypeScript
+
 ```ts
 function minLengthAfterRemovals(nums: number[]): number {
     const cnt: Map<number, number> = new Map();
@@ -240,4 +266,6 @@ function minLengthAfterRemovals(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

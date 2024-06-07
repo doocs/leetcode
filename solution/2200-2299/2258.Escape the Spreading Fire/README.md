@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README.md
 rating: 2346
+source: 第 77 场双周赛 Q4
 tags:
     - 广度优先搜索
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [2258. 逃离火灾](https://leetcode.cn/problems/escape-the-spreading-fire)
 
 [English Version](/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始大小为 <code>m x n</code>&nbsp;的二维整数数组&nbsp;<code>grid</code>&nbsp;，它表示一个网格图。每个格子为下面 3 个值之一：</p>
 
@@ -81,7 +84,11 @@ tags:
 	<li><code>grid[0][0] == grid[m - 1][n - 1] == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找 + BFS
 
@@ -94,6 +101,8 @@ tags:
 时间复杂度 $O(m \times n \times \log (m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -160,6 +169,8 @@ class Solution:
                 r = mid - 1
         return int(1e9) if l == m * n else l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -250,6 +261,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -328,6 +341,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumMinutes(grid [][]int) int {
@@ -411,6 +426,8 @@ func maximumMinutes(grid [][]int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumMinutes(grid: number[][]): number {
@@ -498,4 +515,6 @@ function maximumMinutes(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

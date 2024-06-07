@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README.md
 rating: 2090
+source: 第 81 场双周赛 Q4
 tags:
     - 记忆化搜索
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2318. 不同骰子序列的数目](https://leetcode.cn/problems/number-of-distinct-roll-sequences)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;。你需要掷一个 6 面的骰子&nbsp;<code>n</code>&nbsp;次。请你在满足以下要求的前提下，求出 <strong>不同</strong>&nbsp;骰子序列的数目：</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -67,6 +74,8 @@ tags:
 设 $dp[k][i][j]$ 表示序列长度为 $k$，且序列的最后两个数字分别为 $i$, $j$ 的所有满足要求的不同序列的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +101,8 @@ class Solution:
                 ans += dp[-1][i][j]
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func distinctSequences(n int) int {
@@ -219,4 +234,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

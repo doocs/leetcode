@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [544. Output Contest Matches 🔒](https://leetcode.com/problems/output-contest-matches)
 
 [中文文档](/solution/0500-0599/0544.Output%20Contest%20Matches/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>During the NBA playoffs, we always set the rather strong team to play with the rather weak team, like making&nbsp;the rank <code>1</code> team play with the rank <code>n<sup>th</sup></code> team, which is a good strategy to make the contest more interesting.</p>
 
@@ -54,11 +58,17 @@ Since the third round will generate the final winner, you need to output the ans
 	<li><code>n == 2<sup>x</sup></code> where <code>x</code> in in the range <code>[1, 12]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +80,8 @@ class Solution:
             n >>= 1
         return team[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findContestMatch(n int) string {
@@ -122,4 +138,6 @@ func findContestMatch(n int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

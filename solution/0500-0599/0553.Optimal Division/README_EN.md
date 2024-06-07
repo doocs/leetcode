@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [553. Optimal Division](https://leetcode.com/problems/optimal-division)
 
 [中文文档](/solution/0500-0599/0553.Optimal%20Division/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>. The adjacent integers in <code>nums</code> will perform the float division.</p>
 
@@ -60,11 +64,17 @@ It can be shown that after trying all possibilities, we cannot get an expression
 	<li>There is only one optimal division for the given input.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +86,8 @@ class Solution:
             return f'{nums[0]}/{nums[1]}'
         return f'{nums[0]}/({"/".join(map(str, nums[1:]))})'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func optimalDivision(nums []int) string {
@@ -132,6 +148,8 @@ func optimalDivision(nums []int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function optimalDivision(nums: number[]): string {
     const n = nums.length;
@@ -143,6 +161,8 @@ function optimalDivision(nums: number[]): string {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -169,4 +189,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

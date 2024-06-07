@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2600.K%20Items%20With%20the%20Maximum%20Sum/README_EN.md
 rating: 1434
+source: Weekly Contest 338 Q1
 tags:
     - Greedy
     - Math
 ---
+
+<!-- problem:start -->
 
 # [2600. K Items With the Maximum Sum](https://leetcode.com/problems/k-items-with-the-maximum-sum)
 
 [中文文档](/solution/2600-2699/2600.K%20Items%20With%20the%20Maximum%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a bag that consists of items, each item&nbsp;has a number <code>1</code>, <code>0</code>, or <code>-1</code> written on it.</p>
 
@@ -55,11 +60,17 @@ It can be proven that 3 is the maximum possible sum.
 	<li><code>0 &lt;= k &lt;= numOnes + numZeros + numNegOnes</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +83,8 @@ class Solution:
             return numOnes
         return numOnes - (k - numOnes - numZeros)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kItemsWithMaximumSum(numOnes int, numZeros int, numNegOnes int, k int) int {
 	if numOnes >= k {
@@ -113,6 +130,8 @@ func kItemsWithMaximumSum(numOnes int, numZeros int, numNegOnes int, k int) int 
 	return numOnes - (k - numOnes - numZeros)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function kItemsWithMaximumSum(
@@ -130,6 +149,8 @@ function kItemsWithMaximumSum(
     return numOnes - (k - numOnes - numZeros);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -152,6 +173,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int KItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k) {
@@ -168,4 +191,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

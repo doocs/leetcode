@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2962.Count%20Subarrays%20Where%20Max%20Element%20Appears%20at%20Least%20K%20Times/README_EN.md
 rating: 1700
+source: Weekly Contest 375 Q3
 tags:
     - Array
     - Sliding Window
 ---
+
+<!-- problem:start -->
 
 # [2962. Count Subarrays Where Max Element Appears at Least K Times](https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times)
 
 [中文文档](/solution/2900-2999/2962.Count%20Subarrays%20Where%20Max%20Element%20Appears%20at%20Least%20K%20Times/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> and a <strong>positive</strong> integer <code>k</code>.</p>
 
@@ -46,7 +51,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -59,6 +68,8 @@ Therefore, we enumerate the left endpoint $i$, use the pointer $j$ to maintain t
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +87,8 @@ class Solution:
             cnt -= x == mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubarrays(nums []int, k int) (ans int64) {
 	mx := slices.Max(nums)
@@ -145,6 +162,8 @@ func countSubarrays(nums []int, k int) (ans int64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countSubarrays(nums: number[], k: number): number {
     const mx = Math.max(...nums);
@@ -167,4 +186,6 @@ function countSubarrays(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

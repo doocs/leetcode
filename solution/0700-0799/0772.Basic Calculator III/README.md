@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [772. 基本计算器 III 🔒](https://leetcode.cn/problems/basic-calculator-iii)
 
 [English Version](/solution/0700-0799/0772.Basic%20Calculator%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实现一个基本的计算器来计算简单的表达式字符串。</p>
 
@@ -58,6 +60,42 @@ tags:
 	<li><code>s</code> 是一个 <strong>有效的</strong> 表达式</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+### 方法一
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1294. Weather Type in Each Country 🔒](https://leetcode.com/problems/weather-type-in-each-country)
 
 [中文文档](/solution/1200-1299/1294.Weather%20Type%20in%20Each%20Country/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Countries</code></p>
 
@@ -114,11 +118,17 @@ Average weather_state in Morocco in November is (25 + 27 + 31) / 3 = 27.667 so w
 We know nothing about the average weather_state in Spain in November so we do not include it in the result table. 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -138,4 +148,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1926.Nearest%20Exit%20from%20Entrance%20in%20Maze/README.md
 rating: 1638
+source: 第 56 场双周赛 Q2
 tags:
     - 广度优先搜索
     - 数组
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [1926. 迷宫中离入口最近的出口](https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>m x n</code> 的迷宫矩阵 <code>maze</code> （<strong>下标从 0 开始</strong>），矩阵中有空格子（用 <code>'.'</code> 表示）和墙（用 <code>'+'</code> 表示）。同时给你迷宫的入口 <code>entrance</code> ，用 <code>entrance = [entrance<sub>row</sub>, entrance<sub>col</sub>]</code> 表示你一开始所在格子的行和列。</p>
 
@@ -70,11 +73,17 @@ tags:
 	<li><code>entrance</code> 一定是空格子。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +106,8 @@ class Solution:
                         maze[x][y] = '+'
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func nearestExit(maze [][]byte, entrance []int) int {
 	m, n := len(maze), len(maze[0])
@@ -187,6 +202,34 @@ func nearestExit(maze [][]byte, entrance []int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function nearestExit(maze: string[][], entrance: number[]): number {
+    const m = maze.length;
+    const n = maze[0].length;
+    const dir = [0, 1, 0, -1, 0];
+    const q = [[...entrance, 0]];
+    maze[entrance[0]][entrance[1]] = '+';
+    for (const [i, j, ans] of q) {
+        for (let d = 0; d < 4; d++) {
+            const [x, y] = [i + dir[d], j + dir[d + 1]];
+            const v = maze[x]?.[y];
+            if (!v && ans) {
+                return ans;
+            }
+            if (v === '.') {
+                q.push([x, y, ans + 1]);
+                maze[x][y] = '+';
+            }
+        }
+    }
+    return -1;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

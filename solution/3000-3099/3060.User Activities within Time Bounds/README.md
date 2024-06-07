@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3060. 时间范围内的用户活动 🔒](https://leetcode.cn/problems/user-activities-within-time-bounds)
 
 [English Version](/solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Sessions</code></p>
 
@@ -73,13 +75,19 @@ Sessions 表:
 输出表根据 user_id 升序排列。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数 + 时间函数
 
 我们先使用 `LAG` 窗口函数，找到每个用户相同类型的会话的上一个会话的结束时间，记为 `prev_session_end`。然后我们使用 `TIMESTAMPDIFF` 函数计算当前会话的开始时间与上一个会话的结束时间的时间差，如果时间差小于等于 12 小时，那么这个用户就符合题目要求。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -100,6 +108,8 @@ FROM T
 WHERE TIMESTAMPDIFF(HOUR, prev_session_end, session_start) <= 12;
 ```
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -118,4 +128,6 @@ def user_activities(sessions: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

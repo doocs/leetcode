@@ -2,7 +2,16 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3144.Minimum%20Substring%20Partition%20of%20Equal%20Character%20Frequency/README.md
+rating: 1917
+source: 第 130 场双周赛 Q3
+tags:
+    - 哈希表
+    - 字符串
+    - 动态规划
+    - 计数
 ---
+
+<!-- problem:start -->
 
 # [3144. 分割字符频率相等的最少子字符串](https://leetcode.cn/problems/minimum-substring-partition-of-equal-character-frequency)
 
@@ -10,7 +19,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3144.Mi
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;，你需要将它分割成一个或者更多的&nbsp;<strong>平衡</strong>&nbsp;子字符串。比方说，<code>s == "ababcc"</code>&nbsp;那么&nbsp;<code>("abab", "c", "c")</code>&nbsp;，<code>("ab", "abc", "c")</code>&nbsp;和&nbsp;<code>("ababcc")</code>&nbsp;都是合法分割，但是&nbsp;<code>("a", <strong>"bab"</strong>, "cc")</code>&nbsp;，<code>(<strong>"aba"</strong>, "bc", "c")</code>&nbsp;和&nbsp;<code>("ab", <strong>"abcc"</strong>)</code>&nbsp;不是，不平衡的子字符串用粗体表示。</p>
 
@@ -53,7 +62,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3144.Mi
 	<li><code>s</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索 + 哈希表
 
@@ -72,6 +85,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3144.Mi
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +112,8 @@ class Solution:
         n = len(s)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +195,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumSubstringsInPartition(s string) int {
@@ -215,6 +236,8 @@ func minimumSubstringsInPartition(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumSubstringsInPartition(s: string): number {
     const n = s.length;
@@ -251,4 +274,6 @@ function minimumSubstringsInPartition(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

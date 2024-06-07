@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md
 rating: 1796
+source: Weekly Contest 379 Q2
 tags:
     - Array
     - Enumeration
 ---
+
+<!-- problem:start -->
 
 # [3001. Minimum Moves to Capture The Queen](https://leetcode.com/problems/minimum-moves-to-capture-the-queen)
 
 [中文文档](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a <strong>1-indexed</strong> <code>8 x 8</code> chessboard containing <code>3</code> pieces.</p>
 
@@ -63,11 +68,17 @@ It is impossible to capture the black queen in less than two moves since it is n
 	<li>No two pieces are on the same square.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +100,8 @@ class Solution:
         dirs2 = (-1, 1, 1, -1, -1)
         return 1 if check(dirs1, a, b, c, d) or check(dirs2, c, d, a, b) else 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMovesToCaptureTheQueen(a int, b int, c int, d int, e int, f int) int {
 	dirs := [2][5]int{{-1, 0, 1, 0, -1}, {-1, 1, 1, -1, -1}}
@@ -169,6 +186,8 @@ func minMovesToCaptureTheQueen(a int, b int, c int, d int, e int, f int) int {
 	return 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minMovesToCaptureTheQueen(
@@ -207,4 +226,6 @@ function minMovesToCaptureTheQueen(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

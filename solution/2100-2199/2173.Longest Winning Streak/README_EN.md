@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2173. Longest Winning Streak 🔒](https://leetcode.com/problems/longest-winning-streak)
 
 [中文文档](/solution/2100-2199/2173.Longest%20Winning%20Streak/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Matches</code></p>
 
@@ -82,11 +86,17 @@ The longest winning streak was 1 match.
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> If we are interested in calculating the longest streak without losing (i.e., win or draw), how will your solution change?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -115,4 +125,6 @@ GROUP BY player_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

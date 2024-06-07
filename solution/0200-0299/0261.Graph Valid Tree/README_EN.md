@@ -9,11 +9,15 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [261. Graph Valid Tree 🔒](https://leetcode.com/problems/graph-valid-tree)
 
 [中文文档](/solution/0200-0299/0261.Graph%20Valid%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a graph of <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. You are given an integer n and a list of <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an undirected edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the graph.</p>
 
@@ -46,7 +50,11 @@ tags:
 	<li>There are no self-loops or repeated edges.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find
 
@@ -60,6 +68,8 @@ We can use a union-find set to determine whether there is a cycle. We traverse t
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +88,8 @@ class Solution:
             n -= 1
         return n == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +116,8 @@ public:
 };
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validTree(n int, edges [][]int) bool {
@@ -152,6 +168,8 @@ func validTree(n int, edges [][]int) bool {
 	return n == 1
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -182,6 +200,10 @@ var validTree = function (n, edges) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: DFS
 
 We can also use depth-first search to determine whether there is a cycle. We can use an array $vis$ to record the visited nodes. During the search, we first mark the node as visited, then traverse the nodes adjacent to this node. If the adjacent node has been visited, we skip it, otherwise we recursively visit the adjacent node. Finally, we check whether all nodes have been visited. If there are nodes that have not been visited, it means that it cannot form a tree, so we return `false`.
@@ -189,6 +211,8 @@ We can also use depth-first search to determine whether there is a cycle. We can
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -209,6 +233,8 @@ class Solution:
         dfs(0)
         return len(vis) == n
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -241,6 +267,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -270,6 +298,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validTree(n int, edges [][]int) bool {
 	if len(edges) != n-1 {
@@ -296,6 +326,8 @@ func validTree(n int, edges [][]int) bool {
 	return n == 0
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -329,6 +361,6 @@ var validTree = function (n, edges) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
 
-<!-- end -->
+<!-- problem:end -->

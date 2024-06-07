@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2841.Maximum%20Sum%20of%20Almost%20Unique%20Subarray/README.md
 rating: 1545
+source: 第 112 场双周赛 Q3
 tags:
     - 数组
     - 哈希表
     - 滑动窗口
 ---
+
+<!-- problem:start -->
 
 # [2841. 几乎唯一子数组的最大和](https://leetcode.cn/problems/maximum-sum-of-almost-unique-subarray)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;和两个正整数&nbsp;<code>m</code>&nbsp;和&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -61,7 +64,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口 + 哈希表
 
@@ -72,6 +79,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(k)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +98,8 @@ class Solution:
                 ans = max(ans, s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSum(nums []int, m int, k int) int64 {
 	cnt := map[int]int{}
@@ -170,6 +185,8 @@ func maxSum(nums []int, m int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSum(nums: number[], m: number, k: number): number {
     const n = nums.length;
@@ -194,6 +211,8 @@ function maxSum(nums: number[], m: number, k: number): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -242,4 +261,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

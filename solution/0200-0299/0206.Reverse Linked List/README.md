@@ -7,13 +7,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [206. 反转链表](https://leetcode.cn/problems/reverse-linked-list)
 
 [English Version](/solution/0200-0299/0206.Reverse%20Linked%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你单链表的头节点 <code>head</code> ，请你反转链表，并返回反转后的链表。
 
@@ -57,7 +59,11 @@ tags:
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：头插法
 
@@ -66,6 +72,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -84,6 +92,8 @@ class Solution:
             curr = next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -110,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -138,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -158,6 +172,8 @@ func reverseList(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -186,6 +202,8 @@ function reverseList(head: ListNode | null): ListNode | null {
     return pre;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -218,6 +236,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -242,6 +262,8 @@ var reverseList = function (head) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -272,6 +294,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：递归
 
 递归反转链表的第二个节点到尾部的所有节点，然后 $head$ 插在反转后的链表的尾部。
@@ -279,6 +305,8 @@ public class Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -295,6 +323,8 @@ class Solution:
         head.next = None
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -320,6 +350,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -343,6 +375,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -361,6 +395,8 @@ func reverseList(head *ListNode) *ListNode {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -392,6 +428,8 @@ function reverseList(head: ListNode | null): ListNode | null {
     return rev(head, next);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -430,4 +468,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

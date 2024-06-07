@@ -6,11 +6,15 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [1474. Delete N Nodes After M Nodes of a Linked List 🔒](https://leetcode.com/problems/delete-n-nodes-after-m-nodes-of-a-linked-list)
 
 [中文文档](/solution/1400-1499/1474.Delete%20N%20Nodes%20After%20M%20Nodes%20of%20a%20Linked%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>head</code> of a linked list and two integers <code>m</code> and <code>n</code>.</p>
 
@@ -57,11 +61,17 @@ Head of the linked list after removing nodes is returned.
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve this problem by modifying the list in-place?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -86,6 +96,8 @@ class Solution:
             pre = pre.next
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -119,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -154,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -187,4 +203,6 @@ func deleteNodes(head *ListNode, m int, n int) *ListNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

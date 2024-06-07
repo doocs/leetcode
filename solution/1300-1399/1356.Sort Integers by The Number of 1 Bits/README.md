@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1356.Sort%20Integers%20by%20The%20Number%20of%201%20Bits/README.md
 rating: 1257
+source: 第 20 场双周赛 Q1
 tags:
     - 位运算
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1356. 根据数字二进制下 1 的数目排序](https://leetcode.cn/problems/sort-integers-by-the-number-of-1-bits)
 
 [English Version](/solution/1300-1399/1356.Sort%20Integers%20by%20The%20Number%20of%201%20Bits/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>arr</code>&nbsp;。请你将数组中的元素按照其二进制表示中数字 <strong>1</strong> 的数目升序排序。</p>
 
@@ -71,7 +74,11 @@ tags:
 	<li><code>0 &lt;= arr[i] &lt;= 10^4</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：自定义排序
 
@@ -81,11 +88,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortByBits(self, arr: List[int]) -> List[int]:
         return sorted(arr, key=lambda x: (x.bit_count(), x))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortByBits(arr []int) []int {
 	for i, v := range arr {
@@ -131,6 +146,8 @@ func sortByBits(arr []int) []int {
 	return arr
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sortByBits(arr: number[]): number[] {
@@ -146,6 +163,8 @@ function sortByBits(arr: number[]): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn sort_by_bits(mut arr: Vec<i32>) -> Vec<i32> {
@@ -160,6 +179,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -193,9 +214,15 @@ int* sortByBits(int* arr, int arrSize, int* returnSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -217,6 +244,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -230,6 +259,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortByBits(arr []int) []int {
 	sort.Slice(arr, func(i, j int) bool {
@@ -242,4 +273,6 @@ func sortByBits(arr []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

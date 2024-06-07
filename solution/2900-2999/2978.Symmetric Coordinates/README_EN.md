@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2978. Symmetric Coordinates 🔒](https://leetcode.com/problems/symmetric-coordinates)
 
 [中文文档](/solution/2900-2999/2978.Symmetric%20Coordinates/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <font face="monospace"><code>Coordinates</code></font></p>
 
@@ -63,13 +67,19 @@ Coordinates table:
 The output table is sorted by X and Y in ascending order.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Window Function + Self Join
 
 We can use the window function `ROW_NUMBER()` to add an auto-incrementing sequence number to each row. Then, we perform a self join on the two tables, with the join conditions being `p1.x = p2.y AND p1.y = p2.x AND p1.x <= p1.y AND p1.id != p2.id`. Finally, we sort and remove duplicates.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -92,4 +102,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

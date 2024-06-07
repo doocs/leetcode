@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2977.Minimum%20Cost%20to%20Convert%20String%20II/README.md
 rating: 2695
+source: 第 377 场周赛 Q4
 tags:
     - 图
     - 字典树
@@ -12,13 +13,15 @@ tags:
     - 最短路
 ---
 
+<!-- problem:start -->
+
 # [2977. 转换字符串的最小成本 II](https://leetcode.cn/problems/minimum-cost-to-convert-string-ii)
 
 [English Version](/solution/2900-2999/2977.Minimum%20Cost%20to%20Convert%20String%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong> 开始的字符串 <code>source</code> 和 <code>target</code> ，它们的长度均为 <code>n</code> 并且由 <strong>小写 </strong>英文字母组成。</p>
 
@@ -88,7 +91,11 @@ tags:
 	<li><code>1 &lt;= cost[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字典树 + Floyd 算法 + 记忆化搜索
 
@@ -120,6 +127,8 @@ $$
 时间复杂度 $O(m^3 + n^2 + m \times n)$，空间复杂度 $O(m^2 + m \times n + n)$。其中 $m$ 和 $n$ 分别是数组 $original$ 和 $source$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -191,6 +200,8 @@ class Solution:
         ans = dfs(0)
         return -1 if ans >= inf else ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -280,6 +291,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -380,6 +393,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 type Node struct {
 	children [26]*Node
@@ -472,6 +487,8 @@ func minimumCost(source string, target string, original []string, changed []stri
 }
 ```
 
+#### TypeScript
+
 ```ts
 class Node {
     children: (Node | null)[] = Array(26).fill(null);
@@ -554,4 +571,6 @@ function minimumCost(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

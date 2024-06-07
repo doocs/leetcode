@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README.md
 rating: 1917
+source: 第 379 场周赛 Q3
 tags:
     - 贪心
     - 数组
     - 哈希表
 ---
+
+<!-- problem:start -->
 
 # [3002. 移除后集合的最多元素数](https://leetcode.cn/problems/maximum-size-of-a-set-after-removals)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <code>0</code> 开始的整数数组 <code>nums1</code> 和 <code>nums2</code> ，它们的长度都是偶数<code> n</code> 。</p>
 
@@ -62,11 +65,17 @@ tags:
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +87,8 @@ class Solution:
         b = min(len(s2 - s1), n // 2)
         return min(a + b + len(s1 & s2), n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumSetSize(nums1 []int, nums2 []int) int {
@@ -168,6 +183,8 @@ func maximumSetSize(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumSetSize(nums1: number[], nums2: number[]): number {
     const s1: Set<number> = new Set(nums1);
@@ -194,4 +211,6 @@ function maximumSetSize(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

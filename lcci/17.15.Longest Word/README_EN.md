@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.15.Longest%20Word/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.15. Longest Word](https://leetcode.cn/problems/longest-word-lcci)
 
 [中文文档](/lcci/17.15.Longest%20Word/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a list of words, write a program to find the longest word made of other words in the list. If there are more than one answer, return the one that has smallest lexicographic order. If no answer, return an empty string.</p>
 
@@ -31,11 +35,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.15.Longest%20Word/
 	<li><code>1 &lt;= len(words[i]) &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -83,6 +93,8 @@ class Solution:
             trie.insert(w)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -147,6 +159,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -213,6 +227,8 @@ func longestWord(words []string) string {
 }
 ```
 
+#### Swift
+
 ```swift
 class Trie {
     var children = [Trie?](repeating: nil, count: 26)
@@ -275,4 +291,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

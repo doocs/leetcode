@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1936.Add%20Minimum%20Number%20of%20Rungs/README.md
 rating: 1322
+source: 第 250 场周赛 Q2
 tags:
     - 贪心
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [1936. 新增的最少台阶数](https://leetcode.cn/problems/add-minimum-number-of-rungs)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>严格递增</strong> 的整数数组 <code>rungs</code> ，用于表示梯子上每一台阶的 <strong>高度</strong> 。当前你正站在高度为 <code>0</code> 的地板上，并打算爬到最后一个台阶。</p>
 
@@ -74,7 +77,11 @@ tags:
 	<li><code>rungs</code> <strong>严格递增</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 模拟
 
@@ -84,12 +91,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def addRungs(self, rungs: List[int], dist: int) -> int:
         rungs = [0] + rungs
         return sum((b - a - 1) // dist for a, b in pairwise(rungs))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func addRungs(rungs []int, dist int) (ans int) {
 	prev := 0
@@ -128,6 +143,8 @@ func addRungs(rungs []int, dist int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function addRungs(rungs: number[], dist: number): number {
@@ -140,6 +157,8 @@ function addRungs(rungs: number[], dist: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -159,4 +178,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [670. 最大交换](https://leetcode.cn/problems/maximum-swap)
 
 [English Version](/solution/0600-0699/0670.Maximum%20Swap/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个非负整数，你<strong>至多</strong>可以交换一次数字中的任意两位。返回你能得到的最大值。</p>
 
@@ -39,7 +41,11 @@ tags:
 	<li>给定数字的范围是&nbsp;[0, 10<sup>8</sup>]</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -52,6 +58,8 @@ tags:
 时间复杂度 $O(\log M)$，空间复杂度 $O(\log M)$。其中 $M$ 是数字 $num$ 的取值范围。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +76,8 @@ class Solution:
                 break
         return int(''.join(s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSwap(num int) int {
 	s := []byte(strconv.Itoa(num))
@@ -145,6 +159,8 @@ func maximumSwap(num int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumSwap(num: number): number {
@@ -174,6 +190,8 @@ function maximumSwap(num: number): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -215,4 +233,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

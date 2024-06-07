@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1797.Design%20Authentication%20Manager/README_EN.md
 rating: 1534
+source: Biweekly Contest 48 Q2
 tags:
     - Design
     - Hash Table
 ---
+
+<!-- problem:start -->
 
 # [1797. Design Authentication Manager](https://leetcode.com/problems/design-authentication-manager)
 
 [中文文档](/solution/1700-1799/1797.Design%20Authentication%20Manager/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an authentication system that works with authentication tokens. For each session, the user will receive a new authentication token that will expire <code>timeToLive</code> seconds after the <code>currentTime</code>. If the token is renewed, the expiry time will be <b>extended</b> to expire <code>timeToLive</code> seconds after the (potentially different) <code>currentTime</code>.</p>
 
@@ -62,7 +67,11 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // The token with t
 	<li>At most <code>2000</code> calls will be made to all functions combined.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -77,6 +86,8 @@ In terms of time complexity, both `generate` and `renew` operations have a time 
 The space complexity is $O(n)$, where $n$ is the number of key-value pairs in the hash table $d$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class AuthenticationManager:
@@ -102,6 +113,8 @@ class AuthenticationManager:
 # obj.renew(tokenId,currentTime)
 # param_3 = obj.countUnexpiredTokens(currentTime)
 ```
+
+#### Java
 
 ```java
 class AuthenticationManager {
@@ -143,6 +156,8 @@ class AuthenticationManager {
  */
 ```
 
+#### C++
+
 ```cpp
 class AuthenticationManager {
 public:
@@ -178,6 +193,8 @@ private:
  * int param_3 = obj->countUnexpiredTokens(currentTime);
  */
 ```
+
+#### Go
 
 ```go
 type AuthenticationManager struct {
@@ -219,6 +236,8 @@ func (this *AuthenticationManager) CountUnexpiredTokens(currentTime int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class AuthenticationManager {
     private timeToLive: number;
@@ -259,6 +278,8 @@ class AuthenticationManager {
  * var param_3 = obj.countUnexpiredTokens(currentTime)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -307,4 +328,6 @@ impl AuthenticationManager {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

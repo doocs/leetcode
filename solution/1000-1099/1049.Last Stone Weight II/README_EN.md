@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README_EN.md
 rating: 2092
+source: Weekly Contest 137 Q4
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [1049. Last Stone Weight II](https://leetcode.com/problems/last-stone-weight-ii)
 
 [中文文档](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of integers <code>stones</code> where <code>stones[i]</code> is the weight of the <code>i<sup>th</sup></code> stone.</p>
 
@@ -55,11 +60,17 @@ we can combine 1 and 1 to get 0, so the array converts to [1], then that&#39;s t
 	<li><code>1 &lt;= stones[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +87,8 @@ class Solution:
                     )
         return s - 2 * dp[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastStoneWeightII(stones []int) int {
@@ -140,6 +157,8 @@ func lastStoneWeightII(stones []int) int {
 	return s - dp[m][n]*2
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -174,6 +193,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} stones
@@ -197,9 +218,15 @@ var lastStoneWeightII = function (stones) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -212,6 +239,8 @@ class Solution:
                 dp[j] = max(dp[j], dp[j - v] + v)
         return s - dp[-1] * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -233,6 +262,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -247,6 +278,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastStoneWeightII(stones []int) int {
@@ -267,4 +300,6 @@ func lastStoneWeightII(stones []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

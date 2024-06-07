@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [2792. 计算足够大的节点数 🔒](https://leetcode.cn/problems/count-nodes-that-are-great-enough)
 
 [English Version](/solution/2700-2799/2792.Count%20Nodes%20That%20Are%20Great%20Enough/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一棵二叉树的根节点 <code>root</code> 和一个整数 <code>k</code> 。如果一个节点满足以下条件，则称其为 <strong>足够大</strong>&nbsp;：</p>
 
@@ -83,7 +85,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS + 大根堆
 
@@ -92,6 +98,8 @@ tags:
 时间复杂度 $O(n \times k \times \log k)$，空间复杂度 $(n \times k)$。其中 $n$ 是树中节点的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -123,6 +131,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -174,6 +184,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -217,6 +229,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -269,4 +283,6 @@ func (h *hp) pop() int   { return heap.Pop(h).(int) }
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md
 rating: 2120
+source: Weekly Contest 306 Q4
 tags:
     - Math
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [2376. Count Special Integers](https://leetcode.com/problems/count-special-integers)
 
 [中文文档](/solution/2300-2399/2376.Count%20Special%20Integers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We call a positive integer <strong>special</strong> if all of its digits are <strong>distinct</strong>.</p>
 
@@ -50,11 +55,17 @@ Some of the integers that are not special are: 22, 114, and 131.</pre>
 	<li><code>1 &lt;= n &lt;= 2 * 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +93,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +175,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSpecialNumbers(n int) int {
@@ -206,9 +223,15 @@ func A(m, n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -239,6 +262,8 @@ class Solution:
             n //= 10
         return dfs(l, 0, True, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -288,6 +313,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -332,6 +359,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSpecialNumbers(n int) int {
@@ -391,4 +420,6 @@ func f(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

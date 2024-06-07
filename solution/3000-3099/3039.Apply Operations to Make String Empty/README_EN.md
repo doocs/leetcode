@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README_EN.md
 rating: 1423
+source: Biweekly Contest 124 Q2
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3039. Apply Operations to Make String Empty](https://leetcode.com/problems/apply-operations-to-make-string-empty)
 
 [中文文档](/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code>.</p>
 
@@ -61,7 +66,11 @@ The string just before the last operation is &quot;abcd&quot;.
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -75,6 +84,8 @@ The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lastNonEmptyString(self, s: str) -> str:
@@ -83,6 +94,8 @@ class Solution:
         last = {c: i for i, c in enumerate(s)}
         return "".join(c for i, c in enumerate(s) if cnt[c] == mx and last[c] == i)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lastNonEmptyString(s string) string {
 	cnt := [26]int{}
@@ -153,6 +170,8 @@ func lastNonEmptyString(s string) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function lastNonEmptyString(s: string): string {
@@ -178,4 +197,6 @@ function lastNonEmptyString(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

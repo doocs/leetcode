@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README.md
 rating: 1601
+source: 第 386 场周赛 Q2
 tags:
     - 几何
     - 数组
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [3047. 求交集区域内的最大正方形面积](https://leetcode.cn/problems/find-the-largest-area-of-square-inside-two-rectangles)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在二维平面上存在 <code>n</code> 个矩形。给你两个下标从 <strong>0</strong> 开始的二维整数数组 <code>bottomLeft</code> 和 <code>topRight</code>，两个数组的大小都是 <code>n x 2</code> ，其中 <code>bottomLeft[i]</code> 和 <code>topRight[i]</code> 分别代表第 <code>i</code> 个矩形的<strong> 左下角 </strong>和 <strong>右上角 </strong>坐标。</p>
 
@@ -68,7 +71,11 @@ tags:
 	<li><code>bottomLeft[i][1] &lt; topRight[i][1]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -87,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestSquareArea(
@@ -103,6 +112,8 @@ class Solution:
                 ans = max(ans, e * e)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -151,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestSquareArea(bottomLeft [][]int, topRight [][]int) (ans int64) {
 	for i, b1 := range bottomLeft {
@@ -171,6 +186,8 @@ func largestSquareArea(bottomLeft [][]int, topRight [][]int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestSquareArea(bottomLeft: number[][], topRight: number[][]): number {
@@ -195,4 +212,6 @@ function largestSquareArea(bottomLeft: number[][], topRight: number[][]): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

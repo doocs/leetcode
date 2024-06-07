@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1701.Average%20Waiting%20Time/README.md
 rating: 1436
+source: 第 42 场双周赛 Q2
 tags:
     - 数组
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1701. 平均等待时间](https://leetcode.cn/problems/average-waiting-time)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个餐厅，只有一位厨师。你有一个顾客数组 <code>customers</code> ，其中 <code>customers[i] = [arrival<sub>i</sub>, time<sub>i</sub>]</code> ：</p>
 
@@ -64,7 +67,11 @@ tags:
 	<li><code>arrival<sub>i </sub><= arrival<sub>i+1</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -80,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def averageWaitingTime(self, customers: List[List[int]]) -> float:
@@ -89,6 +98,8 @@ class Solution:
             tot += t - a
         return tot / len(customers)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func averageWaitingTime(customers [][]int) float64 {
 	tot, t := 0, 0
@@ -132,6 +147,8 @@ func averageWaitingTime(customers [][]int) float64 {
 	return float64(tot) / float64(len(customers))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function averageWaitingTime(customers: number[][]): number {
@@ -146,4 +163,6 @@ function averageWaitingTime(customers: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

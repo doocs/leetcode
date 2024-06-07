@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README.md
 rating: 1912
+source: 第 148 场周赛 Q4
 tags:
     - 贪心
     - 双指针
@@ -12,13 +13,15 @@ tags:
     - 滚动哈希
 ---
 
+<!-- problem:start -->
+
 # [1147. 段式回文](https://leetcode.cn/problems/longest-chunked-palindrome-decomposition)
 
 [English Version](/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你会得到一个字符串&nbsp;<code>text</code>&nbsp;。你应该把它分成 <code>k</code>&nbsp;个子字符串&nbsp;<code>(subtext1, subtext2，…， subtextk)</code>&nbsp;，要求满足:</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>text</code>&nbsp;仅由小写英文字符组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 双指针
 
@@ -84,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestDecomposition(self, text: str) -> int:
@@ -95,6 +104,8 @@ class Solution:
                 return 2 + self.longestDecomposition(text[i:-i])
         return 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestDecomposition(text string) int {
 	n := len(text)
@@ -143,6 +158,8 @@ func longestDecomposition(text string) int {
 	return 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestDecomposition(text: string): number {
@@ -161,6 +178,10 @@ function longestDecomposition(text: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：字符串哈希
 
 **字符串哈希**是把一个任意长度的字符串映射成一个非负整数，并且其冲突的概率几乎为 $0$。字符串哈希用于计算字符串哈希值，快速判断两个字符串是否相等。
@@ -170,6 +191,8 @@ function longestDecomposition(text: string): number {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -192,6 +215,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -227,6 +252,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -261,6 +288,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestDecomposition(text string) (ans int) {
 	for i, j := 0, len(text)-1; i <= j; {
@@ -282,6 +311,8 @@ func longestDecomposition(text string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestDecomposition(text: string): number {
@@ -308,9 +339,15 @@ function longestDecomposition(text: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -346,6 +383,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -389,6 +428,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -431,6 +472,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestDecomposition(text string) (ans int) {
 	n := len(text)
@@ -469,4 +512,6 @@ func longestDecomposition(text string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,23 +1,23 @@
 class Solution {
 public:
     bool canIWin(int maxChoosableInteger, int desiredTotal) {
-        int s = (1 + maxChoosableInteger) * maxChoosableInteger / 2;
-        if (s < desiredTotal) return false;
-        unordered_map<int, bool> memo;
-        return dfs(0, 0, maxChoosableInteger, desiredTotal, memo);
-    }
-
-    bool dfs(int state, int t, int maxChoosableInteger, int desiredTotal, unordered_map<int, bool>& memo) {
-        if (memo.count(state)) return memo[state];
-        bool res = false;
-        for (int i = 1; i <= maxChoosableInteger; ++i) {
-            if ((state >> i) & 1) continue;
-            if (t + i >= desiredTotal || !dfs(state | 1 << i, t + i, maxChoosableInteger, desiredTotal, memo)) {
-                res = true;
-                break;
-            }
+        if ((1 + maxChoosableInteger) * maxChoosableInteger / 2 < desiredTotal) {
+            return false;
         }
-        memo[state] = res;
-        return res;
+        unordered_map<int, int> f;
+        function<bool(int, int)> dfs = [&](int mask, int s) {
+            if (f.contains(mask)) {
+                return f[mask];
+            }
+            for (int i = 0; i < maxChoosableInteger; ++i) {
+                if (mask >> i & 1 ^ 1) {
+                    if (s + i + 1 >= desiredTotal || !dfs(mask | 1 << i, s + i + 1)) {
+                        return f[mask] = true;
+                    }
+                }
+            }
+            return f[mask] = false;
+        };
+        return dfs(0, 0);
     }
 };

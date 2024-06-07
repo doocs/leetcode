@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README.md
 rating: 2093
+source: 第 394 场周赛 Q4
 tags:
     - 深度优先搜索
     - 广度优先搜索
@@ -11,13 +12,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [3123. 最短路径中的边](https://leetcode.cn/problems/find-edges-in-shortest-paths)
 
 [English Version](/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>n</code>&nbsp;个节点的无向带权图，节点编号为 <code>0</code>&nbsp;到 <code>n - 1</code>&nbsp;。图中总共有 <code>m</code>&nbsp;条边，用二维数组&nbsp;<code>edges</code>&nbsp;表示，其中&nbsp;<code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>, w<sub>i</sub>]</code>&nbsp;表示节点 <code>a<sub>i</sub></code> 和&nbsp;<code>b<sub>i</sub></code>&nbsp;之间有一条边权为&nbsp;<code>w<sub>i</sub></code>&nbsp;的边。</p>
 
@@ -77,7 +80,11 @@ tags:
 	<li>图中没有重边。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：堆优化的 Dijkstra
 
@@ -97,6 +104,8 @@ tags:
 时间复杂度 $O(m \times \log m)$，空间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别为节点数和边数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -129,6 +138,8 @@ class Solution:
                     q.append(b)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -181,6 +192,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -235,6 +248,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findAnswer(n int, edges [][]int) []bool {
@@ -296,4 +311,6 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

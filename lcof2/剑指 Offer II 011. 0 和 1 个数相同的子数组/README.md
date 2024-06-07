@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20011.%200%20%E5%92%8C%201%20%E4%B8%AA%E6%95%B0%E7%9B%B8%E5%90%8C%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 011. 0 和 1 个数相同的子数组](https://leetcode.cn/problems/A1NYOS)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二进制数组 <code>nums</code> , 找到含有相同数量的 <code>0</code> 和 <code>1</code> 的最长连续子数组，并返回该子数组的长度。</p>
 
@@ -40,7 +42,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 525&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/contiguous-array/">https://leetcode.cn/problems/contiguous-array/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 前缀和
 
@@ -51,6 +57,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +73,8 @@ class Solution:
                 d[s] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaxLength(nums []int) (ans int) {
 	d := map[int]int{0: -1}
@@ -126,6 +140,8 @@ func findMaxLength(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMaxLength(nums: number[]): number {
     const d: Map<number, number> = new Map();
@@ -145,6 +161,31 @@ function findMaxLength(nums: number[]): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func findMaxLength(_ nums: [Int]) -> Int {
+        var d: [Int: Int] = [0: -1]
+        var ans = 0
+        var s = 0
+
+        for i in 0..<nums.count {
+            s += nums[i] == 0 ? -1 : 1
+            if let prevIndex = d[s] {
+                ans = max(ans, i - prevIndex)
+            } else {
+                d[s] = i
+            }
+        }
+
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

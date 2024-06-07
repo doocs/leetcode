@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1343.Number%20of%20Sub-arrays%20of%20Size%20K%20and%20Average%20Greater%20than%20or%20Equal%20to%20Threshold/README_EN.md
 rating: 1317
+source: Biweekly Contest 19 Q2
 tags:
     - Array
     - Sliding Window
 ---
+
+<!-- problem:start -->
 
 # [1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold](https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold)
 
 [中文文档](/solution/1300-1399/1343.Number%20of%20Sub-arrays%20of%20Size%20K%20and%20Average%20Greater%20than%20or%20Equal%20to%20Threshold/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>arr</code> and two integers <code>k</code> and <code>threshold</code>, return <em>the number of sub-arrays of size </em><code>k</code><em> and average greater than or equal to </em><code>threshold</code>.</p>
 
@@ -43,7 +48,11 @@ tags:
 	<li><code>0 &lt;= threshold &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -54,6 +63,8 @@ We maintain a sliding window of length $k$, and for each window, we calculate th
 The time complexity is $O(n)$, where $n$ is the length of the array `arr`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +77,8 @@ class Solution:
             ans += int(s >= threshold)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -100,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numOfSubarrays(arr []int, k int, threshold int) (ans int) {
@@ -121,6 +138,8 @@ func numOfSubarrays(arr []int, k int, threshold int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numOfSubarrays(arr: number[], k: number, threshold: number): number {
     threshold *= k;
@@ -136,4 +155,6 @@ function numOfSubarrays(arr: number[], k: number, threshold: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

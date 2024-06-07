@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1650. Lowest Common Ancestor of a Binary Tree III 🔒](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii)
 
 [中文文档](/solution/1600-1699/1650.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two nodes of a&nbsp;binary tree <code>p</code> and <code>q</code>, return <em>their&nbsp;lowest common ancestor (LCA)</em>.</p>
 
@@ -65,7 +69,11 @@ class Node {
 	<li><code>p</code> and <code>q</code> exist in the tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -74,6 +82,8 @@ We use a hash table $vis$ to record all nodes on the path from node $p$ to the r
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -100,6 +110,8 @@ class Solution:
         return node
 ```
 
+#### Java
+
 ```java
 /*
 // Definition for a Node.
@@ -125,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -154,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for Node.
@@ -177,6 +193,8 @@ func lowestCommonAncestor(p *Node, q *Node) *Node {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -210,6 +228,10 @@ function lowestCommonAncestor(p: Node | null, q: Node | null): Node | null {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Two Pointers
 
 We can use two pointers $a$ and $b$ to point to nodes $p$ and $q$ respectively, and then traverse towards the root node. When $a$ and $b$ meet, it is the nearest common ancestor of $p$ and $q$. Otherwise, if pointer $a$ traverses to the root node, then we let it point to node $q$, and do the same for pointer $b$. In this way, when the two pointers meet, it is the nearest common ancestor of $p$ and $q$.
@@ -217,6 +239,8 @@ We can use two pointers $a$ and $b$ to point to nodes $p$ and $q$ respectively, 
 The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -238,6 +262,8 @@ class Solution:
             b = b.parent if b.parent else p
         return a
 ```
+
+#### Java
 
 ```java
 /*
@@ -261,6 +287,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -287,6 +315,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -317,6 +347,8 @@ func lowestCommonAncestor(p *Node, q *Node) *Node {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -346,4 +378,6 @@ function lowestCommonAncestor(p: Node | null, q: Node | null): Node | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

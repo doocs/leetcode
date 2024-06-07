@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1322. Ads Performance 🔒](https://leetcode.com/problems/ads-performance)
 
 [中文文档](/solution/1300-1399/1322.Ads%20Performance/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Ads</code></p>
 
@@ -76,11 +80,17 @@ for ad_id = 5, ctr = 0.00, Note that ad_id = 5 has no clicks or views.
 Note that we do not care about Ignored Ads.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -93,4 +103,6 @@ ORDER BY 2 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

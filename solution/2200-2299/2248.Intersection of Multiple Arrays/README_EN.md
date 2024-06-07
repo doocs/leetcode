@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2248.Intersection%20of%20Multiple%20Arrays/README_EN.md
 rating: 1264
+source: Weekly Contest 290 Q1
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2248. Intersection of Multiple Arrays](https://leetcode.com/problems/intersection-of-multiple-arrays)
 
 [中文文档](/solution/2200-2299/2248.Intersection%20of%20Multiple%20Arrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 Given a 2D integer array <code>nums</code> where <code>nums[i]</code> is a non-empty array of <strong>distinct</strong> positive integers, return <em>the list of integers that are present in <strong>each array</strong> of</em> <code>nums</code><em> sorted in <strong>ascending order</strong></em>.
 
@@ -46,7 +51,11 @@ There does not exist any integer present both in nums[0] and nums[1], so we retu
 	<li>All the values of <code>nums[i]</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -55,6 +64,8 @@ Traverse the array `nums`. For each sub-array `arr`, count the occurrence of eac
 The time complexity is $O(N)$, and the space complexity is $O(1000)$. Where $N$ is the total number of numbers in the array `nums`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +76,8 @@ class Solution:
                 cnt[x] += 1
         return [x for x, v in enumerate(cnt) if v == len(nums)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func intersection(nums [][]int) (ans []int) {
 	cnt := [1001]int{}
@@ -123,6 +140,8 @@ func intersection(nums [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function intersection(nums: number[][]): number[] {
@@ -141,6 +160,8 @@ function intersection(nums: number[][]): number[] {
     return ans;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -166,9 +187,15 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -183,6 +210,8 @@ class Solution:
         ans.sort()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -201,6 +230,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -221,6 +252,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func intersection(nums [][]int) (ans []int) {
 	cnt := map[int]int{}
@@ -236,6 +269,8 @@ func intersection(nums [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function intersection(nums: number[][]): number[] {
@@ -255,4 +290,6 @@ function intersection(nums: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

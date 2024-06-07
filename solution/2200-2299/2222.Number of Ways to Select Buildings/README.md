@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2222.Number%20of%20Ways%20to%20Select%20Buildings/README.md
 rating: 1656
+source: 第 75 场双周赛 Q3
 tags:
     - 字符串
     - 动态规划
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [2222. 选择建筑的方案数](https://leetcode.cn/problems/number-of-ways-to-select-buildings)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的二进制字符串&nbsp;<code>s</code>&nbsp;，它表示一条街沿途的建筑类型，其中：</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>s[i]</code>&nbsp;要么是&nbsp;<code>'0'</code>&nbsp;，要么是&nbsp;<code>'1'</code>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：统计 010 和 101 的出现次数
 
@@ -74,6 +81,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 表示 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +101,8 @@ class Solution:
                 c1 += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfWays(s string) int64 {
 	n := len(s)
@@ -166,4 +181,6 @@ func numberOfWays(s string) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

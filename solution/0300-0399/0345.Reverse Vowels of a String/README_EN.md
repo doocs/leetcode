@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [345. Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string)
 
 [中文文档](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, reverse only all the vowels in the string and return it.</p>
 
@@ -33,11 +37,23 @@ tags:
 	<li><code>s</code> consist of <strong>printable ASCII</strong> characters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Two Pointers
+
+We can use two pointers $i$ and $j$, initially pointing to the start and end of the string respectively.
+
+In each loop, we check whether the character at $i$ is a vowel. If it's not, we move $i$ forward. Similarly, we check whether the character at $j$ is a vowel. If it's not, we move $j$ backward. If $i < j$ at this point, then both characters at $i$ and $j$ are vowels, so we swap these two characters. Then, we move $i$ forward and $j$ backward. We continue the above operations until $i \ge j$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the size of the character set.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -55,6 +71,8 @@ class Solution:
                 i, j = i + 1, j - 1
         return "".join(cs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseVowels(s string) string {
 	vowels := [128]bool{}
@@ -135,6 +157,8 @@ func reverseVowels(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reverseVowels(s: string): string {
     const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
@@ -151,6 +175,8 @@ function reverseVowels(s: string): string {
     return cs.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,4 +204,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

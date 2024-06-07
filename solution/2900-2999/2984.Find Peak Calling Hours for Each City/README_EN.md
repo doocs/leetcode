@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2984. Find Peak Calling Hours for Each City 🔒](https://leetcode.com/problems/find-peak-calling-hours-for-each-city)
 
 [中文文档](/solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Calls</code></p>
 
@@ -64,11 +68,17 @@ For New York:
   - Both 13:00 and 14:00 hours have equal call counts of 1, so both times are considered peak hours.
 Output table is ordered by peak_calling_hour and city in descending order.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -98,4 +108,6 @@ ORDER BY 2 DESC, 1 DESC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

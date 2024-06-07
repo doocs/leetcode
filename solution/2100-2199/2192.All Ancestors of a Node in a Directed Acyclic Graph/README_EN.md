@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2192.All%20Ancestors%20of%20a%20Node%20in%20a%20Directed%20Acyclic%20Graph/README_EN.md
 rating: 1787
+source: Biweekly Contest 73 Q3
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -10,11 +11,15 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [2192. All Ancestors of a Node in a Directed Acyclic Graph](https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph)
 
 [中文文档](/solution/2100-2199/2192.All%20Ancestors%20of%20a%20Node%20in%20a%20Directed%20Acyclic%20Graph/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer <code>n</code> representing the number of nodes of a <strong>Directed Acyclic Graph</strong> (DAG). The nodes are numbered from <code>0</code> to <code>n - 1</code> (<strong>inclusive</strong>).</p>
 
@@ -67,7 +72,11 @@ The above diagram represents the input graph.
 	<li>The graph is <strong>directed</strong> and <strong>acyclic</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -78,6 +87,8 @@ Then, we enumerate node $i$ as the ancestor node from small to large, use BFS to
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the number of nodes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +112,8 @@ class Solution:
             bfs(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -179,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getAncestors(n int, edges [][]int) [][]int {
 	g := make([][]int, n)
@@ -209,6 +226,8 @@ func getAncestors(n int, edges [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getAncestors(n: number, edges: number[][]): number[][] {
     const g: number[][] = Array.from({ length: n }, () => []);
@@ -237,6 +256,8 @@ function getAncestors(n: number, edges: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -284,4 +305,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

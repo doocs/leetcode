@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1105.Filling%20Bookcase%20Shelves/README_EN.md
 rating: 2014
+source: Weekly Contest 143 Q3
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [1105. Filling Bookcase Shelves](https://leetcode.com/problems/filling-bookcase-shelves)
 
 [中文文档](/solution/1100-1199/1105.Filling%20Bookcase%20Shelves/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>books</code> where <code>books[i] = [thickness<sub>i</sub>, height<sub>i</sub>]</code> indicates the thickness and height of the <code>i<sup>th</sup></code> book. You are also given an integer <code>shelfWidth</code>.</p>
 
@@ -55,7 +60,11 @@ Notice that book number 2 does not have to be on the first shelf.
 	<li><code>1 &lt;= height<sub>i</sub> &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -72,6 +81,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minHeightShelves(self, books: List[List[int]], shelfWidth: int) -> int:
@@ -87,6 +98,8 @@ class Solution:
                 f[i] = min(f[i], f[j - 1] + h)
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minHeightShelves(books [][]int, shelfWidth int) int {
 	n := len(books)
@@ -154,6 +171,8 @@ func minHeightShelves(books [][]int, shelfWidth int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minHeightShelves(books: number[][], shelfWidth: number): number {
     const n = books.length;
@@ -173,6 +192,8 @@ function minHeightShelves(books: number[][], shelfWidth: number): number {
     return f[n];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -198,4 +219,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

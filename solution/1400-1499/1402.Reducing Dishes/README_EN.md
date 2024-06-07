@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1402.Reducing%20Dishes/README_EN.md
 rating: 1679
+source: Biweekly Contest 23 Q4
 tags:
     - Greedy
     - Array
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1402. Reducing Dishes](https://leetcode.com/problems/reducing-dishes)
 
 [中文文档](/solution/1400-1499/1402.Reducing%20Dishes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A chef has collected data on the <code>satisfaction</code> level of his <code>n</code> dishes. Chef can cook any dish in 1 unit of time.</p>
 
@@ -58,7 +63,11 @@ Each dish is prepared in one unit of time.</pre>
 	<li><code>-1000 &lt;= satisfaction[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -74,6 +83,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSatisfaction(self, satisfaction: List[int]) -> int:
@@ -86,6 +97,8 @@ class Solution:
             ans += s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSatisfaction(satisfaction []int) (ans int) {
 	sort.Slice(satisfaction, func(i, j int) bool { return satisfaction[i] > satisfaction[j] })
@@ -136,6 +153,8 @@ func maxSatisfaction(satisfaction []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSatisfaction(satisfaction: number[]): number {
@@ -154,4 +173,6 @@ function maxSatisfaction(satisfaction: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1750.Minimum%20Length%20of%20String%20After%20Deleting%20Similar%20Ends/README.md
 rating: 1501
+source: 第 45 场双周赛 Q3
 tags:
     - 双指针
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1750. 删除字符串两端相同字符后的最短长度](https://leetcode.cn/problems/minimum-length-of-string-after-deleting-similar-ends)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个只包含字符 <code>'a'</code>，<code>'b'</code> 和 <code>'c'</code> 的字符串 <code>s</code> ，你可以执行下面这个操作（5 个步骤）任意次：</p>
 
@@ -68,7 +71,11 @@ tags:
 	<li><code>s</code> 只包含字符 <code>'a'</code>，<code>'b'</code> 和 <code>'c'</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -77,6 +84,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +99,8 @@ class Solution:
             i, j = i + 1, j - 1
         return max(0, j - i + 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumLength(s string) int {
 	i, j := 0, len(s)-1
@@ -145,6 +160,8 @@ func minimumLength(s string) int {
 	return max(0, j-i+1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumLength(s: string): number {
@@ -163,6 +180,8 @@ function minimumLength(s: string): number {
     return Math.max(0, j - i + 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -185,6 +204,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int minimumLength(char* s) {
@@ -210,4 +231,6 @@ int minimumLength(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

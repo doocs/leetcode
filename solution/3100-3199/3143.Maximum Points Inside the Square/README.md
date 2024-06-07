@@ -2,7 +2,17 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README.md
+rating: 1696
+source: 第 130 场双周赛 Q2
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 二分查找
+    - 排序
 ---
+
+<!-- problem:start -->
 
 # [3143. 正方形中的最多点数](https://leetcode.cn/problems/maximum-points-inside-the-square)
 
@@ -10,7 +20,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Ma
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二维数组&nbsp;<code>points</code>&nbsp;和一个字符串&nbsp;<code>s</code>&nbsp;，其中&nbsp;<code>points[i]</code>&nbsp;表示第 <code>i</code>&nbsp;个点的坐标，<code>s[i]</code>&nbsp;表示第 <code>i</code>&nbsp;个点的 <strong>标签</strong>&nbsp;。</p>
 
@@ -80,7 +90,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Ma
 	<li><code>s</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 排序
 
@@ -91,6 +105,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Ma
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是点的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -109,6 +125,8 @@ class Solution:
             ans += len(idx)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +153,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -163,6 +183,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPointsInsideSquare(points [][]int, s string) (ans int) {
 	g := map[int][]int{}
@@ -190,6 +212,8 @@ func maxPointsInsideSquare(points [][]int, s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPointsInsideSquare(points: number[][], s: string): number {
@@ -223,4 +247,6 @@ function maxPointsInsideSquare(points: number[][], s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

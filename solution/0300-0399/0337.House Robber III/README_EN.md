@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [337. House Robber III](https://leetcode.com/problems/house-robber-iii)
 
 [中文文档](/solution/0300-0399/0337.House%20Robber%20III/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The thief has found himself a new place for his thievery again. There is only one entrance to this area, called <code>root</code>.</p>
 
@@ -46,11 +50,17 @@ tags:
 	<li><code>0 &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -70,6 +80,8 @@ class Solution:
 
         return max(dfs(root))
 ```
+
+#### Java
 
 ```java
 /**
@@ -104,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -133,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -156,6 +172,8 @@ func rob(root *TreeNode) int {
 	return max(a, b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -187,4 +205,6 @@ function rob(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

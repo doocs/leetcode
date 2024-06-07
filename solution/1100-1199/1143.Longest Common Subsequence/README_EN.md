@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence)
 
 [中文文档](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>text1</code> and <code>text2</code>, return <em>the length of their longest <strong>common subsequence</strong>. </em>If there is no <strong>common subsequence</strong>, return <code>0</code>.</p>
 
@@ -56,7 +60,11 @@ tags:
 	<li><code>text1</code> and <code>text2</code> consist of only lowercase English characters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -76,6 +84,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
@@ -89,6 +99,8 @@ class Solution:
                     f[i][j] = max(f[i - 1][j], f[i][j - 1])
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestCommonSubsequence(text1 string, text2 string) int {
 	m, n := len(text1), len(text2)
@@ -150,6 +166,8 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestCommonSubsequence(text1: string, text2: string): number {
     const m = text1.length;
@@ -167,6 +185,8 @@ function longestCommonSubsequence(text1: string, text2: string): number {
     return f[m][n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -187,6 +207,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -211,6 +233,8 @@ var longestCommonSubsequence = function (text1, text2) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int LongestCommonSubsequence(string text1, string text2) {
@@ -229,6 +253,8 @@ public class Solution {
     }
 }
 ```
+
+#### Kotlin
 
 ```kotlin
 class Solution {
@@ -252,4 +278,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20052.%20%E5%B1%95%E5%B9%B3%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 052. 展平二叉搜索树](https://leetcode.cn/problems/NYBBNL)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵二叉搜索树，请&nbsp;<strong>按中序遍历</strong> 将其重新排列为一棵递增顺序搜索树，使树中最左边的节点成为树的根节点，并且每个节点没有左子节点，只有一个右子节点。</p>
 
@@ -44,11 +46,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 897&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/increasing-order-search-tree/">https://leetcode.cn/problems/increasing-order-search-tree/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -76,6 +84,8 @@ class Solution:
             cur = cur.right
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -118,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -157,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -190,6 +204,8 @@ func increasingBST(root *TreeNode) *TreeNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -221,6 +237,8 @@ function increasingBST(root: TreeNode | null): TreeNode | null {
     return dummy.right;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -276,6 +294,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for a binary tree node.
@@ -306,11 +326,69 @@ struct TreeNode* increasingBST(struct TreeNode* root) {
 }
 ```
 
+#### Swift
+
+```swift
+/* class TreeNode {
+*     var val: Int
+*     var left: TreeNode?
+*     var right: TreeNode?
+*     init() {
+*         self.val = 0
+*         self.left = nil
+*         self.right = nil
+*     }
+*     init(_ val: Int) {
+*         self.val = val
+*         self.left = nil
+*         self.right = nil
+*     }
+*     init(_ val: Int, _ left: TreeNode?, _ right: TreeNode?) {
+*         self.val = val
+*         self.left = left
+*         self.right = right
+*     }
+* }
+*/
+
+class Solution {
+    func increasingBST(_ root: TreeNode?) -> TreeNode? {
+        var head: TreeNode? = nil
+        var tail: TreeNode? = nil
+        var stack = [TreeNode]()
+        var cur = root
+        
+        while !stack.isEmpty || cur != nil {
+            while cur != nil {
+                stack.append(cur!)
+                cur = cur?.left
+            }
+            cur = stack.removeLast()
+            if head == nil {
+                head = cur
+            } else {
+                tail?.right = cur
+            }
+            tail = cur
+            cur?.left = nil
+            cur = cur?.right
+        }
+        return head
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -338,6 +416,8 @@ class Solution:
         dfs(root)
         return dummy.right
 ```
+
+#### Java
 
 ```java
 /**
@@ -378,6 +458,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -411,6 +493,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -441,4 +525,6 @@ func increasingBST(root *TreeNode) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

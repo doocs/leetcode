@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README_EN.md
 rating: 1373
+source: Weekly Contest 339 Q2
 tags:
     - Array
     - Hash Table
 ---
+
+<!-- problem:start -->
 
 # [2610. Convert an Array Into a 2D Array With Conditions](https://leetcode.com/problems/convert-an-array-into-a-2d-array-with-conditions)
 
 [中文文档](/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>. You need to create a 2D array from <code>nums</code> satisfying the following conditions:</p>
 
@@ -55,7 +60,11 @@ It can be shown that we cannot have less than 3 rows in a valid array.</pre>
 	<li><code>1 &lt;= nums[i] &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array or Hash Table
 
@@ -69,6 +78,8 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMatrix(self, nums: List[int]) -> List[List[int]]:
@@ -81,6 +92,8 @@ class Solution:
                 ans[i].append(x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMatrix(nums []int) (ans [][]int) {
 	n := len(nums)
@@ -147,6 +164,8 @@ func findMatrix(nums []int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMatrix(nums: number[]): number[][] {
@@ -170,4 +189,6 @@ function findMatrix(nums: number[]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

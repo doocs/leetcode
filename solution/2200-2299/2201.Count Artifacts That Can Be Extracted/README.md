@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2201.Count%20Artifacts%20That%20Can%20Be%20Extracted/README.md
 rating: 1525
+source: 第 284 场周赛 Q2
 tags:
     - 数组
     - 哈希表
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [2201. 统计可以提取的工件](https://leetcode.cn/problems/count-artifacts-that-can-be-extracted)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>存在一个 <code>n x n</code> 大小、下标从 <strong>0</strong> 开始的网格，网格中埋着一些工件。给你一个整数 <code>n</code> 和一个下标从 <strong>0</strong> 开始的二维整数数组 <code>artifacts</code> ，<code>artifacts</code> 描述了矩形工件的位置，其中 <code>artifacts[i] = [r1<sub>i</sub>, c1<sub>i</sub>, r2<sub>i</sub>, c2<sub>i</sub>]</code> 表示第 <code>i</code> 个工件在子网格中的填埋情况：</p>
 
@@ -73,7 +76,11 @@ tags:
 	<li><code>dig</code> 中的元素互不相同</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -82,6 +89,8 @@ tags:
 时间复杂度 $O(m + k)$，空间复杂度 $O(k)$，其中 $m$ 是工件的数量，而 $k$ 是挖掘的单元格的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +106,8 @@ class Solution:
         s = {(i, j) for i, j in dig}
         return sum(check(a) for a in artifacts)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func digArtifacts(n int, artifacts [][]int, dig [][]int) (ans int) {
 	s := map[int]bool{}
@@ -180,6 +195,8 @@ func digArtifacts(n int, artifacts [][]int, dig [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function digArtifacts(n: number, artifacts: number[][], dig: number[][]): number {
@@ -205,6 +222,8 @@ function digArtifacts(n: number, artifacts: number[][], dig: number[][]): number
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -240,4 +259,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

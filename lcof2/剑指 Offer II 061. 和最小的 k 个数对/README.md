@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20061.%20%E5%92%8C%E6%9C%80%E5%B0%8F%E7%9A%84%20k%20%E4%B8%AA%E6%95%B0%E5%AF%B9/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 061. 和最小的 k 个数对](https://leetcode.cn/problems/qn8gGX)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个以升序排列的整数数组 <code>nums1</code> 和<strong> </strong><code>nums2</code><strong>&nbsp;</strong>,&nbsp;以及一个整数 <code>k</code><strong>&nbsp;</strong>。</p>
 
@@ -58,11 +60,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 373&nbsp;题相同：<a href="https://leetcode.cn/problems/find-k-pairs-with-smallest-sums/">https://leetcode.cn/problems/find-k-pairs-with-smallest-sums/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +85,8 @@ class Solution:
                     heappop(hp)
         return [p for _, p in hp]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +131,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type pairHeap [][]int
@@ -145,4 +159,6 @@ func kSmallestPairs(nums1 []int, nums2 []int, k int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.09.Operations/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.09. Operations](https://leetcode.cn/problems/operations-lcci)
 
 [中文文档](/lcci/16.09.Operations/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>rite methods to implement the multiply, subtract, and divide operations for integers. The results of all of these are integers. Use only the add operator.</p>
 <p>You should implement following methods:</p>
@@ -36,6 +40,10 @@ operations.divide(5, -2); //returns -2
     <li>The number of calls will not exceed 1000.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

@@ -10,11 +10,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [114. Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list)
 
 [中文文档](/solution/0100-0199/0114.Flatten%20Binary%20Tree%20to%20Linked%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, flatten the tree into a &quot;linked list&quot;:</p>
 
@@ -56,7 +60,11 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Can you flatten the tree in-place (with <code>O(1)</code> extra space)?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Find Predecessor Node
 
@@ -67,6 +75,8 @@ Therefore, for the current node, if its left child node is not null, we find the
 The time complexity is $O(n)$, where $n$ is the number of nodes in the tree. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -90,6 +100,8 @@ class Solution:
                 root.left = None
             root = root.right
 ```
+
+#### Java
 
 ```java
 /**
@@ -130,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -161,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -185,6 +201,8 @@ func flatten(root *TreeNode) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -219,6 +237,8 @@ function flatten(root: TreeNode | null): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -275,6 +295,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -306,9 +328,15 @@ var flatten = function (root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 /**
@@ -337,4 +365,6 @@ func flatten(root *TreeNode) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

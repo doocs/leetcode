@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README_EN.md
 rating: 1837
+source: Biweekly Contest 33 Q4
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -11,11 +12,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1559. Detect Cycles in 2D Grid](https://leetcode.com/problems/detect-cycles-in-2d-grid)
 
 [中文文档](/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a 2D array of characters <code>grid</code> of size <code>m x n</code>, you need to find if there exists any cycle consisting of the <strong>same value</strong> in <code>grid</code>.</p>
 
@@ -67,11 +72,17 @@ tags:
 	<li><code>grid</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +104,8 @@ class Solution:
                         p[find(x * n + y)] = find(i * n + j)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +177,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func containsCycle(grid [][]byte) bool {
@@ -194,6 +211,8 @@ func containsCycle(grid [][]byte) bool {
 	return false
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -254,6 +273,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {character[][]} grid
@@ -290,4 +311,6 @@ var containsCycle = function (grid) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

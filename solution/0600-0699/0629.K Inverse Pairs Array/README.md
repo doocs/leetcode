@@ -6,13 +6,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [629. K 个逆序对数组](https://leetcode.cn/problems/k-inverse-pairs-array)
 
 [English Version](/solution/0600-0699/0629.K%20Inverse%20Pairs%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>对于一个整数数组&nbsp;<code>nums</code>，<strong>逆序对</strong>是一对满足 <code>0 &lt;= i &lt; j &lt; nums.length</code> 且&nbsp;<code>nums[i] &gt; nums[j]</code>的整数对&nbsp;<code>[i, j]</code>&nbsp;。</p>
 
@@ -47,7 +49,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划 + 前缀和
 
@@ -71,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kInversePairs(self, n: int, k: int) -> int:
@@ -84,6 +92,8 @@ class Solution:
                 s[j] = (s[j - 1] + f[j - 1]) % mod
         return f[k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kInversePairs(n int, k int) int {
 	f := make([]int, k+1)
@@ -151,6 +165,8 @@ func kInversePairs(n int, k int) int {
 	return f[k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function kInversePairs(n: number, k: number): number {
@@ -173,4 +189,6 @@ function kInversePairs(n: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

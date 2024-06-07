@@ -9,13 +9,15 @@ tags:
     - 字典树
 ---
 
+<!-- problem:start -->
+
 # [2479. 两个不重叠子树的最大异或值 🔒](https://leetcode.cn/problems/maximum-xor-of-two-non-overlapping-subtrees)
 
 [English Version](/solution/2400-2499/2479.Maximum%20XOR%20of%20Two%20Non-Overlapping%20Subtrees/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个无向树，有 <code>n</code> 个节点，节点标记为从 <code>0</code> 到 <code>n - 1</code>。给定整数 <code>n</code> 和一个长度为 <code>n - 1</code> 的 2 维整数数组 <code>edges</code>，其中 <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> 表示在树中的节点 <code>a<sub>i</sub></code> 和 <code>b<sub>i</sub></code> 之间有一条边。树的根节点是标记为 <code>0</code> 的节点。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li>保证 <code>edges</code> 代表一个有效的树。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归 + 0-1 前缀树
 
@@ -76,6 +82,8 @@ tags:
 时间复杂度 $O(n \times log M)$，其中 $n$ 为节点个数，而 $M$ 为子树和的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -135,6 +143,8 @@ class Solution:
         dfs2(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -217,6 +227,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -289,6 +301,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -368,4 +382,6 @@ func maxXor(n int, edges [][]int, values []int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

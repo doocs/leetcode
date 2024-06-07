@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/README.md
 rating: 1234
+source: 第 153 场周赛 Q1
 tags:
     - 数组
 ---
+
+<!-- problem:start -->
 
 # [1184. 公交站间的距离](https://leetcode.cn/problems/distance-between-bus-stops)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>环形公交路线上有&nbsp;<code>n</code>&nbsp;个站，按次序从&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n - 1</code>&nbsp;进行编号。我们已知每一对相邻公交站之间的距离，<code>distance[i]</code>&nbsp;表示编号为&nbsp;<code>i</code>&nbsp;的车站和编号为&nbsp;<code>(i + 1) % n</code>&nbsp;的车站之间的距离。</p>
 
@@ -64,7 +67,11 @@ tags:
 	<li><code>0 &lt;= distance[i] &lt;= 10^4</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -73,6 +80,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是公交车站的数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +94,8 @@ class Solution:
             start = (start + 1) % n
         return min(a, sum(distance) - a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func distanceBetweenBusStops(distance []int, start int, destination int) int {
@@ -131,6 +146,8 @@ func distanceBetweenBusStops(distance []int, start int, destination int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distanceBetweenBusStops(distance: number[], start: number, destination: number): number {
     const s = distance.reduce((a, b) => a + b, 0);
@@ -143,6 +160,8 @@ function distanceBetweenBusStops(distance: number[], start: number, destination:
     return Math.min(a, s - a);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -165,4 +184,6 @@ var distanceBetweenBusStops = function (distance, start, destination) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

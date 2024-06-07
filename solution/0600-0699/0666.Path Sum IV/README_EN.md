@@ -10,11 +10,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [666. Path Sum IV 🔒](https://leetcode.com/problems/path-sum-iv)
 
 [中文文档](/solution/0600-0699/0666.Path%20Sum%20IV/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>If the depth of a tree is smaller than <code>5</code>, then this tree can be represented by an array of three-digit integers. For each integer in this array:</p>
 
@@ -56,11 +60,17 @@ The path sum is (3 + 1) = 4.
 	<li><code>nums</code> represents a valid binary tree with depth less than <code>5</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +94,8 @@ class Solution:
         dfs(11, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pathSum(nums []int) int {
@@ -179,4 +195,6 @@ func pathSum(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

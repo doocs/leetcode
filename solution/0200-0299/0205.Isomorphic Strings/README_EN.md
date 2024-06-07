@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [205. Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings)
 
 [中文文档](/solution/0200-0299/0205.Isomorphic%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>s</code> and <code>t</code>, <em>determine if they are isomorphic</em>.</p>
 
@@ -39,7 +43,11 @@ tags:
 	<li><code>s</code> and <code>t</code> consist of any valid ascii character.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -50,6 +58,8 @@ Traverse $s$ and $t$, if the corresponding character mapping relationships in $d
 The time complexity is $O(n)$ and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $C = 256$ in this problem.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +73,8 @@ class Solution:
             d2[b] = a
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isIsomorphic(s string, t string) bool {
 	d1 := [256]int{}
@@ -119,6 +135,8 @@ func isIsomorphic(s string, t string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isIsomorphic(s: string, t: string): boolean {
@@ -136,6 +154,8 @@ function isIsomorphic(s: string, t: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -161,6 +181,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsIsomorphic(string s, string t) {
@@ -182,9 +204,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -197,6 +225,8 @@ class Solution:
             d1[a] = d2[b] = i
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -219,4 +249,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

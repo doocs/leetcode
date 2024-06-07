@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [290. 单词规律](https://leetcode.cn/problems/word-pattern)
 
 [English Version](/solution/0200-0299/0290.Word%20Pattern/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一种规律 <code>pattern</code>&nbsp;和一个字符串&nbsp;<code>s</code>&nbsp;，判断 <code>s</code>&nbsp;是否遵循相同的规律。</p>
 
@@ -21,19 +23,19 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例1:</strong></p>
+<p><strong class="example">示例1:</strong></p>
 
 <pre>
 <strong>输入:</strong> pattern = <code>"abba"</code>, s = <code>"dog cat cat dog"</code>
 <strong>输出:</strong> true</pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong class="example">示例 2:</strong></p>
 
 <pre>
 <strong>输入:</strong>pattern = <code>"abba"</code>, s = <code>"dog cat cat fish"</code>
 <strong>输出:</strong> false</pre>
 
-<p><strong>示例 3:</strong></p>
+<p><strong class="example">示例 3:</strong></p>
 
 <pre>
 <strong>输入:</strong> pattern = <code>"aaaa"</code>, s = <code>"dog cat cat dog"</code>
@@ -52,7 +54,11 @@ tags:
 	<li><code>s</code>&nbsp;中每个单词都被 <strong>单个空格 </strong>分隔</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -65,6 +71,8 @@ tags:
 时间复杂度 $O(m + n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别是 $pattern$ 和字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +89,8 @@ class Solution:
             d2[b] = a
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func wordPattern(pattern string, s string) bool {
 	ws := strings.Split(s, " ")
@@ -155,6 +169,8 @@ func wordPattern(pattern string, s string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function wordPattern(pattern: string, s: string): boolean {
@@ -179,6 +195,8 @@ function wordPattern(pattern: string, s: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -211,6 +229,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool WordPattern(string pattern, string s) {
@@ -239,4 +259,38 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：哈希表的另一种写法
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function wordPattern(pattern: string, s: string): boolean {
+    const hash: Record<string, string> = Object.create(null);
+    const arr = s.split(/\s+/);
+
+    if (pattern.length !== arr.length || new Set(pattern).size !== new Set(arr).size) {
+        return false;
+    }
+
+    for (let i = 0; i < pattern.length; i++) {
+        hash[pattern[i]] ??= arr[i];
+        if (hash[pattern[i]] !== arr[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

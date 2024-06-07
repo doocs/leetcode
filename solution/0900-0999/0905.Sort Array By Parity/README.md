@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [905. 按奇偶排序数组](https://leetcode.cn/problems/sort-array-by-parity)
 
 [English Version](/solution/0900-0999/0905.Sort%20Array%20By%20Parity/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code>，将 <code>nums</code> 中的的所有偶数元素移动到数组的前面，后跟所有奇数元素。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -62,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortArrayByParity(self, nums: List[int]) -> List[int]:
@@ -76,6 +84,8 @@ class Solution:
                 i, j = i + 1, j - 1
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortArrayByParity(nums []int) []int {
 	for i, j := 0, len(nums)-1; i < j; {
@@ -132,6 +146,8 @@ func sortArrayByParity(nums []int) []int {
 	return nums
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sortArrayByParity(nums: number[]): number[] {
@@ -149,6 +165,8 @@ function sortArrayByParity(nums: number[]): number[] {
     return nums;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -169,6 +187,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -193,4 +213,6 @@ var sortArrayByParity = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

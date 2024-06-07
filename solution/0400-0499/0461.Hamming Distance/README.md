@@ -6,13 +6,15 @@ tags:
     - 位运算
 ---
 
+<!-- problem:start -->
+
 # [461. 汉明距离](https://leetcode.cn/problems/hamming-distance)
 
 [English Version](/solution/0400-0499/0461.Hamming%20Distance/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>两个整数之间的 <a href="https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB">汉明距离</a> 指的是这两个数字对应二进制位不同的位置的数目。</p>
 
@@ -47,7 +49,11 @@ tags:
 	<li><code>0 <= x, y <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -57,11 +63,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hammingDistance(self, x: int, y: int) -> int:
         return (x ^ y).bit_count()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +80,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -80,11 +92,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hammingDistance(x int, y int) int {
 	return bits.OnesCount(uint(x ^ y))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hammingDistance(x: number, y: number): number {
@@ -97,6 +113,8 @@ function hammingDistance(x: number, y: number): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -117,4 +135,6 @@ var hammingDistance = function (x, y) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

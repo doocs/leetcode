@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [377. Combination Sum IV](https://leetcode.com/problems/combination-sum-iv)
 
 [中文文档](/solution/0300-0399/0377.Combination%20Sum%20IV/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of <strong>distinct</strong> integers <code>nums</code> and a target integer <code>target</code>, return <em>the number of possible combinations that add up to</em>&nbsp;<code>target</code>.</p>
 
@@ -55,7 +59,11 @@ Note that different sequences are counted as different combinations.
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What if negative numbers are allowed in the given array? How does it change the problem? What limitation we need to add to the question to allow negative numbers?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -69,6 +77,8 @@ The time complexity is $O(n \times target)$, and the space complexity is $O(targ
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combinationSum4(self, nums: List[int], target: int) -> int:
@@ -79,6 +89,8 @@ class Solution:
                     f[i] += f[i - x]
         return f[target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combinationSum4(nums []int, target int) int {
 	f := make([]int, target+1)
@@ -131,6 +147,8 @@ func combinationSum4(nums []int, target int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combinationSum4(nums: number[], target: number): number {
     const f: number[] = Array(target + 1).fill(0);
@@ -145,6 +163,8 @@ function combinationSum4(nums: number[], target: number): number {
     return f[target];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -166,6 +186,8 @@ var combinationSum4 = function (nums, target) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int CombinationSum4(int[] nums, int target) {
@@ -185,4 +207,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [944. Delete Columns to Make Sorted](https://leetcode.com/problems/delete-columns-to-make-sorted)
 
 [中文文档](/solution/0900-0999/0944.Delete%20Columns%20to%20Make%20Sorted/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <code>n</code> strings <code>strs</code>, all of the same length.</p>
 
@@ -77,11 +81,17 @@ All 3 columns are not sorted, so you will delete all 3.
 	<li><code>strs[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +105,8 @@ class Solution:
                     break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minDeletionSize(strs []string) int {
 	m, n := len(strs[0]), len(strs)
@@ -149,6 +165,8 @@ func minDeletionSize(strs []string) int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -171,4 +189,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

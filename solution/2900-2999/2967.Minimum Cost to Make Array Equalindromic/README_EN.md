@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README_EN.md
 rating: 2116
+source: Weekly Contest 376 Q3
 tags:
     - Greedy
     - Array
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2967. Minimum Cost to Make Array Equalindromic](https://leetcode.com/problems/minimum-cost-to-make-array-equalindromic)
 
 [中文文档](/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> having length <code>n</code>.</p>
 
@@ -68,7 +73,11 @@ It can be shown that changing all elements to any palindromic number other than 
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Sorting + Binary Search
 
@@ -83,6 +92,8 @@ Similar problems:
 -   [906. Super Palindromes](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0906.Super%20Palindromes/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 ps = []
@@ -104,6 +115,8 @@ class Solution:
         i = bisect_left(ps, nums[len(nums) // 2])
         return min(f(ps[j]) for j in range(i - 1, i + 2) if 0 <= j < len(ps))
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -146,6 +159,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -187,6 +202,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 var ps [2 * 100000]int64
@@ -243,6 +260,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 const ps = Array(2e5).fill(0);
 
@@ -288,4 +307,6 @@ function minimumCost(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

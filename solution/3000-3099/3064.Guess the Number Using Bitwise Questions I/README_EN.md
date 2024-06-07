@@ -7,11 +7,15 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [3064. Guess the Number Using Bitwise Questions I 🔒](https://leetcode.com/problems/guess-the-number-using-bitwise-questions-i)
 
 [中文文档](/solution/3000-3099/3064.Guess%20the%20Number%20Using%20Bitwise%20Questions%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a number <code>n</code> that you have to find.</p>
 
@@ -49,7 +53,11 @@ tags:
 	<li>If you ask for some <code>num</code> out of the given range, the output wouldn&#39;t be reliable.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -58,6 +66,8 @@ We can enumerate the powers of 2, and then call the `commonSetBits` method. If t
 The time complexity is $O(\log n)$, where $n \le 2^{30}$ in this problem. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition of commonSetBits API.
@@ -68,6 +78,8 @@ class Solution:
     def findNumber(self) -> int:
         return sum(1 << i for i in range(32) if commonSetBits(1 << i))
 ```
+
+#### Java
 
 ```java
 /**
@@ -87,6 +99,8 @@ public class Solution extends Problem {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -108,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition of commonSetBits API.
@@ -123,6 +139,8 @@ func findNumber() (n int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -143,4 +161,6 @@ function findNumber(): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

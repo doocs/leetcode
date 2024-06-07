@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README_EN.md
 rating: 2220
+source: Biweekly Contest 96 Q4
 tags:
     - Math
     - Number Theory
 ---
+
+<!-- problem:start -->
 
 # [2543. Check if Point Is Reachable](https://leetcode.com/problems/check-if-point-is-reachable)
 
 [中文文档](/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There exists an infinitely large grid. You are currently at point <code>(1, 1)</code>, and you need to reach the point <code>(targetX, targetY)</code> using a finite number of steps.</p>
 
@@ -51,7 +56,11 @@ tags:
 	<li><code>1 &lt;= targetX, targetY&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -67,12 +76,16 @@ The time complexity is $O(\log(\min(targetX, targetY)))$, and the space complexi
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isReachable(self, targetX: int, targetY: int) -> bool:
         x = gcd(targetX, targetY)
         return x & (x - 1) == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -96,6 +111,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isReachable(targetX int, targetY int) bool {
@@ -111,6 +128,8 @@ func gcd(a, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isReachable(targetX: number, targetY: number): boolean {
     const x = gcd(targetX, targetY);
@@ -124,4 +143,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2131.Longest%20Palindrome%20by%20Concatenating%20Two%20Letter%20Words/README.md
 rating: 1556
+source: 第 69 场双周赛 Q3
 tags:
     - 贪心
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2131. 连接两字母单词得到的最长回文串](https://leetcode.cn/problems/longest-palindrome-by-concatenating-two-letter-words)
 
 [English Version](/solution/2100-2199/2131.Longest%20Palindrome%20by%20Concatenating%20Two%20Letter%20Words/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组&nbsp;<code>words</code>&nbsp;。<code>words</code>&nbsp;中每个元素都是一个包含 <strong>两个</strong>&nbsp;小写英文字母的单词。</p>
 
@@ -62,7 +65,11 @@ tags:
 	<li><code>words[i]</code>&nbsp;仅包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 哈希表
 
@@ -80,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestPalindrome(self, words: List[str]) -> int:
@@ -94,6 +103,8 @@ class Solution:
         ans += 2 if x else 0
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestPalindrome(words []string) int {
@@ -170,4 +185,6 @@ func longestPalindrome(words []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

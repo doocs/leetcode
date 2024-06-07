@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1073.Adding%20Two%20Negabinary%20Numbers/README.md
 rating: 1806
+source: 第 139 场周赛 Q3
 tags:
     - 数组
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1073. 负二进制数相加](https://leetcode.cn/problems/adding-two-negabinary-numbers)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出基数为 <strong>-2</strong>&nbsp;的两个数&nbsp;<code>arr1</code> 和&nbsp;<code>arr2</code>，返回两数相加的结果。</p>
 
@@ -59,7 +62,11 @@ tags:
 	<li><code>arr1</code>&nbsp;和&nbsp;<code>arr2</code>&nbsp;都没有前导0</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -80,6 +87,8 @@ tags:
 -   [1017. 负二进制转换](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1017.Convert%20to%20Base%20-2/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -104,6 +113,8 @@ class Solution:
             ans.pop()
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +174,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func addNegabinary(arr1 []int, arr2 []int) (ans []int) {
@@ -193,6 +208,8 @@ func addNegabinary(arr1 []int, arr2 []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function addNegabinary(arr1: number[], arr2: number[]): number[] {
     let i = arr1.length - 1,
@@ -218,6 +235,8 @@ function addNegabinary(arr1: number[], arr2: number[]): number[] {
     return ans.reverse();
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -249,4 +268,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

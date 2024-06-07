@@ -4,11 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9866.%20%E6%9E%84%E5%BB%BA%E4%B9%98%E7%A7%AF%E6%95%B0%E7%BB%84/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 66. 构建乘积数组](https://leetcode.cn/problems/gou-jian-cheng-ji-shu-zu-lcof/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数组 <code>A[0,1,…,n-1]</code>，请构建一个数组 <code>B[0,1,…,n-1]</code>，其中 <code>B[i]</code> 的值是数组 <code>A</code> 中除了下标 <code>i</code> 以外的元素的积, 即 <code>B[i]=A[0]×A[1]×…×A[i-1]×A[i+1]×…×A[n-1]</code>。不能使用除法。</p>
 
@@ -29,7 +31,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 	<li><code>a.length <= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两次遍历
 
@@ -45,6 +51,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def constructArr(self, a: List[int]) -> List[int]:
@@ -59,6 +67,8 @@ class Solution:
             right *= a[i]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func constructArr(a []int) []int {
 	n := len(a)
@@ -113,6 +127,8 @@ func constructArr(a []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function constructArr(a: number[]): number[] {
     const n = a.length;
@@ -128,6 +144,8 @@ function constructArr(a: number[]): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -149,6 +167,8 @@ var constructArr = function (a) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int[] ConstructArr(int[] a) {
@@ -168,6 +188,35 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func constructArr(_ a: [Int]) -> [Int] {
+        let n = a.count
+        guard n > 0 else { return [] }
+
+        var ans = [Int](repeating: 1, count: n)
+
+        var left = 1
+        for i in 0..<n {
+            ans[i] = left
+            left *= a[i]
+        }
+
+        var right = 1
+        for i in (0..<n).reversed() {
+            ans[i] *= right
+            right *= a[i]
+        }
+
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

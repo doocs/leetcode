@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2171.Removing%20Minimum%20Number%20of%20Magic%20Beans/README.md
 rating: 1748
+source: 第 280 场周赛 Q3
 tags:
     - 贪心
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2171. 拿出最少数目的魔法豆](https://leetcode.cn/problems/removing-minimum-number-of-magic-beans)
 
 [English Version](/solution/2100-2199/2171.Removing%20Minimum%20Number%20of%20Magic%20Beans/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <strong>正整数&nbsp;</strong>数组&nbsp;<code>beans</code>&nbsp;，其中每个整数表示一个袋子里装的魔法豆的数目。</p>
 
@@ -68,7 +71,11 @@ tags:
 	<li><code>1 &lt;= beans[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 枚举
 
@@ -78,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumRemoval(self, beans: List[int]) -> int:
@@ -85,6 +94,8 @@ class Solution:
         s, n = sum(beans), len(beans)
         return min(s - x * (n - i) for i, x in enumerate(beans))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumRemoval(beans []int) int64 {
@@ -136,6 +151,8 @@ func minimumRemoval(beans []int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumRemoval(beans: number[]): number {
     beans.sort((a, b) => a - b);
@@ -151,4 +168,6 @@ function minimumRemoval(beans: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

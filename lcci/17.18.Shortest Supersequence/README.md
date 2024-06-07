@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.18.Shortest%20Supersequence/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.18. 最短超串](https://leetcode.cn/problems/shortest-supersequence-lcci)
 
 [English Version](/lcci/17.18.Shortest%20Supersequence/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假设你有两个数组，一个长一个短，短的元素均不相同。找到长数组中包含短数组所有的元素的最短子数组，其出现顺序无关紧要。</p>
 <p>返回最短子数组的左端点和右端点，如有多个满足条件的子数组，返回左端点最小的一个。若不存在，返回空数组。</p>
@@ -30,7 +32,11 @@ small = [4]
 	<li><code>1 &lt;= small.length&nbsp;&lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 双指针
 
@@ -41,6 +47,8 @@ small = [4]
 时间复杂度 $O(m + n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别是数组 $big$ 和 $small$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +70,8 @@ class Solution:
                 j += 1
         return [] if k < 0 else [k, k + mi - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestSeq(big []int, small []int) []int {
 	cnt := len(small)
@@ -162,6 +176,8 @@ func shortestSeq(big []int, small []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shortestSeq(big: number[], small: number[]): number[] {
     let cnt = small.length;
@@ -192,6 +208,8 @@ function shortestSeq(big: number[], small: number[]): number[] {
     return k < 0 ? [] : [k, k + mi - 1];
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -239,4 +257,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

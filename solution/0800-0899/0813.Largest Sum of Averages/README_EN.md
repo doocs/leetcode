@@ -8,11 +8,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [813. Largest Sum of Averages](https://leetcode.com/problems/largest-sum-of-averages)
 
 [中文文档](/solution/0800-0899/0813.Largest%20Sum%20of%20Averages/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>. You can partition the array into <strong>at most</strong> <code>k</code> non-empty adjacent subarrays. The <strong>score</strong> of a partition is the sum of the averages of each subarray.</p>
 
@@ -48,11 +52,17 @@ That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +83,8 @@ class Solution:
         s = list(accumulate(nums, initial=0))
         return dfs(0, k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestSumOfAverages(nums []int, k int) float64 {
@@ -169,4 +185,6 @@ func largestSumOfAverages(nums []int, k int) float64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

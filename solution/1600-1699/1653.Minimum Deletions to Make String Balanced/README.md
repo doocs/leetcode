@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README.md
 rating: 1793
+source: 第 39 场双周赛 Q2
 tags:
     - 栈
     - 字符串
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [1653. 使字符串平衡的最少删除次数](https://leetcode.cn/problems/minimum-deletions-to-make-string-balanced)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;，它仅包含字符&nbsp;<code>'a'</code> 和&nbsp;<code>'b'</code>​​​​ 。</p>
 
@@ -52,7 +55,11 @@ tags:
 	<li><code>s[i]</code>&nbsp;要么是&nbsp;<code>'a'</code> 要么是&nbsp;<code>'b'</code>​<strong>&nbsp;</strong>。​</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -80,6 +87,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumDeletions(self, s: str) -> int:
@@ -94,6 +103,8 @@ class Solution:
                 f[i] = min(f[i - 1] + 1, b)
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumDeletions(s string) int {
 	n := len(s)
@@ -152,6 +167,8 @@ func minimumDeletions(s string) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDeletions(s: string): number {
@@ -172,6 +189,10 @@ function minimumDeletions(s: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：枚举 + 前缀和
 
 我们可以枚举字符串 $s$ 中的每一个位置 $i$，将字符串 $s$ 分成两部分，分别为 $s[0,..,i-1]$ 和 $s[i+1,..n-1]$，要使得字符串平衡，我们在当前位置 $i$ 需要删除的字符数为 $s[0,..,i-1]$ 中字符 $b$ 的个数加上 $s[i+1,..n-1]$ 中字符 $a$ 的个数。
@@ -181,6 +202,8 @@ function minimumDeletions(s: string): number {
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -193,6 +216,8 @@ class Solution:
                 ans = min(ans + 1, b)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -211,6 +236,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -228,6 +255,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumDeletions(s string) int {
 	ans, b := 0, 0
@@ -241,6 +270,8 @@ func minimumDeletions(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDeletions(s: string): number {
@@ -260,9 +291,15 @@ function minimumDeletions(s: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -275,6 +312,8 @@ class Solution:
             lb += c == 'b'
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -297,6 +336,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -312,6 +353,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumDeletions(s string) int {
@@ -331,6 +374,8 @@ func minimumDeletions(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDeletions(s: string): number {
@@ -354,4 +399,6 @@ function minimumDeletions(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

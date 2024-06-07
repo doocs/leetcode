@@ -10,11 +10,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [786. K-th Smallest Prime Fraction](https://leetcode.com/problems/k-th-smallest-prime-fraction)
 
 [中文文档](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a sorted integer array <code>arr</code> containing <code>1</code> and <strong>prime</strong> numbers, where all the integers of <code>arr</code> are unique. You are also given an integer <code>k</code>.</p>
 
@@ -55,11 +59,17 @@ The third fraction is 2/5.
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Can you solve the problem with better than <code>O(n<sup>2</sup>)</code> complexity?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +82,8 @@ class Solution:
                 heappush(h, (arr[i + 1] / arr[j], i + 1, j))
         return [arr[h[0][1]], arr[h[0][2]]]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type frac struct{ x, y, i, j int }
@@ -163,4 +179,6 @@ func kthSmallestPrimeFraction(arr []int, k int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

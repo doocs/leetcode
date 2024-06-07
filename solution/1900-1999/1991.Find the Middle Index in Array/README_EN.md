@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README_EN.md
 rating: 1302
+source: Biweekly Contest 60 Q1
 tags:
     - Array
     - Prefix Sum
 ---
+
+<!-- problem:start -->
 
 # [1991. Find the Middle Index in Array](https://leetcode.com/problems/find-the-middle-index-in-array)
 
 [中文文档](/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code>, find the <strong>leftmost</strong> <code>middleIndex</code> (i.e., the smallest amongst all the possible ones).</p>
 
@@ -60,11 +65,17 @@ The sum of the numbers after index 2 is: 0
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as&nbsp;724:&nbsp;<a href="https://leetcode.com/problems/find-pivot-index/" target="_blank">https://leetcode.com/problems/find-pivot-index/</a></p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +88,8 @@ class Solution:
             left += x
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMiddleIndex(nums []int) int {
 	s := 0
@@ -128,6 +145,8 @@ func findMiddleIndex(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMiddleIndex(nums: number[]): number {
     let left = 0,
@@ -142,6 +161,8 @@ function findMiddleIndex(nums: number[]): number {
     return -1;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -164,4 +185,6 @@ var findMiddleIndex = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

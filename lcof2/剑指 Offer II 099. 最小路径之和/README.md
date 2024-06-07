@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20099.%20%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E4%B9%8B%E5%92%8C/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 099. 最小路径之和](https://leetcode.cn/problems/0i0mDW)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个包含非负整数的 <code><em>m</em>&nbsp;x&nbsp;<em>n</em></code>&nbsp;网格&nbsp;<code>grid</code> ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。</p>
 
@@ -47,11 +49,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 64&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/minimum-path-sum/">https://leetcode.cn/problems/minimum-path-sum/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +75,8 @@ class Solution:
                 dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]
         return dp[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minPathSum(grid [][]int) int {
@@ -135,6 +149,8 @@ func minPathSum(grid [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minPathSum(grid: number[][]): number {
     let m = grid.length,
@@ -157,6 +173,8 @@ function minPathSum(grid: number[][]): number {
     return dp[m - 1][n - 1];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -186,4 +204,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

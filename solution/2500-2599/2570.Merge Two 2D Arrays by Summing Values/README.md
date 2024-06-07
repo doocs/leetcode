@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2570.Merge%20Two%202D%20Arrays%20by%20Summing%20Values/README.md
 rating: 1281
+source: 第 333 场周赛 Q1
 tags:
     - 数组
     - 哈希表
     - 双指针
 ---
+
+<!-- problem:start -->
 
 # [2570. 合并两个二维数组 - 求和法](https://leetcode.cn/problems/merge-two-2d-arrays-by-summing-values)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个 <strong>二维</strong> 整数数组 <code>nums1</code> 和 <code>nums2.</code></p>
 
@@ -67,7 +70,11 @@ tags:
 	<li>数据均按 id 以严格递增顺序排列</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 枚举
 
@@ -79,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mergeArrays(
@@ -89,6 +98,8 @@ class Solution:
             cnt[i] += v
         return sorted(cnt.items())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mergeArrays(nums1 [][]int, nums2 [][]int) (ans [][]int) {
 	cnt := [1001]int{}
@@ -156,6 +171,8 @@ func mergeArrays(nums1 [][]int, nums2 [][]int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mergeArrays(nums1: number[][], nums2: number[][]): number[][] {
@@ -176,6 +193,8 @@ function mergeArrays(nums1: number[][], nums2: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -204,4 +223,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

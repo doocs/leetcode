@@ -8,13 +8,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [1950. 所有子数组最小值中的最大值 🔒](https://leetcode.cn/problems/maximum-of-minimum-values-in-all-subarrays)
 
 [English Version](/solution/1900-1999/1950.Maximum%20of%20Minimum%20Values%20in%20All%20Subarrays/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的整数数组 <code>nums</code> ，你需要处理 <code>n</code> 个查询。</p>
 
@@ -77,7 +79,11 @@ i = 3:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -92,6 +98,8 @@ i = 3:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -121,6 +129,8 @@ class Solution:
             ans[i] = max(ans[i], ans[i + 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -163,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -202,6 +214,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMaximums(nums []int) []int {
@@ -246,4 +260,6 @@ func findMaximums(nums []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

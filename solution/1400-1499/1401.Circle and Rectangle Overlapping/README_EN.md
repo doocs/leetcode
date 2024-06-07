@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1401.Circle%20and%20Rectangle%20Overlapping/README_EN.md
 rating: 1708
+source: Biweekly Contest 23 Q3
 tags:
     - Geometry
     - Math
 ---
+
+<!-- problem:start -->
 
 # [1401. Circle and Rectangle Overlapping](https://leetcode.com/problems/circle-and-rectangle-overlapping)
 
 [中文文档](/solution/1400-1499/1401.Circle%20and%20Rectangle%20Overlapping/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a circle represented as <code>(radius, xCenter, yCenter)</code> and an axis-aligned rectangle represented as <code>(x1, y1, x2, y2)</code>, where <code>(x1, y1)</code> are the coordinates of the bottom-left corner, and <code>(x2, y2)</code> are the coordinates of the top-right corner of the rectangle.</p>
 
@@ -51,7 +56,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= y1 &lt; y2 &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -72,6 +81,8 @@ Similarly, we can find the minimum value of $|y - yCenter|$ when $y \in [y_1, y_
 That is, $a = f(x_1, x_2, xCenter)$, $b = f(y_1, y_2, yCenter)$. If $a^2 + b^2 \leq radius^2$, then the circle and rectangle overlap.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +106,8 @@ class Solution:
         return a * a + b * b <= radius * radius
 ```
 
+#### Java
+
 ```java
 class Solution {
     public boolean checkOverlap(
@@ -113,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkOverlap(radius int, xCenter int, yCenter int, x1 int, y1 int, x2 int, y2 int) bool {
 	f := func(i, j, k int) int {
@@ -146,6 +163,8 @@ func checkOverlap(radius int, xCenter int, yCenter int, x1 int, y1 int, x2 int, 
 	return a*a+b*b <= radius*radius
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkOverlap(
@@ -171,4 +190,6 @@ function checkOverlap(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

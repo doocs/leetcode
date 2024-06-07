@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README.md
 rating: 1333
+source: 第 104 场双周赛 Q2
 tags:
     - 数组
     - 矩阵
@@ -11,13 +12,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [2679. 矩阵中的和](https://leetcode.cn/problems/sum-in-a-matrix)
 
 [English Version](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的二维整数数组&nbsp;<code>nums</code>&nbsp;。一开始你的分数为&nbsp;<code>0</code>&nbsp;。你需要执行以下操作直到矩阵变为空：</p>
 
@@ -55,7 +58,11 @@ tags:
 	<li><code>0 &lt;= nums[i][j] &lt;= 10<sup>3</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -67,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def matrixSum(self, nums: List[List[int]]) -> int:
@@ -74,6 +83,8 @@ class Solution:
             row.sort()
         return sum(map(max, zip(*nums)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func matrixSum(nums [][]int) (ans int) {
 	for _, row := range nums {
@@ -129,6 +144,8 @@ func matrixSum(nums [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function matrixSum(nums: number[][]): number {
@@ -146,6 +163,8 @@ function matrixSum(nums: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,9 +191,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -200,4 +225,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

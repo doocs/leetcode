@@ -6,12 +6,11 @@ func partitionDisjoint(nums []int) int {
 		mi[i] = min(nums[i], mi[i+1])
 	}
 	mx := 0
-	for i := 1; i <= n; i++ {
+	for i := 1; ; i++ {
 		v := nums[i-1]
 		mx = max(mx, v)
 		if mx <= mi[i] {
 			return i
 		}
 	}
-	return 0
 }

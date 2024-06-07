@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3099.Harshad%20Number/README_EN.md
 rating: 1100
+source: Weekly Contest 391 Q1
 tags:
     - Math
 ---
+
+<!-- problem:start -->
 
 # [3099. Harshad Number](https://leetcode.com/problems/harshad-number)
 
 [中文文档](/solution/3000-3099/3099.Harshad%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An integer divisible by the <strong>sum</strong> of its digits is said to be a <strong>Harshad</strong> number. You are given an integer <code>x</code>. Return<em> the sum of the digits </em>of<em> </em><code>x</code><em> </em>if<em> </em><code>x</code><em> </em>is a <strong>Harshad</strong> number, otherwise, return<em> </em><code>-1</code><em>.</em></p>
 
@@ -47,7 +52,11 @@ tags:
 	<li><code>1 &lt;= x &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -56,6 +65,8 @@ We can calculate the sum of the digits of $x$, denoted as $s$, by simulation. If
 The time complexity is $O(\log x)$, where $x$ is the input integer. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +77,8 @@ class Solution:
             y //= 10
         return s if x % s == 0 else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -92,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfTheDigitsOfHarshadNumber(x int) int {
 	s := 0
@@ -105,6 +122,8 @@ func sumOfTheDigitsOfHarshadNumber(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumOfTheDigitsOfHarshadNumber(x: number): number {
     let s = 0;
@@ -117,4 +136,6 @@ function sumOfTheDigitsOfHarshadNumber(x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

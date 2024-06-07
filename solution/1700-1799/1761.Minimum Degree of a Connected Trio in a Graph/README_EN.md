@@ -3,15 +3,20 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1761.Minimum%20Degree%20of%20a%20Connected%20Trio%20in%20a%20Graph/README_EN.md
 rating: 2005
+source: Weekly Contest 228 Q4
 tags:
     - Graph
 ---
+
+<!-- problem:start -->
 
 # [1761. Minimum Degree of a Connected Trio in a Graph](https://leetcode.com/problems/minimum-degree-of-a-connected-trio-in-a-graph)
 
 [中文文档](/solution/1700-1799/1761.Minimum%20Degree%20of%20a%20Connected%20Trio%20in%20a%20Graph/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an undirected graph. You are given an integer <code>n</code> which is the number of nodes in the graph and an array <code>edges</code>, where each <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> indicates that there is an undirected edge between <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code>.</p>
 
@@ -53,11 +58,17 @@ tags:
 	<li>There are no repeated edges.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +89,8 @@ class Solution:
                             ans = min(ans, deg[i] + deg[j] + deg[k] - 6)
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minTrioDegree(n int, edges [][]int) int {
@@ -170,6 +187,8 @@ func minTrioDegree(n int, edges [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minTrioDegree(n: number, edges: number[][]): number {
     const g = Array.from({ length: n }, () => Array(n).fill(false));
@@ -199,4 +218,6 @@ function minTrioDegree(n: number, edges: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

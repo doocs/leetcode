@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1930.Unique%20Length-3%20Palindromic%20Subsequences/README.md
 rating: 1533
+source: 第 249 场周赛 Q2
 tags:
     - 位运算
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [1930. 长度为 3 的不同回文子序列](https://leetcode.cn/problems/unique-length-3-palindromic-subsequences)
 
 [English Version](/solution/1900-1999/1930.Unique%20Length-3%20Palindromic%20Subsequences/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> ，返回 <code>s</code> 中 <strong>长度为 3 </strong>的<strong>不同回文子序列</strong> 的个数。</p>
 
@@ -72,7 +75,11 @@ tags:
 	<li><code>s</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举两端字符 + 哈希表
 
@@ -84,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPalindromicSubsequence(self, s: str) -> int:
@@ -94,6 +103,8 @@ class Solution:
                 ans += len(set(s[l + 1 : r]))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPalindromicSubsequence(s string) (ans int) {
 	for c := 'a'; c <= 'z'; c++ {
@@ -141,6 +156,8 @@ func countPalindromicSubsequence(s string) (ans int) {
 	return
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -161,4 +178,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

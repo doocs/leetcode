@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2400.Number%20of%20Ways%20to%20Reach%20a%20Position%20After%20Exactly%20k%20Steps/README_EN.md
 rating: 1751
+source: Weekly Contest 309 Q2
 tags:
     - Math
     - Dynamic Programming
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [2400. Number of Ways to Reach a Position After Exactly k Steps](https://leetcode.com/problems/number-of-ways-to-reach-a-position-after-exactly-k-steps)
 
 [中文文档](/solution/2400-2499/2400.Number%20of%20Ways%20to%20Reach%20a%20Position%20After%20Exactly%20k%20Steps/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>positive</strong> integers <code>startPos</code> and <code>endPos</code>. Initially, you are standing at position <code>startPos</code> on an <strong>infinite</strong> number line. With one step, you can move either one position to the left, or one position to the right.</p>
 
@@ -50,7 +55,11 @@ It can be proven that no other way is possible, so we return 3.</pre>
 	<li><code>1 &lt;= startPos, endPos, k &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memorization Search
 
@@ -71,6 +80,8 @@ The time complexity is $O(k^2)$, and the space complexity is $O(k^2)$. Here, $k$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfWays(self, startPos: int, endPos: int, k: int) -> int:
@@ -85,6 +96,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(abs(startPos - endPos), k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfWays(startPos int, endPos int, k int) int {
@@ -176,6 +193,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfWays(startPos: number, endPos: number, k: number): number {
     const mod = 10 ** 9 + 7;
@@ -200,4 +219,6 @@ function numberOfWays(startPos: number, endPos: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

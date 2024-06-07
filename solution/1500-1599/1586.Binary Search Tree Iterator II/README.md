@@ -11,13 +11,15 @@ tags:
     - 迭代器
 ---
 
+<!-- problem:start -->
+
 # [1586. 二叉搜索树迭代器 II 🔒](https://leetcode.cn/problems/binary-search-tree-iterator-ii)
 
 [English Version](/solution/1500-1599/1586.Binary%20Search%20Tree%20Iterator%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实现二叉搜索树（BST）的<a href="https://baike.baidu.com/item/中序遍历/757281?fr=aladdin">中序遍历</a>迭代器&nbsp;<code>BSTIterator</code>&nbsp;类：</p>
 
@@ -74,7 +76,11 @@ bSTIterator.prev(); // 状态变为 [3, 7, &lt;u&gt;9&lt;/u&gt;, 15, 20], 返回
 	<li>最多调用&nbsp;10<sup>5</sup>&nbsp;次&nbsp;<code>hasNext</code>、&nbsp;<code>next</code>、&nbsp;<code>hasPrev</code>&nbsp;和&nbsp;<code>prev</code>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：中序遍历 + 数组
 
@@ -83,6 +89,8 @@ bSTIterator.prev(); // 状态变为 [3, 7, &lt;u&gt;9&lt;/u&gt;, 15, 20], 返回
 时间复杂度方面，初始化迭代器需要 $O(n)$ 的时间，其中 $n$ 是二叉搜索树的节点数。每次调用 $next()$ 和 $prev()$ 都需要 $O(1)$ 的时间。空间复杂度方面，我们需要 $O(n)$ 的空间存储二叉搜索树的所有节点的值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -127,6 +135,8 @@ class BSTIterator:
 # param_3 = obj.hasPrev()
 # param_4 = obj.prev()
 ```
+
+#### Java
 
 ```java
 /**
@@ -188,6 +198,8 @@ class BSTIterator {
  */
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -248,6 +260,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -304,6 +318,8 @@ func (this *BSTIterator) Prev() int {
  * param_4 := obj.Prev();
  */
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -369,4 +385,6 @@ class BSTIterator {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

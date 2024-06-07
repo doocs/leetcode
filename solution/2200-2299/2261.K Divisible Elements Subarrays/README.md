@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README.md
 rating: 1724
+source: 第 291 场周赛 Q3
 tags:
     - 字典树
     - 数组
@@ -12,13 +13,15 @@ tags:
     - 滚动哈希
 ---
 
+<!-- problem:start -->
+
 # [2261. 含最多 K 个可整除元素的子数组](https://leetcode.cn/problems/k-divisible-elements-subarrays)
 
 [English Version](/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 和两个整数 <code>k</code> 和 <code>p</code> ，找出并返回满足要求的不同的子数组数，要求子数组中最多 <code>k</code> 个可被 <code>p</code> 整除的元素。</p>
 
@@ -73,7 +76,11 @@ nums 中的所有元素都可以被 p = 1 整除。
 
 <p>你可以设计并实现时间复杂度为 <code>O(n<sup>2</sup>)</code> 的算法解决此问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -82,6 +89,8 @@ nums 中的所有元素都可以被 p = 1 整除。
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +106,8 @@ class Solution:
                 s.add(tuple(nums[i : j + 1]))
         return len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countDistinct(nums []int, k int, p int) int {
 	s := map[string]struct{}{}
@@ -160,6 +175,8 @@ func countDistinct(nums []int, k int, p int) int {
 	return len(s)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countDistinct(nums: number[], k: number, p: number): number {
@@ -182,9 +199,15 @@ function countDistinct(nums: number[], k: number, p: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -205,4 +228,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

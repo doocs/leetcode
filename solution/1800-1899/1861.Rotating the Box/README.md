@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1861.Rotating%20the%20Box/README.md
 rating: 1536
+source: 第 52 场双周赛 Q3
 tags:
     - 数组
     - 双指针
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [1861. 旋转盒子](https://leetcode.cn/problems/rotating-the-box)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>m x n</code> 的字符矩阵 <code>box</code> ，它表示一个箱子的侧视图。箱子的每一个格子可能为：</p>
 
@@ -81,7 +84,11 @@ tags:
 	<li><code>box[i][j]</code> 只可能是 <code>'#'</code> ，<code>'*'</code> 或者 <code>'.'</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：队列模拟
 
@@ -90,6 +97,8 @@ tags:
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -112,6 +121,8 @@ class Solution:
                     q.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +152,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -173,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rotateTheBox(box [][]byte) [][]byte {
@@ -207,4 +222,6 @@ func rotateTheBox(box [][]byte) [][]byte {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

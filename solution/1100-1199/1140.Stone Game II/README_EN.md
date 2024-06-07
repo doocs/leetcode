@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1140.Stone%20Game%20II/README_EN.md
 rating: 2034
+source: Weekly Contest 147 Q4
 tags:
     - Array
     - Math
@@ -11,11 +12,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1140. Stone Game II](https://leetcode.com/problems/stone-game-ii)
 
 [中文文档](/solution/1100-1199/1140.Stone%20Game%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob continue their&nbsp;games with piles of stones.&nbsp; There are a number of&nbsp;piles&nbsp;<strong>arranged in a row</strong>, and each pile has a positive integer number of stones&nbsp;<code>piles[i]</code>.&nbsp; The objective of the game is to end with the most&nbsp;stones.&nbsp;</p>
 
@@ -51,7 +56,11 @@ tags:
 	<li><code>1 &lt;= piles[i]&nbsp;&lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Memoization Search
 
@@ -72,6 +81,8 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameII(self, piles: List[int]) -> int:
@@ -87,6 +98,8 @@ class Solution:
         s = list(accumulate(piles, initial=0))
         return dfs(0, 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGameII(piles []int) int {
 	n := len(piles)
@@ -176,6 +193,8 @@ func stoneGameII(piles []int) int {
 	return dfs(0, 1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stoneGameII(piles: number[]): number {
@@ -204,9 +223,15 @@ function stoneGameII(piles: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -226,4 +251,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

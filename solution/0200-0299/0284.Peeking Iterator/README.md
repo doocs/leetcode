@@ -8,13 +8,15 @@ tags:
     - 迭代器
 ---
 
+<!-- problem:start -->
+
 # [284. 窥视迭代器](https://leetcode.cn/problems/peeking-iterator)
 
 [English Version](/solution/0200-0299/0284.Peeking%20Iterator/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你在设计一个迭代器，在集成现有迭代器拥有的&nbsp;<code>hasNext</code> 和 <code>next</code> 操作的基础上，还额外支持 <code>peek</code> 操作。</p>
 
@@ -64,11 +66,17 @@ peekingIterator.hasNext(); // 返回 False
 
 <p><strong>进阶：</strong>你将如何拓展你的设计？使之变得通用化，从而适应所有的类型，而不只是整数型？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Below is the interface for Iterator, which is already defined for you.
@@ -138,6 +146,8 @@ class PeekingIterator:
 #     iter.next()         # Should return the same value as [val].
 ```
 
+#### Java
+
 ```java
 // Java Iterator interface reference:
 // https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
@@ -180,6 +190,8 @@ class PeekingIterator implements Iterator<Integer> {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -238,6 +250,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 /*   Below is the interface for Iterator, which is already defined for you.
  *
@@ -287,4 +301,6 @@ func (this *PeekingIterator) peek() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

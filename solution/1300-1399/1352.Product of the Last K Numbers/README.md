@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1352.Product%20of%20the%20Last%20K%20Numbers/README.md
 rating: 1473
+source: 第 176 场周赛 Q2
 tags:
     - 设计
     - 队列
@@ -11,13 +12,15 @@ tags:
     - 数据流
 ---
 
+<!-- problem:start -->
+
 # [1352. 最后 K 个数的乘积](https://leetcode.cn/problems/product-of-the-last-k-numbers)
 
 [English Version](/solution/1300-1399/1352.Product%20of%20the%20Last%20K%20Numbers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你实现一个「数字乘积类」<code>ProductOfNumbers</code>，要求支持下述两种方法：</p>
 
@@ -71,7 +74,11 @@ productOfNumbers.getProduct(2); // 返回 32 。最后 2 个数字的乘积是 4
 	<li><code>1 &lt;= k &lt;= 40000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀积
 
@@ -84,6 +91,8 @@ productOfNumbers.getProduct(2); // 返回 32 。最后 2 个数字的乘积是 4
 时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 为调用 `add` 的次数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class ProductOfNumbers:
@@ -105,6 +114,8 @@ class ProductOfNumbers:
 # obj.add(num)
 # param_2 = obj.getProduct(k)
 ```
+
+#### Java
 
 ```java
 class ProductOfNumbers {
@@ -136,6 +147,8 @@ class ProductOfNumbers {
  * int param_2 = obj.getProduct(k);
  */
 ```
+
+#### C++
 
 ```cpp
 class ProductOfNumbers {
@@ -169,6 +182,8 @@ private:
  * int param_2 = obj->getProduct(k);
  */
 ```
+
+#### Go
 
 ```go
 type ProductOfNumbers struct {
@@ -205,4 +220,6 @@ func (this *ProductOfNumbers) GetProduct(k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.11.Find%20Closest/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.11. Find Closest](https://leetcode.cn/problems/find-closest-lcci)
 
 [中文文档](/lcci/17.11.Find%20Closest/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a large text file containing words. Given any two words, find the shortest distance (in terms of number of words) between them in the file. If the operation will be repeated many times for the same file (but different pairs of words), can you optimize your solution?</p>
 
@@ -26,7 +30,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.11.Find%20Closest/
 	<li><code>words.length &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Pass
 
@@ -39,6 +47,8 @@ After the traversal, we return the answer $ans$.
 The time complexity is $O(n)$, where $n$ is the number of words in the text file. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -53,6 +63,8 @@ class Solution:
             ans = min(ans, abs(i - j))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -71,6 +83,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -92,6 +106,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findClosest(words []string, word1 string, word2 string) int {
 	const inf int = 1 << 29
@@ -108,6 +124,8 @@ func findClosest(words []string, word1 string, word2 string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findClosest(words: string[], word1: string, word2: string): number {
     let [i, j, ans] = [Infinity, -Infinity, Infinity];
@@ -122,6 +140,8 @@ function findClosest(words: string[], word1: string, word2: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -144,6 +164,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -169,6 +191,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Hash Table + Two Pointers
 
 We can use a hash table $d$ to record the positions of each word. Then, for each pair of $\textit{word1}$ and $\textit{word2}$, we can find their shortest distance using the two-pointer method.
@@ -182,6 +208,8 @@ Next, we traverse $idx1$ and $idx2$. Each time we update the answer $ans = \min(
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of words in the text file.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -200,6 +228,8 @@ class Solution:
                 j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -224,6 +254,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -250,6 +282,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findClosest(words []string, word1 string, word2 string) int {
 	d := map[string][]int{}
@@ -273,6 +307,8 @@ func findClosest(words []string, word1 string, word2 string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findClosest(words: string[], word1: string, word2: string): number {
@@ -299,4 +335,6 @@ function findClosest(words: string[], word1: string, word2: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

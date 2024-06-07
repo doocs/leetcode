@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs)
 
 [English Version](/solution/0000-0099/0070.Climbing%20Stairs/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假设你正在爬楼梯。需要 <code>n</code>&nbsp;阶你才能到达楼顶。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 45</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递推
 
@@ -70,6 +76,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def climbStairs(self, n: int) -> int:
@@ -78,6 +86,8 @@ class Solution:
             a, b = b, a + b
         return b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func climbStairs(n int) int {
 	a, b := 0, 1
@@ -117,6 +131,8 @@ func climbStairs(n int) int {
 	return b
 }
 ```
+
+#### TypeScript
 
 ```ts
 function climbStairs(n: number): number {
@@ -128,6 +144,8 @@ function climbStairs(n: number): number {
     return q;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -142,6 +160,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -159,6 +179,8 @@ var climbStairs = function (n) {
     return b;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -180,6 +202,10 @@ class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：矩阵快速幂加速递推
 
@@ -223,6 +249,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def climbStairs(self, n: int) -> int:
@@ -247,6 +275,8 @@ class Solution:
         a = [[1, 1], [1, 0]]
         return pow(a, n - 1)[0][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -282,6 +312,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -319,6 +351,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 type matrix [2][2]int
 
@@ -351,6 +385,8 @@ func pow(a matrix, n int) matrix {
 	return res
 }
 ```
+
+#### TypeScript
 
 ```ts
 function climbStairs(n: number): number {
@@ -391,6 +427,8 @@ function pow(a: number[][], n: number): number[][] {
     return res;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -438,9 +476,15 @@ function pow(a, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import numpy as np
@@ -461,4 +505,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

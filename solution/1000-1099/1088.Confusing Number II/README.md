@@ -3,10 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1088.Confusing%20Number%20II/README.md
 rating: 2076
+source: 第 2 场双周赛 Q4
 tags:
     - 数学
     - 回溯
 ---
+
+<!-- problem:start -->
 
 # [1088. 易混淆数 II 🔒](https://leetcode.cn/problems/confusing-number-ii)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>易混淆数</strong>（Confusing Number）指的是一个数字在整体旋转 <code>180°</code> 以后，能够得到一个和原来&nbsp;<strong>不同&nbsp;</strong>的数，且 <strong>新数字的每一位都应该是有效的</strong>。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数位 DP
 
@@ -88,6 +95,8 @@ tags:
 时间复杂度 $O(5^{\log_{10}n})$，空间复杂度 $O(\log_{10}n)$。其中 $5^{\log_{10}n}$ 表示 $n$ 的位数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -113,6 +122,8 @@ class Solution:
         s = str(n)
         return dfs(0, True, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -180,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func confusingNumberII(n int) int {
@@ -216,6 +231,8 @@ func confusingNumberII(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function confusingNumberII(n: number): number {
     const s = n.toString();
@@ -247,4 +264,6 @@ function confusingNumberII(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

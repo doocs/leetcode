@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2278.Percentage%20of%20Letter%20in%20String/README.md
 rating: 1161
+source: 第 294 场周赛 Q1
 tags:
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2278. 字母在字符串中的百分比](https://leetcode.cn/problems/percentage-of-letter-in-string)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> 和一个字符 <code>letter</code> ，返回在 <code>s</code> 中等于&nbsp;<code>letter</code>&nbsp;字符所占的 <strong>百分比</strong> ，向下取整到最接近的百分比。</p>
 
@@ -46,17 +49,25 @@ tags:
 	<li><code>letter</code> 是一个小写英文字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def percentageLetter(self, s: str, letter: str) -> int:
         return s.count(letter) * 100 // len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +83,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -82,6 +95,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func percentageLetter(s string, letter byte) int {
@@ -95,6 +110,8 @@ func percentageLetter(s string, letter byte) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function percentageLetter(s: string, letter: string): number {
     let count = 0;
@@ -105,6 +122,8 @@ function percentageLetter(s: string, letter: string): number {
     return Math.floor((count / total) * 100);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -122,4 +141,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

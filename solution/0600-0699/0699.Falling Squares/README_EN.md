@@ -8,11 +8,15 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [699. Falling Squares](https://leetcode.com/problems/falling-squares)
 
 [中文文档](/solution/0600-0699/0699.Falling%20Squares/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are several squares being dropped onto the X-axis of a 2D plane.</p>
 
@@ -58,11 +62,17 @@ Note that square 2 only brushes the right side of square 1, which does not count
 	<li><code>1 &lt;= sideLength<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -140,6 +150,8 @@ class Solution:
             tree.modify(l, r, h)
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -247,6 +259,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -343,6 +357,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type node struct {
@@ -444,4 +460,6 @@ func fallingSquares(positions [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

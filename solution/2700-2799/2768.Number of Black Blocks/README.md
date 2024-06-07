@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README.md
 rating: 2175
+source: 第 108 场双周赛 Q4
 tags:
     - 数组
     - 哈希表
     - 枚举
 ---
+
+<!-- problem:start -->
 
 # [2768. 黑格子的数目](https://leetcode.cn/problems/number-of-black-blocks)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数&nbsp;<code>m</code> 和&nbsp;<code>n</code>&nbsp;，表示一个下标从 <strong>0</strong>&nbsp;开始的&nbsp;<code>m x n</code>&nbsp;的网格图。</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>coordinates</code>&nbsp;中的坐标对两两互不相同。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表计数
 
@@ -80,6 +87,8 @@ tags:
 时间复杂度 $O(l)$，空间复杂度 $O(l)$，其中 $l$ 为 $coordinates$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +107,8 @@ class Solution:
         ans[0] = (m - 1) * (n - 1) - len(cnt.values())
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -150,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countBlackBlocks(m int, n int, coordinates [][]int) []int64 {
 	cnt := map[int64]int{}
@@ -172,6 +187,8 @@ func countBlackBlocks(m int, n int, coordinates [][]int) []int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countBlackBlocks(m: number, n: number, coordinates: number[][]): number[] {
@@ -198,4 +215,6 @@ function countBlackBlocks(m: number, n: number, coordinates: number[][]): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

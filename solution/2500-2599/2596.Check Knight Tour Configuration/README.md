@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README.md
 rating: 1448
+source: 第 337 场周赛 Q2
 tags:
     - 深度优先搜索
     - 广度优先搜索
@@ -11,13 +12,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [2596. 检查骑士巡视方案](https://leetcode.cn/problems/check-knight-tour-configuration)
 
 [English Version](/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>骑士在一张 <code>n x n</code> 的棋盘上巡视。在&nbsp;<strong>有效&nbsp;</strong>的巡视方案中，骑士会从棋盘的 <strong>左上角</strong> 出发，并且访问棋盘上的每个格子 <strong>恰好一次</strong> 。</p>
 
@@ -57,7 +60,11 @@ tags:
 	<li><code>grid</code> 中的所有整数 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -68,6 +75,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为棋盘的边长。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +95,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +156,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkValidGrid(grid [][]int) bool {
@@ -177,6 +192,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkValidGrid(grid: number[][]): boolean {
     if (grid[0][0] !== 0) {
@@ -205,4 +222,6 @@ function checkValidGrid(grid: number[][]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

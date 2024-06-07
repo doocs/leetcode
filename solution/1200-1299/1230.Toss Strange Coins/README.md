@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1230.Toss%20Strange%20Coins/README.md
 rating: 1808
+source: 第 11 场双周赛 Q3
 tags:
     - 数组
     - 数学
@@ -10,13 +11,15 @@ tags:
     - 概率与统计
 ---
 
+<!-- problem:start -->
+
 # [1230. 抛掷硬币 🔒](https://leetcode.cn/problems/toss-strange-coins)
 
 [English Version](/solution/1200-1299/1230.Toss%20Strange%20Coins/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一些不规则的硬币。在这些硬币中，<code>prob[i]</code>&nbsp;表示第&nbsp;<code>i</code>&nbsp;枚硬币正面朝上的概率。</p>
 
@@ -47,7 +50,11 @@ tags:
 	<li>如果答案与标准答案的误差在&nbsp;<code>10^-5</code>&nbsp;内，则被视为正确答案。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -70,6 +77,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def probabilityOfHeads(self, prob: List[float], target: int) -> float:
@@ -83,6 +92,8 @@ class Solution:
                     f[i][j] += p * f[i - 1][j - 1]
         return f[n][target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func probabilityOfHeads(prob []float64, target int) float64 {
 	n := len(prob)
@@ -144,6 +159,8 @@ func probabilityOfHeads(prob []float64, target int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function probabilityOfHeads(prob: number[], target: number): number {
     const n = prob.length;
@@ -163,9 +180,15 @@ function probabilityOfHeads(prob: number[], target: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -179,6 +202,8 @@ class Solution:
                     f[j] += p * f[j - 1]
         return f[target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -197,6 +222,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -218,6 +245,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func probabilityOfHeads(prob []float64, target int) float64 {
 	f := make([]float64, target+1)
@@ -233,6 +262,8 @@ func probabilityOfHeads(prob []float64, target int) float64 {
 	return f[target]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function probabilityOfHeads(prob: number[], target: number): number {
@@ -252,4 +283,6 @@ function probabilityOfHeads(prob: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

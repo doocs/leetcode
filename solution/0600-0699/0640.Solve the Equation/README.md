@@ -8,13 +8,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [640. 求解方程](https://leetcode.cn/problems/solve-the-equation)
 
 [English Version](/solution/0600-0699/0640.Solve%20the%20Equation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>求解一个给定的方程，将<code>x</code>以字符串 <code>"x=#value"</code>&nbsp;的形式返回。该方程仅包含 <code>'+'</code> ， <code>'-'</code> 操作，变量&nbsp;<code>x</code>&nbsp;和其对应系数。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li>方程由绝对值在&nbsp;<code>[0, 100]</code>&nbsp; 范围内且无任何前导零的整数和变量 <code>'x'</code>&nbsp;组成。<span style="display:block"><span style="height:0px"><span style="position:absolute">​​​</span></span></span></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -71,6 +77,8 @@ tags:
 -   [592. 分数加减运算](https://github.com/doocs/leetcode/blob/main/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +109,8 @@ class Solution:
             return 'Infinite solutions' if y1 == y2 else 'No solution'
         return f'x={(y2 - y1) // (x1 - x2)}'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +150,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func solveEquation(equation string) string {
@@ -189,6 +201,8 @@ func solveEquation(equation string) string {
 	return fmt.Sprintf("x=%d", (y2-y1)/(x1-x2))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function solveEquation(equation: string): string {
@@ -250,4 +264,6 @@ function solveEquation(equation: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1934. Confirmation Rate](https://leetcode.com/problems/confirmation-rate)
 
 [中文文档](/solution/1900-1999/1934.Confirmation%20Rate/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Signups</code></p>
 
@@ -95,13 +99,19 @@ User 7 made 3 requests and all were confirmed. The confirmation rate is 1.
 User 2 made 2 requests where one was confirmed and the other timed out. The confirmation rate is 1 / 2 = 0.5.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Left Join + Grouping
 
 We can use a left join to join the `Signups` table and the `Confirmations` table on `user_id`, and then use `GROUP BY` to group by `user_id` for aggregation.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -116,4 +126,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

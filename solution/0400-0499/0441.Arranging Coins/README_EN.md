@@ -7,11 +7,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [441. Arranging Coins](https://leetcode.com/problems/arranging-coins)
 
 [中文文档](/solution/0400-0499/0441.Arranging%20Coins/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code> coins and you want to build a staircase with these coins. The staircase consists of <code>k</code> rows where the <code>i<sup>th</sup></code> row has exactly <code>i</code> coins. The last row of the staircase <strong>may be</strong> incomplete.</p>
 
@@ -41,17 +45,25 @@ tags:
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def arrangeCoins(self, n: int) -> int:
         return int(math.sqrt(2) * math.sqrt(n + 0.125) - 0.5)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -60,6 +72,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using LL = long;
@@ -81,6 +95,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arrangeCoins(n int) int {
 	left, right := 1, n
@@ -98,9 +114,15 @@ func arrangeCoins(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -114,6 +136,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,4 +158,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

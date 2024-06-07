@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2540.Minimum%20Common%20Value/README.md
 rating: 1249
+source: 第 96 场双周赛 Q1
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [2540. 最小公共值](https://leetcode.cn/problems/minimum-common-value)
 
 [English Version](/solution/2500-2599/2540.Minimum%20Common%20Value/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数数组&nbsp;<code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;，它们已经按非降序排序，请你返回两个数组的 <strong>最小公共整数</strong>&nbsp;。如果两个数组&nbsp;<code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;没有公共整数，请你返回&nbsp;<code>-1</code>&nbsp;。</p>
 
@@ -48,7 +51,11 @@ tags:
 	<li><code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;都是 <strong>非降序</strong>&nbsp;的。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -57,6 +64,8 @@ tags:
 时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是两个数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +81,8 @@ class Solution:
                 j += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getCommon(nums1 []int, nums2 []int) int {
 	m, n := len(nums1), len(nums2)
@@ -128,6 +143,8 @@ func getCommon(nums1 []int, nums2 []int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getCommon(nums1: number[], nums2: number[]): number {
@@ -148,6 +165,8 @@ function getCommon(nums1: number[], nums2: number[]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -171,6 +190,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int getCommon(int* nums1, int nums1Size, int* nums2, int nums2Size) {
     int i = 0;
@@ -191,9 +212,15 @@ int getCommon(int* nums1, int nums1Size, int* nums2, int nums2Size) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -220,4 +247,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

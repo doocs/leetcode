@@ -7,13 +7,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [1206. 设计跳表](https://leetcode.cn/problems/design-skiplist)
 
 [English Version](/solution/1200-1299/1206.Design%20Skiplist/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>不使用任何库函数，设计一个 <strong>跳表</strong> 。</p>
 
@@ -70,13 +72,19 @@ skiplist.search(1);   // 返回 false，1 已被擦除
 	<li>调用<code>search</code>, <code>add</code>, &nbsp;<code>erase</code>操作次数不大于&nbsp;<code>5 * 10<sup>4</sup></code>&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数据结构
 
 因为节点 `level` 随机，所以需要多个 `next` 指针，其余操作类似单链表。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -144,6 +152,8 @@ class Skiplist:
 # obj.add(num)
 # param_3 = obj.erase(num)
 ```
+
+#### Java
 
 ```java
 class Skiplist {
@@ -232,6 +242,8 @@ class Skiplist {
  */
 ```
 
+#### C++
+
 ```cpp
 struct Node {
     int val;
@@ -310,6 +322,8 @@ public:
  * bool param_3 = obj->erase(num);
  */
 ```
+
+#### Go
 
 ```go
 func init() { rand.Seed(time.Now().UnixNano()) }
@@ -412,4 +426,6 @@ func randomLevel() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

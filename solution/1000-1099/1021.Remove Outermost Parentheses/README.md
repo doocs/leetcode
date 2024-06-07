@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1021.Remove%20Outermost%20Parentheses/README.md
 rating: 1311
+source: 第 131 场周赛 Q1
 tags:
     - 栈
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1021. 删除最外层的括号](https://leetcode.cn/problems/remove-outermost-parentheses)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有效括号字符串为空 <code>""</code>、<code>"(" + A + ")"</code> 或 <code>A + B</code> ，其中 <code>A</code> 和 <code>B</code> 都是有效的括号字符串，<code>+</code> 代表字符串的连接。</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li><code>s</code> 是一个有效括号字符串</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -78,6 +85,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为字符串长度。忽略答案字符串的空间开销，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +104,8 @@ class Solution:
                     ans.append(c)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeOuterParentheses(s string) string {
 	ans := []rune{}
@@ -161,6 +176,8 @@ func removeOuterParentheses(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function removeOuterParentheses(s: string): string {
     let res = '';
@@ -179,6 +196,8 @@ function removeOuterParentheses(s: string): string {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -203,9 +222,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -221,6 +246,8 @@ class Solution:
                 cnt -= 1
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -244,6 +271,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -266,6 +295,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeOuterParentheses(s string) string {
 	ans := []rune{}
@@ -287,4 +318,6 @@ func removeOuterParentheses(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

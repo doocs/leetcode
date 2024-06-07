@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.09.Bracket/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.09. Bracket](https://leetcode.cn/problems/bracket-lcci)
 
 [中文文档](/lcci/08.09.Bracket/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement an algorithm to print all valid (e.g., properly opened and closed) combinations of n pairs of parentheses.</p>
 
@@ -34,7 +38,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.09.Bracket/README_
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS + Pruning
 
@@ -50,6 +58,8 @@ We design a function `dfs(l, r, t)`, where $l$ and $r$ represent the number of l
 The time complexity is $O(2^{n\times 2} \times n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +77,8 @@ class Solution:
         dfs(0, 0, '')
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generateParenthesis(n int) []string {
 	ans := []string{}
@@ -134,6 +150,8 @@ func generateParenthesis(n int) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function generateParenthesis(n: number): string[] {
     function dfs(l, r, t) {
@@ -152,6 +170,8 @@ function generateParenthesis(n: number): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -180,6 +200,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -202,6 +224,8 @@ var generateParenthesis = function (n) {
     return ans;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -230,4 +254,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

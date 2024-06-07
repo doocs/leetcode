@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2918.Minimum%20Equal%20Sum%20of%20Two%20Arrays%20After%20Replacing%20Zeros/README_EN.md
 rating: 1526
+source: Weekly Contest 369 Q2
 tags:
     - Greedy
     - Array
 ---
+
+<!-- problem:start -->
 
 # [2918. Minimum Equal Sum of Two Arrays After Replacing Zeros](https://leetcode.com/problems/minimum-equal-sum-of-two-arrays-after-replacing-zeros)
 
 [中文文档](/solution/2900-2999/2918.Minimum%20Equal%20Sum%20of%20Two%20Arrays%20After%20Replacing%20Zeros/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two arrays <code>nums1</code> and <code>nums2</code> consisting of positive integers.</p>
 
@@ -48,7 +53,11 @@ Both arrays have an equal sum of 12. It can be shown that it is the minimum sum 
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case Analysis
 
@@ -61,6 +70,8 @@ The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arra
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSum(self, nums1: List[int], nums2: List[int]) -> int:
@@ -72,6 +83,8 @@ class Solution:
             return s1
         return -1 if nums1.count(0) == 0 else s2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSum(nums1 []int, nums2 []int) int64 {
@@ -146,6 +163,8 @@ func minSum(nums1 []int, nums2 []int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minSum(nums1: number[], nums2: number[]): number {
     let [s1, s2] = [0, 0];
@@ -168,6 +187,8 @@ function minSum(nums1: number[], nums2: number[]): number {
     return hasZero ? s2 : -1;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -194,4 +215,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

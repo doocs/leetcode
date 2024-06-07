@@ -7,11 +7,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [670. Maximum Swap](https://leetcode.com/problems/maximum-swap)
 
 [中文文档](/solution/0600-0699/0670.Maximum%20Swap/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>num</code>. You can swap two digits at most once to get the maximum valued number.</p>
 
@@ -41,7 +45,11 @@ tags:
 	<li><code>0 &lt;= num &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
 
@@ -54,6 +62,8 @@ Finally, we convert the string $s$ back into a number, which is the answer.
 The time complexity is $O(\log M)$, and the space complexity is $O(\log M)$. Here, $M$ is the range of the number $num$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +80,8 @@ class Solution:
                 break
         return int(''.join(s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSwap(num int) int {
 	s := []byte(strconv.Itoa(num))
@@ -147,6 +163,8 @@ func maximumSwap(num int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumSwap(num: number): number {
@@ -176,6 +194,8 @@ function maximumSwap(num: number): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -217,4 +237,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

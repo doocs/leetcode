@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1263.Minimum%20Moves%20to%20Move%20a%20Box%20to%20Their%20Target%20Location/README_EN.md
 rating: 2297
+source: Weekly Contest 163 Q4
 tags:
     - Breadth-First Search
     - Array
@@ -10,11 +11,15 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1263. Minimum Moves to Move a Box to Their Target Location](https://leetcode.com/problems/minimum-moves-to-move-a-box-to-their-target-location)
 
 [中文文档](/solution/1200-1299/1263.Minimum%20Moves%20to%20Move%20a%20Box%20to%20Their%20Target%20Location/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A storekeeper is a game in which the player pushes boxes around in a warehouse trying to get them to target locations.</p>
 
@@ -82,7 +87,11 @@ tags:
 	<li>There is only one character <code>&#39;S&#39;</code>, <code>&#39;B&#39;</code>, and <code>&#39;T&#39;</code> in the <code>grid</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Double-ended Queue + BFS
 
@@ -112,6 +121,8 @@ Finally, if no valid push scheme is found, then return $-1$.
 The time complexity is $O(m^2 \times n^2)$, and the space complexity is $O(m^2 \times n^2)$. Where $m$ and $n$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -154,6 +165,8 @@ class Solution:
                     q.appendleft((f(sx, sy), f(bi, bj), d))
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -223,6 +236,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -281,6 +296,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minPushBox(grid [][]byte) int {
 	m, n := len(grid), len(grid[0])
@@ -336,6 +353,8 @@ func minPushBox(grid [][]byte) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minPushBox(grid: string[][]): number {
@@ -560,4 +579,6 @@ class Deque<T> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

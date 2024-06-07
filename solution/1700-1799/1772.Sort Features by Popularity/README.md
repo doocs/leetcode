@@ -9,13 +9,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1772. 按受欢迎程度排列功能 🔒](https://leetcode.cn/problems/sort-features-by-popularity)
 
 [English Version](/solution/1700-1799/1772.Sort%20Features%20by%20Popularity/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串数组 <code>features</code> ，其中 <code>features[i]</code> 是一个单词，描述你最近参与开发的项目中一个功能的名称。你调查了用户喜欢哪些功能。另给定一个字符串数组 <code>responses</code>，其中 <code>responses[i]</code> 是一个包含以空格分隔的一系列单词的字符串。</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li><code>responses[i]</code> 没有前置或后置空格。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 自定义排序
 
@@ -68,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortFeatures(self, features: List[str], responses: List[str]) -> List[str]:
@@ -77,6 +85,8 @@ class Solution:
                 cnt[w] += 1
         return sorted(features, key=lambda w: -cnt[w])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortFeatures(features []string, responses []string) []string {
 	cnt := map[string]int{}
@@ -157,6 +171,8 @@ func sortFeatures(features []string, responses []string) []string {
 	return features
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sortFeatures(features: string[], responses: string[]): string[] {
@@ -184,4 +200,6 @@ function sortFeatures(features: string[], responses: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

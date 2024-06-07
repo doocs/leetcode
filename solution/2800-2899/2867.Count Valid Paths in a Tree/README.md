@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README.md
 rating: 2428
+source: 第 364 场周赛 Q4
 tags:
     - 树
     - 深度优先搜索
@@ -11,13 +12,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [2867. 统计树中的合法路径数目](https://leetcode.cn/problems/count-valid-paths-in-a-tree)
 
 [English Version](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵 <code>n</code>&nbsp;个节点的无向树，节点编号为&nbsp;<code>1</code>&nbsp;到&nbsp;<code>n</code>&nbsp;。给你一个整数&nbsp;<code>n</code>&nbsp;和一个长度为 <code>n - 1</code>&nbsp;的二维整数数组&nbsp;<code>edges</code>&nbsp;，其中&nbsp;<code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code>&nbsp;表示节点&nbsp;<code>u<sub>i</sub></code> 和&nbsp;<code>v<sub>i</sub></code>&nbsp;在树中有一条边。</p>
 
@@ -78,7 +81,11 @@ tags:
 	<li>输入保证&nbsp;<code>edges</code>&nbsp;形成一棵合法的树。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理 + 并查集 + 枚举
 
@@ -93,6 +100,8 @@ tags:
 时间复杂度 $O(n \times \alpha(n))$，空间复杂度 $O(n)$。其中 $n$ 为节点数，而 $\alpha$ 为阿克曼函数的反函数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -149,6 +158,8 @@ class Solution:
                         t += cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class PrimeTable {
@@ -247,6 +258,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 const int mx = 1e5 + 10;
 bool prime[mx + 1];
@@ -331,6 +344,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const mx int = 1e5 + 10
@@ -417,6 +432,8 @@ func countPaths(n int, edges [][]int) (ans int64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 const mx = 100010;
 const prime = Array(mx).fill(true);
@@ -497,9 +514,15 @@ function countPaths(n: number, edges: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -545,6 +568,8 @@ class Solution:
         dfs(1, 0, con, prime, r)
         return r[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -618,6 +643,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
     long long mul(long long x, long long y) {
@@ -674,4 +701,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20097.%20%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E6%95%B0%E7%9B%AE/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 097. 子序列的数目](https://leetcode.cn/problems/21dk04)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串 <code>s</code><strong> </strong>和一个字符串 <code>t</code> ，计算在 <code>s</code> 的子序列中 <code>t</code> 出现的个数。</p>
 
@@ -55,7 +57,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 115&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/distinct-subsequences/">https://leetcode.cn/problems/distinct-subsequences/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -85,6 +91,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
@@ -99,6 +107,8 @@ class Solution:
                     f[i][j] += f[i - 1][j - 1]
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numDistinct(s string, t string) int {
 	m, n := len(s), len(t)
@@ -165,6 +179,8 @@ func numDistinct(s string, t string) int {
 	return f[m][n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numDistinct(s: string, t: string): number {
@@ -188,9 +204,15 @@ function numDistinct(s: string, t: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -203,6 +225,8 @@ class Solution:
                     f[j] += f[j - 1]
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -222,6 +246,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -244,6 +270,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numDistinct(s string, t string) int {
 	n := len(t)
@@ -259,6 +287,8 @@ func numDistinct(s string, t string) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numDistinct(s: string, t: string): number {
@@ -279,4 +309,6 @@ function numDistinct(s: string, t: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

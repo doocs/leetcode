@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2196.Create%20Binary%20Tree%20From%20Descriptions/README_EN.md
 rating: 1643
+source: Weekly Contest 283 Q3
 tags:
     - Tree
     - Array
@@ -10,11 +11,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2196. Create Binary Tree From Descriptions](https://leetcode.com/problems/create-binary-tree-from-descriptions)
 
 [中文文档](/solution/2100-2199/2196.Create%20Binary%20Tree%20From%20Descriptions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D integer array <code>descriptions</code> where <code>descriptions[i] = [parent<sub>i</sub>, child<sub>i</sub>, isLeft<sub>i</sub>]</code> indicates that <code>parent<sub>i</sub></code> is the <strong>parent</strong> of <code>child<sub>i</sub></code> in a <strong>binary</strong> tree of <strong>unique</strong> values. Furthermore,</p>
 
@@ -57,11 +62,17 @@ The resulting binary tree is shown in the diagram.
 	<li>The binary tree described by <code>descriptions</code> is valid.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -88,6 +99,8 @@ class Solution:
             if v not in vis:
                 return node
 ```
+
+#### Java
 
 ```java
 /**
@@ -134,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -168,6 +183,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -205,6 +222,8 @@ func createBinaryTree(descriptions [][]int) *TreeNode {
 	return nil
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -252,6 +271,8 @@ function createBinaryTree(descriptions: number[][]): TreeNode | null {
     return null;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -318,4 +339,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

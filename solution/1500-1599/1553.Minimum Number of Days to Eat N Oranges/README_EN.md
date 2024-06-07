@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1553.Minimum%20Number%20of%20Days%20to%20Eat%20N%20Oranges/README_EN.md
 rating: 2048
+source: Weekly Contest 202 Q4
 tags:
     - Memoization
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [1553. Minimum Number of Days to Eat N Oranges](https://leetcode.com/problems/minimum-number-of-days-to-eat-n-oranges)
 
 [中文文档](/solution/1500-1599/1553.Minimum%20Number%20of%20Days%20to%20Eat%20N%20Oranges/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> oranges in the kitchen and you decided to eat some of these oranges every day as follows:</p>
 
@@ -59,7 +64,11 @@ You need at least 3 days to eat the 6 oranges.
 	<li><code>1 &lt;= n &lt;= 2 * 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -82,6 +91,8 @@ The time complexity is $O(\log^2 n)$, and the space complexity is $O(\log^2 n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDays(self, n: int) -> int:
@@ -93,6 +104,8 @@ class Solution:
 
         return dfs(n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minDays(n int) int {
 	f := map[int]int{0: 0, 1: 1}
@@ -154,6 +171,8 @@ func minDays(n int) int {
 	return dfs(n)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minDays(n: number): number {
@@ -174,4 +193,6 @@ function minDays(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

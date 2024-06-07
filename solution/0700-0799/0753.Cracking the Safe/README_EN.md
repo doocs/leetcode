@@ -8,11 +8,15 @@ tags:
     - Eulerian Circuit
 ---
 
+<!-- problem:start -->
+
 # [753. Cracking the Safe](https://leetcode.com/problems/cracking-the-safe)
 
 [中文文档](/solution/0700-0799/0753.Cracking%20the%20Safe/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is a safe protected by a password. The password is a sequence of <code>n</code> digits where each digit can be in the range <code>[0, k - 1]</code>.</p>
 
@@ -66,11 +70,17 @@ Thus &quot;01100&quot; will unlock the safe. &quot;10011&quot;, and &quot;11001&
 	<li><code>1 &lt;= k<sup>n</sup> &lt;= 4096</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +101,8 @@ class Solution:
         ans.append("0" * (n - 1))
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func crackSafe(n int, k int) string {
@@ -167,4 +183,6 @@ func crackSafe(n int, k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

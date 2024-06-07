@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1323.Maximum%2069%20Number/README.md
 rating: 1193
+source: 第 172 场周赛 Q1
 tags:
     - 贪心
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1323. 6 和 9 组成的最大数字](https://leetcode.cn/problems/maximum-69-number)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个仅由数字 6 和 9 组成的正整数&nbsp;<code>num</code>。</p>
 
@@ -57,7 +60,11 @@ tags:
 	<li><code>num</code>&nbsp;每一位上的数字都是 6 或者&nbsp;9 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -67,11 +74,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximum69Number(self, num: int) -> int:
         return int(str(num).replace("6", "9", 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximum69Number(num int) int {
 	s := strconv.Itoa(num)
@@ -112,11 +127,15 @@ func maximum69Number(num int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximum69Number(num: number): number {
     return Number((num + '').replace('6', '9'));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -125,6 +144,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -140,6 +161,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int maximum69Number(int num) {
@@ -159,4 +182,6 @@ int maximum69Number(int num) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,32 +1,29 @@
 class HitCounter {
+    private List<Integer> ts = new ArrayList<>();
 
-    private Map<Integer, Integer> counter;
-
-    /** Initialize your data structure here. */
     public HitCounter() {
-        counter = new HashMap<>();
     }
 
-    /**
-       Record a hit.
-        @param timestamp - The current timestamp (in seconds granularity).
-     */
     public void hit(int timestamp) {
-        counter.put(timestamp, counter.getOrDefault(timestamp, 0) + 1);
+        ts.add(timestamp);
     }
 
-    /**
-       Return the number of hits in the past 5 minutes.
-        @param timestamp - The current timestamp (in seconds granularity).
-     */
     public int getHits(int timestamp) {
-        int hits = 0;
-        for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
-            if (entry.getKey() + 300 > timestamp) {
-                hits += entry.getValue();
+        int l = search(timestamp - 300 + 1);
+        return ts.size() - l;
+    }
+
+    private int search(int x) {
+        int l = 0, r = ts.size();
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (ts.get(mid) >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
             }
         }
-        return hits;
+        return l;
     }
 }
 

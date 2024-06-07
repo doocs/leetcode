@@ -8,11 +8,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [15. 3Sum](https://leetcode.com/problems/3sum)
 
 [中文文档](/solution/0000-0099/0015.3Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array nums, return all the triplets <code>[nums[i], nums[j], nums[k]]</code> such that <code>i != j</code>, <code>i != k</code>, and <code>j != k</code>, and <code>nums[i] + nums[j] + nums[k] == 0</code>.</p>
 
@@ -56,7 +60,11 @@ Notice that the order of the output and the order of the triplets does not matte
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sort + Two Pointers
 
@@ -81,6 +89,8 @@ After the enumeration is over, we can get the answer to the triplet.
 The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$. The $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -109,6 +119,8 @@ class Solution:
                         k -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +154,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -177,6 +191,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func threeSum(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -207,6 +223,8 @@ func threeSum(nums []int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function threeSum(nums: number[]): number[][] {
@@ -239,6 +257,8 @@ function threeSum(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -283,6 +303,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -319,6 +341,8 @@ var threeSum = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public IList<IList<int>> ThreeSum(int[] nums) {
@@ -352,6 +376,8 @@ public class Solution {
 }
 ```
 
+#### Ruby
+
 ```rb
 # @param {Integer[]} nums
 # @return {Integer[][]}
@@ -382,6 +408,8 @@ def three_sum(nums)
   res
 end
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -423,4 +451,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

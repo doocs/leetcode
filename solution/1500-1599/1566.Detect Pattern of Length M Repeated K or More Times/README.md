@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1566.Detect%20Pattern%20of%20Length%20M%20Repeated%20K%20or%20More%20Times/README.md
 rating: 1486
+source: 第 204 场周赛 Q1
 tags:
     - 数组
     - 枚举
 ---
+
+<!-- problem:start -->
 
 # [1566. 重复至少 K 次且长度为 M 的模式](https://leetcode.cn/problems/detect-pattern-of-length-m-repeated-k-or-more-times)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数数组 <code>arr</code>，请你找出一个长度为 <code>m</code> 且在数组中至少重复 <code>k</code> 次的模式。</p>
 
@@ -70,7 +73,11 @@ tags:
 	<li><code>2 &lt;= k&nbsp;&lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -79,6 +86,8 @@ tags:
 时间复杂度 $O((n-m\times k)\times m \times k)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +103,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func containsPattern(arr []int, m int, k int) bool {
 	n := len(arr)
@@ -153,6 +168,8 @@ func containsPattern(arr []int, m int, k int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function containsPattern(arr: number[], m: number, k: number): boolean {
@@ -174,4 +191,6 @@ function containsPattern(arr: number[], m: number, k: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [956. Tallest Billboard](https://leetcode.com/problems/tallest-billboard)
 
 [中文文档](/solution/0900-0999/0956.Tallest%20Billboard/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are installing a billboard and want it to have the largest height. The billboard will have two steel supports, one on each side. Each steel support must be an equal height.</p>
 
@@ -53,11 +57,17 @@ tags:
 	<li><code>sum(rods[i]) &lt;= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +82,8 @@ class Solution:
 
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func tallestBillboard(rods []int) int {
@@ -169,6 +185,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function tallestBillboard(rods: number[]): number {
     const s = rods.reduce((a, b) => a + b, 0);
@@ -191,9 +209,15 @@ function tallestBillboard(rods: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -215,6 +239,8 @@ class Solution:
                     f[i][j] = max(f[i][j], f[i - 1][x - j] + x - j)
         return f[n][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -250,6 +276,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -279,6 +307,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func tallestBillboard(rods []int) int {
@@ -317,4 +347,6 @@ func tallestBillboard(rods []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2832. Maximal Range That Each Element Is Maximum in It 🔒](https://leetcode.com/problems/maximal-range-that-each-element-is-maximum-in-it)
 
 [中文文档](/solution/2800-2899/2832.Maximal%20Range%20That%20Each%20Element%20Is%20Maximum%20in%20It/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of <b>distinct </b>integers.</p>
 
@@ -56,7 +60,11 @@ For nums[4] the longest subarray in which 6 is the maximum is nums[0..4] so ans[
 	<li>All elements in <code>nums</code> are distinct.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
 
@@ -65,6 +73,8 @@ This problem is a template for monotonic stack. We only need to use the monotoni
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +98,8 @@ class Solution:
             stk.append(i)
         return [r - l - 1 for l, r in zip(left, right)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +175,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumLengthOfRanges(nums []int) []int {
@@ -200,6 +216,8 @@ func maximumLengthOfRanges(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumLengthOfRanges(nums: number[]): number[] {
     const n = nums.length;
@@ -231,4 +249,6 @@ function maximumLengthOfRanges(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

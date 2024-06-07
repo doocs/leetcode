@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [443. 压缩字符串](https://leetcode.cn/problems/string-compression)
 
 [English Version](/solution/0400-0499/0443.String%20Compression/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符数组 <code>chars</code> ，请使用下述算法压缩：</p>
 
@@ -65,11 +67,17 @@ tags:
 	<li><code>chars[i]</code> 可以是小写英文字母、大写英文字母、数字或符号</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +97,8 @@ class Solution:
             i = j
         return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func compress(chars []byte) int {
@@ -155,6 +169,8 @@ func compress(chars []byte) int {
 	return k
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -184,4 +200,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

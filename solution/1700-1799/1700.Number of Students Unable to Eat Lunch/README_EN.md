@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1700.Number%20of%20Students%20Unable%20to%20Eat%20Lunch/README_EN.md
 rating: 1404
+source: Biweekly Contest 42 Q1
 tags:
     - Stack
     - Queue
@@ -10,11 +11,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1700. Number of Students Unable to Eat Lunch](https://leetcode.com/problems/number-of-students-unable-to-eat-lunch)
 
 [中文文档](/solution/1700-1799/1700.Number%20of%20Students%20Unable%20to%20Eat%20Lunch/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The school cafeteria offers circular and square sandwiches at lunch break, referred to by numbers <code>0</code> and <code>1</code> respectively. All students stand in a queue. Each student either prefers square or circular sandwiches.</p>
 
@@ -64,7 +69,11 @@ Hence all students are able to eat.
 	<li><code>students[i]</code> is <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -80,6 +89,8 @@ The time complexity is $O(n)$, where $n$ is the number of sandwiches. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
@@ -90,6 +101,8 @@ class Solution:
             cnt[v] -= 1
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countStudents(students []int, sandwiches []int) int {
@@ -140,6 +157,8 @@ func countStudents(students []int, sandwiches []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countStudents(students: number[], sandwiches: number[]): number {
     const count = [0, 0];
@@ -155,6 +174,8 @@ function countStudents(students: number[], sandwiches: number[]): number {
     return 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,6 +196,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int countStudents(int* students, int studentsSize, int* sandwiches, int sandwichesSize) {
     int count[2] = {0};
@@ -194,4 +217,6 @@ int countStudents(int* students, int studentsSize, int* sandwiches, int sandwich
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [816. 模糊坐标](https://leetcode.cn/problems/ambiguous-coordinates)
 
 [English Version](/solution/0800-0899/0816.Ambiguous%20Coordinates/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们有一些二维坐标，如&nbsp;<code>&quot;(1, 3)&quot;</code>&nbsp;或&nbsp;<code>&quot;(2, 0.5)&quot;</code>，然后我们移除所有逗号，小数点和空格，得到一个字符串<code>S</code>。返回所有可能的原始字符串到一个列表中。</p>
 
@@ -63,7 +65,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力模拟
 
@@ -77,6 +83,8 @@ tags:
 时间复杂度 $O(n^3)$，其中 $n$ 为字符串 $S$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +103,8 @@ class Solution:
             f'({x}, {y})' for i in range(2, n - 1) for x in f(1, i) for y in f(i, n - 1)
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func ambiguousCoordinates(s string) []string {
@@ -187,6 +201,8 @@ func ambiguousCoordinates(s string) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function ambiguousCoordinates(s: string): string[] {
     s = s.slice(1, s.length - 1);
@@ -218,4 +234,6 @@ function ambiguousCoordinates(s: string): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

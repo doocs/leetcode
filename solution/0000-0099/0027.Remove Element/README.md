@@ -7,40 +7,44 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [27. 移除元素](https://leetcode.cn/problems/remove-element)
 
 [English Version](/solution/0000-0099/0027.Remove%20Element/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给你一个数组 <code>nums</code><em>&nbsp;</em>和一个值 <code>val</code>，你需要 <strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank">原地</a></strong> 移除所有数值等于&nbsp;<code>val</code><em>&nbsp;</em>的元素，并返回移除后数组的新长度。</p>
+<p>给你一个数组 <code>nums</code><em>&nbsp;</em>和一个值 <code>val</code>，你需要 <strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank">原地</a></strong> 移除所有数值等于&nbsp;<code>val</code><em>&nbsp;</em>的元素。元素的顺序可能发生改变。然后返回&nbsp;<code>nums</code>&nbsp;中与&nbsp;<code>val</code>&nbsp;不同的元素的数量。</p>
 
-<p>不要使用额外的数组空间，你必须仅使用 <code>O(1)</code> 额外空间并 <strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank">原地 </a>修改输入数组</strong>。</p>
+<p>假设 <code>nums</code> 中不等于 <code>val</code> 的元素数量为 <code>k</code>，要通过此题，您需要执行以下操作：</p>
 
-<p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
+<ul>
+	<li>更改 <code>nums</code> 数组，使 <code>nums</code> 的前 <code>k</code> 个元素包含不等于 <code>val</code> 的元素。<code>nums</code> 的其余元素和 <code>nums</code> 的大小并不重要。</li>
+	<li>返回 <code>k</code>。</li>
+</ul>
 
-<p>&nbsp;</p>
+<p><strong>用户评测：</strong></p>
 
-<p><strong>说明:</strong></p>
-
-<p>为什么返回数值是整数，但输出的答案是数组呢?</p>
-
-<p>请注意，输入数组是以<strong>「引用」</strong>方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p>
-
-<p>你可以想象内部操作如下:</p>
+<p>评测机将使用以下代码测试您的解决方案：</p>
 
 <pre>
-// <strong>nums</strong> 是以“引用”方式传递的。也就是说，不对实参作任何拷贝
-int len = removeElement(nums, val);
+int[] nums = [...]; // 输入数组
+int val = ...; // 要移除的值
+int[] expectedNums = [...]; // 长度正确的预期答案。
+                            // 它以不等于 val 的值排序。
 
-// 在函数里修改输入数组对于调用者是可见的。
-// 根据你的函数返回的长度, 它会打印出数组中<strong> 该长度范围内</strong> 的所有元素。
-for (int i = 0; i &lt; len; i++) {
-&nbsp; &nbsp; print(nums[i]);
-}
-</pre>
+int k = removeElement(nums, val); // 调用你的实现
+
+assert k == expectedNums.length;
+sort(nums, 0, k); // 排序 nums 的前 k 个元素
+for (int i = 0; i &lt; actualLength; i++) {
+    assert nums[i] == expectedNums[i];
+}</pre>
+
+<p>如果所有的断言都通过，你的解决方案将会 <strong>通过</strong>。</p>
 
 <p>&nbsp;</p>
 
@@ -48,16 +52,18 @@ for (int i = 0; i &lt; len; i++) {
 
 <pre>
 <strong>输入：</strong>nums = [3,2,2,3], val = 3
-<strong>输出：</strong>2, nums = [2,2]
-<strong>解释：</strong>函数应该返回新的长度 <strong><code>2</code></strong>, 并且 nums<em> </em>中的前两个元素均为 <strong>2</strong>。你不需要考虑数组中超出新长度后面的元素。例如，函数返回的新长度为 2 ，而 nums = [2,2,3,3] 或 nums = [2,2,0,0]，也会被视作正确答案。
-</pre>
+<strong>输出：</strong>2, nums = [2,2,_,_]
+<strong>解释：</strong>你的函数函数应该返回 k = 2, 并且 nums<em> </em>中的前两个元素均为 2。
+你在返回的 k 个元素之外留下了什么并不重要（因此它们并不计入评测）。</pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>nums = [0,1,2,2,3,0,4,2], val = 2
-<strong>输出：</strong>5, nums = [0,1,3,0,4]
-<strong>解释：</strong>函数应该返回新的长度 <strong><code>5</code></strong>, 并且 nums 中的前五个元素为 <strong><code>0</code></strong>, <strong><code>1</code></strong>, <strong><code>3</code></strong>, <strong><code>0</code></strong>, <strong><code>4</code></strong>。注意这五个元素可为任意顺序。你不需要考虑数组中超出新长度后面的元素。
+<strong>输出：</strong>5, nums = [0,1,4,0,3,_,_,_]
+<strong>解释：</strong>你的函数应该返回 k = 5，并且 nums 中的前五个元素为 0,0,1,3,4。
+注意这五个元素可以任意顺序返回。
+你在返回的 k 个元素之外留下了什么并不重要（因此它们并不计入评测）。
 </pre>
 
 <p>&nbsp;</p>
@@ -70,7 +76,11 @@ for (int i = 0; i &lt; len; i++) {
 	<li><code>0 &lt;= val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -84,6 +94,8 @@ for (int i = 0; i &lt; len; i++) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
@@ -94,6 +106,8 @@ class Solution:
                 k += 1
         return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeElement(nums []int, val int) int {
 	k := 0
@@ -137,6 +155,8 @@ func removeElement(nums []int, val int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function removeElement(nums: number[], val: number): number {
     let k: number = 0;
@@ -148,6 +168,8 @@ function removeElement(nums: number[], val: number): number {
     return k;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -163,6 +185,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -180,6 +204,8 @@ var removeElement = function (nums, val) {
     return k;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -200,4 +226,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

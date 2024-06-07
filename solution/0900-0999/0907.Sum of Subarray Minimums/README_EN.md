@@ -9,11 +9,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [907. Sum of Subarray Minimums](https://leetcode.com/problems/sum-of-subarray-minimums)
 
 [中文文档](/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers arr, find the sum of <code>min(b)</code>, where <code>b</code> ranges over every (contiguous) subarray of <code>arr</code>. Since the answer may be large, return the answer <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
@@ -44,7 +48,11 @@ Sum is 17.
 	<li><code>1 &lt;= arr[i] &lt;= 3 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
 
@@ -80,6 +88,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumSubarrayMins(self, arr: List[int]) -> int:
@@ -104,6 +114,8 @@ class Solution:
         mod = 10**9 + 7
         return sum((i - left[i]) * (right[i] - i) * v for i, v in enumerate(arr)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +195,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sumSubarrayMins(arr []int) (ans int) {
@@ -220,6 +236,8 @@ func sumSubarrayMins(arr []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumSubarrayMins(arr: number[]): number {
     const n: number = arr.length;
@@ -256,6 +274,8 @@ function sumSubarrayMins(arr: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -303,4 +323,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

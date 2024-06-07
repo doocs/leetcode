@@ -7,13 +7,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [554. 砖墙](https://leetcode.cn/problems/brick-wall)
 
 [English Version](/solution/0500-0599/0554.Brick%20Wall/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你的面前有一堵矩形的、由 <code>n</code> 行砖块组成的砖墙。这些砖块高度相同（也就是一个单位高）但是宽度不同。每一行砖块的宽度之和相等。</p>
 
@@ -48,11 +50,17 @@ tags:
 	<li><code>1 <= wall[i][j] <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +75,8 @@ class Solution:
             return len(wall)
         return len(wall) - cnt[max(cnt, key=cnt.get)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func leastBricks(wall [][]int) int {
@@ -104,6 +116,8 @@ func leastBricks(wall [][]int) int {
 	return len(wall) - max
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -129,4 +143,6 @@ var leastBricks = function (wall) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

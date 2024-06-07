@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README.md
 rating: 2109
+source: 第 151 场周赛 Q4
 tags:
     - 栈
     - 设计
@@ -10,13 +11,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1172. 餐盘栈](https://leetcode.cn/problems/dinner-plate-stacks)
 
 [English Version](/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们把无限数量 &infin; 的栈排成一行，按从左到右的次序从 0 开始编号。每个栈的的最大容量&nbsp;<code>capacity</code> 都相同。</p>
 
@@ -85,7 +88,11 @@ D.pop()            // 返回 -1。仍然没有栈。
 	<li>最多会对&nbsp;<code>push</code>，<code>pop</code>，和&nbsp;<code>popAtStack</code>&nbsp;进行 <code>200000</code> 次调用。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈数组 + 有序集合
 
@@ -113,6 +120,8 @@ D.pop()            // 返回 -1。仍然没有栈。
 时间复杂度 $(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为操作次数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedSet
@@ -157,6 +166,8 @@ class DinnerPlates:
 # param_2 = obj.pop()
 # param_3 = obj.popAtStack(index)
 ```
+
+#### Java
 
 ```java
 class DinnerPlates {
@@ -213,6 +224,8 @@ class DinnerPlates {
  * int param_3 = obj.popAtStack(index);
  */
 ```
+
+#### C++
 
 ```cpp
 class DinnerPlates {
@@ -273,6 +286,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type DinnerPlates struct {
 	capacity int
@@ -328,6 +343,8 @@ func (this *DinnerPlates) PopAtStack(index int) int {
  * param_3 := obj.PopAtStack(index);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class DinnerPlates {
@@ -878,4 +895,6 @@ class TreeSet<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

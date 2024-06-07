@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1354.Construct%20Target%20Array%20With%20Multiple%20Sums/README_EN.md
 rating: 2014
+source: Weekly Contest 176 Q4
 tags:
     - Array
     - Heap (Priority Queue)
 ---
+
+<!-- problem:start -->
 
 # [1354. Construct Target Array With Multiple Sums](https://leetcode.com/problems/construct-target-array-with-multiple-sums)
 
 [中文文档](/solution/1300-1399/1354.Construct%20Target%20Array%20With%20Multiple%20Sums/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>target</code> of n integers. From a starting array <code>arr</code> consisting of <code>n</code> 1&#39;s, you may perform the following procedure :</p>
 
@@ -61,7 +66,11 @@ tags:
 	<li><code>1 &lt;= target[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Construction + Priority Queue (Max Heap)
 
@@ -72,6 +81,8 @@ Therefore, we can use a priority queue (max heap) to store the elements in the a
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $target$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +100,8 @@ class Solution:
             s = s - mx + x
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isPossible(target []int) bool {
@@ -178,6 +195,8 @@ func (hp) Pop() (_ any)         { return }
 func (hp) Push(any)             {}
 ```
 
+#### TypeScript
+
 ```ts
 function isPossible(target: number[]): boolean {
     const pq = new MaxPriorityQueue();
@@ -202,4 +221,6 @@ function isPossible(target: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

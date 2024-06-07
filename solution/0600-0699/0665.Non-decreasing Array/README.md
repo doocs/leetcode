@@ -6,13 +6,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [665. 非递减数列](https://leetcode.cn/problems/non-decreasing-array)
 
 [English Version](/solution/0600-0699/0665.Non-decreasing%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为&nbsp;<code>n</code>&nbsp;的整数数组<meta charset="UTF-8" />&nbsp;<code>nums</code>&nbsp;，请你判断在 <strong>最多 </strong>改变&nbsp;<code>1</code> 个元素的情况下，该数组能否变成一个非递减数列。</p>
 
@@ -47,7 +49,11 @@ tags:
 	<li><code>-10<sup>5</sup>&nbsp;&lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两次遍历
 
@@ -60,6 +66,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +86,8 @@ class Solution:
                 return is_sorted(nums)
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkPossibility(nums []int) bool {
@@ -155,6 +169,8 @@ func checkPossibility(nums []int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkPossibility(nums: number[]): boolean {
@@ -185,4 +201,6 @@ function checkPossibility(nums: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

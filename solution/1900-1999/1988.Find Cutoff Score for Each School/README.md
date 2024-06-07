@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1988. 找出每所学校的最低分数要求 🔒](https://leetcode.cn/problems/find-cutoff-score-for-each-school)
 
 [English Version](/solution/1900-1999/1988.Find%20Cutoff%20Score%20for%20Each%20School/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Schools</code></p>
 
@@ -98,11 +100,17 @@ Exam 表:
 - School 9：给出的数据不足以确定最低分数要求。如果选择 975 作为最低分数要求，学校可能会收到 10 份申请，然而学校的容纳能力只有 9 。我们没有关于更高分数的信息，因此我们返回 -1 。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -115,4 +123,6 @@ GROUP BY school_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

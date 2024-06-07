@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README.md
 rating: 1514
+source: 第 240 场周赛 Q2
 tags:
     - 数组
     - 双指针
     - 二分查找
 ---
+
+<!-- problem:start -->
 
 # [1855. 下标对中的最大距离](https://leetcode.cn/problems/maximum-distance-between-a-pair-of-values)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个 <strong>非递增</strong> 的整数数组 <code>nums1</code>​​​​​​ 和 <code>nums2</code>​​​​​​ ，数组下标均 <strong>从 0 开始</strong> 计数。</p>
 
@@ -64,7 +67,11 @@ tags:
 	<li><code>nums1</code> 和 <code>nums2</code> 都是 <strong>非递增</strong> 数组</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -76,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
@@ -86,6 +95,8 @@ class Solution:
             ans = max(ans, j - i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxDistance(nums1 []int, nums2 []int) int {
@@ -145,6 +160,8 @@ func maxDistance(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxDistance(nums1: number[], nums2: number[]): number {
     let ans = 0;
@@ -166,6 +183,8 @@ function maxDistance(nums1: number[], nums2: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -191,6 +210,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums1
@@ -220,6 +241,10 @@ var maxDistance = function (nums1, nums2) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：双指针
 
 在方法一中，我们只利用到 $nums2$ 是非递增数组这一条件，实际上，$nums1$ 也是非递增数组，我们可以用双指针 $i$ 和 $j$ 来遍历 $nums1$ 和 $nums2$。
@@ -227,6 +252,8 @@ var maxDistance = function (nums1, nums2) {
 时间复杂度 $O(m+n)$，其中 $m$ 和 $n$ 分别为 $nums1$ 和 $nums2$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -240,6 +267,8 @@ class Solution:
             i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -256,6 +285,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -274,6 +305,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDistance(nums1 []int, nums2 []int) int {
 	m, n := len(nums1), len(nums2)
@@ -290,6 +323,8 @@ func maxDistance(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxDistance(nums1: number[], nums2: number[]): number {
     let ans = 0;
@@ -304,6 +339,8 @@ function maxDistance(nums1: number[], nums2: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -322,6 +359,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -345,4 +384,6 @@ var maxDistance = function (nums1, nums2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

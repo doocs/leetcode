@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README.md
 rating: 1519
+source: 第 213 场周赛 Q2
 tags:
     - 数学
     - 动态规划
     - 组合数学
 ---
+
+<!-- problem:start -->
 
 # [1641. 统计字典序元音字符串的数目](https://leetcode.cn/problems/count-sorted-vowel-strings)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code>，请返回长度为 <code>n</code> 、仅由元音 (<code>a</code>, <code>e</code>, <code>i</code>, <code>o</code>, <code>u</code>) 组成且按 <strong>字典序排列</strong> 的字符串数量。</p>
 
@@ -56,7 +59,11 @@ tags:
 	<li><code>1 <= n <= 50</code> </li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -73,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countVowelStrings(self, n: int) -> int:
@@ -82,6 +91,8 @@ class Solution:
 
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countVowelStrings(n int) int {
@@ -158,6 +173,10 @@ func countVowelStrings(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划 + 前缀和
 
 定义 $f[i][j]$ 表示当前已经选了 $i$ 个元音字母，且最后一个元音字母是 $j$ 的方案数。初始时 $f[1][j]=1$。答案是 $\sum_{j = 0}^4 f[n][j]$。
@@ -167,6 +186,8 @@ func countVowelStrings(n int) int {
 时间复杂度 $O(n \times C)$，空间复杂度 $O(C)$。其中 $n$ 为题目给定的整数，而 $C$ 是元音字母的数量，本题中 $C = 5$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -179,6 +200,8 @@ class Solution:
                 f[j] = s
         return sum(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -196,6 +219,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -212,6 +237,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countVowelStrings(n int) (ans int) {
@@ -232,4 +259,6 @@ func countVowelStrings(n int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

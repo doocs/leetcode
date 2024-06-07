@@ -6,13 +6,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [163. 缺失的区间 🔒](https://leetcode.cn/problems/missing-ranges)
 
 [English Version](/solution/0100-0199/0163.Missing%20Ranges/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个闭区间&nbsp;<code>[lower, upper]</code> 和一个 <strong>按从小到大排序</strong> 的整数数组 <code>nums</code><em><strong>&nbsp;</strong></em>，其中元素的范围在闭区间&nbsp;<code>[lower, upper]</code>&nbsp;当中。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>nums</code> 中的所有值 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -59,6 +65,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +86,8 @@ class Solution:
             ans.append([nums[-1] + 1, upper])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMissingRanges(nums []int, lower int, upper int) (ans [][]int) {
 	n := len(nums)
@@ -148,6 +162,8 @@ func findMissingRanges(nums []int, lower int, upper int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMissingRanges(nums: number[], lower: number, upper: number): number[][] {
@@ -173,4 +189,6 @@ function findMissingRanges(nums: number[], lower: number, upper: number): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

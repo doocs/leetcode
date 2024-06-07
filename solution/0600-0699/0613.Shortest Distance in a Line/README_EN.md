@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [613. Shortest Distance in a Line 🔒](https://leetcode.com/problems/shortest-distance-in-a-line)
 
 [中文文档](/solution/0600-0699/0613.Shortest%20Distance%20in%20a%20Line/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Point</code></p>
 
@@ -55,13 +59,19 @@ Point table:
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> How could you optimize your solution if the <code>Point</code> table is ordered <strong>in ascending order</strong>?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Self-Join
 
 We can use a self-join to join each point in the table with the larger points, and then calculate the distance between the two points. Finally, we can take the minimum distance.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -73,11 +83,17 @@ FROM
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Window Function
 
 We can use a window function to sort the points in the table by their $x$ values, and then calculate the distance between adjacent points. Finally, we can take the minimum distance.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -89,4 +105,6 @@ LIMIT 1, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

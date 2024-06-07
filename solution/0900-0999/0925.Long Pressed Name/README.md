@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [925. 长按键入](https://leetcode.cn/problems/long-pressed-name)
 
 [English Version](/solution/0900-0999/0925.Long%20Pressed%20Name/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你的朋友正在使用键盘输入他的名字&nbsp;<code>name</code>。偶尔，在键入字符&nbsp;<code>c</code>&nbsp;时，按键可能会被<em>长按</em>，而字符可能被输入 1 次或多次。</p>
 
@@ -46,11 +48,21 @@ tags:
 	<li><code>name</code> 和&nbsp;<code>typed</code>&nbsp;的字符都是小写字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
+我们利用两个指针 $i$ 和 $j$ 分别指向字符串 $\text{typed}$ 和 $\text{name}$ 的第一个字符，然后开始遍历，如果 $\text{typed}[j] \neq \text{name}[i]$，说明两个字符串不匹配，直接返回 $\text{False}$。否则，我们找到连续相同的字符的下一个位置，分别记为 $x$ 和 $y$，如果 $x - i > y - j$，说明 $\text{typed}$ 中的字符个数小于 $\text{name}$ 中的字符个数，直接返回 $\text{False}$。否则，我们将 $i$ 和 $j$ 更新为 $x$ 和 $y$，继续遍历，直到 $i$ 和 $j$ 分别遍历完 $\text{name}$ 和 $\text{typed}$，返回 $\text{True}$。
+
+时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是字符串 $\text{name}$ 和 $\text{typed}$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,99 +72,176 @@ class Solution:
         while i < m and j < n:
             if name[i] != typed[j]:
                 return False
-            cnt1 = cnt2 = 0
-            c = name[i]
-            while i + 1 < m and name[i + 1] == c:
-                i += 1
-                cnt1 += 1
-            while j + 1 < n and typed[j + 1] == c:
-                j += 1
-                cnt2 += 1
-            if cnt1 > cnt2:
+            x = i + 1
+            while x < m and name[x] == name[i]:
+                x += 1
+            y = j + 1
+            while y < n and typed[y] == typed[j]:
+                y += 1
+            if x - i > y - j:
                 return False
-            i, j = i + 1, j + 1
+            i, j = x, y
         return i == m and j == n
 ```
+
+#### Java
 
 ```java
 class Solution {
     public boolean isLongPressedName(String name, String typed) {
         int m = name.length(), n = typed.length();
         int i = 0, j = 0;
-        for (; i < m && j < n; ++i, ++j) {
+        while (i < m && j < n) {
             if (name.charAt(i) != typed.charAt(j)) {
                 return false;
             }
-            int cnt1 = 0, cnt2 = 0;
-            char c = name.charAt(i);
-            while (i + 1 < m && name.charAt(i + 1) == c) {
-                ++i;
-                ++cnt1;
+            int x = i + 1;
+            while (x < m && name.charAt(x) == name.charAt(i)) {
+                ++x;
             }
-            while (j + 1 < n && typed.charAt(j + 1) == c) {
-                ++j;
-                ++cnt2;
+            int y = j + 1;
+            while (y < n && typed.charAt(y) == typed.charAt(j)) {
+                ++y;
             }
-            if (cnt1 > cnt2) {
+            if (x - i > y - j) {
                 return false;
             }
+            i = x;
+            j = y;
         }
         return i == m && j == n;
     }
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     bool isLongPressedName(string name, string typed) {
-        int m = name.size(), n = typed.size();
+        int m = name.length(), n = typed.length();
         int i = 0, j = 0;
-        for (; i < m && j < n; ++i, ++j) {
-            if (name[i] != typed[j]) return false;
-            int cnt1 = 0, cnt2 = 0;
-            char c = name[i];
-            while (i + 1 < m && name[i + 1] == c) {
-                ++i;
-                ++cnt1;
+        while (i < m && j < n) {
+            if (name[i] != typed[j]) {
+                return false;
             }
-            while (j + 1 < n && typed[j + 1] == c) {
-                ++j;
-                ++cnt2;
+            int x = i + 1;
+            while (x < m && name[x] == name[i]) {
+                ++x;
             }
-            if (cnt1 > cnt2) return false;
+            int y = j + 1;
+            while (y < n && typed[y] == typed[j]) {
+                ++y;
+            }
+            if (x - i > y - j) {
+                return false;
+            }
+            i = x;
+            j = y;
         }
         return i == m && j == n;
     }
 };
 ```
 
+#### Go
+
 ```go
 func isLongPressedName(name string, typed string) bool {
 	m, n := len(name), len(typed)
 	i, j := 0, 0
-	for ; i < m && j < n; i, j = i+1, j+1 {
+
+	for i < m && j < n {
 		if name[i] != typed[j] {
 			return false
 		}
-		cnt1, cnt2 := 0, 0
-		c := name[i]
-		for i+1 < m && name[i+1] == c {
-			i++
-			cnt1++
+		x, y := i+1, j+1
+
+		for x < m && name[x] == name[i] {
+			x++
 		}
-		for j+1 < n && typed[j+1] == c {
-			j++
-			cnt2++
+
+		for y < n && typed[y] == typed[j] {
+			y++
 		}
-		if cnt1 > cnt2 {
+
+		if x-i > y-j {
 			return false
 		}
+
+		i, j = x, y
 	}
+
 	return i == m && j == n
+}
+```
+
+#### TypeScript
+
+```ts
+function isLongPressedName(name: string, typed: string): boolean {
+    const [m, n] = [name.length, typed.length];
+    let i = 0;
+    let j = 0;
+    while (i < m && j < n) {
+        if (name[i] !== typed[j]) {
+            return false;
+        }
+        let x = i + 1;
+        while (x < m && name[x] === name[i]) {
+            x++;
+        }
+        let y = j + 1;
+        while (y < n && typed[y] === typed[j]) {
+            y++;
+        }
+        if (x - i > y - j) {
+            return false;
+        }
+        i = x;
+        j = y;
+    }
+    return i === m && j === n;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_long_pressed_name(name: String, typed: String) -> bool {
+        let (m, n) = (name.len(), typed.len());
+        let (mut i, mut j) = (0, 0);
+        let s: Vec<char> = name.chars().collect();
+        let t: Vec<char> = typed.chars().collect();
+
+        while i < m && j < n {
+            if s[i] != t[j] {
+                return false;
+            }
+            let mut x = i + 1;
+            while x < m && s[x] == s[i] {
+                x += 1;
+            }
+            let mut y = j + 1;
+            while y < n && t[y] == t[j] {
+                y += 1;
+            }
+            if x - i > y - j {
+                return false;
+            }
+            i = x;
+            j = y;
+        }
+
+        i == m && j == n
+    }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

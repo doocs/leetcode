@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [931. 下降路径最小和](https://leetcode.cn/problems/minimum-falling-path-sum)
 
 [English Version](/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>n x n</code> 的<strong> 方形 </strong>整数数组&nbsp;<code>matrix</code> ，请你找出并返回通过 <code>matrix</code> 的<strong>下降路径</strong><em> </em>的<strong> </strong><strong>最小和</strong> 。</p>
 
@@ -52,7 +54,11 @@ tags:
 	<li><code>-100 &lt;= matrix[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -70,6 +76,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minFallingPathSum(self, matrix: List[List[int]]) -> int:
@@ -83,6 +91,8 @@ class Solution:
             f = g
         return min(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minFallingPathSum(matrix [][]int) int {
 	n := len(matrix)
@@ -157,6 +171,8 @@ func minFallingPathSum(matrix [][]int) int {
 	return slices.Min(f)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minFallingPathSum(matrix: number[][]): number {
@@ -181,4 +197,6 @@ function minFallingPathSum(matrix: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

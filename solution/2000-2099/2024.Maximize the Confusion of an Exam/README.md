@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README.md
 rating: 1643
+source: 第 62 场双周赛 Q3
 tags:
     - 字符串
     - 二分查找
@@ -10,13 +11,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [2024. 考试的最大困扰度](https://leetcode.cn/problems/maximize-the-confusion-of-an-exam)
 
 [English Version](/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一位老师正在出一场由 <code>n</code>&nbsp;道判断题构成的考试，每道题的答案为 true （用 <code><span style="">'T'</span></code> 表示）或者 false （用 <code>'F'</code>&nbsp;表示）。老师想增加学生对自己做出答案的不确定性，方法是&nbsp;<strong>最大化&nbsp;</strong>有 <strong>连续相同</strong>&nbsp;结果的题数。（也就是连续出现 true 或者连续出现 false）。</p>
 
@@ -70,7 +73,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -81,6 +88,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +107,8 @@ class Solution:
 
         return max(f("T"), f("F"))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +157,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxConsecutiveAnswers(answerKey string, k int) int {
@@ -167,6 +182,8 @@ func maxConsecutiveAnswers(answerKey string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxConsecutiveAnswers(answerKey: string, k: number): number {
     const n = answerKey.length;
@@ -184,6 +201,8 @@ function maxConsecutiveAnswers(answerKey: string, k: number): number {
     return Math.max(f('T'), f('F'));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -210,4 +229,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

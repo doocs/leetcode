@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2554.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20I/README.md
 rating: 1333
+source: 第 97 场双周赛 Q2
 tags:
     - 贪心
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2554. 从一个范围内选择最多整数 I](https://leetcode.cn/problems/maximum-number-of-integers-to-choose-from-a-range-i)
 
 [English Version](/solution/2500-2599/2554.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>banned</code>&nbsp;和两个整数&nbsp;<code>n</code> 和&nbsp;<code>maxSum</code>&nbsp;。你需要按照以下规则选择一些整数：</p>
 
@@ -65,7 +68,11 @@ tags:
 	<li><code>1 &lt;= maxSum &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 枚举
 
@@ -78,6 +85,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为给定的整数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +101,8 @@ class Solution:
                 s += i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxCount(banned []int, n int, maxSum int) (ans int) {
 	ban := map[int]bool{}
@@ -145,6 +160,8 @@ func maxCount(banned []int, n int, maxSum int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxCount(banned: number[], n: number, maxSum: number): number {
@@ -164,6 +181,8 @@ function maxCount(banned: number[], n: number, maxSum: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -186,6 +205,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -215,6 +236,10 @@ int maxCount(int* banned, int bannedSize, int n, int maxSum) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：贪心 + 二分查找
 
 如果 $n$ 很大，那么方法一中的枚举会超时。
@@ -230,6 +255,8 @@ int maxCount(int* banned, int bannedSize, int n, int maxSum) {
 -   [2557. 从一个范围内选择最多整数 II](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -251,6 +278,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -288,6 +317,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -319,6 +350,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxCount(banned []int, n int, maxSum int) (ans int) {
@@ -354,4 +387,6 @@ func maxCount(banned []int, n int, maxSum int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

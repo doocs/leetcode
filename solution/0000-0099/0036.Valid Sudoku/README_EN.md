@@ -8,11 +8,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku)
 
 [中文文档](/solution/0000-0099/0036.Valid%20Sudoku/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Determine if a&nbsp;<code>9 x 9</code> Sudoku board&nbsp;is valid.&nbsp;Only the filled cells need to be validated&nbsp;<strong>according to the following rules</strong>:</p>
 
@@ -72,7 +76,11 @@ tags:
 	<li><code>board[i][j]</code> is a digit <code>1-9</code> or <code>&#39;.&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal once
 
@@ -87,6 +95,8 @@ Traverse the sudoku, for each digit, check whether the row, column and $3 \times
 The time complexity is $O(C)$ and the space complexity is $O(C)$, where $C$ is the number of empty spaces in the sudoku. In this question, $C=81$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -108,6 +118,8 @@ class Solution:
                 sub[k][num] = True
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isValidSudoku(board [][]byte) bool {
 	row, col, sub := [9][9]bool{}, [9][9]bool{}, [9][9]bool{}
@@ -183,6 +199,8 @@ func isValidSudoku(board [][]byte) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isValidSudoku(board: string[][]): boolean {
@@ -214,6 +232,8 @@ function isValidSudoku(board: string[][]): boolean {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {character[][]} board
@@ -241,6 +261,8 @@ var isValidSudoku = function (board) {
     return true;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -286,4 +308,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

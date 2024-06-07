@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2157.Groups%20of%20Strings/README.md
 rating: 2499
+source: 第 278 场周赛 Q4
 tags:
     - 位运算
     - 并查集
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2157. 字符串分组](https://leetcode.cn/problems/groups-of-strings)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从&nbsp;<strong>0&nbsp;</strong>开始的字符串数组&nbsp;<code>words</code>&nbsp;。每个字符串都只包含 <strong>小写英文字母</strong>&nbsp;。<code>words</code>&nbsp;中任意一个子串中，每个字母都至多只出现一次。</p>
 
@@ -77,11 +80,17 @@ tags:
 	<li><code>words[i]</code> 中每个字母最多只出现一次。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩（位运算） + 并查集
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -125,6 +134,8 @@ class Solution:
                             union(x, x ^ (1 << i) | (1 << j))
         return [n, mx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -188,6 +199,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -235,6 +248,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func groupStrings(words []string) []int {
@@ -292,4 +307,6 @@ func groupStrings(words []string) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

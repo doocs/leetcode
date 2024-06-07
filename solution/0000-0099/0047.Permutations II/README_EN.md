@@ -7,11 +7,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [47. Permutations II](https://leetcode.com/problems/permutations-ii)
 
 [中文文档](/solution/0000-0099/0047.Permutations%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a collection of numbers, <code>nums</code>,&nbsp;that might contain duplicates, return <em>all possible unique permutations <strong>in any order</strong>.</em></p>
 
@@ -41,7 +45,11 @@ tags:
 	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Backtracking
 
@@ -61,6 +69,8 @@ Similar problems:
 -   [46. Permutations](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0046.Permutations/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +95,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func permuteUnique(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -177,6 +193,8 @@ func permuteUnique(nums []int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function permuteUnique(nums: number[]): number[][] {
     nums.sort((a, b) => a - b);
@@ -203,6 +221,8 @@ function permuteUnique(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -232,6 +252,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -270,4 +292,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,11 +8,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [545. Boundary of Binary Tree 🔒](https://leetcode.com/problems/boundary-of-binary-tree)
 
 [中文文档](/solution/0500-0599/0545.Boundary%20of%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>boundary</strong> of a binary tree is the concatenation of the <strong>root</strong>, the <strong>left boundary</strong>, the <strong>leaves</strong> ordered from left-to-right, and the <strong>reverse order</strong> of the <strong>right boundary</strong>.</p>
 
@@ -67,11 +71,17 @@ Concatenating everything results in [1] + [2] + [4,7,8,9,10] + [6,3] = [1,2,4,7,
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -124,6 +134,8 @@ class Solution:
     def is_leaf(self, node) -> bool:
         return node and node.left is None and node.right is None
 ```
+
+#### Java
 
 ```java
 /**
@@ -203,6 +215,8 @@ class Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -272,4 +286,6 @@ var boundaryOfBinaryTree = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

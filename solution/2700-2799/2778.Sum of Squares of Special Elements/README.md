@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README.md
 rating: 1151
+source: 第 354 场周赛 Q1
 tags:
     - 数组
     - 枚举
 ---
+
+<!-- problem:start -->
 
 # [2778. 特殊元素平方和](https://leetcode.cn/problems/sum-of-squares-of-special-elements)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>1</strong> 开始、长度为 <code>n</code> 的整数数组 <code>nums</code> 。</p>
 
@@ -50,7 +53,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -60,12 +67,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfSquares(self, nums: List[int]) -> int:
         n = len(nums)
         return sum(x * x for i, x in enumerate(nums, 1) if n % i == 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -98,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfSquares(nums []int) (ans int) {
 	n := len(nums)
@@ -109,6 +124,8 @@ func sumOfSquares(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfSquares(nums: number[]): number {
@@ -125,4 +142,6 @@ function sumOfSquares(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

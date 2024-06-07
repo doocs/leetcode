@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2061. Number of Spaces Cleaning Robot Cleaned 🔒](https://leetcode.com/problems/number-of-spaces-cleaning-robot-cleaned)
 
 [中文文档](/solution/2000-2099/2061.Number%20of%20Spaces%20Cleaning%20Robot%20Cleaned/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A room is represented by a <strong>0-indexed</strong> 2D binary matrix <code>room</code> where a <code>0</code> represents an <strong>empty</strong> space and a <code>1</code> represents a space with an <strong>object</strong>. The top left corner of the room will be empty in all test cases.</p>
 
@@ -21,36 +25,58 @@ tags:
 <p>Return <em>the number of <strong>clean</strong> spaces in the room if the robot runs indefinetely.</em></p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong><br />
-<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2061.Number%20of%20Spaces%20Cleaning%20Robot%20Cleaned/images/image-20211101204703-1.png" style="width: 250px; height: 242px;" /></p>
+<p><strong class="example">Example 1:</strong></p>
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2061.Number%20of%20Spaces%20Cleaning%20Robot%20Cleaned/images/image-20211101204703-1.png" style="width: 250px; height: 242px;" />
+<p>&nbsp;</p>
 
-<pre>
-<strong>Input:</strong> room = [[0,0,0],[1,1,0],[0,0,0]]
-<strong>Output:</strong> 7
-<strong>Explanation:</strong>
-The robot cleans the spaces at (0, 0), (0, 1), and (0, 2).
-The robot is at the edge of the room, so it turns 90 degrees clockwise and now faces down.
-The robot cleans the spaces at (1, 2), and (2, 2).
-The robot is at the edge of the room, so it turns 90 degrees clockwise and now faces left.
-The robot cleans the spaces at (2, 1), and (2, 0).
-The robot has cleaned all 7 empty spaces, so return 7.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">room = [[0,0,0],[1,1,0],[0,0,0]]</span></p>
 
-<p><strong class="example">Example 2:</strong><br />
-<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2061.Number%20of%20Spaces%20Cleaning%20Robot%20Cleaned/images/image-20211101204736-2.png" style="width: 250px; height: 245px;" /></p>
+<p><strong>Output:</strong> <span class="example-io">7</span></p>
 
-<pre>
-<strong>Input:</strong> room = [[0,1,0],[1,0,0],[0,0,0]]
-<strong>Output:</strong> 1
-<strong>Explanation:</strong>
-The robot cleans the space at (0, 0).
-The robot hits an object, so it turns 90 degrees clockwise and now faces down.
-The robot hits an object, so it turns 90 degrees clockwise and now faces left.
-The robot is at the edge of the room, so it turns 90 degrees clockwise and now faces up.
-The robot is at the edge of the room, so it turns 90 degrees clockwise and now faces right.
-The robot is back at its starting position.
-The robot has cleaned 1 space, so return 1.
-</pre>
+<p><strong>Explanation:</strong></p>
+
+<ol>
+	<li>​​​​​​​The robot cleans the spaces at (0, 0), (0, 1), and (0, 2).</li>
+	<li>The robot is at the edge of the room, so it turns 90 degrees clockwise and now faces down.</li>
+	<li>The robot cleans the spaces at (1, 2), and (2, 2).</li>
+	<li>The robot is at the edge of the room, so it turns 90 degrees clockwise and now faces left.</li>
+	<li>The robot cleans the spaces at (2, 1), and (2, 0).</li>
+	<li>The robot has cleaned all 7 empty spaces, so return 7.</li>
+</ol>
+</div>
+
+<p><strong class="example">Example 2:</strong></p>
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2061.Number%20of%20Spaces%20Cleaning%20Robot%20Cleaned/images/image-20211101204736-2.png" style="width: 250px; height: 245px;" />
+<p>&nbsp;</p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">room = [[0,1,0],[1,0,0],[0,0,0]]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">1</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<ol>
+	<li>The robot cleans the space at (0, 0).</li>
+	<li>The robot hits an object, so it turns 90 degrees clockwise and now faces down.</li>
+	<li>The robot hits an object, so it turns 90 degrees clockwise and now faces left.</li>
+	<li>The robot is at the edge of the room, so it turns 90 degrees clockwise and now faces up.</li>
+	<li>The robot is at the edge of the room, so it turns 90 degrees clockwise and now faces right.</li>
+	<li>The robot is back at its starting position.</li>
+	<li>The robot has cleaned 1 space, so return 1.</li>
+</ol>
+</div>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">room = [[0,0,0],[0,0,0],[0,0,0]]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">8</span>​​​​​​​</p>
+
+<p>&nbsp;</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
@@ -63,11 +89,17 @@ The robot has cleaned 1 space, so return 1.
 	<li><code>room[0][0] == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +123,8 @@ class Solution:
         dfs(0, 0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfCleanRooms(room [][]int) (ans int) {
@@ -184,9 +222,15 @@ func numberOfCleanRooms(room [][]int) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -206,6 +250,8 @@ class Solution:
                 k = (k + 1) % 4
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -231,6 +277,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -258,6 +306,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfCleanRooms(room [][]int) (ans int) {
@@ -287,4 +337,6 @@ func numberOfCleanRooms(room [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

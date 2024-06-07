@@ -8,13 +8,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [89. 格雷编码](https://leetcode.cn/problems/gray-code)
 
 [English Version](/solution/0000-0099/0089.Gray%20Code/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <strong>n 位格雷码序列</strong> 是一个由 <code>2<sup>n</sup></code> 个整数组成的序列，其中：
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 16</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二进制码转格雷码
 
@@ -87,11 +93,15 @@ int gray(x) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def grayCode(self, n: int) -> List[int]:
         return [i ^ (i >> 1) for i in range(1 << n)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func grayCode(n int) (ans []int) {
 	for i := 0; i < 1<<n; i++ {
@@ -126,6 +140,8 @@ func grayCode(n int) (ans []int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -143,4 +159,6 @@ var grayCode = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

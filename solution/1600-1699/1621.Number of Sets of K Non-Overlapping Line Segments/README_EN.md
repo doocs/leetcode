@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1621.Number%20of%20Sets%20of%20K%20Non-Overlapping%20Line%20Segments/README_EN.md
 rating: 2198
+source: Biweekly Contest 37 Q3
 tags:
     - Math
     - Dynamic Programming
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [1621. Number of Sets of K Non-Overlapping Line Segments](https://leetcode.com/problems/number-of-sets-of-k-non-overlapping-line-segments)
 
 [中文文档](/solution/1600-1699/1621.Number%20of%20Sets%20of%20K%20Non-Overlapping%20Line%20Segments/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given <code>n</code> points on a 1-D plane, where the <code>i<sup>th</sup></code> point (from <code>0</code> to <code>n-1</code>) is at <code>x = i</code>, find the number of ways we can draw <strong>exactly</strong> <code>k</code> <strong>non-overlapping</strong> line segments such that each segment covers two or more points. The endpoints of each segment must have <strong>integral coordinates</strong>. The <code>k</code> line segments <strong>do not</strong> have to cover all <code>n</code> points, and they are <strong>allowed</strong> to share endpoints.</p>
 
@@ -53,11 +58,17 @@ The image above shows the 5 different ways {(0,2),(2,3)}, {(0,1),(1,3)}, {(0,1),
 	<li><code>1 &lt;= k &lt;= n-1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +88,8 @@ class Solution:
                     g[i][j] %= mod
         return (f[-1][-1] + g[-1][-1]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfSets(n int, k int) int {
 	f := make([][]int, n+1)
@@ -157,6 +174,8 @@ func numberOfSets(n int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfSets(n: number, k: number): number {
     const f = Array.from({ length: n + 1 }, _ => new Array(k + 1).fill(0));
@@ -181,4 +200,6 @@ function numberOfSets(n: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README.md
 rating: 2432
+source: 第 330 场周赛 Q4
 tags:
     - 树状数组
     - 数组
@@ -11,13 +12,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [2552. 统计上升四元组](https://leetcode.cn/problems/count-increasing-quadruplets)
 
 [English Version](/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;，它包含&nbsp;<code>1</code>&nbsp;到&nbsp;<code>n</code>&nbsp;的所有数字，请你返回上升四元组的数目。</p>
 
@@ -57,7 +60,11 @@ tags:
 	<li><code>nums</code>&nbsp;中所有数字 <strong>互不相同</strong>&nbsp;，<code>nums</code>&nbsp;是一个排列。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 预处理
 
@@ -73,6 +80,8 @@ tags:
 时间复杂度为 $O(n^2)$，空间复杂度为 $O(n^2)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +107,8 @@ class Solution:
             f[j][k] * g[j][k] for j in range(1, n - 2) for k in range(j + 1, n - 1)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +152,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 const int N = 4001;
@@ -190,6 +203,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countQuadruplets(nums []int) int64 {
 	n := len(nums)
@@ -237,4 +252,6 @@ func countQuadruplets(nums []int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

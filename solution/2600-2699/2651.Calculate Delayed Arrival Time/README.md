@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README.md
 rating: 1168
+source: 第 342 场周赛 Q1
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [2651. 计算列车到站时间](https://leetcode.cn/problems/calculate-delayed-arrival-time)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数 <code>arrivalTime</code> 表示列车正点到站的时间（单位：小时），另给你一个正整数 <code>delayedTime</code> 表示列车延误的小时数。</p>
 
@@ -45,7 +48,11 @@ tags:
 	<li><code>1 &lt;= delayedTime &lt;= 24</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -55,11 +62,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDelayedArrivalTime(self, arrivalTime: int, delayedTime: int) -> int:
         return (arrivalTime + delayedTime) % 24
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -68,6 +79,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -78,17 +91,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDelayedArrivalTime(arrivalTime int, delayedTime int) int {
 	return (arrivalTime + delayedTime) % 24
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findDelayedArrivalTime(arrivalTime: number, delayedTime: number): number {
     return (arrivalTime + delayedTime) % 24;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -100,4 +119,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

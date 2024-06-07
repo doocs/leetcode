@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1783. Grand Slam Titles 🔒](https://leetcode.com/problems/grand-slam-titles)
 
 [中文文档](/solution/1700-1799/1783.Grand%20Slam%20Titles/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Players</code></p>
 
@@ -85,13 +89,19 @@ Player 2 (Federer) won 5 titles: Wimbledon (2020), US_open (2019, 2020), and Au_
 Player 3 (Novak) did not win anything, we did not include them in the result table.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union All + Equi-Join + Group By
 
 We can use `UNION ALL` to merge all player IDs who won Grand Slam titles into a table `T`, then use an equi-join `JOIN` to join `T` table with `Players` table on `player_id`, and finally use `GROUP BY` and `COUNT` to count the number of Grand Slam titles won by each player.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -118,9 +128,15 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -159,4 +175,6 @@ HAVING grand_slams_count > 0;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

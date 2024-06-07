@@ -2,7 +2,14 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README.md
+rating: 1152
+source: 第 397 场周赛 Q1
+tags:
+    - 哈希表
+    - 字符串
 ---
+
+<!-- problem:start -->
 
 # [3146. 两个字符串的排列差](https://leetcode.cn/problems/permutation-difference-between-two-strings)
 
@@ -10,7 +17,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3146.Pe
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串 <code>s</code> 和 <code>t</code>，每个字符串中的字符都不重复，且 <code>t</code> 是 <code>s</code> 的一个排列。</p>
 
@@ -61,11 +68,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3146.Pe
 	<li><code>s</code> 仅由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +86,8 @@ class Solution:
         d = {c: i for i, c in enumerate(s)}
         return sum(abs(d[c] - i) for i, c in enumerate(t))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findPermutationDifference(s string, t string) (ans int) {
 	d := [26]int{}
@@ -121,6 +140,8 @@ func findPermutationDifference(s string, t string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findPermutationDifference(s: string, t: string): number {
@@ -139,4 +160,6 @@ function findPermutationDifference(s: string, t: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

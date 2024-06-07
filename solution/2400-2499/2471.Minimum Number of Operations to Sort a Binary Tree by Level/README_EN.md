@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2471.Minimum%20Number%20of%20Operations%20to%20Sort%20a%20Binary%20Tree%20by%20Level/README_EN.md
 rating: 1635
+source: Weekly Contest 319 Q3
 tags:
     - Tree
     - Breadth-First Search
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2471. Minimum Number of Operations to Sort a Binary Tree by Level](https://leetcode.com/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level)
 
 [中文文档](/solution/2400-2499/2471.Minimum%20Number%20of%20Operations%20to%20Sort%20a%20Binary%20Tree%20by%20Level/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>root</code> of a binary tree with <strong>unique values</strong>.</p>
 
@@ -67,7 +72,11 @@ It can be proven that 3 is the minimum number of operations needed.
 	<li>All the values of the tree are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS + Discretization + Element Swap
 
@@ -76,6 +85,8 @@ First, we traverse the binary tree using BFS to find the node values at each lev
 The time complexity is $O(n \times \log n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -115,6 +126,8 @@ class Solution:
             ans += f(t)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -184,6 +197,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -232,6 +247,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -286,6 +303,8 @@ func minimumOperations(root *TreeNode) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -329,6 +348,8 @@ function minimumOperations(root: TreeNode | null): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -391,4 +412,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

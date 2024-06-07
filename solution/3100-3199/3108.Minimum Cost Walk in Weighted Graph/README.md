@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README.md
 rating: 2108
+source: 第 392 场周赛 Q4
 tags:
     - 位运算
     - 并查集
@@ -10,13 +11,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [3108. 带权图里旅途的最小代价](https://leetcode.cn/problems/minimum-cost-walk-in-weighted-graph)
 
 [English Version](/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>n</code>&nbsp;个节点的带权无向图，节点编号为 <code>0</code>&nbsp;到 <code>n - 1</code>&nbsp;。</p>
 
@@ -78,7 +81,11 @@ tags:
 	<li><code>0 &lt;= s<sub>i</sub>, t<sub>i</sub> &lt;= n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 并查集
 
@@ -95,6 +102,8 @@ tags:
 时间复杂度 $O((n + m + q) \times \alpha(n))$，空间复杂度 $O(n)$。其中 $n$, $m$ 和 $q$ 分别表示节点数、边数和查询数，而 $\alpha(n)$ 表示 Ackermann 函数的反函数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -140,6 +149,8 @@ class Solution:
 
         return [f(s, t) for s, t in query]
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -216,6 +227,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -288,6 +301,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 type unionFind struct {
 	p, size []int
@@ -359,6 +374,8 @@ func minimumCost(n int, edges [][]int, query [][]int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class UnionFind {
     p: number[];
@@ -420,4 +437,6 @@ function minimumCost(n: number, edges: number[][], query: number[][]): number[] 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

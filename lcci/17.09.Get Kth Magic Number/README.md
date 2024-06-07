@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.09.Get%20Kth%20Magic%20Number/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.09. 第 k 个数](https://leetcode.cn/problems/get-kth-magic-number-lcci)
 
 [中文文档](/lcci/17.09.Get%20Kth%20Magic%20Number/README.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>有些数的素因子只有 3，5，7，请设计一个算法找出第 k 个数。注意，不是必须有这些素因子，而是必须不包含其他的素因子。例如，前几个数按顺序应该是 1，3，5，7，9，15，21。</p>
 <p><strong>示例 1:</strong></p>
 <pre><strong>输入: </strong>k = 5
@@ -19,7 +22,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.09.Get%20Kth%20Mag
 
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（小根堆）
 
@@ -28,6 +35,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.09.Get%20Kth%20Mag
 时间复杂度 $O(k\times \log k)$，空间复杂度 $O(k)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -42,6 +51,8 @@ class Solution:
                     heappush(h, nxt)
         return h[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -68,6 +79,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -93,6 +106,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getKthMagicNumber(k int) int {
@@ -122,6 +137,8 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getKthMagicNumber(k: number): number {
     const dp = [1];
@@ -145,6 +162,8 @@ function getKthMagicNumber(k: number): number {
     return dp[k - 1];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,6 +191,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -202,6 +223,8 @@ int getKthMagicNumber(int k) {
 }
 ```
 
+#### Swift
+
 ```swift
 class Solution {
     private let factors = [3, 5, 7]
@@ -230,6 +253,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：动态规划
 
 方法一的做法足以通过本题，但如果在面试中，面试官可能要求我们实现一个复杂度更低的算法。因此，我们有必要掌握一种更优的算法。
@@ -243,6 +270,8 @@ class Solution {
 时间复杂度 $O(k)$，空间复杂度 $O(k)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -261,6 +290,8 @@ class Solution:
                 p7 += 1
         return dp[k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -287,6 +318,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -311,6 +344,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getKthMagicNumber(k int) int {
@@ -337,4 +372,6 @@ func getKthMagicNumber(k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

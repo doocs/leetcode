@@ -6,11 +6,15 @@ tags:
     - Trie
 ---
 
+<!-- problem:start -->
+
 # [440. K-th Smallest in Lexicographical Order](https://leetcode.com/problems/k-th-smallest-in-lexicographical-order)
 
 [中文文档](/solution/0400-0499/0440.K-th%20Smallest%20in%20Lexicographical%20Order/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integers <code>n</code> and <code>k</code>, return <em>the</em> <code>k<sup>th</sup></code> <em>lexicographically smallest integer in the range</em> <code>[1, n]</code>.</p>
 
@@ -37,11 +41,17 @@ tags:
 	<li><code>1 &lt;= k &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +75,8 @@ class Solution:
                 curr *= 10
         return curr
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKthNumber(n int, k int) int {
 	count := func(curr int) int {
@@ -165,4 +181,6 @@ func findKthNumber(n int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

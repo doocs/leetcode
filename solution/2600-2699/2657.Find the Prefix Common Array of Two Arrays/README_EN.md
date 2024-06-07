@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2657.Find%20the%20Prefix%20Common%20Array%20of%20Two%20Arrays/README_EN.md
 rating: 1304
+source: Biweekly Contest 103 Q2
 tags:
     - Bit Manipulation
     - Array
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2657. Find the Prefix Common Array of Two Arrays](https://leetcode.com/problems/find-the-prefix-common-array-of-two-arrays)
 
 [中文文档](/solution/2600-2699/2657.Find%20the%20Prefix%20Common%20Array%20of%20Two%20Arrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed </strong>integer<strong> </strong>permutations <code>A</code> and <code>B</code> of length <code>n</code>.</p>
 
@@ -54,7 +59,11 @@ At i = 2: 1, 2, and 3 are common in A and B, so C[2] = 3.
 	<li><code>It is guaranteed that A and B are both a permutation of n integers.</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -67,6 +76,8 @@ After the traversal, return the answer array $ans$.
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of arrays $A$ and $B$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +92,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findThePrefixCommonArray(A []int, B []int) []int {
 	n := len(A)
@@ -137,6 +154,8 @@ func findThePrefixCommonArray(A []int, B []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findThePrefixCommonArray(A: number[], B: number[]): number[] {
@@ -157,6 +176,10 @@ function findThePrefixCommonArray(A: number[], B: number[]): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Bit Operation (XOR Operation)
 
 We can use an array $vis$ of length $n+1$ to record the occurrence situation of each element in arrays $A$ and $B$, the initial value of array $vis$ is $1$. In addition, we use a variable $s$ to record the current number of common elements.
@@ -170,6 +193,8 @@ After the traversal, return the answer array $ans$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of arrays $A$ and $B$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -185,6 +210,8 @@ class Solution:
             ans.append(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +233,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -226,6 +255,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findThePrefixCommonArray(A []int, B []int) (ans []int) {
 	vis := make([]int, len(A)+1)
@@ -244,6 +275,8 @@ func findThePrefixCommonArray(A []int, B []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findThePrefixCommonArray(A: number[], B: number[]): number[] {
@@ -265,4 +298,6 @@ function findThePrefixCommonArray(A: number[], B: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

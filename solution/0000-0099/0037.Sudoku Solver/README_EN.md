@@ -9,11 +9,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver)
 
 [中文文档](/solution/0000-0099/0037.Sudoku%20Solver/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>
 
@@ -48,7 +52,11 @@ tags:
 	<li>It is <strong>guaranteed</strong> that the input board has only one solution.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Backtracking
 
@@ -59,6 +67,8 @@ We traverse each empty space in `board`, enumerate the numbers `v` that it can f
 The time complexity is $O(9^{81})$, and the space complexity is $O(9^2)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +102,8 @@ class Solution:
                     row[i][v] = col[j][v] = block[i // 3][j // 3][v] = True
         dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using pii = pair<int, int>;
 
@@ -182,6 +196,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func solveSudoku(board [][]byte) {
 	var row, col [9][9]bool
@@ -220,6 +236,8 @@ func solveSudoku(board [][]byte) {
 	dfs(0)
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -355,6 +373,8 @@ public class Solution {
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -435,4 +455,6 @@ function isValid($board, $row, $col, $num) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

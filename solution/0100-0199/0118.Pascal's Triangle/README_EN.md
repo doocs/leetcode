@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle)
 
 [中文文档](/solution/0100-0199/0118.Pascal%27s%20Triangle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>numRows</code>, return the first numRows of <strong>Pascal&#39;s triangle</strong>.</p>
 
@@ -32,7 +36,11 @@ tags:
 	<li><code>1 &lt;= numRows &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -41,6 +49,8 @@ First, we create an answer array $f$, and then set the first row of $f$ to $[1]$
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of rows.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -51,6 +61,8 @@ class Solution:
             f.append(g)
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +82,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generate(numRows int) [][]int {
 	f := [][]int{[]int{1}}
@@ -106,6 +122,8 @@ func generate(numRows int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function generate(numRows: number): number[][] {
     const f: number[][] = [[1]];
@@ -120,6 +138,8 @@ function generate(numRows: number): number[][] {
     return f;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -142,6 +162,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} numRows
@@ -163,4 +185,6 @@ var generate = function (numRows) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

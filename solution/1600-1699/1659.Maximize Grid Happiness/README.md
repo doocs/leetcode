@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1659.Maximize%20Grid%20Happiness/README.md
 rating: 2655
+source: 第 215 场周赛 Q4
 tags:
     - 位运算
     - 记忆化搜索
@@ -10,13 +11,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [1659. 最大化网格幸福感](https://leetcode.cn/problems/maximize-grid-happiness)
 
 [English Version](/solution/1600-1699/1659.Maximize%20Grid%20Happiness/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你四个整数 <code>m</code>、<code>n</code>、<code>introvertsCount</code> 和 <code>extrovertsCount</code> 。有一个 <code>m x n</code> 网格，和两种类型的人：内向的人和外向的人。总共有 <code>introvertsCount</code> 个内向的人和 <code>extrovertsCount</code> 个外向的人。</p>
 
@@ -77,7 +80,11 @@ tags:
 	<li><code>0 <= introvertsCount, extrovertsCount <= min(m * n, 6)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：三进制状态压缩 + 记忆化搜索
 
@@ -109,6 +116,8 @@ $$
 时间复杂度 $O(3^{2n} \times (m \times ic \times ec + n))$，空间复杂度 $O(3^{2n} + 3^n \times m \times ic \times ec)$。其中 $ic$ 和 $ec$ 分别表示内向的人和外向的人的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -153,6 +162,8 @@ class Solution:
                     g[i][j] += h[bits[i][k]][bits[j][k]]
         return dfs(0, 0, introvertsCount, extrovertsCount)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -222,6 +233,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -284,6 +297,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int) int {
@@ -356,6 +371,8 @@ func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int)
 	return dfs(0, 0, introvertsCount, extrovertsCount)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMaxGridHappiness(
@@ -438,6 +455,10 @@ function getMaxGridHappiness(
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：轮廓线记忆化搜索
 
 我们可以考虑搜索每个网格单元，每次搜索一个位置 $(i, j)$，我们记 $pos = i \times n + j$。那么它左边以及上边的相邻网格会影响到它们之间的幸福感贡献。
@@ -459,6 +480,8 @@ function getMaxGridHappiness(
 时间复杂度 $O(3^{n+1} \times m \times n \times ic \times ec)$，空间复杂度 $O(3^n \times m \times n \times ic \times ec)$。其中 $ic$ 和 $ec$ 分别表示内向的人和外向的人的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -490,6 +513,8 @@ class Solution:
         h = [[0, 0, 0], [0, -60, -10], [0, -10, 40]]
         return dfs(0, 0, introvertsCount, extrovertsCount)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -532,6 +557,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -566,6 +593,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int) int {
@@ -623,6 +652,8 @@ func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getMaxGridHappiness(
     m: number,
@@ -677,4 +708,6 @@ function getMaxGridHappiness(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

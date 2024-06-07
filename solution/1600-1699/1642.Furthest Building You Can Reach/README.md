@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1642.Furthest%20Building%20You%20Can%20Reach/README.md
 rating: 1962
+source: 第 213 场周赛 Q3
 tags:
     - 贪心
     - 数组
     - 堆（优先队列）
 ---
+
+<!-- problem:start -->
 
 # [1642. 可以到达的最远建筑](https://leetcode.cn/problems/furthest-building-you-can-reach)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>heights</code> ，表示建筑物的高度。另有一些砖块 <code>bricks</code> 和梯子 <code>ladders</code> 。</p>
 
@@ -69,7 +72,11 @@ tags:
 	<li><code>0 <= ladders <= heights.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 优先队列（小根堆）
 
@@ -78,6 +85,8 @@ tags:
 时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `heights` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +103,8 @@ class Solution:
                         return i
         return len(heights) - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func furthestBuilding(heights []int, bricks int, ladders int) int {
@@ -176,4 +191,6 @@ func (h *hp) Pop() any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

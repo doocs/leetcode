@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1283.Find%20the%20Smallest%20Divisor%20Given%20a%20Threshold/README.md
 rating: 1541
+source: 第 166 场周赛 Q3
 tags:
     - 数组
     - 二分查找
 ---
+
+<!-- problem:start -->
 
 # [1283. 使结果不超过阈值的最小除数](https://leetcode.cn/problems/find-the-smallest-divisor-given-a-threshold)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code> 和一个正整数&nbsp;<code>threshold</code> &nbsp;，你需要选择一个正整数作为除数，然后将数组里每个数都除以它，并对除法结果求和。</p>
 
@@ -59,7 +62,11 @@ tags:
 	<li><code>nums.length &lt;=&nbsp;threshold &lt;= 10^6</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -72,6 +79,8 @@ tags:
 时间复杂度 $O(n \times \log M)$，其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组 $nums$ 中的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +95,8 @@ class Solution:
         return l
 ```
 
+#### Python3
+
 ```python
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
@@ -95,6 +106,8 @@ class Solution:
 
         return bisect_left(range(max(nums)), True, key=f) + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestDivisor(nums []int, threshold int) int {
 	return sort.Search(1000000, func(v int) bool {
@@ -152,6 +169,8 @@ func smallestDivisor(nums []int, threshold int) int {
 	}) + 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestDivisor(nums: number[], threshold: number): number {
@@ -172,6 +191,8 @@ function smallestDivisor(nums: number[], threshold: number): number {
     return l;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -198,6 +219,8 @@ var smallestDivisor = function (nums, threshold) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int SmallestDivisor(int[] nums, int threshold) {
@@ -222,4 +245,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

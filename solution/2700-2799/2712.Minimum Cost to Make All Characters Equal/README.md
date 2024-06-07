@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README.md
 rating: 1791
+source: 第 347 场周赛 Q3
 tags:
     - 贪心
     - 字符串
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2712. 使所有字符相等的最小成本](https://leetcode.cn/problems/minimum-cost-to-make-all-characters-equal)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、长度为 <code>n</code> 的二进制字符串 <code>s</code> ，你可以对其执行两种操作：</p>
 
@@ -59,11 +62,17 @@ tags:
 	<li><code>s[i]</code> 为 <code>'0'</code> 或 <code>'1'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +83,8 @@ class Solution:
                 ans += min(i, n - i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCost(s string) (ans int64) {
 	n := len(s)
@@ -117,6 +132,8 @@ func minimumCost(s string) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCost(s: string): number {
@@ -133,4 +150,6 @@ function minimumCost(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

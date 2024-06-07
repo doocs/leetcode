@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README.md
 rating: 1855
+source: 第 155 场周赛 Q3
 tags:
     - 深度优先搜索
     - 广度优先搜索
@@ -13,13 +14,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1202. 交换字符串中的元素](https://leetcode.cn/problems/smallest-string-with-swaps)
 
 [English Version](/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>，以及该字符串中的一些「索引对」数组&nbsp;<code>pairs</code>，其中&nbsp;<code>pairs[i] =&nbsp;[a, b]</code>&nbsp;表示字符串中的两个索引（编号从 0 开始）。</p>
 
@@ -68,7 +71,11 @@ tags:
 	<li><code>s</code>&nbsp;中只含有小写英文字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：并查集
 
@@ -79,6 +86,8 @@ tags:
 时间复杂度 $O(n \times \log n + m \times \alpha(m))$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为字符串的长度和索引对的数量，而 $\alpha$ 为阿克曼函数的反函数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +108,8 @@ class Solution:
             d[i].sort(reverse=True)
         return "".join(d[find(i)].pop() for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestStringWithSwaps(s string, pairs [][]int) string {
@@ -209,6 +224,8 @@ func smallestStringWithSwaps(s string, pairs [][]int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function smallestStringWithSwaps(s: string, pairs: number[][]): string {
     const n = s.length;
@@ -236,6 +253,8 @@ function smallestStringWithSwaps(s: string, pairs: number[][]): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -298,4 +317,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

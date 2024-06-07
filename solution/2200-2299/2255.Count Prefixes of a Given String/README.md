@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2255.Count%20Prefixes%20of%20a%20Given%20String/README.md
 rating: 1260
+source: 第 77 场双周赛 Q1
 tags:
     - 数组
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2255. 统计是给定字符串前缀的字符串数目](https://leetcode.cn/problems/count-prefixes-of-a-given-string)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组&nbsp;<code>words</code>&nbsp;和一个字符串&nbsp;<code>s</code>&nbsp;，其中&nbsp;<code>words[i]</code> 和&nbsp;<code>s</code>&nbsp;只包含 <strong>小写英文字母</strong>&nbsp;。</p>
 
@@ -51,7 +54,11 @@ words 中是 s = "abc" 前缀的字符串为：
 	<li><code>words[i]</code> 和&nbsp;<code>s</code>&nbsp;<strong>只</strong>&nbsp;包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历计数
 
@@ -63,11 +70,15 @@ words 中是 s = "abc" 前缀的字符串为：
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPrefixes(self, words: List[str], s: str) -> int:
         return sum(s.startswith(w) for w in words)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -96,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPrefixes(words []string, s string) (ans int) {
 	for _, w := range words {
@@ -107,6 +122,8 @@ func countPrefixes(words []string, s string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countPrefixes(words: string[], s: string): number {
     return words.filter(w => s.startsWith(w)).length;
@@ -115,4 +132,6 @@ function countPrefixes(words: string[], s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

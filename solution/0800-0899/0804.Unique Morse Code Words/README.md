@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [804. 唯一摩尔斯密码词](https://leetcode.cn/problems/unique-morse-code-words)
 
 [English Version](/solution/0800-0899/0804.Unique%20Morse%20Code%20Words/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>国际摩尔斯密码定义一种标准编码方式，将每个字母对应于一个由一系列点和短线组成的字符串，&nbsp;比如:</p>
 
@@ -71,7 +73,11 @@ tags:
 	<li><code>words[i]</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -80,6 +86,8 @@ tags:
 时间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -116,6 +124,8 @@ class Solution:
         return len(s)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int uniqueMorseRepresentations(String[] words) {
@@ -135,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniqueMorseRepresentations(words []string) int {
 	codes := []string{".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.",
@@ -167,6 +181,8 @@ func uniqueMorseRepresentations(words []string) int {
 	return len(s)
 }
 ```
+
+#### TypeScript
 
 ```ts
 const codes = [
@@ -209,6 +225,8 @@ function uniqueMorseRepresentations(words: string[]): number {
     ).size;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -258,4 +276,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

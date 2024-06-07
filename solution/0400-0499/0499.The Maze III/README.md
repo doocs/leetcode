@@ -13,13 +13,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [499. 迷宫 III 🔒](https://leetcode.cn/problems/the-maze-iii)
 
 [English Version](/solution/0400-0499/0499.The%20Maze%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>由空地和墙组成的迷宫中有一个<strong>球</strong>。球可以向<strong>上（u）下（d）左（l）右（r）</strong>四个方向滚动，但在遇到墙壁前不会停止滚动。当球停下时，可以选择下一个方向。迷宫中还有一个<strong>洞</strong>，当球运动经过洞时，就会掉进洞里。</p>
 
@@ -81,11 +83,17 @@ tags:
 	<li>迷宫至少包括2块空地，行数和列数均不超过30。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -121,6 +129,8 @@ class Solution:
                         q.append((x, y))
         return path[rh][ch] or 'impossible'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -168,6 +178,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -207,6 +219,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 import "math"
@@ -259,4 +273,6 @@ func findShortestWay(maze [][]int, ball []int, hole []int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

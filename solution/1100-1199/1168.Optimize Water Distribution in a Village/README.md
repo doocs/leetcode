@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README.md
 rating: 2069
+source: 第 7 场双周赛 Q4
 tags:
     - 并查集
     - 图
@@ -10,13 +11,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1168. 水资源分配优化 🔒](https://leetcode.cn/problems/optimize-water-distribution-in-a-village)
 
 [English Version](/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>村里面一共有 <code>n</code> 栋房子。我们希望通过建造水井和铺设管道来为所有房子供水。</p>
 
@@ -73,7 +76,11 @@ tags:
 	<li><code>house1<sub>j</sub>&nbsp;!= house2<sub>j</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：Kruskal 算法（最小生成树）
 
@@ -84,6 +91,8 @@ tags:
 时间复杂度 $O((m + n) \times \log (m + n))$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别是 $pipes$ 数组和 $wells$ 数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -109,6 +118,8 @@ class Solution:
                 if n == 0:
                     return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +159,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +196,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
 	for i, w := range wells {
@@ -217,6 +232,8 @@ func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCostToSupplyWater(n: number, wells: number[], pipes: number[][]): number {
     for (let i = 0; i < n; ++i) {
@@ -248,6 +265,8 @@ function minCostToSupplyWater(n: number, wells: number[], pipes: number[][]): nu
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 struct UnionFind {
@@ -314,9 +333,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -360,6 +385,8 @@ class Solution:
                 if n == 0:
                     return ans
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -421,6 +448,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -480,6 +509,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type unionFind struct {
 	p, size []int
@@ -535,6 +566,8 @@ func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class UnionFind {
@@ -593,4 +626,6 @@ function minCostToSupplyWater(n: number, wells: number[], pipes: number[][]): nu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

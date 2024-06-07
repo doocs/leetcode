@@ -6,11 +6,15 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [849. Maximize Distance to Closest Person](https://leetcode.com/problems/maximize-distance-to-closest-person)
 
 [中文文档](/solution/0800-0899/0849.Maximize%20Distance%20to%20Closest%20Person/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array representing a row of <code>seats</code> where <code>seats[i] = 1</code> represents a person sitting in the <code>i<sup>th</sup></code> seat, and <code>seats[i] = 0</code> represents that the <code>i<sup>th</sup></code> seat is empty <strong>(0-indexed)</strong>.</p>
 
@@ -59,11 +63,17 @@ This is the maximum distance possible, so the answer is 3.
 	<li>At least one seat is <strong>occupied</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +89,8 @@ class Solution:
                 last = i
         return max(first, len(seats) - last - 1, d // 2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDistToClosest(seats []int) int {
 	first, last := -1, -1
@@ -141,6 +157,8 @@ func maxDistToClosest(seats []int) int {
 	return max(d/2, max(first, len(seats)-last-1))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxDistToClosest(seats: number[]): number {
@@ -165,4 +183,6 @@ function maxDistToClosest(seats: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

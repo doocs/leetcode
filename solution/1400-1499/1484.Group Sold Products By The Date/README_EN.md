@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1484. Group Sold Products By The Date](https://leetcode.com/problems/group-sold-products-by-the-date)
 
 [中文文档](/solution/1400-1499/1484.Group%20Sold%20Products%20By%20The%20Date/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table <code>Activities</code>:</p>
 
@@ -66,11 +70,17 @@ For 2020-06-01, Sold items were (Pencil, Bible), we sort them lexicographically 
 For 2020-06-02, the Sold item is (Mask), we just return it.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -84,4 +94,6 @@ ORDER BY sell_date;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

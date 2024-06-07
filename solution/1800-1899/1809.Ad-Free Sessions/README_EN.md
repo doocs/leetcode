@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1809. Ad-Free Sessions 🔒](https://leetcode.com/problems/ad-free-sessions)
 
 [中文文档](/solution/1800-1899/1809.Ad-Free%20Sessions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Playback</code></p>
 
@@ -91,11 +95,17 @@ The ad with ID 3 was shown to user 2 at time 20 while they were in session 4.
 We can see that sessions 1 and 4 had at least one ad. Sessions 2, 3, and 5 did not have any ads, so we return them.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -113,4 +123,6 @@ WHERE
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

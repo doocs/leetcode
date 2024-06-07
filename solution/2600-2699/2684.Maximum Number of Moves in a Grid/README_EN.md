@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README_EN.md
 rating: 1625
+source: Weekly Contest 345 Q3
 tags:
     - Array
     - Dynamic Programming
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2684. Maximum Number of Moves in a Grid](https://leetcode.com/problems/maximum-number-of-moves-in-a-grid)
 
 [中文文档](/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> matrix <code>grid</code> consisting of <strong>positive</strong> integers.</p>
 
@@ -57,7 +62,11 @@ It can be shown that it is the maximum number of moves that can be made.</pre>
 	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -70,6 +79,8 @@ Finally, if we have traversed all the columns, it means that we can move to the 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m)$. Where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +98,8 @@ class Solution:
             q = t
         return n - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxMoves(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -164,6 +181,8 @@ func maxMoves(grid [][]int) (ans int) {
 	return n - 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxMoves(grid: number[][]): number {
@@ -190,4 +209,6 @@ function maxMoves(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

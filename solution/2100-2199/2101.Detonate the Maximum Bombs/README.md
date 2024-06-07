@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2101.Detonate%20the%20Maximum%20Bombs/README.md
 rating: 1880
+source: 第 67 场双周赛 Q3
 tags:
     - 深度优先搜索
     - 广度优先搜索
@@ -12,13 +13,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [2101. 引爆最多的炸弹](https://leetcode.cn/problems/detonate-the-maximum-bombs)
 
 [English Version](/solution/2100-2199/2101.Detonate%20the%20Maximum%20Bombs/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个炸弹列表。一个炸弹的 <strong>爆炸范围</strong>&nbsp;定义为以炸弹为圆心的一个圆。</p>
 
@@ -77,13 +80,19 @@ tags:
 	<li><code>1 &lt;= x<sub>i</sub>, y<sub>i</sub>, r<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
 枚举每个炸弹 k 作为起始引爆点，BFS 搜索能影响到的所有炸弹的数量，取其最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -117,6 +126,8 @@ class Solution:
             ans = max(ans, cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -165,6 +176,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -205,6 +218,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumDetonation(bombs [][]int) int {
@@ -250,4 +265,6 @@ func maximumDetonation(bombs [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

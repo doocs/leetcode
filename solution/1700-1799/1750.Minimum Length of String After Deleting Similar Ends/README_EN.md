@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1750.Minimum%20Length%20of%20String%20After%20Deleting%20Similar%20Ends/README_EN.md
 rating: 1501
+source: Biweekly Contest 45 Q3
 tags:
     - Two Pointers
     - String
 ---
+
+<!-- problem:start -->
 
 # [1750. Minimum Length of String After Deleting Similar Ends](https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends)
 
 [中文文档](/solution/1700-1799/1750.Minimum%20Length%20of%20String%20After%20Deleting%20Similar%20Ends/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> consisting only of characters <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code>, and <code>&#39;c&#39;</code>. You are asked to apply the following algorithm on the string any number of times:</p>
 
@@ -64,7 +69,11 @@ tags:
 	<li><code>s</code> only consists of characters <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code>, and <code>&#39;c&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two pointers
 
@@ -73,6 +82,8 @@ We define two pointers $i$ and $j$ to point to the head and tail of the string $
 The time complexity is $O(n)$ and the space complexity is $O(1)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +97,8 @@ class Solution:
             i, j = i + 1, j - 1
         return max(0, j - i + 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumLength(s string) int {
 	i, j := 0, len(s)-1
@@ -141,6 +158,8 @@ func minimumLength(s string) int {
 	return max(0, j-i+1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumLength(s: string): number {
@@ -159,6 +178,8 @@ function minimumLength(s: string): number {
     return Math.max(0, j - i + 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -181,6 +202,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int minimumLength(char* s) {
@@ -206,4 +229,6 @@ int minimumLength(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

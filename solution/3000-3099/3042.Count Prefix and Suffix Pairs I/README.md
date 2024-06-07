@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README.md
 rating: 1214
+source: 第 385 场周赛 Q1
 tags:
     - 字典树
     - 数组
@@ -12,13 +13,15 @@ tags:
     - 滚动哈希
 ---
 
+<!-- problem:start -->
+
 # [3042. 统计前后缀下标对 I](https://leetcode.cn/problems/count-prefix-and-suffix-pairs-i)
 
 [English Version](/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的字符串数组 <code>words</code> 。</p>
 
@@ -74,7 +77,11 @@ i = 2 且 j = 3 ，因为 isPrefixAndSuffix("ma", "mama") 为 true 。
 	<li><code>words[i]</code> 仅由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -83,6 +90,8 @@ i = 2 且 j = 3 ，因为 isPrefixAndSuffix("ma", "mama") 为 true 。
 时间复杂度 $O(n^2 \times m)$，其中 $n$ 和 $m$ 分别为 `words` 的长度和字符串的最大长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +102,8 @@ class Solution:
                 ans += t.endswith(s) and t.startswith(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPrefixSuffixPairs(words []string) (ans int) {
 	for i, s := range words {
@@ -145,6 +160,8 @@ func countPrefixSuffixPairs(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countPrefixSuffixPairs(words: string[]): number {
@@ -163,6 +180,10 @@ function countPrefixSuffixPairs(words: string[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：字典树
 
 我们可以把字符串数组中的每个字符串 $s$ 当作一个字符对的列表，其中每个字符对 $(s[i], s[m - i - 1])$ 表示字符串 $s$ 的前缀和后缀的第 $i$ 个字符对。
@@ -172,6 +193,8 @@ function countPrefixSuffixPairs(words: string[]): number {
 时间复杂度 $O(n \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别为 `words` 的长度和字符串的最大长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -196,6 +219,8 @@ class Solution:
             node.cnt += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -222,6 +247,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -256,6 +283,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Node struct {
 	children map[int]*Node
@@ -283,4 +312,6 @@ func countPrefixSuffixPairs(words []string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

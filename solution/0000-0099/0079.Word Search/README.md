@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [79. 单词搜索](https://leetcode.cn/problems/word-search)
 
 [English Version](/solution/0000-0099/0079.Word%20Search/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <code>m x n</code> 二维字符网格 <code>board</code> 和一个字符串单词 <code>word</code> 。如果 <code>word</code> 存在于网格中，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
@@ -60,7 +62,11 @@ tags:
 
 <p><strong>进阶：</strong>你可以使用搜索剪枝的技术来优化解决方案，使其在 <code>board</code> 更大的情况下可以更快解决问题？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS(回溯)
 
@@ -77,6 +83,8 @@ tags:
 时间复杂度 $O(m \times n \times 3^k)$，空间复杂度 $O(\min(m \times n, k))$。其中 $m$ 和 $n$ 分别是网格的行数和列数；而 $k$ 是字符串 $word$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +107,8 @@ class Solution:
         m, n = len(board), len(board[0])
         return any(dfs(i, j, 0) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -180,6 +192,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func exist(board [][]byte, word string) bool {
 	m, n := len(board), len(board[0])
@@ -214,6 +228,8 @@ func exist(board [][]byte, word string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function exist(board: string[][], word: string): boolean {
     const [m, n] = [board.length, board[0].length];
@@ -247,6 +263,8 @@ function exist(board: string[][], word: string): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -303,6 +321,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     private int m;
@@ -350,4 +370,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

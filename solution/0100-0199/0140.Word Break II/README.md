@@ -12,13 +12,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [140. 单词拆分 II](https://leetcode.cn/problems/word-break-ii)
 
 [English Version](/solution/0100-0199/0140.Word%20Break%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串 <code>s</code> 和一个字符串字典<meta charset="UTF-8" />&nbsp;<code>wordDict</code>&nbsp;，在字符串<meta charset="UTF-8" />&nbsp;<code>s</code>&nbsp;中增加空格来构建一个句子，使得句子中所有的单词都在词典中。<strong>以任意顺序</strong> 返回所有这些可能的句子。</p>
 
@@ -62,11 +64,17 @@ tags:
 	<li><code>wordDict</code>&nbsp;中所有字符串都 <strong>不同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树 + DFS
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -111,6 +119,8 @@ class Solution:
         ans = dfs(s)
         return [' '.join(v) for v in ans]
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -171,6 +181,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -234,6 +246,8 @@ func wordBreak(s string, wordDict []string) []string {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 using System;
@@ -317,4 +331,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

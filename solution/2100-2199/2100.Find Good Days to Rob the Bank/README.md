@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2100.Find%20Good%20Days%20to%20Rob%20the%20Bank/README.md
 rating: 1702
+source: 第 67 场双周赛 Q2
 tags:
     - 数组
     - 动态规划
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [2100. 适合野炊的日子](https://leetcode.cn/problems/find-good-days-to-rob-the-bank)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你和朋友们准备去野炊。给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>security</code>&nbsp;，其中&nbsp;<code>security[i]</code>&nbsp;是第 <code>i</code>&nbsp;天的建议出行指数。日子从 <code>0</code>&nbsp;开始编号。同时给你一个整数&nbsp;<code>time</code>&nbsp;。</p>
 
@@ -72,11 +75,17 @@ tags:
 	<li><code>0 &lt;= security[i], time &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +102,8 @@ class Solution:
                 right[i] = right[i + 1] + 1
         return [i for i in range(n) if time <= min(left[i], right[i])]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func goodDaysToRobBank(security []int, time int) []int {
@@ -175,6 +190,8 @@ func goodDaysToRobBank(security []int, time int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function goodDaysToRobBank(security: number[], time: number): number[] {
     const n = security.length;
@@ -200,6 +217,8 @@ function goodDaysToRobBank(security: number[], time: number): number[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -237,4 +256,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

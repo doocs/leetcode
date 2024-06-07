@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9827.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 27. 二叉树的镜像](https://leetcode.cn/problems/er-cha-shu-de-jing-xiang-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>请完成一个函数，输入一个二叉树，该函数输出它的镜像。</p>
 
@@ -41,7 +45,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p>注意：本题与主站 226 题相同：<a href="https://leetcode.cn/problems/invert-binary-tree/">https://leetcode.cn/problems/invert-binary-tree/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -50,6 +58,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。最坏情况下，二叉树退化为链表，递归深度为 $n$，因此系统使用 $O(n)$ 大小的栈空间。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -69,6 +79,8 @@ class Solution:
         self.mirrorTree(root.right)
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -95,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -119,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -138,6 +154,8 @@ func mirrorTree(root *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -166,6 +184,8 @@ function mirrorTree(root: TreeNode | null): TreeNode | null {
     return root;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -207,6 +227,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -231,6 +253,8 @@ var mirrorTree = function (root) {
     return root;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -257,32 +281,38 @@ public class Solution {
 }
 ```
 
-<!-- tabs:end -->
+#### Swift
 
-### 方法二
+```swift
+/* public class TreeNode {
+*     var val: Int
+*     var left: TreeNode?
+*     var right: TreeNode?
+*     init(_ val: Int) {
+*         self.val = val
+*         self.left = nil
+*         self.right = nil
+*     }
+* }
+*/
 
-<!-- tabs:start -->
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
-class Solution:
-    def mirrorTree(self, root: TreeNode) -> TreeNode:
-        if root is None:
-            return root
-        left = self.mirrorTree(root.left)
-        right = self.mirrorTree(root.right)
-        root.left = right
-        root.right = left
+class Solution {
+    func mirrorTree(_ root: TreeNode?) -> TreeNode? {
+        guard let root = root else {
+            return nil
+        }
+        let temp = root.left
+        root.left = root.right
+        root.right = temp
+        _ = mirrorTree(root.left)
+        _ = mirrorTree(root.right)
         return root
+    }
+}
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

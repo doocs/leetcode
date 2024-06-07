@@ -7,11 +7,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [283. Move Zeroes](https://leetcode.com/problems/move-zeroes)
 
 [中文文档](/solution/0200-0299/0283.Move%20Zeroes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, move all <code>0</code>&#39;s to the end of it while maintaining the relative order of the non-zero elements.</p>
 
@@ -36,7 +40,11 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you minimize the total number of operations done?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -48,6 +56,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
@@ -57,6 +67,8 @@ class Solution:
                 i += 1
                 nums[i], nums[j] = nums[j], nums[i]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -73,6 +85,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -87,6 +101,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func moveZeroes(nums []int) {
 	i := -1
@@ -98,6 +114,8 @@ func moveZeroes(nums []int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -117,6 +135,8 @@ function moveZeroes(nums: number[]): void {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn move_zeroes(nums: &mut Vec<i32>) {
@@ -133,6 +153,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -151,6 +173,8 @@ var moveZeroes = function (nums) {
 };
 ```
 
+#### C
+
 ```c
 void moveZeroes(int* nums, int numsSize) {
     int i = 0;
@@ -168,4 +192,6 @@ void moveZeroes(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

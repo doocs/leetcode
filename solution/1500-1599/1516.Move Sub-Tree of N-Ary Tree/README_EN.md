@@ -7,11 +7,15 @@ tags:
     - Depth-First Search
 ---
 
+<!-- problem:start -->
+
 # [1516. Move Sub-Tree of N-Ary Tree 🔒](https://leetcode.com/problems/move-sub-tree-of-n-ary-tree)
 
 [中文文档](/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of an <span data-keyword="n-ary-tree">N-ary tree</span> of unique values, and two nodes of the tree <code>p</code> and <code>q</code>.</p>
 
@@ -75,6 +79,42 @@ Notice that node 4 is the last child of node 1.</pre>
 	<li><code>p</code> and <code>q</code> are two different nodes (i.e. <code>p != q</code>).</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

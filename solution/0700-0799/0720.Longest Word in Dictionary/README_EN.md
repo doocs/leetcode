@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [720. Longest Word in Dictionary](https://leetcode.com/problems/longest-word-in-dictionary)
 
 [中文文档](/solution/0700-0799/0720.Longest%20Word%20in%20Dictionary/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of strings <code>words</code> representing an English Dictionary, return <em>the longest word in</em> <code>words</code> <em>that can be built one character at a time by other words in</em> <code>words</code>.</p>
 
@@ -48,11 +52,17 @@ tags:
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +78,8 @@ class Solution:
                     ans = w
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestWord(words []string) string {
@@ -161,6 +177,8 @@ func longestWord(words []string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestWord(words: string[]): string {
     words.sort((a, b) => {
@@ -187,6 +205,8 @@ function longestWord(words: string[]): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn longest_word(mut words: Vec<String>) -> String {
@@ -210,4 +230,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

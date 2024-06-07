@@ -11,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [268. Missing Number](https://leetcode.com/problems/missing-number)
 
 [中文文档](/solution/0200-0299/0268.Missing%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>nums</code> containing <code>n</code> distinct numbers in the range <code>[0, n]</code>, return <em>the only number in the range that is missing from the array.</em></p>
 
@@ -57,7 +61,11 @@ tags:
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you implement a solution using only <code>O(1)</code> extra space complexity and <code>O(n)</code> runtime complexity?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bitwise Operation
 
@@ -72,11 +80,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         return reduce(xor, (i ^ v for i, v in enumerate(nums, 1)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func missingNumber(nums []int) (ans int) {
 	n := len(nums)
@@ -116,6 +132,8 @@ func missingNumber(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function missingNumber(nums: number[]): number {
     const n = nums.length;
@@ -126,6 +144,8 @@ function missingNumber(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -139,6 +159,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -154,6 +176,8 @@ var missingNumber = function (nums) {
     return ans;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -174,6 +198,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Mathematics
 
 We can also solve this problem using mathematics. By calculating the sum of $[0,..n]$, subtracting the sum of all numbers in the array, we can obtain the missing number.
@@ -182,12 +210,16 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         n = len(nums)
         return (1 + n) * n // 2 - sum(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -202,6 +234,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -211,6 +245,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func missingNumber(nums []int) (ans int) {
@@ -223,6 +259,8 @@ func missingNumber(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function missingNumber(nums: number[]): number {
     const n = nums.length;
@@ -233,6 +271,8 @@ function missingNumber(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -246,6 +286,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -264,4 +306,6 @@ var missingNumber = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

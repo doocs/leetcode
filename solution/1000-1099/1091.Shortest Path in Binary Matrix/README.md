@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1091.Shortest%20Path%20in%20Binary%20Matrix/README.md
 rating: 1658
+source: 第 141 场周赛 Q3
 tags:
     - 广度优先搜索
     - 数组
     - 矩阵
 ---
+
+<!-- problem:start -->
 
 # [1091. 二进制矩阵中的最短路径](https://leetcode.cn/problems/shortest-path-in-binary-matrix)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>n x n</code> 的二进制矩阵 <code>grid</code> 中，返回矩阵中最短 <strong>畅通路径</strong> 的长度。如果不存在这样的路径，返回 <code>-1</code> 。</p>
 
@@ -62,7 +65,11 @@ tags:
 	<li><code>grid[i][j]</code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -79,6 +86,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是给定的二进制矩阵的边长。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +111,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +145,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -168,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestPathBinaryMatrix(grid [][]int) int {
 	if grid[0][0] == 1 {
@@ -198,23 +213,25 @@ func shortestPathBinaryMatrix(grid [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shortestPathBinaryMatrix(grid: number[][]): number {
     if (grid[0][0]) {
         return -1;
     }
-    const n = grid.length;
+    const max = grid.length - 1;
     grid[0][0] = 1;
     let q: number[][] = [[0, 0]];
     for (let ans = 1; q.length > 0; ++ans) {
         const nq: number[][] = [];
         for (const [i, j] of q) {
-            if (i === n - 1 && j === n - 1) {
+            if (i === max && j === max) {
                 return ans;
             }
             for (let x = i - 1; x <= i + 1; ++x) {
                 for (let y = j - 1; y <= j + 1; ++y) {
-                    if (x >= 0 && x < n && y >= 0 && y < n && !grid[x][y]) {
+                    if (grid[x]?.[y] === 0) {
                         grid[x][y] = 1;
                         nq.push([x, y]);
                     }
@@ -226,6 +243,8 @@ function shortestPathBinaryMatrix(grid: number[][]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -265,4 +284,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

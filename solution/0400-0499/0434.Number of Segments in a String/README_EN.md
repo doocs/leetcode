@@ -6,11 +6,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [434. Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string)
 
 [中文文档](/solution/0400-0499/0434.Number%20of%20Segments%20in%20a%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, return <em>the number of segments in the string</em>.</p>
 
@@ -41,17 +45,25 @@ tags:
 	<li>The only space character in <code>s</code> is <code>&#39; &#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def countSegments(self, s: str) -> int:
         return len(s.split())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -67,6 +79,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -79,6 +93,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSegments(s string) int {
 	ans := 0
@@ -90,6 +106,8 @@ func countSegments(s string) int {
 	return ans
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -112,9 +130,15 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -125,6 +149,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +165,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -155,6 +183,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSegments(s string) int {
 	ans := 0
@@ -169,4 +199,6 @@ func countSegments(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

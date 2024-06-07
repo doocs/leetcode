@@ -6,13 +6,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [1474. 删除链表 M 个节点之后的 N 个节点 🔒](https://leetcode.cn/problems/delete-n-nodes-after-m-nodes-of-a-linked-list)
 
 [English Version](/solution/1400-1499/1474.Delete%20N%20Nodes%20After%20M%20Nodes%20of%20a%20Linked%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定链表&nbsp;<code>head</code>&nbsp;和两个整数&nbsp;<code>m</code>&nbsp;和&nbsp;<code>n</code>. 遍历该链表并按照如下方式删除节点:</p>
 
@@ -76,7 +78,11 @@ tags:
 
 <p><strong>进阶:</strong> 你能通过<strong> 就地 </strong>修改链表的方式解决这个问题吗?</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -85,6 +91,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -109,6 +117,8 @@ class Solution:
             pre = pre.next
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -142,6 +152,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -177,6 +189,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -210,4 +224,6 @@ func deleteNodes(head *ListNode, m int, n int) *ListNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

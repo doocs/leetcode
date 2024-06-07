@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README_EN.md
 rating: 1967
+source: Biweekly Contest 114 Q4
 tags:
     - Tree
     - Depth-First Search
 ---
+
+<!-- problem:start -->
 
 # [2872. Maximum Number of K-Divisible Components](https://leetcode.com/problems/maximum-number-of-k-divisible-components)
 
 [中文文档](/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There is an undirected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. You are given the integer <code>n</code> and a 2D integer array <code>edges</code> of length <code>n - 1</code>, where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the tree.</p>
 
@@ -60,7 +65,11 @@ It can be shown that no other valid split has more than 3 connected components.
 	<li>The input is generated such that <code>edges</code> represents a valid tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -71,6 +80,8 @@ Therefore, we can use depth-first search to traverse the entire tree starting fr
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where n is the number of nodes in the tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +105,8 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxKDivisibleComponents(n int, edges [][]int, values []int, k int) (ans int) {
 	g := make([][]int, n)
@@ -181,6 +198,8 @@ func maxKDivisibleComponents(n int, edges [][]int, values []int, k int) (ans int
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxKDivisibleComponents(
@@ -214,47 +233,6 @@ function maxKDivisibleComponents(
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```java
-class Solution {
-    int n, k;
-    int[] values;
-    int[] dfs(int curr, int parent, List<List<Integer>> adj) {
-        int[] res = new int[] {0, values[curr] % k};
-        for (int next : adj.get(curr)) {
-            if (next == parent) {
-                continue;
-            }
-            int[] update = dfs(next, curr, adj);
-            res[0] += update[0];
-            res[1] += update[1];
-        }
-        res[1] %= k;
-        res[0] += res[1] == 0 ? 1 : 0;
-        return res;
-    }
-    public int maxKDivisibleComponents(int n, int[][] edges, int[] values, int k) {
-        this.n = n;
-        this.k = k;
-        this.values = values;
-        List<List<Integer>> adj = new ArrayList<>();
-        int[][] dp = new int[n][2];
-        for (int i = 0; i < n; i++) {
-            adj.add(new ArrayList<>());
-        }
-        for (int[] edge : edges) {
-            adj.get(edge[0]).add(edge[1]);
-            adj.get(edge[1]).add(edge[0]);
-        }
-        int[] ans = dfs(0, -1, adj);
-        return ans[1] == 0 ? ans[0] : 0;
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

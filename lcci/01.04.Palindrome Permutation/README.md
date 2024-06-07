@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.04.Palindrome%20Permutation/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 01.04. 回文排列](https://leetcode.cn/problems/palindrome-permutation-lcci)
 
 [English Version](/lcci/01.04.Palindrome%20Permutation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定一个字符串，编写一个函数判定其是否为某个回文串的排列之一。</p>
 
 <p>回文串是指正反两个方向都一样的单词或短语。排列是指字母的重新排列。</p>
@@ -27,7 +30,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.04.Palindrome%20Pe
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -37,12 +44,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.04.Palindrome%20Pe
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
         cnt = Counter(s)
         return sum(v & 1 for v in cnt.values()) < 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -59,6 +70,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -77,6 +90,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canPermutePalindrome(s string) bool {
 	vis := map[rune]bool{}
@@ -94,6 +109,8 @@ func canPermutePalindrome(s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canPermutePalindrome(s: string): boolean {
     const set = new Set<string>();
@@ -107,6 +124,8 @@ function canPermutePalindrome(s: string): boolean {
     return set.size <= 1;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -125,6 +144,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -146,6 +167,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：哈希表的另一种实现
 
 我们用哈希表 $vis$ 存储每个字符是否出现过。若出现过，则从哈希表中删除该字符；否则，将该字符加入哈希表。
@@ -155,6 +180,8 @@ class Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -167,6 +194,8 @@ class Solution:
                 vis.add(c)
         return len(vis) < 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -182,6 +211,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -202,4 +233,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

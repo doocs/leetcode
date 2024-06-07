@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9867.%20%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 67. 把字符串转换成整数](https://leetcode.cn/problems/ba-zi-fu-chuan-zhuan-huan-cheng-zheng-shu-lcof/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>写一个函数 StrToInt，实现把字符串转换成整数这个功能。不能使用 atoi 或者其他类似的库函数。</p>
 
@@ -68,11 +70,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p>注意：本题与主站 8 题相同：<a href="https://leetcode.cn/problems/string-to-integer-atoi/">https://leetcode.cn/problems/string-to-integer-atoi/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +113,8 @@ class Solution:
         return sign * res
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int strToInt(String str) {
@@ -132,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func strToInt(str string) int {
@@ -180,6 +192,8 @@ func strToInt(str string) int {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} str
@@ -206,6 +220,8 @@ var strToInt = function (str) {
     return res;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -266,6 +282,57 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func strToInt(_ str: String) -> Int {
+        let n = str.count
+        if n == 0 {
+            return 0
+        }
+
+        var index = str.startIndex
+        while index != str.endIndex && str[index] == " " {
+            index = str.index(after: index)
+        }
+
+        if index == str.endIndex {
+            return 0
+        }
+
+        var sign = 1
+        if str[index] == "-" {
+            sign = -1
+            index = str.index(after: index)
+        } else if str[index] == "+" {
+            index = str.index(after: index)
+        }
+
+        var result = 0
+        let flag = Int(Int32.max) / 10
+
+        while index != str.endIndex {
+            let char = str[index]
+            if char < "0" || char > "9" {
+                break
+            }
+
+            if result > flag || (result == flag && char > "7") {
+                return sign == 1 ? Int(Int32.max) : Int(Int32.min)
+            }
+
+            result = result * 10 + Int(char.asciiValue! - Character("0").asciiValue!)
+            index = str.index(after: index)
+        }
+
+        return sign * result
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

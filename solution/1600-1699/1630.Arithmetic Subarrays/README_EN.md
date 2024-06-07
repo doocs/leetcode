@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1630.Arithmetic%20Subarrays/README_EN.md
 rating: 1421
+source: Weekly Contest 212 Q2
 tags:
     - Array
     - Hash Table
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1630. Arithmetic Subarrays](https://leetcode.com/problems/arithmetic-subarrays)
 
 [中文文档](/solution/1600-1699/1630.Arithmetic%20Subarrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A sequence of numbers is called <strong>arithmetic</strong> if it consists of at least two elements, and the difference between every two consecutive elements is the same. More formally, a sequence <code>s</code> is arithmetic if and only if <code>s[i+1] - s[i] == s[1] - s[0] </code>for all valid <code>i</code>.</p>
 
@@ -64,11 +69,17 @@ In the 2<sup>nd</sup> query, the subarray is <code>[5,9,3,7]. This</code> can be
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +95,8 @@ class Solution:
 
         return [check(nums, left, right) for left, right in zip(l, r)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkArithmeticSubarrays(nums []int, l []int, r []int) (ans []bool) {
@@ -184,6 +201,8 @@ func checkArithmeticSubarrays(nums []int, l []int, r []int) (ans []bool) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkArithmeticSubarrays(nums: number[], l: number[], r: number[]): boolean[] {
     const check = (nums: number[], l: number, r: number): boolean => {
@@ -215,6 +234,8 @@ function checkArithmeticSubarrays(nums: number[], l: number[], r: number[]): boo
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn check_arithmetic_subarrays(nums: Vec<i32>, l: Vec<i32>, r: Vec<i32>) -> Vec<bool> {
@@ -234,6 +255,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 class Solution {
@@ -264,4 +287,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

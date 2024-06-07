@@ -7,11 +7,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2236. Root Equals Sum of Children](https://leetcode.com/problems/root-equals-sum-of-children)
 
 [中文文档](/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>root</code> of a <strong>binary tree</strong> that consists of exactly <code>3</code> nodes: the root, its left child, and its right child.</p>
 
@@ -44,11 +48,17 @@ tags:
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -61,6 +71,8 @@ class Solution:
     def checkTree(self, root: Optional[TreeNode]) -> bool:
         return root.val == root.left.val + root.right.val
 ```
+
+#### Java
 
 ```java
 /**
@@ -85,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -105,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -118,6 +134,8 @@ func checkTree(root *TreeNode) bool {
 	return root.Val == root.Left.Val+root.Right.Val
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -138,6 +156,8 @@ function checkTree(root: TreeNode | null): boolean {
     return root.val === root.left.val + root.right.val;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -170,6 +190,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for a binary tree node.
@@ -187,4 +209,6 @@ bool checkTree(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

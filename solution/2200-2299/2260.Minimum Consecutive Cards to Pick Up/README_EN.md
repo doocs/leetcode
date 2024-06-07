@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2260.Minimum%20Consecutive%20Cards%20to%20Pick%20Up/README_EN.md
 rating: 1364
+source: Weekly Contest 291 Q2
 tags:
     - Array
     - Hash Table
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2260. Minimum Consecutive Cards to Pick Up](https://leetcode.com/problems/minimum-consecutive-cards-to-pick-up)
 
 [中文文档](/solution/2200-2299/2260.Minimum%20Consecutive%20Cards%20to%20Pick%20Up/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>cards</code> where <code>cards[i]</code> represents the <strong>value</strong> of the <code>i<sup>th</sup></code> card. A pair of cards are <strong>matching</strong> if the cards have the <strong>same</strong> value.</p>
 
@@ -44,11 +49,17 @@ tags:
 	<li><code>0 &lt;= cards[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +72,8 @@ class Solution:
             last[x] = i
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCardPickup(cards []int) int {
 	last := map[int]int{}
@@ -115,6 +132,8 @@ func minimumCardPickup(cards []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumCardPickup(cards: number[]): number {
     const n = cards.length;
@@ -132,4 +151,6 @@ function minimumCardPickup(cards: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

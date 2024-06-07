@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1348.Tweet%20Counts%20Per%20Frequency/README.md
 rating: 2036
+source: 第 175 场周赛 Q3
 tags:
     - 设计
     - 哈希表
@@ -11,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1348. 推文计数](https://leetcode.cn/problems/tweet-counts-per-frequency)
 
 [English Version](/solution/1300-1399/1348.Tweet%20Counts%20Per%20Frequency/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一家社交媒体公司正试图通过分析特定时间段内出现的推文数量来监控其网站上的活动。这些时间段可以根据特定的频率（&nbsp;<strong>每分钟&nbsp;</strong>、<strong>每小时&nbsp;</strong>或 <strong>每一天</strong> ）划分为更小的 <strong>时间段</strong> 。</p>
 
@@ -80,7 +83,11 @@ tweetCounts.getTweetCountsPerFrequency("hour", "tweet3", 0, 210);  //&nbsp;返�
 	<li><code>recordTweet</code>&nbsp;和&nbsp;<code>getTweetCountsPerFrequency</code>，最多有<meta charset="UTF-8" />&nbsp;<code>10<sup>4</sup></code>&nbsp;次操作。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 有序列表
 
@@ -93,6 +100,8 @@ tweetCounts.getTweetCountsPerFrequency("hour", "tweet3", 0, 210);  //&nbsp;返�
 时间复杂度，对于 `recordTweet` 操作，总的时间复杂度 $O(n \times \log n)$；对于 `getTweetCountsPerFrequency` 操作，总的时间复杂度 $O(q \times (t + \log n))$。其中 $n$, $q$ 和 $t$ 分别表示插入的推文数量，查询的次数和时间间隔的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -126,6 +135,8 @@ class TweetCounts:
 # obj.recordTweet(tweetName,time)
 # param_2 = obj.getTweetCountsPerFrequency(freq,tweetName,startTime,endTime)
 ```
+
+#### Java
 
 ```java
 class TweetCounts {
@@ -170,6 +181,8 @@ class TweetCounts {
  */
 ```
 
+#### C++
+
 ```cpp
 class TweetCounts {
 public:
@@ -209,4 +222,6 @@ private:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,9 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9855%20-%20II.%20%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 55 - II. 平衡二叉树](https://leetcode.cn/problems/ping-heng-er-cha-shu-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>输入一棵二叉树的根节点，判断该树是不是平衡二叉树。如果某二叉树中任意节点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。</p>
 
@@ -53,7 +57,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p> </p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -71,6 +79,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -93,6 +103,8 @@ class Solution:
 
         return dfs(root) != -1
 ```
+
+#### Java
 
 ```java
 /**
@@ -123,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -151,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -183,6 +199,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -230,6 +248,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -257,6 +277,8 @@ var isBalanced = function (root) {
     return dfs(root) !== -1;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -287,36 +309,42 @@ public class Solution {
 }
 ```
 
-<!-- tabs:end -->
+#### Swift
 
-### 方法二
+```swift
+/* public class TreeNode {
+*     public var val: Int
+*     public var left: TreeNode?
+*     public var right: TreeNode?
+*     public init(_ val: Int) {
+*         self.val = val
+*         self.left = nil
+*         self.right = nil
+*     }
+* }
+*/
 
-<!-- tabs:start -->
+class Solution {
+    func isBalanced(_ root: TreeNode?) -> Bool {
+        return dfs(root) != -1
+    }
 
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
-class Solution:
-    def isBalanced(self, root: TreeNode) -> bool:
-        def dfs(root):
-            if root is None:
-                return (True, 0)
-            l, ld = dfs(root.left)
-            r, rd = dfs(root.right)
-            d = max(ld, rd) + 1
-            if l and r and abs(ld - rd) <= 1:
-                return (True, d)
-            return (False, d)
-
-        return dfs(root)[0]
+    private func dfs(_ root: TreeNode?) -> Int {
+        guard let root = root else {
+            return 0
+        }
+        let leftDepth = dfs(root.left)
+        let rightDepth = dfs(root.right)
+        if leftDepth == -1 || rightDepth == -1 || abs(leftDepth - rightDepth) > 1 {
+            return -1
+        }
+        return 1 + max(leftDepth, rightDepth)
+    }
+}
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

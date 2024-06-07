@@ -7,32 +7,33 @@ tags:
     - 交互
 ---
 
+<!-- problem:start -->
+
 # [374. 猜数字大小](https://leetcode.cn/problems/guess-number-higher-or-lower)
 
 [English Version](/solution/0300-0399/0374.Guess%20Number%20Higher%20or%20Lower/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>猜数字游戏的规则如下：</p>
+<p>我们正在玩猜数字游戏。猜数字游戏的规则如下：</p>
+
+<p>我会从&nbsp;<code>1</code>&nbsp;到&nbsp;<code>n</code> 随机选择一个数字。 请你猜选出的是哪个数字。</p>
+
+<p>如果你猜错了，我会告诉你，我选出的数字比你猜测的数字大了还是小了。</p>
+
+<p>你可以通过调用一个预先定义好的接口 <code>int guess(int num)</code> 来获取猜测结果，返回值一共有三种可能的情况：</p>
 
 <ul>
-	<li>每轮游戏，我都会从 <strong>1</strong> 到 <em><strong>n</strong></em> 随机选择一个数字。 请你猜选出的是哪个数字。</li>
-	<li>如果你猜错了，我会告诉你，你猜测的数字比我选出的数字是大了还是小了。</li>
-</ul>
-
-<p>你可以通过调用一个预先定义好的接口 <code>int guess(int num)</code> 来获取猜测结果，返回值一共有 3 种可能的情况（<code>-1</code>，<code>1</code> 或 <code>0</code>）：</p>
-
-<ul>
-	<li>-1：我选出的数字比你猜的数字小 <code>pick < num</code></li>
-	<li>1：我选出的数字比你猜的数字大 <code>pick > num</code></li>
-	<li>0：我选出的数字和你猜的数字一样。恭喜！你猜对了！<code>pick == num</code></li>
+	<li><code>-1</code>：你猜的数字比我选出的数字大 （即&nbsp;<code>num &gt; pick</code>）。</li>
+	<li><code>1</code>：你猜的数字比我选出的数字小&nbsp;（即&nbsp;<code>num &lt;&nbsp;pick</code>）。</li>
+	<li><code>0</code>：你猜的数字与我选出的数字相等。（即&nbsp;<code>num&nbsp;== pick</code>）。</li>
 </ul>
 
 <p>返回我选出的数字。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -55,50 +56,46 @@ tags:
 <strong>输出：</strong>1
 </pre>
 
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>n = 2, pick = 2
-<strong>输出：</strong>2
-</pre>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= n <= 2<sup>31</sup> - 1</code></li>
-	<li><code>1 <= pick <= n</code></li>
+	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
+	<li><code>1 &lt;= pick &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
 我们在区间 $[1,..n]$ 进行二分查找，找到第一个满足 `guess(x) <= 0` 的数，即为答案。
 
-时间复杂度 $O(\log n)$。其中 $n$ 为题目给定的上限。
+时间复杂度 $O(\log n)$。其中 $n$ 为题目给定的上限。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # The guess API is already defined for you.
 # @param num, your guess
-# @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
+# @return -1 if num is higher than the picked number
+#          1 if num is lower than the picked number
+#          otherwise return 0
 # def guess(num: int) -> int:
 
 
 class Solution:
     def guessNumber(self, n: int) -> int:
-        left, right = 1, n
-        while left < right:
-            mid = (left + right) >> 1
-            if guess(mid) <= 0:
-                right = mid
-            else:
-                left = mid + 1
-        return left
+        return bisect.bisect(range(1, n + 1), 0, key=lambda x: -guess(x))
 ```
+
+#### Java
 
 ```java
 /**
@@ -125,6 +122,8 @@ public class Solution extends GuessGame {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -153,29 +152,27 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Forward declaration of guess API.
  * @param  num   your guess
- * @return 	     -1 if num is lower than the guess number
- *			      1 if num is higher than the guess number
+ * @return 	     -1 if num is higher than the picked number
+ *			      1 if num is lower than the picked number
  *               otherwise return 0
  * func guess(num int) int;
  */
 
 func guessNumber(n int) int {
-	left, right := 1, n
-	for left < right {
-		mid := (left + right) >> 1
-		if guess(mid) <= 0 {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
+	return sort.Search(n, func(i int) bool {
+		i++
+		return guess(i) <= 0
+	}) + 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -202,7 +199,10 @@ function guessNumber(n: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
+
 /**
  * Forward declaration of guess API.
  * @param  num   your guess
@@ -234,6 +234,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 /**
  * Forward declaration of guess API.
@@ -262,42 +264,6 @@ public class Solution : GuessGame {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-# The guess API is already defined for you.
-# @param num, your guess
-# @return -1 if num is higher than the picked number
-#          1 if num is lower than the picked number
-#          otherwise return 0
-# def guess(num: int) -> int:
-
-
-class Solution:
-    def guessNumber(self, n: int) -> int:
-        return bisect.bisect(range(1, n + 1), 0, key=lambda x: -guess(x))
-```
-
-```go
-/**
- * Forward declaration of guess API.
- * @param  num   your guess
- * @return 	     -1 if num is higher than the picked number
- *			      1 if num is lower than the picked number
- *               otherwise return 0
- * func guess(num int) int;
- */
-
-func guessNumber(n int) int {
-	return sort.Search(n, func(i int) bool {
-		i++
-		return guess(i) <= 0
-	}) + 1
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1805.Number%20of%20Different%20Integers%20in%20a%20String/README_EN.md
 rating: 1333
+source: Weekly Contest 234 Q1
 tags:
     - Hash Table
     - String
 ---
+
+<!-- problem:start -->
 
 # [1805. Number of Different Integers in a String](https://leetcode.com/problems/number-of-different-integers-in-a-string)
 
 [中文文档](/solution/1800-1899/1805.Number%20of%20Different%20Integers%20in%20a%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>word</code> that consists of digits and lowercase English letters.</p>
 
@@ -55,7 +60,11 @@ the leading zeros are ignored when comparing their decimal values.
 	<li><code>word</code> consists of digits and lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Double Pointers + Simulation
 
@@ -68,6 +77,8 @@ After the traversal, return the size of the hash set $s$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string `word`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +97,8 @@ class Solution:
             i += 1
         return len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numDifferentIntegers(word string) int {
@@ -151,6 +168,8 @@ func numDifferentIntegers(word string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numDifferentIntegers(word: string): number {
     return new Set(
@@ -163,6 +182,8 @@ function numDifferentIntegers(word: string): number {
     ).size;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -194,4 +215,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

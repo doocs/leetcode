@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1433.Check%20If%20a%20String%20Can%20Break%20Another%20String/README_EN.md
 rating: 1436
+source: Biweekly Contest 25 Q3
 tags:
     - Greedy
     - String
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1433. Check If a String Can Break Another String](https://leetcode.com/problems/check-if-a-string-can-break-another-string)
 
 [中文文档](/solution/1400-1499/1433.Check%20If%20a%20String%20Can%20Break%20Another%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings: <code>s1</code> and <code>s2</code> with the same&nbsp;size, check if some&nbsp;permutation of string <code>s1</code> can break&nbsp;some&nbsp;permutation of string <code>s2</code> or vice-versa. In other words <code>s2</code> can break <code>s1</code>&nbsp;or vice-versa.</p>
 
@@ -53,11 +58,17 @@ tags:
 	<li>All strings consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +79,8 @@ class Solution:
             a <= b for a, b in zip(cs1, cs2)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkIfCanBreak(s1 string, s2 string) bool {
 	cs1 := []byte(s1)
@@ -127,6 +144,8 @@ func checkIfCanBreak(s1 string, s2 string) bool {
 	return check(cs1, cs2) || check(cs2, cs1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkIfCanBreak(s1: string, s2: string): boolean {
@@ -148,4 +167,6 @@ function checkIfCanBreak(s1: string, s2: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

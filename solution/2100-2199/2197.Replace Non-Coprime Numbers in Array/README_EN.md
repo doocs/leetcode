@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README_EN.md
 rating: 2057
+source: Weekly Contest 283 Q4
 tags:
     - Stack
     - Array
@@ -10,11 +11,15 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2197. Replace Non-Coprime Numbers in Array](https://leetcode.com/problems/replace-non-coprime-numbers-in-array)
 
 [中文文档](/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of integers <code>nums</code>. Perform the following steps:</p>
 
@@ -70,7 +75,11 @@ Note that there are other ways to obtain the same resultant array.
 	<li>The test cases are generated such that the values in the final array are <strong>less than or equal</strong> to <code>10<sup>8</sup></code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack
 
@@ -85,6 +94,8 @@ The final elements in the stack are the final result.
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(n)$. Where $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +112,8 @@ class Solution:
                 stk[-1] = x * y // g
         return stk
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +168,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func replaceNonCoprimes(nums []int) []int {
@@ -180,6 +197,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function replaceNonCoprimes(nums: number[]): number[] {
@@ -210,4 +229,6 @@ function replaceNonCoprimes(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

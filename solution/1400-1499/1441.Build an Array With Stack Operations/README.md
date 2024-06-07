@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1441.Build%20an%20Array%20With%20Stack%20Operations/README.md
 rating: 1180
+source: 第 188 场周赛 Q1
 tags:
     - 栈
     - 数组
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [1441. 用栈操作构建数组](https://leetcode.cn/problems/build-an-array-with-stack-operations)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组 <code>target</code> 和一个整数 <code>n</code>。每次迭代，需要从&nbsp; <code>list = { 1 , 2 , 3 ..., n }</code> 中依次读取一个数字。</p>
 
@@ -70,7 +73,11 @@ tags:
 	<li><code>target</code> 严格递增</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -84,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def buildArray(self, target: List[int], n: int) -> List[str]:
@@ -96,6 +105,8 @@ class Solution:
             ans.append('Push')
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func buildArray(target []int, n int) []string {
 	cur := 0
@@ -146,6 +161,8 @@ func buildArray(target []int, n int) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function buildArray(target: number[], n: number): string[] {
     const res = [];
@@ -159,6 +176,8 @@ function buildArray(target: number[], n: number): string[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,6 +197,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -204,4 +225,6 @@ char** buildArray(int* target, int targetSize, int n, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

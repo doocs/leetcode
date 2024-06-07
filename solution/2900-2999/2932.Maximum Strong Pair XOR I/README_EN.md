@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2932.Maximum%20Strong%20Pair%20XOR%20I/README_EN.md
 rating: 1246
+source: Weekly Contest 371 Q1
 tags:
     - Bit Manipulation
     - Trie
@@ -11,11 +12,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2932. Maximum Strong Pair XOR I](https://leetcode.com/problems/maximum-strong-pair-xor-i)
 
 [中文文档](/solution/2900-2999/2932.Maximum%20Strong%20Pair%20XOR%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. A pair of integers <code>x</code> and <code>y</code> is called a <strong>strong</strong> pair if it satisfies the condition:</p>
 
@@ -65,7 +70,11 @@ The maximum XOR possible from these pairs is 25 XOR 30 = 7 since the only other 
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -75,11 +84,15 @@ The time complexity is $O(n^2)$, where $n$ is the length of the array $nums$. Th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumStrongPairXor(self, nums: List[int]) -> int:
         return max(x ^ y for x in nums for y in nums if abs(x - y) <= min(x, y))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumStrongPairXor(nums []int) (ans int) {
@@ -134,6 +151,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumStrongPairXor(nums: number[]): number {
     let ans = 0;
@@ -150,6 +169,10 @@ function maximumStrongPairXor(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Binary Trie
 
 Observing the inequality $|x - y| \leq \min(x, y)$, which involves absolute value and minimum value, we can assume $x \leq y$, then we have $y - x \leq x$, that is, $y \leq 2x$. We can enumerate $y$ from small to large, then $x$ must satisfy the inequality $y \leq 2x$.
@@ -159,6 +182,8 @@ Therefore, we sort the array $nums$, and then enumerate $y$ from small to large.
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Here, $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -210,6 +235,8 @@ class Solution:
             ans = max(ans, tree.search(y))
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -272,6 +299,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -340,6 +369,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -400,6 +431,8 @@ func maximumStrongPairXor(nums []int) (ans int) {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {
@@ -470,4 +503,6 @@ function maximumStrongPairXor(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

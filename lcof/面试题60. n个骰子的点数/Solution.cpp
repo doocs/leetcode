@@ -15,10 +15,10 @@ public:
                 }
             }
         }
-        vector<double> ans(5 * n + 1);
+        vector<double> ans;
         double m = pow(6, n);
-        for (int i = 0; i < ans.size(); ++i) {
-            ans[i] = f[n][n + i] / m;
+        for (int j = n; j <= 6 * n; ++j) {
+            ans.push_back(f[n][j] / m);
         }
         return ans;
     }

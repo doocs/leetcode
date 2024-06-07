@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1616.Split%20Two%20Strings%20to%20Make%20Palindrome/README.md
 rating: 1868
+source: 第 210 场周赛 Q3
 tags:
     - 双指针
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1616. 分割两个字符串得到回文串](https://leetcode.cn/problems/split-two-strings-to-make-palindrome)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串&nbsp;<code>a</code> 和&nbsp;<code>b</code>&nbsp;，它们长度相同。请你选择一个下标，将两个字符串都在&nbsp;<strong>相同的下标 </strong>分割开。由&nbsp;<code>a</code>&nbsp;可以得到两个字符串：&nbsp;<code>a<sub>prefix</sub></code>&nbsp;和&nbsp;<code>a<sub>suffix</sub></code>&nbsp;，满足&nbsp;<code>a = a<sub>prefix</sub> + a<sub>suffix</sub></code><sub>&nbsp;</sub>，同理，由&nbsp;<code>b</code> 可以得到两个字符串&nbsp;<code>b<sub>prefix</sub></code> 和&nbsp;<code>b<sub>suffix</sub></code>&nbsp;，满足&nbsp;<code>b = b<sub>prefix</sub> + b<sub>suffix</sub></code>&nbsp;。请你判断&nbsp;<code>a<sub>prefix</sub> + b<sub>suffix</sub></code> 或者&nbsp;<code>b<sub>prefix</sub> + a<sub>suffix</sub></code>&nbsp;能否构成回文串。</p>
 
@@ -64,7 +67,11 @@ b<sub>prefix</sub> = "jiz", b<sub>suffix</sub> = "alu"
 	<li><code>a</code> 和&nbsp;<code>b</code>&nbsp;都只包含小写英文字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -77,6 +84,8 @@ b<sub>prefix</sub> = "jiz", b<sub>suffix</sub> = "alu"
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是字符串 $a$ 或 $b$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +101,8 @@ class Solution:
 
         return check1(a, b) or check1(b, a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -146,6 +159,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func checkPalindromeFormation(a string, b string) bool {
 	return check1(a, b) || check1(b, a)
@@ -169,6 +184,8 @@ func check2(a string, i, j int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkPalindromeFormation(a: string, b: string): boolean {
     const check1 = (a: string, b: string) => {
@@ -191,6 +208,8 @@ function checkPalindromeFormation(a: string, b: string): boolean {
     return check1(a, b) || check1(b, a);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -224,4 +243,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

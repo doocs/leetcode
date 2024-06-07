@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README.md
 rating: 1864
+source: 第 108 场双周赛 Q3
 tags:
     - 哈希表
     - 字符串
@@ -10,13 +11,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [2767. 将字符串分割为最少的美丽子字符串](https://leetcode.cn/problems/partition-string-into-minimum-beautiful-substrings)
 
 [English Version](/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二进制字符串&nbsp;<code>s</code>&nbsp;，你需要将字符串分割成一个或者多个&nbsp;<strong>子字符串</strong>&nbsp;&nbsp;，使每个子字符串都是 <strong>美丽</strong>&nbsp;的。</p>
 
@@ -68,7 +71,11 @@ tags:
 	<li><code>s[i]</code>&nbsp;要么是&nbsp;<code>'0'</code>&nbsp;要么是&nbsp;<code>'1'</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -89,6 +96,8 @@ tags:
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -116,6 +125,8 @@ class Solution:
         ans = dfs(0)
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +171,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -198,6 +211,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumBeautifulSubstrings(s string) int {
@@ -239,6 +254,8 @@ func minimumBeautifulSubstrings(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumBeautifulSubstrings(s: string): number {
     const ss: Set<number> = new Set();
@@ -274,4 +291,6 @@ function minimumBeautifulSubstrings(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3024.Type%20of%20Triangle/README.md
 rating: 1134
+source: 第 123 场双周赛 Q1
 tags:
     - 数组
     - 数学
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [3024. 三角形类型](https://leetcode.cn/problems/type-of-triangle)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始长度为 <code>3</code>&nbsp;的整数数组&nbsp;<code>nums</code>&nbsp;，需要用它们来构造三角形。</p>
 
@@ -56,7 +59,11 @@ nums[1] + nums[2] = 4 + 5 = 9 ，大于 nums[0] = 3 。
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 分类讨论
 
@@ -71,6 +78,8 @@ nums[1] + nums[2] = 4 + 5 = 9 ，大于 nums[0] = 3 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def triangleType(self, nums: List[int]) -> str:
@@ -83,6 +92,8 @@ class Solution:
             return "isosceles"
         return "scalene"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func triangleType(nums []int) string {
 	sort.Ints(nums)
@@ -137,6 +152,8 @@ func triangleType(nums []int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function triangleType(nums: number[]): string {
     nums.sort((a, b) => a - b);
@@ -152,6 +169,8 @@ function triangleType(nums: number[]): string {
     return 'scalene';
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -173,4 +192,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

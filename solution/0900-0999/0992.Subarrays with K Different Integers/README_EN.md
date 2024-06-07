@@ -9,11 +9,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [992. Subarrays with K Different Integers](https://leetcode.com/problems/subarrays-with-k-different-integers)
 
 [中文文档](/solution/0900-0999/0992.Subarrays%20with%20K%20Different%20Integers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the number of <strong>good subarrays</strong> of </em><code>nums</code>.</p>
 
@@ -50,11 +54,17 @@ tags:
 	<li><code>1 &lt;= nums[i], k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +85,8 @@ class Solution:
 
         return sum(a - b for a, b in zip(f(k - 1), f(k)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subarraysWithKDistinct(nums []int, k int) (ans int) {
 	f := func(k int) []int {
@@ -176,4 +192,6 @@ func subarraysWithKDistinct(nums []int, k int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

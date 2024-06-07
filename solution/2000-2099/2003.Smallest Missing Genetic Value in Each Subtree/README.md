@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2003.Smallest%20Missing%20Genetic%20Value%20in%20Each%20Subtree/README.md
 rating: 2415
+source: 第 258 场周赛 Q4
 tags:
     - 树
     - 深度优先搜索
@@ -10,13 +11,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [2003. 每棵子树内缺失的最小基因值](https://leetcode.cn/problems/smallest-missing-genetic-value-in-each-subtree)
 
 [English Version](/solution/2000-2099/2003.Smallest%20Missing%20Genetic%20Value%20in%20Each%20Subtree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一棵根节点为 <code>0</code>&nbsp;的 <strong>家族树</strong>&nbsp;，总共包含 <code>n</code>&nbsp;个节点，节点编号为 <code>0</code>&nbsp;到 <code>n - 1</code>&nbsp;。给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组 <code>parents</code>&nbsp;，其中&nbsp;<code>parents[i]</code>&nbsp;是节点 <code>i</code>&nbsp;的父节点。由于节点 <code>0</code>&nbsp;是 <strong>根</strong>&nbsp;，所以&nbsp;<code>parents[0] == -1</code>&nbsp;。</p>
 
@@ -77,7 +80,11 @@ tags:
 	<li><code>nums[i]</code>&nbsp;互不相同。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -96,6 +103,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -133,6 +142,8 @@ class Solution:
             idx = parents[idx]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -187,6 +198,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -234,6 +247,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestMissingValueSubtree(parents []int, nums []int) []int {
 	n := len(nums)
@@ -278,6 +293,8 @@ func smallestMissingValueSubtree(parents []int, nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function smallestMissingValueSubtree(parents: number[], nums: number[]): number[] {
     const n = nums.length;
@@ -319,6 +336,8 @@ function smallestMissingValueSubtree(parents: number[], nums: number[]): number[
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -376,4 +395,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

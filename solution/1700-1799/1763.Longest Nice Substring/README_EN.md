@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1763.Longest%20Nice%20Substring/README_EN.md
 rating: 1521
+source: Biweekly Contest 46 Q1
 tags:
     - Bit Manipulation
     - Hash Table
@@ -11,11 +12,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1763. Longest Nice Substring](https://leetcode.com/problems/longest-nice-substring)
 
 [中文文档](/solution/1700-1799/1763.Longest%20Nice%20Substring/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A string <code>s</code> is <strong>nice</strong> if, for every letter of the alphabet that <code>s</code> contains, it appears <strong>both</strong> in uppercase and lowercase. For example, <code>&quot;abABB&quot;</code> is nice because <code>&#39;A&#39;</code> and <code>&#39;a&#39;</code> appear, and <code>&#39;B&#39;</code> and <code>&#39;b&#39;</code> appear. However, <code>&quot;abA&quot;</code> is not because <code>&#39;b&#39;</code> appears, but <code>&#39;B&#39;</code> does not.</p>
 
@@ -55,11 +60,17 @@ tags:
 	<li><code>s</code> consists of uppercase and lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +88,8 @@ class Solution:
                     ans = s[i : j + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestNiceSubstring(s string) string {
@@ -165,6 +182,8 @@ func longestNiceSubstring(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestNiceSubstring(s: string): string {
     const n = s.length;
@@ -190,9 +209,15 @@ function longestNiceSubstring(s: string): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -210,6 +235,8 @@ class Solution:
                     ans = s[i : j + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -237,6 +264,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -261,6 +290,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestNiceSubstring(s string) string {
@@ -289,4 +320,6 @@ func longestNiceSubstring(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

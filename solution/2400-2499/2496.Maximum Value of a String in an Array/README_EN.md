@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2496.Maximum%20Value%20of%20a%20String%20in%20an%20Array/README_EN.md
 rating: 1292
+source: Biweekly Contest 93 Q1
 tags:
     - Array
     - String
 ---
+
+<!-- problem:start -->
 
 # [2496. Maximum Value of a String in an Array](https://leetcode.com/problems/maximum-value-of-a-string-in-an-array)
 
 [中文文档](/solution/2400-2499/2496.Maximum%20Value%20of%20a%20String%20in%20an%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>value</strong> of an alphanumeric string can be defined as:</p>
 
@@ -56,11 +61,17 @@ Each string in the array has value 1. Hence, we return 1.
 	<li><code>strs[i]</code> consists of only lowercase English letters and digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +81,8 @@ class Solution:
 
         return max(f(s) for s in strs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumValue(strs []string) (ans int) {
 	f := func(s string) (x int) {
@@ -138,12 +155,16 @@ func maximumValue(strs []string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumValue(strs: string[]): number {
     const f = (s: string) => (Number.isNaN(Number(s)) ? s.length : Number(s));
     return Math.max(...strs.map(f));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -157,6 +178,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -176,6 +199,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -204,9 +229,15 @@ int maximumValue(char** strs, int strsSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -221,6 +252,8 @@ class Solution:
 
         return max(f(s) for s in strs)
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -255,9 +288,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::cmp::max;
@@ -284,4 +323,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

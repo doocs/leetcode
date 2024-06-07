@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README.md
 rating: 2057
+source: 第 283 场周赛 Q4
 tags:
     - 栈
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [2197. 替换数组中的非互质数](https://leetcode.cn/problems/replace-non-coprime-numbers-in-array)
 
 [English Version](/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 。请你对数组执行下述操作：</p>
 
@@ -74,7 +77,11 @@ tags:
 	<li>生成的测试用例可以保证最终数组中的值 <strong>小于或者等于</strong> <code>10<sup>8</sup></code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈
 
@@ -89,6 +96,8 @@ tags:
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n)$。其中 $M$ 为数组中的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +114,8 @@ class Solution:
                 stk[-1] = x * y // g
         return stk
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func replaceNonCoprimes(nums []int) []int {
@@ -184,6 +199,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function replaceNonCoprimes(nums: number[]): number[] {
@@ -214,4 +231,6 @@ function replaceNonCoprimes(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

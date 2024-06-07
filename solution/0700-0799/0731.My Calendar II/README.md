@@ -5,9 +5,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0731.My
 tags:
     - 设计
     - 线段树
+    - 数组
     - 二分查找
     - 有序集合
+    - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [731. 我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii)
 
@@ -15,7 +19,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实现一个 <code>MyCalendar</code> 类来存放你的日程安排。如果要添加的时间内不会导致三重预订时，则可以存储这个新的日程安排。</p>
 
@@ -29,9 +33,10 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong class="example">示例：</strong></p>
 
-<pre>MyCalendar();
+<pre>
+MyCalendar();
 MyCalendar.book(10, 20); // returns true
 MyCalendar.book(50, 60); // returns true
 MyCalendar.book(10, 40); // returns true
@@ -55,7 +60,11 @@ MyCalendar.book(25, 55); // returns true
 	<li>调用函数&nbsp;<code>MyCalendar.book(start, end)</code>时，&nbsp;<code>start</code> 和&nbsp;<code>end</code> 的取值范围为&nbsp;<code>[0, 10^9]</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分
 
@@ -64,6 +73,8 @@ MyCalendar.book(25, 55); // returns true
 时间复杂度 $O(n^2)$，其中 $n$ 表示日程安排的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedDict
@@ -90,6 +101,8 @@ class MyCalendarTwo:
 # obj = MyCalendarTwo()
 # param_1 = obj.book(start,end)
 ```
+
+#### Java
 
 ```java
 class MyCalendarTwo {
@@ -121,6 +134,8 @@ class MyCalendarTwo {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyCalendarTwo {
 public:
@@ -151,6 +166,8 @@ public:
  * bool param_1 = obj->book(start,end);
  */
 ```
+
+#### Go
 
 ```go
 type MyCalendarTwo struct {
@@ -193,6 +210,10 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：线段树
 
 线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 $log(width)$。更新某个元素的值，只需要更新 $log(width)$ 个区间，并且这些区间都包含在一个包含该元素的大区间内。区间修改时，需要使用**懒标记**保证效率。
@@ -212,6 +233,8 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
 时间复杂度 $O(nlogn)$，其中 $n$ 表示日程安排的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -291,6 +314,8 @@ class MyCalendarTwo:
 # obj = MyCalendarTwo()
 # param_1 = obj.book(start,end)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -403,6 +428,8 @@ class MyCalendarTwo {
  */
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -502,6 +529,8 @@ public:
  * bool param_1 = obj->book(start,end);
  */
 ```
+
+#### Go
 
 ```go
 type node struct {
@@ -611,4 +640,6 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

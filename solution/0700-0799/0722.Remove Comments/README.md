@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [722. 删除注释](https://leetcode.cn/problems/remove-comments)
 
 [English Version](/solution/0700-0799/0722.Remove%20Comments/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给一个 C++ 程序，删除程序中的注释。这个程序<code>source</code>是一个数组，其中<code>source[i]</code>表示第&nbsp;<code>i</code>&nbsp;行源码。&nbsp;这表示每行源码由 <code>'\n'</code>&nbsp;分隔。</p>
 
@@ -96,7 +98,11 @@ a = b + c;
 </ul>
 <span style="display:block"><span style="height:0px"><span style="position:absolute"><span style="top:0px"><span style="left:-9999px"><span style="opacity:0"><span style="overflow:hidden">&nbsp;</span></span></span></span></span></span>​​​​​​</span>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分情况讨论
 
@@ -113,6 +119,8 @@ a = b + c;
 时间复杂度 $O(L)$，空间复杂度 $O(L)$，其中 $L$ 是源代码的总长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -141,6 +149,8 @@ class Solution:
                 t.clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -176,6 +186,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -213,6 +225,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeComments(source []string) (ans []string) {
 	t := []byte{}
@@ -244,6 +258,8 @@ func removeComments(source []string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function removeComments(source: string[]): string[] {
@@ -277,6 +293,8 @@ function removeComments(source: string[]): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -320,4 +338,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,15 +3,20 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1411.Number%20of%20Ways%20to%20Paint%20N%20%C3%97%203%20Grid/README_EN.md
 rating: 1844
+source: Weekly Contest 184 Q4
 tags:
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [1411. Number of Ways to Paint N × 3 Grid](https://leetcode.com/problems/number-of-ways-to-paint-n-3-grid)
 
 [中文文档](/solution/1400-1499/1411.Number%20of%20Ways%20to%20Paint%20N%20%C3%97%203%20Grid/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a <code>grid</code> of size <code>n x 3</code> and you want to paint each cell of the grid with exactly one of the three colors: <strong>Red</strong>, <strong>Yellow,</strong> or <strong>Green</strong> while making sure that no two adjacent cells have the same color (i.e., no two cells that share vertical or horizontal sides have the same color).</p>
 
@@ -41,7 +46,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -56,6 +65,8 @@ The time complexity is $O(n)$, where $n$ is the number of rows in the grid. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfWays(self, n: int) -> int:
@@ -67,6 +78,8 @@ class Solution:
             f0, f1 = g0, g1
         return (f0 + f1) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using ll = long long;
@@ -103,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfWays(n int) int {
 	mod := int(1e9) + 7
@@ -116,6 +133,8 @@ func numOfWays(n int) int {
 	return (f0 + f1) % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numOfWays(n: number): number {
@@ -136,6 +155,10 @@ function numOfWays(n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: State Compression + Dynamic Programming
 
 We notice that the grid only has $3$ columns, so there are at most $3^3=27$ different coloring schemes in a row.
@@ -155,6 +178,8 @@ We notice that $f[i][j]$ is only related to $f[i - 1][k]$, so we can use a rolli
 The time complexity is $O((m + n) \times 3^{2m})$, and the space complexity is $O(3^m)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -193,6 +218,8 @@ class Solution:
             f = g
         return sum(f) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -255,6 +282,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -319,6 +348,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfWays(n int) (ans int) {
 	f1 := func(x int) bool {
@@ -375,6 +406,8 @@ func numOfWays(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numOfWays(n: number): number {
@@ -436,4 +469,6 @@ function numOfWays(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,11 +7,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [573. Squirrel Simulation 🔒](https://leetcode.com/problems/squirrel-simulation)
 
 [中文文档](/solution/0500-0599/0573.Squirrel%20Simulation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>height</code> and <code>width</code> representing a garden of size <code>height x width</code>. You are also given:</p>
 
@@ -56,11 +60,17 @@ tags:
 	<li><code>0 &lt;= tree<sub>c</sub>, squirrel<sub>c</sub>, nut<sub>i<sub>c</sub></sub> &lt;= width</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +91,8 @@ class Solution:
             ans = min(ans, s + d - c * 2)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minDistance(height int, width int, tree []int, squirrel []int, nuts [][]int) int {
@@ -158,4 +174,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

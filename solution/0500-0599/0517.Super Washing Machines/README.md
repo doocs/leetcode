@@ -7,13 +7,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [517. 超级洗衣机](https://leetcode.cn/problems/super-washing-machines)
 
 [English Version](/solution/0500-0599/0517.Super%20Washing%20Machines/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假设有 <code>n</code><strong>&nbsp;</strong>台超级洗衣机放在同一排上。开始的时候，每台洗衣机内可能有一定量的衣服，也可能是空的。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>0 &lt;= machines[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -86,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMinMoves(self, machines: List[int]) -> int:
@@ -100,6 +108,8 @@ class Solution:
             ans = max(ans, abs(s), x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMinMoves(machines []int) (ans int) {
@@ -175,6 +189,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMinMoves(machines: number[]): number {
     const n = machines.length;
@@ -196,4 +212,6 @@ function findMinMoves(machines: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

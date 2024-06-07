@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [88. 合并两个有序数组](https://leetcode.cn/problems/merge-sorted-array)
 
 [English Version](/solution/0000-0099/0088.Merge%20Sorted%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个按 <strong>非递减顺序</strong> 排列的整数数组&nbsp;<code>nums1</code><em> </em>和 <code>nums2</code>，另有两个整数 <code>m</code> 和 <code>n</code> ，分别表示 <code>nums1</code> 和 <code>nums2</code> 中的元素数目。</p>
 
@@ -68,7 +70,11 @@ tags:
 
 <p><strong>进阶：</strong>你可以设计实现一个时间复杂度为 <code>O(m + n)</code> 的算法解决此问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -79,6 +85,8 @@ tags:
 时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是两个数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +103,8 @@ class Solution:
             k -= 1
 ```
 
+#### Java
+
 ```java
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
@@ -104,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +127,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func merge(nums1 []int, m int, nums2 []int, n int) {
@@ -130,6 +144,8 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  Do not return anything, modify nums1 in-place instead.
@@ -141,46 +157,30 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
 }
 ```
 
-```ts
-/**
- Do not return anything, modify nums1 in-place instead.
- */
-function merge(nums1: number[], m: number, nums2: number[], n: number): void {
-    nums1.length = m;
-    nums2.length = n;
-    nums1.push(...nums2);
-    nums1.sort((a, b) => a - b);
-}
-```
+#### Rust
 
 ```rust
 impl Solution {
     pub fn merge(nums1: &mut Vec<i32>, m: i32, nums2: &mut Vec<i32>, n: i32) {
-        let (mut m, mut n) = (m as usize, n as usize);
-        for i in (0..m + n).rev() {
-            nums1[i] = match (m == 0, n == 0) {
-                (true, false) => {
-                    n -= 1;
-                    nums2[n]
-                }
-                (false, true) => {
-                    m -= 1;
-                    nums1[m]
-                }
-                (_, _) => {
-                    if nums1[m - 1] > nums2[n - 1] {
-                        m -= 1;
-                        nums1[m]
-                    } else {
-                        n -= 1;
-                        nums2[n]
-                    }
-                }
-            };
+        let mut k = (m + n - 1) as usize;
+        let mut i = (m - 1) as isize;
+        let mut j = (n - 1) as isize;
+
+        while j >= 0 {
+            if i >= 0 && nums1[i as usize] > nums2[j as usize] {
+                nums1[k] = nums1[i as usize];
+                i -= 1;
+            } else {
+                nums1[k] = nums2[j as usize];
+                j -= 1;
+            }
+            k -= 1;
         }
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -196,6 +196,8 @@ var merge = function (nums1, m, nums2, n) {
     }
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -220,4 +222,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

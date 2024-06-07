@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md
 rating: 2464
+source: Biweekly Contest 60 Q4
 tags:
     - Bit Manipulation
     - Array
@@ -11,11 +12,15 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1994. The Number of Good Subsets](https://leetcode.com/problems/the-number-of-good-subsets)
 
 [中文文档](/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>. We call a subset of <code>nums</code> <strong>good</strong> if its product can be represented as a product of one or more <strong>distinct prime</strong> numbers.</p>
 
@@ -70,11 +75,17 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +108,8 @@ class Solution:
                     f[state] = (f[state] + cnt[x] * f[state ^ mask]) % mod
         return sum(f[i] for i in range(1, 1 << n)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +150,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -179,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfGoodSubsets(nums []int) (ans int) {
 	primes := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29}
@@ -218,4 +235,6 @@ func numberOfGoodSubsets(nums []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

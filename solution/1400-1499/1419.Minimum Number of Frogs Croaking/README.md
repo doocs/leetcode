@@ -3,10 +3,13 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1419.Minimum%20Number%20of%20Frogs%20Croaking/README.md
 rating: 1689
+source: 第 185 场周赛 Q3
 tags:
     - 字符串
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [1419. 数青蛙](https://leetcode.cn/problems/minimum-number-of-frogs-croaking)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>croakOfFrogs</code>，它表示不同青蛙发出的蛙鸣声（字符串 <code>"croak"</code> ）的组合。由于同一时间可以有多只青蛙呱呱作响，所以&nbsp;<code>croakOfFrogs</code> 中会混合多个 <code>“croak”</code> <em>。</em></p>
 
@@ -59,7 +62,11 @@ tags:
 	<li>字符串中的字符只有 <code>'c'</code>, <code>'r'</code>, <code>'o'</code>, <code>'a'</code> 或者 <code>'k'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 模拟
 
@@ -77,6 +84,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是字符串 `croakOfFrogs` 的长度；而 $C$ 是字符集的大小，本题中 $C=26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +108,8 @@ class Solution:
                     x -= 1
         return -1 if x else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minNumberOfFrogs(croakOfFrogs string) int {
@@ -202,6 +217,8 @@ func minNumberOfFrogs(croakOfFrogs string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minNumberOfFrogs(croakOfFrogs: string): number {
     const n = croakOfFrogs.length;
@@ -232,4 +249,6 @@ function minNumberOfFrogs(croakOfFrogs: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2660.Determine%20the%20Winner%20of%20a%20Bowling%20Game/README.md
 rating: 1324
+source: 第 343 场周赛 Q1
 tags:
     - 数组
     - 模拟
 ---
+
+<!-- problem:start -->
 
 # [2660. 保龄球游戏的获胜者](https://leetcode.cn/problems/determine-the-winner-of-a-bowling-game)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong> 开始的整数数组 <code>player1</code> 和 <code>player2</code> ，分别表示玩家 1 和玩家 2 击中的瓶数。</p>
 
@@ -78,7 +81,11 @@ player1 的得分等于 player2 的得分，所以这一场比赛平局，答案
 	<li><code>0 &lt;= player1[i], player2[i] &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -87,6 +94,8 @@ player1 的得分等于 player2 的得分，所以这一场比赛平局，答案
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +110,8 @@ class Solution:
         a, b = f(player1), f(player2)
         return 1 if a > b else (2 if b > a else 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isWinner(player1 []int, player2 []int) int {
@@ -162,6 +177,8 @@ func isWinner(player1 []int, player2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isWinner(player1: number[], player2: number[]): number {
     const f = (arr: number[]): number => {
@@ -179,6 +196,8 @@ function isWinner(player1: number[], player2: number[]): number {
     return a > b ? 1 : a < b ? 2 : 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -210,4 +229,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

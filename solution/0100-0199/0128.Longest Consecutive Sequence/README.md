@@ -8,13 +8,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence)
 
 [English Version](/solution/0100-0199/0128.Longest%20Consecutive%20Sequence/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个未排序的整数数组 <code>nums</code> ，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。</p>
 
@@ -45,7 +47,11 @@ tags:
 	<li><code>-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -62,6 +68,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +89,8 @@ class Solution:
                 t = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestConsecutive(nums []int) int {
 	n := len(nums)
@@ -154,6 +168,8 @@ func longestConsecutive(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestConsecutive(nums: number[]): number {
     const n = nums.length;
@@ -176,6 +192,8 @@ function longestConsecutive(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -208,6 +226,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -237,6 +257,10 @@ var longestConsecutive = function (nums) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：哈希表
 
 我们用哈希表存储数组中的所有元素，然后遍历数组中的每个元素 $x$，如果当前元素的前驱 $x-1$ 不在哈希表中，那么我们以当前元素为起点，不断尝试匹配 $x+1, x+2, x+3, \dots$，直到匹配不到为止，此时的匹配长度即为以 $x$ 为起点的最长连续序列长度，我们更新答案即可。
@@ -244,6 +268,8 @@ var longestConsecutive = function (nums) {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -258,6 +284,8 @@ class Solution:
                 ans = max(ans, y - x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -281,6 +309,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -301,6 +331,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestConsecutive(nums []int) (ans int) {
 	s := map[int]bool{}
@@ -320,6 +352,8 @@ func longestConsecutive(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestConsecutive(nums: number[]): number {
     const s: Set<number> = new Set(nums);
@@ -336,6 +370,8 @@ function longestConsecutive(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -360,4 +396,6 @@ var longestConsecutive = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

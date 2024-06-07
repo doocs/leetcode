@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README_EN.md
 rating: 2943
+source: Biweekly Contest 118 Q4
 tags:
     - Stack
     - Queue
@@ -13,11 +14,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2945. Find Maximum Non-decreasing Array Length](https://leetcode.com/problems/find-maximum-non-decreasing-array-length)
 
 [中文文档](/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>.</p>
 
@@ -66,11 +71,17 @@ Because the given array is not non-decreasing, the maximum<!-- notionvc: 3447a50
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +97,8 @@ class Solution:
             pre[j] = i
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaximumLength(nums []int) int {
 	n := len(nums)
@@ -150,6 +167,8 @@ func findMaximumLength(nums []int) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaximumLength(nums: number[]): number {
@@ -184,4 +203,6 @@ function findMaximumLength(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

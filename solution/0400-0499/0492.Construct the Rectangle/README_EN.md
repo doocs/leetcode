@@ -6,11 +6,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [492. Construct the Rectangle](https://leetcode.com/problems/construct-the-rectangle)
 
 [中文文档](/solution/0400-0499/0492.Construct%20the%20Rectangle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A web developer needs to know how to design a web page&#39;s size. So, given a specific rectangular web page&rsquo;s area, your job by now is to design a rectangular web page, whose length L and width W satisfy the following requirements:</p>
 
@@ -53,11 +57,17 @@ But according to requirement 2, [1,4] is illegal; according to requirement 3,  [
 	<li><code>1 &lt;= area &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +77,8 @@ class Solution:
             w -= 1
         return [area // w, w]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -90,6 +104,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func constructRectangle(area int) []int {
@@ -103,4 +119,6 @@ func constructRectangle(area int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

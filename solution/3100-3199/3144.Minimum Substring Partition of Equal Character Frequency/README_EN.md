@@ -2,13 +2,24 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3144.Minimum%20Substring%20Partition%20of%20Equal%20Character%20Frequency/README_EN.md
+rating: 1917
+source: Biweekly Contest 130 Q3
+tags:
+    - Hash Table
+    - String
+    - Dynamic Programming
+    - Counting
 ---
+
+<!-- problem:start -->
 
 # [3144. Minimum Substring Partition of Equal Character Frequency](https://leetcode.com/problems/minimum-substring-partition-of-equal-character-frequency)
 
 [中文文档](/solution/3100-3199/3144.Minimum%20Substring%20Partition%20of%20Equal%20Character%20Frequency/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, you need to partition it into one or more <strong>balanced</strong> <span data-keyword="substring">substrings</span>. For example, if <code>s == &quot;ababcc&quot;</code> then <code>(&quot;abab&quot;, &quot;c&quot;, &quot;c&quot;)</code>, <code>(&quot;ab&quot;, &quot;abc&quot;, &quot;c&quot;)</code>, and <code>(&quot;ababcc&quot;)</code> are all valid partitions, but <code>(&quot;a&quot;, <strong>&quot;bab&quot;</strong>, &quot;cc&quot;)</code>, <code>(<strong>&quot;aba&quot;</strong>, &quot;bc&quot;, &quot;c&quot;)</code>, and <code>(&quot;ab&quot;, <strong>&quot;abcc&quot;</strong>)</code> are not. The unbalanced substrings are bolded.</p>
 
@@ -49,7 +60,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3144.Mi
 	<li><code>s</code> consists only of English lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search + Hash Table
 
@@ -68,6 +83,8 @@ To avoid repeated calculations, we use memoization search.
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +110,8 @@ class Solution:
         n = len(s)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumSubstringsInPartition(s string) int {
@@ -211,6 +234,8 @@ func minimumSubstringsInPartition(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumSubstringsInPartition(s: string): number {
     const n = s.length;
@@ -247,4 +272,6 @@ function minimumSubstringsInPartition(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

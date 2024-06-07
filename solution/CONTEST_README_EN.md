@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # LeetCode Contest
 
 [中文文档](/solution/CONTEST_README.md)
@@ -24,6 +28,34 @@ For top 10 users (excluding LCCN users), your LeetCode ID will be colored orange
 If you want to estimate your score changes after the contest ends, you can visit the website [LeetCode Contest Rating Predictor](https://lccn.lbao.site/).
 
 ## Past Contests
+
+#### Weekly Contest 400
+
+- [3168. Minimum Number of Chairs in a Waiting Room](/solution/3100-3199/3168.Minimum%20Number%20of%20Chairs%20in%20a%20Waiting%20Room/README_EN.md)
+- [3169. Count Days Without Meetings](/solution/3100-3199/3169.Count%20Days%20Without%20Meetings/README_EN.md)
+- [3170. Lexicographically Minimum String After Removing Stars](/solution/3100-3199/3170.Lexicographically%20Minimum%20String%20After%20Removing%20Stars/README_EN.md)
+- [3171. Find Subarray With Bitwise AND Closest to K](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README_EN.md)
+
+#### Weekly Contest 399
+
+- [3162. Find the Number of Good Pairs I](/solution/3100-3199/3162.Find%20the%20Number%20of%20Good%20Pairs%20I/README_EN.md)
+- [3163. String Compression III](/solution/3100-3199/3163.String%20Compression%20III/README_EN.md)
+- [3164. Find the Number of Good Pairs II](/solution/3100-3199/3164.Find%20the%20Number%20of%20Good%20Pairs%20II/README_EN.md)
+- [3165. Maximum Sum of Subsequence With Non-adjacent Elements](/solution/3100-3199/3165.Maximum%20Sum%20of%20Subsequence%20With%20Non-adjacent%20Elements/README_EN.md)
+
+#### Biweekly Contest 131
+
+- [3158. Find the XOR of Numbers Which Appear Twice](/solution/3100-3199/3158.Find%20the%20XOR%20of%20Numbers%20Which%20Appear%20Twice/README_EN.md)
+- [3159. Find Occurrences of an Element in an Array](/solution/3100-3199/3159.Find%20Occurrences%20of%20an%20Element%20in%20an%20Array/README_EN.md)
+- [3160. Find the Number of Distinct Colors Among the Balls](/solution/3100-3199/3160.Find%20the%20Number%20of%20Distinct%20Colors%20Among%20the%20Balls/README_EN.md)
+- [3161. Block Placement Queries](/solution/3100-3199/3161.Block%20Placement%20Queries/README_EN.md)
+
+#### Weekly Contest 398
+
+- [3151. Special Array I](/solution/3100-3199/3151.Special%20Array%20I/README_EN.md)
+- [3152. Special Array II](/solution/3100-3199/3152.Special%20Array%20II/README_EN.md)
+- [3153. Sum of Digit Differences of All Pairs](/solution/3100-3199/3153.Sum%20of%20Digit%20Differences%20of%20All%20Pairs/README_EN.md)
+- [3154. Find Number of Ways to Reach the K-th Stair](/solution/3100-3199/3154.Find%20Number%20of%20Ways%20to%20Reach%20the%20K-th%20Stair/README_EN.md)
 
 #### Weekly Contest 397
 

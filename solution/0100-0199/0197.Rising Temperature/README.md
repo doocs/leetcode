@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [197. 上升的温度](https://leetcode.cn/problems/rising-temperature)
 
 [English Version](/solution/0100-0199/0197.Rising%20Temperature/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <div class="original__bRMd">
 <div>
@@ -66,13 +68,19 @@ Weather 表：
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：自连接 + DATEDIFF/SUBDATE 函数
 
 我们可以通过自连接的方式，将 `Weather` 表中的每一行与它的前一行进行比较，如果温度更高，并且日期相差一天，那么就是我们要找的结果。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -85,6 +93,8 @@ def rising_temperature(weather: pd.DataFrame) -> pd.DataFrame:
     ][["id"]]
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT w1.id
@@ -96,9 +106,15 @@ FROM
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -111,4 +127,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

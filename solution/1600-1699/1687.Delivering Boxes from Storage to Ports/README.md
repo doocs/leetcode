@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1687.Delivering%20Boxes%20from%20Storage%20to%20Ports/README.md
 rating: 2610
+source: 第 41 场双周赛 Q4
 tags:
     - 线段树
     - 队列
@@ -13,13 +14,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1687. 从仓库到码头运输箱子](https://leetcode.cn/problems/delivering-boxes-from-storage-to-ports)
 
 [English Version](/solution/1600-1699/1687.Delivering%20Boxes%20from%20Storage%20to%20Ports/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一辆货运卡车，你需要用这一辆车把一些箱子从仓库运送到码头。这辆卡车每次运输有&nbsp;<strong>箱子数目的限制</strong>&nbsp;和 <strong>总重量的限制</strong>&nbsp;。</p>
 
@@ -106,7 +109,11 @@ tags:
 	<li><code>1 &lt;= weights<sub>i</sub> &lt;= maxWeight</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划 + 单调队列优化
 
@@ -133,6 +140,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # 33/39 个通过测试用例，超出时间限制
 class Solution:
@@ -151,6 +160,8 @@ class Solution:
                     f[i] = min(f[i], f[j] + cs[i - 1] - cs[j] + 2)
         return f[n]
 ```
+
+#### Java
 
 ```java
 // 35/39 个通过测试用例，超出时间限制
@@ -181,6 +192,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 // 35/39 个通过测试用例，超出时间限制
 class Solution {
@@ -209,6 +222,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 // 35/39 个通过测试用例，超出时间限制
@@ -254,6 +269,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def boxDelivering(
@@ -276,6 +293,8 @@ class Solution:
                 q.append(i)
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -313,6 +332,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -340,6 +361,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) int {
@@ -379,4 +402,6 @@ func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) i
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

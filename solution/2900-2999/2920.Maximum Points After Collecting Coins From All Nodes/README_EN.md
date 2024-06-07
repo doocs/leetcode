@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/README_EN.md
 rating: 2350
+source: Weekly Contest 369 Q4
 tags:
     - Bit Manipulation
     - Tree
@@ -11,11 +12,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2920. Maximum Points After Collecting Coins From All Nodes](https://leetcode.com/problems/maximum-points-after-collecting-coins-from-all-nodes)
 
 [中文文档](/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There exists an undirected tree rooted at node <code>0</code> with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. You are given a 2D <strong>integer</strong> array <code>edges</code> of length <code>n - 1</code>, where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the tree. You are also given a <strong>0-indexed</strong> array <code>coins</code> of size <code>n</code> where <code>coins[i]</code> indicates the number of coins in the vertex <code>i</code>, and an integer <code>k</code>.</p>
 
@@ -66,7 +71,11 @@ Coins will be collected from all the nodes using the first way. Therefore, total
 	<li><code><font face="monospace">0 &lt;= k &lt;= 10<sup>4</sup></font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -87,6 +96,8 @@ In order to avoid repeated calculations, we use the method of memoization search
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Where $M$ represents the maximum value of $coins[i]$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +122,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +166,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -186,6 +201,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumPoints(edges [][]int, coins []int, k int) int {
@@ -225,6 +242,8 @@ func maximumPoints(edges [][]int, coins []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumPoints(edges: number[][], coins: number[], k: number): number {
     const n = coins.length;
@@ -256,4 +275,6 @@ function maximumPoints(edges: number[][], coins: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

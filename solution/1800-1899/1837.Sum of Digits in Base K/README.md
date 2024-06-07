@@ -3,9 +3,12 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1837.Sum%20of%20Digits%20in%20Base%20K/README.md
 rating: 1282
+source: 第 238 场周赛 Q1
 tags:
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1837. K 进制表示下的各位数字总和](https://leetcode.cn/problems/sum-of-digits-in-base-k)
 
@@ -13,7 +16,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code>（<code>10</code> 进制）和一个基数 <code>k</code> ，请你将 <code>n</code> 从 <code>10</code> 进制表示转换为 <code>k</code> 进制表示，计算并返回转换后各位数字的 <strong>总和</strong> 。</p>
 
@@ -46,7 +49,11 @@ tags:
 	<li><code>2 <= k <= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -55,6 +62,8 @@ tags:
 时间复杂度 $O(\log_{k}n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +74,8 @@ class Solution:
             n //= k
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -93,6 +106,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumBase(n int, k int) (ans int) {
 	for n > 0 {
@@ -102,6 +117,8 @@ func sumBase(n int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumBase(n: number, k: number): number {
@@ -113,6 +130,8 @@ function sumBase(n: number, k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -126,6 +145,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -143,6 +164,8 @@ var sumBase = function (n, k) {
 };
 ```
 
+#### C
+
 ```c
 int sumBase(int n, int k) {
     int ans = 0;
@@ -156,4 +179,6 @@ int sumBase(int n, int k) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

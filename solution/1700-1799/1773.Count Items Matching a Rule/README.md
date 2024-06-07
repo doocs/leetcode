@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1773.Count%20Items%20Matching%20a%20Rule/README.md
 rating: 1174
+source: 第 230 场周赛 Q1
 tags:
     - 数组
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [1773. 统计匹配检索规则的物品数量](https://leetcode.cn/problems/count-items-matching-a-rule)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组 <code>items</code> ，其中 <code>items[i] = [type<sub>i</sub>, color<sub>i</sub>, name<sub>i</sub>]</code> ，描述第 <code>i</code> 件物品的类型、颜色以及名称。</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li>所有字符串仅由小写字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数模拟
 
@@ -68,12 +75,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countMatches(self, items: List[List[str]], ruleKey: str, ruleValue: str) -> int:
         i = 0 if ruleKey[0] == 't' else (1 if ruleKey[0] == 'c' else 2)
         return sum(v[i] == ruleValue for v in items)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -99,6 +112,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countMatches(items [][]string, ruleKey string, ruleValue string) (ans int) {
@@ -112,12 +127,16 @@ func countMatches(items [][]string, ruleKey string, ruleValue string) (ans int) 
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countMatches(items: string[][], ruleKey: string, ruleValue: string): number {
     const key = ruleKey === 'type' ? 0 : ruleKey === 'color' ? 1 : 2;
     return items.reduce((r, v) => r + (v[key] === ruleValue ? 1 : 0), 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -130,6 +149,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int countMatches(char*** items, int itemsSize, int* itemsColSize, char* ruleKey, char* ruleValue) {
@@ -147,4 +168,6 @@ int countMatches(char*** items, int itemsSize, int* itemsColSize, char* ruleKey,
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [624. 数组列表中的最大距离 🔒](https://leetcode.cn/problems/maximum-distance-in-arrays)
 
 [English Version](/solution/0600-0699/0624.Maximum%20Distance%20in%20Arrays/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定&nbsp;<code>m</code>&nbsp;个数组，每个数组都已经按照升序排好序了。现在你需要从两个不同的数组中选择两个整数（每个数组选一个）并且计算它们的距离。两个整数&nbsp;<code>a</code>&nbsp;和&nbsp;<code>b</code>&nbsp;之间的距离定义为它们差的绝对值&nbsp;<code>|a-b|</code>&nbsp;。你的任务就是去找到最大距离</p>
 
@@ -40,7 +42,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：维护最大值和最小值
 
@@ -51,6 +57,8 @@ tags:
 时间复杂度 $O(m)$，空间复杂度 $O(1)$。其中 $m$ 为数组的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +72,8 @@ class Solution:
             mx = max(mx, arr[-1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +113,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxDistance(arrays [][]int) (ans int) {
@@ -124,4 +138,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

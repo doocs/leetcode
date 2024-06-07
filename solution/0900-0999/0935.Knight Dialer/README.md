@@ -6,13 +6,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [935. 骑士拨号器](https://leetcode.cn/problems/knight-dialer)
 
 [English Version](/solution/0900-0999/0935.Knight%20Dialer/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>象棋骑士有一个<strong>独特的移动方式</strong>，它可以垂直移动两个方格，水平移动一个方格，或者水平移动两个方格，垂直移动一个方格(两者都形成一个&nbsp;<strong>L&nbsp;</strong>的形状)。</p>
 
@@ -67,11 +69,17 @@ tags:
 	<li><code>1 &lt;= n &lt;= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递推
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +101,8 @@ class Solution:
             f = t
         return sum(t) % (10**9 + 7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -155,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func knightDialer(n int) int {
@@ -188,6 +202,8 @@ func knightDialer(n int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function knightDialer(n: number): number {
@@ -226,6 +242,8 @@ function knightDialer(n: number): number {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int KnightDialer(int n) {
@@ -255,4 +273,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

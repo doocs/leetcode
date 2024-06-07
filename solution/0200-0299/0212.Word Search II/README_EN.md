@@ -10,11 +10,15 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [212. Word Search II](https://leetcode.com/problems/word-search-ii)
 
 [中文文档](/solution/0200-0299/0212.Word%20Search%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> <code>board</code>&nbsp;of characters and a list of strings <code>words</code>, return <em>all words on the board</em>.</p>
 
@@ -49,11 +53,17 @@ tags:
 	<li>All the strings of <code>words</code> are unique.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -99,6 +109,8 @@ class Solution:
                 dfs(tree, i, j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -162,6 +174,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -228,6 +242,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -285,6 +301,8 @@ func findWords(board [][]byte, words []string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {
@@ -350,4 +368,6 @@ function findWords(board: string[][], words: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

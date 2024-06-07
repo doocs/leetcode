@@ -9,13 +9,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [811. 子域名访问计数](https://leetcode.cn/problems/subdomain-visit-count)
 
 [English Version](/solution/0800-0899/0811.Subdomain%20Visit%20Count/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>网站域名 <code>"discuss.leetcode.com"</code> 由多个子域名组成。顶级域名为 <code>"com"</code> ，二级域名为 <code>"leetcode.com"</code> ，最低一级为 <code>"discuss.leetcode.com"</code> 。当访问域名 <code>"discuss.leetcode.com"</code> 时，同时也会隐式访问其父域名 <code>"leetcode.com" </code>以及 <code>"com"</code> 。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>d1<sub>i</sub></code>、<code>d2<sub>i</sub></code> 和 <code>d3<sub>i</sub></code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -72,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
@@ -83,6 +91,8 @@ class Solution:
                     cnt[s[i + 1 :]] += v
         return [f'{v} {s}' for s, v in cnt.items()]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subdomainVisits(cpdomains []string) []string {
 	cnt := map[string]int{}
@@ -152,4 +166,6 @@ func subdomainVisits(cpdomains []string) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

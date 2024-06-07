@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README_EN.md
 rating: 2175
+source: Biweekly Contest 108 Q4
 tags:
     - Array
     - Hash Table
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2768. Number of Black Blocks](https://leetcode.com/problems/number-of-black-blocks)
 
 [中文文档](/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>m</code> and <code>n</code> representing the dimensions of a&nbsp;<strong>0-indexed</strong>&nbsp;<code>m x n</code> grid.</p>
 
@@ -61,7 +66,11 @@ Therefore, we return [0,2,2,0,0].
 	<li>It is guaranteed that <code>coordinates</code> contains pairwise distinct coordinates.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -76,6 +85,8 @@ Finally, we traverse all the values in $cnt$ (greater than $0$), count the numbe
 Time complexity $O(l)$, space complexity $O(l)$, where $l$ is the length of $coordinates$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +105,8 @@ class Solution:
         ans[0] = (m - 1) * (n - 1) - len(cnt.values())
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -146,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countBlackBlocks(m int, n int, coordinates [][]int) []int64 {
 	cnt := map[int64]int{}
@@ -168,6 +185,8 @@ func countBlackBlocks(m int, n int, coordinates [][]int) []int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countBlackBlocks(m: number, n: number, coordinates: number[][]): number[] {
@@ -194,4 +213,6 @@ function countBlackBlocks(m: number, n: number, coordinates: number[][]): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

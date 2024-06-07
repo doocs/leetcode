@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README.md
 rating: 1376
+source: 第 109 场双周赛 Q1
 tags:
     - 数组
     - 哈希表
     - 排序
 ---
+
+<!-- problem:start -->
 
 # [2784. 检查数组是否是好的](https://leetcode.cn/problems/check-if-array-is-good)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;，如果它是数组&nbsp;<code>base[n]</code>&nbsp;的一个排列，我们称它是个&nbsp;<strong>好</strong>&nbsp;数组。</p>
 
@@ -62,7 +65,11 @@ tags:
 	<li><code>1 &lt;= num[i] &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -77,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isGood(self, nums: List[int]) -> bool:
@@ -84,6 +93,8 @@ class Solution:
         n = len(nums) - 1
         return cnt[n] == 2 and all(cnt[i] for i in range(1, n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isGood(nums []int) bool {
 	n := len(nums) - 1
@@ -147,6 +162,8 @@ func isGood(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isGood(nums: number[]): boolean {
     const n = nums.length - 1;
@@ -165,6 +182,8 @@ function isGood(nums: number[]): boolean {
     return true;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -189,4 +208,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

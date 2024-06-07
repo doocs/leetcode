@@ -7,11 +7,15 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [61. Rotate List](https://leetcode.com/problems/rotate-list)
 
 [中文文档](/solution/0000-0099/0061.Rotate%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>head</code> of a linked&nbsp;list, rotate the list to the right by <code>k</code> places.</p>
 
@@ -39,7 +43,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= 2 * 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Fast and Slow Pointers + Link List Concatenation
 
@@ -56,6 +64,8 @@ Finally, we concatenate the linked list.
 The time complexity is $O(n)$, where $n$ is the number of nodes in the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -85,6 +95,8 @@ class Solution:
         fast.next = head
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -127,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -172,6 +186,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -208,6 +224,8 @@ func rotateRight(head *ListNode, k int) *ListNode {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -251,6 +269,8 @@ function rotateRight(head: ListNode | null, k: number): ListNode | null {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -303,6 +323,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for singly-linked list.
@@ -349,4 +371,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

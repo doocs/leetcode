@@ -12,13 +12,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [218. 天际线问题](https://leetcode.cn/problems/the-skyline-problem)
 
 [English Version](/solution/0200-0299/0218.The%20Skyline%20Problem/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>城市的 <strong>天际线</strong> 是从远处观看该城市中所有建筑物形成的轮廓的外部轮廓。给你所有建筑物的位置和高度，请返回 <em>由这些建筑物形成的<strong> 天际线</strong></em> 。</p>
 
@@ -65,13 +67,19 @@ tags:
 	<li><code>buildings</code> 按 <code>left<sub>i</sub></code> 非递减排序</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：扫描线+优先队列
 
 记录下所有建筑物的左右边界线，升序排序之后得到序列 lines。对于每一个边界线 lines[i]，找出所有包含 lines[i] 的建筑物，并确保建筑物的左边界小于等于 lines[i]，右边界大于 lines[i]，则这些建筑物中高度最高的建筑物的高度就是该线轮廓点的高度。可以使用建筑物的高度构建优先队列（大根堆），同时需要注意高度相同的轮廓点需要合并为一个。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from queue import PriorityQueue
@@ -98,6 +106,8 @@ class Solution:
             skys.append([line, high])
         return skys
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Matrix struct{ left, right, height int }
@@ -186,6 +198,8 @@ func getSkyline(buildings [][]int) [][]int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn get_skyline(buildings: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
@@ -223,4 +237,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

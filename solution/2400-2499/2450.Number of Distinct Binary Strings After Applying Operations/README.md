@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [2450. 应用操作后不同二进制字符串的数量 🔒](https://leetcode.cn/problems/number-of-distinct-binary-strings-after-applying-operations)
 
 [English Version](/solution/2400-2499/2450.Number%20of%20Distinct%20Binary%20Strings%20After%20Applying%20Operations/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个&nbsp;<strong>二进制&nbsp;</strong>字符串 <code>s</code> 和一个正整数 <code>k</code>。</p>
 
@@ -68,7 +70,11 @@ tags:
 	<li><code>s[i]</code>&nbsp;是&nbsp;<code>0</code> 或&nbsp;<code>1</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -78,11 +84,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countDistinctStrings(self, s: str, k: int) -> int:
         return pow(2, len(s) - k + 1) % (10**9 + 7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countDistinctStrings(s string, k int) int {
 	const mod int = 1e9 + 7
@@ -126,4 +140,6 @@ func countDistinctStrings(s string, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

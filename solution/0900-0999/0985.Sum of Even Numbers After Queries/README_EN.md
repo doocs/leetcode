@@ -7,11 +7,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [985. Sum of Even Numbers After Queries](https://leetcode.com/problems/sum-of-even-numbers-after-queries)
 
 [中文文档](/solution/0900-0999/0985.Sum%20of%20Even%20Numbers%20After%20Queries/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> and an array <code>queries</code> where <code>queries[i] = [val<sub>i</sub>, index<sub>i</sub>]</code>.</p>
 
@@ -50,11 +54,17 @@ After adding 2 to nums[3], the array is [-2,-1,3,6], and the sum of even values 
 	<li><code>0 &lt;= index<sub>i</sub> &lt; nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +82,8 @@ class Solution:
             ans.append(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumEvenAfterQueries(nums []int, queries [][]int) (ans []int) {
 	s := 0
@@ -151,6 +167,8 @@ func sumEvenAfterQueries(nums []int, queries [][]int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
     let s = 0;
@@ -173,6 +191,8 @@ function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -204,4 +224,6 @@ var sumEvenAfterQueries = function (nums, queries) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

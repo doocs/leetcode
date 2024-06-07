@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1357.Apply%20Discount%20Every%20n%20Orders/README.md
 rating: 1429
+source: 第 20 场双周赛 Q2
 tags:
     - 设计
     - 数组
     - 哈希表
 ---
+
+<!-- problem:start -->
 
 # [1357. 每隔 n 个顾客打折](https://leetcode.cn/problems/apply-discount-every-n-orders)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>超市里正在举行打折活动，每隔&nbsp;<code>n</code>&nbsp;个顾客会得到 <code>discount</code>&nbsp;的折扣。</p>
 
@@ -72,7 +75,11 @@ cashier.getBill([2,3,5],[5,3,2]);                    // 返回 2500.0
 	<li>返回结果与标准答案误差在&nbsp;<code>10^-5</code>&nbsp;以内都视为正确结果。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 模拟
 
@@ -81,6 +88,8 @@ cashier.getBill([2,3,5],[5,3,2]);                    // 返回 2500.0
 初始化的时间复杂度为 $O(n)$，其中 $n$ 为商品的数量。`getBill` 函数的时间复杂度为 $O(m)$，其中 $m$ 为购买商品的数量。空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Cashier:
@@ -104,6 +113,8 @@ class Cashier:
 # obj = Cashier(n, discount, products, prices)
 # param_1 = obj.getBill(product,amount)
 ```
+
+#### Java
 
 ```java
 class Cashier {
@@ -139,6 +150,8 @@ class Cashier {
  */
 ```
 
+#### C++
+
 ```cpp
 class Cashier {
 public:
@@ -173,6 +186,8 @@ private:
  * double param_1 = obj->getBill(product,amount);
  */
 ```
+
+#### Go
 
 ```go
 type Cashier struct {
@@ -212,4 +227,6 @@ func (this *Cashier) GetBill(product []int, amount []int) (ans float64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

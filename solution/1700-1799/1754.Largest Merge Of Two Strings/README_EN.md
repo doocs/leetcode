@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1754.Largest%20Merge%20Of%20Two%20Strings/README_EN.md
 rating: 1828
+source: Weekly Contest 227 Q3
 tags:
     - Greedy
     - Two Pointers
     - String
 ---
 
+<!-- problem:start -->
+
 # [1754. Largest Merge Of Two Strings](https://leetcode.com/problems/largest-merge-of-two-strings)
 
 [中文文档](/solution/1700-1799/1754.Largest%20Merge%20Of%20Two%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>word1</code> and <code>word2</code>. You want to construct a string <code>merge</code> in the following way: while either <code>word1</code> or <code>word2</code> are non-empty, choose <strong>one</strong> of the following options:</p>
 
@@ -66,11 +71,17 @@ tags:
 	<li><code>word1</code> and <code>word2</code> consist only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +100,8 @@ class Solution:
         return "".join(ans)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String largestMerge(String word1, String word2) {
@@ -105,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestMerge(word1 string, word2 string) string {
@@ -144,6 +161,8 @@ func largestMerge(word1 string, word2 string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function largestMerge(word1: string, word2: string): string {
     const m = word1.length;
@@ -159,6 +178,8 @@ function largestMerge(word1: string, word2: string): string {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -185,6 +206,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* largestMerge(char* word1, char* word2) {
@@ -221,4 +244,6 @@ char* largestMerge(char* word1, char* word2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

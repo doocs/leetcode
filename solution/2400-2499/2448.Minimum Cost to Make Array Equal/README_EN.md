@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README_EN.md
 rating: 2005
+source: Weekly Contest 316 Q3
 tags:
     - Greedy
     - Array
@@ -11,11 +12,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2448. Minimum Cost to Make Array Equal](https://leetcode.com/problems/minimum-cost-to-make-array-equal)
 
 [中文文档](/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> arrays <code>nums</code> and <code>cost</code> consisting each of <code>n</code> <strong>positive</strong> integers.</p>
 
@@ -61,7 +66,11 @@ It can be shown that we cannot make the array equal with a smaller cost.
 	<li>Test cases are generated in a way that the output doesn&#39;t exceed&nbsp;2<sup>53</sup>-1</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Sorting + Enumeration
 
@@ -86,6 +95,8 @@ The time complexity is $O(n\times \log n)$, where $n$ is the length of the array
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, nums: List[int], cost: List[int]) -> int:
@@ -105,6 +116,8 @@ class Solution:
             ans = min(ans, l + r)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -162,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(nums []int, cost []int) int64 {
 	n := len(nums)
@@ -189,6 +206,8 @@ func minCost(nums []int, cost []int) int64 {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -240,6 +259,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Median
 
 We can also consider $b_i$ as the occurrence times of $a_i$, then the index of the median is $\frac{\sum_{i=1}^{n} b_i}{2}$. Changing all numbers to the median is definitely optimal.
@@ -253,6 +276,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, nums: List[int], cost: List[int]) -> int:
@@ -264,6 +289,8 @@ class Solution:
             if s > mid:
                 return sum(abs(v - x) * c for v, c in arr)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -299,6 +326,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -324,6 +353,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCost(nums []int, cost []int) int64 {
@@ -363,4 +394,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

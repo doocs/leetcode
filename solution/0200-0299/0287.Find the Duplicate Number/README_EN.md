@@ -9,11 +9,15 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number)
 
 [中文文档](/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>nums</code> containing&nbsp;<code>n + 1</code> integers where each integer is in the range <code>[1, n]</code> inclusive.</p>
 
@@ -60,7 +64,11 @@ tags:
 	<li>Can you solve the problem in linear runtime complexity?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -72,6 +80,8 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
@@ -80,6 +90,8 @@ class Solution:
 
         return bisect_left(range(len(nums)), True, key=f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDuplicate(nums []int) int {
 	return sort.Search(len(nums), func(x int) bool {
@@ -139,6 +155,8 @@ func findDuplicate(nums []int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findDuplicate(nums: number[]): number {
@@ -161,6 +179,8 @@ function findDuplicate(nums: number[]): number {
     return l;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -186,6 +206,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -215,4 +237,6 @@ var findDuplicate = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

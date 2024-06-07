@@ -2,13 +2,23 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README_EN.md
+rating: 2859
+source: Biweekly Contest 130 Q4
+tags:
+    - Bit Manipulation
+    - Array
+    - Binary Search
 ---
+
+<!-- problem:start -->
 
 # [3145. Find Products of Elements of Big Array](https://leetcode.com/problems/find-products-of-elements-of-big-array)
 
 [中文文档](/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>powerful array</strong> for an integer <code>x</code> is the shortest sorted array of powers of two that sum up to <code>x</code>. For example, the powerful array for 11 is <code>[1, 2, 8]</code>.</p>
 
@@ -59,23 +69,35 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3145.Fi
 	<li><code>1 &lt;= queries[i][2] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -83,4 +105,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3145.Fi
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

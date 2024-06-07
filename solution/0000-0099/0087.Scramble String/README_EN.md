@@ -7,11 +7,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [87. Scramble String](https://leetcode.com/problems/scramble-string)
 
 [中文文档](/solution/0000-0099/0087.Scramble%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>We can scramble a string s to get a string t using the following algorithm:</p>
 
@@ -68,7 +72,11 @@ As one possible scenario led s1 to be scrambled to s2, we return true.
 	<li><code>s1</code> and <code>s2</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memorized Search
 
@@ -87,6 +95,8 @@ The time complexity is $O(n^4)$, and the space complexity is $O(n^3)$. Where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isScramble(self, s1: str, s2: str) -> bool:
@@ -103,6 +113,8 @@ class Solution:
 
         return dfs(0, 0, len(s1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +180,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isScramble(s1 string, s2 string) bool {
@@ -198,6 +214,8 @@ func isScramble(s1 string, s2 string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isScramble(s1: string, s2: string): boolean {
     const n = s1.length;
@@ -224,6 +242,8 @@ function isScramble(s1: string, s2: string): boolean {
     return dfs(0, 0, n);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -264,6 +284,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming (Interval DP)
 
 We define $f[i][j][k]$ as whether the substring of length $k$ starting from $i$ of string $s_1$ can be transformed into the substring of length $k$ starting from $j$ of string $s_2$. Then the answer is $f[0][0][n]$, where $n$ is the length of the string.
@@ -277,6 +301,8 @@ Finally, we return $f[0][0][n]$.
 The time complexity is $O(n^4)$, and the space complexity is $O(n^3)$. Where $n$ is the length of the string.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -298,6 +324,8 @@ class Solution:
                             break
         return f[0][0][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -329,6 +357,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -363,6 +393,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isScramble(s1 string, s2 string) bool {
 	n := len(s1)
@@ -389,6 +421,8 @@ func isScramble(s1 string, s2 string) bool {
 	return f[0][0][n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isScramble(s1: string, s2: string): boolean {
@@ -420,6 +454,8 @@ function isScramble(s1: string, s2: string): boolean {
     return f[0][0][n];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -454,4 +490,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

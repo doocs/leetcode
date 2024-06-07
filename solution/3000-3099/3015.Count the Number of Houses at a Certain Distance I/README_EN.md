@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3015.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20I/README_EN.md
 rating: 1657
+source: Weekly Contest 381 Q2
 tags:
     - Breadth-First Search
     - Graph
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [3015. Count the Number of Houses at a Certain Distance I](https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i)
 
 [中文文档](/solution/3000-3099/3015.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20I/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given three <strong>positive</strong> integers <code>n</code>, <code>x</code>, and <code>y</code>.</p>
 
@@ -72,7 +77,11 @@ tags:
 	<li><code>1 &lt;= x, y &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -81,6 +90,8 @@ We can enumerate each pair of points $(i, j)$. The shortest distance from $i$ to
 The time complexity is $O(n^2)$, where $n$ is the $n$ given in the problem. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +106,8 @@ class Solution:
                 ans[min(a, b, c) - 1] += 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countOfPairs(n int, x int, y int) []int {
@@ -158,6 +175,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countOfPairs(n: number, x: number, y: number): number[] {
     const ans: number[] = Array(n).fill(0);
@@ -177,4 +196,6 @@ function countOfPairs(n: number, x: number, y: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [104. 二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree)
 
 [English Version](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二叉树 <code>root</code> ，返回其最大深度。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -59,6 +65,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是二叉树的节点数。每个节点在递归中只被遍历一次。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -74,6 +82,8 @@ class Solution:
         l, r = self.maxDepth(root.left), self.maxDepth(root.right)
         return 1 + max(l, r)
 ```
+
+#### Java
 
 ```java
 /**
@@ -103,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -125,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -142,6 +156,8 @@ func maxDepth(root *TreeNode) int {
 	return 1 + max(l, r)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -165,6 +181,8 @@ function maxDepth(root: TreeNode | null): number {
     return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -202,6 +220,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -222,6 +242,8 @@ var maxDepth = function (root) {
     return 1 + Math.max(l, r);
 };
 ```
+
+#### C
 
 ```c
 /**
@@ -247,4 +269,6 @@ int maxDepth(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

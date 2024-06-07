@@ -9,13 +9,15 @@ tags:
     - 有序集合
 ---
 
+<!-- problem:start -->
+
 # [1902. 给定二叉搜索树的插入顺序求深度 🔒](https://leetcode.cn/problems/depth-of-bst-given-insertion-order)
 
 [English Version](/solution/1900-1999/1902.Depth%20of%20BST%20Given%20Insertion%20Order/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个<strong>从 0 开始索引</strong>的整数类型数组 <code>order</code> ，其长度为 <code>n</code>，是从 <code>1</code> 到 <code>n</code> 的所有整数的一个排列，表示插入到一棵二叉搜索树的顺序。</p>
 
@@ -74,11 +76,17 @@ tags:
 	<li><code>order</code> 是从 <code>1</code> 到 <code>n</code> 的整数的一个排列。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedDict
@@ -96,6 +104,8 @@ class Solution:
             sd[v] = depth
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,4 +130,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

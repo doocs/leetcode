@@ -8,13 +8,15 @@ tags:
     - 欧拉回路
 ---
 
+<!-- problem:start -->
+
 # [753. 破解保险箱](https://leetcode.cn/problems/cracking-the-safe)
 
 [English Version](/solution/0700-0799/0753.Cracking%20the%20Safe/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个需要密码才能打开的保险箱。密码是&nbsp;<code>n</code> 位数, 密码的每一位都是范围&nbsp;<code>[0, k - 1]</code>&nbsp;中的一个数字。</p>
 
@@ -70,7 +72,11 @@ tags:
 	<li><code>1 &lt;= k<sup>n</sup> &lt;= 4096</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：欧拉回路
 
@@ -81,6 +87,8 @@ tags:
 时间复杂度 $O(k^n)$，空间复杂度 $O(k^n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +109,8 @@ class Solution:
         ans.append("0" * (n - 1))
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func crackSafe(n int, k int) string {
@@ -177,4 +191,6 @@ func crackSafe(n int, k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

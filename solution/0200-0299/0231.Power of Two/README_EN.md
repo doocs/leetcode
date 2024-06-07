@@ -8,11 +8,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [231. Power of Two](https://leetcode.com/problems/power-of-two)
 
 [中文文档](/solution/0200-0299/0231.Power%20of%20Two/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, return <em><code>true</code> if it is a power of two. Otherwise, return <code>false</code></em>.</p>
 
@@ -52,17 +56,25 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve it without loops/recursion?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
         return n > 0 and (n & (n - 1)) == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -71,6 +83,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -81,17 +95,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPowerOfTwo(n int) bool {
 	return n > 0 && (n&(n-1)) == 0
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isPowerOfTwo(n: number): boolean {
     return n > 0 && (n & (n - 1)) === 0;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -105,15 +125,23 @@ var isPowerOfTwo = function (n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
         return n > 0 and n == n & (-n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +150,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,17 +162,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPowerOfTwo(n int) bool {
 	return n > 0 && n == (n&(-n))
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isPowerOfTwo(n: number): boolean {
     return n > 0 && (n & (n - 1)) === 0;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -156,4 +192,6 @@ var isPowerOfTwo = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,13 +10,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [1956. 感染 K 种病毒所需的最短时间 🔒](https://leetcode.cn/problems/minimum-time-for-k-virus-variants-to-spread)
 
 [English Version](/solution/1900-1999/1956.Minimum%20Time%20For%20K%20Virus%20Variants%20to%20Spread/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在无限大的二维平面上有&nbsp;<code>n</code>&nbsp;种 <strong>不同</strong> 的病毒。给定二维数组&nbsp;<code>points</code>&nbsp;，<span style="">第 </span><code>i</code><span style=""> 项&nbsp;</span><code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>&nbsp;说明第&nbsp;<code>0</code>&nbsp;天有一种病毒在点&nbsp;<code>(x<sub>i</sub>, y<sub>i</sub>)</code>&nbsp;。注意初始状态下，可能有 <strong>多种</strong> 病毒在 <strong>同一点</strong> 上。</p>
 
@@ -68,6 +70,42 @@ tags:
 	<li><code>2 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+### 方法一
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

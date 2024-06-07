@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README.md
 rating: 2235
+source: 第 95 场双周赛 Q4
 tags:
     - 贪心
     - 队列
@@ -12,13 +13,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [2528. 最大化城市的最小电量](https://leetcode.cn/problems/maximize-the-minimum-powered-city)
 
 [English Version](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始长度为 <code>n</code>&nbsp;的整数数组&nbsp;<code>stations</code>&nbsp;，其中&nbsp;<code>stations[i]</code>&nbsp;表示第 <code>i</code>&nbsp;座城市的供电站数目。</p>
 
@@ -76,7 +79,11 @@ tags:
 	<li><code>0 &lt;= k&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找 + 差分数组 + 贪心
 
@@ -93,6 +100,8 @@ tags:
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n)$。其中 $n$ 为城市数量，而 $M$ 我们固定取 $2^{40}$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -130,6 +139,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -185,6 +196,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -236,6 +249,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPower(stations []int, r int, k int) int64 {
 	n := len(stations)
@@ -282,6 +297,8 @@ func maxPower(stations []int, r int, k int) int64 {
 	return int64(left)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPower(stations: number[], r: number, k: number): number {
@@ -338,4 +355,6 @@ function maxPower(stations: number[], r: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

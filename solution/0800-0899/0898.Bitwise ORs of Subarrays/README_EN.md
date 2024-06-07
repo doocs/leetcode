@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [898. Bitwise ORs of Subarrays](https://leetcode.com/problems/bitwise-ors-of-subarrays)
 
 [中文文档](/solution/0800-0899/0898.Bitwise%20ORs%20of%20Subarrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>arr</code>, return <em>the number of distinct bitwise ORs of all the non-empty subarrays of</em> <code>arr</code>.</p>
 
@@ -55,7 +59,11 @@ There are 3 unique values, so the answer is 3.
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -71,6 +79,8 @@ The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subarrayBitwiseORs(self, arr: List[int]) -> int:
@@ -81,6 +91,8 @@ class Solution:
             ans |= s
         return len(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subarrayBitwiseORs(arr []int) int {
 	ans := map[int]bool{}
@@ -138,6 +154,8 @@ func subarrayBitwiseORs(arr []int) int {
 	return len(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subarrayBitwiseORs(arr: number[]): number {
@@ -161,4 +179,6 @@ function subarrayBitwiseORs(arr: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

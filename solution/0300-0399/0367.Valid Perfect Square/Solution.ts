@@ -1,13 +1,12 @@
 function isPerfectSquare(num: number): boolean {
-    let left = 1;
-    let right = num >> 1;
-    while (left < right) {
-        const mid = (left + right) >>> 1;
-        if (mid * mid < num) {
-            left = mid + 1;
+    let [l, r] = [1, num];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (mid >= num / mid) {
+            r = mid;
         } else {
-            right = mid;
+            l = mid + 1;
         }
     }
-    return left * left === num;
+    return l * l === num;
 }

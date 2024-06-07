@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2005.%20%E5%8F%91%20LeetCoin/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 05. 发 LeetCoin](https://leetcode.cn/problems/coin-bonus)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>力扣决定给一个刷题团队发<code>LeetCoin</code>作为奖励。同时，为了监控给大家发了多少<code>LeetCoin</code>，力扣有时候也会进行查询。</p>
 
@@ -73,7 +75,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2005.%20%E5%8F%91%
 	<li><code>operations[i][0] != 3 时，1 &lt;= operations[i][2]&nbsp;&lt;= 5000</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：线段树
 
@@ -85,6 +91,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2005.%20%E5%8F%91%
 -   对于每个内部节点 `[l, r]`，它的左儿子是 `[l, mid]`，右儿子是 `[mid + 1, r]`, 其中 `mid = ⌊(l + r) / 2⌋` (即向下取整)。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 MOD = int(1e9 + 7)
@@ -184,6 +192,8 @@ class Solution:
                 ans.append(tree.query(begin[v], end[v]))
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -319,6 +329,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 const int MOD = 1e9 + 7;
 
@@ -439,4 +451,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2548. 填满背包的最大价格 🔒](https://leetcode.cn/problems/maximum-price-to-fill-a-bag)
 
 [English Version](/solution/2500-2599/2548.Maximum%20Price%20to%20Fill%20a%20Bag/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二维整数数组 <code>items</code> ，其中 <code>items[i] = [price<sub>i</sub>, weight<sub>i</sub>]</code> 表示第 <code>i</code> 个物品的价格和重量。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>1 &lt;= capacity &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -75,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPrice(self, items: List[List[int]], capacity: int) -> float:
@@ -85,6 +93,8 @@ class Solution:
             capacity -= v
         return -1 if capacity else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPrice(items [][]int, capacity int) (ans float64) {
 	sort.Slice(items, func(i, j int) bool { return items[i][1]*items[j][0] < items[i][0]*items[j][1] })
@@ -135,6 +149,8 @@ func maxPrice(items [][]int, capacity int) (ans float64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxPrice(items: number[][], capacity: number): number {
     items.sort((a, b) => a[1] * b[0] - a[0] * b[1]);
@@ -150,4 +166,6 @@ function maxPrice(items: number[][], capacity: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

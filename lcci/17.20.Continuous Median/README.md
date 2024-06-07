@@ -4,13 +4,16 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.20.Continuous%20Median/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.20. 连续中值](https://leetcode.cn/problems/continuous-median-lcci)
 
 [English Version](/lcci/17.20.Continuous%20Median/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>随机产生数字并传递给一个方法。你能否完成这个方法，在每次产生新值时，寻找当前所有值的中间值（中位数）并保存。</p>
 
 <p>中位数是有序列表中间的数。如果列表长度是偶数，中位数则是中间两个数的平均值。</p>
@@ -37,7 +40,11 @@ addNum(3)
 findMedian() -&gt; 2
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（双堆）
 
@@ -52,6 +59,8 @@ findMedian() -&gt; 2
 每次添加元素的时间复杂度为 $O(\log n)$，取中位数的时间复杂度为 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MedianFinder:
@@ -79,6 +88,8 @@ class MedianFinder:
 # obj.addNum(num)
 # param_2 = obj.findMedian()
 ```
+
+#### Java
 
 ```java
 class MedianFinder {
@@ -112,6 +123,8 @@ class MedianFinder {
  * double param_2 = obj.findMedian();
  */
 ```
+
+#### C++
 
 ```cpp
 class MedianFinder {
@@ -149,6 +162,8 @@ private:
  * double param_2 = obj->findMedian();
  */
 ```
+
+#### Go
 
 ```go
 type MedianFinder struct {
@@ -194,6 +209,8 @@ func (h *hp) Pop() any {
 	return v
 }
 ```
+
+#### Swift
 
 ```swift
 class MedianFinder {
@@ -305,4 +322,6 @@ struct Heap<T> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

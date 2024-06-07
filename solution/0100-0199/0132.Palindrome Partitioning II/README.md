@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [132. 分割回文串 II](https://leetcode.cn/problems/palindrome-partitioning-ii)
 
 [English Version](/solution/0100-0199/0132.Palindrome%20Partitioning%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code>，请你将 <code>s</code> 分割成一些子串，使每个子串都是<span data-keyword="palindrome-string">回文串</span>。</p>
 
@@ -56,7 +58,11 @@ tags:
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -76,6 +82,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCut(self, s: str) -> int:
@@ -91,6 +99,8 @@ class Solution:
                     f[i] = min(f[i], 1 + f[j - 1] if j else 0)
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCut(s string) int {
@@ -179,6 +193,8 @@ func minCut(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCut(s: string): number {
     const n = s.length;
@@ -203,6 +219,8 @@ function minCut(s: string): number {
     return f[n - 1];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -235,4 +253,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

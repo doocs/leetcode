@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2401.Longest%20Nice%20Subarray/README_EN.md
 rating: 1749
+source: Weekly Contest 309 Q3
 tags:
     - Bit Manipulation
     - Array
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2401. Longest Nice Subarray](https://leetcode.com/problems/longest-nice-subarray)
 
 [中文文档](/solution/2400-2499/2401.Longest%20Nice%20Subarray/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> consisting of <strong>positive</strong> integers.</p>
 
@@ -53,7 +58,11 @@ It can be proven that no longer nice subarray can be obtained, so we return 3.</
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -73,6 +82,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestNiceSubarray(self, nums: List[int]) -> int:
@@ -85,6 +96,8 @@ class Solution:
             mask |= x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestNiceSubarray(nums []int) (ans int) {
 	mask, j := 0, 0
@@ -135,6 +152,8 @@ func longestNiceSubarray(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestNiceSubarray(nums: number[]): number {
     let mask = 0;
@@ -149,6 +168,8 @@ function longestNiceSubarray(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,6 +193,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int LongestNiceSubarray(int[] nums) {
@@ -190,4 +213,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

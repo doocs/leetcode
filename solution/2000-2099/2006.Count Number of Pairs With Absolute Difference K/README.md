@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2006.Count%20Number%20of%20Pairs%20With%20Absolute%20Difference%20K/README.md
 rating: 1271
+source: 第 61 场双周赛 Q1
 tags:
     - 数组
     - 哈希表
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [2006. 差的绝对值为 K 的数对数目](https://leetcode.cn/problems/count-number-of-pairs-with-absolute-difference-k)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;，请你返回数对&nbsp;<code>(i, j)</code>&nbsp;的数目，满足&nbsp;<code>i &lt; j</code>&nbsp;且&nbsp;<code>|nums[i] - nums[j]| == k</code>&nbsp;。</p>
 
@@ -66,7 +69,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 99</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -78,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countKDifference(self, nums: List[int], k: int) -> int:
@@ -86,6 +95,8 @@ class Solution:
             abs(nums[i] - nums[j]) == k for i in range(n) for j in range(i + 1, n)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +131,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countKDifference(nums []int, k int) int {
@@ -141,6 +156,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countKDifference(nums: number[], k: number): number {
     let ans = 0;
@@ -152,6 +169,8 @@ function countKDifference(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,6 +191,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：哈希表或数组
 
 我们可以使用哈希表或数组记录数组 $nums$ 中每个数出现的次数，然后枚举数组 $nums$ 中的每个数 $x$，判断 $x + k$ 和 $x - k$ 是否在数组 $nums$ 中，是则答案加上 $x+k$ 和 $x-k$ 出现的次数之和。
@@ -181,6 +204,8 @@ impl Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -192,6 +217,8 @@ class Solution:
             cnt[num] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -211,6 +238,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -232,6 +261,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countKDifference(nums []int, k int) (ans int) {
 	cnt := [110]int{}
@@ -247,6 +278,8 @@ func countKDifference(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -269,4 +302,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

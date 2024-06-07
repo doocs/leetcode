@@ -6,11 +6,15 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1285. Find the Start and End Number of Continuous Ranges 🔒](https://leetcode.com/problems/find-the-start-and-end-number-of-continuous-ranges)
 
 [中文文档](/solution/1200-1299/1285.Find%20the%20Start%20and%20End%20Number%20of%20Continuous%20Ranges/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Logs</code></p>
 
@@ -65,7 +69,11 @@ Number 9 is missing from the table.
 Number 10 is contained in the table.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Group By + Window Function
 
@@ -77,6 +85,8 @@ There are two ways to implement grouping:
 2. By calculating the difference between the current log and its row number, we obtain the grouping identifier for each row.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -100,9 +110,15 @@ GROUP BY pid;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -120,4 +136,6 @@ GROUP BY pid;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

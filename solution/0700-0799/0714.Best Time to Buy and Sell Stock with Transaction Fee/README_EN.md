@@ -8,11 +8,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [714. Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee)
 
 [中文文档](/solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>prices</code> where <code>prices[i]</code> is the price of a given stock on the <code>i<sup>th</sup></code> day, and an integer <code>fee</code> representing a transaction fee.</p>
 
@@ -55,7 +59,11 @@ The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
 	<li><code>0 &lt;= fee &lt; 5 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization
 
@@ -75,6 +83,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int], fee: int) -> int:
@@ -91,6 +101,8 @@ class Solution:
 
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProfit(prices []int, fee int) int {
@@ -178,6 +194,8 @@ func maxProfit(prices []int, fee int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(prices: number[], fee: number): number {
     const n = prices.length;
@@ -203,6 +221,10 @@ function maxProfit(prices: number[], fee: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We define $f[i][j]$ as the maximum profit that can be obtained up to day $i$ with state $j$. Here, $j$ can take the values $0$ and $1$, representing not holding and holding a stock, respectively. We initialize $f[0][0] = 0$ and $f[0][1] = -prices[0]$.
@@ -215,6 +237,8 @@ We notice that the transition of the state $f[i][]$ only depends on $f[i - 1][]$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int], fee: int) -> int:
@@ -226,6 +250,8 @@ class Solution:
             f[i][1] = max(f[i - 1][1], f[i - 1][0] - prices[i])
         return f[n - 1][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -241,6 +267,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -259,6 +287,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int, fee int) int {
 	n := len(prices)
@@ -271,6 +301,8 @@ func maxProfit(prices []int, fee int) int {
 	return f[n-1][0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfit(prices: number[], fee: number): number {
@@ -287,9 +319,15 @@ function maxProfit(prices: number[], fee: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -299,6 +337,8 @@ class Solution:
             f0, f1 = max(f0, f1 + x - fee), max(f1, f0 - x)
         return f0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -313,6 +353,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -329,6 +371,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int, fee int) int {
 	f0, f1 := 0, -prices[0]
@@ -338,6 +382,8 @@ func maxProfit(prices []int, fee int) int {
 	return f0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfit(prices: number[], fee: number): number {
@@ -352,4 +398,6 @@ function maxProfit(prices: number[], fee: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

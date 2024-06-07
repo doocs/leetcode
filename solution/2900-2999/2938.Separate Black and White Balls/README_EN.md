@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README_EN.md
 rating: 1422
+source: Weekly Contest 372 Q2
 tags:
     - Greedy
     - Two Pointers
     - String
 ---
 
+<!-- problem:start -->
+
 # [2938. Separate Black and White Balls](https://leetcode.com/problems/separate-black-and-white-balls)
 
 [中文文档](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> balls on a table, each ball has a color black or white.</p>
 
@@ -60,7 +65,11 @@ It can be proven that the minimum number of steps needed is 2.
 	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting Simulation
 
@@ -71,6 +80,8 @@ We traverse the string from right to left. If the current position is '1', then 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +94,8 @@ class Solution:
                 ans += n - i - cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSteps(s string) (ans int64) {
 	n := len(s)
@@ -132,6 +149,8 @@ func minimumSteps(s string) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSteps(s: string): number {
@@ -149,4 +168,6 @@ function minimumSteps(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,16 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.09.BST%20Sequences/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 04.09. 二叉搜索树序列](https://leetcode.cn/problems/bst-sequences-lcci)
 
 [English Version](/lcci/04.09.BST%20Sequences/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>从左向右遍历一个数组，通过不断将其中的元素插入树中可以逐步地生成一棵二叉搜索树。给定一个由不同节点组成的二叉树，输出所有可能生成此树的数组。</p>
 <p><strong>示例:</strong><br>
 给定如下二叉树</p>
@@ -25,9 +28,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.09.BST%20Sequences
 ]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
 
+<!-- solution:start -->
+
 <!-- tabs:start -->
+
+#### Swift
 
 ```swift
 /* class TreeNode {
@@ -84,4 +93,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

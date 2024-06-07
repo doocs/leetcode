@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [836. 矩形重叠](https://leetcode.cn/problems/rectangle-overlap)
 
 [English Version](/solution/0800-0899/0836.Rectangle%20Overlap/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>矩形以列表 <code>[x1, y1, x2, y2]</code> 的形式表示，其中 <code>(x1, y1)</code> 为左下角的坐标，<code>(x2, y2)</code> 是右上角的坐标。矩形的上下边平行于 x 轴，左右边平行于 y 轴。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>rec1</code> 和 <code>rec2</code> 表示一个面积不为零的有效矩形</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：判断不重叠的情况
 
@@ -74,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isRectangleOverlap(self, rec1: List[int], rec2: List[int]) -> bool:
@@ -81,6 +89,8 @@ class Solution:
         x3, y3, x4, y4 = rec2
         return not (y3 >= y2 or y4 <= y1 or x3 >= x2 or x4 <= x1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isRectangleOverlap(rec1 []int, rec2 []int) bool {
 	x1, y1, x2, y2 := rec1[0], rec1[1], rec1[2], rec1[3]
@@ -113,4 +127,6 @@ func isRectangleOverlap(rec1 []int, rec2 []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

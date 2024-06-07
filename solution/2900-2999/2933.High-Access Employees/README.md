@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2933.High-Access%20Employees/README.md
 rating: 1536
+source: 第 371 场周赛 Q2
 tags:
     - 数组
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2933. 高访问员工](https://leetcode.cn/problems/high-access-employees)
 
 [English Version](/solution/2900-2999/2933.High-Access%20Employees/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 、下标从 <strong>0</strong> 开始的二维字符串数组 <code>access_times</code> 。对于每个 <code>i</code>（<code>0 &lt;= i &lt;= n - 1</code> ），<code>access_times[i][0]</code> 表示某位员工的姓名，<code>access_times[i][1]</code> 表示该员工的访问时间。<code>access_times</code> 中的所有条目都发生在同一天内。</p>
 
@@ -73,7 +76,11 @@ tags:
 	<li><code>access_times[i][1]</code> 仅由数字 <code>'0'</code> 到 <code>'9'</code> 组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 排序
 
@@ -86,6 +93,8 @@ tags:
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为访问记录的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +109,8 @@ class Solution:
                 ans.append(name)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findHighAccessEmployees(access_times [][]string) (ans []string) {
 	d := map[string][]int{}
@@ -175,6 +190,8 @@ func findHighAccessEmployees(access_times [][]string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findHighAccessEmployees(access_times: string[][]): string[] {
@@ -204,4 +221,6 @@ function findHighAccessEmployees(access_times: string[][]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2227.Encrypt%20and%20Decrypt%20Strings/README_EN.md
 rating: 1944
+source: Weekly Contest 287 Q4
 tags:
     - Design
     - Trie
@@ -11,11 +12,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2227. Encrypt and Decrypt Strings](https://leetcode.com/problems/encrypt-and-decrypt-strings)
 
 [中文文档](/solution/2200-2299/2227.Encrypt%20and%20Decrypt%20Strings/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a character array <code>keys</code> containing <strong>unique</strong> characters and a string array <code>values</code> containing strings of length 2. You are also given another string array <code>dictionary</code> that contains all permitted original strings after decryption. You should implement a data structure that can encrypt or decrypt a <strong>0-indexed</strong> string.</p>
 
@@ -80,11 +85,17 @@ encrypter.decrypt(&quot;eizfeiam&quot;); // return 2.
 	<li>At most <code>200</code> calls will be made to <code>encrypt</code> and <code>decrypt</code> <strong>in total</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Encrypter:
@@ -109,6 +120,8 @@ class Encrypter:
 # param_1 = obj.encrypt(word1)
 # param_2 = obj.decrypt(word2)
 ```
+
+#### Java
 
 ```java
 class Encrypter {
@@ -149,6 +162,8 @@ class Encrypter {
  */
 ```
 
+#### C++
+
 ```cpp
 class Encrypter {
 public:
@@ -181,6 +196,8 @@ public:
  * int param_2 = obj->decrypt(word2);
  */
 ```
+
+#### Go
 
 ```go
 type Encrypter struct {
@@ -227,4 +244,6 @@ func (this *Encrypter) Decrypt(word2 string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

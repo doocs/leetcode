@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2686. 即时食物配送 III 🔒](https://leetcode.cn/problems/immediate-food-delivery-iii)
 
 [English Version](/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>Delivery</code>&nbsp;表：</p>
 
@@ -76,11 +78,17 @@ Delivery 表:
 – 2019年8月4日共有2个订单，均为预定订单。因此，该日期的即时订单百分比为0.00。
 order_dste 按升序排序。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -93,4 +101,6 @@ ORDER BY order_date
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

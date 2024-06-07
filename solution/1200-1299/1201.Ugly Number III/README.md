@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1201.Ugly%20Number%20III/README.md
 rating: 2039
+source: 第 155 场周赛 Q2
 tags:
     - 数学
     - 二分查找
@@ -10,13 +11,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [1201. 丑数 III](https://leetcode.cn/problems/ugly-number-iii)
 
 [English Version](/solution/1200-1299/1201.Ugly%20Number%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>丑数是可以被&nbsp;<code>a</code>&nbsp;<strong>或</strong>&nbsp;<code>b</code>&nbsp;<strong>或</strong> <code>c</code>&nbsp;整除的 <strong>正整数</strong> 。</p>
 
@@ -57,7 +60,11 @@ tags:
 	<li>本题结果在&nbsp;<code>[1,&nbsp;2 * 10<sup>9</sup>]</code>&nbsp;的范围内</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找 + 容斥原理
 
@@ -76,6 +83,8 @@ $$
 时间复杂度 $O(\log m)$，其中 $m = 2 \times 10^9$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +111,8 @@ class Solution:
                 l = mid + 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -162,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func nthUglyNumber(n int, a int, b int, c int) int {
 	ab, bc, ac := lcm(a, b), lcm(b, c), lcm(a, c)
@@ -189,6 +204,8 @@ func lcm(a, b int) int {
 	return a * b / gcd(a, b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function nthUglyNumber(n: number, a: number, b: number, c: number): number {
@@ -228,4 +245,6 @@ function lcm(a: bigint, b: bigint): bigint {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

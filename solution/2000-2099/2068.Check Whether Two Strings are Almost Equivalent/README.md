@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2068.Check%20Whether%20Two%20Strings%20are%20Almost%20Equivalent/README.md
 rating: 1273
+source: 第 65 场双周赛 Q1
 tags:
     - 哈希表
     - 字符串
     - 计数
 ---
+
+<!-- problem:start -->
 
 # [2068. 检查两个字符串是否几乎相等](https://leetcode.cn/problems/check-whether-two-strings-are-almost-equivalent)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果两个字符串 <code>word1</code>&nbsp;和 <code>word2</code>&nbsp;中从 <code>'a'</code>&nbsp;到 <code>'z'</code>&nbsp;每一个字母出现频率之差都 <strong>不超过</strong>&nbsp;<code>3</code>&nbsp;，那么我们称这两个字符串&nbsp;<code>word1</code> 和&nbsp;<code>word2</code> <strong>几乎相等</strong>&nbsp;。</p>
 
@@ -67,7 +70,11 @@ tags:
 	<li><code>word1</code> 和&nbsp;<code>word2</code>&nbsp;都只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -77,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkAlmostEquivalent(self, word1: str, word2: str) -> bool:
@@ -85,6 +94,8 @@ class Solution:
             cnt[c] -= 1
         return all(abs(x) <= 3 for x in cnt.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkAlmostEquivalent(word1 string, word2 string) bool {
 	cnt := [26]int{}
@@ -145,6 +160,8 @@ func checkAlmostEquivalent(word1 string, word2 string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkAlmostEquivalent(word1: string, word2: string): boolean {
     const cnt: number[] = new Array(26).fill(0);
@@ -157,6 +174,8 @@ function checkAlmostEquivalent(word1: string, word2: string): boolean {
     return cnt.every(x => Math.abs(x) <= 3);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -179,6 +198,8 @@ var checkAlmostEquivalent = function (word1, word2) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool CheckAlmostEquivalent(string word1, string word2) {
@@ -193,6 +214,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -219,4 +242,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

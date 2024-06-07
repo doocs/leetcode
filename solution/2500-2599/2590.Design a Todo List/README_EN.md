@@ -10,11 +10,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2590. Design a Todo List 🔒](https://leetcode.com/problems/design-a-todo-list)
 
 [中文文档](/solution/2500-2599/2590.Design%20a%20Todo%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a Todo List Where users can add <strong>tasks</strong>, mark them as <strong>complete</strong>, or get a list of pending tasks. Users can also add <strong>tags</strong> to tasks and can filter the tasks by certain tags.</p>
 
@@ -67,7 +71,11 @@ todoList.getAllTasks(1); // return [&quot;Task3&quot;, &quot;Task1&quot;]. User 
 	<li>At most <code>100</code> calls will be made for each method.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorted Set
 
@@ -84,6 +92,8 @@ When calling the `completeTask` method, we traverse the task set of the correspo
 The space complexity is $O(n)$. Where $n$ is the number of all tasks.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -122,6 +132,8 @@ class TodoList:
 # param_3 = obj.getTasksForTag(userId,tag)
 # obj.completeTask(userId,taskId)
 ```
+
+#### Java
 
 ```java
 class Task {
@@ -198,6 +210,8 @@ class TodoList {
  * obj.completeTask(userId,taskId);
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::{ HashMap, HashSet };
@@ -315,4 +329,6 @@ impl TodoList {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

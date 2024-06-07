@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2272.Substring%20With%20Largest%20Variance/README_EN.md
 rating: 2515
+source: Biweekly Contest 78 Q4
 tags:
     - Array
     - Dynamic Programming
 ---
+
+<!-- problem:start -->
 
 # [2272. Substring With Largest Variance](https://leetcode.com/problems/substring-with-largest-variance)
 
 [中文文档](/solution/2200-2299/2272.Substring%20With%20Largest%20Variance/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>variance</strong> of a string is defined as the largest difference between the number of occurrences of <strong>any</strong> <code>2</code> characters present in the string. Note the two characters may or may not be the same.</p>
 
@@ -52,11 +57,17 @@ No letter occurs more than once in s, so the variance of every substring is 0.
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +87,8 @@ class Solution:
                     ans = f[1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestVariance(s string) int {
@@ -159,4 +176,6 @@ func largestVariance(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

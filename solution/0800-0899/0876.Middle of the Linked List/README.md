@@ -7,13 +7,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [876. 链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list)
 
 [English Version](/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你单链表的头结点 <code>head</code> ，请你找出并返回链表的中间结点。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>1 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：快慢指针
 
@@ -57,6 +63,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -71,6 +79,8 @@ class Solution:
             slow, fast = slow.next, fast.next.next
         return slow
 ```
+
+#### Java
 
 ```java
 /**
@@ -94,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -119,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -135,6 +149,8 @@ func middleNode(head *ListNode) *ListNode {
 	return slow
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -159,6 +175,8 @@ function middleNode(head: ListNode | null): ListNode | null {
     return slow;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -189,6 +207,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 /**
@@ -224,6 +244,8 @@ class Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for singly-linked list.
@@ -246,4 +268,6 @@ struct ListNode* middleNode(struct ListNode* head) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

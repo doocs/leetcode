@@ -9,11 +9,15 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [207. Course Schedule](https://leetcode.com/problems/course-schedule)
 
 [中文文档](/solution/0200-0299/0207.Course%20Schedule/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are a total of <code>numCourses</code> courses you have to take, labeled from <code>0</code> to <code>numCourses - 1</code>. You are given an array <code>prerequisites</code> where <code>prerequisites[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that you <strong>must</strong> take course <code>b<sub>i</sub></code> first if you want to take course <code>a<sub>i</sub></code>.</p>
 
@@ -53,7 +57,11 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 	<li>All the pairs prerequisites[i] are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Topological Sorting
 
@@ -66,6 +74,8 @@ If all nodes have been traversed, it means there is no cycle in the graph, and w
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of courses and prerequisites respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +96,8 @@ class Solution:
                     q.append(j)
         return cnt == numCourses
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canFinish(numCourses int, prerequisites [][]int) bool {
 	g := make([][]int, numCourses)
@@ -183,6 +199,8 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canFinish(numCourses: number, prerequisites: number[][]): boolean {
     const g: number[][] = new Array(numCourses).fill(0).map(() => []);
@@ -210,6 +228,8 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
     return cnt == numCourses;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -261,6 +281,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool CanFinish(int numCourses, int[][] prerequisites) {
@@ -297,4 +319,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

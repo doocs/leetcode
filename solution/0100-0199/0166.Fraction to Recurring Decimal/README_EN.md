@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [166. Fraction to Recurring Decimal](https://leetcode.com/problems/fraction-to-recurring-decimal)
 
 [中文文档](/solution/0100-0199/0166.Fraction%20to%20Recurring%20Decimal/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integers representing the <code>numerator</code> and <code>denominator</code> of a fraction, return <em>the fraction in string format</em>.</p>
 
@@ -52,7 +56,11 @@ tags:
 	<li><code>denominator != 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics + Hash Table
 
@@ -71,6 +79,8 @@ Next, we calculate the decimal part. We use a hash table $d$ to record the lengt
 The time complexity is $O(l)$, and the space complexity is $O(l)$, where $l$ is the length of the result. In this problem, $l < 10^4$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +109,8 @@ class Solution:
                 break
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -168,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func fractionToDecimal(numerator int, denominator int) string {
@@ -210,6 +226,8 @@ func abs(x int64) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function fractionToDecimal(numerator: number, denominator: number): string {
     if (numerator === 0) {
@@ -241,6 +259,8 @@ function fractionToDecimal(numerator: number, denominator: number): string {
     return sb.join('');
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -277,4 +297,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

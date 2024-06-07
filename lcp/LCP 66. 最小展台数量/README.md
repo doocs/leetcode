@@ -4,11 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2066.%20%E6%9C%80%E5%B0%8F%E5%B1%95%E5%8F%B0%E6%95%B0%E9%87%8F/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 66. 最小展台数量](https://leetcode.cn/problems/600YaG)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 力扣嘉年华将举办一系列展览活动，后勤部将负责为每场展览提供所需要的展台。
 已知后勤部得到了一份需求清单，记录了近期展览所需要的展台类型， `demand[i][j]` 表示第 `i` 天展览时第 `j` 个展台的类型。
@@ -41,7 +43,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2066.%20%E6%9C%80%
 -   `1 <= demand.length,demand[i].length <= 100`
 -   `demand[i][j]` 仅为小写字母
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -54,6 +60,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2066.%20%E6%9C%80%
 时间复杂度 $O(L)$，空间复杂度 $O(C)$。其中 $L$ 为 $demand$ 中所有字符串的长度之和，而 $C$ 为字符集的大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +78,8 @@ class Solution:
                 cnt[c] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumBooths(demand []string) (ans int) {
 	cnt := [26]int{}
@@ -139,4 +153,6 @@ func minNumBooths(demand []string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

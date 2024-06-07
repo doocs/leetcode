@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3079.Find%20the%20Sum%20of%20Encrypted%20Integers/README.md
 rating: 1190
+source: 第 126 场双周赛 Q1
 tags:
     - 数组
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [3079. 求出加密整数的和](https://leetcode.cn/problems/find-the-sum-of-encrypted-integers)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;，数组中的元素都是&nbsp;<strong>正</strong>&nbsp;整数。定义一个加密函数&nbsp;<code>encrypt</code>&nbsp;，<code>encrypt(x)</code>&nbsp;将一个整数 <code>x</code>&nbsp;中 <strong>每一个</strong>&nbsp;数位都用 <code>x</code>&nbsp;中的&nbsp;<strong>最大</strong>&nbsp;数位替换。比方说&nbsp;<code>encrypt(523) = 555</code> 且&nbsp;<code>encrypt(213) = 333</code>&nbsp;。</p>
 
@@ -51,7 +54,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -62,6 +69,8 @@ tags:
 时间复杂度 $O(n \times \log M)$，其中 $n$ 是数组的长度，而 $M$ 是数组中元素的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +85,8 @@ class Solution:
 
         return sum(encrypt(x) for x in nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfEncryptedInt(nums []int) (ans int) {
 	encrypt := func(x int) int {
@@ -136,6 +151,8 @@ func sumOfEncryptedInt(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumOfEncryptedInt(nums: number[]): number {
     const encrypt = (x: number): number => {
@@ -152,4 +169,6 @@ function sumOfEncryptedInt(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

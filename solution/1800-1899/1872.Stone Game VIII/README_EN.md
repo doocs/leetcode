@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1872.Stone%20Game%20VIII/README_EN.md
 rating: 2439
+source: Weekly Contest 242 Q4
 tags:
     - Array
     - Math
@@ -11,11 +12,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1872. Stone Game VIII](https://leetcode.com/problems/stone-game-viii)
 
 [中文文档](/solution/1800-1899/1872.Stone%20Game%20VIII/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob take turns playing a game, with <strong>Alice starting first</strong>.</p>
 
@@ -111,7 +116,11 @@ The difference between their scores is (-22) - 0 = -22.
 
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Memoization Search
 
@@ -134,6 +143,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameVIII(self, stones: List[int]) -> int:
@@ -146,6 +157,8 @@ class Solution:
         s = list(accumulate(stones))
         return dfs(1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -175,6 +188,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -198,6 +213,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func stoneGameVIII(stones []int) int {
@@ -223,6 +240,8 @@ func stoneGameVIII(stones []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function stoneGameVIII(stones: number[]): number {
     const n = stones.length;
@@ -244,6 +263,10 @@ function stoneGameVIII(stones: number[]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Prefix Sum + Dynamic Programming
 
@@ -271,6 +294,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameVIII(self, stones: List[int]) -> int:
@@ -280,6 +305,8 @@ class Solution:
             f = max(f, s[i] - f)
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -296,6 +323,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -314,6 +343,8 @@ public:
 };
 ```
 
+#### TypeScript
+
 ```ts
 function stoneGameVIII(stones: number[]): number {
     const n = stones.length;
@@ -330,4 +361,6 @@ function stoneGameVIII(stones: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

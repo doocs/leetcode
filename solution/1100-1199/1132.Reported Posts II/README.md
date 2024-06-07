@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1132. 报告的记录 II 🔒](https://leetcode.cn/problems/reported-posts-ii)
 
 [English Version](/solution/1100-1199/1132.Reported%20Posts%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>动作表：&nbsp;<code>Actions</code></p>
 
@@ -94,11 +96,17 @@ Removals table:
 其余几天没有收到垃圾广告的举报，因此平均值为：(50 + 100) / 2 = 75%
 注意，输出仅需要一个平均值即可，我们并不关注移除操作的日期。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -118,4 +126,6 @@ FROM T;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

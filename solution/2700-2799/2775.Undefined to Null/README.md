@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2775.Undefined%20to%20Null/README.md
 ---
 
+<!-- problem:start -->
+
 # [2775. 将 undefined 转为 null 🔒](https://leetcode.cn/problems/undefined-to-null)
 
 [English Version](/solution/2700-2799/2775.Undefined%20to%20Null/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个深层嵌套的对象或数组 <code>obj</code> ，并创建该对象&nbsp;<code>obj</code> 的副本，将其中的任何 <code>undefined</code> 值替换为 <code>null</code> 。</p>
 
@@ -43,11 +45,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2775.Un
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function undefinedToNull(obj: Record<any, any>): Record<any, any> {
@@ -70,4 +78,6 @@ function undefinedToNull(obj: Record<any, any>): Record<any, any> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

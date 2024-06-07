@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [854. 相似度为 K 的字符串](https://leetcode.cn/problems/k-similar-strings)
 
 [English Version](/solution/0800-0899/0854.K-Similar%20Strings/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>对于某些非负整数 <code>k</code> ，如果交换 <code>s1</code> 中两个字母的位置恰好 <code>k</code> 次，能够使结果字符串等于 <code>s2</code> ，则认为字符串 <code>s1</code> 和 <code>s2</code> 的<strong> 相似度为 </strong><code>k</code><strong> </strong><strong>。</strong></p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>s2</code> 是 <code>s1</code> 的一个字母异位词</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -61,6 +67,8 @@ tags:
 复杂度分析：BFS 剪枝不讨论时空复杂度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +97,8 @@ class Solution:
                         q.append(nxt)
             ans += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +193,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kSimilarity(s1 string, s2 string) int {
 	next := func(s string) []string {
@@ -220,6 +234,10 @@ func kSimilarity(s1 string, s2 string) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：A\* 算法（进阶）
 
 A\* 搜索算法（A\* 读作 A-star），简称 A\* 算法，是一种在图形平面上，对于有多个节点的路径求出最低通过成本的算法。它属于图遍历和最佳优先搜索算法（英文：Best-first search），亦是 BFS 的改进。
@@ -236,6 +254,8 @@ A\* 算法主要步骤如下：
 复杂度分析：启发式搜索不讨论时空复杂度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -266,6 +286,8 @@ class Solution:
                     dist[nxt] = dist[s] + 1
                     heappush(q, (dist[nxt] + f(nxt), nxt))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -324,6 +346,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using pis = pair<int, string>;
 
@@ -372,6 +396,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kSimilarity(s1 string, s2 string) int {
@@ -432,4 +458,6 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

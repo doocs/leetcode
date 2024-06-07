@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2108.Find%20First%20Palindromic%20String%20in%20the%20Array/README.md
 rating: 1215
+source: 第 272 场周赛 Q1
 tags:
     - 数组
     - 双指针
     - 字符串
 ---
+
+<!-- problem:start -->
 
 # [2108. 找出数组中的第一个回文字符串](https://leetcode.cn/problems/find-first-palindromic-string-in-the-array)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>words</code> ，找出并返回数组中的 <strong>第一个回文字符串</strong> 。如果不存在满足要求的字符串，返回一个 <strong>空字符串</strong><em> </em><code>""</code> 。</p>
 
@@ -55,7 +58,11 @@ tags:
 	<li><code>words[i]</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -67,11 +74,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def firstPalindrome(self, words: List[str]) -> str:
         return next((w for w in words if w == w[::-1]), "")
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func firstPalindrome(words []string) string {
 	for _, w := range words {
@@ -128,6 +143,8 @@ func firstPalindrome(words []string) string {
 	return ""
 }
 ```
+
+#### TypeScript
 
 ```ts
 function firstPalindrome(words: string[]): string {
@@ -148,6 +165,8 @@ function firstPalindrome(words: string[]): string {
     return '';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,6 +191,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 char* firstPalindrome(char** words, int wordsSize) {
     for (int i = 0; i < wordsSize; i++) {
@@ -194,4 +215,6 @@ char* firstPalindrome(char** words, int wordsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3061. 计算滞留雨水 🔒](https://leetcode.cn/problems/calculate-trapping-rain-water)
 
 [English Version](/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<font face="monospace">Heights</font></p>
 
@@ -68,13 +70,19 @@ Heights table:
 上面描绘的高度图(在黑色部分)以图形表示，x 轴表示 id，y 轴表示 heights [0,1,0,2,1,0,1,3,2,1,2,1]。在这个场景中，在蓝色部分滞留了 6 个单位的雨水。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数 + 求和
 
 我们使用窗口函数 `MAX(height) OVER (ORDER BY id)` 来计算每个位置及其左边的最大高度，使用 `MAX(height) OVER (ORDER BY id DESC)` 来计算每个位置及其右边的最大高度，分别记为 `l` 和 `r`。那么每个位置上的蓄水量就是 `min(l, r) - height`，最后求和即可。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -90,6 +98,8 @@ SELECT SUM(LEAST(l, r) - height) AS total_trapped_water
 FROM T;
 ```
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -103,4 +113,6 @@ def calculate_trapped_rain_water(heights: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

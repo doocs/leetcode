@@ -3,16 +3,21 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1047.Remove%20All%20Adjacent%20Duplicates%20In%20String/README_EN.md
 rating: 1286
+source: Weekly Contest 137 Q2
 tags:
     - Stack
     - String
 ---
+
+<!-- problem:start -->
 
 # [1047. Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string)
 
 [中文文档](/solution/1000-1099/1047.Remove%20All%20Adjacent%20Duplicates%20In%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> consisting of lowercase English letters. A <strong>duplicate removal</strong> consists of choosing two <strong>adjacent</strong> and <strong>equal</strong> letters and removing them.</p>
 
@@ -45,11 +50,17 @@ For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the lett
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +73,8 @@ class Solution:
                 stk.append(c)
         return ''.join(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeDuplicates(s string) string {
 	stk := []rune{}
@@ -109,6 +126,8 @@ func removeDuplicates(s string) string {
 	return string(stk)
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -125,6 +144,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -143,6 +164,8 @@ var removeDuplicates = function (s) {
     return stk.join('');
 };
 ```
+
+#### C
 
 ```c
 char* removeDuplicates(char* s) {
@@ -164,4 +187,6 @@ char* removeDuplicates(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

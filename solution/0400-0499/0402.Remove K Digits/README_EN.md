@@ -9,11 +9,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [402. Remove K Digits](https://leetcode.com/problems/remove-k-digits)
 
 [中文文档](/solution/0400-0499/0402.Remove%20K%20Digits/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given string num representing a non-negative integer <code>num</code>, and an integer <code>k</code>, return <em>the smallest possible integer after removing</em> <code>k</code> <em>digits from</em> <code>num</code>.</p>
 
@@ -51,11 +55,17 @@ tags:
 	<li><code>num</code> does not have any leading zeros except for the zero itself.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +79,8 @@ class Solution:
             stk.append(c)
         return ''.join(stk[:remain]).lstrip('0') or '0'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeKdigits(num string, k int) string {
 	stk, remain := make([]byte, 0), len(num)-k
@@ -138,6 +154,8 @@ func removeKdigits(num string, k int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function removeKdigits(num: string, k: number): string {
     const stk: string[] = [];
@@ -157,4 +175,6 @@ function removeKdigits(num: string, k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

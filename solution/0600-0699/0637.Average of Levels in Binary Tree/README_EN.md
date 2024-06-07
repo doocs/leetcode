@@ -9,11 +9,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [637. Average of Levels in Binary Tree](https://leetcode.com/problems/average-of-levels-in-binary-tree)
 
 [中文文档](/solution/0600-0699/0637.Average%20of%20Levels%20in%20Binary%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 Given the <code>root</code> of a binary tree, return <em>the average value of the nodes on each level in the form of an array</em>. Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.
 
@@ -42,11 +46,17 @@ Hence return [3, 14.5, 11].
 	<li><code>-2<sup>31</sup> &lt;= Node.val &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -71,6 +81,8 @@ class Solution:
             ans.append(s / n)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -113,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -147,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -178,6 +194,8 @@ func averageOfLevels(root *TreeNode) []float64 {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -230,6 +248,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -267,9 +287,15 @@ var averageOfLevels = function (root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -295,6 +321,8 @@ class Solution:
         dfs(root, 0)
         return [a / b for a, b in s]
 ```
+
+#### Java
 
 ```java
 /**
@@ -342,6 +370,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -386,6 +416,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -421,6 +453,8 @@ func averageOfLevels(root *TreeNode) []float64 {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -463,4 +497,6 @@ var averageOfLevels = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

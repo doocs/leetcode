@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2269.Find%20the%20K-Beauty%20of%20a%20Number/README.md
 rating: 1279
+source: 第 78 场双周赛 Q1
 tags:
     - 数学
     - 字符串
     - 滑动窗口
 ---
+
+<!-- problem:start -->
 
 # [2269. 找到一个数字的 K 美丽值](https://leetcode.cn/problems/find-the-k-beauty-of-a-number)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个整数 <code>num</code>&nbsp;的&nbsp;<strong>k&nbsp;</strong>美丽值定义为&nbsp;<code>num</code>&nbsp;中符合以下条件的&nbsp;<strong>子字符串</strong>&nbsp;数目：</p>
 
@@ -71,7 +74,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= num.length</code>&nbsp;（将&nbsp;<code>num</code>&nbsp;视为字符串）</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -80,6 +87,8 @@ tags:
 时间复杂度 $O(\log num \times k)$，空间复杂度 $O(\log num + k)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +101,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func divisorSubstrings(num int, k int) int {
 	ans := 0
@@ -137,6 +152,8 @@ func divisorSubstrings(num int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function divisorSubstrings(num: number, k: number): number {
@@ -154,6 +171,10 @@ function divisorSubstrings(num: number, k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：滑动窗口
 
 我们可以维护一个长度为 $k$ 的滑动窗口，初始时窗口中包含 $num$ 的最低 $k$ 位数字，然后每次向右移动一位，更新窗口中的数字，判断窗口中的数字是否能整除 $num$，如果能则答案加一。
@@ -161,6 +182,8 @@ function divisorSubstrings(num: number, k: number): number {
 时间复杂度 $O(\log num)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -180,6 +203,8 @@ class Solution:
             ans += int(x != 0 and num % x == 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -203,6 +228,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -229,6 +256,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func divisorSubstrings(num int, k int) (ans int) {
 	x, p, t := 0, 1, num
@@ -253,6 +282,8 @@ func divisorSubstrings(num int, k int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function divisorSubstrings(num: number, k: number): number {
     let [x, p, t] = [0, 1, num];
@@ -274,4 +305,6 @@ function divisorSubstrings(num: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

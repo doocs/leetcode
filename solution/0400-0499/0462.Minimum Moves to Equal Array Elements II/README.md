@@ -8,31 +8,35 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [462. 最小操作次数使数组元素相等 II](https://leetcode.cn/problems/minimum-moves-to-equal-array-elements-ii)
 
 [English Version](/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的整数数组 <code>nums</code> ，返回使所有数组元素相等需要的最小操作数。</p>
 
 <p>在一次操作中，你可以使数组中的一个元素加 <code>1</code> 或者减 <code>1</code> 。</p>
 
+<p>测试用例经过设计以使答案在&nbsp;<strong>32 位</strong>&nbsp;整数范围内。</p>
+
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>nums = [1,2,3]
 <strong>输出：</strong>2
 <strong>解释：</strong>
 只需要两次操作（每次操作指南使一个元素加 1 或减 1）：
-[<strong><em>1</em></strong>,2,3]  =&gt;  [2,2,<strong><em>3</em></strong>]  =&gt;  [2,2,2]
+[<u>1</u>,2,3]  =&gt;  [2,2,<u>3</u>]  =&gt;  [2,2,2]
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>nums = [1,10,2,9]
@@ -49,7 +53,11 @@ tags:
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 中位数
 
@@ -72,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMoves2(self, nums: List[int]) -> int:
@@ -79,6 +89,8 @@ class Solution:
         k = nums[len(nums) >> 1]
         return sum(abs(v - k) for v in nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minMoves2(nums []int) int {
@@ -126,6 +142,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minMoves2(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -133,6 +151,8 @@ function minMoves2(nums: number[]): number {
     return nums.reduce((r, v) => r + Math.abs(v - mid), 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -150,6 +170,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序 + 前缀和
 
 如果我们不知道中位数的性质，也可以使用前缀和的方法来求解。
@@ -157,6 +181,8 @@ impl Solution {
 时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -175,4 +201,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

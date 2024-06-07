@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README_EN.md
 rating: 2348
+source: Weekly Contest 371 Q4
 tags:
     - Bit Manipulation
     - Trie
@@ -11,11 +12,15 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2935. Maximum Strong Pair XOR II](https://leetcode.com/problems/maximum-strong-pair-xor-ii)
 
 [中文文档](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. A pair of integers <code>x</code> and <code>y</code> is called a <strong>strong</strong> pair if it satisfies the condition:</p>
 
@@ -65,7 +70,11 @@ The maximum XOR possible from these pairs is 500 XOR 520 = 1020 since the only o
 	<li><code>1 &lt;= nums[i] &lt;= 2<sup>20</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Trie
 
@@ -76,6 +85,8 @@ Therefore, we sort the array $nums$, and then enumerate $y$ from small to large.
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Here, $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$. In this problem, $M = 2^{20}$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -127,6 +138,8 @@ class Solution:
             ans = max(ans, tree.search(y))
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -189,6 +202,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -257,6 +272,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -317,6 +334,8 @@ func maximumStrongPairXor(nums []int) (ans int) {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {
@@ -387,4 +406,6 @@ function maximumStrongPairXor(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

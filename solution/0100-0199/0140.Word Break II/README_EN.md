@@ -12,11 +12,15 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [140. Word Break II](https://leetcode.com/problems/word-break-ii)
 
 [中文文档](/solution/0100-0199/0140.Word%20Break%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> and a dictionary of strings <code>wordDict</code>, add spaces in <code>s</code> to construct a sentence where each word is a valid dictionary word. Return all such possible sentences in <strong>any order</strong>.</p>
 
@@ -57,11 +61,17 @@ tags:
 	<li>Input is generated in a way that the length of the answer doesn&#39;t exceed&nbsp;10<sup>5</sup>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -106,6 +116,8 @@ class Solution:
         ans = dfs(s)
         return [' '.join(v) for v in ans]
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -166,6 +178,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -229,6 +243,8 @@ func wordBreak(s string, wordDict []string) []string {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 using System;
@@ -312,4 +328,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README.md
 rating: 1386
+source: 第 327 场周赛 Q2
 tags:
     - 贪心
     - 数组
     - 堆（优先队列）
 ---
+
+<!-- problem:start -->
 
 # [2530. 执行 K 次操作后的最大分数](https://leetcode.cn/problems/maximal-score-after-applying-k-operations)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 和一个整数 <code>k</code> 。你的 <strong>起始分数</strong> 为 <code>0</code> 。</p>
 
@@ -62,7 +65,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（大根堆）
 
@@ -73,6 +80,8 @@ tags:
 时间复杂度 $O(n + k \times \log n)$，空间复杂度 $O(n)$ 或 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +95,8 @@ class Solution:
             heappush(h, -(ceil(v / 3)))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxKelements(nums []int, k int) (ans int64) {
@@ -148,6 +163,8 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
+#### TypeScript
+
 ```ts
 function maxKelements(nums: number[], k: number): number {
     const pq = new MaxPriorityQueue();
@@ -162,6 +179,8 @@ function maxKelements(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::BinaryHeap;
@@ -185,9 +204,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -200,6 +225,8 @@ class Solution:
             ans -= heapreplace(nums, -ceil(-nums[0] / 3))
         return ans
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -218,6 +245,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxKelements(nums []int, k int) (ans int64) {
@@ -240,4 +269,6 @@ func (hp) Pop() (_ any)         { return }
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

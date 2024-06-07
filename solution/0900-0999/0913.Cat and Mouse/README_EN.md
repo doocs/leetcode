@@ -11,11 +11,15 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [913. Cat and Mouse](https://leetcode.com/problems/cat-and-mouse)
 
 [中文文档](/solution/0900-0999/0913.Cat%20and%20Mouse/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A game on an <strong>undirected</strong> graph is played by two players, Mouse and Cat, who alternate turns.</p>
 
@@ -70,11 +74,40 @@ tags:
 	<li>The mouse and the cat can always move.&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Topological Sorting
+
+In the game of cat and mouse, the state is determined by three factors: the position of the mouse, the position of the cat, and the mover. According to the game rules, the boundary states that can directly determine the outcome are:
+
+-   When the positions of the cat and the mouse are the same, the cat wins. This is a must-win state for the cat and a must-lose state for the mouse.
+-   When the mouse is in the hole, the mouse wins. This is a must-win state for the mouse and a must-lose state for the cat.
+
+To get the game result of the initial state, we need to traverse all states starting from the boundary state. Each state includes the position of the mouse, the position of the cat, and the mover. Based on the current state, we can get all possible states of the previous round. The mover of the previous round is opposite to the mover of the current state, and the position of the mover of the previous round is different from the position of the current state.
+
+We use the tuple $(m, c, t)$ to represent the state of this round, and $(pm, pc, pt)$ to represent the possible state of the previous round. Then, all possible states of the previous round are:
+
+-   If the mover of this round is the mouse, then the mover of the previous round is the cat, the position of the mouse in the previous round is the position of the mouse in this round, and the position of the cat in the previous round is all adjacent points of the position of the cat in this round.
+-   If the mover of this round is the cat, then the mover of the previous round is the mouse, the position of the cat in the previous round is the position of the cat in this round, and the position of the mouse in the previous round is all adjacent points of the position of the mouse in this round.
+
+Initially, except for the boundary states, the results of all other states are unknown. We start from the boundary state, for each state, get all possible states of the previous round and update the result. The update logic is as follows:
+
+1. If the mover of the previous round is the same as the winner of this round, then the mover of the previous round can reach the current state and win, directly update the state of the previous round to the winner of this round.
+1. If the mover of the previous round is different from the winner of this round, and all states that the mover of the previous round can reach are the must-lose states for the mover of the previous round, then we update the state of the previous round to the winner of this round.
+
+For the second update logic, we need to record the degree of each state. Initially, the degree of each state represents the number of nodes that the mover of the state can move to, that is, the number of adjacent nodes of the node where the mover is located. If the mover is the cat and the node where it is located is adjacent to the hole, the degree of the state needs to be reduced by $1$.
+
+When the results of all states are updated, the result of the initial state is the final result.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Where $n$ is the number of nodes in the graph.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 HOLE, MOUSE_START, CAT_START = 0, 1, 2
@@ -134,6 +167,8 @@ class Solution:
                             q.append(prev_state)
         return res[MOUSE_START][CAT_START][MOUSE_TURN]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -219,6 +254,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 const int HOLE = 0;
 const int MOUSE_START = 1;
@@ -296,6 +333,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const (
@@ -378,4 +417,6 @@ func catMouseGame(graph [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

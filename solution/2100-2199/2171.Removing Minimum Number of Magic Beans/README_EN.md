@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2171.Removing%20Minimum%20Number%20of%20Magic%20Beans/README_EN.md
 rating: 1748
+source: Weekly Contest 280 Q3
 tags:
     - Greedy
     - Array
@@ -11,11 +12,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2171. Removing Minimum Number of Magic Beans](https://leetcode.com/problems/removing-minimum-number-of-magic-beans)
 
 [中文文档](/solution/2100-2199/2171.Removing%20Minimum%20Number%20of%20Magic%20Beans/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <strong>positive</strong> integers <code>beans</code>, where each integer represents the number of magic beans found in a particular magic bag.</p>
 
@@ -64,7 +69,11 @@ There are no other solutions that removes 7 beans or fewer.
 	<li><code>1 &lt;= beans[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Enumeration
 
@@ -74,6 +83,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumRemoval(self, beans: List[int]) -> int:
@@ -81,6 +92,8 @@ class Solution:
         s, n = sum(beans), len(beans)
         return min(s - x * (n - i) for i, x in enumerate(beans))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumRemoval(beans []int) int64 {
@@ -132,6 +149,8 @@ func minimumRemoval(beans []int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumRemoval(beans: number[]): number {
     beans.sort((a, b) => a - b);
@@ -147,4 +166,6 @@ function minimumRemoval(beans: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

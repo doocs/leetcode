@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README_EN.md
 rating: 1366
+source: Weekly Contest 314 Q2
 tags:
     - Bit Manipulation
     - Array
 ---
+
+<!-- problem:start -->
 
 # [2433. Find The Original Array of Prefix Xor](https://leetcode.com/problems/find-the-original-array-of-prefix-xor)
 
 [中文文档](/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <strong>integer</strong> array <code>pref</code> of size <code>n</code>. Find and return <em>the array </em><code>arr</code><em> of size </em><code>n</code><em> that satisfies</em>:</p>
 
@@ -54,7 +59,11 @@ tags:
 	<li><code>0 &lt;= pref[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -82,11 +91,15 @@ The time complexity is $O(n)$, where $n$ is the length of the prefix XOR array. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findArray(self, pref: List[int]) -> List[int]:
         return [a ^ b for a, b in pairwise([0] + pref)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findArray(pref []int) []int {
 	n := len(pref)
@@ -127,6 +144,8 @@ func findArray(pref []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findArray(pref: number[]): number[] {
     let ans = pref.slice();
@@ -136,6 +155,8 @@ function findArray(pref: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -150,6 +171,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -168,4 +191,6 @@ int* findArray(int* pref, int prefSize, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

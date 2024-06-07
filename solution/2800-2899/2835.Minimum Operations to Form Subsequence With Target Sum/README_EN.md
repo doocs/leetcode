@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2835.Minimum%20Operations%20to%20Form%20Subsequence%20With%20Target%20Sum/README_EN.md
 rating: 2207
+source: Weekly Contest 360 Q3
 tags:
     - Greedy
     - Bit Manipulation
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2835. Minimum Operations to Form Subsequence With Target Sum](https://leetcode.com/problems/minimum-operations-to-form-subsequence-with-target-sum)
 
 [中文文档](/solution/2800-2899/2835.Minimum%20Operations%20to%20Form%20Subsequence%20With%20Target%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> consisting of <strong>non-negative</strong> powers of <code>2</code>, and an integer <code>target</code>.</p>
 
@@ -68,7 +73,11 @@ It can be shown that there is no shorter sequence of operations that results in 
 	<li><code>1 &lt;= target &lt; 2<sup>31</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Bit Manipulation
 
@@ -83,6 +92,8 @@ Note that if $j < i$, actually two lower bits of $1$ can be combined into a high
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -115,6 +126,8 @@ class Solution:
             i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +171,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -203,6 +218,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(nums []int, target int) (ans int) {
 	s := 0
@@ -242,6 +259,8 @@ func minOperations(nums []int, target int) (ans int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(nums: number[], target: number): number {
@@ -285,4 +304,6 @@ function minOperations(nums: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

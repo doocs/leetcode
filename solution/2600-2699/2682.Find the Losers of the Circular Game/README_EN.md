@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README_EN.md
 rating: 1382
+source: Weekly Contest 345 Q1
 tags:
     - Array
     - Hash Table
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2682. Find the Losers of the Circular Game](https://leetcode.com/problems/find-the-losers-of-the-circular-game)
 
 [中文文档](/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> friends that are playing a game. The friends are sitting in a circle and are numbered from <code>1</code> to <code>n</code> in <strong>clockwise order</strong>. More formally, moving clockwise from the <code>i<sup>th</sup></code> friend brings you to the <code>(i+1)<sup>th</sup></code> friend for <code>1 &lt;= i &lt; n</code>, and moving clockwise from the <code>n<sup>th</sup></code> friend brings you to the <code>1<sup>st</sup></code> friend.</p>
 
@@ -65,11 +70,17 @@ tags:
 	<li><code>1 &lt;= k &lt;= n &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +93,8 @@ class Solution:
             p += 1
         return [i + 1 for i in range(n) if not vis[i]]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func circularGameLosers(n int, k int) (ans []int) {
 	vis := make([]bool, n)
@@ -140,6 +157,8 @@ func circularGameLosers(n int, k int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function circularGameLosers(n: number, k: number): number[] {
@@ -157,6 +176,8 @@ function circularGameLosers(n: number, k: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -185,4 +206,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

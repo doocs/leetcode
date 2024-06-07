@@ -8,11 +8,15 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [289. Game of Life](https://leetcode.com/problems/game-of-life)
 
 [中文文档](/solution/0200-0299/0289.Game%20of%20Life/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>According to&nbsp;<a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank">Wikipedia&#39;s article</a>: &quot;The <b>Game of Life</b>, also known simply as <b>Life</b>, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.&quot;</p>
 
@@ -60,7 +64,11 @@ tags:
 	<li>In this question, we represent the board using a 2D array. In principle, the board is infinite, which would cause problems when the active area encroaches upon the border of the array (i.e., live cells reach the border). How would you address these problems?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: In-place marking
 
@@ -73,6 +81,8 @@ Finally, we traverse the board again, and update the grid with state $2$ to a de
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the board, respectively. We need to traverse the entire board. And the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +106,8 @@ class Solution:
                 elif board[i][j] == -1:
                     board[i][j] = 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -168,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func gameOfLife(board [][]int) {
 	m, n := len(board), len(board[0])
@@ -201,6 +217,8 @@ func gameOfLife(board [][]int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -239,6 +257,8 @@ function gameOfLife(board: number[][]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 const DIR: [(i32, i32); 8] = [
@@ -298,6 +318,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public void GameOfLife(int[][] board) {
@@ -337,4 +359,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

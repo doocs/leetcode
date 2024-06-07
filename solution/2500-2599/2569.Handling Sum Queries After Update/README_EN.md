@@ -3,16 +3,21 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README_EN.md
 rating: 2397
+source: Biweekly Contest 98 Q4
 tags:
     - Segment Tree
     - Array
 ---
+
+<!-- problem:start -->
 
 # [2569. Handling Sum Queries After Update](https://leetcode.com/problems/handling-sum-queries-after-update)
 
 [中文文档](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> arrays <code>nums1</code> and <code>nums2</code> and a 2D array <code>queries</code> of queries. There are three types of queries:</p>
 
@@ -55,7 +60,11 @@ tags:
 	<li><code>0 &lt;= nums2[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Segment Tree
 
@@ -93,6 +102,8 @@ When executing operation $3$, we just need to add $s$ to the answer array.
 The time complexity is $O(n + m \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of arrays `nums1` and `queries` respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -172,6 +183,8 @@ class Solution:
                 ans.append(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -284,6 +297,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -392,6 +407,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type node struct {
 	l, r, s, lazy int
@@ -494,4 +511,6 @@ func handleQuery(nums1 []int, nums2 []int, queries [][]int) (ans []int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

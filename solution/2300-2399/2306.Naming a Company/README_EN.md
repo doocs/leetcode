@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2306.Naming%20a%20Company/README_EN.md
 rating: 2305
+source: Weekly Contest 297 Q4
 tags:
     - Bit Manipulation
     - Array
@@ -11,11 +12,15 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2306. Naming a Company](https://leetcode.com/problems/naming-a-company)
 
 [中文文档](/solution/2300-2399/2306.Naming%20a%20Company/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of strings <code>ideas</code> that represents a list of names to be used in the process of naming a company. The process of naming a company is as follows:</p>
 
@@ -67,7 +72,11 @@ The following are some examples of invalid selections:
 	<li>All the strings in <code>ideas</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration Counting
 
@@ -82,6 +91,8 @@ The final answer is $ans$.
 The time complexity is $O(n \times m \times |\Sigma|)$, and the space complexity is $O(|\Sigma|^2)$. Here, $n$ and $m$ are the number of strings in $ideas$ and the maximum length of the strings, respectively, and $|\Sigma|$ is the character set that appears in the string. In this problem, $|\Sigma| \leq 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +116,8 @@ class Solution:
                     ans += f[j][i]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -169,6 +184,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func distinctNames(ideas []string) (ans int64) {
@@ -201,6 +218,8 @@ func distinctNames(ideas []string) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function distinctNames(ideas: string[]): number {
@@ -235,4 +254,6 @@ function distinctNames(ideas: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

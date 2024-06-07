@@ -3,15 +3,20 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2544.Alternating%20Digit%20Sum/README_EN.md
 rating: 1184
+source: Weekly Contest 329 Q1
 tags:
     - Math
 ---
+
+<!-- problem:start -->
 
 # [2544. Alternating Digit Sum](https://leetcode.com/problems/alternating-digit-sum)
 
 [中文文档](/solution/2500-2599/2544.Alternating%20Digit%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer <code>n</code>. Each digit of <code>n</code> has a sign according to the following rules:</p>
 
@@ -63,7 +68,11 @@ tags:
 .spoilerbutton[value="Hide Message"] + .spoiler {padding:5px;}
 </style>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -75,11 +84,15 @@ The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Her
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def alternateDigitSum(self, n: int) -> int:
         return sum((-1) ** i * int(x) for i, x in enumerate(str(n)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func alternateDigitSum(n int) (ans int) {
 	sign := 1
@@ -121,6 +138,8 @@ func alternateDigitSum(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function alternateDigitSum(n: number): number {
@@ -134,6 +153,8 @@ function alternateDigitSum(n: number): number {
     return ans * -sign;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -150,6 +171,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int alternateDigitSum(int n) {
     int ans = 0;
@@ -165,9 +188,15 @@ int alternateDigitSum(int n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -179,6 +208,8 @@ class Solution:
             sign *= -1
         return ans
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -199,4 +230,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

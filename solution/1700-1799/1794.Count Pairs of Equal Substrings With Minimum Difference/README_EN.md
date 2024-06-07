@@ -8,11 +8,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1794. Count Pairs of Equal Substrings With Minimum Difference 🔒](https://leetcode.com/problems/count-pairs-of-equal-substrings-with-minimum-difference)
 
 [中文文档](/solution/1700-1799/1794.Count%20Pairs%20of%20Equal%20Substrings%20With%20Minimum%20Difference/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings <code>firstString</code> and <code>secondString</code> that are <strong>0-indexed</strong> and consist only of lowercase English letters. Count the number of index quadruples <code>(i,j,a,b)</code> that satisfy the following conditions:</p>
 
@@ -50,7 +54,11 @@ tags:
 	<li>Both strings consist only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Hash Table
 
@@ -61,6 +69,8 @@ Therefore, we first use a hash table $last$ to record the index of the last occu
 The time complexity is $O(m + n)$, and the space complexity is $O(C)$. Here, $m$ and $n$ are the lengths of $firstString$ and $secondString$ respectively, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +87,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countQuadruples(firstString string, secondString string) (ans int) {
 	last := [26]int{}
@@ -151,6 +167,8 @@ func countQuadruples(firstString string, secondString string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countQuadruples(firstString: string, secondString: string): number {
@@ -177,4 +195,6 @@ function countQuadruples(firstString: string, secondString: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

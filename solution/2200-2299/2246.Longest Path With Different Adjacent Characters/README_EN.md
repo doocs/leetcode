@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README_EN.md
 rating: 2126
+source: Weekly Contest 289 Q4
 tags:
     - Tree
     - Depth-First Search
@@ -12,11 +13,15 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2246. Longest Path With Different Adjacent Characters](https://leetcode.com/problems/longest-path-with-different-adjacent-characters)
 
 [中文文档](/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>tree</strong> (i.e. a connected, undirected graph that has no cycles) <strong>rooted</strong> at node <code>0</code> consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>. The tree is represented by a <strong>0-indexed</strong> array <code>parent</code> of size <code>n</code>, where <code>parent[i]</code> is the parent of node <code>i</code>. Since node <code>0</code> is the root, <code>parent[0] == -1</code>.</p>
 
@@ -54,7 +59,11 @@ It can be proven that there is no longer path that satisfies the conditions.
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Tree-shaped DP
 
@@ -67,6 +76,8 @@ Finally, we return $ans + 1$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +99,8 @@ class Solution:
         dfs(0)
         return ans + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestPath(parent []int, s string) int {
 	n := len(parent)
@@ -172,6 +189,8 @@ func longestPath(parent []int, s string) int {
 	return ans + 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestPath(parent: number[], s: string): number {
@@ -199,4 +218,6 @@ function longestPath(parent: number[], s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

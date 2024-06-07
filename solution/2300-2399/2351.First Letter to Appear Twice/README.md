@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README.md
 rating: 1155
+source: 第 303 场周赛 Q1
 tags:
     - 位运算
     - 哈希表
@@ -10,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2351. 第一个出现两次的字母](https://leetcode.cn/problems/first-letter-to-appear-twice)
 
 [English Version](/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由小写英文字母组成的字符串 <code>s</code> ，请你找出并返回第一个出现 <strong>两次</strong> 的字母。</p>
 
@@ -59,7 +62,11 @@ tags:
 	<li><code>s</code> 包含至少一个重复字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表
 
@@ -68,6 +75,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字符集大小。本题中 $C = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +87,8 @@ class Solution:
             if cnt[c] == 2:
                 return c
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func repeatedCharacter(s string) byte {
 	cnt := [26]int{}
@@ -118,6 +133,8 @@ func repeatedCharacter(s string) byte {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function repeatedCharacter(s: string): string {
@@ -133,6 +150,8 @@ function repeatedCharacter(s: string): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn repeated_character(s: String) -> char {
@@ -147,6 +166,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -165,6 +186,8 @@ class Solution {
 }
 ```
 
+#### C
+
 ```c
 char repeatedCharacter(char* s) {
     int vis[26] = {0};
@@ -180,6 +203,10 @@ char repeatedCharacter(char* s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：位运算
 
 我们也可以用一个整数 `mask` 记录每个字母是否出现过，其中 `mask` 的第 $i$ 位表示第 $i$ 个字母是否出现过。当某个字母出现两次时，返回该字母。
@@ -187,6 +214,8 @@ char repeatedCharacter(char* s) {
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -198,6 +227,8 @@ class Solution:
                 return c
             mask |= 1 << i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -214,6 +245,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -229,6 +262,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func repeatedCharacter(s string) byte {
 	mask := 0
@@ -240,6 +275,8 @@ func repeatedCharacter(s string) byte {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function repeatedCharacter(s: string): string {
@@ -254,6 +291,8 @@ function repeatedCharacter(s: string): string {
     return ' ';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -270,6 +309,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 char repeatedCharacter(char* s) {
     int mask = 0;
@@ -285,4 +326,6 @@ char repeatedCharacter(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

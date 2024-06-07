@@ -8,11 +8,15 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [305. Number of Islands II 🔒](https://leetcode.com/problems/number-of-islands-ii)
 
 [中文文档](/solution/0300-0399/0305.Number%20of%20Islands%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an empty 2D binary grid <code>grid</code> of size <code>m x n</code>. The grid represents a map where <code>0</code>&#39;s represent water and <code>1</code>&#39;s represent land. Initially, all the cells of <code>grid</code> are water cells (i.e., all the cells are <code>0</code>&#39;s).</p>
 
@@ -57,7 +61,11 @@ Initially, the 2d grid is filled with water.
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it in time complexity <code>O(k log(mn))</code>, where <code>k == positions.length</code>?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find
 
@@ -68,6 +76,8 @@ Next, we traverse each position $(i, j)$ in the array $positions$. If $grid[i][j
 The time complexity is $O(k \times \alpha(m \times n))$ or $O(k \times \log(m \times n))$, where $k$ is the length of $positions$, and $\alpha$ is the inverse function of the Ackermann function. In this problem, $\alpha(m \times n)$ can be considered as a very small constant.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -118,6 +128,8 @@ class Solution:
             ans.append(cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -185,6 +197,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -249,6 +263,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -315,6 +331,8 @@ func numIslands2(m int, n int, positions [][]int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class UnionFind {
     p: number[];
@@ -379,4 +397,6 @@ function numIslands2(m: number, n: number, positions: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

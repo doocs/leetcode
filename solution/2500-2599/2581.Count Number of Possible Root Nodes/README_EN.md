@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README_EN.md
 rating: 2228
+source: Biweekly Contest 99 Q4
 tags:
     - Tree
     - Depth-First Search
@@ -10,11 +11,15 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2581. Count Number of Possible Root Nodes](https://leetcode.com/problems/count-number-of-possible-root-nodes)
 
 [中文文档](/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice has an undirected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. The tree is represented as a 2D integer array <code>edges</code> of length <code>n - 1</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the tree.</p>
 
@@ -82,7 +87,11 @@ Considering any node as root will give at least 1 correct guess.
 	<li><code>0 &lt;= k &lt;= guesses.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Tree DP (change root)
 
@@ -99,6 +108,8 @@ Assume that we are currently traversing node $i$ and $cnt$ represents the number
 The time complexity is $O(n + m)$ and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $edges$ and $guesses$ respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -134,6 +145,8 @@ class Solution:
         dfs2(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -193,6 +206,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -245,6 +260,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rootCount(edges [][]int, guesses [][]int, k int) (ans int) {
 	n := len(edges) + 1
@@ -295,6 +312,8 @@ func rootCount(edges [][]int, guesses [][]int, k int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function rootCount(edges: number[][], guesses: number[][], k: number): number {
     const n = edges.length + 1;
@@ -341,4 +360,6 @@ function rootCount(edges: number[][], guesses: number[][], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

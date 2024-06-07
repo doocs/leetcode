@@ -3,17 +3,22 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1274.Number%20of%20Ships%20in%20a%20Rectangle/README_EN.md
 rating: 1997
+source: Biweekly Contest 14 Q4
 tags:
     - Array
     - Divide and Conquer
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [1274. Number of Ships in a Rectangle 🔒](https://leetcode.com/problems/number-of-ships-in-a-rectangle)
 
 [中文文档](/solution/1200-1299/1274.Number%20of%20Ships%20in%20a%20Rectangle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p><em>(This problem is an <strong>interactive problem</strong>.)</em></p>
 
@@ -52,7 +57,11 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 	<li><code>topRight != bottomLeft</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion + Divide and Conquer
 
@@ -61,6 +70,8 @@ Since there are at most $10$ ships in the rectangle, we can divide the rectangle
 The time complexity is $O(C \times \log \max(m, n))$, and the space complexity is $O(\log \max(m, n))$. Where $C$ is the number of ships, and $m$ and $n$ are the length and width of the rectangle, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -98,6 +109,8 @@ class Solution:
         return dfs(topRight, bottomLeft)
 ```
 
+#### Java
+
 ```java
 /**
  * // This is Sea's API interface.
@@ -130,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -166,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is Sea's API interface.
@@ -197,6 +214,8 @@ func countShips(sea Sea, topRight, bottomLeft []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * // This is the Sea's API interface.
@@ -227,4 +246,6 @@ function countShips(sea: Sea, topRight: number[], bottomLeft: number[]): number 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

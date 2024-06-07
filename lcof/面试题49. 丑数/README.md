@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9849.%20%E4%B8%91%E6%95%B0/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 49. 丑数](https://leetcode.cn/problems/chou-shu-lcof/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们把只包含质因子 2、3 和 5 的数称作丑数（Ugly Number）。求按从小到大的顺序的第 n 个丑数。</p>
 
@@ -29,7 +31,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p>注意：本题与主站 264 题相同：<a href="https://leetcode.cn/problems/ugly-number-ii/">https://leetcode.cn/problems/ugly-number-ii/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（最小堆）
 
@@ -38,6 +44,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -54,6 +62,8 @@ class Solution:
                     heappush(h, nxt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +114,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nthUglyNumber(n int) int {
@@ -140,6 +154,8 @@ func (h *IntHeap) Pop() any {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn nth_ugly_number(n: i32) -> i32 {
@@ -169,6 +185,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -192,6 +210,8 @@ var nthUglyNumber = function (n) {
     return dp[n - 1];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -217,11 +237,101 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func nthUglyNumber(_ n: Int) -> Int {
+        var vis = Set<Int64>()
+        var pq = PriorityQueue<Int64>()
+        let factors: [Int64] = [2, 3, 5]
+
+        pq.push(1)
+        vis.insert(1)
+        var ans: Int64 = 0
+
+        for _ in 0..<n {
+            ans = pq.pop()!
+            for factor in factors {
+                let next = ans * factor
+                if vis.insert(next).inserted {
+                    pq.push(next)
+                }
+            }
+        }
+
+        return Int(ans)
+    }
+}
+
+struct PriorityQueue<T: Comparable> {
+    private var heap: [T] = []
+
+    var isEmpty: Bool {
+        return heap.isEmpty
+    }
+
+    mutating func push(_ element: T) {
+        heap.append(element)
+        heapifyUp(from: heap.count - 1)
+    }
+
+    mutating func pop() -> T? {
+        guard !heap.isEmpty else {
+            return nil
+        }
+        if heap.count == 1 {
+            return heap.removeLast()
+        }
+        let value = heap[0]
+        heap[0] = heap.removeLast()
+        heapifyDown(from: 0)
+        return value
+    }
+
+    private mutating func heapifyUp(from index: Int) {
+        var index = index
+        let element = heap[index]
+        while index > 0 {
+            let parentIndex = (index - 1) / 2
+            if element >= heap[parentIndex] {
+                break
+            }
+            heap[index] = heap[parentIndex]
+            index = parentIndex
+        }
+        heap[index] = element
+    }
+
+    private mutating func heapifyDown(from index: Int) {
+        var index = index
+        let element = heap[index]
+        let count = heap.count
+        while index < count / 2 {
+            var childIndex = index * 2 + 1
+            if childIndex + 1 < count && heap[childIndex + 1] < heap[childIndex] {
+                childIndex += 1
+            }
+            if element <= heap[childIndex] {
+                break
+            }
+            heap[index] = heap[childIndex]
+            index = childIndex
+        }
+        heap[index] = element
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：动态规划
 
-定义数组 $dp$，其中 $dp[i-1]$ 表示第 $i$ 个丑数，那么第 $n$ 个丑数就是 $dp[n - 1]$。最小的丑数是 $1$，所以 $dp[0]=1$。
+我们定义数组 $dp$，其中 $dp[i-1]$ 表示第 $i$ 个丑数，那么第 $n$ 个丑数就是 $dp[n - 1]$。最小的丑数是 $1$，所以 $dp[0]=1$。
 
 定义 $3$ 个指针 $p_2$, $p_3$ 和 $p_5$，表示下一个丑数是当前指针指向的丑数乘以对应的质因数。初始时，三个指针的值都指向 $0$。
 
@@ -232,6 +342,8 @@ public class Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -249,6 +361,8 @@ class Solution:
                 p5 += 1
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -268,6 +382,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -286,6 +402,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nthUglyNumber(n int) int {
@@ -311,4 +429,6 @@ func nthUglyNumber(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

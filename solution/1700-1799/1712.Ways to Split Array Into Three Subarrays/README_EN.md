@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1712.Ways%20to%20Split%20Array%20Into%20Three%20Subarrays/README_EN.md
 rating: 2078
+source: Weekly Contest 222 Q3
 tags:
     - Array
     - Two Pointers
@@ -10,11 +11,15 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1712. Ways to Split Array Into Three Subarrays](https://leetcode.com/problems/ways-to-split-array-into-three-subarrays)
 
 [中文文档](/solution/1700-1799/1712.Ways%20to%20Split%20Array%20Into%20Three%20Subarrays/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A split of an integer array is <strong>good</strong> if:</p>
 
@@ -59,7 +64,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Binary Search
 
@@ -77,6 +86,8 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToSplit(self, nums: List[int]) -> int:
@@ -89,6 +100,8 @@ class Solution:
             ans += k - j
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToSplit(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -161,6 +178,8 @@ func waysToSplit(nums []int) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -197,4 +216,6 @@ var waysToSplit = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

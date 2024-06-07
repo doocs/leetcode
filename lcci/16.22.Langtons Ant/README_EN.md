@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.22.Langtons%20Ant/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.22. Langtons Ant](https://leetcode.cn/problems/langtons-ant-lcci)
 
 [中文文档](/lcci/16.22.Langtons%20Ant/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An ant is sitting on an infinite grid of white and black squares. It initially faces right. All squares are white initially.</p>
 <p>At each step, it does the following:</p>
@@ -63,7 +67,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.22.Langtons%20Ant/
 	<li><code>K &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
 
@@ -76,6 +84,8 @@ After the simulation, we construct the answer matrix $g$ based on the values of 
 The time complexity is $O(K)$, and the space complexity is $O(K)$. Where $K$ is the number of steps the ant walks.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +116,8 @@ class Solution:
         g[x - x1][y - y1] = d[p]
         return ["".join(row) for row in g]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +163,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -186,6 +200,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func printKMoves(K int) []string {
@@ -231,6 +247,8 @@ func printKMoves(K int) []string {
 	return ans
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -278,4 +296,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

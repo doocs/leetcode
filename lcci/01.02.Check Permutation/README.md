@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.02.Check%20Permutation/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 01.02. 判定是否互为字符重排](https://leetcode.cn/problems/check-permutation-lcci)
 
 [English Version](/lcci/01.02.Check%20Permutation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定两个字符串 <code>s1</code> 和 <code>s2</code>，请编写一个程序，确定其中一个字符串的字符重新排列后，能否变成另一个字符串。</p>
 
 <p><strong>示例 1：</strong></p>
@@ -32,7 +35,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.02.Check%20Permuta
 	<li><code>0 &lt;= len(s2) &lt;= 100 </code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表
 
@@ -50,11 +57,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.02.Check%20Permuta
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def CheckPermutation(self, s1: str, s2: str) -> bool:
         return Counter(s1) == Counter(s2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +87,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -89,6 +102,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func CheckPermutation(s1 string, s2 string) bool {
@@ -108,6 +123,8 @@ func CheckPermutation(s1 string, s2 string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function CheckPermutation(s1: string, s2: string): boolean {
@@ -130,6 +147,8 @@ function CheckPermutation(s1: string, s2: string): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::HashMap;
 impl Solution {
@@ -150,6 +169,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -175,6 +196,8 @@ var CheckPermutation = function (s1, s2) {
     return true;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -205,6 +228,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二：排序
 
 我们也按照字典序对两个字符串进行排序，然后比较两个字符串是否相等。
@@ -213,11 +240,15 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def CheckPermutation(self, s1: str, s2: str) -> bool:
         return sorted(s1) == sorted(s2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -231,6 +262,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -242,6 +275,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func CheckPermutation(s1 string, s2 string) bool {
 	cs1, cs2 := []byte(s1), []byte(s2)
@@ -251,11 +286,15 @@ func CheckPermutation(s1 string, s2 string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function CheckPermutation(s1: string, s2: string): boolean {
     return [...s1].sort().join('') === [...s2].sort().join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -271,4 +310,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

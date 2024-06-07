@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2825.Make%20String%20a%20Subsequence%20Using%20Cyclic%20Increments/README_EN.md
 rating: 1414
+source: Biweekly Contest 111 Q2
 tags:
     - Two Pointers
     - String
 ---
+
+<!-- problem:start -->
 
 # [2825. Make String a Subsequence Using Cyclic Increments](https://leetcode.com/problems/make-string-a-subsequence-using-cyclic-increments)
 
 [中文文档](/solution/2800-2899/2825.Make%20String%20a%20Subsequence%20Using%20Cyclic%20Increments/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> strings <code>str1</code> and <code>str2</code>.</p>
 
@@ -59,7 +64,11 @@ Therefore, false is returned.</pre>
 	<li><code>str1</code> and <code>str2</code> consist of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -68,6 +77,8 @@ This problem actually requires us to determine whether a string $s$ is a subsequ
 The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the strings $str1$ and $str2$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +90,8 @@ class Solution:
                 i += 1
         return i == len(str2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canMakeSubsequence(str1 string, str2 string) bool {
 	i, n := 0, len(str2)
@@ -126,6 +143,8 @@ func canMakeSubsequence(str1 string, str2 string) bool {
 	return i == n
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canMakeSubsequence(str1: string, str2: string): boolean {
@@ -143,4 +162,6 @@ function canMakeSubsequence(str1: string, str2: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

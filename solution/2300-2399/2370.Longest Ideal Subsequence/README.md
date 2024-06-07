@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README.md
 rating: 1834
+source: 第 305 场周赛 Q4
 tags:
     - 哈希表
     - 字符串
     - 动态规划
 ---
+
+<!-- problem:start -->
 
 # [2370. 最长理想子序列](https://leetcode.cn/problems/longest-ideal-subsequence)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由小写字母组成的字符串 <code>s</code> ，和一个整数 <code>k</code> 。如果满足下述条件，则可以将字符串 <code>t</code> 视作是 <strong>理想字符串</strong> ：</p>
 
@@ -58,7 +61,11 @@ tags:
 	<li><code>s</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -71,6 +78,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +98,8 @@ class Solution:
             d[s[i]] = i
         return max(dp)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestIdealString(s string, k int) int {
@@ -166,6 +181,8 @@ func longestIdealString(s string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestIdealString(s: string, k: number): number {
     const dp = new Array(26).fill(0);
@@ -186,4 +203,6 @@ function longestIdealString(s: string, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

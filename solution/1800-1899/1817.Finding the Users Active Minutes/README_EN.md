@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1817.Finding%20the%20Users%20Active%20Minutes/README_EN.md
 rating: 1360
+source: Weekly Contest 235 Q2
 tags:
     - Array
     - Hash Table
 ---
+
+<!-- problem:start -->
 
 # [1817. Finding the Users Active Minutes](https://leetcode.com/problems/finding-the-users-active-minutes)
 
 [中文文档](/solution/1800-1899/1817.Finding%20the%20Users%20Active%20Minutes/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the logs for users&#39; actions on LeetCode, and an integer <code>k</code>. The logs are represented by a 2D integer array <code>logs</code> where each <code>logs[i] = [ID<sub>i</sub>, time<sub>i</sub>]</code> indicates that the user with <code>ID<sub>i</sub></code> performed an action at the minute <code>time<sub>i</sub></code>.</p>
 
@@ -58,7 +63,11 @@ Hence, answer[1] = 1, answer[2] = 1, and the remaining values are 0.
 	<li><code>k</code> is in the range <code>[The maximum <strong>UAM</strong> for a user, 10<sup>5</sup>]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -67,6 +76,8 @@ We use a hash table $d$ to record all the unique operation times of each user, a
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $logs$ array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +90,8 @@ class Solution:
             ans[len(ts) - 1] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findingUsersActiveMinutes(logs [][]int, k int) []int {
 	d := map[int]map[int]bool{}
@@ -132,6 +149,8 @@ func findingUsersActiveMinutes(logs [][]int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findingUsersActiveMinutes(logs: number[][], k: number): number[] {
@@ -152,4 +171,6 @@ function findingUsersActiveMinutes(logs: number[][], k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

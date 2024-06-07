@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2002.%20%E5%88%86%E5%BC%8F%E5%8C%96%E7%AE%80/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 02. 分式化简](https://leetcode.cn/problems/deep-dark-fraction)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个同学在学习分式。他需要将一个连分数化成最简分数，你能帮助他吗？</p>
 
@@ -46,7 +48,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2002.%20%E5%88%86%
 	<li>答案的<code>n, m</code>的取值都能被32位int整型存下（即不超过<code>2 ^ 31 - 1</code>）。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS + 数学
 
@@ -62,6 +68,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2002.%20%E5%88%86%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fraction(self, cont: List[int]) -> List[int]:
@@ -75,6 +83,8 @@ class Solution:
 
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fraction(cont []int) []int {
 	var dfs func(i int) []int
@@ -136,6 +150,8 @@ func fraction(cont []int) []int {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function fraction(cont: number[]): number[] {
@@ -154,6 +170,8 @@ function fraction(cont: number[]): number[] {
     return dfs(0);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -179,4 +197,6 @@ var fraction = function (cont) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

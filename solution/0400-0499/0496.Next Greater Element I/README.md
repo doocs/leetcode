@@ -9,13 +9,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [496. 下一个更大元素 I](https://leetcode.cn/problems/next-greater-element-i)
 
 [English Version](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>nums1</code>&nbsp;中数字&nbsp;<code>x</code>&nbsp;的 <strong>下一个更大元素</strong> 是指&nbsp;<code>x</code>&nbsp;在&nbsp;<code>nums2</code> 中对应位置 <strong>右侧</strong> 的 <strong>第一个</strong> 比&nbsp;<code>x</code><strong>&nbsp;</strong>大的元素。</p>
 
@@ -62,7 +64,11 @@ tags:
 
 <p><strong>进阶：</strong>你可以设计一个时间复杂度为 <code>O(nums1.length + nums2.length)</code> 的解决方案吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -82,6 +88,8 @@ for i in range(n):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
@@ -93,6 +101,8 @@ class Solution:
             stk.append(v)
         return [m.get(v, -1) for v in nums1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nextGreaterElement(nums1 []int, nums2 []int) []int {
@@ -158,6 +172,8 @@ func nextGreaterElement(nums1 []int, nums2 []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
     const map = new Map<number, number>();
@@ -171,6 +187,8 @@ function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
     return nums1.map(num => map.get(num) || -1);
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -193,6 +211,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums1
@@ -214,9 +234,15 @@ var nextGreaterElement = function (nums1, nums2) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -231,6 +257,8 @@ class Solution:
             stk.append(v)
         return [m.get(x, -1) for x in nums1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -256,6 +284,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -273,6 +303,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nextGreaterElement(nums1 []int, nums2 []int) []int {
@@ -299,6 +331,8 @@ func nextGreaterElement(nums1 []int, nums2 []int) []int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn next_greater_element(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
@@ -320,6 +354,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -345,4 +381,6 @@ var nextGreaterElement = function (nums1, nums2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

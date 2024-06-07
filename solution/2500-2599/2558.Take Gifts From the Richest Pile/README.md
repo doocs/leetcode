@@ -3,11 +3,14 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README.md
 rating: 1276
+source: 第 331 场周赛 Q1
 tags:
     - 数组
     - 模拟
     - 堆（优先队列）
 ---
+
+<!-- problem:start -->
 
 # [2558. 从数量最多的堆取走礼物](https://leetcode.cn/problems/take-gifts-from-the-richest-pile)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>gifts</code> ，表示各堆礼物的数量。每一秒，你需要执行以下操作：</p>
 
@@ -64,7 +67,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>3</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（大根堆）
 
@@ -76,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pickGifts(self, gifts: List[int], k: int) -> int:
@@ -85,6 +94,8 @@ class Solution:
             heapreplace(h, -int(sqrt(-h[0])))
         return -sum(h)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pickGifts(gifts []int, k int) (ans int64) {
@@ -141,6 +156,8 @@ func (hp) Pop() (_ any)         { return }
 func (hp) Push(any)             {}
 ```
 
+#### TypeScript
+
 ```ts
 function pickGifts(gifts: number[], k: number): number {
     const pq = new MaxPriorityQueue();
@@ -157,6 +174,8 @@ function pickGifts(gifts: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -182,4 +201,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

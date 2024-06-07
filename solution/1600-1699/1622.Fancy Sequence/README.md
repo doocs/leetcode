@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1622.Fancy%20Sequence/README.md
 rating: 2476
+source: 第 37 场双周赛 Q4
 tags:
     - 设计
     - 线段树
     - 数学
 ---
+
+<!-- problem:start -->
 
 # [1622. 奇妙序列](https://leetcode.cn/problems/fancy-sequence)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你实现三个 API <code>append</code>，<code>addAll</code> 和 <code>multAll</code> 来实现奇妙序列。</p>
 
@@ -65,7 +68,11 @@ fancy.getIndex(2); // 返回 20
 	<li>总共最多会有 <code>10<sup>5</sup></code> 次对 <code>append</code>，<code>addAll</code>，<code>multAll</code> 和 <code>getIndex</code> 的调用。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：线段树
 
@@ -77,6 +84,8 @@ fancy.getIndex(2); // 返回 20
 -   对于每个内部节点 `[l, r]`，它的左儿子是 `[l, mid]`，右儿子是 `[mid + 1, r]`, 其中 `mid = ⌊(l + r) / 2⌋` (即向下取整)。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 MOD = int(1e9 + 7)
@@ -192,6 +201,8 @@ class Fancy:
 # obj.multAll(m)
 # param_4 = obj.getIndex(idx)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -347,6 +358,8 @@ class Fancy {
  */
 ```
 
+#### C++
+
 ```cpp
 const int MOD = 1e9 + 7;
 
@@ -492,4 +505,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

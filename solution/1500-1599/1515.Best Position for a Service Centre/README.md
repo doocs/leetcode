@@ -3,11 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1515.Best%20Position%20for%20a%20Service%20Centre/README.md
 rating: 2156
+source: 第 197 场周赛 Q4
 tags:
     - 几何
     - 数学
     - 随机化
 ---
+
+<!-- problem:start -->
 
 # [1515. 服务中心的最佳位置](https://leetcode.cn/problems/best-position-for-a-service-centre)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一家快递公司希望在新城市建立新的服务中心。公司统计了该城市所有客户在二维地图上的坐标，并希望能够以此为依据为新的服务中心选址：使服务中心 <strong>到所有客户的欧几里得距离的总和最小</strong> 。</p>
 
@@ -59,13 +62,19 @@ tags:
 	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub>&nbsp;&lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：梯度下降法
 
 我们可以先设定一个初始的服务中心位置为所有客户坐标的几何中心 $(x, y)$。接下来，使用梯度下降法不断迭代，设定一个学习率 $\alpha=0.5$，衰减率 $decay=0.999$。每次一次迭代，计算当前位置到所有客户的距离之和，然后计算当前位置的梯度，最后更新当前位置。当梯度的绝对值都小于 $10^{-6}$ 时，停止迭代，返回当前位置到所有客户的距离之和。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +106,8 @@ class Solution:
             if abs(dx) <= eps and abs(dy) <= eps:
                 return dist
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -171,6 +184,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getMinDistSum(positions [][]int) float64 {
 	n := len(positions)
@@ -206,6 +221,8 @@ func getMinDistSum(positions [][]int) float64 {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMinDistSum(positions: number[][]): number {
@@ -245,4 +262,6 @@ function getMinDistSum(positions: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2878.Get%20the%20Size%20of%20a%20DataFrame/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2878. Get the Size of a DataFrame](https://leetcode.com/problems/get-the-size-of-a-dataframe)
 
 [中文文档](/solution/2800-2899/2878.Get%20the%20Size%20of%20a%20DataFrame/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <pre>
 DataFrame <code>players:</code>
@@ -56,11 +60,17 @@ Output:
 This DataFrame contains 10 rows and 5 columns.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -72,4 +82,6 @@ def getDataframeSize(players: pd.DataFrame) -> List[int]:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

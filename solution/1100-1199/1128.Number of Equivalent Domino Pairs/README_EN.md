@@ -3,17 +3,22 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1128.Number%20of%20Equivalent%20Domino%20Pairs/README_EN.md
 rating: 1332
+source: Weekly Contest 146 Q1
 tags:
     - Array
     - Hash Table
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1128. Number of Equivalent Domino Pairs](https://leetcode.com/problems/number-of-equivalent-domino-pairs)
 
 [中文文档](/solution/1100-1199/1128.Number%20of%20Equivalent%20Domino%20Pairs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a list of <code>dominoes</code>, <code>dominoes[i] = [a, b]</code> is <strong>equivalent to</strong> <code>dominoes[j] = [c, d]</code> if and only if either (<code>a == c</code> and <code>b == d</code>), or (<code>a == d</code> and <code>b == c</code>) - that is, one domino can be rotated to be equal to another domino.</p>
 
@@ -43,7 +48,11 @@ tags:
 	<li><code>1 &lt;= dominoes[i][j] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -54,6 +63,8 @@ Then we traverse all the dominoes, using an array $cnt$ of length $100$ to recor
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the number of dominoes, and $C$ is the maximum number of two-digit numbers concatenated in the dominoes, which is $100$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +77,8 @@ class Solution:
             cnt[x] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -95,6 +110,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numEquivDominoPairs(dominoes [][]int) (ans int) {
@@ -113,4 +130,6 @@ func numEquivDominoPairs(dominoes [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [256. 粉刷房子 🔒](https://leetcode.cn/problems/paint-house)
 
 [English Version](/solution/0200-0299/0256.Paint%20House/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假如有一排房子，共 <code>n</code> 个，每个房子可以被粉刷成红色、蓝色或者绿色这三种颜色中的一种，你需要粉刷所有的房子并且使其相邻的两个房子颜色不能相同。</p>
 
@@ -52,13 +54,19 @@ tags:
 	<li><code>1 <= costs[i][j] <= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 表示房子的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +76,8 @@ class Solution:
             a, b, c = min(b, c) + ca, min(a, c) + cb, min(a, b) + cc
         return min(a, b, c)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(costs [][]int) int {
 	r, g, b := 0, 0, 0
@@ -112,6 +126,8 @@ func minCost(costs [][]int) int {
 	return min(r, min(g, b))
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -129,4 +145,6 @@ var minCost = function (costs) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2889.Reshape%20Data%20Pivot/README.md
 ---
 
+<!-- problem:start -->
+
 # [2889. 数据重塑：透视](https://leetcode.cn/problems/reshape-data-pivot)
 
 [English Version](/solution/2800-2899/2889.Reshape%20Data%20Pivot/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <pre>
 DataFrame <code>weather</code>
@@ -59,11 +61,17 @@ DataFrame <code>weather</code>
 <strong>解释：
 </strong>表格被旋转，每一列代表一个城市，每一行代表特定的月份。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -75,4 +83,6 @@ def pivotTable(weather: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

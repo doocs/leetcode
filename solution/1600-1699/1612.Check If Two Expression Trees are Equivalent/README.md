@@ -8,13 +8,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [1612. 检查两棵二叉表达式树是否等价 🔒](https://leetcode.cn/problems/check-if-two-expression-trees-are-equivalent)
 
 [English Version](/solution/1600-1699/1612.Check%20If%20Two%20Expression%20Trees%20are%20Equivalent/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong><a href="https://en.wikipedia.org/wiki/Binary_expression_tree" target="_blank">二叉表达式树</a></strong>是一种表达算术表达式的二叉树。二叉表达式树中的每一个节点都有零个或两个子节点。&nbsp;叶节点（有 0 个子节点的节点）表示操作数，非叶节点（有 2 个子节点的节点）表示运算符。在本题中，我们只考虑 <code>'+'</code> 运算符（即加法）。</p>
 
@@ -64,7 +66,11 @@ tags:
 
 <p><b>进阶：</b>当你的答案需同时支持&nbsp;<code>'-'</code>&nbsp;运算符（减法）时，你该如何修改你的答案</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -77,6 +83,8 @@ tags:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉表达式树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -100,6 +108,8 @@ class Solution:
         dfs(root2, -1)
         return all(x == 0 for x in cnt.values())
 ```
+
+#### Java
 
 ```java
 /**
@@ -144,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -181,6 +193,8 @@ public:
     }
 };
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -221,9 +235,15 @@ var checkEquivalence = function (root1, root2) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -249,6 +269,8 @@ class Solution:
 
         return dfs(root1) == dfs(root2)
 ```
+
+#### Java
 
 ```java
 /**
@@ -298,6 +320,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -334,6 +358,8 @@ public:
     }
 };
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -380,4 +406,6 @@ var checkEquivalence = function (root1, root2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

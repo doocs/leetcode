@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1591.Strange%20Printer%20II/README.md
 rating: 2290
+source: 第 35 场双周赛 Q4
 tags:
     - 图
     - 拓扑排序
@@ -10,13 +11,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [1591. 奇怪的打印机 II](https://leetcode.cn/problems/strange-printer-ii)
 
 [English Version](/solution/1500-1599/1591.Strange%20Printer%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个奇怪的打印机，它有如下两个特殊的打印规则：</p>
 
@@ -70,6 +73,42 @@ tags:
 	<li><code>1 &lt;= targetGrid[row][col] &lt;= 60</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+### 方法一
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

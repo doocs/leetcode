@@ -9,11 +9,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [901. Online Stock Span](https://leetcode.com/problems/online-stock-span)
 
 [中文文档](/solution/0900-0999/0901.Online%20Stock%20Span/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design an algorithm that collects daily price quotes for some stock and returns <strong>the span</strong> of that stock&#39;s price for the current day.</p>
 
@@ -60,7 +64,11 @@ stockSpanner.next(85);  // return 6
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>next</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
 
@@ -77,6 +85,8 @@ Finally, we push $(price, cnt)$ onto the stack and return $cnt$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of times `next(price)` is called.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class StockSpanner:
@@ -95,6 +105,8 @@ class StockSpanner:
 # obj = StockSpanner()
 # param_1 = obj.next(price)
 ```
+
+#### Java
 
 ```java
 class StockSpanner {
@@ -119,6 +131,8 @@ class StockSpanner {
  * int param_1 = obj.next(price);
  */
 ```
+
+#### C++
 
 ```cpp
 class StockSpanner {
@@ -146,6 +160,8 @@ private:
  * int param_1 = obj->next(price);
  */
 ```
+
+#### Go
 
 ```go
 type StockSpanner struct {
@@ -175,6 +191,8 @@ type pair struct{ price, cnt int }
  */
 ```
 
+#### TypeScript
+
 ```ts
 class StockSpanner {
     private stk: number[][];
@@ -199,6 +217,8 @@ class StockSpanner {
  * var param_1 = obj.next(price)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -234,4 +254,6 @@ impl StockSpanner {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

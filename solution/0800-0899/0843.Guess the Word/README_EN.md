@@ -10,11 +10,15 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [843. Guess the Word](https://leetcode.com/problems/guess-the-word)
 
 [中文文档](/solution/0800-0899/0843.Guess%20the%20Word/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of unique strings <code>words</code> where <code>words[i]</code> is six letters long. One word of <code>words</code> was chosen as a secret word.</p>
 
@@ -71,6 +75,42 @@ We made 5 calls to master.guess, and one of them was the secret, so we pass the 
 	<li><code>10 &lt;= allowedGuesses &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

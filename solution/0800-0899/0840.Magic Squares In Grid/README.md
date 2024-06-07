@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [840. 矩阵中的幻方](https://leetcode.cn/problems/magic-squares-in-grid)
 
 [English Version](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>3 x 3</code> 的幻方是一个填充有&nbsp;<strong>从 <code>1</code> 到 <code>9</code>&nbsp;</strong> 的不同数字的 <code>3 x 3</code> 矩阵，其中每行，每列以及两条对角线上的各数之和都相等。</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li><code>0 &lt;= grid[i][j] &lt;= 15</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -65,6 +71,8 @@ tags:
 时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +105,8 @@ class Solution:
         m, n = len(grid), len(grid[0])
         return sum(check(i, j) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -205,6 +217,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numMagicSquaresInside(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -251,6 +265,8 @@ func numMagicSquaresInside(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numMagicSquaresInside(grid: number[][]): number {
@@ -302,4 +318,6 @@ function numMagicSquaresInside(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

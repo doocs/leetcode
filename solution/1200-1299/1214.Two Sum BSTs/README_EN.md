@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1214.Two%20Sum%20BSTs/README_EN.md
 rating: 1389
+source: Biweekly Contest 10 Q2
 tags:
     - Stack
     - Tree
@@ -13,11 +14,15 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1214. Two Sum BSTs 🔒](https://leetcode.com/problems/two-sum-bsts)
 
 [中文文档](/solution/1200-1299/1214.Two%20Sum%20BSTs/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given the roots of two binary search trees, <code>root1</code> and <code>root2</code>, return <code>true</code> if and only if there is a node in the first tree and a node in the second tree whose values sum up to a given integer <code>target</code>.</p>
 
@@ -45,7 +50,11 @@ tags:
 	<li><code>-10<sup>9</sup> &lt;= Node.val, target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: In-order Traversal + Two Pointers
 
@@ -58,6 +67,8 @@ Each time, compare the sum $x = nums[0][i] + nums[1][j]$ with the target value. 
 The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the number of nodes in the two trees respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -91,6 +102,8 @@ class Solution:
                 j -= 1
         return False
 ```
+
+#### Java
 
 ```java
 /**
@@ -141,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -184,6 +199,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -221,6 +238,8 @@ func twoSumBSTs(root1 *TreeNode, root2 *TreeNode, target int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -270,4 +289,6 @@ function twoSumBSTs(root1: TreeNode | null, root2: TreeNode | null, target: numb
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

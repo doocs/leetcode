@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1169.Invalid%20Transactions/README_EN.md
 rating: 1658
+source: Weekly Contest 151 Q1
 tags:
     - Array
     - Hash Table
@@ -10,11 +11,15 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1169. Invalid Transactions](https://leetcode.com/problems/invalid-transactions)
 
 [中文文档](/solution/1100-1199/1169.Invalid%20Transactions/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A transaction is possibly invalid if:</p>
 
@@ -60,7 +65,11 @@ tags:
 	<li>Each <code>{amount}</code> consist of digits, and represent an integer between <code>0</code> and <code>2000</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
 
@@ -75,6 +84,8 @@ Finally, we traverse the transaction numbers in the answer and add the correspon
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the transaction list.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +104,8 @@ class Solution:
                     idx.add(j)
         return [transactions[i] for i in idx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +150,8 @@ class Item {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -178,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func invalidTransactions(transactions []string) (ans []string) {
@@ -221,4 +238,6 @@ type tuple struct {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

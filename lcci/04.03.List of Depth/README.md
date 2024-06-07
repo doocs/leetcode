@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.03.List%20of%20Depth/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 04.03. 特定深度节点链表](https://leetcode.cn/problems/list-of-depth-lcci)
 
 [English Version](/lcci/04.03.List%20of%20Depth/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定一棵二叉树，设计一个算法，创建含有某一深度上所有节点的链表（比如，若一棵树的深度为 <code>D</code>，则会创建出 <code>D</code> 个链表）。返回一个包含所有深度的链表的数组。</p>
 
 <p>&nbsp;</p>
@@ -30,7 +33,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.03.List%20of%20Dep
 <strong>输出：</strong>[[1],[2,3],[4,5,7],[8]]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS 层序遍历
 
@@ -39,6 +46,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.03.List%20of%20Dep
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -72,6 +81,8 @@ class Solution:
             ans.append(dummy.next)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -116,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -162,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -200,6 +215,8 @@ func listOfDepth(tree *TreeNode) (ans []*ListNode) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -246,6 +263,8 @@ function listOfDepth(tree: TreeNode | null): Array<ListNode | null> {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -317,6 +336,8 @@ impl Solution {
 }
 ```
 
+#### Swift
+
 ```swift
 /* class TreeNode {
 *    var val: Int
@@ -375,4 +396,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

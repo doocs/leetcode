@@ -3,16 +3,21 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2274.Maximum%20Consecutive%20Floors%20Without%20Special%20Floors/README_EN.md
 rating: 1332
+source: Weekly Contest 293 Q2
 tags:
     - Array
     - Sorting
 ---
+
+<!-- problem:start -->
 
 # [2274. Maximum Consecutive Floors Without Special Floors](https://leetcode.com/problems/maximum-consecutive-floors-without-special-floors)
 
 [中文文档](/solution/2200-2299/2274.Maximum%20Consecutive%20Floors%20Without%20Special%20Floors/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Alice manages a company and has rented some floors of a building as office space. Alice has decided some of these floors should be <strong>special floors</strong>, used for relaxation only.</p>
 
@@ -50,11 +55,17 @@ Therefore, we return the maximum number which is 3 floors.
 	<li>All the values of <code>special</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +76,8 @@ class Solution:
             ans = max(ans, special[i] - special[i - 1] - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxConsecutive(bottom: number, top: number, special: number[]): number {
@@ -96,4 +111,6 @@ function maxConsecutive(bottom: number, top: number, special: number[]): number 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

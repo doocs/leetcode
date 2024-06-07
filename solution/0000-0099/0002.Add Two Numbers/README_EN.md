@@ -8,11 +8,15 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers)
 
 [中文文档](/solution/0000-0099/0002.Add%20Two%20Numbers/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse order</strong>, and each of their nodes contains a single digit. Add the two numbers and return the sum&nbsp;as a linked list.</p>
 
@@ -50,7 +54,11 @@ tags:
 	<li>It is guaranteed that the list represents a number that does not have leading zeros.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -63,6 +71,8 @@ Finally, we return the head node of the answer linked list.
 The time complexity is $O(\max (m, n))$, where $m$ and $n$ are the lengths of the two linked lists. We need to traverse the entire position of the two linked lists, and each position only needs $O(1)$ time. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -85,6 +95,8 @@ class Solution:
             l2 = l2.next if l2 else None
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -115,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -144,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -179,6 +195,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -212,6 +230,8 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
     return dummy.next;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -256,6 +276,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -284,6 +306,8 @@ var addTwoNumbers = function (l1, l2) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -314,6 +338,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 /**
@@ -365,6 +391,8 @@ class Solution {
 }
 ```
 
+#### Swift
+
 ```swift
 /**
  * Definition for singly-linked list.
@@ -396,6 +424,8 @@ class Solution {
 }
 ```
 
+#### Ruby
+
 ```rb
 # Definition for singly-linked list.
 # class ListNode
@@ -423,6 +453,8 @@ def add_two_numbers(l1, l2)
     dummy.next
 end
 ```
+
+#### Nim
 
 ```nim
 #[
@@ -460,4 +492,6 @@ proc addTwoNumbers(l1: var SinglyLinkedList, l2: var SinglyLinkedList): SinglyLi
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

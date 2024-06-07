@@ -7,22 +7,26 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [165. Compare Version Numbers](https://leetcode.com/problems/compare-version-numbers)
 
 [中文文档](/solution/0100-0199/0165.Compare%20Version%20Numbers/README.md)
 
 ## Description
 
-<p>Given two <strong>version strings</strong>,&nbsp;<code>version1</code> and <code>version2</code>, compare them. A version string consists of <strong>revisions</strong> separated by dots <code>&#39;.&#39;</code>. The <strong>value of the revision</strong> is its <strong>integer conversion</strong> ignoring leading zeros.</p>
+<!-- description:start -->
+
+<p>Given two <strong>version strings</strong>, <code>version1</code> and <code>version2</code>, compare them. A version string consists of <strong>revisions</strong> separated by dots <code>&#39;.&#39;</code>. The <strong>value of the revision</strong> is its <strong>integer conversion</strong> ignoring leading zeros.</p>
 
 <p>To compare version strings, compare their revision values in <strong>left-to-right order</strong>. If one of the version strings has fewer revisions, treat the missing revision values as <code>0</code>.</p>
 
-<p><em>Return the following:</em></p>
+<p>Return the following:</p>
 
 <ul>
-	<li>If <code>version1 &lt; version2</code>, return <code>-1</code>.</li>
-	<li>If <code>version1 &gt; version2</code>, return <code>1</code>.</li>
-	<li>Otherwise, return <code>0</code>.</li>
+	<li>If <code>version1 &lt; version2</code>, return -1.</li>
+	<li>If <code>version1 &gt; version2</code>, return 1.</li>
+	<li>Otherwise, return 0.</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -72,11 +76,17 @@ tags:
 	<li>All the given revisions in&nbsp;<code>version1</code> and <code>version2</code>&nbsp;can be stored in&nbsp;a&nbsp;<strong>32-bit integer</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +106,8 @@ class Solution:
             i, j = i + 1, j + 1
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func compareVersion(version1 string, version2 string) int {
@@ -164,6 +180,8 @@ func compareVersion(version1 string, version2 string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function compareVersion(version1: string, version2: string): number {
     const v1 = version1.split('.');
@@ -180,6 +198,8 @@ function compareVersion(version1: string, version2: string): number {
     return 0;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -204,4 +224,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

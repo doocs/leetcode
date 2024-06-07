@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2044.Count%20Number%20of%20Maximum%20Bitwise-OR%20Subsets/README.md
 rating: 1567
+source: 第 263 场周赛 Q3
 tags:
     - 位运算
     - 数组
@@ -10,13 +11,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [2044. 统计按位或能得到最大值的子集数目](https://leetcode.cn/problems/count-number-of-maximum-bitwise-or-subsets)
 
 [English Version](/solution/2000-2099/2044.Count%20Number%20of%20Maximum%20Bitwise-OR%20Subsets/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，请你找出 <code>nums</code> 子集 <strong>按位或</strong> 可能得到的<strong> </strong><strong>最大值</strong> ，并返回按位或能得到最大值的 <strong>不同非空子集的数目</strong> 。</p>
 
@@ -66,7 +69,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -75,6 +82,8 @@ tags:
 时间复杂度 $O(2^n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +104,8 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countMaxOrSubsets(nums []int) int {
 	mx, ans := 0, 0
@@ -176,6 +191,8 @@ func countMaxOrSubsets(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countMaxOrSubsets(nums: number[]): number {
     let n = nums.length;
@@ -196,6 +213,8 @@ function countMaxOrSubsets(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -232,11 +251,17 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二进制枚举
 
 时间复杂度 $O(n*2^n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -256,6 +281,8 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -285,6 +312,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -311,6 +340,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countMaxOrSubsets(nums []int) int {
 	n := len(nums)
@@ -333,6 +364,8 @@ func countMaxOrSubsets(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countMaxOrSubsets(nums: number[]): number {
@@ -360,9 +393,15 @@ function countMaxOrSubsets(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -382,6 +421,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -408,6 +449,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -433,6 +476,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countMaxOrSubsets(nums []int) int {
 	mx, ans := 0, 0
@@ -456,4 +501,6 @@ func countMaxOrSubsets(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

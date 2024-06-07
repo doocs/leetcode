@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2030.%20%E9%AD%94%E5%A1%94%E6%B8%B8%E6%88%8F/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 30. 魔塔游戏](https://leetcode.cn/problems/p0NxJO)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 小扣当前位于魔塔游戏第一层，共有 `N` 个房间，编号为 `0 ~ N-1`。每个房间的补血道具/怪物对于血量影响记于数组 `nums`，其中正数表示道具补血数值，即血量增加对应数值；负数表示怪物造成伤害值，即血量减少对应数值；`0` 表示房间对血量无影响。
 
@@ -35,7 +37,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2030.%20%E9%AD%94%
 -   `1 <= nums.length <= 10^5`
 -   `-10^5 <= nums[i] <= 10^5`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 优先队列（小根堆）
 
@@ -54,6 +60,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2030.%20%E9%AD%94%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def magicTower(self, nums: List[int]) -> int:
@@ -71,6 +79,8 @@ class Solution:
         blood += v
         return -1 if blood <= 0 else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +131,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func magicTower(nums []int) (ans int) {
@@ -154,6 +168,8 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function magicTower(nums: number[]): number {
     const q = new MinPriorityQueue();
@@ -176,4 +192,6 @@ function magicTower(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

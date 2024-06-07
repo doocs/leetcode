@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [345. 反转字符串中的元音字母](https://leetcode.cn/problems/reverse-vowels-of-a-string)
 
 [English Version](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> ，仅反转字符串中的所有元音字母，并返回结果字符串。</p>
 
@@ -43,7 +45,11 @@ tags:
 	<li><code>s</code> 由 <strong>可打印的 ASCII</strong> 字符组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -54,6 +60,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(|\Sigma|)$，其中 $\Sigma$ 是字符集的大小。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +79,8 @@ class Solution:
                 i, j = i + 1, j - 1
         return "".join(cs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseVowels(s string) string {
 	vowels := [128]bool{}
@@ -151,6 +165,8 @@ func reverseVowels(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reverseVowels(s: string): string {
     const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
@@ -167,6 +183,8 @@ function reverseVowels(s: string): string {
     return cs.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -194,4 +212,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

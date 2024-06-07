@@ -11,11 +11,15 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [581. Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray)
 
 [中文文档](/solution/0500-0599/0581.Shortest%20Unsorted%20Continuous%20Subarray/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, you need to find one <b>continuous subarray</b> such that if you only sort this subarray in non-decreasing order, then the whole array will be sorted in non-decreasing order.</p>
 
@@ -55,7 +59,11 @@ tags:
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Can you solve it in <code>O(n)</code> time complexity?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -64,6 +72,8 @@ We can first sort the array, and then compare the sorted array with the original
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +86,8 @@ class Solution:
             r -= 1
         return r - l + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findUnsortedSubarray(nums []int) int {
 	arr := make([]int, len(nums))
@@ -128,6 +144,8 @@ func findUnsortedSubarray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findUnsortedSubarray(nums: number[]): number {
     const arr = [...nums];
@@ -142,6 +160,8 @@ function findUnsortedSubarray(nums: number[]): number {
     return r - l + 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,6 +198,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Maintaining the Maximum Value on the Left and the Minimum Value on the Right
 
 We can traverse the array from left to right and maintain a maximum value $mx$. If the current value is less than $mx$, it means that the current value is not in the correct position, and we update the right boundary $r$ to the current position. Similarly, we can traverse the array from right to left and maintain a minimum value $mi$. If the current value is greater than $mi$, it means that the current value is not in the correct position, and we update the left boundary $l$ to the current position. At initialization, we set $l$ and $r$ to $-1$. If $l$ and $r$ are not updated, it means that the array is already sorted, and we return $0$. Otherwise, we return $r - l + 1$.
@@ -185,6 +209,8 @@ We can traverse the array from left to right and maintain a maximum value $mx$. 
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -203,6 +229,8 @@ class Solution:
                 mi = nums[n - i - 1]
         return 0 if r == -1 else r - l + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -227,6 +255,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -253,6 +283,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findUnsortedSubarray(nums []int) int {
 	const inf = 1 << 30
@@ -278,6 +310,8 @@ func findUnsortedSubarray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findUnsortedSubarray(nums: number[]): number {
     let [l, r] = [-1, -1];
@@ -301,4 +335,6 @@ function findUnsortedSubarray(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

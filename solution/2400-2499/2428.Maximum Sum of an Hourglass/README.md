@@ -3,11 +3,14 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README.md
 rating: 1289
+source: 第 313 场周赛 Q2
 tags:
     - 数组
     - 矩阵
     - 前缀和
 ---
+
+<!-- problem:start -->
 
 # [2428. 沙漏的最大总和](https://leetcode.cn/problems/maximum-sum-of-an-hourglass)
 
@@ -15,7 +18,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> 的整数矩阵 <code>grid</code> 。</p>
 
@@ -52,7 +55,11 @@ tags:
 	<li><code>0 &lt;= grid[i][j] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -61,6 +68,8 @@ tags:
 时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +85,8 @@ class Solution:
                 ans = max(ans, s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSum(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -137,6 +152,8 @@ func maxSum(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSum(grid: number[][]): number {
@@ -160,4 +177,6 @@ function maxSum(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

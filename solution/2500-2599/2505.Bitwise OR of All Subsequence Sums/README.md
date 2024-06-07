@@ -9,13 +9,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [2505. 所有子序列和的按位或 🔒](https://leetcode.cn/problems/bitwise-or-of-all-subsequence-sums)
 
 [English Version](/solution/2500-2599/2505.Bitwise%20OR%20of%20All%20Subsequence%20Sums/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，返回对数组中所有可能的 <strong>子序列</strong> 之和进行按位 <strong>或</strong> 运算后得到的值。</p>
 
@@ -49,7 +51,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -58,6 +64,8 @@ tags:
 时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别为数组长度和数组中元素的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +82,8 @@ class Solution:
             cnt[i + 1] += cnt[i] // 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsequenceSumOr(nums []int) int64 {
 	cnt := make([]int, 64)
@@ -145,4 +159,6 @@ func subsequenceSumOr(nums []int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

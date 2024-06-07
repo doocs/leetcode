@@ -3,10 +3,13 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1046.Last%20Stone%20Weight/README.md
 rating: 1172
+source: 第 137 场周赛 Q1
 tags:
     - 数组
     - 堆（优先队列）
 ---
+
+<!-- problem:start -->
 
 # [1046. 最后一块石头的重量](https://leetcode.cn/problems/last-stone-weight)
 
@@ -14,7 +17,7 @@ tags:
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一堆石头，每块石头的重量都是正整数。</p>
 
@@ -49,7 +52,11 @@ tags:
 	<li><code>1 <= stones[i] <= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（大根堆）
 
@@ -60,6 +67,8 @@ tags:
 时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `stones` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +81,8 @@ class Solution:
                 heappush(h, x - y)
         return 0 if not h else -h[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastStoneWeight(stones []int) int {
@@ -144,6 +159,8 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
+#### TypeScript
+
 ```ts
 function lastStoneWeight(stones: number[]): number {
     const pq = new MaxPriorityQueue();
@@ -160,6 +177,8 @@ function lastStoneWeight(stones: number[]): number {
     return pq.isEmpty() ? 0 : pq.dequeue().element;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -184,4 +203,6 @@ var lastStoneWeight = function (stones) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

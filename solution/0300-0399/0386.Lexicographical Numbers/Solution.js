@@ -3,18 +3,18 @@
  * @return {number[]}
  */
 var lexicalOrder = function (n) {
-    let ans = [];
-    function dfs(u) {
-        if (u > n) {
-            return;
+    const ans = [];
+    let v = 1;
+    for (let i = 0; i < n; ++i) {
+        ans.push(v);
+        if (v * 10 <= n) {
+            v *= 10;
+        } else {
+            while (v % 10 === 9 || v === n) {
+                v = Math.floor(v / 10);
+            }
+            ++v;
         }
-        ans.push(u);
-        for (let i = 0; i < 10; ++i) {
-            dfs(u * 10 + i);
-        }
-    }
-    for (let i = 1; i < 10; ++i) {
-        dfs(i);
     }
     return ans;
 };

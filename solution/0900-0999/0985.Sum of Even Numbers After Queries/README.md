@@ -7,13 +7,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [985. 查询后的偶数和](https://leetcode.cn/problems/sum-of-even-numbers-after-queries)
 
 [English Version](/solution/0900-0999/0985.Sum%20of%20Even%20Numbers%20After%20Queries/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出一个整数数组&nbsp;<code>A</code>&nbsp;和一个查询数组&nbsp;<code>queries</code>。</p>
 
@@ -49,7 +51,11 @@ tags:
 	<li><code>0 &lt;= queries[i][1] &lt; A.length</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -64,6 +70,8 @@ tags:
 时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别为数组 $nums$ 和 $queries$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +89,8 @@ class Solution:
             ans.append(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumEvenAfterQueries(nums []int, queries [][]int) (ans []int) {
 	s := 0
@@ -160,6 +174,8 @@ func sumEvenAfterQueries(nums []int, queries [][]int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
     let s = 0;
@@ -182,6 +198,8 @@ function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -213,4 +231,6 @@ var sumEvenAfterQueries = function (nums, queries) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

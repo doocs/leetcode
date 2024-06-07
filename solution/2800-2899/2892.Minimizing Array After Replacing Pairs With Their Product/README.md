@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [2892. 将相邻元素相乘后得到最小化数组 🔒](https://leetcode.cn/problems/minimizing-array-after-replacing-pairs-with-their-product)
 
 [English Version](/solution/2800-2899/2892.Minimizing%20Array%20After%20Replacing%20Pairs%20With%20Their%20Product/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>k</code>，你可以对数组执行以下操作任意次数：</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -72,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minArrayLength(self, nums: List[int], k: int) -> int:
@@ -86,6 +94,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minArrayLength(nums []int, k int) int {
 	ans, y := 1, nums[0]
@@ -149,6 +163,8 @@ func minArrayLength(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minArrayLength(nums: number[], k: number): number {
@@ -170,4 +186,6 @@ function minArrayLength(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

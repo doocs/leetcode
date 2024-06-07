@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2555.Maximize%20Win%20From%20Two%20Segments/README_EN.md
 rating: 2080
+source: Biweekly Contest 97 Q3
 tags:
     - Array
     - Binary Search
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2555. Maximize Win From Two Segments](https://leetcode.com/problems/maximize-win-from-two-segments)
 
 [中文文档](/solution/2500-2599/2555.Maximize%20Win%20From%20Two%20Segments/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>There are some prizes on the <strong>X-axis</strong>. You are given an integer array <code>prizePositions</code> that is <strong>sorted in non-decreasing order</strong>, where <code>prizePositions[i]</code> is the position of the <code>i<sup>th</sup></code> prize. There could be different prizes at the same position on the line. You are also given an integer <code>k</code>.</p>
 
@@ -61,7 +66,11 @@ tags:
 .spoilerbutton[value="Hide Message"] + .spoiler {padding:5px;}
 </style>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Binary Search
 
@@ -75,6 +84,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximizeWin(self, prizePositions: List[int], k: int) -> int:
@@ -87,6 +98,8 @@ class Solution:
             f[i] = max(f[i - 1], i - j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximizeWin(prizePositions []int, k int) (ans int) {
 	n := len(prizePositions)
@@ -148,6 +165,8 @@ func maximizeWin(prizePositions []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximizeWin(prizePositions: number[], k: number): number {
@@ -179,4 +198,6 @@ function maximizeWin(prizePositions: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

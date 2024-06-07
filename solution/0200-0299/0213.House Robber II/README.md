@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [213. 打家劫舍 II](https://leetcode.cn/problems/house-robber-ii)
 
 [English Version](/solution/0200-0299/0213.House%20Robber%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都 <strong>围成一圈</strong> ，这意味着第一个房屋和最后一个房屋是紧挨着的。同时，相邻的房屋装有相互连通的防盗系统，<strong>如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警</strong> 。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -62,6 +68,8 @@ tags:
 时间复杂度 $O(n)$，其中 $n$ 是数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +84,8 @@ class Solution:
             return nums[0]
         return max(_rob(nums[1:]), _rob(nums[:-1]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rob(nums []int) int {
 	n := len(nums)
@@ -140,6 +154,8 @@ func robRange(nums []int, l, r int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function rob(nums: number[]): number {
     const n = nums.length;
@@ -156,6 +172,8 @@ function rob(nums: number[]): number {
     return Math.max(robRange(0, n - 2), robRange(1, n - 1));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,4 +196,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,17 +3,22 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2615.Sum%20of%20Distances/README_EN.md
 rating: 1793
+source: Weekly Contest 340 Q2
 tags:
     - Array
     - Hash Table
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2615. Sum of Distances](https://leetcode.com/problems/sum-of-distances)
 
 [中文文档](/solution/2600-2699/2615.Sum%20of%20Distances/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. There exists an array <code>arr</code> of length <code>nums.length</code>, where <code>arr[i]</code> is the sum of <code>|i - j|</code> over all <code>j</code> such that <code>nums[j] == nums[i]</code> and <code>j != i</code>. If there is no such <code>j</code>, set <code>arr[i]</code> to be <code>0</code>.</p>
 
@@ -50,11 +55,17 @@ When i = 4, arr[4] = 0 because there is no other index with value 2.
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +83,8 @@ class Solution:
                     right -= (idx[i + 1] - idx[i]) * (len(idx) - i - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distance(nums []int) []int64 {
 	n := len(nums)
@@ -160,4 +177,6 @@ func distance(nums []int) []int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
