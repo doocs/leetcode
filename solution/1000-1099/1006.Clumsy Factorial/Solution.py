@@ -1,15 +1,15 @@
 class Solution:
-    def clumsy(self, N: int) -> int:
-        op = 0
-        s = [N]
-        for i in range(N - 1, 0, -1):
-            if op == 0:
-                s.append(s.pop() * i)
-            elif op == 1:
-                s.append(int(s.pop() / i))
-            elif op == 2:
-                s.append(i)
+    def clumsy(self, n: int) -> int:
+        k = 0
+        stk = [n]
+        for x in range(n - 1, 0, -1):
+            if k == 0:
+                stk.append(stk.pop() * x)
+            elif k == 1:
+                stk.append(int(stk.pop() / x))
+            elif k == 2:
+                stk.append(x)
             else:
-                s.append(-i)
-            op = (op + 1) % 4
-        return sum(s)
+                stk.append(-x)
+            k = (k + 1) % 4
+        return sum(stk)

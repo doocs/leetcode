@@ -179,13 +179,13 @@ class MovingAverage {
     private var arr: [Int]
     private var s: Int
     private var cnt: Int
-    
+
     init(_ size: Int) {
         arr = [Int](repeating: 0, count: size)
         s = 0
         cnt = 0
     }
-    
+
     func next(_ val: Int) -> Double {
         let idx = cnt % arr.count
         s += val - arr[idx]

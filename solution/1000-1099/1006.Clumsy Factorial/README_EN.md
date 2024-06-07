@@ -68,7 +68,24 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Stack + Simulation
+
+The calculation process of clumsy factorial can be seen as a simulation of a stack.
+
+We define a stack `stk`, initially we push $n$ into the stack, and define a variable $k$ to represent the current operator, initially $k = 0$.
+
+Then we start from $n-1$, enumerate $x$, and decide how to handle $x$ based on the current value of $k$:
+
+-   When $k = 0$, it represents a multiplication operation, we pop the top element of the stack, multiply it by $x$, and then push it back into the stack;
+-   When $k = 1$, it represents a division operation, we pop the top element of the stack, divide it by $x$, take the integer part, and then push it back into the stack;
+-   When $k = 2$, it represents an addition operation, we directly push $x$ into the stack;
+-   When $k = 3$, it represents a subtraction operation, we push $-x$ into the stack.
+
+Next, we update $k = (k + 1) \mod 4$.
+
+Finally, the sum of the elements in the stack is the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the integer $N$ given in the problem.
 
 <!-- tabs:start -->
 
@@ -76,48 +93,123 @@ tags:
 
 ```python
 class Solution:
-    def clumsy(self, N: int) -> int:
-        op = 0
-        s = [N]
-        for i in range(N - 1, 0, -1):
-            if op == 0:
-                s.append(s.pop() * i)
-            elif op == 1:
-                s.append(int(s.pop() / i))
-            elif op == 2:
-                s.append(i)
+    def clumsy(self, n: int) -> int:
+        k = 0
+        stk = [n]
+        for x in range(n - 1, 0, -1):
+            if k == 0:
+                stk.append(stk.pop() * x)
+            elif k == 1:
+                stk.append(int(stk.pop() / x))
+            elif k == 2:
+                stk.append(x)
             else:
-                s.append(-i)
-            op = (op + 1) % 4
-        return sum(s)
+                stk.append(-x)
+            k = (k + 1) % 4
+        return sum(stk)
 ```
 
 #### Java
 
 ```java
 class Solution {
-    public int clumsy(int N) {
-        Deque<Integer> s = new ArrayDeque<>();
-        s.offerLast(N);
-        int op = 0;
-        for (int i = N - 1; i > 0; --i) {
-            if (op == 0) {
-                s.offerLast(s.pollLast() * i);
-            } else if (op == 1) {
-                s.offerLast(s.pollLast() / i);
-            } else if (op == 2) {
-                s.offerLast(i);
+    public int clumsy(int n) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.push(n);
+        int k = 0;
+        for (int x = n - 1; x > 0; --x) {
+            if (k == 0) {
+                stk.push(stk.pop() * x);
+            } else if (k == 1) {
+                stk.push(stk.pop() / x);
+            } else if (k == 2) {
+                stk.push(x);
             } else {
-                s.offerLast(-i);
+                stk.push(-x);
             }
-            op = (op + 1) % 4;
+            k = (k + 1) % 4;
         }
-        int res = 0;
-        while (!s.isEmpty()) {
-            res += s.pollLast();
-        }
-        return res;
+        return stk.stream().mapToInt(Integer::intValue).sum();
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int clumsy(int n) {
+        stack<int> stk;
+        stk.push(n);
+        int k = 0;
+        for (int x = n - 1; x; --x) {
+            if (k == 0) {
+                stk.top() *= x;
+            } else if (k == 1) {
+                stk.top() /= x;
+            } else if (k == 2) {
+                stk.push(x);
+            } else {
+                stk.push(-x);
+            }
+            k = (k + 1) % 4;
+        }
+        int ans = 0;
+        while (!stk.empty()) {
+            ans += stk.top();
+            stk.pop();
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func clumsy(n int) (ans int) {
+	stk := []int{n}
+	k := 0
+	for x := n - 1; x > 0; x-- {
+		switch k {
+		case 0:
+			stk[len(stk)-1] *= x
+		case 1:
+			stk[len(stk)-1] /= x
+		case 2:
+			stk = append(stk, x)
+		case 3:
+			stk = append(stk, -x)
+		}
+		k = (k + 1) % 4
+	}
+	for _, x := range stk {
+		ans += x
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function clumsy(n: number): number {
+    const stk: number[] = [n];
+    let k = 0;
+    for (let x = n - 1; x; --x) {
+        if (k === 0) {
+            stk.push(stk.pop()! * x);
+        } else if (k === 1) {
+            stk.push((stk.pop()! / x) | 0);
+        } else if (k === 2) {
+            stk.push(x);
+        } else {
+            stk.push(-x);
+        }
+        k = (k + 1) % 4;
+    }
+    return stk.reduce((acc, cur) => acc + cur, 0);
 }
 ```
 
