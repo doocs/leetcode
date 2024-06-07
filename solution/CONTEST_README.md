@@ -1573,13 +1573,6 @@ comments: true
 - [1963. 使字符串平衡的最小交换次数](/solution/1900-1999/1963.Minimum%20Number%20of%20Swaps%20to%20Make%20the%20String%20Balanced/README.md)
 - [1964. 找出到每个位置为止最长的有效障碍赛跑路线](/solution/1900-1999/1964.Find%20the%20Longest%20Valid%20Obstacle%20Course%20at%20Each%20Position/README.md)
 
-#### 第 58 场双周赛(2021-08-07 22:30, 90 分钟) 参赛人数 2889
-
-- [1957. 删除字符使字符串变好](/solution/1900-1999/1957.Delete%20Characters%20to%20Make%20Fancy%20String/README.md)
-- [1958. 检查操作是否合法](/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README.md)
-- [1959. K 次调整数组大小浪费的最小总空间](/solution/1900-1999/1959.Minimum%20Total%20Space%20Wasted%20With%20K%20Resizing%20Operations/README.md)
-- [1960. 两个回文子字符串长度的最大乘积](/solution/1900-1999/1960.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Substrings/README.md)
-
 #### 第 252 场周赛(2021-08-01 10:30, 90 分钟) 参赛人数 4647
 
 - [1952. 三除数](/solution/1900-1999/1952.Three%20Divisors/README.md)

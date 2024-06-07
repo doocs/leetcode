@@ -1576,13 +1576,6 @@ If you want to estimate your score changes after the contest ends, you can visit
 - [1963. Minimum Number of Swaps to Make the String Balanced](/solution/1900-1999/1963.Minimum%20Number%20of%20Swaps%20to%20Make%20the%20String%20Balanced/README_EN.md)
 - [1964. Find the Longest Valid Obstacle Course at Each Position](/solution/1900-1999/1964.Find%20the%20Longest%20Valid%20Obstacle%20Course%20at%20Each%20Position/README_EN.md)
 
-#### Biweekly Contest 58
-
-- [1957. Delete Characters to Make Fancy String](/solution/1900-1999/1957.Delete%20Characters%20to%20Make%20Fancy%20String/README_EN.md)
-- [1958. Check if Move is Legal](/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README_EN.md)
-- [1959. Minimum Total Space Wasted With K Resizing Operations](/solution/1900-1999/1959.Minimum%20Total%20Space%20Wasted%20With%20K%20Resizing%20Operations/README_EN.md)
-- [1960. Maximum Product of the Length of Two Palindromic Substrings](/solution/1900-1999/1960.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Substrings/README_EN.md)
-
 #### Weekly Contest 252
 
 - [1952. Three Divisors](/solution/1900-1999/1952.Three%20Divisors/README_EN.md)

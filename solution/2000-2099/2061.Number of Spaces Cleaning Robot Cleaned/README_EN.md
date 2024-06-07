@@ -22,7 +22,7 @@ tags:
 
 <p>A cleaning robot starts at the top left corner of the room and is facing right. The robot will continue heading straight until it reaches the edge of the room or it hits an object, after which it will turn 90 degrees <strong>clockwise</strong> and repeat this process. The starting space and all spaces that the robot visits are <strong>cleaned</strong> by it.</p>
 
-<p>Return <em>the number of <strong>clean</strong> spaces in the room if the robot runs indefinetely.</em></p>
+<p>Return <em>the number of <strong>clean</strong> spaces in the room if the robot runs indefinitely.</em></p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
