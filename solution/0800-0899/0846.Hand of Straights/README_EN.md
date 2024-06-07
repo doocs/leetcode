@@ -163,20 +163,20 @@ func isNStraightHand(hand []int, groupSize int) bool {
 #### TypeScript
 
 ```ts
-export function isNStraightHand(hand: number[], groupSize: number) {
-    const map: Record<number, number> = {};
-
+function isNStraightHand(hand: number[], groupSize: number) {
+    const cnt: Record<number, number> = {};
     for (const i of hand) {
-        map[i] = (map[i] ?? 0) + 1;
+        cnt[i] = (cnt[i] ?? 0) + 1;
     }
 
-    const keys = Object.keys(map).map(Number);
-
+    const keys = Object.keys(cnt).map(Number);
     for (const i of keys) {
-        while (map[i]) {
+        while (cnt[i]) {
             for (let j = i; j < groupSize + i; j++) {
-                if (!map[j]) return false;
-                map[j]--;
+                if (!cnt[j]) {
+                    return false;
+                }
+                cnt[j]--;
             }
         }
     }
