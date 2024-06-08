@@ -357,7 +357,7 @@ class Solution {
         var tail: TreeNode? = nil
         var stack = [TreeNode]()
         var cur = root
-        
+
         while !stack.isEmpty || cur != nil {
             while cur != nil {
                 stack.append(cur!)
