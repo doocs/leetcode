@@ -264,36 +264,27 @@ func replaceWords(dictionary []string, sentence string) string {
 
 ```ts
 class Trie {
-    private children: Trie[];
-    private ref: number;
+    #children: Record<string, Trie> = {};
+    #ref = -1;
 
-    constructor() {
-        this.children = new Array<Trie>(26);
-        this.ref = -1;
-    }
-
-    public insert(w: string, i: number) {
+    insert(w: string, i: number) {
         let node: Trie = this;
         for (const c of w) {
-            const idx = c.charCodeAt(0) - 97;
-            if (!node.children[idx]) {
-                node.children[idx] = new Trie();
-            }
-            node = node.children[idx];
+            node.#children[c] ??= new Trie();
+            node = node.#children[c];
         }
-        node.ref = i;
+        node.#ref = i;
     }
 
-    public search(w: string): number {
+    search(w: string): number {
         let node: Trie = this;
         for (const c of w) {
-            const idx = c.charCodeAt(0) - 97;
-            if (!node.children[idx]) {
+            if (!node.#children[c]) {
                 return -1;
             }
-            node = node.children[idx];
-            if (node.ref !== -1) {
-                return node.ref;
+            node = node.#children[c];
+            if (node.#ref !== -1) {
+                return node.#ref;
             }
         }
         return -1;
