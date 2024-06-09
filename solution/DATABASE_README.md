@@ -282,6 +282,7 @@
 | 3156 | [员工任务持续时间和并发任务](/solution/3100-3199/3156.Employee%20Task%20Duration%20and%20Concurrent%20Tasks/README.md)                                       | `数据库` | 困难 | 🔒   |
 | 3166 | [计算停车费与时长](/solution/3100-3199/3166.Calculate%20Parking%20Fees%20and%20Duration/README.md)                                                           | `数据库` | 中等 | 🔒   |
 | 3172 | [第二天验证](/solution/3100-3199/3172.Second%20Day%20Verification/README.md)                                                                                 | `数据库` | 简单 | 🔒   |
+| 3182 | [Find Top Scoring Students](/solution/3100-3199/3182.Find%20Top%20Scoring%20Students/README.md)                                                              |          | 中等 | 🔒   |
 
 ## 版权
 

@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 401 场周赛(2024-06-09 10:30, 90 分钟) 参赛人数 3160
+
+- [3178. 找出 K 秒后拿着球的孩子](/solution/3100-3199/3178.Find%20the%20Child%20Who%20Has%20the%20Ball%20After%20K%20Seconds/README.md)
+- [3179. K 秒后第 N 个元素的值](/solution/3100-3199/3179.Find%20the%20N-th%20Value%20After%20K%20Seconds/README.md)
+- [3180. 执行操作可获得的最大总奖励 I](/solution/3100-3199/3180.Maximum%20Total%20Reward%20Using%20Operations%20I/README.md)
+- [3181. 执行操作可获得的最大总奖励 II](/solution/3100-3199/3181.Maximum%20Total%20Reward%20Using%20Operations%20II/README.md)
+
 #### 第 132 场双周赛(2024-06-08 22:30, 90 分钟) 参赛人数 2457
 
 - [3174. 清除数字](/solution/3100-3199/3174.Clear%20Digits/README.md)
