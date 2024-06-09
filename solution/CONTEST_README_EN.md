@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 132
+
+- [3174. Clear Digits](/solution/3100-3199/3174.Clear%20Digits/README_EN.md)
+- [3175. Find The First Player to win K Games in a Row](/solution/3100-3199/3175.Find%20The%20First%20Player%20to%20win%20K%20Games%20in%20a%20Row/README_EN.md)
+- [3176. Find the Maximum Length of a Good Subsequence I](/solution/3100-3199/3176.Find%20the%20Maximum%20Length%20of%20a%20Good%20Subsequence%20I/README_EN.md)
+- [3177. Find the Maximum Length of a Good Subsequence II](/solution/3100-3199/3177.Find%20the%20Maximum%20Length%20of%20a%20Good%20Subsequence%20II/README_EN.md)
+
 #### Weekly Contest 400
 
 - [3168. Minimum Number of Chairs in a Waiting Room](/solution/3100-3199/3168.Minimum%20Number%20of%20Chairs%20in%20a%20Waiting%20Room/README_EN.md)

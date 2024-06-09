@@ -1,0 +1,103 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3174.Clear%20Digits/README.md
+---
+
+<!-- problem:start -->
+
+# [3174. 清除数字](https://leetcode.cn/problems/clear-digits)
+
+[English Version](/solution/3100-3199/3174.Clear%20Digits/README_EN.md)
+
+## 题目描述
+
+<!-- description:start -->
+
+<p>给你一个字符串&nbsp;<code>s</code>&nbsp;。</p>
+
+<p>你的任务是重复以下操作删除 <strong>所有</strong>&nbsp;数字字符：</p>
+
+<ul>
+	<li>删除 <strong>第一个数字字符</strong>&nbsp;以及它左边 <strong>最近</strong>&nbsp;的 <strong>非数字</strong>&nbsp;字符。</li>
+</ul>
+
+<p>请你返回删除所有数字字符以后剩下的字符串。</p>
+
+<p>&nbsp;</p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>s = "abc"</span></p>
+
+<p><span class="example-io"><b>输出：</b>"abc"</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>字符串中没有数字。<!-- notionvc: ff07e34f-b1d6-41fb-9f83-5d0ba3c1ecde --></p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>s = "cb34"</span></p>
+
+<p><span class="example-io"><b>输出：</b>""</span></p>
+
+<p><b>解释：</b></p>
+
+<p>一开始，我们对&nbsp;<code>s[2]</code>&nbsp;执行操作，<code>s</code>&nbsp;变为&nbsp;<code>"c4"</code>&nbsp;。</p>
+
+<p>然后对&nbsp;<code>s[1]</code>&nbsp;执行操作，<code>s</code>&nbsp;变为&nbsp;<code>""</code>&nbsp;。</p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 100</code></li>
+	<li><code>s</code>&nbsp;只包含小写英文字母和数字字符。</li>
+	<li>输入保证所有数字都可以按以上操作被删除。</li>
+</ul>
+
+<!-- description:end -->
+
+## 解法
+
+<!-- solution:start -->
+
+### 方法一
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->
