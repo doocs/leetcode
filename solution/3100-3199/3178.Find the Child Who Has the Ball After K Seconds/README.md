@@ -158,32 +158,74 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3178.Fi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：数学
+
+我们注意到，每一轮有 $n - 1$ 次传递，因此我们可以将 $k$ 对 $n - 1$ 取模，得到 $k$ 在当前轮的传递次数 $mod$，然后我们将 $k$ 除以 $n - 1$，得到当前的轮数 $k$。
+
+接下来我们判断当前的轮数 $k$：
+
+-   如果 $k$ 为奇数，那么当前的传递方向是从队尾到队首，因此会传递到编号为 $n - mod - 1$ 的人手中；
+-   如果 $k$ 为偶数，那么当前的传递方向是从队首到队尾，因此会传递到编号为 $mod$ 的人手中。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def numberOfChild(self, n: int, k: int) -> int:
+        k, mod = divmod(k, n - 1)
+        return n - mod - 1 if k & 1 else mod
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int numberOfChild(int n, int k) {
+        int mod = k % (n - 1);
+        k /= (n - 1);
+        return k % 2 == 1 ? n - mod - 1 : mod;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int numberOfChild(int n, int k) {
+        int mod = k % (n - 1);
+        k /= (n - 1);
+        return k % 2 == 1 ? n - mod - 1 : mod;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func numberOfChild(n int, k int) int {
+	mod := k % (n - 1)
+	k /= (n - 1)
+	if k%2 == 1 {
+		return n - mod - 1
+	}
+	return mod
+}
+```
 
+#### TypeScript
+
+```ts
+function numberOfChild(n: number, k: number): number {
+    const mod = k % (n - 1);
+    k = (k / (n - 1)) | 0;
+    return k % 2 ? n - mod - 1 : mod;
+}
 ```
 
 <!-- tabs:end -->

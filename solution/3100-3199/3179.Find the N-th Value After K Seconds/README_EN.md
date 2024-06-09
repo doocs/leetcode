@@ -114,32 +114,98 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3179.Fi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We notice that the range of the integer $n$ is $1 \leq n \leq 1000$, so we can directly simulate this process.
+
+We define an array $a$ of length $n$ and initialize all elements to $1$. Then we simulate the process for $k$ seconds, updating the elements of array $a$ every second until $k$ seconds have passed.
+
+Finally, we return $a[n - 1]$.
+
+The time complexity is $O(n \times k)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $a$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def valueAfterKSeconds(self, n: int, k: int) -> int:
+        a = [1] * n
+        mod = 10**9 + 7
+        for _ in range(k):
+            for i in range(1, n):
+                a[i] = (a[i] + a[i - 1]) % mod
+        return a[n - 1]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int valueAfterKSeconds(int n, int k) {
+        final int mod = (int) 1e9 + 7;
+        int[] a = new int[n];
+        Arrays.fill(a, 1);
+        while (k-- > 0) {
+            for (int i = 1; i < n; ++i) {
+                a[i] = (a[i] + a[i - 1]) % mod;
+            }
+        }
+        return a[n - 1];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int valueAfterKSeconds(int n, int k) {
+        const int mod = 1e9 + 7;
+        vector<int> a(n, 1);
+        while (k-- > 0) {
+            for (int i = 1; i < n; ++i) {
+                a[i] = (a[i] + a[i - 1]) % mod;
+            }
+        }
+        return a[n - 1];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func valueAfterKSeconds(n int, k int) int {
+	const mod int = 1e9 + 7
+	a := make([]int, n)
+	for i := range a {
+		a[i] = 1
+	}
+	for ; k > 0; k-- {
+		for i := 1; i < n; i++ {
+			a[i] = (a[i] + a[i-1]) % mod
+		}
+	}
+	return a[n-1]
+}
+```
 
+#### TypeScript
+
+```ts
+function valueAfterKSeconds(n: number, k: number): number {
+    const a: number[] = Array(n).fill(1);
+    const mod: number = 10 ** 9 + 7;
+    while (k--) {
+        for (let i = 1; i < n; ++i) {
+            a[i] = (a[i] + a[i - 1]) % mod;
+        }
+    }
+    return a[n - 1];
+}
 ```
 
 <!-- tabs:end -->

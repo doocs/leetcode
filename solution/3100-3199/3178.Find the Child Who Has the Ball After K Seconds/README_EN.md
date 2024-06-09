@@ -156,32 +156,74 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3178.Fi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Mathematics
+
+We notice that there are $n - 1$ passes in each round. Therefore, we can take $k$ modulo $n - 1$ to get the number of passes $mod$ in the current round. Then we divide $k$ by $n - 1$ to get the current round number $k$.
+
+Next, we judge the current round number $k$:
+
+-   If $k$ is odd, then the current passing direction is from the end of the queue to the head, so it will be passed to the person with the number $n - mod - 1$.
+-   If $k$ is even, then the current passing direction is from the head of the queue to the end, so it will be passed to the person with the number $mod$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def numberOfChild(self, n: int, k: int) -> int:
+        k, mod = divmod(k, n - 1)
+        return n - mod - 1 if k & 1 else mod
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int numberOfChild(int n, int k) {
+        int mod = k % (n - 1);
+        k /= (n - 1);
+        return k % 2 == 1 ? n - mod - 1 : mod;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int numberOfChild(int n, int k) {
+        int mod = k % (n - 1);
+        k /= (n - 1);
+        return k % 2 == 1 ? n - mod - 1 : mod;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func numberOfChild(n int, k int) int {
+	mod := k % (n - 1)
+	k /= (n - 1)
+	if k%2 == 1 {
+		return n - mod - 1
+	}
+	return mod
+}
+```
 
+#### TypeScript
+
+```ts
+function numberOfChild(n: number, k: number): number {
+    const mod = k % (n - 1);
+    k = (k / (n - 1)) | 0;
+    return k % 2 ? n - mod - 1 : mod;
+}
 ```
 
 <!-- tabs:end -->

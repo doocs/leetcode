@@ -116,32 +116,98 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3179.Fi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们注意到，整数 $n$ 的范围是 $1 \leq n \leq 1000$，因此我们可以直接模拟这个过程。
+
+我们定义一个长度为 $n$ 的数组 $a$，并初始化所有元素为 $1$。然后我们模拟 $k$ 秒的过程，每一秒我们都更新数组 $a$ 的元素，直到 $k$ 秒结束。
+
+最后，我们返回 $a[n - 1]$ 即可。
+
+时间复杂度 $O(n \times k)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $a$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def valueAfterKSeconds(self, n: int, k: int) -> int:
+        a = [1] * n
+        mod = 10**9 + 7
+        for _ in range(k):
+            for i in range(1, n):
+                a[i] = (a[i] + a[i - 1]) % mod
+        return a[n - 1]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int valueAfterKSeconds(int n, int k) {
+        final int mod = (int) 1e9 + 7;
+        int[] a = new int[n];
+        Arrays.fill(a, 1);
+        while (k-- > 0) {
+            for (int i = 1; i < n; ++i) {
+                a[i] = (a[i] + a[i - 1]) % mod;
+            }
+        }
+        return a[n - 1];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int valueAfterKSeconds(int n, int k) {
+        const int mod = 1e9 + 7;
+        vector<int> a(n, 1);
+        while (k-- > 0) {
+            for (int i = 1; i < n; ++i) {
+                a[i] = (a[i] + a[i - 1]) % mod;
+            }
+        }
+        return a[n - 1];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func valueAfterKSeconds(n int, k int) int {
+	const mod int = 1e9 + 7
+	a := make([]int, n)
+	for i := range a {
+		a[i] = 1
+	}
+	for ; k > 0; k-- {
+		for i := 1; i < n; i++ {
+			a[i] = (a[i] + a[i-1]) % mod
+		}
+	}
+	return a[n-1]
+}
+```
 
+#### TypeScript
+
+```ts
+function valueAfterKSeconds(n: number, k: number): number {
+    const a: number[] = Array(n).fill(1);
+    const mod: number = 10 ** 9 + 7;
+    while (k--) {
+        for (let i = 1; i < n; ++i) {
+            a[i] = (a[i] + a[i - 1]) % mod;
+        }
+    }
+    return a[n - 1];
+}
 ```
 
 <!-- tabs:end -->
