@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 132 场双周赛(2024-06-08 22:30, 90 分钟) 参赛人数 2457
+
+- [3174. 清除数字](/solution/3100-3199/3174.Clear%20Digits/README.md)
+- [3175. 找到连续赢 K 场比赛的第一位玩家](/solution/3100-3199/3175.Find%20The%20First%20Player%20to%20win%20K%20Games%20in%20a%20Row/README.md)
+- [3176. 求出最长好子序列 I](/solution/3100-3199/3176.Find%20the%20Maximum%20Length%20of%20a%20Good%20Subsequence%20I/README.md)
+- [3177. 求出最长好子序列 II](/solution/3100-3199/3177.Find%20the%20Maximum%20Length%20of%20a%20Good%20Subsequence%20II/README.md)
+
 #### 第 400 场周赛(2024-06-02 10:30, 90 分钟) 参赛人数 3534
 
 - [3168. 候诊室中的最少椅子数](/solution/3100-3199/3168.Minimum%20Number%20of%20Chairs%20in%20a%20Waiting%20Room/README.md)
