@@ -1,18 +1,20 @@
 class Solution {
 public:
     int maxCoins(vector<int>& nums) {
-        nums.insert(nums.begin(), 1);
-        nums.push_back(1);
         int n = nums.size();
-        vector<vector<int>> dp(n, vector<int>(n));
-        for (int l = 2; l < n; ++l) {
-            for (int i = 0; i + l < n; ++i) {
-                int j = i + l;
+        vector<int> arr(n + 2, 1);
+        for (int i = 0; i < n; ++i) {
+            arr[i + 1] = nums[i];
+        }
+
+        vector<vector<int>> f(n + 2, vector<int>(n + 2, 0));
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = i + 2; j <= n + 1; ++j) {
                 for (int k = i + 1; k < j; ++k) {
-                    dp[i][j] = max(dp[i][j], dp[i][k] + dp[k][j] + nums[i] * nums[k] * nums[j]);
+                    f[i][j] = max(f[i][j], f[i][k] + f[k][j] + arr[i] * arr[k] * arr[j]);
                 }
             }
         }
-        return dp[0][n - 1];
+        return f[0][n + 1];
     }
 };

@@ -56,7 +56,23 @@ coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167</pre>
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+我们记数组 $nums$ 的长度为 $n$。根据题目描述，我们可以在数组 $nums$ 的左右两端各添加一个 $1$，记为 $arr$。
+
+然后，我们定义 $f[i][j]$ 表示戳破区间 $[i, j]$ 内的所有气球能得到的最多硬币数，那么答案即为 $f[0][n+1]$。
+
+对于 $f[i][j]$，我们枚举区间 $[i, j]$ 内的所有位置 $k$，假设 $k$ 是最后一个戳破的气球，那么我们可以得到如下状态转移方程：
+
+$$
+f[i][j] = \max(f[i][j], f[i][k] + f[k][j] + arr[i] \times arr[k] \times arr[j])
+$$
+
+在实现上，由于 $f[i][j]$ 的状态转移方程中涉及到 $f[i][k]$ 和 $f[k][j]$，其中 $i < k < j$，因此我们需要从大到小地遍历 $i$，从小到大地遍历 $j$，这样才能保证当计算 $f[i][j]$ 时 $f[i][k]$ 和 $f[k][j]$ 已经被计算出来。
+
+最后，我们返回 $f[0][n+1]$ 即可。
+
+时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -65,17 +81,14 @@ coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167</pre>
 ```python
 class Solution:
     def maxCoins(self, nums: List[int]) -> int:
-        nums = [1] + nums + [1]
         n = len(nums)
-        dp = [[0] * n for _ in range(n)]
-        for l in range(2, n):
-            for i in range(n - l):
-                j = i + l
+        arr = [1] + nums + [1]
+        f = [[0] * (n + 2) for _ in range(n + 2)]
+        for i in range(n - 1, -1, -1):
+            for j in range(i + 2, n + 2):
                 for k in range(i + 1, j):
-                    dp[i][j] = max(
-                        dp[i][j], dp[i][k] + dp[k][j] + nums[i] * nums[k] * nums[j]
-                    )
-        return dp[0][-1]
+                    f[i][j] = max(f[i][j], f[i][k] + f[k][j] + arr[i] * arr[k] * arr[j])
+        return f[0][-1]
 ```
 
 #### Java
@@ -83,22 +96,20 @@ class Solution:
 ```java
 class Solution {
     public int maxCoins(int[] nums) {
-        int[] vals = new int[nums.length + 2];
-        vals[0] = 1;
-        vals[vals.length - 1] = 1;
-        System.arraycopy(nums, 0, vals, 1, nums.length);
-        int n = vals.length;
-        int[][] dp = new int[n][n];
-        for (int l = 2; l < n; ++l) {
-            for (int i = 0; i + l < n; ++i) {
-                int j = i + l;
-                for (int k = i + 1; k < j; ++k) {
-                    dp[i][j]
-                        = Math.max(dp[i][j], dp[i][k] + dp[k][j] + vals[i] * vals[k] * vals[j]);
+        int n = nums.length;
+        int[] arr = new int[n + 2];
+        arr[0] = 1;
+        arr[n + 1] = 1;
+        System.arraycopy(nums, 0, arr, 1, n);
+        int[][] f = new int[n + 2][n + 2];
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = i + 2; j <= n + 1; j++) {
+                for (int k = i + 1; k < j; k++) {
+                    f[i][j] = Math.max(f[i][j], f[i][k] + f[k][j] + arr[i] * arr[k] * arr[j]);
                 }
             }
         }
-        return dp[0][n - 1];
+        return f[0][n + 1];
     }
 }
 ```
@@ -109,19 +120,21 @@ class Solution {
 class Solution {
 public:
     int maxCoins(vector<int>& nums) {
-        nums.insert(nums.begin(), 1);
-        nums.push_back(1);
         int n = nums.size();
-        vector<vector<int>> dp(n, vector<int>(n));
-        for (int l = 2; l < n; ++l) {
-            for (int i = 0; i + l < n; ++i) {
-                int j = i + l;
+        vector<int> arr(n + 2, 1);
+        for (int i = 0; i < n; ++i) {
+            arr[i + 1] = nums[i];
+        }
+
+        vector<vector<int>> f(n + 2, vector<int>(n + 2, 0));
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = i + 2; j <= n + 1; ++j) {
                 for (int k = i + 1; k < j; ++k) {
-                    dp[i][j] = max(dp[i][j], dp[i][k] + dp[k][j] + nums[i] * nums[k] * nums[j]);
+                    f[i][j] = max(f[i][j], f[i][k] + f[k][j] + arr[i] * arr[k] * arr[j]);
                 }
             }
         }
-        return dp[0][n - 1];
+        return f[0][n + 1];
     }
 };
 ```
@@ -130,25 +143,26 @@ public:
 
 ```go
 func maxCoins(nums []int) int {
-	vals := make([]int, len(nums)+2)
-	for i := 0; i < len(nums); i++ {
-		vals[i+1] = nums[i]
-	}
-	n := len(vals)
-	vals[0], vals[n-1] = 1, 1
-	dp := make([][]int, n)
-	for i := 0; i < n; i++ {
-		dp[i] = make([]int, n)
-	}
-	for l := 2; l < n; l++ {
-		for i := 0; i+l < n; i++ {
-			j := i + l
-			for k := i + 1; k < j; k++ {
-				dp[i][j] = max(dp[i][j], dp[i][k]+dp[k][j]+vals[i]*vals[k]*vals[j])
-			}
-		}
-	}
-	return dp[0][n-1]
+    n := len(nums)
+    arr := make([]int, n+2)
+    arr[0] = 1
+    arr[n+1] = 1
+    copy(arr[1:], nums)
+
+    f := make([][]int, n+2)
+    for i := range f {
+        f[i] = make([]int, n+2)
+    }
+
+    for i := n - 1; i >= 0; i-- {
+        for j := i + 2; j <= n+1; j++ {
+            for k := i + 1; k < j; k++ {
+                f[i][j] = max(f[i][j], f[i][k] + f[k][j] + arr[i]*arr[k]*arr[j])
+            }
+        }
+    }
+
+    return f[0][n+1]
 }
 ```
 
@@ -156,18 +170,45 @@ func maxCoins(nums []int) int {
 
 ```ts
 function maxCoins(nums: number[]): number {
-    let n = nums.length;
-    let dp = Array.from({ length: n + 1 }, v => new Array(n + 2).fill(0));
-    nums.unshift(1);
-    nums.push(1);
-    for (let i = n - 1; i >= 0; --i) {
-        for (let j = i + 2; j < n + 2; ++j) {
-            for (let k = i + 1; k < j; ++k) {
-                dp[i][j] = Math.max(nums[i] * nums[k] * nums[j] + dp[i][k] + dp[k][j], dp[i][j]);
+    const n = nums.length;
+    const arr = Array(n + 2).fill(1);
+    for (let i = 0; i < n; i++) {
+        arr[i + 1] = nums[i];
+    }
+
+    const f: number[][] = Array.from({ length: n + 2 }, () => Array(n + 2).fill(0));
+    for (let i = n - 1; i >= 0; i--) {
+        for (let j = i + 2; j <= n + 1; j++) {
+            for (let k = i + 1; k < j; k++) {
+                f[i][j] = Math.max(f[i][j], f[i][k] + f[k][j] + arr[i] * arr[k] * arr[j]);
             }
         }
     }
-    return dp[0][n + 1];
+    return f[0][n + 1];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_coins(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut arr = vec![1; n + 2];
+        for i in 0..n {
+            arr[i + 1] = nums[i];
+        }
+
+        let mut f = vec![vec![0; n + 2]; n + 2];
+        for i in (0..n).rev() {
+            for j in i + 2..n + 2 {
+                for k in i + 1..j {
+                    f[i][j] = f[i][j].max(f[i][k] + f[k][j] + arr[i] * arr[k] * arr[j]);
+                }
+            }
+        }
+        f[0][n + 1]
+    }
 }
 ```
 
