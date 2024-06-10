@@ -142,14 +142,24 @@ Each row of this table contains the student ID, course ID, semester, and grade r
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：连接表 + 分组
+
+我们可以将 `students` 表和 `courses` 按照 `major` 字段连接起来，然后再将 `enrollments` 表左连接到上述结果表中，最后按照 `student_id` 分组，筛选出满足条件的学生。
 
 <!-- tabs:start -->
 
 #### MySQL
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT student_id
+FROM
+    students
+    JOIN courses USING (major)
+    LEFT JOIN enrollments USING (student_id, course_id)
+GROUP BY 1
+HAVING SUM(grade = 'A') = COUNT(major)
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

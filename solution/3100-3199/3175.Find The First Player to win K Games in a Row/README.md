@@ -91,32 +91,128 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3175.Fi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：脑筋急转弯
+
+我们注意到，每次会比较数组的前两个元素，不管结果怎么样，下一次的比较，一定是轮到了数组中的下一个元素和当前的胜者进行比较。因此，如果循环了 $n-1$ 次，那么最后的胜者一定是数组中的最大元素。否则，如果某个元素连续胜出了 $k$ 次，那么这个元素就是最后的胜者。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
+
+相似题目：
+
+-   [1535. 找到数组中的赢家](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README.md)
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def findWinningPlayer(self, skills: List[int], k: int) -> int:
+        n = len(skills)
+        k = min(k, n - 1)
+        i = cnt = 0
+        for j in range(1, n):
+            if skills[i] < skills[j]:
+                i = j
+                cnt = 1
+            else:
+                cnt += 1
+            if cnt == k:
+                break
+        return i
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int findWinningPlayer(int[] skills, int k) {
+        int n = skills.length;
+        k = Math.min(k, n - 1);
+        int i = 0, cnt = 0;
+        for (int j = 1; j < n; ++j) {
+            if (skills[i] < skills[j]) {
+                i = j;
+                cnt = 1;
+            } else {
+                ++cnt;
+            }
+            if (cnt == k) {
+                break;
+            }
+        }
+        return i;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int findWinningPlayer(vector<int>& skills, int k) {
+        int n = skills.size();
+        k = min(k, n - 1);
+        int i = 0, cnt = 0;
+        for (int j = 1; j < n; ++j) {
+            if (skills[i] < skills[j]) {
+                i = j;
+                cnt = 1;
+            } else {
+                ++cnt;
+            }
+            if (cnt == k) {
+                break;
+            }
+        }
+        return i;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func findWinningPlayer(skills []int, k int) int {
+	n := len(skills)
+	k = min(k, n-1)
+	i, cnt := 0, 0
+	for j := 1; j < n; j++ {
+		if skills[i] < skills[j] {
+			i = j
+			cnt = 1
+		} else {
+			cnt++
+		}
+		if cnt == k {
+			break
+		}
+	}
+	return i
+}
+```
 
+#### TypeScript
+
+```ts
+function findWinningPlayer(skills: number[], k: number): number {
+    const n = skills.length;
+    k = Math.min(k, n - 1);
+    let [i, cnt] = [0, 0];
+    for (let j = 1; j < n; ++j) {
+        if (skills[i] < skills[j]) {
+            i = j;
+            cnt = 1;
+        } else {
+            ++cnt;
+        }
+        if (cnt === k) {
+            break;
+        }
+    }
+    return i;
+}
 ```
 
 <!-- tabs:end -->
