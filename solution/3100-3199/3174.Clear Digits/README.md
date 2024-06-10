@@ -68,32 +68,97 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3174.Cl
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：栈 + 模拟
+
+我们用一个栈 `stk` 来模拟这个过程，遍历字符串 `s`，如果当前字符是数字，就弹出栈顶元素，否则将当前字符入栈。
+
+最后将栈中的元素拼接成字符串返回。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 `s` 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def clearDigits(self, s: str) -> str:
+        stk = []
+        for c in s:
+            if c.isdigit():
+                stk.pop()
+            else:
+                stk.append(c)
+        return "".join(stk)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public String clearDigits(String s) {
+        StringBuilder stk = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (Character.isDigit(c)) {
+                stk.deleteCharAt(stk.length() - 1);
+            } else {
+                stk.append(c);
+            }
+        }
+        return stk.toString();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    string clearDigits(string s) {
+        string stk;
+        for (char c : s) {
+            if (isdigit(c)) {
+                stk.pop_back();
+            } else {
+                stk.push_back(c);
+            }
+        }
+        return stk;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func clearDigits(s string) string {
+	stk := []byte{}
+	for i := range s {
+		if s[i] >= '0' && s[i] <= '9' {
+			stk = stk[:len(stk)-1]
+		} else {
+			stk = append(stk, s[i])
+		}
+	}
+	return string(stk)
+}
+```
 
+#### TypeScript
+
+```ts
+function clearDigits(s: string): string {
+    const stk: string[] = [];
+    for (const c of s) {
+        if (!isNaN(parseInt(c))) {
+            stk.pop();
+        } else {
+            stk.push(c);
+        }
+    }
+    return stk.join('');
+}
 ```
 
 <!-- tabs:end -->
