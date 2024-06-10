@@ -19,9 +19,9 @@ tags:
 
 <!-- description:start -->
 
-<p>在英语中，我们有一个叫做&nbsp;<strong>词根</strong>(root) 的概念，可以词根&nbsp;<strong>后面&nbsp;</strong>添加其他一些词组成另一个较长的单词——我们称这个词为 <strong>继承词</strong>&nbsp;(successor)。例如，词根&nbsp;<code>help</code>，跟随着 <strong>继承</strong>词&nbsp;<code>"ful"</code>，可以形成新的单词&nbsp;<code>"helpful"</code>。</p>
+<p>在英语中，我们有一个叫做&nbsp;<strong>词根</strong>(root) 的概念，可以词根&nbsp;<strong>后面&nbsp;</strong>添加其他一些词组成另一个较长的单词——我们称这个词为 <strong>衍生词</strong>&nbsp;(<strong>derivative</strong>)。例如，词根&nbsp;<code>help</code>，跟随着 <strong>继承</strong>词&nbsp;<code>"ful"</code>，可以形成新的单词&nbsp;<code>"helpful"</code>。</p>
 
-<p>现在，给定一个由许多&nbsp;<strong>词根&nbsp;</strong>组成的词典 <code>dictionary</code> 和一个用空格分隔单词形成的句子 <code>sentence</code>。你需要将句子中的所有&nbsp;<strong>继承词&nbsp;</strong>用&nbsp;<strong>词根&nbsp;</strong>替换掉。如果&nbsp;<strong>继承词&nbsp;</strong>有许多可以形成它的&nbsp;<strong>词根</strong>，则用&nbsp;<strong>最短&nbsp;</strong>的 <strong>词根</strong> 替换它。</p>
+<p>现在，给定一个由许多&nbsp;<strong>词根&nbsp;</strong>组成的词典 <code>dictionary</code> 和一个用空格分隔单词形成的句子 <code>sentence</code>。你需要将句子中的所有&nbsp;<strong>衍生词&nbsp;</strong>用&nbsp;<strong>词根&nbsp;</strong>替换掉。如果&nbsp;<strong>衍生词&nbsp;</strong>有许多可以形成它的&nbsp;<strong>词根</strong>，则用&nbsp;<strong>最短&nbsp;</strong>的 <strong>词根</strong> 替换它。</p>
 
 <p>你需要输出替换之后的句子。</p>
 
@@ -264,36 +264,27 @@ func replaceWords(dictionary []string, sentence string) string {
 
 ```ts
 class Trie {
-    private children: Trie[];
-    private ref: number;
+    #children: Record<string, Trie> = {};
+    #ref = -1;
 
-    constructor() {
-        this.children = new Array<Trie>(26);
-        this.ref = -1;
-    }
-
-    public insert(w: string, i: number) {
+    insert(w: string, i: number) {
         let node: Trie = this;
         for (const c of w) {
-            const idx = c.charCodeAt(0) - 97;
-            if (!node.children[idx]) {
-                node.children[idx] = new Trie();
-            }
-            node = node.children[idx];
+            node.#children[c] ??= new Trie();
+            node = node.#children[c];
         }
-        node.ref = i;
+        node.#ref = i;
     }
 
-    public search(w: string): number {
+    search(w: string): number {
         let node: Trie = this;
         for (const c of w) {
-            const idx = c.charCodeAt(0) - 97;
-            if (!node.children[idx]) {
+            if (!node.#children[c]) {
                 return -1;
             }
-            node = node.children[idx];
-            if (node.ref !== -1) {
-                return node.ref;
+            node = node.#children[c];
+            if (node.#ref !== -1) {
+                return node.#ref;
             }
         }
         return -1;
@@ -374,6 +365,49 @@ class Solution {
         return String.join(" ", ans);
     }
 }
+```
+
+#### TypeScript
+
+```ts
+function replaceWords(dictionary: string[], sentence: string): string {
+    const words = sentence.split(' ');
+    const trie: Trie = {};
+    const TERMINAL_MARK = 'TERMINAL_MARK';
+
+    for (const s of dictionary) {
+        let t = trie;
+
+        for (const ch of s) {
+            t[ch] ??= {};
+            t = t[ch] as Trie_;
+        }
+        t[TERMINAL_MARK] = TERMINAL_MARK;
+    }
+
+    for (let i = 0; i < words.length; i++) {
+        const s = words[i];
+        let t = trie;
+
+        for (let j = 0; j < s.length; j++) {
+            const ch = s[j];
+
+            if (!t[ch]) break;
+
+            if ((t[ch] as Trie_)[TERMINAL_MARK]) {
+                words[i] = s.slice(0, j + 1);
+                break;
+            }
+            t = t[ch] as Trie_;
+        }
+    }
+
+    return words.join(' ');
+}
+
+// prettier-ignore
+type Trie = { [key: string]: Trie} | string
+type Trie_ = Exclude<Trie, string>;
 ```
 
 <!-- tabs:end -->

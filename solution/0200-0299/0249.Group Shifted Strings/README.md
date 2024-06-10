@@ -18,25 +18,50 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个字符串，对该字符串可以进行 &ldquo;移位&rdquo; 的操作，也就是将字符串中每个字母都变为其在字母表中后续的字母，比如：<code>&quot;abc&quot; -&gt; &quot;bcd&quot;</code>。这样，我们可以持续进行 &ldquo;移位&rdquo; 操作，从而生成如下移位序列：</p>
+<p>对字符串进行 “移位” 的操作：</p>
 
-<pre>&quot;abc&quot; -&gt; &quot;bcd&quot; -&gt; ... -&gt; &quot;xyz&quot;</pre>
+<ul>
+	<li><strong>右移</strong>：将字符串中每个字母都变为其在字母表中 <strong>后续</strong> 的字母，其中用 'a' 替换 'z'。比如，<code>"abc"</code>&nbsp;能够右移为&nbsp;<code>"bcd"</code>，<code>"xyz"</code>&nbsp;能够右移为&nbsp;<code>"yza"</code>。</li>
+	<li><strong>左移</strong>：将字符串中每个字母都变为其在字母表中 <b>之前</b>&nbsp;的字母，其中用 'z' 替换 'a'。比如，<code>"bcd"</code>&nbsp;能够右移为&nbsp;<code>"abc"</code>，<code>"yza"</code>&nbsp;能够右移为&nbsp;<code>"xyz"</code>。</li>
+</ul>
 
-<p>给定一个包含仅小写字母字符串的列表，将该列表中所有满足&nbsp;&ldquo;移位&rdquo; 操作规律的组合进行分组并返回。</p>
+<p>我们可以不断地向两个方向移动字符串，形成 <strong>无限的移位序列</strong>。</p>
+
+<ul>
+	<li>例如，移动&nbsp;<code>"abc"</code>&nbsp;来形成序列：<code>... &lt;-&gt; "abc" &lt;-&gt; "bcd" &lt;-&gt; ... &lt;-&gt; "xyz" &lt;-&gt; "yza" &lt;-&gt; ... &lt;-&gt; "zab" &lt;-&gt; "abc" &lt;-&gt; ...</code></li>
+</ul>
+
+<p>给定一个字符串数组&nbsp;<code>strings</code>，将属于相同移位序列的所有&nbsp;<code>strings[i]</code>&nbsp;进行分组。你可以以 <strong>任意顺序</strong> 返回答案。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre><strong>输入：</strong><code>[&quot;abc&quot;, &quot;bcd&quot;, &quot;acef&quot;, &quot;xyz&quot;, &quot;az&quot;, &quot;ba&quot;, &quot;a&quot;, &quot;z&quot;]</code>
-<strong>输出：</strong>
-[
-  [&quot;abc&quot;,&quot;bcd&quot;,&quot;xyz&quot;],
-  [&quot;az&quot;,&quot;ba&quot;],
-  [&quot;acef&quot;],
-  [&quot;a&quot;,&quot;z&quot;]
-]
-<strong>解释：</strong>可以认为字母表首尾相接，所以 &#39;z&#39; 的后续为 &#39;a&#39;，所以 [&quot;az&quot;,&quot;ba&quot;] 也满足 &ldquo;移位&rdquo; 操作规律。</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">strings = ["abc","bcd","acef","xyz","az","ba","a","z"]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">[["acef"],["a","z"],["abc","bcd","xyz"],["az","ba"]]</span></p>
+
+<p>&nbsp;</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">strings = ["a"]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">[["a"]]</span></p>
+
+<p>&nbsp;</p>
+</div>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= strings.length &lt;= 200</code></li>
+	<li><code>1 &lt;= strings[i].length &lt;= 50</code></li>
+	<li><code>strings[i]</code>&nbsp;只包含小写英文字母。</li>
+</ul>
 
 <!-- description:end -->
 

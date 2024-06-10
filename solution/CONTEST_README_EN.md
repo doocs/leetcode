@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 401
+
+- [3178. Find the Child Who Has the Ball After K Seconds](/solution/3100-3199/3178.Find%20the%20Child%20Who%20Has%20the%20Ball%20After%20K%20Seconds/README_EN.md)
+- [3179. Find the N-th Value After K Seconds](/solution/3100-3199/3179.Find%20the%20N-th%20Value%20After%20K%20Seconds/README_EN.md)
+- [3180. Maximum Total Reward Using Operations I](/solution/3100-3199/3180.Maximum%20Total%20Reward%20Using%20Operations%20I/README_EN.md)
+- [3181. Maximum Total Reward Using Operations II](/solution/3100-3199/3181.Maximum%20Total%20Reward%20Using%20Operations%20II/README_EN.md)
+
+#### Biweekly Contest 132
+
+- [3174. Clear Digits](/solution/3100-3199/3174.Clear%20Digits/README_EN.md)
+- [3175. Find The First Player to win K Games in a Row](/solution/3100-3199/3175.Find%20The%20First%20Player%20to%20win%20K%20Games%20in%20a%20Row/README_EN.md)
+- [3176. Find the Maximum Length of a Good Subsequence I](/solution/3100-3199/3176.Find%20the%20Maximum%20Length%20of%20a%20Good%20Subsequence%20I/README_EN.md)
+- [3177. Find the Maximum Length of a Good Subsequence II](/solution/3100-3199/3177.Find%20the%20Maximum%20Length%20of%20a%20Good%20Subsequence%20II/README_EN.md)
+
 #### Weekly Contest 400
 
 - [3168. Minimum Number of Chairs in a Waiting Room](/solution/3100-3199/3168.Minimum%20Number%20of%20Chairs%20in%20a%20Waiting%20Room/README_EN.md)

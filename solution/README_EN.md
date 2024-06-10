@@ -3180,8 +3180,18 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3169  |  [Count Days Without Meetings](/solution/3100-3199/3169.Count%20Days%20Without%20Meetings/README_EN.md)  |  `Array`,`Sorting`  |  Medium  |  Weekly Contest 400  |
 |  3170  |  [Lexicographically Minimum String After Removing Stars](/solution/3100-3199/3170.Lexicographically%20Minimum%20String%20After%20Removing%20Stars/README_EN.md)  |  `Stack`,`Greedy`,`Hash Table`,`String`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 400  |
 |  3171  |  [Find Subarray With Bitwise AND Closest to K](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README_EN.md)  |  `Bit Manipulation`,`Segment Tree`,`Array`,`Binary Search`  |  Hard  |  Weekly Contest 400  |
+|  3171  |  [Find Subarray With Bitwise OR Closest to K](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20OR%20Closest%20to%20K/README_EN.md)  |  `Bit Manipulation`,`Segment Tree`,`Array`,`Binary Search`  |  Hard  |    |
 |  3172  |  [Second Day Verification](/solution/3100-3199/3172.Second%20Day%20Verification/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  3173  |  [Bitwise OR of Adjacent Elements](/solution/3100-3199/3173.Bitwise%20OR%20of%20Adjacent%20Elements/README_EN.md)  |    |  Easy  |  🔒  |
+|  3174  |  [Clear Digits](/solution/3100-3199/3174.Clear%20Digits/README_EN.md)  |    |  Easy  |  Biweekly Contest 132  |
+|  3175  |  [Find The First Player to win K Games in a Row](/solution/3100-3199/3175.Find%20The%20First%20Player%20to%20win%20K%20Games%20in%20a%20Row/README_EN.md)  |    |  Medium  |  Biweekly Contest 132  |
+|  3176  |  [Find the Maximum Length of a Good Subsequence I](/solution/3100-3199/3176.Find%20the%20Maximum%20Length%20of%20a%20Good%20Subsequence%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 132  |
+|  3177  |  [Find the Maximum Length of a Good Subsequence II](/solution/3100-3199/3177.Find%20the%20Maximum%20Length%20of%20a%20Good%20Subsequence%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 132  |
+|  3178  |  [Find the Child Who Has the Ball After K Seconds](/solution/3100-3199/3178.Find%20the%20Child%20Who%20Has%20the%20Ball%20After%20K%20Seconds/README_EN.md)  |    |  Easy  |  Weekly Contest 401  |
+|  3179  |  [Find the N-th Value After K Seconds](/solution/3100-3199/3179.Find%20the%20N-th%20Value%20After%20K%20Seconds/README_EN.md)  |    |  Medium  |  Weekly Contest 401  |
+|  3180  |  [Maximum Total Reward Using Operations I](/solution/3100-3199/3180.Maximum%20Total%20Reward%20Using%20Operations%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 401  |
+|  3181  |  [Maximum Total Reward Using Operations II](/solution/3100-3199/3181.Maximum%20Total%20Reward%20Using%20Operations%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 401  |
+|  3182  |  [Find Top Scoring Students](/solution/3100-3199/3182.Find%20Top%20Scoring%20Students/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

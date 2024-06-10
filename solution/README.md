@@ -3182,8 +3182,18 @@
 |  3169  |  [无需开会的工作日](/solution/3100-3199/3169.Count%20Days%20Without%20Meetings/README.md)  |  `数组`,`排序`  |  中等  |  第 400 场周赛  |
 |  3170  |  [删除星号以后字典序最小的字符串](/solution/3100-3199/3170.Lexicographically%20Minimum%20String%20After%20Removing%20Stars/README.md)  |  `栈`,`贪心`,`哈希表`,`字符串`,`堆（优先队列）`  |  中等  |  第 400 场周赛  |
 |  3171  |  [找到按位与最接近 K 的子数组](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README.md)  |  `位运算`,`线段树`,`数组`,`二分查找`  |  困难  |  第 400 场周赛  |
+|  3171  |  [找到按位或最接近 K 的子数组](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20OR%20Closest%20to%20K/README.md)  |  `位运算`,`线段树`,`数组`,`二分查找`  |  困难  |    |
 |  3172  |  [第二天验证](/solution/3100-3199/3172.Second%20Day%20Verification/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  3173  |  [相邻元素的按位与](/solution/3100-3199/3173.Bitwise%20OR%20of%20Adjacent%20Elements/README.md)  |    |  简单  |  🔒  |
+|  3174  |  [清除数字](/solution/3100-3199/3174.Clear%20Digits/README.md)  |    |  简单  |  第 132 场双周赛  |
+|  3175  |  [找到连续赢 K 场比赛的第一位玩家](/solution/3100-3199/3175.Find%20The%20First%20Player%20to%20win%20K%20Games%20in%20a%20Row/README.md)  |    |  中等  |  第 132 场双周赛  |
+|  3176  |  [求出最长好子序列 I](/solution/3100-3199/3176.Find%20the%20Maximum%20Length%20of%20a%20Good%20Subsequence%20I/README.md)  |    |  中等  |  第 132 场双周赛  |
+|  3177  |  [求出最长好子序列 II](/solution/3100-3199/3177.Find%20the%20Maximum%20Length%20of%20a%20Good%20Subsequence%20II/README.md)  |    |  困难  |  第 132 场双周赛  |
+|  3178  |  [找出 K 秒后拿着球的孩子](/solution/3100-3199/3178.Find%20the%20Child%20Who%20Has%20the%20Ball%20After%20K%20Seconds/README.md)  |    |  简单  |  第 401 场周赛  |
+|  3179  |  [K 秒后第 N 个元素的值](/solution/3100-3199/3179.Find%20the%20N-th%20Value%20After%20K%20Seconds/README.md)  |    |  中等  |  第 401 场周赛  |
+|  3180  |  [执行操作可获得的最大总奖励 I](/solution/3100-3199/3180.Maximum%20Total%20Reward%20Using%20Operations%20I/README.md)  |    |  中等  |  第 401 场周赛  |
+|  3181  |  [执行操作可获得的最大总奖励 II](/solution/3100-3199/3181.Maximum%20Total%20Reward%20Using%20Operations%20II/README.md)  |    |  困难  |  第 401 场周赛  |
+|  3182  |  [Find Top Scoring Students](/solution/3100-3199/3182.Find%20Top%20Scoring%20Students/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
