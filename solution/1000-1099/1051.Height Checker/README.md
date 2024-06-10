@@ -144,7 +144,7 @@ func heightChecker(heights []int) int {
 
 #### TypeScript
 
-````ts
+```ts
 function heightChecker(heights: number[]): number {
     const expected = [...heights].sort((a, b) => a - b);
     let ans = 0;
@@ -154,7 +154,8 @@ function heightChecker(heights: number[]): number {
     }
 
     return ans;
-}```
+}
+```
 
 <!-- tabs:end -->
 
@@ -186,7 +187,7 @@ class Solution:
                     ans += 1
                 i += 1
         return ans
-````
+```
 
 #### Java
 
@@ -250,6 +251,25 @@ func heightChecker(heights []int) int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function heightChecker(heights: number[]): number {
+    const cnt = Array(101).fill(0);
+    for (const i of heights) cnt[i]++;
+
+    let ans = 0;
+    for (let j = 1, i = 0; j < 101; j++) {
+        while (cnt[j]--)
+            if (heights[i++] !== j) {
+                ans++;
+            }
+    }
+
+    return ans;
 }
 ```
 
