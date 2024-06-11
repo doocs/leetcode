@@ -320,4 +320,3 @@ function relativeSortArray(arr1: number[], arr2: number[]): number[] {
 <!-- solution:end -->
 
 <!-- problem:end -->
-
