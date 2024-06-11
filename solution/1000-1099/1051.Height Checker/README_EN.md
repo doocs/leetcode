@@ -74,7 +74,11 @@ All indices match.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+We can first sort the heights of the students, then compare the sorted heights with the original heights, and count the positions that are different.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of students.
 
 <!-- tabs:start -->
 
@@ -114,7 +118,9 @@ public:
         vector<int> expected = heights;
         sort(expected.begin(), expected.end());
         int ans = 0;
-        for (int i = 0; i < heights.size(); ++i) ans += heights[i] != expected[i];
+        for (int i = 0; i < heights.size(); ++i) {
+            ans += heights[i] != expected[i];
+        }
         return ans;
     }
 };
@@ -123,17 +129,15 @@ public:
 #### Go
 
 ```go
-func heightChecker(heights []int) int {
-	expected := make([]int, len(heights))
-	copy(expected, heights)
+func heightChecker(heights []int) (ans int) {
+	expected := slices.Clone(heights)
 	sort.Ints(expected)
-	ans := 0
 	for i, v := range heights {
 		if v != expected[i] {
 			ans++
 		}
 	}
-	return ans
+	return
 }
 ```
 
@@ -152,7 +156,11 @@ function heightChecker(heights: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Counting Sort
+
+Since the height of the students in the problem does not exceed $100$, we can use counting sort. Here we use an array $cnt$ of length $101$ to count the number of times each height $h_i$ appears.
+
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Where $n$ is the number of students, and $M$ is the maximum height of the students. In this problem, $M = 101$.
 
 <!-- tabs:start -->
 
@@ -244,16 +252,17 @@ func heightChecker(heights []int) int {
 ```ts
 function heightChecker(heights: number[]): number {
     const cnt = Array(101).fill(0);
-    for (const i of heights) cnt[i]++;
-
+    for (const i of heights) {
+        cnt[i]++;
+    }
     let ans = 0;
     for (let j = 1, i = 0; j < 101; j++) {
-        while (cnt[j]--)
+        while (cnt[j]--) {
             if (heights[i++] !== j) {
                 ans++;
             }
+        }
     }
-
     return ans;
 }
 ```

@@ -77,9 +77,9 @@ tags:
 
 ### 方法一：排序
 
-将 $heights$ 复制并排序得到 $expected$，然后同时遍历 $heights$, $expected$ ，统计对应位置元素不同的个数。
+我们可以先对学生的高度进行排序，然后比较排序后的高度和原始高度，统计不同的位置即可。
 
-时间复杂度 $O(nlogn)$，其中 $n$ 表示 $heights$ 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是学生的数量。
 
 <!-- tabs:start -->
 
@@ -119,7 +119,9 @@ public:
         vector<int> expected = heights;
         sort(expected.begin(), expected.end());
         int ans = 0;
-        for (int i = 0; i < heights.size(); ++i) ans += heights[i] != expected[i];
+        for (int i = 0; i < heights.size(); ++i) {
+            ans += heights[i] != expected[i];
+        }
         return ans;
     }
 };
@@ -128,17 +130,15 @@ public:
 #### Go
 
 ```go
-func heightChecker(heights []int) int {
-	expected := make([]int, len(heights))
-	copy(expected, heights)
+func heightChecker(heights []int) (ans int) {
+	expected := slices.Clone(heights)
 	sort.Ints(expected)
-	ans := 0
 	for i, v := range heights {
 		if v != expected[i] {
 			ans++
 		}
 	}
-	return ans
+	return
 }
 ```
 
@@ -161,7 +161,7 @@ function heightChecker(heights: number[]): number {
 
 由于题目中学生高度不超过 $100$，因此可以使用计数排序。这里我们用一个长度 $101$ 的数组 $cnt$ 统计每个高度 $h_i$ 出现的次数。
 
-时间复杂度 $(n)$。
+时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 是学生的数量，而 $M$ 是学生的最大高度，本题中 $M = 101$。
 
 <!-- tabs:start -->
 
@@ -253,16 +253,17 @@ func heightChecker(heights []int) int {
 ```ts
 function heightChecker(heights: number[]): number {
     const cnt = Array(101).fill(0);
-    for (const i of heights) cnt[i]++;
-
+    for (const i of heights) {
+        cnt[i]++;
+    }
     let ans = 0;
     for (let j = 1, i = 0; j < 101; j++) {
-        while (cnt[j]--)
+        while (cnt[j]--) {
             if (heights[i++] !== j) {
                 ans++;
             }
+        }
     }
-
     return ans;
 }
 ```
