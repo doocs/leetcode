@@ -71,11 +71,11 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p><code>divisors[0]</code> 因为&nbsp;<code>nums</code>&nbsp;中没有数字能被 10 整除。</p>
+<p><code>divisors[0]</code> 的可整除性分数为 0 因为&nbsp;<code>nums</code>&nbsp;中没有数字能被 10 整除。</p>
 
-<p><code>divisors[1]</code> 因为&nbsp;<code>nums</code>&nbsp;中没有数字能被 16&nbsp;整除。</p>
+<p><code>divisors[1]</code> 的可整除性分数为 0 因为&nbsp;<code>nums</code>&nbsp;中没有数字能被 16&nbsp;整除。</p>
 
-<p><code>divisors[2]</code> 因为&nbsp;<code>nums</code>&nbsp;中没有数字能被 20&nbsp;整除。</p>
+<p><code>divisors[2]</code> 的可整除性分数为 0 因为&nbsp;<code>nums</code>&nbsp;中没有数字能被 20&nbsp;整除。</p>
 
 <p>因为&nbsp;<code>divisors[0]</code>，<code>divisors[1]</code> 和&nbsp;<code>divisors[2]</code>&nbsp;都有相同的可整除性分数，我们返回最小的那个&nbsp;<code>divisors[0]</code>。</p>
 </div>

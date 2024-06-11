@@ -2,6 +2,10 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3174.Clear%20Digits/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Simulation
 ---
 
 <!-- problem:start -->

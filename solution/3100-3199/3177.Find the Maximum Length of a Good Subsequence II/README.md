@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3177.Find%20the%20Maximum%20Length%20of%20a%20Good%20Subsequence%20II/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 动态规划
 ---
 
 <!-- problem:start -->
