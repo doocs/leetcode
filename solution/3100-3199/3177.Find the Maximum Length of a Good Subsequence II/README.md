@@ -64,32 +64,246 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+我们定义 $f[i][h]$ 表示以 $nums[i]$ 结尾，且有不超过 $h$ 个下标满足条件的最长好子序列的长度。初始时 $f[i][h] = 1$。答案为 $\max(f[i][k])$，其中 $0 \le i < n$。
+
+我们考虑如何计算 $f[i][h]$。我们可以枚举 $0 \le j < i$，如果 $nums[i] = nums[j]$，那么 $f[i][h] = \max(f[i][h], f[j][h] + 1)$；否则如果 $h > 0$，那么 $f[i][h] = \max(f[i][h], f[j][h - 1] + 1)$。即：
+
+$$
+f[i][h]=
+\begin{cases}
+\max(f[i][h], f[j][h] + 1), & \text{if } nums[i] = nums[j], \\
+\max(f[i][h], f[j][h - 1] + 1), & \text{if } h > 0.
+\end{cases}
+$$
+
+最终答案为 $\max(f[i][k])$，其中 $0 \le i < n$。
+
+时间复杂度 $O(n^2 \times k)$，空间复杂度 $O(n \times k)$。其中 $n$ 是数组 `nums` 的长度。
+
+由于本题数据范围较大，上述解法会超时，需要进行优化。
+
+根据状态转移方程，如果 $nums[i] = nums[j]$，那么我们只需要获取 $f[j][h]$ 的最大值，我们可以用一个长度为 $k + 1$ 的数组 $mp$ 来维护。如果 $nums[i] \neq nums[j]$，我们需要记录 $f[j][h - 1]$ 的最大值对应的 $nums[j]$，最大值和次大值，我们可以用一个长度为 $k + 1$ 的数组 $g$ 来维护。
+
+时间复杂度 $O(n \times k)$，空间复杂度 $O(n \times k)$。其中 $n$ 是数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maximumLength(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        f = [[0] * (k + 1) for _ in range(n)]
+        mp = [defaultdict(int) for _ in range(k + 1)]
+        g = [[0] * 3 for _ in range(k + 1)]
+        ans = 0
+        for i, x in enumerate(nums):
+            for h in range(k + 1):
+                f[i][h] = mp[h][x]
+                if h:
+                    if g[h - 1][0] != nums[i]:
+                        f[i][h] = max(f[i][h], g[h - 1][1])
+                    else:
+                        f[i][h] = max(f[i][h], g[h - 1][2])
+                f[i][h] += 1
+                mp[h][nums[i]] = max(mp[h][nums[i]], f[i][h])
+                if g[h][0] != x:
+                    if f[i][h] >= g[h][1]:
+                        g[h][2] = g[h][1]
+                        g[h][1] = f[i][h]
+                        g[h][0] = x
+                    else:
+                        g[h][2] = max(g[h][2], f[i][h])
+                else:
+                    g[h][1] = max(g[h][1], f[i][h])
+                ans = max(ans, f[i][h])
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maximumLength(int[] nums, int k) {
+        int n = nums.length;
+        int[][] f = new int[n][k + 1];
+        Map<Integer, Integer>[] mp = new HashMap[k + 1];
+        Arrays.setAll(mp, i -> new HashMap<>());
+        int[][] g = new int[k + 1][3];
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int h = 0; h <= k; ++h) {
+                f[i][h] = mp[h].getOrDefault(nums[i], 0);
+                if (h > 0) {
+                    if (g[h - 1][0] != nums[i]) {
+                        f[i][h] = Math.max(f[i][h], g[h - 1][1]);
+                    } else {
+                        f[i][h] = Math.max(f[i][h], g[h - 1][2]);
+                    }
+                }
+                ++f[i][h];
+                mp[h].merge(nums[i], f[i][h], Integer::max);
+                if (g[h][0] != nums[i]) {
+                    if (f[i][h] >= g[h][1]) {
+                        g[h][2] = g[h][1];
+                        g[h][1] = f[i][h];
+                        g[h][0] = nums[i];
+                    } else {
+                        g[h][2] = Math.max(g[h][2], f[i][h]);
+                    }
+                } else {
+                    g[h][1] = Math.max(g[h][1], f[i][h]);
+                }
+                ans = Math.max(ans, f[i][h]);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int maximumLength(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<vector<int>> f(n, vector<int>(k + 1));
+        vector<unordered_map<int, int>> mp(k + 1);
+        vector<vector<int>> g(k + 1, vector<int>(3));
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int h = 0; h <= k; ++h) {
+                f[i][h] = mp[h][nums[i]];
+                if (h > 0) {
+                    if (g[h - 1][0] != nums[i]) {
+                        f[i][h] = max(f[i][h], g[h - 1][1]);
+                    } else {
+                        f[i][h] = max(f[i][h], g[h - 1][2]);
+                    }
+                }
+                ++f[i][h];
+                mp[h][nums[i]] = max(mp[h][nums[i]], f[i][h]);
+                if (g[h][0] != nums[i]) {
+                    if (f[i][h] >= g[h][1]) {
+                        g[h][2] = g[h][1];
+                        g[h][1] = f[i][h];
+                        g[h][0] = nums[i];
+                    } else {
+                        g[h][2] = max(g[h][2], f[i][h]);
+                    }
+                } else {
+                    g[h][1] = max(g[h][1], f[i][h]);
+                }
+                ans = max(ans, f[i][h]);
+            }
+        }
 
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumLength(nums []int, k int) int {
+	n := len(nums)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, k+1)
+	}
+	mp := make([]map[int]int, k+1)
+	for i := range mp {
+		mp[i] = make(map[int]int)
+	}
+	g := make([][3]int, k+1)
+	ans := 0
 
+	for i := 0; i < n; i++ {
+		for h := 0; h <= k; h++ {
+			f[i][h] = mp[h][nums[i]]
+			if h > 0 {
+				if g[h-1][0] != nums[i] {
+					if g[h-1][1] > f[i][h] {
+						f[i][h] = g[h-1][1]
+					}
+				} else {
+					if g[h-1][2] > f[i][h] {
+						f[i][h] = g[h-1][2]
+					}
+				}
+			}
+			f[i][h]++
+			if f[i][h] > mp[h][nums[i]] {
+				mp[h][nums[i]] = f[i][h]
+			}
+			if g[h][0] != nums[i] {
+				if f[i][h] >= g[h][1] {
+					g[h][2] = g[h][1]
+					g[h][1] = f[i][h]
+					g[h][0] = nums[i]
+				} else if f[i][h] > g[h][2] {
+					g[h][2] = f[i][h]
+				}
+			} else {
+				if f[i][h] > g[h][1] {
+					g[h][1] = f[i][h]
+				}
+			}
+			if f[i][h] > ans {
+				ans = f[i][h]
+			}
+		}
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumLength(nums: number[], k: number): number {
+    const n = nums.length;
+    const f: number[][] = Array.from({ length: n }, () => Array(k + 1).fill(0));
+    const mp: Map<number, number>[] = Array.from({ length: k + 1 }, () => new Map());
+    const g: number[][] = Array.from({ length: k + 1 }, () => Array(3).fill(0));
+    let ans = 0;
+
+    for (let i = 0; i < n; i++) {
+        for (let h = 0; h <= k; h++) {
+            f[i][h] = mp[h].get(nums[i]) || 0;
+            if (h > 0) {
+                if (g[h - 1][0] !== nums[i]) {
+                    f[i][h] = Math.max(f[i][h], g[h - 1][1]);
+                } else {
+                    f[i][h] = Math.max(f[i][h], g[h - 1][2]);
+                }
+            }
+            f[i][h]++;
+            mp[h].set(nums[i], Math.max(mp[h].get(nums[i]) || 0, f[i][h]));
+            if (g[h][0] !== nums[i]) {
+                if (f[i][h] >= g[h][1]) {
+                    g[h][2] = g[h][1];
+                    g[h][1] = f[i][h];
+                    g[h][0] = nums[i];
+                } else {
+                    g[h][2] = Math.max(g[h][2], f[i][h]);
+                }
+            } else {
+                g[h][1] = Math.max(g[h][1], f[i][h]);
+            }
+            ans = Math.max(ans, f[i][h]);
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
