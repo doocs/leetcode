@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3182.Find%20Top%20Scoring%20Students/README.md
+tags:
+    - 数据库
 ---
 
 <!-- problem:start -->

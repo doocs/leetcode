@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3179.Find%20the%20N-th%20Value%20After%20K%20Seconds/README.md
+tags:
+    - 数组
+    - 数学
+    - 组合数学
+    - 前缀和
+    - 模拟
 ---
 
 <!-- problem:start -->

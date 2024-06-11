@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3180.Maximum%20Total%20Reward%20Using%20Operations%20I/README.md
+tags:
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->

@@ -59,7 +59,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：直接遍历
+
+我们可以遍历矩阵，找到每个战舰的左上角，即当前位置为 `X` 且上方和左方都不是 `X` 的位置，将答案加一。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -118,9 +124,15 @@ public:
         int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (board[i][j] == '.') continue;
-                if (i > 0 && board[i - 1][j] == 'X') continue;
-                if (j > 0 && board[i][j - 1] == 'X') continue;
+                if (board[i][j] == '.') {
+                    continue;
+                }
+                if (i > 0 && board[i - 1][j] == 'X') {
+                    continue;
+                }
+                if (j > 0 && board[i][j - 1] == 'X') {
+                    continue;
+                }
                 ++ans;
             }
         }
@@ -132,12 +144,10 @@ public:
 #### Go
 
 ```go
-func countBattleships(board [][]byte) int {
-	m, n := len(board), len(board[0])
-	ans := 0
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if board[i][j] == '.' {
+func countBattleships(board [][]byte) (ans int) {
+	for i, row := range board {
+		for j, c := range row {
+			if c == '.' {
 				continue
 			}
 			if i > 0 && board[i-1][j] == 'X' {
@@ -149,7 +159,32 @@ func countBattleships(board [][]byte) int {
 			ans++
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countBattleships(board: string[][]): number {
+    const m = board.length;
+    const n = board[0].length;
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (board[i][j] === '.') {
+                continue;
+            }
+            if (i && board[i - 1][j] === 'X') {
+                continue;
+            }
+            if (j && board[i][j - 1] === 'X') {
+                continue;
+            }
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 

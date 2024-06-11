@@ -48,7 +48,7 @@ If you want to estimate your score changes after the contest ends, you can visit
 - [3168. Minimum Number of Chairs in a Waiting Room](/solution/3100-3199/3168.Minimum%20Number%20of%20Chairs%20in%20a%20Waiting%20Room/README_EN.md)
 - [3169. Count Days Without Meetings](/solution/3100-3199/3169.Count%20Days%20Without%20Meetings/README_EN.md)
 - [3170. Lexicographically Minimum String After Removing Stars](/solution/3100-3199/3170.Lexicographically%20Minimum%20String%20After%20Removing%20Stars/README_EN.md)
-- [3171. Find Subarray With Bitwise AND Closest to K](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README_EN.md)
+- [3171. Find Subarray With Bitwise OR Closest to K](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20OR%20Closest%20to%20K/README_EN.md)
 
 #### Weekly Contest 399
 
