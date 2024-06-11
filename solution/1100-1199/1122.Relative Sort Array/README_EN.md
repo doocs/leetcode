@@ -169,22 +169,131 @@ function relativeSortArray(arr1: number[], arr2: number[]): number[] {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Counting Sort
 
-<!-- tabs:start -->
+We can use the idea of counting sort. First, count the occurrence of each element in array $arr1$. Then, according to the order in array $arr2$, put the elements in $arr1$ into the answer array $ans$ according to their occurrence. Finally, we traverse all elements in $arr1$ and put the elements that do not appear in $arr2$ in ascending order at the end of the answer array $ans$.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of arrays $arr1$ and $arr2$ respectively.
+
+<!-- solution:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
+        cnt = Counter(arr1)
+        ans = []
+        for x in arr2:
+            ans.extend([x] * cnt[x])
+            cnt.pop(x)
+        mi, mx = min(arr1), max(arr1)
+        for x in range(mi, mx + 1):
+            ans.extend([x] * cnt[x])
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] relativeSortArray(int[] arr1, int[] arr2) {
+        int[] cnt = new int[1001];
+        int mi = 1001, mx = 0;
+        for (int x : arr1) {
+            ++cnt[x];
+            mi = Math.min(mi, x);
+            mx = Math.max(mx, x);
+        }
+        int m = arr1.length;
+        int[] ans = new int[m];
+        int i = 0;
+        for (int x : arr2) {
+            while (cnt[x] > 0) {
+                --cnt[x];
+                ans[i++] = x;
+            }
+        }
+        for (int x = mi; x <= mx; ++x) {
+            while (cnt[x] > 0) {
+                --cnt[x];
+                ans[i++] = x;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+        vector<int> cnt(1001);
+        for (int x : arr1) {
+            ++cnt[x];
+        }
+        auto [mi, mx] = minmax_element(arr1.begin(), arr1.end());
+        vector<int> ans;
+        for (int x : arr2) {
+            while (cnt[x]) {
+                ans.push_back(x);
+                --cnt[x];
+            }
+        }
+        for (int x = *mi; x <= *mx; ++x) {
+            while (cnt[x]) {
+                ans.push_back(x);
+                --cnt[x];
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func relativeSortArray(arr1 []int, arr2 []int) []int {
+	cnt := make([]int, 1001)
+	mi, mx := 1001, 0
+	for _, x := range arr1 {
+		cnt[x]++
+		mi = min(mi, x)
+		mx = max(mx, x)
+	}
+	ans := make([]int, 0, len(arr1))
+	for _, x := range arr2 {
+		for cnt[x] > 0 {
+			ans = append(ans, x)
+			cnt[x]--
+		}
+	}
+	for x := mi; x <= mx; x++ {
+		for cnt[x] > 0 {
+			ans = append(ans, x)
+			cnt[x]--
+		}
+	}
+	return ans
+}
+```
 
 #### TypeScript
 
 ```ts
 function relativeSortArray(arr1: number[], arr2: number[]): number[] {
     const cnt = Array(1001).fill(0);
-    let min = Number.POSITIVE_INFINITY;
-    let max = Number.NEGATIVE_INFINITY;
+    let mi = Number.POSITIVE_INFINITY;
+    let mx = Number.NEGATIVE_INFINITY;
 
     for (const x of arr1) {
         cnt[x]++;
-        if (x < min) min = x;
-        if (x > max) max = x;
+        mi = Math.min(mi, x);
+        mx = Math.max(mx, x);
     }
 
     const ans: number[] = [];
@@ -195,7 +304,7 @@ function relativeSortArray(arr1: number[], arr2: number[]): number[] {
         }
     }
 
-    for (let i = min; i <= max; i++) {
+    for (let i = mi; i <= mx; i++) {
         while (cnt[i]) {
             cnt[i]--;
             ans.push(i);
@@ -211,3 +320,4 @@ function relativeSortArray(arr1: number[], arr2: number[]): number[] {
 <!-- solution:end -->
 
 <!-- problem:end -->
+
