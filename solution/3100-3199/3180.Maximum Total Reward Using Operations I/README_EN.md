@@ -220,4 +220,240 @@ function maxTotalReward(rewardValues: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+We define $f[i][j]$ as whether it is possible to obtain a total reward of $j$ using the first $i$ reward values. Initially, $f[0][0] = \text{True}$, and all other values are $\text{False}$.
+
+We consider the $i$-th reward value $v$. If we do not choose it, then $f[i][j] = f[i - 1][j]$. If we choose it, then $f[i][j] = f[i - 1][j - v]$, where $0 \leq j - v < v$. Thus, the state transition equation is:
+
+$$
+f[i][j] = f[i - 1][j] \vee f[i - 1][j - v]
+$$
+
+The final answer is $\max\{j \mid f[n][j] = \text{True}\}$.
+
+Since $f[i][j]$ only depends on $f[i - 1][j]$ and $f[i - 1][j - v]$, we can optimize away the first dimension and use only a one-dimensional array for state transitions.
+
+The time complexity is $O(n \times M)$, and the space complexity is $O(M)$. Where $n$ is the length of the `rewardValues` array, and $M$ is twice the maximum value in the `rewardValues` array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxTotalReward(self, rewardValues: List[int]) -> int:
+        nums = sorted(set(rewardValues))
+        m = nums[-1] << 1
+        f = [False] * m
+        f[0] = True
+        for v in nums:
+            for j in range(m):
+                if 0 <= j - v < v:
+                    f[j] |= f[j - v]
+        ans = m - 1
+        while not f[ans]:
+            ans -= 1
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxTotalReward(int[] rewardValues) {
+        int[] nums = Arrays.stream(rewardValues).distinct().sorted().toArray();
+        int n = nums.length;
+        int m = nums[n - 1] << 1;
+        boolean[] f = new boolean[m];
+        f[0] = true;
+        for (int v : nums) {
+            for (int j = 0; j < m; ++j) {
+                if (0 <= j - v && j - v < v) {
+                    f[j] |= f[j - v];
+                }
+            }
+        }
+        int ans = m - 1;
+        while (!f[ans]) {
+            --ans;
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxTotalReward(vector<int>& rewardValues) {
+        sort(rewardValues.begin(), rewardValues.end());
+        rewardValues.erase(unique(rewardValues.begin(), rewardValues.end()), rewardValues.end());
+        int n = rewardValues.size();
+        int m = rewardValues.back() << 1;
+        bool f[m];
+        memset(f, false, sizeof(f));
+        f[0] = true;
+        for (int v : rewardValues) {
+            for (int j = 1; j < m; ++j) {
+                if (0 <= j - v && j - v < v) {
+                    f[j] = f[j] || f[j - v];
+                }
+            }
+        }
+        int ans = m - 1;
+        while (!f[ans]) {
+            --ans;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func maxTotalReward(rewardValues []int) int {
+	slices.Sort(rewardValues)
+	nums := slices.Compact(rewardValues)
+	n := len(nums)
+	m := nums[n-1] << 1
+	f := make([]bool, m)
+	f[0] = true
+	for _, v := range nums {
+		for j := 1; j < m; j++ {
+			if 0 <= j-v && j-v < v {
+				f[j] = f[j] || f[j-v]
+			}
+		}
+	}
+	ans := m - 1
+	for !f[ans] {
+		ans--
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxTotalReward(rewardValues: number[]): number {
+    const nums = Array.from(new Set(rewardValues)).sort((a, b) => a - b);
+    const n = nums.length;
+    const m = nums[n - 1] << 1;
+    const f: boolean[] = Array(m).fill(false);
+    f[0] = true;
+    for (const v of nums) {
+        for (let j = 1; j < m; ++j) {
+            if (0 <= j - v && j - v < v) {
+                f[j] = f[j] || f[j - v];
+            }
+        }
+    }
+    let ans = m - 1;
+    while (!f[ans]) {
+        --ans;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming + Bit Manipulation
+
+We can optimize Solution 2 by defining a binary number $f$ to save the current state, where the $i$-th bit of $f$ being $1$ indicates that a total reward of $i$ is reachable.
+
+Observing the state transition equation from Solution 2, $f[j] = f[j] \vee f[j - v]$, this is equivalent to taking the lower $v$ bits of $f$, shifting them left by $v$ bits, and then performing an OR operation with the original $f$.
+
+Thus, the answer is the position of the highest bit in $f$.
+
+The time complexity is $O(n \times M / w)$, and the space complexity is $O(n + M / w)$. Where $n$ is the length of the `rewardValues` array, $M$ is twice the maximum value in the `rewardValues` array, and the integer $w = 32$ or $64$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxTotalReward(self, rewardValues: List[int]) -> int:
+        nums = sorted(set(rewardValues))
+        f = 1
+        for v in nums:
+            f |= (f & ((1 << v) - 1)) << v
+        return f.bit_length() - 1
+```
+
+#### Java
+
+```java
+import java.math.BigInteger;
+import java.util.Arrays;
+
+class Solution {
+    public int maxTotalReward(int[] rewardValues) {
+        int[] nums = Arrays.stream(rewardValues).distinct().sorted().toArray();
+        BigInteger f = BigInteger.ONE;
+        for (int v : nums) {
+            BigInteger mask = BigInteger.ONE.shiftLeft(v).subtract(BigInteger.ONE);
+            BigInteger shifted = f.and(mask).shiftLeft(v);
+            f = f.or(shifted);
+        }
+        return f.bitLength() - 1;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxTotalReward(vector<int>& rewardValues) {
+        sort(rewardValues.begin(), rewardValues.end());
+        rewardValues.erase(unique(rewardValues.begin(), rewardValues.end()), rewardValues.end());
+        bitset<100000> f{1};
+        for (int v : rewardValues) {
+            int shift = f.size() - v;
+            f |= f << shift >> (shift - v);
+        }
+        for (int i = rewardValues.back() * 2 - 1;; i--) {
+            if (f.test(i)) {
+                return i;
+            }
+        }
+    }
+};
+```
+
+#### Go
+
+```go
+func maxTotalReward(rewardValues []int) int {
+	slices.Sort(rewardValues)
+	rewardValues = slices.Compact(rewardValues)
+	one := big.NewInt(1)
+	f := big.NewInt(1)
+	p := new(big.Int)
+	for _, v := range rewardValues {
+		mask := p.Sub(p.Lsh(one, uint(v)), one)
+		f.Or(f, p.Lsh(p.And(f, mask), uint(v)))
+	}
+	return f.BitLen() - 1
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

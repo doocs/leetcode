@@ -222,4 +222,240 @@ function maxTotalReward(rewardValues: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：动态规划
+
+我们定义 $f[i][j]$ 表示用前 $i$ 个奖励值，能否得到总奖励 $j$。初始时 $f[0][0] = \text{True}$，其余值均为 $\text{False}$。
+
+我们考虑第 $i$ 个奖励值 $v$，如果我们不选择它，那么 $f[i][j] = f[i - 1][j]$；如果我们选择它，那么 $f[i][j] = f[i - 1][j - v]$，其中 $0 \leq j - v \lt v$。即状态转移方程为：
+
+$$
+f[i][j] = f[i - 1][j] \vee f[i - 1][j - v]
+$$
+
+最终答案为 $\max\{j \mid f[n][j] = \text{True}\}$。
+
+由于 $f[i][j]$ 只与 $f[i - 1][j]$ 和 $f[i - 1][j - v]$ 有关，我们可以优化掉第一维，只使用一个一维数组进行状态转移。
+
+时间复杂度 $O(n \times M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 `rewardValues` 的长度，而 $M$ 是数组 `rewardValues` 中的最大值的两倍。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxTotalReward(self, rewardValues: List[int]) -> int:
+        nums = sorted(set(rewardValues))
+        m = nums[-1] << 1
+        f = [False] * m
+        f[0] = True
+        for v in nums:
+            for j in range(m):
+                if 0 <= j - v < v:
+                    f[j] |= f[j - v]
+        ans = m - 1
+        while not f[ans]:
+            ans -= 1
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxTotalReward(int[] rewardValues) {
+        int[] nums = Arrays.stream(rewardValues).distinct().sorted().toArray();
+        int n = nums.length;
+        int m = nums[n - 1] << 1;
+        boolean[] f = new boolean[m];
+        f[0] = true;
+        for (int v : nums) {
+            for (int j = 0; j < m; ++j) {
+                if (0 <= j - v && j - v < v) {
+                    f[j] |= f[j - v];
+                }
+            }
+        }
+        int ans = m - 1;
+        while (!f[ans]) {
+            --ans;
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxTotalReward(vector<int>& rewardValues) {
+        sort(rewardValues.begin(), rewardValues.end());
+        rewardValues.erase(unique(rewardValues.begin(), rewardValues.end()), rewardValues.end());
+        int n = rewardValues.size();
+        int m = rewardValues.back() << 1;
+        bool f[m];
+        memset(f, false, sizeof(f));
+        f[0] = true;
+        for (int v : rewardValues) {
+            for (int j = 1; j < m; ++j) {
+                if (0 <= j - v && j - v < v) {
+                    f[j] = f[j] || f[j - v];
+                }
+            }
+        }
+        int ans = m - 1;
+        while (!f[ans]) {
+            --ans;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func maxTotalReward(rewardValues []int) int {
+	slices.Sort(rewardValues)
+	nums := slices.Compact(rewardValues)
+	n := len(nums)
+	m := nums[n-1] << 1
+	f := make([]bool, m)
+	f[0] = true
+	for _, v := range nums {
+		for j := 1; j < m; j++ {
+			if 0 <= j-v && j-v < v {
+				f[j] = f[j] || f[j-v]
+			}
+		}
+	}
+	ans := m - 1
+	for !f[ans] {
+		ans--
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxTotalReward(rewardValues: number[]): number {
+    const nums = Array.from(new Set(rewardValues)).sort((a, b) => a - b);
+    const n = nums.length;
+    const m = nums[n - 1] << 1;
+    const f: boolean[] = Array(m).fill(false);
+    f[0] = true;
+    for (const v of nums) {
+        for (let j = 1; j < m; ++j) {
+            if (0 <= j - v && j - v < v) {
+                f[j] = f[j] || f[j - v];
+            }
+        }
+    }
+    let ans = m - 1;
+    while (!f[ans]) {
+        --ans;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：动态规划 + 位运算
+
+我们可以对方法二进行优化，定义一个二进制数 $f$ 保存当前的状态，其中 $f$ 的第 $i$ 位为 $1$ 表示当前总奖励为 $i$ 是可达的。
+
+观察方法二的状态转移方程 $f[j] = f[j] \vee f[j - v]$，这相当于取 $f$ 的低 $v$ 位，再左移 $v$ 位，然后与原来的 $f$ 进行或运算。
+
+那么答案为 $f$ 的最高位的位置。
+
+时间复杂度 $O(n \times M / w)$，空间复杂度 $O(n + M / w)$。其中 $n$ 是数组 `rewardValues` 的长度，而 $M$ 是数组 `rewardValues` 中的最大值的两倍。整数 $w = 32$ 或 $64$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxTotalReward(self, rewardValues: List[int]) -> int:
+        nums = sorted(set(rewardValues))
+        f = 1
+        for v in nums:
+            f |= (f & ((1 << v) - 1)) << v
+        return f.bit_length() - 1
+```
+
+#### Java
+
+```java
+import java.math.BigInteger;
+import java.util.Arrays;
+
+class Solution {
+    public int maxTotalReward(int[] rewardValues) {
+        int[] nums = Arrays.stream(rewardValues).distinct().sorted().toArray();
+        BigInteger f = BigInteger.ONE;
+        for (int v : nums) {
+            BigInteger mask = BigInteger.ONE.shiftLeft(v).subtract(BigInteger.ONE);
+            BigInteger shifted = f.and(mask).shiftLeft(v);
+            f = f.or(shifted);
+        }
+        return f.bitLength() - 1;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxTotalReward(vector<int>& rewardValues) {
+        sort(rewardValues.begin(), rewardValues.end());
+        rewardValues.erase(unique(rewardValues.begin(), rewardValues.end()), rewardValues.end());
+        bitset<100000> f{1};
+        for (int v : rewardValues) {
+            int shift = f.size() - v;
+            f |= f << shift >> (shift - v);
+        }
+        for (int i = rewardValues.back() * 2 - 1;; i--) {
+            if (f.test(i)) {
+                return i;
+            }
+        }
+    }
+};
+```
+
+#### Go
+
+```go
+func maxTotalReward(rewardValues []int) int {
+	slices.Sort(rewardValues)
+	rewardValues = slices.Compact(rewardValues)
+	one := big.NewInt(1)
+	f := big.NewInt(1)
+	p := new(big.Int)
+	for _, v := range rewardValues {
+		mask := p.Sub(p.Lsh(one, uint(v)), one)
+		f.Or(f, p.Lsh(p.And(f, mask), uint(v)))
+	}
+	return f.BitLen() - 1
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
