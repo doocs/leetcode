@@ -67,50 +67,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：并查集
+### 方法一：DFS
 
-并查集是一种树形的数据结构，顾名思义，它用于处理一些不交集的**合并**及**查询**问题。 它支持两种操作：
+我们可以给每个连通块一个唯一的标识，用数组 $p$ 记录每个位置所属的连通块，即 $p[i][j]$ 表示 $(i, j)$ 所属的连通块编号。用数组 $cnt$ 记录每个连通块的大小，即 $cnt[root]$ 表示连通块 $root$ 的大小。
 
-1. 查找（Find）：确定某个元素处于哪个子集，单次操作时间复杂度 $O(\alpha(n))$
-1. 合并（Union）：将两个子集合并成一个集合，单次操作时间复杂度 $O(\alpha(n))$
+首先，我们遍历整个矩阵，对于每个 $grid[i][j] = 1$ 且 $p[i][j] = 0$ 的位置，我们对其进行深度优先搜索，将其所属的连通块标记为 $root$，并统计连通块的大小。
 
-其中 $\alpha$ 为阿克曼函数的反函数，其增长极其缓慢，也就是说其单次操作的平均运行时间可以认为是一个很小的常数。
+接着，我们遍历整个矩阵，对于每个 $grid[i][j] = 0$ 的位置，我们找到其上、下、左、右四个位置所属的连通块，将这些连通块的大小相加，再加上当前位置的 $1$，即可得到将当前位置变为 $1$ 后的最大岛屿面积。
 
-以下是并查集的常用模板，需要熟练掌握。其中：
-
--   `n` 表示节点数
--   `p` 存储每个点的父节点，初始时每个点的父节点都是自己
--   `size` 只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
--   `find(x)` 函数用于查找 $x$ 所在集合的祖宗节点
--   `union(a, b)` 函数用于合并 $a$ 和 $b$ 所在的集合
-
-```python
-p = list(range(n))
-size = [1] * n
-
-
-def find(x):
-    if p[x] != x:
-        # 路径压缩
-        p[x] = find(p[x])
-    return p[x]
-
-
-def union(a, b):
-    pa, pb = find(a), find(b)
-    if pa == pb:
-        return
-    p[pa] = pb
-    size[pb] += size[pa]
-```
-
-在这道题中，相邻的 $1$ 组成一个岛屿，因此，我们需要将相邻的 $1$ 归到同一个集合中。这可以视为一个合并操作，不难想到用并查集来实现。
-
-第一次遍历 `grid`，通过并查集的 `union` 操作合并所有相邻的 $1$，并且统计每个岛屿的面积，记录在 $size$ 数组中。
-
-再次遍历 `grid`，对于每个 $0$，我们统计相邻的四个点中 $1$ 所在的岛屿（通过并查集的 `find` 操作找到所在岛屿），累加去重后的岛屿面积，更新最大值。
-
-时间复杂度 $O(n^2\times \alpha(n))$。其中 $n$ 为矩阵 `grid` 的边长。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为矩阵的边长。
 
 <!-- tabs:start -->
 
@@ -119,407 +84,10 @@ def union(a, b):
 ```python
 class Solution:
     def largestIsland(self, grid: List[List[int]]) -> int:
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
-        def union(a, b):
-            pa, pb = find(a), find(b)
-            if pa == pb:
-                return
-            p[pa] = pb
-            size[pb] += size[pa]
-
-        n = len(grid)
-        p = list(range(n * n))
-        size = [1] * (n * n)
-        for i, row in enumerate(grid):
-            for j, v in enumerate(row):
-                if v:
-                    for a, b in [[0, -1], [-1, 0]]:
-                        x, y = i + a, j + b
-                        if 0 <= x < n and 0 <= y < n and grid[x][y]:
-                            union(x * n + y, i * n + j)
-        ans = max(size)
-        for i, row in enumerate(grid):
-            for j, v in enumerate(row):
-                if v == 0:
-                    vis = set()
-                    t = 1
-                    for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
-                        x, y = i + a, j + b
-                        if 0 <= x < n and 0 <= y < n and grid[x][y]:
-                            root = find(x * n + y)
-                            if root not in vis:
-                                vis.add(root)
-                                t += size[root]
-                    ans = max(ans, t)
-        return ans
-```
-
-#### Java
-
-```java
-class Solution {
-    private int n;
-    private int[] p;
-    private int[] size;
-    private int ans = 1;
-    private int[] dirs = new int[] {-1, 0, 1, 0, -1};
-
-    public int largestIsland(int[][] grid) {
-        n = grid.length;
-        p = new int[n * n];
-        size = new int[n * n];
-        for (int i = 0; i < p.length; ++i) {
-            p[i] = i;
-            size[i] = 1;
-        }
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 1) {
-                    for (int k = 0; k < 4; ++k) {
-                        int x = i + dirs[k], y = j + dirs[k + 1];
-                        if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1) {
-                            int pa = find(x * n + y), pb = find(i * n + j);
-                            if (pa == pb) {
-                                continue;
-                            }
-                            p[pa] = pb;
-                            size[pb] += size[pa];
-                            ans = Math.max(ans, size[pb]);
-                        }
-                    }
-                }
-            }
-        }
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 0) {
-                    int t = 1;
-                    Set<Integer> vis = new HashSet<>();
-                    for (int k = 0; k < 4; ++k) {
-                        int x = i + dirs[k], y = j + dirs[k + 1];
-                        if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1) {
-                            int root = find(x * n + y);
-                            if (!vis.contains(root)) {
-                                vis.add(root);
-                                t += size[root];
-                            }
-                        }
-                    }
-                    ans = Math.max(ans, t);
-                }
-            }
-        }
-        return ans;
-    }
-
-    private int find(int x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    const static inline vector<int> dirs = {-1, 0, 1, 0, -1};
-
-    int largestIsland(vector<vector<int>>& grid) {
-        int n = grid.size();
-        vector<int> p(n * n);
-        vector<int> size(n * n, 1);
-        iota(p.begin(), p.end(), 0);
-
-        function<int(int)> find;
-        find = [&](int x) {
-            if (p[x] != x) {
-                p[x] = find(p[x]);
-            }
-            return p[x];
-        };
-
-        int ans = 1;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j]) {
-                    for (int k = 0; k < 4; ++k) {
-                        int x = i + dirs[k], y = j + dirs[k + 1];
-                        if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y]) {
-                            int pa = find(x * n + y), pb = find(i * n + j);
-                            if (pa == pb) continue;
-                            p[pa] = pb;
-                            size[pb] += size[pa];
-                            ans = max(ans, size[pb]);
-                        }
-                    }
-                }
-            }
-        }
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (!grid[i][j]) {
-                    int t = 1;
-                    unordered_set<int> vis;
-                    for (int k = 0; k < 4; ++k) {
-                        int x = i + dirs[k], y = j + dirs[k + 1];
-                        if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y]) {
-                            int root = find(x * n + y);
-                            if (!vis.count(root)) {
-                                vis.insert(root);
-                                t += size[root];
-                            }
-                        }
-                    }
-                    ans = max(ans, t);
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
-#### Go
-
-```go
-func largestIsland(grid [][]int) int {
-	n := len(grid)
-	p := make([]int, n*n)
-	size := make([]int, n*n)
-	for i := range p {
-		p[i] = i
-		size[i] = 1
-	}
-	var find func(int) int
-	find = func(x int) int {
-		if p[x] != x {
-			p[x] = find(p[x])
-		}
-		return p[x]
-	}
-	dirs := []int{-1, 0, 1, 0, -1}
-	ans := 1
-	for i, row := range grid {
-		for j, v := range row {
-			if v == 1 {
-				for k := 0; k < 4; k++ {
-					x, y := i+dirs[k], j+dirs[k+1]
-					if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1 {
-						pa, pb := find(x*n+y), find(i*n+j)
-						if pa != pb {
-							p[pa] = pb
-							size[pb] += size[pa]
-							ans = max(ans, size[pb])
-						}
-					}
-				}
-			}
-		}
-	}
-	for i, row := range grid {
-		for j, v := range row {
-			if v == 0 {
-				t := 1
-				vis := map[int]struct{}{}
-				for k := 0; k < 4; k++ {
-					x, y := i+dirs[k], j+dirs[k+1]
-					if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1 {
-						root := find(x*n + y)
-						if _, ok := vis[root]; !ok {
-							vis[root] = struct{}{}
-							t += size[root]
-						}
-					}
-				}
-				ans = max(ans, t)
-			}
-		}
-	}
-	return ans
-}
-```
-
-#### TypeScript
-
-```ts
-function largestIsland(grid: number[][]): number {
-    const n = grid.length;
-    const vis = Array.from({ length: n }, () => new Array(n).fill(false));
-    const group = Array.from({ length: n }, () => new Array(n).fill(0));
-    const dfs = (i: number, j: number, paths: [number, number][]) => {
-        if (i < 0 || j < 0 || i === n || j === n || vis[i][j] || grid[i][j] !== 1) {
-            return;
-        }
-        vis[i][j] = true;
-        paths.push([i, j]);
-        dfs(i + 1, j, paths);
-        dfs(i, j + 1, paths);
-        dfs(i - 1, j, paths);
-        dfs(i, j - 1, paths);
-    };
-    let count = 1;
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n; j++) {
-            const paths: [number, number][] = [];
-            dfs(i, j, paths);
-            if (paths.length !== 0) {
-                for (const [x, y] of paths) {
-                    group[x][y] = count;
-                    grid[x][y] = paths.length;
-                }
-                count++;
-            }
-        }
-    }
-
-    let res = 0;
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n; j++) {
-            let sum = grid[i][j];
-            if (grid[i][j] === 0) {
-                sum++;
-                const set = new Set();
-                if (i !== 0) {
-                    sum += grid[i - 1][j];
-                    set.add(group[i - 1][j]);
-                }
-                if (i !== n - 1 && !set.has(group[i + 1][j])) {
-                    sum += grid[i + 1][j];
-                    set.add(group[i + 1][j]);
-                }
-                if (j !== 0 && !set.has(group[i][j - 1])) {
-                    sum += grid[i][j - 1];
-                    set.add(group[i][j - 1]);
-                }
-                if (j !== n - 1 && !set.has(group[i][j + 1])) {
-                    sum += grid[i][j + 1];
-                }
-            }
-            res = Math.max(res, sum);
-        }
-    }
-    return res;
-}
-```
-
-#### Rust
-
-```rust
-use std::collections::HashSet;
-impl Solution {
-    fn dfs(
-        i: usize,
-        j: usize,
-        grid: &Vec<Vec<i32>>,
-        paths: &mut Vec<(usize, usize)>,
-        vis: &mut Vec<Vec<bool>>
-    ) {
-        let n = vis.len();
-        if vis[i][j] || grid[i][j] != 1 {
-            return;
-        }
-        paths.push((i, j));
-        vis[i][j] = true;
-        if i != 0 {
-            Self::dfs(i - 1, j, grid, paths, vis);
-        }
-        if j != 0 {
-            Self::dfs(i, j - 1, grid, paths, vis);
-        }
-        if i != n - 1 {
-            Self::dfs(i + 1, j, grid, paths, vis);
-        }
-        if j != n - 1 {
-            Self::dfs(i, j + 1, grid, paths, vis);
-        }
-    }
-
-    pub fn largest_island(mut grid: Vec<Vec<i32>>) -> i32 {
-        let n = grid.len();
-        let mut vis = vec![vec![false; n]; n];
-        let mut group = vec![vec![0; n]; n];
-        let mut count = 1;
-        for i in 0..n {
-            for j in 0..n {
-                let mut paths: Vec<(usize, usize)> = Vec::new();
-                Self::dfs(i, j, &grid, &mut paths, &mut vis);
-                let m = paths.len() as i32;
-                if m != 0 {
-                    for (x, y) in paths {
-                        grid[x][y] = m;
-                        group[x][y] = count;
-                    }
-                    count += 1;
-                }
-            }
-        }
-        let mut res = 0;
-        for i in 0..n {
-            for j in 0..n {
-                let mut sum = grid[i][j];
-                if grid[i][j] == 0 {
-                    sum += 1;
-                    let mut set = HashSet::new();
-                    if i != 0 {
-                        sum += grid[i - 1][j];
-                        set.insert(group[i - 1][j]);
-                    }
-                    if j != 0 && !set.contains(&group[i][j - 1]) {
-                        sum += grid[i][j - 1];
-                        set.insert(group[i][j - 1]);
-                    }
-                    if i != n - 1 && !set.contains(&group[i + 1][j]) {
-                        sum += grid[i + 1][j];
-                        set.insert(group[i + 1][j]);
-                    }
-                    if j != n - 1 && !set.contains(&group[i][j + 1]) {
-                        sum += grid[i][j + 1];
-                        set.insert(group[i][j + 1]);
-                    }
-                }
-                res = res.max(sum);
-            }
-        }
-        res
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二：DFS
-
-我们也可以通过 DFS，找到每个岛屿。
-
-同一个岛屿中的所有点都属于同一个集合，我们可以用不同的 `root` 值标识不同的岛屿，用 $p$ 记录每个 $grid[i][j]$ 对应的 `root` 值，用 $cnt$ 记录每个岛屿的面积。
-
-遍历 `grid`，对于每个 $0$，我们统计相邻的四个点中 $1$ 所在的岛屿（与方法一不同的是，我们这里直接取 $p[i][j]$ 作为 `root`），累加去重后的岛屿面积，更新最大值。
-
-时间复杂度 $O(n^2)$。其中 $n$ 为矩阵 `grid` 的边长。
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def largestIsland(self, grid: List[List[int]]) -> int:
-        def dfs(i, j):
+        def dfs(i: int, j: int):
             p[i][j] = root
             cnt[root] += 1
-            for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
+            for a, b in pairwise(dirs):
                 x, y = i + a, j + b
                 if 0 <= x < n and 0 <= y < n and grid[x][y] and p[x][y] == 0:
                     dfs(x, y)
@@ -527,27 +95,23 @@ class Solution:
         n = len(grid)
         cnt = Counter()
         p = [[0] * n for _ in range(n)]
+        dirs = (-1, 0, 1, 0, -1)
         root = 0
         for i, row in enumerate(grid):
-            for j, v in enumerate(row):
-                if v and p[i][j] == 0:
+            for j, x in enumerate(row):
+                if x and p[i][j] == 0:
                     root += 1
                     dfs(i, j)
-
-        ans = max(cnt.values(), default=0)
+        ans = max(cnt.values() or [0])
         for i, row in enumerate(grid):
-            for j, v in enumerate(row):
-                if v == 0:
-                    t = 1
-                    vis = set()
-                    for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
+            for j, x in enumerate(row):
+                if x == 0:
+                    s = set()
+                    for a, b in pairwise(dirs):
                         x, y = i + a, j + b
                         if 0 <= x < n and 0 <= y < n:
-                            root = p[x][y]
-                            if root not in vis:
-                                vis.add(root)
-                                t += cnt[root]
-                    ans = max(ans, t)
+                            s.add(p[x][y])
+                    ans = max(ans, sum(cnt[root] for root in s) + 1)
         return ans
 ```
 
@@ -556,40 +120,40 @@ class Solution:
 ```java
 class Solution {
     private int n;
-    private int ans;
     private int root;
+    private int[] cnt;
     private int[][] p;
     private int[][] grid;
-    private int[] cnt;
-    private int[] dirs = new int[] {-1, 0, 1, 0, -1};
+    private final int[] dirs = {-1, 0, 1, 0, -1};
 
     public int largestIsland(int[][] grid) {
         n = grid.length;
-        cnt = new int[n * n + 1];
         p = new int[n][n];
         this.grid = grid;
+        cnt = new int[n * n + 1];
+        int ans = 0;
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 1 && p[i][j] == 0) {
                     ++root;
-                    dfs(i, j);
+                    ans = Math.max(ans, dfs(i, j));
                 }
             }
         }
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 0) {
-                    int t = 1;
-                    Set<Integer> vis = new HashSet<>();
+                    Set<Integer> s = new HashSet<>();
                     for (int k = 0; k < 4; ++k) {
-                        int x = i + dirs[k], y = j + dirs[k + 1];
+                        int x = i + dirs[k];
+                        int y = j + dirs[k + 1];
                         if (x >= 0 && x < n && y >= 0 && y < n) {
-                            int root = p[x][y];
-                            if (!vis.contains(root)) {
-                                vis.add(root);
-                                t += cnt[root];
-                            }
+                            s.add(p[x][y]);
                         }
+                    }
+                    int t = 1;
+                    for (int x : s) {
+                        t += cnt[x];
                     }
                     ans = Math.max(ans, t);
                 }
@@ -598,16 +162,17 @@ class Solution {
         return ans;
     }
 
-    private void dfs(int i, int j) {
+    private int dfs(int i, int j) {
         p[i][j] = root;
         ++cnt[root];
-        ans = Math.max(ans, cnt[root]);
         for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
+            int x = i + dirs[k];
+            int y = j + dirs[k + 1];
             if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1 && p[x][y] == 0) {
                 dfs(x, y);
             }
         }
+        return cnt[root];
     }
 }
 ```
@@ -617,51 +182,49 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const static inline vector<int> dirs = {-1, 0, 1, 0, -1};
-
     int largestIsland(vector<vector<int>>& grid) {
         int n = grid.size();
-        int ans = 0;
+        int p[n][n];
+        memset(p, 0, sizeof(p));
+        int cnt[n * n + 1];
+        memset(cnt, 0, sizeof(cnt));
+        const int dirs[5] = {-1, 0, 1, 0, -1};
         int root = 0;
-        vector<vector<int>> p(n, vector<int>(n));
-        vector<int> cnt(n * n + 1);
-
-        function<void(int, int)> dfs;
-        dfs = [&](int i, int j) {
+        int ans = 0;
+        function<int(int, int)> dfs = [&](int i, int j) {
             p[i][j] = root;
             ++cnt[root];
-            ans = max(ans, cnt[root]);
             for (int k = 0; k < 4; ++k) {
-                int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] && p[x][y] == 0) {
+                int x = i + dirs[k];
+                int y = j + dirs[k + 1];
+                if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] && !p[x][y]) {
                     dfs(x, y);
                 }
             }
+            return cnt[root];
         };
-
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (grid[i][j] && p[i][j] == 0) {
+                if (grid[i][j] && !p[i][j]) {
                     ++root;
-                    dfs(i, j);
+                    ans = max(ans, dfs(i, j));
                 }
             }
         }
-
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (!grid[i][j]) {
-                    int t = 1;
-                    unordered_set<int> vis;
+                    unordered_set<int> s;
                     for (int k = 0; k < 4; ++k) {
-                        int x = i + dirs[k], y = j + dirs[k + 1];
+                        int x = i + dirs[k];
+                        int y = j + dirs[k + 1];
                         if (x >= 0 && x < n && y >= 0 && y < n) {
-                            int root = p[x][y];
-                            if (!vis.count(root)) {
-                                vis.insert(root);
-                                t += cnt[root];
-                            }
+                            s.insert(p[x][y]);
                         }
+                    }
+                    int t = 1;
+                    for (int x : s) {
+                        t += cnt[x];
                     }
                     ans = max(ans, t);
                 }
@@ -683,49 +246,183 @@ func largestIsland(grid [][]int) int {
 	}
 	cnt := make([]int, n*n+1)
 	dirs := []int{-1, 0, 1, 0, -1}
-	ans, root := 0, 0
+	root := 0
+	ans := 0
 
-	var dfs func(i, j int)
-	dfs = func(i, j int) {
+	var dfs func(int, int) int
+	dfs = func(i, j int) int {
 		p[i][j] = root
 		cnt[root]++
-		ans = max(ans, cnt[root])
 		for k := 0; k < 4; k++ {
-			x, y := i+dirs[k], j+dirs[k+1]
+			x := i + dirs[k]
+			y := j + dirs[k+1]
 			if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1 && p[x][y] == 0 {
 				dfs(x, y)
 			}
 		}
+		return cnt[root]
 	}
 
-	for i, row := range grid {
-		for j, v := range row {
-			if v == 1 && p[i][j] == 0 {
+	for i := 0; i < n; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 1 && p[i][j] == 0 {
 				root++
-				dfs(i, j)
+				ans = max(ans, dfs(i, j))
 			}
 		}
 	}
-	for i, row := range grid {
-		for j, v := range row {
-			if v == 0 {
-				t := 1
-				vis := map[int]struct{}{}
+
+	for i := 0; i < n; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 0 {
+				s := make(map[int]struct{})
 				for k := 0; k < 4; k++ {
-					x, y := i+dirs[k], j+dirs[k+1]
+					x := i + dirs[k]
+					y := j + dirs[k+1]
 					if x >= 0 && x < n && y >= 0 && y < n {
-						root := p[x][y]
-						if _, ok := vis[root]; !ok {
-							vis[root] = struct{}{}
-							t += cnt[root]
-						}
+						s[p[x][y]] = struct{}{}
 					}
+				}
+				t := 1
+				for x := range s {
+					t += cnt[x]
 				}
 				ans = max(ans, t)
 			}
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function largestIsland(grid: number[][]): number {
+    const n = grid.length;
+    const p = Array.from({ length: n }, () => Array(n).fill(0));
+    const cnt = Array(n * n + 1).fill(0);
+    const dirs = [-1, 0, 1, 0, -1];
+    let root = 0;
+    let ans = 0;
+
+    const dfs = (i: number, j: number): number => {
+        p[i][j] = root;
+        cnt[root]++;
+        for (let k = 0; k < 4; ++k) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
+            if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] === 1 && p[x][y] === 0) {
+                dfs(x, y);
+            }
+        }
+        return cnt[root];
+    };
+
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] === 1 && p[i][j] === 0) {
+                root++;
+                ans = Math.max(ans, dfs(i, j));
+            }
+        }
+    }
+
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] === 0) {
+                const s = new Set<number>();
+                for (let k = 0; k < 4; ++k) {
+                    const x = i + dirs[k];
+                    const y = j + dirs[k + 1];
+                    if (x >= 0 && x < n && y >= 0 && y < n) {
+                        s.add(p[x][y]);
+                    }
+                }
+                let t = 1;
+                for (const x of s) {
+                    t += cnt[x];
+                }
+                ans = Math.max(ans, t);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn largest_island(grid: Vec<Vec<i32>>) -> i32 {
+        let n = grid.len();
+        let mut p = vec![vec![0; n]; n];
+        let mut cnt = vec![0; n * n + 1];
+        let dirs = [-1, 0, 1, 0, -1];
+        let mut root = 0;
+        let mut ans = 0;
+
+        fn dfs(
+            grid: &Vec<Vec<i32>>,
+            p: &mut Vec<Vec<i32>>,
+            cnt: &mut Vec<i32>,
+            root: i32,
+            i: usize,
+            j: usize,
+            dirs: &[i32; 5]
+        ) -> i32 {
+            p[i][j] = root;
+            cnt[root as usize] += 1;
+            for k in 0..4 {
+                let x = (i as i32) + dirs[k];
+                let y = (j as i32) + dirs[k + 1];
+                if
+                    x >= 0 &&
+                    (x as usize) < grid.len() &&
+                    y >= 0 &&
+                    (y as usize) < grid.len() &&
+                    grid[x as usize][y as usize] == 1 &&
+                    p[x as usize][y as usize] == 0
+                {
+                    dfs(grid, p, cnt, root, x as usize, y as usize, dirs);
+                }
+            }
+            cnt[root as usize]
+        }
+
+        for i in 0..n {
+            for j in 0..n {
+                if grid[i][j] == 1 && p[i][j] == 0 {
+                    root += 1;
+                    ans = ans.max(dfs(&grid, &mut p, &mut cnt, root, i, j, &dirs));
+                }
+            }
+        }
+
+        for i in 0..n {
+            for j in 0..n {
+                if grid[i][j] == 0 {
+                    let mut s = HashSet::new();
+                    for k in 0..4 {
+                        let x = (i as i32) + dirs[k];
+                        let y = (j as i32) + dirs[k + 1];
+                        if x >= 0 && (x as usize) < n && y >= 0 && (y as usize) < n {
+                            s.insert(p[x as usize][y as usize]);
+                        }
+                    }
+                    let mut t = 1;
+                    for &x in &s {
+                        t += cnt[x as usize];
+                    }
+                    ans = ans.max(t);
+                }
+            }
+        }
+        ans
+    }
 }
 ```
 

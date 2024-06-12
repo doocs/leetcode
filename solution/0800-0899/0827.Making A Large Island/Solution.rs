@@ -1,78 +1,70 @@
 use std::collections::HashSet;
-impl Solution {
-    fn dfs(
-        i: usize,
-        j: usize,
-        grid: &Vec<Vec<i32>>,
-        paths: &mut Vec<(usize, usize)>,
-        vis: &mut Vec<Vec<bool>>
-    ) {
-        let n = vis.len();
-        if vis[i][j] || grid[i][j] != 1 {
-            return;
-        }
-        paths.push((i, j));
-        vis[i][j] = true;
-        if i != 0 {
-            Self::dfs(i - 1, j, grid, paths, vis);
-        }
-        if j != 0 {
-            Self::dfs(i, j - 1, grid, paths, vis);
-        }
-        if i != n - 1 {
-            Self::dfs(i + 1, j, grid, paths, vis);
-        }
-        if j != n - 1 {
-            Self::dfs(i, j + 1, grid, paths, vis);
-        }
-    }
 
-    pub fn largest_island(mut grid: Vec<Vec<i32>>) -> i32 {
+impl Solution {
+    pub fn largest_island(grid: Vec<Vec<i32>>) -> i32 {
         let n = grid.len();
-        let mut vis = vec![vec![false; n]; n];
-        let mut group = vec![vec![0; n]; n];
-        let mut count = 1;
+        let mut p = vec![vec![0; n]; n];
+        let mut cnt = vec![0; n * n + 1];
+        let dirs = [-1, 0, 1, 0, -1];
+        let mut root = 0;
+        let mut ans = 0;
+
+        fn dfs(
+            grid: &Vec<Vec<i32>>,
+            p: &mut Vec<Vec<i32>>,
+            cnt: &mut Vec<i32>,
+            root: i32,
+            i: usize,
+            j: usize,
+            dirs: &[i32; 5]
+        ) -> i32 {
+            p[i][j] = root;
+            cnt[root as usize] += 1;
+            for k in 0..4 {
+                let x = (i as i32) + dirs[k];
+                let y = (j as i32) + dirs[k + 1];
+                if
+                    x >= 0 &&
+                    (x as usize) < grid.len() &&
+                    y >= 0 &&
+                    (y as usize) < grid.len() &&
+                    grid[x as usize][y as usize] == 1 &&
+                    p[x as usize][y as usize] == 0
+                {
+                    dfs(grid, p, cnt, root, x as usize, y as usize, dirs);
+                }
+            }
+            cnt[root as usize]
+        }
+
         for i in 0..n {
             for j in 0..n {
-                let mut paths: Vec<(usize, usize)> = Vec::new();
-                Self::dfs(i, j, &grid, &mut paths, &mut vis);
-                let m = paths.len() as i32;
-                if m != 0 {
-                    for (x, y) in paths {
-                        grid[x][y] = m;
-                        group[x][y] = count;
-                    }
-                    count += 1;
+                if grid[i][j] == 1 && p[i][j] == 0 {
+                    root += 1;
+                    ans = ans.max(dfs(&grid, &mut p, &mut cnt, root, i, j, &dirs));
                 }
             }
         }
-        let mut res = 0;
+
         for i in 0..n {
             for j in 0..n {
-                let mut sum = grid[i][j];
                 if grid[i][j] == 0 {
-                    sum += 1;
-                    let mut set = HashSet::new();
-                    if i != 0 {
-                        sum += grid[i - 1][j];
-                        set.insert(group[i - 1][j]);
+                    let mut s = HashSet::new();
+                    for k in 0..4 {
+                        let x = (i as i32) + dirs[k];
+                        let y = (j as i32) + dirs[k + 1];
+                        if x >= 0 && (x as usize) < n && y >= 0 && (y as usize) < n {
+                            s.insert(p[x as usize][y as usize]);
+                        }
                     }
-                    if j != 0 && !set.contains(&group[i][j - 1]) {
-                        sum += grid[i][j - 1];
-                        set.insert(group[i][j - 1]);
+                    let mut t = 1;
+                    for &x in &s {
+                        t += cnt[x as usize];
                     }
-                    if i != n - 1 && !set.contains(&group[i + 1][j]) {
-                        sum += grid[i + 1][j];
-                        set.insert(group[i + 1][j]);
-                    }
-                    if j != n - 1 && !set.contains(&group[i][j + 1]) {
-                        sum += grid[i][j + 1];
-                        set.insert(group[i][j + 1]);
-                    }
+                    ans = ans.max(t);
                 }
-                res = res.max(sum);
             }
         }
-        res
+        ans
     }
 }
