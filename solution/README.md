@@ -3192,7 +3192,8 @@
 |  3179  |  [K 秒后第 N 个元素的值](/solution/3100-3199/3179.Find%20the%20N-th%20Value%20After%20K%20Seconds/README.md)  |  `数组`,`数学`,`组合数学`,`前缀和`,`模拟`  |  中等  |  第 401 场周赛  |
 |  3180  |  [执行操作可获得的最大总奖励 I](/solution/3100-3199/3180.Maximum%20Total%20Reward%20Using%20Operations%20I/README.md)  |  `数组`,`动态规划`  |  中等  |  第 401 场周赛  |
 |  3181  |  [执行操作可获得的最大总奖励 II](/solution/3100-3199/3181.Maximum%20Total%20Reward%20Using%20Operations%20II/README.md)  |  `位运算`,`数组`,`动态规划`  |  困难  |  第 401 场周赛  |
-|  3182  |  [Find Top Scoring Students](/solution/3100-3199/3182.Find%20Top%20Scoring%20Students/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  3182  |  [查找得分最高的学生](/solution/3100-3199/3182.Find%20Top%20Scoring%20Students/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  3183  |  [The Number of Ways to Make the Sum](/solution/3100-3199/3183.The%20Number%20of%20Ways%20to%20Make%20the%20Sum/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
