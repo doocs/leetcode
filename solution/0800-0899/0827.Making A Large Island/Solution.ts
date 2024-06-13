@@ -1,58 +1,51 @@
 function largestIsland(grid: number[][]): number {
     const n = grid.length;
-    const vis = Array.from({ length: n }, () => new Array(n).fill(false));
-    const group = Array.from({ length: n }, () => new Array(n).fill(0));
-    const dfs = (i: number, j: number, paths: [number, number][]) => {
-        if (i < 0 || j < 0 || i === n || j === n || vis[i][j] || grid[i][j] !== 1) {
-            return;
+    const p = Array.from({ length: n }, () => Array(n).fill(0));
+    const cnt = Array(n * n + 1).fill(0);
+    const dirs = [-1, 0, 1, 0, -1];
+    let root = 0;
+    let ans = 0;
+
+    const dfs = (i: number, j: number): number => {
+        p[i][j] = root;
+        cnt[root]++;
+        for (let k = 0; k < 4; ++k) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
+            if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] === 1 && p[x][y] === 0) {
+                dfs(x, y);
+            }
         }
-        vis[i][j] = true;
-        paths.push([i, j]);
-        dfs(i + 1, j, paths);
-        dfs(i, j + 1, paths);
-        dfs(i - 1, j, paths);
-        dfs(i, j - 1, paths);
+        return cnt[root];
     };
-    let count = 1;
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n; j++) {
-            const paths: [number, number][] = [];
-            dfs(i, j, paths);
-            if (paths.length !== 0) {
-                for (const [x, y] of paths) {
-                    group[x][y] = count;
-                    grid[x][y] = paths.length;
-                }
-                count++;
+
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] === 1 && p[i][j] === 0) {
+                root++;
+                ans = Math.max(ans, dfs(i, j));
             }
         }
     }
 
-    let res = 0;
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n; j++) {
-            let sum = grid[i][j];
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
             if (grid[i][j] === 0) {
-                sum++;
-                const set = new Set();
-                if (i !== 0) {
-                    sum += grid[i - 1][j];
-                    set.add(group[i - 1][j]);
+                const s = new Set<number>();
+                for (let k = 0; k < 4; ++k) {
+                    const x = i + dirs[k];
+                    const y = j + dirs[k + 1];
+                    if (x >= 0 && x < n && y >= 0 && y < n) {
+                        s.add(p[x][y]);
+                    }
                 }
-                if (i !== n - 1 && !set.has(group[i + 1][j])) {
-                    sum += grid[i + 1][j];
-                    set.add(group[i + 1][j]);
+                let t = 1;
+                for (const x of s) {
+                    t += cnt[x];
                 }
-                if (j !== 0 && !set.has(group[i][j - 1])) {
-                    sum += grid[i][j - 1];
-                    set.add(group[i][j - 1]);
-                }
-                if (j !== n - 1 && !set.has(group[i][j + 1])) {
-                    sum += grid[i][j + 1];
-                }
+                ans = Math.max(ans, t);
             }
-            res = Math.max(res, sum);
         }
     }
-    return res;
+    return ans;
 }

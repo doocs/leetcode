@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3175.Find%20The%20First%20Player%20to%20win%20K%20Games%20in%20a%20Row/README_EN.md
+tags:
+    - Array
+    - Simulation
 ---
 
 <!-- problem:start -->
@@ -89,32 +92,128 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3175.Fi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Quick Thinking
+
+We notice that each time the first two elements of the array are compared, regardless of the result, the next comparison will always be between the next element in the array and the current winner. Therefore, if we have looped $n-1$ times, the final winner must be the maximum element in the array. Otherwise, if an element has won consecutively $k$ times, then this element is the final winner.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
+Similar problems:
+
+-   [1535. Find the Winner of an Array Game](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README_EN.md)
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def findWinningPlayer(self, skills: List[int], k: int) -> int:
+        n = len(skills)
+        k = min(k, n - 1)
+        i = cnt = 0
+        for j in range(1, n):
+            if skills[i] < skills[j]:
+                i = j
+                cnt = 1
+            else:
+                cnt += 1
+            if cnt == k:
+                break
+        return i
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int findWinningPlayer(int[] skills, int k) {
+        int n = skills.length;
+        k = Math.min(k, n - 1);
+        int i = 0, cnt = 0;
+        for (int j = 1; j < n; ++j) {
+            if (skills[i] < skills[j]) {
+                i = j;
+                cnt = 1;
+            } else {
+                ++cnt;
+            }
+            if (cnt == k) {
+                break;
+            }
+        }
+        return i;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int findWinningPlayer(vector<int>& skills, int k) {
+        int n = skills.size();
+        k = min(k, n - 1);
+        int i = 0, cnt = 0;
+        for (int j = 1; j < n; ++j) {
+            if (skills[i] < skills[j]) {
+                i = j;
+                cnt = 1;
+            } else {
+                ++cnt;
+            }
+            if (cnt == k) {
+                break;
+            }
+        }
+        return i;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func findWinningPlayer(skills []int, k int) int {
+	n := len(skills)
+	k = min(k, n-1)
+	i, cnt := 0, 0
+	for j := 1; j < n; j++ {
+		if skills[i] < skills[j] {
+			i = j
+			cnt = 1
+		} else {
+			cnt++
+		}
+		if cnt == k {
+			break
+		}
+	}
+	return i
+}
+```
 
+#### TypeScript
+
+```ts
+function findWinningPlayer(skills: number[], k: number): number {
+    const n = skills.length;
+    k = Math.min(k, n - 1);
+    let [i, cnt] = [0, 0];
+    for (let j = 1; j < n; ++j) {
+        if (skills[i] < skills[j]) {
+            i = j;
+            cnt = 1;
+        } else {
+            ++cnt;
+        }
+        if (cnt === k) {
+            break;
+        }
+    }
+    return i;
+}
 ```
 
 <!-- tabs:end -->

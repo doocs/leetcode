@@ -2,6 +2,10 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3174.Clear%20Digits/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Simulation
 ---
 
 <!-- problem:start -->
@@ -66,32 +70,97 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3174.Cl
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Stack + Simulation
+
+We use a stack `stk` to simulate this process. We traverse the string `s`. If the current character is a digit, we pop the top element from the stack. Otherwise, we push the current character into the stack.
+
+Finally, we concatenate the elements in the stack into a string and return it.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string `s`.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def clearDigits(self, s: str) -> str:
+        stk = []
+        for c in s:
+            if c.isdigit():
+                stk.pop()
+            else:
+                stk.append(c)
+        return "".join(stk)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public String clearDigits(String s) {
+        StringBuilder stk = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (Character.isDigit(c)) {
+                stk.deleteCharAt(stk.length() - 1);
+            } else {
+                stk.append(c);
+            }
+        }
+        return stk.toString();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    string clearDigits(string s) {
+        string stk;
+        for (char c : s) {
+            if (isdigit(c)) {
+                stk.pop_back();
+            } else {
+                stk.push_back(c);
+            }
+        }
+        return stk;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func clearDigits(s string) string {
+	stk := []byte{}
+	for i := range s {
+		if s[i] >= '0' && s[i] <= '9' {
+			stk = stk[:len(stk)-1]
+		} else {
+			stk = append(stk, s[i])
+		}
+	}
+	return string(stk)
+}
+```
 
+#### TypeScript
+
+```ts
+function clearDigits(s: string): string {
+    const stk: string[] = [];
+    for (const c of s) {
+        if (!isNaN(parseInt(c))) {
+            stk.pop();
+        } else {
+            stk.push(c);
+        }
+    }
+    return stk.join('');
+}
 ```
 
 <!-- tabs:end -->

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3182.Find%20Top%20Scoring%20Students/README_EN.md
+tags:
+    - Database
 ---
 
 <!-- problem:start -->
@@ -142,14 +144,24 @@ Each row of this table contains the student ID, course ID, semester, and grade r
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Join Tables + Grouping
+
+We can join the `students` table and `courses` table based on the `major` field, then left join the `enrollments` table to the resulting table, and finally group by `student_id` to filter out the students who meet the conditions.
 
 <!-- tabs:start -->
 
 #### MySQL
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT student_id
+FROM
+    students
+    JOIN courses USING (major)
+    LEFT JOIN enrollments USING (student_id, course_id)
+GROUP BY 1
+HAVING SUM(grade = 'A') = COUNT(major)
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

@@ -67,7 +67,18 @@ The total score is: 2 + 4 + 6 + 8 = 20.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+Based on the problem description, we can draw the following conclusions:
+
+1. Moving from position $i$ to position $j$, if $nums[i]$ and $nums[j]$ have different parities, then $x$ points will be lost;
+2. Moving from position $i$ to position $j$, if $nums[i]$ and $nums[j]$ have the same parity, then no points will be lost.
+
+Therefore, we can use an array $f$ of length $2$ to represent the maximum score when the current position's parity is $0$ and $1$. Initially, the values of $f$ are $-\infty$, and then we initialize $f[nums[0] \& 1] = nums[0]$, indicating the score at the initial position.
+
+Next, we start traversing the array $nums$ from position $1$. For each position $i$ corresponding to the value $v$, we update the value of $f[v \& 1]$ to be the larger value between $f[v \& 1]$ and $f[v \& 1 \oplus 1] - x$ plus $v$, i.e., $f[v \& 1] = \max(f[v \& 1], f[v \& 1 \oplus 1] - x) + v$.
+
+The answer is the larger value between $f[0]$ and $f[1]$.
 
 <!-- tabs:start -->
 
@@ -79,7 +90,7 @@ class Solution:
         f = [-inf] * 2
         f[nums[0] & 1] = nums[0]
         for v in nums[1:]:
-            f[v & 1] = max(f[v & 1] + v, f[v & 1 ^ 1] + v - x)
+            f[v & 1] = max(f[v & 1], f[v & 1 ^ 1] - x) + v
         return max(f)
 ```
 
@@ -92,7 +103,8 @@ class Solution {
         Arrays.fill(f, -(1L << 60));
         f[nums[0] & 1] = nums[0];
         for (int i = 1; i < nums.length; ++i) {
-            f[nums[i] & 1] = Math.max(f[nums[i] & 1] + nums[i], f[nums[i] & 1 ^ 1] + nums[i] - x);
+            int v = nums[i];
+            f[v & 1] = Math.max(f[v & 1], f[v & 1 ^ 1] - x) + v;
         }
         return Math.max(f[0], f[1]);
     }
@@ -110,7 +122,8 @@ public:
         f[nums[0] & 1] = nums[0];
         int n = nums.size();
         for (int i = 1; i < n; ++i) {
-            f[nums[i] & 1] = max(f[nums[i] & 1] + nums[i], f[nums[i] & 1 ^ 1] + nums[i] - x);
+            int v = nums[i];
+            f[v & 1] = max(f[v & 1], f[v & 1 ^ 1] - x) + v;
         }
         return max(f[0], f[1]);
     }
@@ -125,7 +138,7 @@ func maxScore(nums []int, x int) int64 {
 	f := [2]int{-inf, -inf}
 	f[nums[0]&1] = nums[0]
 	for _, v := range nums[1:] {
-		f[v&1] = max(f[v&1]+v, f[v&1^1]+v-x)
+		f[v&1] = max(f[v&1], f[v&1^1]-x) + v
 	}
 	return int64(max(f[0], f[1]))
 }
@@ -135,13 +148,13 @@ func maxScore(nums []int, x int) int64 {
 
 ```ts
 function maxScore(nums: number[], x: number): number {
-    const inf = 1 << 30;
-    const f: number[] = Array(2).fill(-inf);
+    const f: number[] = Array(2).fill(-Infinity);
     f[nums[0] & 1] = nums[0];
     for (let i = 1; i < nums.length; ++i) {
-        f[nums[i] & 1] = Math.max(f[nums[i] & 1] + nums[i], f[(nums[i] & 1) ^ 1] + nums[i] - x);
+        const v = nums[i];
+        f[v & 1] = Math.max(f[v & 1], f[(v & 1) ^ 1] - x) + v;
     }
-    return Math.max(f[0], f[1]);
+    return Math.max(...f);
 }
 ```
 

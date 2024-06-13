@@ -29,10 +29,10 @@ tags:
 <p>水果超市有如下促销活动：</p>
 
 <ul>
-	<li>如果你花费 <code>price[i]</code>&nbsp;购买了水果&nbsp;<code>i</code>&nbsp;，那么后面的&nbsp;<code>i</code>&nbsp;个水果你可以免费获得。</li>
+	<li>如果你花费 <code>price[i]</code>&nbsp;购买了水果&nbsp;<code>i</code>&nbsp;，那么你可以免费获得接下来的&nbsp;<code>(i + 1)</code>&nbsp;个水果中任意数量的水果。</li>
 </ul>
 
-<p><strong>注意</strong>&nbsp;，即使你&nbsp;<strong>可以</strong>&nbsp;免费获得水果&nbsp;<code>j</code>&nbsp;，你仍然可以花费&nbsp;<code>prices[j]</code>&nbsp;个金币去购买它以便能免费获得接下来的 <code>j</code>&nbsp;个水果。</p>
+<p><strong>注意</strong>&nbsp;，即使你&nbsp;<strong>可以</strong>&nbsp;免费获得水果&nbsp;<code>j</code>&nbsp;，你仍然可以花费&nbsp;<code>prices[j]</code>&nbsp;个金币去购买它以获得它的奖励。</p>
 
 <p>请你返回获得所有水果所需要的 <strong>最少</strong>&nbsp;金币数。</p>
 
@@ -40,29 +40,61 @@ tags:
 
 <p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<b>输入：</b>prices = [3,1,2]
-<b>输出：</b>4
-<b>解释</b><strong>：</strong>你可以按如下方法获得所有水果：
-- 花 3 个金币购买水果 1 ，然后免费获得水果 2 。
-- 花 1 个金币购买水果 2 ，然后免费获得水果 3 。
-- 免费获得水果 3 。
-注意，虽然你可以免费获得水果 2 ，但你还是花 1 个金币去购买它，因为这样的总花费最少。
-购买所有水果需要最少花费 4 个金币。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">prices = [3,1,2]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">4</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>用&nbsp;<code>prices[0] = 3</code>&nbsp;个金币购买第 1 个水果，你可以免费获得第 2 个水果。</li>
+	<li>用&nbsp;<code>prices[1] = 1</code>&nbsp;个金币购买第 2 个水果，你可以免费获得第 3 个水果。</li>
+	<li>免费获得第 3 个水果。</li>
+</ul>
+
+<p>请注意，即使您可以免费获得第 2 个水果作为购买第 1 个水果的奖励，但您购买它是为了获得其奖励，这是更优化的。</p>
+</div>
 
 <p><strong class="example">示例 2：</strong></p>
 
-<pre>
-<b>输入：</b>prices = [1,10,1,1]
-<b>输出：</b>2
-<b>解释：</b>你可以按如下方法获得所有水果：
-- 花 1 个金币购买水果 1 ，然后免费获得水果 2 。
-- 免费获得水果 2 。
-- 花 1 个金币购买水果 3 ，然后免费获得水果 4 。
-- 免费获得水果 4 。
-购买所有水果需要最少花费 2 个金币。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">prices = [1,10,1,1]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">2</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>用&nbsp;<code>prices[0] = 1</code> 个金币购买第 1 个水果，你可以免费获得第 2 个水果。</li>
+	<li>免费获得第 2 个水果。</li>
+	<li>用&nbsp;<code>prices[2] = 1</code> 个金币购买第 3 个水果，你可以免费获得第 4 个水果。</li>
+	<li>免费获得第 4 个水果。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">prices = [26,18,6,12,49,7,45,45]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">39</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>用&nbsp;<code>prices[0] = 26</code> 个金币购买第 1 个水果，你可以免费获得第 2 个水果。</li>
+	<li>免费获得第 2 个水果。</li>
+	<li>用&nbsp;<code>prices[2] = 6</code> 个金币购买第 3 个水果，你可以免费获得第 4，5，6（接下来的三个）水果。</li>
+	<li>免费获得第 4 个水果。</li>
+	<li>免费获得第 5&nbsp;个水果。</li>
+	<li>用&nbsp;<code>prices[5] = 7</code>&nbsp;个金币购买第 6 个水果，你可以免费获得第 7 和 第 8 个水果。</li>
+	<li>免费获得第 7&nbsp;个水果。</li>
+	<li>免费获得第 8&nbsp;个水果。</li>
+</ul>
+
+<p>请注意，即使您可以免费获得第 6 个水果作为购买第 3 个水果的奖励，但您购买它是为了获得其奖励，这是更优化的。</p>
+</div>
 
 <p>&nbsp;</p>
 

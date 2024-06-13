@@ -280,7 +280,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3156 | [Employee Task Duration and Concurrent Tasks](/solution/3100-3199/3156.Employee%20Task%20Duration%20and%20Concurrent%20Tasks/README_EN.md)                                                   | `Database` | Hard       | 🔒     |
 | 3166 | [Calculate Parking Fees and Duration](/solution/3100-3199/3166.Calculate%20Parking%20Fees%20and%20Duration/README_EN.md)                                                                     | `Database` | Medium     | 🔒     |
 | 3172 | [Second Day Verification](/solution/3100-3199/3172.Second%20Day%20Verification/README_EN.md)                                                                                                 | `Database` | Easy       | 🔒     |
-| 3182 | [Find Top Scoring Students](/solution/3100-3199/3182.Find%20Top%20Scoring%20Students/README_EN.md)                                                                                           |            | Medium     | 🔒     |
+| 3182 | [Find Top Scoring Students](/solution/3100-3199/3182.Find%20Top%20Scoring%20Students/README_EN.md)                                                                                           | `Database` | Medium     | 🔒     |
 
 ## Copyright
 

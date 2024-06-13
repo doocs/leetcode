@@ -1,39 +1,31 @@
 class Solution:
     def largestIsland(self, grid: List[List[int]]) -> int:
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
-        def union(a, b):
-            pa, pb = find(a), find(b)
-            if pa == pb:
-                return
-            p[pa] = pb
-            size[pb] += size[pa]
+        def dfs(i: int, j: int):
+            p[i][j] = root
+            cnt[root] += 1
+            for a, b in pairwise(dirs):
+                x, y = i + a, j + b
+                if 0 <= x < n and 0 <= y < n and grid[x][y] and p[x][y] == 0:
+                    dfs(x, y)
 
         n = len(grid)
-        p = list(range(n * n))
-        size = [1] * (n * n)
+        cnt = Counter()
+        p = [[0] * n for _ in range(n)]
+        dirs = (-1, 0, 1, 0, -1)
+        root = 0
         for i, row in enumerate(grid):
-            for j, v in enumerate(row):
-                if v:
-                    for a, b in [[0, -1], [-1, 0]]:
-                        x, y = i + a, j + b
-                        if 0 <= x < n and 0 <= y < n and grid[x][y]:
-                            union(x * n + y, i * n + j)
-        ans = max(size)
+            for j, x in enumerate(row):
+                if x and p[i][j] == 0:
+                    root += 1
+                    dfs(i, j)
+        ans = max(cnt.values() or [0])
         for i, row in enumerate(grid):
-            for j, v in enumerate(row):
-                if v == 0:
-                    vis = set()
-                    t = 1
-                    for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+            for j, x in enumerate(row):
+                if x == 0:
+                    s = set()
+                    for a, b in pairwise(dirs):
                         x, y = i + a, j + b
-                        if 0 <= x < n and 0 <= y < n and grid[x][y]:
-                            root = find(x * n + y)
-                            if root not in vis:
-                                vis.add(root)
-                                t += size[root]
-                    ans = max(ans, t)
+                        if 0 <= x < n and 0 <= y < n:
+                            s.add(p[x][y])
+                    ans = max(ans, sum(cnt[root] for root in s) + 1)
         return ans
