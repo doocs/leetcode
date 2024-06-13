@@ -78,6 +78,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3183.Th
 
 最后 $f[n]$ 就是使用硬币 $1, 2, 6$ 凑成金额 $n$ 的方案数，然后如果 $n \geq 4$，我们考虑选择一个硬币 $4$，那么方案数就是 $f[n] + f[n - 4]$，如果 $n \geq 8$，我们再考虑选择两个硬币 $4$，那么方案数就是 $f[n] + f[n - 4] + f[n - 8]$。
 
+注意答案的取模操作。
+
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是金额。
 
 <!-- tabs:start -->
@@ -217,7 +219,9 @@ function numberOfWays(n: number): number {
 -   如果 $4 \leq n < 8$，返回 $f[n] + f[n - 4]$；
 -   如果 $n \geq 8$，返回 $f[n] + f[n - 4] + f[n - 8]$。
 
-注意
+注意答案的取模操作。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是金额。
 
 <!-- tabs:start -->
 
