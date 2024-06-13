@@ -13,7 +13,6 @@ auto init = [] {
     return 0;
 }();
 
-
 class Solution {
 public:
     int numberOfWays(int n) {

@@ -3,7 +3,7 @@ class Solution {
     private static final int M = 100001;
     private static final int[] COINS = {1, 2, 6};
     private static final int[] f = new int[M];
-    
+
     static {
         f[0] = 1;
         for (int x : COINS) {
