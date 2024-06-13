@@ -75,32 +75,222 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：二分查找
+
+我们可以二分枚举乘积的值 $p$，定义二分的区间为 $[l, r]$，其中 $l = -\text{max}(|\text{nums1}[0]|, |\text{nums1}[n - 1]|) \times \text{max}(|\text{nums2}[0]|, |\text{nums2}[n - 1]|)$, $r = -l$。
+
+对于每个 $p$，我们计算出乘积小于等于 $p$ 的乘积的个数，如果这个个数大于等于 $k$，那么说明第 $k$ 小的乘积一定小于等于 $p$，我们就可以将区间右端点缩小到 $p$，否则我们将区间左端点增大到 $p + 1$。
+
+那么问题的关键就是如何计算乘积小于等于 $p$ 的乘积的个数。我们可以枚举 $\text{nums1}$ 中的每个数 $x$，分类讨论：
+
+-   如果 $x > 0$，那么 $x \times \text{nums2}[i]$ 随着 $i$ 的增大是单调递增的，我们可以使用二分查找找到最小的 $i$，使得 $x \times \text{nums2}[i] > p$，那么 $i$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\text{cnt}$ 中；
+-   如果 $x < 0$，那么 $x \times \text{nums2}[i]$ 随着 $i$ 的增大是单调递减的，我们可以使用二分查找找到最小的 $i$，使得 $x \times \text{nums2}[i] \leq p$，那么 $n - i$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\text{cnt}$ 中；
+-   如果 $x = 0$，那么 $x \times \text{nums2}[i] = 0$，如果 $p \geq 0$，那么 $n$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\text{cnt}$ 中。
+
+这样我们就可以通过二分查找找到第 $k$ 小的乘积。
+
+时间复杂度 $O(m \times \log n \times \log M)$，其中 $m$ 和 $n$ 分别为 $\text{nums1}$ 和 $\text{nums2}$ 的长度，而 $M$ 为 $\text{nums1}$ 和 $\text{nums2}$ 中的最大值的绝对值。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def kthSmallestProduct(self, nums1: List[int], nums2: List[int], k: int) -> int:
+        def count(p: int) -> int:
+            cnt = 0
+            n = len(nums2)
+            for x in nums1:
+                if x > 0:
+                    cnt += bisect_right(nums2, p / x)
+                elif x < 0:
+                    cnt += n - bisect_left(nums2, p / x)
+                else:
+                    cnt += n * int(p >= 0)
+            return cnt
 
+        mx = max(abs(nums1[0]), abs(nums1[-1])) * max(abs(nums2[0]), abs(nums2[-1]))
+        return bisect_left(range(-mx, mx + 1), k, key=count) - mx
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private int[] nums1;
+    private int[] nums2;
 
+    public long kthSmallestProduct(int[] nums1, int[] nums2, long k) {
+        this.nums1 = nums1;
+        this.nums2 = nums2;
+        int m = nums1.length;
+        int n = nums2.length;
+        int a = Math.max(Math.abs(nums1[0]), Math.abs(nums1[m - 1]));
+        int b = Math.max(Math.abs(nums2[0]), Math.abs(nums2[n - 1]));
+        long r = (long) a * b;
+        long l = (long) -a * b;
+        while (l < r) {
+            long mid = (l + r) >> 1;
+            if (count(mid) >= k) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+
+    private long count(long p) {
+        long cnt = 0;
+        int n = nums2.length;
+        for (int x : nums1) {
+            if (x > 0) {
+                int l = 0, r = n;
+                while (l < r) {
+                    int mid = (l + r) >> 1;
+                    if ((long) x * nums2[mid] > p) {
+                        r = mid;
+                    } else {
+                        l = mid + 1;
+                    }
+                }
+                cnt += l;
+            } else if (x < 0) {
+                int l = 0, r = n;
+                while (l < r) {
+                    int mid = (l + r) >> 1;
+                    if ((long) x * nums2[mid] <= p) {
+                        r = mid;
+                    } else {
+                        l = mid + 1;
+                    }
+                }
+                cnt += n - l;
+            } else if (p >= 0) {
+                cnt += n;
+            }
+        }
+        return cnt;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long kthSmallestProduct(vector<int>& nums1, vector<int>& nums2, long long k) {
+        int m = nums1.size(), n = nums2.size();
+        int a = max(abs(nums1[0]), abs(nums1[m - 1]));
+        int b = max(abs(nums2[0]), abs(nums2[n - 1]));
+        long long r = 1LL * a * b;
+        long long l = -r;
+        auto count = [&](long long p) {
+            long long cnt = 0;
+            for (int x : nums1) {
+                if (x > 0) {
+                    int l = 0, r = n;
+                    while (l < r) {
+                        int mid = (l + r) >> 1;
+                        if (1LL * x * nums2[mid] > p) {
+                            r = mid;
+                        } else {
+                            l = mid + 1;
+                        }
+                    }
+                    cnt += l;
+                } else if (x < 0) {
+                    int l = 0, r = n;
+                    while (l < r) {
+                        int mid = (l + r) >> 1;
+                        if (1LL * x * nums2[mid] <= p) {
+                            r = mid;
+                        } else {
+                            l = mid + 1;
+                        }
+                    }
+                    cnt += n - l;
+                } else if (p >= 0) {
+                    cnt += n;
+                }
+            }
+            return cnt;
+        };
+        while (l < r) {
+            long long mid = (l + r) >> 1;
+            if (count(mid) >= k) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func kthSmallestProduct(nums1 []int, nums2 []int, k int64) int64 {
+	m := len(nums1)
+	n := len(nums2)
+	a := max(abs(nums1[0]), abs(nums1[m-1]))
+	b := max(abs(nums2[0]), abs(nums2[n-1]))
+	r := int64(a) * int64(b)
+	l := -r
 
+	count := func(p int64) int64 {
+		var cnt int64
+		for _, x := range nums1 {
+			if x > 0 {
+				l, r := 0, n
+				for l < r {
+					mid := (l + r) >> 1
+					if int64(x)*int64(nums2[mid]) > p {
+						r = mid
+					} else {
+						l = mid + 1
+					}
+				}
+				cnt += int64(l)
+			} else if x < 0 {
+				l, r := 0, n
+				for l < r {
+					mid := (l + r) >> 1
+					if int64(x)*int64(nums2[mid]) <= p {
+						r = mid
+					} else {
+						l = mid + 1
+					}
+				}
+				cnt += int64(n - l)
+			} else if p >= 0 {
+				cnt += int64(n)
+			}
+		}
+		return cnt
+	}
+
+	for l < r {
+		mid := (l + r) >> 1
+		if count(mid) >= k {
+			r = mid
+		} else {
+			l = mid + 1
+		}
+	}
+	return l
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 <!-- tabs:end -->
