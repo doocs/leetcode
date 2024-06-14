@@ -60,7 +60,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Longest Increasing Subsequence + Binary Indexed Tree
+
+According to the problem statement, the longer the common subsequence between `target` and `arr`, the fewer elements need to be added. Therefore, the minimum number of elements to be added equals the length of `target` minus the length of the longest common subsequence between `target` and `arr`.
+
+However, the time complexity of [finding the longest common subsequence](https://github.com/doocs/leetcode/blob/main/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md) is $O(m \times n)$, which cannot pass this problem. We need to change our approach.
+
+We can use a hash table to record the index of each element in the `target` array, then iterate through the `arr` array. For each element in the `arr` array, if the hash table contains that element, we add the index of that element to an array. This gives us a new array `nums`, which represents the indices in the `target` array of elements from `arr` (excluding elements not in `target`). The length of the longest increasing subsequence of this array `nums` is the length of the longest common subsequence between `target` and `arr`.
+
+Therefore, the problem is transformed into finding the length of the longest increasing subsequence of the `nums` array. Refer to [300. Longest Increasing Subsequence](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md).
+
+The time complexity is $O(n \times \log m)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the lengths of `target` and `arr`, respectively.
 
 <!-- tabs:start -->
 
@@ -68,44 +78,37 @@ tags:
 
 ```python
 class BinaryIndexedTree:
-    def __init__(self, n):
+    __slots__ = "n", "c"
+
+    def __init__(self, n: int):
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
-    def update(self, x, val):
+    def update(self, x: int, v: int):
         while x <= self.n:
-            self.c[x] = max(self.c[x], val)
-            x += BinaryIndexedTree.lowbit(x)
+            self.c[x] = max(self.c[x], v)
+            x += x & -x
 
-    def query(self, x):
-        s = 0
+    def query(self, x: int) -> int:
+        res = 0
         while x:
-            s = max(s, self.c[x])
-            x -= BinaryIndexedTree.lowbit(x)
-        return s
+            res = max(res, self.c[x])
+            x -= x & -x
+        return res
 
 
 class Solution:
     def minOperations(self, target: List[int], arr: List[int]) -> int:
-        d = {v: i for i, v in enumerate(target)}
-        nums = [d[v] for v in arr if v in d]
-        return len(target) - self.lengthOfLIS(nums)
-
-    def lengthOfLIS(self, nums):
-        s = sorted(set(nums))
-        m = {v: i for i, v in enumerate(s, 1)}
-        tree = BinaryIndexedTree(len(m))
+        d = {x: i for i, x in enumerate(target, 1)}
+        nums = [d[x] for x in arr if x in d]
+        m = len(target)
+        tree = BinaryIndexedTree(m)
         ans = 0
-        for v in nums:
-            x = m[v]
-            t = tree.query(x - 1) + 1
-            ans = max(ans, t)
-            tree.update(x, t)
-        return ans
+        for x in nums:
+            v = tree.query(x - 1) + 1
+            ans = max(ans, v)
+            tree.update(x, v)
+        return len(target) - ans
 ```
 
 #### Java
@@ -120,61 +123,42 @@ class BinaryIndexedTree {
         this.c = new int[n + 1];
     }
 
-    public static int lowbit(int x) {
-        return x & -x;
-    }
-
-    public void update(int x, int val) {
-        while (x <= n) {
-            c[x] = Math.max(c[x], val);
-            x += lowbit(x);
+    public void update(int x, int v) {
+        for (; x <= n; x += x & -x) {
+            c[x] = Math.max(c[x], v);
         }
     }
 
     public int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s = Math.max(s, c[x]);
-            x -= lowbit(x);
+        int ans = 0;
+        for (; x > 0; x -= x & -x) {
+            ans = Math.max(ans, c[x]);
         }
-        return s;
+        return ans;
     }
 }
 
 class Solution {
     public int minOperations(int[] target, int[] arr) {
-        Map<Integer, Integer> d = new HashMap<>();
-        for (int i = 0; i < target.length; ++i) {
-            d.put(target[i], i);
+        int m = target.length;
+        Map<Integer, Integer> d = new HashMap<>(m);
+        for (int i = 0; i < m; i++) {
+            d.put(target[i], i + 1);
         }
         List<Integer> nums = new ArrayList<>();
-        for (int i = 0; i < arr.length; ++i) {
-            if (d.containsKey(arr[i])) {
-                nums.add(d.get(arr[i]));
+        for (int x : arr) {
+            if (d.containsKey(x)) {
+                nums.add(d.get(x));
             }
         }
-        return target.length - lengthOfLIS(nums);
-    }
-
-    private int lengthOfLIS(List<Integer> nums) {
-        TreeSet<Integer> ts = new TreeSet();
-        for (int v : nums) {
-            ts.add(v);
-        }
-        int idx = 1;
-        Map<Integer, Integer> d = new HashMap<>();
-        for (int v : ts) {
-            d.put(v, idx++);
-        }
+        BinaryIndexedTree tree = new BinaryIndexedTree(m);
         int ans = 0;
-        BinaryIndexedTree tree = new BinaryIndexedTree(nums.size());
-        for (int v : nums) {
-            int x = d.get(v);
-            int t = tree.query(x - 1) + 1;
-            ans = Math.max(ans, t);
-            tree.update(x, t);
+        for (int x : nums) {
+            int v = tree.query(x - 1) + 1;
+            ans = Math.max(ans, v);
+            tree.update(x, v);
         }
-        return ans;
+        return m - ans;
     }
 }
 ```
@@ -183,63 +167,52 @@ class Solution {
 
 ```cpp
 class BinaryIndexedTree {
-public:
+private:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n)
-        : n(_n)
-        , c(_n + 1) {}
+public:
+    BinaryIndexedTree(int n)
+        : n(n)
+        , c(n + 1) {}
 
-    void update(int x, int val) {
-        while (x <= n) {
-            c[x] = max(c[x], val);
-            x += lowbit(x);
+    void update(int x, int v) {
+        for (; x <= n; x += x & -x) {
+            c[x] = max(c[x], v);
         }
     }
 
     int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s = max(s, c[x]);
-            x -= lowbit(x);
+        int ans = 0;
+        for (; x > 0; x -= x & -x) {
+            ans = max(ans, c[x]);
         }
-        return s;
-    }
-
-    int lowbit(int x) {
-        return x & -x;
+        return ans;
     }
 };
 
 class Solution {
 public:
     int minOperations(vector<int>& target, vector<int>& arr) {
+        int m = target.size();
         unordered_map<int, int> d;
-        for (int i = 0; i < target.size(); ++i) d[target[i]] = i;
+        for (int i = 0; i < m; ++i) {
+            d[target[i]] = i + 1;
+        }
         vector<int> nums;
-        for (int i = 0; i < arr.size(); ++i) {
-            if (d.count(arr[i])) {
-                nums.push_back(d[arr[i]]);
+        for (int x : arr) {
+            if (d.contains(x)) {
+                nums.push_back(d[x]);
             }
         }
-        return target.size() - lengthOfLIS(nums);
-    }
-
-    int lengthOfLIS(vector<int>& nums) {
-        set<int> s(nums.begin(), nums.end());
-        int idx = 1;
-        unordered_map<int, int> d;
-        for (int v : s) d[v] = idx++;
-        BinaryIndexedTree* tree = new BinaryIndexedTree(d.size());
+        BinaryIndexedTree tree(m);
         int ans = 0;
-        for (int v : nums) {
-            int x = d[v];
-            int t = tree->query(x - 1) + 1;
-            ans = max(ans, t);
-            tree->update(x, t);
+        for (int x : nums) {
+            int v = tree.query(x - 1) + 1;
+            ans = max(ans, v);
+            tree.update(x, v);
         }
-        return ans;
+        return m - ans;
     }
 };
 ```
@@ -252,72 +225,98 @@ type BinaryIndexedTree struct {
 	c []int
 }
 
-func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
+func NewBinaryIndexedTree(n int) BinaryIndexedTree {
+	return BinaryIndexedTree{n: n, c: make([]int, n+1)}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, val int) {
-	for x <= this.n {
-		if this.c[x] < val {
-			this.c[x] = val
+func (bit *BinaryIndexedTree) Update(x, v int) {
+	for ; x <= bit.n; x += x & -x {
+		if v > bit.c[x] {
+			bit.c[x] = v
 		}
-		x += this.lowbit(x)
 	}
 }
 
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
-	for x > 0 {
-		if s < this.c[x] {
-			s = this.c[x]
+func (bit *BinaryIndexedTree) Query(x int) int {
+	ans := 0
+	for ; x > 0; x -= x & -x {
+		if bit.c[x] > ans {
+			ans = bit.c[x]
 		}
-		x -= this.lowbit(x)
 	}
-	return s
+	return ans
 }
 
 func minOperations(target []int, arr []int) int {
-	d := map[int]int{}
-	for i, v := range target {
-		d[v] = i
+	m := len(target)
+	d := make(map[int]int)
+	for i, x := range target {
+		d[x] = i + 1
 	}
-	nums := []int{}
-	for _, v := range arr {
-		if i, ok := d[v]; ok {
-			nums = append(nums, i)
+	var nums []int
+	for _, x := range arr {
+		if pos, exists := d[x]; exists {
+			nums = append(nums, pos)
 		}
 	}
-	return len(target) - lengthOfLIS(nums)
+	tree := NewBinaryIndexedTree(m)
+	ans := 0
+	for _, x := range nums {
+		v := tree.Query(x-1) + 1
+		if v > ans {
+			ans = v
+		}
+		tree.Update(x, v)
+	}
+	return m - ans
+}
+```
+
+#### TypeScript
+
+```ts
+class BinaryIndexedTree {
+    private n: number;
+    private c: number[];
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = Array(n + 1).fill(0);
+    }
+
+    update(x: number, v: number): void {
+        for (; x <= this.n; x += x & -x) {
+            this.c[x] = Math.max(this.c[x], v);
+        }
+    }
+
+    query(x: number): number {
+        let ans = 0;
+        for (; x > 0; x -= x & -x) {
+            ans = Math.max(ans, this.c[x]);
+        }
+        return ans;
+    }
 }
 
-func lengthOfLIS(nums []int) int {
-	s := map[int]bool{}
-	for _, v := range nums {
-		s[v] = true
-	}
-	t := []int{}
-	for v := range s {
-		t = append(t, v)
-	}
-	sort.Ints(t)
-	d := map[int]int{}
-	for i, v := range t {
-		d[v] = i + 1
-	}
-	tree := newBinaryIndexedTree(len(d))
-	ans := 0
-	for _, v := range nums {
-		x := d[v]
-		t := tree.query(x-1) + 1
-		ans = max(ans, t)
-		tree.update(x, t)
-	}
-	return ans
+function minOperations(target: number[], arr: number[]): number {
+    const m = target.length;
+    const d: Map<number, number> = new Map();
+    target.forEach((x, i) => d.set(x, i + 1));
+    const nums: number[] = [];
+    arr.forEach(x => {
+        if (d.has(x)) {
+            nums.push(d.get(x)!);
+        }
+    });
+    const tree = new BinaryIndexedTree(m);
+    let ans = 0;
+    nums.forEach(x => {
+        const v = tree.query(x - 1) + 1;
+        ans = Math.max(ans, v);
+        tree.update(x, v);
+    });
+    return m - ans;
 }
 ```
 

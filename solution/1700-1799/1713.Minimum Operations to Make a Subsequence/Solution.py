@@ -1,39 +1,32 @@
 class BinaryIndexedTree:
-    def __init__(self, n):
+    __slots__ = "n", "c"
+
+    def __init__(self, n: int):
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
-    def update(self, x, val):
+    def update(self, x: int, v: int):
         while x <= self.n:
-            self.c[x] = max(self.c[x], val)
-            x += BinaryIndexedTree.lowbit(x)
+            self.c[x] = max(self.c[x], v)
+            x += x & -x
 
-    def query(self, x):
-        s = 0
+    def query(self, x: int) -> int:
+        res = 0
         while x:
-            s = max(s, self.c[x])
-            x -= BinaryIndexedTree.lowbit(x)
-        return s
+            res = max(res, self.c[x])
+            x -= x & -x
+        return res
 
 
 class Solution:
     def minOperations(self, target: List[int], arr: List[int]) -> int:
-        d = {v: i for i, v in enumerate(target)}
-        nums = [d[v] for v in arr if v in d]
-        return len(target) - self.lengthOfLIS(nums)
-
-    def lengthOfLIS(self, nums):
-        s = sorted(set(nums))
-        m = {v: i for i, v in enumerate(s, 1)}
-        tree = BinaryIndexedTree(len(m))
+        d = {x: i for i, x in enumerate(target, 1)}
+        nums = [d[x] for x in arr if x in d]
+        m = len(target)
+        tree = BinaryIndexedTree(m)
         ans = 0
-        for v in nums:
-            x = m[v]
-            t = tree.query(x - 1) + 1
-            ans = max(ans, t)
-            tree.update(x, t)
-        return ans
+        for x in nums:
+            v = tree.query(x - 1) + 1
+            ans = max(ans, v)
+            tree.update(x, v)
+        return len(target) - ans

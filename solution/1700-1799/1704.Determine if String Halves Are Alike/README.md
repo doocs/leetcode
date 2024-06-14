@@ -222,24 +222,4 @@ class Solution {
 
 <!-- solution:end -->
 
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def halvesAreAlike(self, s: str) -> bool:
-        vowels = set('aeiouAEIOU')
-        a, b = s[: len(s) >> 1], s[len(s) >> 1 :]
-        return sum(c in vowels for c in a) == sum(c in vowels for c in b)
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
 <!-- problem:end -->
