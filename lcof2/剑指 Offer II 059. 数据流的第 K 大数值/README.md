@@ -241,7 +241,7 @@ class KthLargest {
             add(x)
         }
     }
-    
+
     func add(_ val: Int) -> Int {
         h.insert(val)
         if h.count > size {
