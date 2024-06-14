@@ -2,39 +2,47 @@ class Solution {
     func containsNearbyAlmostDuplicate(_ nums: [Int], _ k: Int, _ t: Int) -> Bool {
         guard nums.count > 1, k > 0, t >= 0 else { return false }
 
-        var ts = SortedSet<Int64>()
+        var ts = SortedDictionary<Int64, Int64>()
         for i in 0..<nums.count {
             let num = Int64(nums[i])
-            if let x = ts.ceiling(num - Int64(t)), x <= num + Int64(t) {
+            if let x = ts.ceilingKey(num - Int64(t)), abs(x - num) <= Int64(t) {
                 return true
             }
-            ts.insert(num)
+            ts.updateValue(num, forKey: num)
             if i >= k {
-                ts.remove(Int64(nums[i - k]))
+                ts.removeValue(forKey: Int64(nums[i - k]))
             }
         }
         return false
     }
 }
 
-struct SortedSet<Element: Comparable> {
-    private var elements = [Element]()
-    
-    mutating func insert(_ value: Element) {
-        elements.append(value)
-        elements.sort()
+public struct SortedDictionary<Key: Comparable & Hashable, Value> {
+    private var keys = [Key]()
+    private var values = [Key: Value]()
+
+    public var isEmpty: Bool {
+        return keys.isEmpty
     }
-    
-    mutating func remove(_ value: Element) {
-        if let index = elements.firstIndex(of: value) {
-            elements.remove(at: index)
+
+    public mutating func updateValue(_ value: Value, forKey key: Key) {
+        if values[key] == nil {
+            keys.append(key)
+            keys.sort()
+        }
+        values[key] = value
+    }
+
+    public mutating func removeValue(forKey key: Key) {
+        if values.removeValue(forKey: key) != nil {
+            keys.removeAll { $0 == key }
         }
     }
-    
-    func ceiling(_ value: Element) -> Element? {
-        for element in elements {
-            if element >= value {
-                return element
+
+    public func ceilingKey(_ key: Key) -> Key? {
+        for k in keys {
+            if k >= key {
+                return k
             }
         }
         return nil
