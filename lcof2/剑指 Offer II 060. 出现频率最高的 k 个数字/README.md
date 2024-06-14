@@ -209,7 +209,7 @@ class Solution {
         for num in nums {
             frequency[num, default: 0] += 1
         }
-        
+
         var freqHeap = Heap<FreqElement>()
         for (key, value) in frequency {
             freqHeap.insert(.init(val: key, freq: value))
