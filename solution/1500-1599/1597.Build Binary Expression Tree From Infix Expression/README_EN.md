@@ -65,7 +65,7 @@ The third tree below is also not valid. Although it produces the same result and
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 100</code></li>
-	<li><code>s</code> consists of digits and the characters <code>&#39;+&#39;</code>, <code>&#39;-&#39;</code>, <code>&#39;*&#39;</code>, and <code>&#39;/&#39;</code>.</li>
+	<li><code>s</code> consists of digits and the characters <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, <code>&#39;+&#39;</code>, <code>&#39;-&#39;</code>, <code>&#39;*&#39;</code>, and <code>&#39;/&#39;</code>.</li>
 	<li>Operands in <code>s</code> are <strong>exactly</strong> 1 digit.</li>
 	<li>It is guaranteed that <code>s</code> is a valid expression.</li>
 </ul>

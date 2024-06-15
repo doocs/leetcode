@@ -164,11 +164,11 @@ class MyCalendar {
     func book(_ start: Int, _ end: Int) -> Bool {
         let newEvent = (start, end)
         let index = calendar.firstIndex { $0.0 >= newEvent.1 } ?? calendar.count
-        
+
         if index > 0 && calendar[index - 1].1 > newEvent.0 {
             return false
         }
-        
+
         calendar.insert(newEvent, at: index)
         return true
     }

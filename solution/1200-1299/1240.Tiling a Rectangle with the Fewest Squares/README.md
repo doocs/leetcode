@@ -30,9 +30,10 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_11_1592.png" style="height: 106px; width: 154px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_11_1592.png" style="height: 106px; width: 154px;" /></p>
 
-<pre><strong>输入：</strong>n = 2, m = 3
+<pre>
+<strong>输入：</strong>n = 2, m = 3
 <strong>输出：</strong>3
 <code><strong>解释：</strong>3</code> 块地砖就可以铺满卧室。
 <code>     2</code> 块 <code>1x1 地砖</code>
@@ -40,17 +41,19 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_22_1592.png" style="height: 126px; width: 224px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_22_1592.png" style="height: 126px; width: 224px;" /></p>
 
-<pre><strong>输入：</strong>n = 5, m = 8
+<pre>
+<strong>输入：</strong>n = 5, m = 8
 <strong>输出：</strong>5
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_33_1592.png" style="height: 189px; width: 224px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_33_1592.png" style="height: 189px; width: 224px;" /></p>
 
-<pre><strong>输入：</strong>n = 11, m = 13
+<pre>
+<strong>输入：</strong>n = 11, m = 13
 <strong>输出：</strong>6
 </pre>
 
@@ -59,8 +62,7 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 13</code></li>
-	<li><code>1 &lt;= m&nbsp;&lt;=&nbsp;13</code></li>
+	<li><code>1 &lt;= n, m &lt;= 13</code></li>
 </ul>
 
 <!-- description:end -->
