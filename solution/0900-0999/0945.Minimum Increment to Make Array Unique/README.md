@@ -61,6 +61,12 @@ tags:
 
 ### 方法一：排序 + 贪心
 
+我们首先对数组进行排序，然后从前往后遍历数组，对于每个元素 `nums[i]`，如果它小于等于前一个元素 `nums[i - 1]`，那么我们将它增加到 `nums[i - 1] + 1`，那么操作的次数就是 `nums[i - 1] - nums[i] + 1`，累加到结果中。
+
+遍历完成后，返回结果即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `nums` 的长度。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -120,9 +126,8 @@ public:
 #### Go
 
 ```go
-func minIncrementForUnique(nums []int) int {
+func minIncrementForUnique(nums []int) (ans int) {
 	sort.Ints(nums)
-	ans := 0
 	for i := 1; i < len(nums); i++ {
 		if nums[i] <= nums[i-1] {
 			d := nums[i-1] - nums[i] + 1
@@ -130,7 +135,23 @@ func minIncrementForUnique(nums []int) int {
 			ans += d
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function minIncrementForUnique(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i] <= nums[i - 1]) {
+            ans += nums[i - 1] - nums[i] + 1;
+            nums[i] = nums[i - 1] + 1;
+        }
+    }
+    return ans;
 }
 ```
 
@@ -140,31 +161,117 @@ func minIncrementForUnique(nums []int) int {
 
 <!-- solution:start -->
 
-### Solution 2 (PLEASE REPLACE WITH CHINESE)
+### 方法二：计数 + 贪心
+
+根据题目描述，结果数组的最大值 $m = \max(\text{nums}) + \text{len}(\text{nums})$，我们可以使用一个计数数组 `cnt` 来记录每个元素出现的次数。
+
+然后从 $0$ 到 $m - 1$ 遍历，对于每个元素 $i$，如果它出现的次数 $\text{cnt}[i]$ 大于 $1$，那么我们将 $\text{cnt}[i] - 1$ 个元素增加到 $i + 1$，并将操作次数累加到结果中。
+
+遍历完成后，返回结果即可。
+
+时间复杂度 $O(m)$，空间复杂度 $O(m)$。其中 $m$ 是数组 `nums` 的长度加上数组 `nums` 的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minIncrementForUnique(self, nums: List[int]) -> int:
+        m = max(nums) + len(nums)
+        cnt = Counter(nums)
+        ans = 0
+        for i in range(m - 1):
+            if (diff := cnt[i] - 1) > 0:
+                cnt[i + 1] += diff
+                ans += diff
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minIncrementForUnique(int[] nums) {
+        int m = Arrays.stream(nums).max().getAsInt() + nums.length;
+        int[] cnt = new int[m];
+        for (int x : nums) {
+            ++cnt[x];
+        }
+        int ans = 0;
+        for (int i = 0; i < m - 1; ++i) {
+            int diff = cnt[i] - 1;
+            if (diff > 0) {
+                cnt[i + 1] += diff;
+                ans += diff;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minIncrementForUnique(vector<int>& nums) {
+        int m = *max_element(nums.begin(), nums.end()) + nums.size();
+        int cnt[m];
+        memset(cnt, 0, sizeof(cnt));
+        for (int x : nums) {
+            ++cnt[x];
+        }
+        int ans = 0;
+        for (int i = 0; i < m - 1; ++i) {
+            int diff = cnt[i] - 1;
+            if (diff > 0) {
+                cnt[i + 1] += diff;
+                ans += diff;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func minIncrementForUnique(nums []int) (ans int) {
+	m := slices.Max(nums) + len(nums)
+	cnt := make([]int, m)
+	for _, x := range nums {
+		cnt[x]++
+	}
+	for i := 0; i < m-1; i++ {
+		if diff := cnt[i] - 1; diff > 0 {
+			cnt[i+1] += diff
+			ans += diff
+		}
+	}
+	return ans
+}
+```
 
 #### TypeScript
 
 ```ts
 function minIncrementForUnique(nums: number[]): number {
-    const n = Math.max(...nums) + 1 + nums.length;
-    const cnt: number[] = Array.from({ length: n }, () => 0);
-    let ans = 0;
-
+    const m = Math.max(...nums) + nums.length;
+    const cnt: number[] = Array(m).fill(0);
     for (const x of nums) {
         cnt[x]++;
     }
-
-    for (let i = 0; i < n; i++) {
-        if (cnt[i] <= 1) continue;
-
+    let ans = 0;
+    for (let i = 0; i < m - 1; ++i) {
         const diff = cnt[i] - 1;
-        cnt[i + 1] += diff;
-        ans += diff;
-        cnt[i] = 1;
+        if (diff > 0) {
+            cnt[i + 1] += diff;
+            ans += diff;
+        }
     }
-
     return ans;
 }
 ```
