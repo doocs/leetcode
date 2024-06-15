@@ -66,7 +66,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 100</code></li>
-	<li><code>s</code>&nbsp;中包含数字和字符&nbsp;<code>'+'</code>、&nbsp;<code>'-'</code>、&nbsp;<code>'*'</code>、&nbsp;<code>'/'</code> 。</li>
+	<li><code>s</code>&nbsp;中包含数字和字符&nbsp;<code>'('</code>、&nbsp;<code>')'</code>、<code>'+'</code>、&nbsp;<code>'-'</code>、&nbsp;<code>'*'</code>、&nbsp;<code>'/'</code> 。</li>
 	<li><code>s</code>&nbsp;中的操作数 <strong>恰好</strong> 是一位数字。</li>
 	<li>题目数据保证 <code>s</code> 是一个有效的表达式。</li>
 </ul>

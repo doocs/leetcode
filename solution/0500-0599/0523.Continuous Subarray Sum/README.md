@@ -19,18 +19,23 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> ，编写一个函数来判断该数组是否含有同时满足下述条件的连续子数组：</p>
+<p>给你一个整数数组 <code>nums</code> 和一个整数&nbsp;<code>k</code> ，如果&nbsp;<code>nums</code>&nbsp;有一个 <strong>好的子数组</strong>&nbsp;返回&nbsp;<code>true</code>&nbsp;，否则返回 <code>false</code>：</p>
+
+<p>一个&nbsp;<strong>好的子数组</strong>&nbsp;是：</p>
 
 <ul>
-	<li>子数组大小 <strong>至少为 2</strong> ，且</li>
+	<li>长度&nbsp;<strong>至少为 2</strong> ，且</li>
 	<li>子数组元素总和为 <code>k</code> 的倍数。</li>
 </ul>
 
-<p>如果存在，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
+<p><strong>注意</strong>：</p>
 
-<p>如果存在一个整数 <code>n</code> ，令整数 <code>x</code> 符合 <code>x = n * k</code> ，则称 <code>x</code> 是 <code>k</code> 的一个倍数。<code>0</code> 始终视为 <code>k</code> 的一个倍数。</p>
+<ul>
+	<li><strong>子数组</strong> 是数组中 <strong>连续</strong> 的部分。</li>
+	<li>如果存在一个整数 <code>n</code> ，令整数 <code>x</code> 符合 <code>x = n * k</code> ，则称 <code>x</code> 是 <code>k</code> 的一个倍数。<code>0</code> <strong>始终</strong> 视为 <code>k</code> 的一个倍数。</li>
+</ul>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -55,15 +60,15 @@ tags:
 <strong>输出：</strong>false
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= nums.length <= 10<sup>5</sup></code></li>
-	<li><code>0 <= nums[i] <= 10<sup>9</sup></code></li>
-	<li><code>0 <= sum(nums[i]) <= 2<sup>31</sup> - 1</code></li>
-	<li><code>1 <= k <= 2<sup>31</sup> - 1</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>0 &lt;= sum(nums[i]) &lt;= 2<sup>31</sup> - 1</code></li>
+	<li><code>1 &lt;= k &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
 <!-- description:end -->
