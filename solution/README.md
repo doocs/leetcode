@@ -3194,6 +3194,10 @@
 |  3181  |  [执行操作可获得的最大总奖励 II](/solution/3100-3199/3181.Maximum%20Total%20Reward%20Using%20Operations%20II/README.md)  |  `位运算`,`数组`,`动态规划`  |  困难  |  第 401 场周赛  |
 |  3182  |  [查找得分最高的学生](/solution/3100-3199/3182.Find%20Top%20Scoring%20Students/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  3183  |  [达到总和的方法数量](/solution/3100-3199/3183.The%20Number%20of%20Ways%20to%20Make%20the%20Sum/README.md)  |    |  中等  |  🔒  |
+|  3184  |  [构成整天的下标对数目 I](/solution/3100-3199/3184.Count%20Pairs%20That%20Form%20a%20Complete%20Day%20I/README.md)  |    |  简单  |  第 402 场周赛  |
+|  3185  |  [构成整天的下标对数目 II](/solution/3100-3199/3185.Count%20Pairs%20That%20Form%20a%20Complete%20Day%20II/README.md)  |    |  中等  |  第 402 场周赛  |
+|  3186  |  [施咒的最大总伤害](/solution/3100-3199/3186.Maximum%20Total%20Damage%20With%20Spell%20Casting/README.md)  |    |  中等  |  第 402 场周赛  |
+|  3187  |  [数组中的峰值](/solution/3100-3199/3187.Peaks%20in%20Array/README.md)  |    |  困难  |  第 402 场周赛  |
 
 ## 版权
 
