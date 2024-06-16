@@ -1,3 +1,3 @@
 function findLUSlength(a: string, b: string): number {
-    return a != b ? Math.max(a.length, b.length) : -1;
+    return a === b ? -1 : Math.max(a.length, b.length);
 }
