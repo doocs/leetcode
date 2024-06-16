@@ -179,27 +179,23 @@ function generateParenthesis(n: number): string[] {
 
 ```rust
 impl Solution {
-    fn dfs(left: i32, right: i32, s: &mut String, res: &mut Vec<String>) {
-        if left == 0 && right == 0 {
-            res.push(s.clone());
-            return;
-        }
-        if left > 0 {
-            s.push('(');
-            Self::dfs(left - 1, right, s, res);
-            s.pop();
-        }
-        if right > left {
-            s.push(')');
-            Self::dfs(left, right - 1, s, res);
-            s.pop();
-        }
-    }
-
     pub fn generate_parenthesis(n: i32) -> Vec<String> {
-        let mut res = Vec::new();
-        Self::dfs(n, n, &mut String::new(), &mut res);
-        res
+        let mut ans = Vec::new();
+
+        fn dfs(ans: &mut Vec<String>, l: i32, r: i32, t: String, n: i32) {
+            if l > n || r > n || l < r {
+                return;
+            }
+            if l == n && r == n {
+                ans.push(t);
+                return;
+            }
+            dfs(ans, l + 1, r, format!("{}(", t), n);
+            dfs(ans, l, r + 1, format!("{})", t), n);
+        }
+
+        dfs(&mut ans, 0, 0, String::new(), n);
+        ans
     }
 }
 ```
@@ -229,75 +225,31 @@ var generateParenthesis = function (n) {
 };
 ```
 
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn generate_parenthesis(n: i32) -> Vec<String> {
-        let mut dp: Vec<Vec<String>> = vec![vec![]; n as usize + 1];
-
-        // Initialize the dp vector
-        dp[0].push(String::from(""));
-        dp[1].push(String::from("()"));
-
-        // Begin the actual dp process
-        for i in 2..=n as usize {
-            for j in 0..i as usize {
-                let dp_c = dp.clone();
-                let first_half = &dp_c[j];
-                let second_half = &dp_c[i - j - 1];
-
-                for f in first_half {
-                    for s in second_half {
-                        let f_c = f.clone();
-                        let cur_str = f_c + "(" + &*s + ")";
-                        dp[i].push(cur_str);
-                    }
-                }
-            }
-        }
-
-        dp[n as usize].clone()
-    }
-}
-```
-
 #### PHP
 
 ```php
 class Solution {
     /**
-     * @param int $n
-     * @return string[]
+     * @param Integer $n
+     * @return String[]
      */
-
     function generateParenthesis($n) {
-        $result = [];
-        $this->backtrack($result, '', 0, 0, $n);
-        return $result;
-    }
+        $ans = [];
 
-    function backtrack(&$result, $current, $open, $close, $max) {
-        if (strlen($current) === $max * 2) {
-            $result[] = $current;
-            return;
-        }
-        if ($open < $max) {
-            $this->backtrack($result, $current . '(', $open + 1, $close, $max);
-        }
-        if ($close < $open) {
-            $this->backtrack($result, $current . ')', $open, $close + 1, $max);
-        }
+        $dfs = function ($l, $r, $t) use ($n, &$ans, &$dfs) {
+            if ($l > $n || $r > $n || $l < $r) {
+                return;
+            }
+            if ($l == $n && $r == $n) {
+                $ans[] = $t;
+                return;
+            }
+            $dfs($l + 1, $r, $t . '(');
+            $dfs($l, $r + 1, $t . ')');
+        };
+
+        $dfs(0, 0, '');
+        return $ans;
     }
 }
 ```
