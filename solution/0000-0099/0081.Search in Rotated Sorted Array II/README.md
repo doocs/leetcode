@@ -30,14 +30,14 @@ tags:
 <p><strong>示例&nbsp;1：</strong></p>
 
 <pre>
-<strong>输入：</strong>nums = [2<code>,5,6,0,0,1,2]</code>, target = 0
+<strong>输入：</strong>nums = <code>[2,5,6,0,0,1,2]</code>, target = 0
 <strong>输出：</strong>true
 </pre>
 
 <p><strong>示例&nbsp;2：</strong></p>
 
 <pre>
-<strong>输入：</strong>nums = [2<code>,5,6,0,0,1,2]</code>, target = 3
+<strong>输入：</strong>nums = <code>[2,5,6,0,0,1,2]</code>, target = 3
 <strong>输出：</strong>false</pre>
 
 <p>&nbsp;</p>

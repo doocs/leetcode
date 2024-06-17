@@ -2840,7 +2840,7 @@ comments: true
 - [1031. 两个非重叠子数组的最大和](/solution/1000-1099/1031.Maximum%20Sum%20of%20Two%20Non-Overlapping%20Subarrays/README.md)
 - [1032. 字符流](/solution/1000-1099/1032.Stream%20of%20Characters/README.md)
 
-#### 第 132 场周赛(2019-04-14 10:30, 90 分钟) 参赛人数 1049
+#### 第 132 场周赛(2019-04-14 10:30, 90 分钟) 参赛人数 1050
 
 - [1025. 除数博弈](/solution/1000-1099/1025.Divisor%20Game/README.md)
 - [1026. 节点与其祖先之间的最大差值](/solution/1000-1099/1026.Maximum%20Difference%20Between%20Node%20and%20Ancestor/README.md)

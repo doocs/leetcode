@@ -1,16 +1,13 @@
 function checkSubarraySum(nums: number[], k: number): boolean {
-    const n = nums.length;
-    let prefixSum = 0;
-    const map = new Map([[0, 0]]);
-
-    for (let i = 0; i < n; i++) {
-        prefixSum += nums[i];
-        const remainder = prefixSum % k;
-
-        if (!map.has(remainder)) {
-            map.set(remainder, i + 1);
-        } else if (i - map.get(remainder)! > 0) return true;
+    const d: Record<number, number> = { 0: -1 };
+    let s = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        s = (s + nums[i]) % k;
+        if (!d.hasOwnProperty(s)) {
+            d[s] = i;
+        } else if (i - d[s] > 1) {
+            return true;
+        }
     }
-
     return false;
 }
