@@ -2,19 +2,22 @@ class Solution {
 public:
     string findLongestWord(string s, vector<string>& dictionary) {
         string ans = "";
-        for (string& a : dictionary)
-            if (check(s, a) && (ans.size() < a.size() || (ans.size() == a.size() && a < ans)))
-                ans = a;
-        return ans;
-    }
-
-    bool check(string& a, string& b) {
-        int m = a.size(), n = b.size();
-        int i = 0, j = 0;
-        while (i < m && j < n) {
-            if (a[i] == b[j]) ++j;
-            ++i;
+        auto check = [&](const string& s, const string& t) {
+            int m = s.size(), n = t.size();
+            int i = 0;
+            for (int j = 0; i < m && j < n; ++j) {
+                if (s[i] == t[j]) {
+                    ++i;
+                }
+            }
+            return i == m;
+        };
+        for (auto& t : dictionary) {
+            int a = ans.size(), b = t.size();
+            if (check(t, s) && (a < b || (a == b && ans > t))) {
+                ans = t;
+            }
         }
-        return j == n;
+        return ans;
     }
 };

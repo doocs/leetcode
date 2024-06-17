@@ -52,7 +52,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Subsequence Judgment
+
+We define a function $check(s, t)$ to determine whether string $s$ is a subsequence of string $t$. We can use a two-pointer approach, initializing two pointers $i$ and $j$ to point to the beginning of strings $s$ and $t$ respectively, then continuously move pointer $j$. If $s[i]$ equals $t[j]$, then move pointer $i$. Finally, check if $i$ equals the length of $s$. If $i$ equals the length of $s$, it means $s$ is a subsequence of $t$.
+
+We initialize the answer string $ans$ as an empty string. Then, we iterate through each string $t$ in the array $dictionary$. If $t$ is a subsequence of $s$, and the length of $t$ is greater than the length of $ans$, or the length of $t$ is equal to the length of $ans$ but $t$ is lexicographically smaller than $ans$, then we update $ans$ to $t$.
+
+The time complexity is $O(d \times (m + n))$, where $d$ is the length of the string list, and $m$ and $n$ are the lengths of string $s$ and the average length of strings in the list, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -61,19 +67,19 @@ tags:
 ```python
 class Solution:
     def findLongestWord(self, s: str, dictionary: List[str]) -> str:
-        def check(a, b):
-            m, n = len(a), len(b)
+        def check(s: str, t: str) -> bool:
+            m, n = len(s), len(t)
             i = j = 0
             while i < m and j < n:
-                if a[i] == b[j]:
-                    j += 1
-                i += 1
-            return j == n
+                if s[i] == t[j]:
+                    i += 1
+                j += 1
+            return i == m
 
-        ans = ''
-        for a in dictionary:
-            if check(s, a) and (len(ans) < len(a) or (len(ans) == len(a) and ans > a)):
-                ans = a
+        ans = ""
+        for t in dictionary:
+            if check(t, s) and (len(ans) < len(t) or (len(ans) == len(t) and ans > t)):
+                ans = t
         return ans
 ```
 
@@ -83,26 +89,24 @@ class Solution:
 class Solution {
     public String findLongestWord(String s, List<String> dictionary) {
         String ans = "";
-        for (String a : dictionary) {
-            if (check(s, a)
-                && (ans.length() < a.length()
-                    || (ans.length() == a.length() && a.compareTo(ans) < 0))) {
-                ans = a;
+        for (String t : dictionary) {
+            int a = ans.length(), b = t.length();
+            if (check(t, s) && (a < b || (a == b && t.compareTo(ans) < 0))) {
+                ans = t;
             }
         }
         return ans;
     }
 
-    private boolean check(String a, String b) {
-        int m = a.length(), n = b.length();
-        int i = 0, j = 0;
-        while (i < m && j < n) {
-            if (a.charAt(i) == b.charAt(j)) {
-                ++j;
+    private boolean check(String s, String t) {
+        int m = s.length(), n = t.length();
+        int i = 0;
+        for (int j = 0; i < m && j < n; ++j) {
+            if (s.charAt(i) == t.charAt(j)) {
+                ++i;
             }
-            ++i;
         }
-        return j == n;
+        return i == m;
     }
 }
 ```
@@ -114,20 +118,23 @@ class Solution {
 public:
     string findLongestWord(string s, vector<string>& dictionary) {
         string ans = "";
-        for (string& a : dictionary)
-            if (check(s, a) && (ans.size() < a.size() || (ans.size() == a.size() && a < ans)))
-                ans = a;
-        return ans;
-    }
-
-    bool check(string& a, string& b) {
-        int m = a.size(), n = b.size();
-        int i = 0, j = 0;
-        while (i < m && j < n) {
-            if (a[i] == b[j]) ++j;
-            ++i;
+        auto check = [&](const string& s, const string& t) {
+            int m = s.size(), n = t.size();
+            int i = 0;
+            for (int j = 0; i < m && j < n; ++j) {
+                if (s[i] == t[j]) {
+                    ++i;
+                }
+            }
+            return i == m;
+        };
+        for (auto& t : dictionary) {
+            int a = ans.size(), b = t.size();
+            if (check(t, s) && (a < b || (a == b && ans > t))) {
+                ans = t;
+            }
         }
-        return j == n;
+        return ans;
     }
 };
 ```
@@ -136,21 +143,21 @@ public:
 
 ```go
 func findLongestWord(s string, dictionary []string) string {
-	ans := ""
-	check := func(a, b string) bool {
-		m, n := len(a), len(b)
-		i, j := 0, 0
-		for i < m && j < n {
-			if a[i] == b[j] {
-				j++
+	ans := ''
+	check := func(s, t string) bool {
+		m, n := len(s), len(t)
+		i := 0
+		for j := 0; i < m && j < n; j++ {
+			if s[i] == t[j] {
+				i++
 			}
-			i++
 		}
-		return j == n
+		return i == m
 	}
-	for _, a := range dictionary {
-		if check(s, a) && (len(ans) < len(a) || (len(ans) == len(a) && a < ans)) {
-			ans = a
+	for _, t := range dictionary {
+		a, b := len(ans), len(t)
+		if check(t, s) && (a < b || (a == b && ans > t)) {
+			ans = t
 		}
 	}
 	return ans
@@ -161,31 +168,24 @@ func findLongestWord(s string, dictionary []string) string {
 
 ```ts
 function findLongestWord(s: string, dictionary: string[]): string {
-    dictionary.sort((a, b) => {
-        if (a.length === b.length) {
-            return b < a ? 1 : -1;
-        }
-        return b.length - a.length;
-    });
-    const n = s.length;
-    for (const target of dictionary) {
-        const m = target.length;
-        if (m > n) {
-            continue;
-        }
+    const check = (s: string, t: string): boolean => {
+        const [m, n] = [s.length, t.length];
         let i = 0;
-        let j = 0;
-        while (i < n && j < m) {
-            if (s[i] === target[j]) {
-                j++;
+        for (let j = 0; i < m && j < n; ++j) {
+            if (s[i] === t[j]) {
+                ++i;
             }
-            i++;
         }
-        if (j === m) {
-            return target;
+        return i === m;
+    };
+    let ans: string = '';
+    for (const t of dictionary) {
+        const [a, b] = [ans.length, t.length];
+        if (check(t, s) && (a < b || (a === b && ans > t))) {
+            ans = t;
         }
     }
-    return '';
+    return ans;
 }
 ```
 
@@ -193,25 +193,32 @@ function findLongestWord(s: string, dictionary: string[]): string {
 
 ```rust
 impl Solution {
-    pub fn find_longest_word(s: String, mut dictionary: Vec<String>) -> String {
-        dictionary.sort_unstable_by(|a, b| (b.len(), a).cmp(&(a.len(), b)));
-        for target in dictionary {
-            let target: Vec<char> = target.chars().collect();
-            let n = target.len();
-            let mut i = 0;
-            for c in s.chars() {
-                if i == n {
-                    break;
-                }
-                if c == target[i] {
-                    i += 1;
-                }
-            }
-            if i == n {
-                return target.iter().collect();
+    pub fn find_longest_word(s: String, dictionary: Vec<String>) -> String {
+        let mut ans = String::new();
+        for t in dictionary {
+            let a = ans.len();
+            let b = t.len();
+            if Self::check(&t, &s) && (a < b || (a == b && t < ans)) {
+                ans = t;
             }
         }
-        String::new()
+        ans
+    }
+
+    fn check(s: &str, t: &str) -> bool {
+        let (m, n) = (s.len(), t.len());
+        let mut i = 0;
+        let mut j = 0;
+        let s: Vec<char> = s.chars().collect();
+        let t: Vec<char> = t.chars().collect();
+
+        while i < m && j < n {
+            if s[i] == t[j] {
+                i += 1;
+            }
+            j += 1;
+        }
+        i == m
     }
 }
 ```
