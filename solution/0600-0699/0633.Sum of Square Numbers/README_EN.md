@@ -191,4 +191,27 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Mathematics, b should always be an integer, if b = Root(c - a^2)
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function judgeSquareSum(c: number): boolean {
+    for (let a = 0, inc = -1; a <= c; inc += 2, a += inc) {
+        const b = Math.sqrt(c - a);
+        if (b === (b | 0)) return true;
+    }
+
+    return false;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
