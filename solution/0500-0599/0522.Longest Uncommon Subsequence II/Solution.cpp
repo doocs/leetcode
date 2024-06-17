@@ -2,20 +2,27 @@ class Solution {
 public:
     int findLUSlength(vector<string>& strs) {
         int ans = -1;
-        for (int i = 0, j = 0, n = strs.size(); i < n; ++i) {
-            for (j = 0; j < n; ++j) {
-                if (i == j) continue;
-                if (check(strs[j], strs[i])) break;
+        int n = strs.size();
+        auto check = [&](const string& s, const string& t) {
+            int m = s.size(), n = t.size();
+            int i = 0;
+            for (int j = 0; i < m && j < n; ++j) {
+                if (s[i] == t[j]) {
+                    ++i;
+                }
             }
-            if (j == n) ans = max(ans, (int) strs[i].size());
+            return i == m;
+        };
+        for (int i = 0, j; i < n; ++i) {
+            int x = strs[i].size();
+            for (j = 0; j < n; ++j) {
+                if (i != j && check(strs[i], strs[j])) {
+                    x = -1;
+                    break;
+                }
+            }
+            ans = max(ans, x);
         }
         return ans;
-    }
-
-    bool check(string a, string b) {
-        int j = 0;
-        for (int i = 0; i < a.size() && j < b.size(); ++i)
-            if (a[i] == b[j]) ++j;
-        return j == b.size();
     }
 };
