@@ -1,9 +1,5 @@
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var findMaxLength = function (nums) {
-    const d = { 0: -1 };
+function findMaxLength(nums: number[]): number {
+    const d: Record<number, number> = { 0: -1 };
     let ans = 0;
     let s = 0;
     for (let i = 0; i < nums.length; ++i) {
@@ -15,4 +11,4 @@ var findMaxLength = function (nums) {
         }
     }
     return ans;
-};
+}
