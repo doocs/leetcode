@@ -19,29 +19,30 @@
 use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+
 impl Solution {
     pub fn average_of_levels(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<f64> {
-        if root.is_none() {
-            return Vec::new();
-        }
-
+        let mut ans = vec![];
         let mut q = VecDeque::new();
-        q.push_back(Rc::clone(&root.unwrap()));
-        let mut ans = Vec::new();
+        if let Some(root_node) = root {
+            q.push_back(root_node);
+        }
         while !q.is_empty() {
             let n = q.len();
-            let mut sum = 0.0;
+            let mut s: i64 = 0;
             for _ in 0..n {
-                let node = q.pop_front().unwrap();
-                sum += node.borrow().val as f64;
-                if node.borrow().left.is_some() {
-                    q.push_back(Rc::clone(node.borrow().left.as_ref().unwrap()));
-                }
-                if node.borrow().right.is_some() {
-                    q.push_back(Rc::clone(node.borrow().right.as_ref().unwrap()));
+                if let Some(node) = q.pop_front() {
+                    let node_borrow = node.borrow();
+                    s += node_borrow.val as i64;
+                    if let Some(left) = node_borrow.left.clone() {
+                        q.push_back(left);
+                    }
+                    if let Some(right) = node_borrow.right.clone() {
+                        q.push_back(right);
+                    }
                 }
             }
-            ans.push(sum / (n as f64));
+            ans.push((s as f64) / (n as f64));
         }
         ans
     }

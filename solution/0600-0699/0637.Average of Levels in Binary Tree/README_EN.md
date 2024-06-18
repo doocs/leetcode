@@ -52,7 +52,13 @@ Hence return [3, 14.5, 11].
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: BFS
+
+We can use the Breadth-First Search (BFS) method to traverse the nodes of each level and calculate the average value of each level.
+
+Specifically, we define a queue $q$, initially adding the root node to the queue. Each time, we take out all the nodes in the queue, calculate their average value, add it to the answer array, and then add their child nodes to the queue. Repeat this process until the queue is empty.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -151,8 +157,12 @@ public:
                 root = q.front();
                 q.pop();
                 s += root->val;
-                if (root->left) q.push(root->left);
-                if (root->right) q.push(root->right);
+                if (root->left) {
+                    q.push(root->left);
+                }
+                if (root->right) {
+                    q.push(root->right);
+                }
             }
             ans.push_back(s * 1.0 / n);
         }
@@ -219,29 +229,30 @@ func averageOfLevels(root *TreeNode) []float64 {
 use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+
 impl Solution {
     pub fn average_of_levels(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<f64> {
-        if root.is_none() {
-            return Vec::new();
-        }
-
+        let mut ans = vec![];
         let mut q = VecDeque::new();
-        q.push_back(Rc::clone(&root.unwrap()));
-        let mut ans = Vec::new();
+        if let Some(root_node) = root {
+            q.push_back(root_node);
+        }
         while !q.is_empty() {
             let n = q.len();
-            let mut sum = 0.0;
+            let mut s: i64 = 0;
             for _ in 0..n {
-                let node = q.pop_front().unwrap();
-                sum += node.borrow().val as f64;
-                if node.borrow().left.is_some() {
-                    q.push_back(Rc::clone(node.borrow().left.as_ref().unwrap()));
-                }
-                if node.borrow().right.is_some() {
-                    q.push_back(Rc::clone(node.borrow().right.as_ref().unwrap()));
+                if let Some(node) = q.pop_front() {
+                    let node_borrow = node.borrow();
+                    s += node_borrow.val as i64;
+                    if let Some(left) = node_borrow.left.clone() {
+                        q.push_back(left);
+                    }
+                    if let Some(right) = node_borrow.right.clone() {
+                        q.push_back(right);
+                    }
                 }
             }
-            ans.push(sum / (n as f64));
+            ans.push((s as f64) / (n as f64));
         }
         ans
     }
@@ -268,18 +279,15 @@ var averageOfLevels = function (root) {
     const ans = [];
     while (q.length) {
         const n = q.length;
+        const nq = [];
         let s = 0;
-        for (let i = 0; i < n; ++i) {
-            root = q.shift();
-            s += root.val;
-            if (root.left) {
-                q.push(root.left);
-            }
-            if (root.right) {
-                q.push(root.right);
-            }
+        for (const { val, left, right } of q) {
+            s += val;
+            left && nq.push(left);
+            right && nq.push(right);
         }
         ans.push(s / n);
+        q.splice(0, q.length, ...nq);
     }
     return ans;
 };
@@ -291,7 +299,13 @@ var averageOfLevels = function (root) {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: DFS
+
+We can also use the Depth-First Search (DFS) method to calculate the average value of each level.
+
+Specifically, we define an array $s$, where $s[i]$ is a tuple representing the sum of node values and the number of nodes at the $i$-th level. We perform a depth-first search on the tree. For each node, we add the node's value to the corresponding $s[i]$ and increment the node count by one. Finally, for each $s[i]$, we calculate the average value and add it to the answer array.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -470,8 +484,8 @@ func averageOfLevels(root *TreeNode) []float64 {
  * @return {number[]}
  */
 var averageOfLevels = function (root) {
-    let s = [];
-    let cnt = [];
+    const s = [];
+    const cnt = [];
     function dfs(root, i) {
         if (!root) {
             return;
@@ -487,11 +501,7 @@ var averageOfLevels = function (root) {
         dfs(root.right, i + 1);
     }
     dfs(root, 0);
-    let ans = [];
-    for (let i = 0; i < s.length; ++i) {
-        ans.push(s[i] / cnt[i]);
-    }
-    return ans;
+    return s.map((v, i) => v / cnt[i]);
 };
 ```
 

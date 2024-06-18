@@ -21,8 +21,12 @@ public:
                 root = q.front();
                 q.pop();
                 s += root->val;
-                if (root->left) q.push(root->left);
-                if (root->right) q.push(root->right);
+                if (root->left) {
+                    q.push(root->left);
+                }
+                if (root->right) {
+                    q.push(root->right);
+                }
             }
             ans.push_back(s * 1.0 / n);
         }
