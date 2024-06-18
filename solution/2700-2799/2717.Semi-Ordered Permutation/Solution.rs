@@ -1,23 +1,18 @@
 impl Solution {
     pub fn semi_ordered_permutation(nums: Vec<i32>) -> i32 {
-        let mut i = 0;
-        let mut j = 0;
-        let mut n = nums.len();
+        let n = nums.len();
+        let (mut i, mut j) = (0, 0);
 
-        for idx in 0..n {
-            if nums[idx] == 1 {
-                i = idx;
+        for k in 0..n {
+            if nums[k] == 1 {
+                i = k;
             }
-            if nums[idx] == (n as i32) {
-                j = idx;
+            if nums[k] == (n as i32) {
+                j = k;
             }
         }
 
-        let mut ans = i - 1 + n - j;
-        if i > j {
-            ans = i - 1 + n - j - 1;
-        }
-
-        ans as i32
+        let k = if i < j { 1 } else { 2 };
+        (i + n - j - k) as i32
     }
 }

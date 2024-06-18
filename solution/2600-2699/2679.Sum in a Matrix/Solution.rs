@@ -1,20 +1,16 @@
 impl Solution {
-    pub fn matrix_sum(nums: Vec<Vec<i32>>) -> i32 {
-        let mut nums = nums;
-        for row in nums.iter_mut() {
+    pub fn matrix_sum(mut nums: Vec<Vec<i32>>) -> i32 {
+        for row in &mut nums {
             row.sort();
         }
-        let transposed: Vec<Vec<i32>> = (0..nums[0].len())
-            .map(|i| {
-                nums.iter()
-                    .map(|row| row[i])
-                    .collect()
-            })
-            .collect();
-
-        transposed
-            .iter()
-            .map(|row| row.iter().max().unwrap())
+        (0..nums[0].len())
+            .map(|col|
+                nums
+                    .iter()
+                    .map(|row| row[col])
+                    .max()
+                    .unwrap()
+            )
             .sum()
     }
 }
