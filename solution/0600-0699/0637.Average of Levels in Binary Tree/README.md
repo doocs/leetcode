@@ -62,6 +62,12 @@ tags:
 
 ### 方法一：BFS
 
+我们可以使用广度优先搜索的方法，遍历每一层的节点，计算每一层的平均值。
+
+具体地，我们定义一个队列 $q$，初始时将根节点加入队列。每次将队列中的所有节点取出，计算这些节点的平均值，加入答案数组中，并将这些节点的子节点加入队列。重复这一过程，直到队列为空。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -159,8 +165,12 @@ public:
                 root = q.front();
                 q.pop();
                 s += root->val;
-                if (root->left) q.push(root->left);
-                if (root->right) q.push(root->right);
+                if (root->left) {
+                    q.push(root->left);
+                }
+                if (root->right) {
+                    q.push(root->right);
+                }
             }
             ans.push_back(s * 1.0 / n);
         }
@@ -227,29 +237,30 @@ func averageOfLevels(root *TreeNode) []float64 {
 use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+
 impl Solution {
     pub fn average_of_levels(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<f64> {
-        if root.is_none() {
-            return Vec::new();
-        }
-
+        let mut ans = vec![];
         let mut q = VecDeque::new();
-        q.push_back(Rc::clone(&root.unwrap()));
-        let mut ans = Vec::new();
+        if let Some(root_node) = root {
+            q.push_back(root_node);
+        }
         while !q.is_empty() {
             let n = q.len();
-            let mut sum = 0.0;
+            let mut s: i64 = 0;
             for _ in 0..n {
-                let node = q.pop_front().unwrap();
-                sum += node.borrow().val as f64;
-                if node.borrow().left.is_some() {
-                    q.push_back(Rc::clone(node.borrow().left.as_ref().unwrap()));
-                }
-                if node.borrow().right.is_some() {
-                    q.push_back(Rc::clone(node.borrow().right.as_ref().unwrap()));
+                if let Some(node) = q.pop_front() {
+                    let node_borrow = node.borrow();
+                    s += node_borrow.val as i64;
+                    if let Some(left) = node_borrow.left.clone() {
+                        q.push_back(left);
+                    }
+                    if let Some(right) = node_borrow.right.clone() {
+                        q.push_back(right);
+                    }
                 }
             }
-            ans.push(sum / (n as f64));
+            ans.push((s as f64) / (n as f64));
         }
         ans
     }
@@ -276,18 +287,15 @@ var averageOfLevels = function (root) {
     const ans = [];
     while (q.length) {
         const n = q.length;
+        const nq = [];
         let s = 0;
-        for (let i = 0; i < n; ++i) {
-            root = q.shift();
-            s += root.val;
-            if (root.left) {
-                q.push(root.left);
-            }
-            if (root.right) {
-                q.push(root.right);
-            }
+        for (const { val, left, right } of q) {
+            s += val;
+            left && nq.push(left);
+            right && nq.push(right);
         }
         ans.push(s / n);
+        q.splice(0, q.length, ...nq);
     }
     return ans;
 };
@@ -299,7 +307,13 @@ var averageOfLevels = function (root) {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：DFS
+
+我们也可以使用深度优先搜索的方法，来计算每一层的平均值。
+
+具体地，我们定义一个数组 $s$，其中 $s[i]$ 是一个二元组，表示第 $i$ 层的节点值之和以及节点个数。我们对树进行深度优先搜索，对于每一个节点，我们将节点的值加到对应的 $s[i]$ 中，并将节点个数加一。最后，对于每一个 $s[i]$，我们计算平均值，加入答案数组中。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
 
@@ -478,8 +492,8 @@ func averageOfLevels(root *TreeNode) []float64 {
  * @return {number[]}
  */
 var averageOfLevels = function (root) {
-    let s = [];
-    let cnt = [];
+    const s = [];
+    const cnt = [];
     function dfs(root, i) {
         if (!root) {
             return;
@@ -495,11 +509,7 @@ var averageOfLevels = function (root) {
         dfs(root.right, i + 1);
     }
     dfs(root, 0);
-    let ans = [];
-    for (let i = 0; i < s.length; ++i) {
-        ans.push(s[i] / cnt[i]);
-    }
-    return ans;
+    return s.map((v, i) => v / cnt[i]);
 };
 ```
 
