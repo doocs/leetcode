@@ -195,48 +195,128 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Mathematics, "b" should always be an integer, if b = Root(c - a^2)
+### 方法二：数学
+
+这个问题实际上是关于一个数能否表示为两个平方数之和的条件。这个定理可以追溯到费马（Fermat）和欧拉（Euler），它在数论中是一个经典结果。
+
+具体来说，这个定理可以表述为：
+
+**一个正整数 \( n \) 能表示为两个平方数之和的充要条件是：\( n \) 的所有形如 \( 4k + 3 \) 的素数因子的幂次均为偶数。**
+
+这意味着，如果我们将 $n$ 分解成素数因子乘积的形式，即 $n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}$，其中 $p_i$ 是素数且 $e_i$ 是它们对应的幂次，那么 $n$ 可以表示为两个平方数之和，当且仅当所有 $4k + 3$ 形式的素数因子 $p_i$ 的幂次 $e_i$ 都是偶数。
+
+更正式地，假设 $p_i$ 是形如 $4k + 3$ 的素数，则对于每一个这样的 $p_i$，要求 $e_i$ 是偶数。
+
+例如：
+
+- 数字 $13$ 是素数，且 $13 \equiv 1 \pmod{4}$，因此它可以表示为两个平方数之和，即 $13 = 2^2 + 3^2$。
+- 数字 $21$ 分解为 $3 \times 7$，其中 $3$ 和 $7$ 都是形如 $4k + 3$ 的素数因子，并且它们的幂次都是 $1$（奇数），因此 $21$ 不能表示为两个平方数之和。
+
+总结起来，这个定理在数论中非常重要，用于判断一个数是否可以表示为两个平方数之和。
+
+时间复杂度 $O(\sqrt{c})$，其中 $c$ 是给定的非负整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
-#### TypeScript
+#### Python3
 
-```ts
-function judgeSquareSum(c: number): boolean {
-    for (let a = 0, inc = -1; a <= c; inc += 2, a += inc) {
-        const b = Math.sqrt(c - a);
-        if (b === (b | 0)) return true;
+```python
+class Solution:
+    def judgeSquareSum(self, c: int) -> bool:
+        for i in range(2, int(sqrt(c)) + 1):
+            if c % i == 0:
+                exp = 0
+                while c % i == 0:
+                    c //= i
+                    exp += 1
+                if i % 4 == 3 and exp % 2 != 0:
+                    return False
+        return c % 4 != 3
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean judgeSquareSum(int c) {
+        int n = (int) Math.sqrt(c);
+        for (int i = 2; i <= n; ++i) {
+            if (c % i == 0) {
+                int exp = 0;
+                while (c % i == 0) {
+                    c /= i;
+                    ++exp;
+                }
+                if (i % 4 == 3 && exp % 2 != 0) {
+                    return false;
+                }
+            }
+        }
+        return c % 4 != 3;
     }
-
-    return false;
 }
 ```
 
-<!-- tabs:end -->
+#### C++
 
-<!-- solution:end -->
+```cpp
+class Solution {
+public:
+    bool judgeSquareSum(int c) {
+        int n = sqrt(c);
+        for (int i = 2; i <= n; ++i) {
+            if (c % i == 0) {
+                int exp = 0;
+                while (c % i == 0) {
+                    c /= i;
+                    ++exp;
+                }
+                if (i % 4 == 3 && exp % 2 != 0) {
+                    return false;
+                }
+            }
+        }
+        return c % 4 != 3;
+    }
+};
+```
 
-<!-- solution:start -->
+#### Go
 
-### Solution 3: Mathematics, Fermat's theorem on sums of two squares
-
-<!-- tabs:start -->
+```go
+func judgeSquareSum(c int) bool {
+	n := int(math.Sqrt(float64(c)))
+	for i := 2; i <= n; i++ {
+		if c%i == 0 {
+			exp := 0
+			for c%i == 0 {
+				c /= i
+				exp++
+			}
+			if i%4 == 3 && exp%2 != 0 {
+				return false
+			}
+		}
+	}
+	return c%4 != 3
+}
+```
 
 #### TypeScript
 
 ```ts
 function judgeSquareSum(c: number): boolean {
-    const n = Math.sqrt(c);
-
-    for (let i = 2; i <= n; i++) {
-        let count = 0;
-
+    const n = Math.floor(Math.sqrt(c));
+    for (let i = 2; i <= n; ++i) {
         if (c % i === 0) {
+            let exp = 0;
             while (c % i === 0) {
-                count++;
                 c /= i;
+                ++exp;
             }
-            if (i % 4 === 3 && count % 2 !== 0) return false;
+            if (i % 4 === 3 && exp % 2 !== 0) {
+                return false;
+            }
         }
     }
     return c % 4 !== 3;
@@ -248,3 +328,4 @@ function judgeSquareSum(c: number): boolean {
 <!-- solution:end -->
 
 <!-- problem:end -->
+
