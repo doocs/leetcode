@@ -72,7 +72,11 @@ Each of them is replaced by &quot;$0.00&quot;.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can split the sentence into an array of words by spaces, then iterate through the array of words. For each word, if it represents a price, we update it to the price after applying the discount. Finally, we concatenate the updated array of words into a space-separated string.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string `sentence`.
 
 <!-- tabs:start -->
 
@@ -176,14 +180,14 @@ func discountPrices(sentence string, discount int) string {
 ```ts
 function discountPrices(sentence: string, discount: number): string {
     const sell = (100 - discount) / 100;
-    let reg = new RegExp(/^(\$)(([1-9]\d*\.?\d*)|(0\.\d*))$/g);
-    let arr = sentence.split(' ').map(d => {
+    const reg = new RegExp(/^(\$)(([1-9]\d*\.?\d*)|(0\.\d*))$/g);
+    const words = sentence.split(' ').map(d => {
         if (!reg.test(d)) return d;
         return d.replace(reg, (s, $1, $2) => {
             return `$${(sell * $2).toFixed(2)}`;
         });
     });
-    return arr.join(' ');
+    return words.join(' ');
 }
 ```
 
