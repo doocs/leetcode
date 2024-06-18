@@ -193,48 +193,128 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Mathematics, b should always be an integer, if b = Root(c - a^2)
+### Solution 2: Mathematics
+
+This problem is essentially about the conditions under which a number can be expressed as the sum of two squares. This theorem dates back to Fermat and Euler and is a classic result in number theory.
+
+Specifically, the theorem can be stated as follows:
+
+> A positive integer $n$ can be expressed as the sum of two squares if and only if all prime factors of $n$ of the form $4k + 3$ have even powers.
+
+This means that if we decompose $n$ into the product of its prime factors, $n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}$, where $p_i$ are primes and $e_i$ are their corresponding exponents, then $n$ can be expressed as the sum of two squares if and only if all prime factors $p_i$ of the form $4k + 3$ have even exponents $e_i$.
+
+More formally, if $p_i$ is a prime of the form $4k + 3$, then for each such $p_i$, $e_i$ must be even.
+
+For example:
+
+-   The number $13$ is a prime and $13 \equiv 1 \pmod{4}$, so it can be expressed as the sum of two squares, i.e., $13 = 2^2 + 3^2$.
+-   The number $21$ can be decomposed into $3 \times 7$, where both $3$ and $7$ are prime factors of the form $4k + 3$ and their exponents are $1$ (odd), so $21$ cannot be expressed as the sum of two squares.
+
+In summary, this theorem is very important in number theory for determining whether a number can be expressed as the sum of two squares.
+
+The time complexity is $O(\sqrt{c})$, where $c$ is the given non-negative integer. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
-#### TypeScript
+#### Python3
 
-```ts
-function judgeSquareSum(c: number): boolean {
-    for (let a = 0, inc = -1; a <= c; inc += 2, a += inc) {
-        const b = Math.sqrt(c - a);
-        if (b === (b | 0)) return true;
+```python
+class Solution:
+    def judgeSquareSum(self, c: int) -> bool:
+        for i in range(2, int(sqrt(c)) + 1):
+            if c % i == 0:
+                exp = 0
+                while c % i == 0:
+                    c //= i
+                    exp += 1
+                if i % 4 == 3 and exp % 2 != 0:
+                    return False
+        return c % 4 != 3
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean judgeSquareSum(int c) {
+        int n = (int) Math.sqrt(c);
+        for (int i = 2; i <= n; ++i) {
+            if (c % i == 0) {
+                int exp = 0;
+                while (c % i == 0) {
+                    c /= i;
+                    ++exp;
+                }
+                if (i % 4 == 3 && exp % 2 != 0) {
+                    return false;
+                }
+            }
+        }
+        return c % 4 != 3;
     }
-
-    return false;
 }
 ```
 
-<!-- tabs:end -->
+#### C++
 
-<!-- solution:end -->
+```cpp
+class Solution {
+public:
+    bool judgeSquareSum(int c) {
+        int n = sqrt(c);
+        for (int i = 2; i <= n; ++i) {
+            if (c % i == 0) {
+                int exp = 0;
+                while (c % i == 0) {
+                    c /= i;
+                    ++exp;
+                }
+                if (i % 4 == 3 && exp % 2 != 0) {
+                    return false;
+                }
+            }
+        }
+        return c % 4 != 3;
+    }
+};
+```
 
-<!-- solution:start -->
+#### Go
 
-### Solution 3: Mathematics, Fermat's theorem on sums of two squares
-
-<!-- tabs:start -->
+```go
+func judgeSquareSum(c int) bool {
+	n := int(math.Sqrt(float64(c)))
+	for i := 2; i <= n; i++ {
+		if c%i == 0 {
+			exp := 0
+			for c%i == 0 {
+				c /= i
+				exp++
+			}
+			if i%4 == 3 && exp%2 != 0 {
+				return false
+			}
+		}
+	}
+	return c%4 != 3
+}
+```
 
 #### TypeScript
 
 ```ts
 function judgeSquareSum(c: number): boolean {
-    const n = Math.sqrt(c);
-
-    for (let i = 2; i <= n; i++) {
-        let count = 0;
-
+    const n = Math.floor(Math.sqrt(c));
+    for (let i = 2; i <= n; ++i) {
         if (c % i === 0) {
+            let exp = 0;
             while (c % i === 0) {
-                count++;
                 c /= i;
+                ++exp;
             }
-            if (i % 4 === 3 && count % 2 !== 0) return false;
+            if (i % 4 === 3 && exp % 2 !== 0) {
+                return false;
+            }
         }
     }
     return c % 4 !== 3;
@@ -246,3 +326,4 @@ function judgeSquareSum(c: number): boolean {
 <!-- solution:end -->
 
 <!-- problem:end -->
+
