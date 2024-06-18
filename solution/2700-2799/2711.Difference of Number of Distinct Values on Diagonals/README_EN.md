@@ -170,7 +170,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can simulate the process described in the problem statement, calculating the number of distinct values on the top-left diagonal $tl$ and the bottom-right diagonal $br$ for each cell, then compute their difference $|tl - br|$.
+
+The time complexity is $O(m \times n \times \min(m, n))$, and the space complexity is $O(m \times n)$.
 
 <!-- tabs:start -->
 
