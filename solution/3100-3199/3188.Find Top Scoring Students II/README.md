@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3188.Fi
 
 <!-- problem:start -->
 
-# [3188. Find Top Scoring Students II 🔒](https://leetcode.cn/problems/find-top-scoring-students-ii)
+# [3188. 查找得分最高的学生 II 🔒](https://leetcode.cn/problems/find-top-scoring-students-ii)
 
 [English Version](/solution/3100-3199/3188.Find%20Top%20Scoring%20Students%20II/README_EN.md)
 
@@ -14,7 +14,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3188.Fi
 
 <!-- description:start -->
 
-<p>Table: <code>students</code></p>
+<p>表：<code>students</code></p>
 
 <pre>
 +-------------+----------+
@@ -24,11 +24,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3188.Fi
 | name        | varchar  |
 | major       | varchar  |
 +-------------+----------+
-student_id is the primary key for this table. 
-Each row contains the student ID, student name, and their major.
+student_id 是这张表的主键（有不同值的列的组合）。
+这张表的每一行包含学生 ID，学生姓名和他们的专业。
 </pre>
 
-<p>Table: <code>courses</code></p>
+<p>表：<code>courses</code></p>
 
 <pre>
 +-------------+-------------------+
@@ -40,12 +40,12 @@ Each row contains the student ID, student name, and their major.
 | major       | varchar           |       
 | mandatory   | enum              |      
 +-------------+-------------------+
-course_id is the primary key for this table. 
-mandatory is an enum type of (&#39;Yes&#39;, &#39;No&#39;).
-Each row contains the course ID, course name, credits, major it belongs to, and whether the course is mandatory.
+course_id 是这张表的主键。 
+mandatory 是 ('Yes', 'No') 的枚举类型。
+每一行包含课程 ID，课程名，学分，所属专业，以及该课程是否必修。
 </pre>
 
-<p>Table: <code>enrollments</code></p>
+<p>表：<code>enrollments</code></p>
 
 <pre>
 +-------------+----------+
@@ -57,27 +57,28 @@ Each row contains the course ID, course name, credits, major it belongs to, and 
 | grade       | varchar  |
 | GPA         | decimal  | 
 +-------------+----------+
-(student_id, course_id, semester) is the primary key (combination of columns with unique values) for this table.
-Each row contains the student ID, course ID, semester, and grade received.
+(student_id, course_id, semester) 是这张表的主键（有不同值的列的组合）。
+这张表的每一行包含学生 ID，课程 ID，学期和获得的学分。
 </pre>
 
-<p>Write a solution to find the students who meet the following criteria:</p>
+<p>编写一个解决方案来查找满足下述标准的学生：</p>
 
 <ul>
-	<li>Have<strong> taken all mandatory courses</strong> and <strong>at least two</strong> elective courses offered in <strong>their major.</strong></li>
-	<li>Achieved a grade of <strong>A</strong>&nbsp;in <strong>all mandatory courses</strong> and at least <strong>B</strong>&nbsp;in<strong> elective courses</strong>.</li>
-	<li>Maintained an average <code>GPA</code> of at least&nbsp;<code>2.5</code> across all their courses (including those outside their major).</li>
+	<li>已经 <strong>修完他们专业中所有的必修课程</strong> 和 <strong>至少两个&nbsp;</strong>选修课程。</li>
+	<li>在 <strong>所有必修课程</strong> 中取得等级 <strong>A</strong> 并且 <strong>选修课程</strong> 至少取得 <strong>B</strong>。</li>
+	<li>保持他们所有课程（包括不属于他们专业的）的平均&nbsp;<code>GPA</code>&nbsp;至少在&nbsp;<code>2.5</code>&nbsp;以上。</li>
 </ul>
 
-<p>Return <em>the result table ordered by</em> <code>student_id</code> <em>in <strong>ascending</strong> order</em>.</p>
+<p>返回结果表以&nbsp;<code>student_id</code> <strong>升序&nbsp;</strong>排序。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>students table:</p>
+<p>students 表：</p>
 
 <pre class="example-io">
  +------------+------------------+------------------+
@@ -90,7 +91,7 @@ Each row contains the student ID, course ID, semester, and grade received.
  +------------+------------------+------------------+
  </pre>
 
-<p>courses table:</p>
+<p>courses 表：</p>
 
 <pre class="example-io">
  +-----------+-------------------+---------+------------------+----------+
@@ -107,7 +108,7 @@ Each row contains the student ID, course ID, semester, and grade received.
  +-----------+-------------------+---------+------------------+----------+
  </pre>
 
-<p>enrollments table:</p>
+<p>enrollments 表：</p>
 
 <pre class="example-io">
  +------------+-----------+-------------+-------+-----+
@@ -128,7 +129,7 @@ Each row contains the student ID, course ID, semester, and grade received.
  +------------+-----------+-------------+-------+-----+
  </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
  +------------+
@@ -139,16 +140,16 @@ Each row contains the student ID, course ID, semester, and grade received.
  +------------+
  </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>Alice (student_id 1) is a Computer Science major and has taken both Algorithms&nbsp;and Data Structures, receiving an A&nbsp;in both. She has also taken Machine Learning&nbsp;and Operating Systems&nbsp;as electives, receiving an A&nbsp;and B&nbsp;respectively.</li>
-	<li>Bob (student_id 2) is a Computer Science major but did not receive an A&nbsp;in all required courses.</li>
-	<li>Charlie (student_id 3) is a Mathematics major and has taken both Calculus&nbsp;and Linear Algebra, receiving an A&nbsp;in both. He has also taken Probability&nbsp;and Statistics&nbsp;as electives, receiving an A&nbsp;and B&nbsp;respectively.</li>
-	<li>David (student_id 4) is a Mathematics major but did not receive an A&nbsp;in all required courses.</li>
+	<li>Alice (student_id 1) 是计算机科学专业并且修了&nbsp;Algorithms&nbsp;和 Data Structures，都取得了 A。她同时选修了&nbsp;Machine Learning&nbsp;和 Operating Systems，分别取得了 A 和 B。</li>
+	<li>Bob (student_id 2) 是计算机科学专业但没有在所有需求的课程中取得 A。</li>
+	<li>Charlie (student_id 3) 是数学专业并且修了 Calculus&nbsp;和 Linear Algebra，都取得了 A。他同时选修了&nbsp;Probability&nbsp;和 Statistics，分别取得了 A 和 B。</li>
+	<li>David (student_id 4) 是数学专业但没有在所有需要的课程中取得 A。</li>
 </ul>
 
-<p><strong>Note:</strong> Output table is ordered by student_id in ascending order.</p>
+<p><strong>注意：</strong>输出表以 student_id 升序排序。</p>
 </div>
 
 <!-- description:end -->
@@ -159,11 +160,11 @@ Each row contains the student ID, course ID, semester, and grade received.
 
 ### 方法一：连接 + 分组 + 条件过滤
 
-我们首先计算出每个学生的平均 GPA，记录在临时表 `T` 中。
+我们首先筛选出平均 GPA 大于等于 2.5 的学生，记录在 `T` 表中。
 
-然后，我们将 `students` 表与 `courses` 表按照 `major` 进行连接，然后与 `T` 表按照 `student_id` 进行连接，再与 `enrollments` 表按照 `student_id` 和 `course_id` 进行左连接。
+然后，我们将 `T` 表与 `students` 表按照 `student_id` 进行连接，然后与 `courses` 表按照 `major` 进行连接，再与 `enrollments` 表按照 `student_id` 和 `course_id` 进行左连接。
 
-接下来，我们筛选出平均 GPA 大于等于 2.5 的学生，并按照学生 ID 进行分组，然后使用 `HAVING` 子句过滤出符合条件的学生，最后按照学生 ID 进行排序。
+接下来，我们按照学生 ID 进行分组，然后使用 `HAVING` 子句过滤出符合条件的学生，最后按照学生 ID 进行排序。
 
 <!-- tabs:start -->
 
@@ -173,17 +174,17 @@ Each row contains the student ID, course ID, semester, and grade received.
 # Write your MySQL query statement below
 WITH
     T AS (
-        SELECT student_id, AVG(GPA) AS avg_gpa
+        SELECT student_id
         FROM enrollments
         GROUP BY 1
+        HAVING AVG(GPA) >= 2.5
     )
 SELECT student_id
 FROM
-    students
+    T
+    JOIN students USING (student_id)
     JOIN courses USING (major)
-    JOIN T USING (student_id)
     LEFT JOIN enrollments USING (student_id, course_id)
-WHERE avg_gpa >= 2.5
 GROUP BY 1
 HAVING
     SUM(mandatory = 'yes' AND grade = 'A') = SUM(mandatory = 'yes')

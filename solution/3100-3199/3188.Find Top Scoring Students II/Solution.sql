@@ -1,17 +1,17 @@
 # Write your MySQL query statement below
 WITH
     T AS (
-        SELECT student_id, AVG(GPA) AS avg_gpa
+        SELECT student_id
         FROM enrollments
         GROUP BY 1
+        HAVING AVG(GPA) >= 2.5
     )
 SELECT student_id
 FROM
-    students
+    T
+    JOIN students USING (student_id)
     JOIN courses USING (major)
-    JOIN T USING (student_id)
     LEFT JOIN enrollments USING (student_id, course_id)
-WHERE avg_gpa >= 2.5
 GROUP BY 1
 HAVING
     SUM(mandatory = 'yes' AND grade = 'A') = SUM(mandatory = 'yes')

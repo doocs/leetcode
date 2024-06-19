@@ -283,7 +283,7 @@
 | 3166 | [计算停车费与时长](/solution/3100-3199/3166.Calculate%20Parking%20Fees%20and%20Duration/README.md)                                                           | `数据库` | 中等 | 🔒   |
 | 3172 | [第二天验证](/solution/3100-3199/3172.Second%20Day%20Verification/README.md)                                                                                 | `数据库` | 简单 | 🔒   |
 | 3182 | [查找得分最高的学生](/solution/3100-3199/3182.Find%20Top%20Scoring%20Students/README.md)                                                                     | `数据库` | 中等 | 🔒   |
-| 3188 | [Find Top Scoring Students II](/solution/3100-3199/3188.Find%20Top%20Scoring%20Students%20II/README.md)                                                      |          | 困难 | 🔒   |
+| 3188 | [查找得分最高的学生 II](/solution/3100-3199/3188.Find%20Top%20Scoring%20Students%20II/README.md)                                                             |          | 困难 | 🔒   |
 
 ## 版权
 
