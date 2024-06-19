@@ -82,7 +82,17 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：排序 + 动态规划
+
+根据题目描述，我们顺序移动的单元格的值必须严格递增，因此，我们不妨用一个哈希表 $g$ 来记录每个值对应的所有单元格的位置，然后按照值的大小从小到大遍历。
+
+在这个过程中，我们可以维护两个数组 `rowMax` 和 `colMax`，分别记录每一行和每一列的最大递增长度。初始时，这两个数组的所有元素都为 $0$。
+
+对于每个值对应的所有单元格位置，我们按照位置顺序遍历，对于每个位置 $(i, j)$，我们可以计算出以该位置为终点的最大递增长度为 $1 + \max(\text{rowMax}[i], \text{colMax}[j])$，更新答案，然后更新 `rowMax[i]` 和 `colMax[j]`。
+
+最后返回答案即可。
+
+时间复杂度 $O(m \times n \times \log(m \times n))$，空间复杂度 $O(m \times n)$。
 
 <!-- tabs:start -->
 
@@ -209,6 +219,51 @@ func maxIncreasingCells(mat [][]int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maxIncreasingCells(mat: number[][]): number {
+    const m = mat.length;
+    const n = mat[0].length;
+    const g: { [key: number]: [number, number][] } = {};
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (!g[mat[i][j]]) {
+                g[mat[i][j]] = [];
+            }
+            g[mat[i][j]].push([i, j]);
+        }
+    }
+
+    const rowMax = Array(m).fill(0);
+    const colMax = Array(n).fill(0);
+    let ans = 0;
+
+    const sortedKeys = Object.keys(g)
+        .map(Number)
+        .sort((a, b) => a - b);
+
+    for (const key of sortedKeys) {
+        const pos = g[key];
+        const mx: number[] = [];
+
+        for (const [i, j] of pos) {
+            mx.push(1 + Math.max(rowMax[i], colMax[j]));
+            ans = Math.max(ans, mx[mx.length - 1]);
+        }
+
+        for (let k = 0; k < pos.length; k++) {
+            const [i, j] = pos[k];
+            rowMax[i] = Math.max(rowMax[i], mx[k]);
+            colMax[j] = Math.max(colMax[j], mx[k]);
+        }
+    }
+
+    return ans;
 }
 ```
 

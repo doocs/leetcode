@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1625.Le
 rating: 1992
 source: Weekly Contest 211 Q2
 tags:
+    - Depth-First Search
     - Breadth-First Search
     - String
+    - Enumeration
 ---
 
 <!-- problem:start -->

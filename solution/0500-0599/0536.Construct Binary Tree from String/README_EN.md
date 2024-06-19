@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0536.Construct%20Binary%20Tree%20from%20String/README_EN.md
 tags:
+    - Stack
     - Tree
     - Depth-First Search
     - String

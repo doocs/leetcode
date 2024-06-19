@@ -6,7 +6,9 @@ rating: 1301
 source: Weekly Contest 351 Q1
 tags:
     - Array
+    - Hash Table
     - Math
+    - Counting
     - Number Theory
 ---
 

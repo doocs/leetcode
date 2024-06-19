@@ -29,7 +29,7 @@ tags:
 <p>水果超市有如下促销活动：</p>
 
 <ul>
-	<li>如果你花费 <code>price[i]</code>&nbsp;购买了水果&nbsp;<code>i</code>&nbsp;，那么你可以免费获得接下来的&nbsp;<code>(i + 1)</code>&nbsp;个水果中任意数量的水果。</li>
+	<li>如果你花费 <code>price[i]</code>&nbsp;购买了下标为&nbsp;<code>i</code>&nbsp;的水果，那么你可以免费获得下标范围在&nbsp;<code>[i + 1, i + i]</code>&nbsp;的水果。</li>
 </ul>
 
 <p><strong>注意</strong>&nbsp;，即使你&nbsp;<strong>可以</strong>&nbsp;免费获得水果&nbsp;<code>j</code>&nbsp;，你仍然可以花费&nbsp;<code>prices[j]</code>&nbsp;个金币去购买它以获得它的奖励。</p>

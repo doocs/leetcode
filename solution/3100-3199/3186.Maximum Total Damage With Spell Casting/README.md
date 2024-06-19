@@ -2,6 +2,14 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3186.Maximum%20Total%20Damage%20With%20Spell%20Casting/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 二分查找
+    - 动态规划
+    - 计数
+    - 排序
 ---
 
 <!-- problem:start -->

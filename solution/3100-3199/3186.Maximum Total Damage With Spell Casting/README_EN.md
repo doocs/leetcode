@@ -2,6 +2,14 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3186.Maximum%20Total%20Damage%20With%20Spell%20Casting/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Two Pointers
+    - Binary Search
+    - Dynamic Programming
+    - Counting
+    - Sorting
 ---
 
 <!-- problem:start -->

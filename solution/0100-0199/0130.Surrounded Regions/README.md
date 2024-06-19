@@ -28,6 +28,8 @@ tags:
 	<li><strong>围绕：</strong>如果您可以用&nbsp;<code>'X'</code>&nbsp;单元格 <strong>连接这个区域</strong>，并且区域中没有任何单元格位于&nbsp;<code>board</code> 边缘，则该区域被 <code>'X'</code>&nbsp;单元格围绕。</li>
 </ul>
 
+<p>通过将输入矩阵&nbsp;<code>board</code> 中的所有 <code>'O'</code>&nbsp;替换为 <code>'X'</code> 来 <strong>捕获被围绕的区域</strong>。</p>
+
 <div class="original__bRMd">
 <div>
 <p>&nbsp;</p>

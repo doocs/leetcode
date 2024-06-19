@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3185.Count%20Pairs%20That%20Form%20a%20Complete%20Day%20II/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 计数
 ---
 
 <!-- problem:start -->
