@@ -159,11 +159,11 @@ Each row contains the student ID, course ID, semester, and grade received.
 
 ### Solution 1: Joining + Grouping + Conditional Filtering
 
-First, we calculate the average GPA of each student and store it in a temporary table `T`.
+First, we filter out students with an average GPA greater than or equal to 2.5 and record them in table `T`.
 
-Next, we join the `students` table with the `courses` table based on `major`, and then join with the `T` table based on `student_id`, followed by a left join with the `enrollments` table based on `student_id` and `course_id`.
+Next, we join the `T` table with the `students` table based on `student_id`, then join with the `courses` table based on `major`, and finally perform a left join with the `enrollments` table based on `student_id` and `course_id`.
 
-After that, we filter out students with an average GPA greater than or equal to 2.5, group by student ID, use the `HAVING` clause to filter students who meet the criteria, and finally sort by student ID.
+After that, we group by student ID, use the `HAVING` clause to filter out students who meet the conditions, and finally sort by student ID.
 
 <!-- tabs:start -->
 
@@ -173,17 +173,17 @@ After that, we filter out students with an average GPA greater than or equal to 
 # Write your MySQL query statement below
 WITH
     T AS (
-        SELECT student_id, AVG(GPA) AS avg_gpa
+        SELECT student_id
         FROM enrollments
         GROUP BY 1
+        HAVING AVG(GPA) >= 2.5
     )
 SELECT student_id
 FROM
-    students
+    T
+    JOIN students USING (student_id)
     JOIN courses USING (major)
-    JOIN T USING (student_id)
     LEFT JOIN enrollments USING (student_id, course_id)
-WHERE avg_gpa >= 2.5
 GROUP BY 1
 HAVING
     SUM(mandatory = 'yes' AND grade = 'A') = SUM(mandatory = 'yes')
