@@ -314,4 +314,3 @@ function maxProfitAssignment(difficulty: number[], profit: number[], worker: num
 <!-- solution:end -->
 
 <!-- problem:end -->
-
