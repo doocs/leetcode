@@ -3198,6 +3198,7 @@
 |  3185  |  [构成整天的下标对数目 II](/solution/3100-3199/3185.Count%20Pairs%20That%20Form%20a%20Complete%20Day%20II/README.md)  |    |  中等  |  第 402 场周赛  |
 |  3186  |  [施咒的最大总伤害](/solution/3100-3199/3186.Maximum%20Total%20Damage%20With%20Spell%20Casting/README.md)  |    |  中等  |  第 402 场周赛  |
 |  3187  |  [数组中的峰值](/solution/3100-3199/3187.Peaks%20in%20Array/README.md)  |    |  困难  |  第 402 场周赛  |
+|  3188  |  [Find Top Scoring Students II](/solution/3100-3199/3188.Find%20Top%20Scoring%20Students%20II/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
