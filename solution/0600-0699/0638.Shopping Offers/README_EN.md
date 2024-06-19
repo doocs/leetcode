@@ -74,7 +74,7 @@ You cannot add more items, though only $9 for 2A ,2B and 1C.
 
 We notice that the number of types of items $n \leq 6$ in the problem, and the quantity of each item needed does not exceed $10$. We can use $4$ binary bits to represent the quantity of each item needed. Thus, we only need at most $6 \times 4 = 24$ binary bits to represent the entire shopping list.
 
-First, we convert the shopping list $\text{needs}$ into an integer $\text{mask}$, where the quantity of the $i$-th item needed is stored in the $i \times 4$ to $(i + 1) \times 4 - 1$ bits of $\text{mask}$. For example, when $\text{needs} = [1, 2, 1]$, we have $\text{mask} = 0b0001\_0010\_0001$.
+First, we convert the shopping list $\text{needs}$ into an integer $\text{mask}$, where the quantity of the $i$-th item needed is stored in the $i \times 4$ to $(i + 1) \times 4 - 1$ bits of $\text{mask}$. For example, when $\text{needs} = [1, 2, 1]$, we have $\text{mask} = 0b0001 0010 0001$.
 
 Then, we design a function $\text{dfs}(cur)$, representing the minimum amount of money we need to spend when the current state of the shopping list is $\text{cur}$. Therefore, the answer is $\text{dfs}(\text{mask})$.
 
