@@ -36,13 +36,13 @@ tags:
 
 <p>The divisibility score of <code>divisors[0]</code> is 2 since <code>nums[2]</code> and <code>nums[3]</code> are divisible by 5.</p>
 
-<p>The divisibility score of <code>divisors[1]</code> is 1 since only <code>nums[1]</code> is divisible by 3.</p>
+<p>The divisibility score of <code>divisors[1]</code> is 2 since <code>nums[1]</code> and <code>nums[2]</code> are divisible by 3.</p>
 
 <p>The divisibility score of <code>divisors[2]</code> is 0 since none of the numbers in <code>nums</code> is divisible by 7.</p>
 
 <p>The divisibility score of <code>divisors[3]</code> is 2 since <code>nums[0]</code> and <code>nums[3]</code> are divisible by 2.</p>
 
-<p>As <code>divisors[0]</code> and <code>divisors[3]</code> have the same divisibility score, we return the smaller one which is <code>divisors[3]</code>.</p>
+<p>As <code>divisors[0]</code>,&nbsp;<code>divisors[1]</code>, and <code>divisors[3]</code> have the same divisibility score, we return the smaller one which is <code>divisors[3]</code>.</p>
 </div>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -70,13 +70,11 @@ tags:
 
 <p><strong>Explanation:</strong></p>
 
-<p>The divisibility score of <code>divisors[0]</code> is 0 since none of the numbers in <code>nums</code> is divisible by 10.</p>
+<p>The divisibility score of <code>divisors[0]</code> is 2 since <code>nums[0]</code> and <code>nums[3]</code> are divisible by 10.</p>
 
 <p>The divisibility score of <code>divisors[1]</code> is 0 since none of the numbers in <code>nums</code> is divisible by 16.</p>
 
-<p>The divisibility score of <code>divisors[2]</code> is 0 since none of the numbers in <code>nums</code> is divisible by 20.</p>
-
-<p>As <code>divisors[0]</code>, <code>divisors[1]</code> and <code>divisors[2]</code> all have the same divisibility score, we return the smallest one which is <code>divisors[0]</code>.</p>
+<p>The divisibility score of <code>divisors[2]</code> is 1 since <code>nums[0]</code> is divisible by 20.</p>
 </div>
 
 <p>&nbsp;</p>

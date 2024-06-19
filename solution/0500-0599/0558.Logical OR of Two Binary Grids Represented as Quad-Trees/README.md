@@ -35,11 +35,11 @@ tags:
 <pre>
 class Node {
     public boolean val;
-    public boolean isLeaf;
-    public Node topLeft;
-    public Node topRight;
-    public Node bottomLeft;
-    public Node bottomRight;
+&nbsp; &nbsp; public boolean isLeaf;
+&nbsp; &nbsp; public Node topLeft;
+&nbsp; &nbsp; public Node topRight;
+&nbsp; &nbsp; public Node bottomLeft;
+&nbsp; &nbsp; public Node bottomRight;
 }</pre>
 
 <p>我们可以按以下步骤为二维区域构建四叉树：</p>
@@ -60,9 +60,9 @@ class Node {
 
 <p>它与二叉树的序列化非常相似。唯一的区别是节点以列表形式表示 <code>[isLeaf, val]</code> 。</p>
 
-<p>如果 <code>isLeaf</code> 或者 <code>val</code> 的值为 True ，则表示它在列表 <code>[isLeaf, val]</code> 中的值为 <strong>1</strong> ；如果 <code>isLeaf</code> 或者 <code>val</code> 的值为 False ，则表示值为 <strong>0 </strong>。</p>
+<p>如果 <code>isLeaf</code> 或者 <code>val</code> 的值为 True ，则表示它在列表&nbsp;<code>[isLeaf, val]</code> 中的值为 <strong>1</strong> ；如果 <code>isLeaf</code> 或者 <code>val</code> 的值为 False ，则表示值为 <strong>0 </strong>。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -88,37 +88,13 @@ class Node {
 结果矩阵大小为 1*1，值全为 0 。
 </pre>
 
-<p><strong>示例 3：</strong></p>
-
-<pre>
-<strong>输入：</strong>quadTree1 = [[0,0],[1,0],[1,0],[1,1],[1,1]]
-, quadTree2 = [[0,0],[1,1],[1,1],[1,0],[1,1]]
-<strong>输出：</strong>[[1,1]]
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>quadTree1 = [[0,0],[1,1],[1,0],[1,1],[1,1]]
-, quadTree2 = [[0,0],[1,1],[0,1],[1,1],[1,1],null,null,null,null,[1,1],[1,0],[1,0],[1,1]]
-<strong>输出：</strong>[[0,0],[1,1],[0,1],[1,1],[1,1],null,null,null,null,[1,1],[1,0],[1,0],[1,1]]
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre>
-<strong>输入：</strong>quadTree1 = [[0,1],[1,0],[0,1],[1,1],[1,0],null,null,null,null,[1,0],[1,0],[1,1],[1,1]]
-, quadTree2 = [[0,1],[0,1],[1,0],[1,1],[1,0],[1,0],[1,0],[1,1],[1,1]]
-<strong>输出：</strong>[[0,0],[0,1],[0,1],[1,1],[1,0],[1,0],[1,0],[1,1],[1,1],[1,0],[1,0],[1,1],[1,1]]
-</pre>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>quadTree1</code> 和 <code>quadTree2</code> 都是符合题目要求的四叉树，每个都代表一个 <code>n * n</code> 的矩阵。</li>
-	<li><code>n == 2^x</code> ，其中 <code>0 <= x <= 9</code>.</li>
+	<li><code>n == 2<sup>x</sup></code>&nbsp;，其中 <code>0 &lt;= x &lt;= 9</code>.</li>
 </ul>
 
 <!-- description:end -->

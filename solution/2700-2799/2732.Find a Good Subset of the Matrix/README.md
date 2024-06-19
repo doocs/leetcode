@@ -5,9 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2732.Fi
 rating: 2239
 source: 第 106 场双周赛 Q4
 tags:
-    - 贪心
     - 位运算
     - 数组
+    - 哈希表
     - 矩阵
 ---
 

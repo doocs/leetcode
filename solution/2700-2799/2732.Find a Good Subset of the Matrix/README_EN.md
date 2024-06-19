@@ -5,9 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2732.Fi
 rating: 2239
 source: Biweekly Contest 106 Q4
 tags:
-    - Greedy
     - Bit Manipulation
     - Array
+    - Hash Table
     - Matrix
 ---
 

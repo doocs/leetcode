@@ -2,6 +2,10 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3187.Peaks%20in%20Array/README_EN.md
+tags:
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
 ---
 
 <!-- problem:start -->
