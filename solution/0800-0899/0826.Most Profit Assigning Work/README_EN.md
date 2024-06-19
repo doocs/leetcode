@@ -190,4 +190,127 @@ function maxProfitAssignment(difficulty: number[], profit: number[], worker: num
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+Let's denote $m = \max(\text{difficulty})$ and define an array $f$ of length $m + 1$, where $f[i]$ represents the maximum profit among jobs with difficulty less than or equal to $i$, initially $f[i] = 0$.
+
+Then, we iterate over the jobs, and for each job $(d, p)$, if $d \leq m$, we update $f[d] = \max(f[d], p)$.
+
+Next, we iterate from $1$ to $m$, and for each $i$, we update $f[i] = \max(f[i], f[i - 1])$.
+
+Finally, we iterate over the workers, and for each worker $w$, we add $f[w]$ to the answer.
+
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the `profit` array, and $M$ is the maximum value in the `difficulty` array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxProfitAssignment(
+        self, difficulty: List[int], profit: List[int], worker: List[int]
+    ) -> int:
+        m = max(difficulty)
+        f = [0] * (m + 1)
+        for d, p in zip(difficulty, profit):
+            f[d] = max(f[d], p)
+        for i in range(1, m + 1):
+            f[i] = max(f[i], f[i - 1])
+        return sum(f[min(w, m)] for w in worker)
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxProfitAssignment(int[] difficulty, int[] profit, int[] worker) {
+        int m = Arrays.stream(difficulty).max().getAsInt();
+        int[] f = new int[m + 1];
+        int n = profit.length;
+        for (int i = 0; i < n; ++i) {
+            int d = difficulty[i];
+            f[d] = Math.max(f[d], profit[i]);
+        }
+        for (int i = 1; i <= m; ++i) {
+            f[i] = Math.max(f[i], f[i - 1]);
+        }
+        int ans = 0;
+        for (int w : worker) {
+            ans += f[Math.min(w, m)];
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxProfitAssignment(vector<int>& difficulty, vector<int>& profit, vector<int>& worker) {
+        int m = *max_element(begin(difficulty), end(difficulty));
+        int f[m + 1];
+        memset(f, 0, sizeof(f));
+        int n = profit.size();
+        for (int i = 0; i < n; ++i) {
+            int d = difficulty[i];
+            f[d] = max(f[d], profit[i]);
+        }
+        for (int i = 1; i <= m; ++i) {
+            f[i] = max(f[i], f[i - 1]);
+        }
+        int ans = 0;
+        for (int w : worker) {
+            ans += f[min(w, m)];
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func maxProfitAssignment(difficulty []int, profit []int, worker []int) (ans int) {
+	m := slices.Max(difficulty)
+	f := make([]int, m+1)
+	for i, d := range difficulty {
+		f[d] = max(f[d], profit[i])
+	}
+	for i := 1; i <= m; i++ {
+		f[i] = max(f[i], f[i-1])
+	}
+	for _, w := range worker {
+		ans += f[min(w, m)]
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maxProfitAssignment(difficulty: number[], profit: number[], worker: number[]): number {
+    const m = Math.max(...difficulty);
+    const f = Array(m + 1).fill(0);
+    const n = profit.length;
+    for (let i = 0; i < n; ++i) {
+        const d = difficulty[i];
+        f[d] = Math.max(f[d], profit[i]);
+    }
+    for (let i = 1; i <= m; ++i) {
+        f[i] = Math.max(f[i], f[i - 1]);
+    }
+    return worker.reduce((acc, w) => acc + f[Math.min(w, m)], 0);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
