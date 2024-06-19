@@ -1,33 +1,38 @@
 func shoppingOffers(price []int, special [][]int, needs []int) int {
-	total := func(price, needs []int) int {
-		s := 0
-		for i := 0; i < len(needs); i++ {
-			s += price[i] * needs[i]
-		}
-		return s
+	const bits = 4
+	n := len(needs)
+	f := make(map[int]int)
+	mask := 0
+	for i, need := range needs {
+		mask |= need << (i * bits)
 	}
 
-	min := func(a, b int) int {
-		if a < b {
-			return a
+	var dfs func(int) int
+	dfs = func(cur int) int {
+		if v, ok := f[cur]; ok {
+			return v
 		}
-		return b
-	}
-
-	ans := total(price, needs)
-	var t []int
-	for _, offer := range special {
-		t = t[:0]
-		for j := 0; j < len(needs); j++ {
-			if offer[j] > needs[j] {
-				t = t[:0]
-				break
+		ans := 0
+		for i := 0; i < n; i++ {
+			ans += price[i] * ((cur >> (i * bits)) & 0xf)
+		}
+		for _, offer := range special {
+			nxt := cur
+			ok := true
+			for j := 0; j < n; j++ {
+				if ((cur >> (j * bits)) & 0xf) < offer[j] {
+					ok = false
+					break
+				}
+				nxt -= offer[j] << (j * bits)
 			}
-			t = append(t, needs[j]-offer[j])
+			if ok {
+				ans = min(ans, offer[n]+dfs(nxt))
+			}
 		}
-		if len(t) > 0 {
-			ans = min(ans, offer[len(offer)-1]+shoppingOffers(price, special, t))
-		}
+		f[cur] = ans
+		return ans
 	}
-	return ans
+
+	return dfs(mask)
 }

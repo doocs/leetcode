@@ -1,30 +1,44 @@
 class Solution {
-    public int shoppingOffers(
-        List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
-        int ans = total(price, needs);
-        List<Integer> t = new ArrayList<>();
-        for (List<Integer> offer : special) {
-            t.clear();
-            for (int j = 0; j < needs.size(); ++j) {
-                if (offer.get(j) > needs.get(j)) {
-                    t.clear();
-                    break;
-                }
-                t.add(needs.get(j) - offer.get(j));
-            }
-            if (!t.isEmpty()) {
-                ans = Math.min(
-                    ans, offer.get(offer.size() - 1) + shoppingOffers(price, special, t));
-            }
+    private final int bits = 4;
+    private int n;
+    private List<Integer> price;
+    private List<List<Integer>> special;
+    private Map<Integer, Integer> f = new HashMap<>();
+
+    public int shoppingOffers(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
+        n = needs.size();
+        this.price = price;
+        this.special = special;
+        int mask = 0;
+        for (int i = 0; i < n; ++i) {
+            mask |= needs.get(i) << (i * bits);
         }
-        return ans;
+        return dfs(mask);
     }
 
-    private int total(List<Integer> price, List<Integer> needs) {
-        int s = 0;
-        for (int i = 0; i < price.size(); ++i) {
-            s += price.get(i) * needs.get(i);
+    private int dfs(int cur) {
+        if (f.containsKey(cur)) {
+            return f.get(cur);
         }
-        return s;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += price.get(i) * (cur >> (i * bits) & 0xf);
+        }
+        for (List<Integer> offer : special) {
+            int nxt = cur;
+            boolean ok = true;
+            for (int j = 0; j < n; ++j) {
+                if ((cur >> (j * bits) & 0xf) < offer.get(j)) {
+                    ok = false;
+                    break;
+                }
+                nxt -= offer.get(j) << (j * bits);
+            }
+            if (ok) {
+                ans = Math.min(ans, offer.get(n) + dfs(nxt));
+            }
+        }
+        f.put(cur, ans);
+        return ans;
     }
 }
