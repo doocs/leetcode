@@ -128,7 +128,8 @@ class Solution {
     private List<List<Integer>> special;
     private Map<Integer, Integer> f = new HashMap<>();
 
-    public int shoppingOffers(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
+    public int shoppingOffers(
+        List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
         n = needs.size();
         this.price = price;
         this.special = special;
