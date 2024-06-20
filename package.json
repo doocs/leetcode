@@ -3,15 +3,15 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.5",
-    "@commitlint/config-conventional": "^17.6.5",
-    "@prettier/plugin-php": "^0.19.6",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@prettier/plugin-php": "^0.19.7",
     "clang-format": "1.8.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
+    "husky": "^9.0.1",
+    "lint-staged": "^15.2.7",
     "prettier": "^2.8.8",
     "prettier-plugin-rust": "^0.1.9",
-    "prettier-plugin-sql-cst": "^0.10.0"
+    "prettier-plugin-sql-cst": "^0.11.5"
   },
   "lint-staged": {
     "*.{js,ts,php,sql,rs,md}": "prettier --write",
