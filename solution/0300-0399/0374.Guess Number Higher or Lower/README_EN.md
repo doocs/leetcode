@@ -200,6 +200,7 @@ function guessNumber(n: number): number {
 #### Rust
 
 ```rust
+
 /**
  * Forward declaration of guess API.
  * @param  num   your guess

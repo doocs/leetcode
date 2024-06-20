@@ -245,6 +245,7 @@ class NumMatrix {
 #### Rust
 
 ```rust
+
 /**
  * Your NumMatrix object will be instantiated and called as such:
  * let obj = NumMatrix::new(matrix);
