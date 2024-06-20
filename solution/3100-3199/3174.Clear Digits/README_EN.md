@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3174.Clear%20Digits/README_EN.md
+rating: 1255
+source: Biweekly Contest 132 Q1
 tags:
     - Hash Table
     - String

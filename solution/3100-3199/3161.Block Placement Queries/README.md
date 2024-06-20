@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3161.Block%20Placement%20Queries/README.md
+rating: 2513
+source: 第 131 场双周赛 Q4
 tags:
     - 树状数组
     - 线段树

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3180.Maximum%20Total%20Reward%20Using%20Operations%20I/README_EN.md
+rating: 1848
+source: Weekly Contest 401 Q3
 tags:
     - Array
     - Dynamic Programming
