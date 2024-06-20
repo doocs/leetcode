@@ -7,6 +7,7 @@ source: Weekly Contest 350 Q3
 tags:
     - Bit Manipulation
     - Array
+    - Dynamic Programming
     - Bitmask
 ---
 

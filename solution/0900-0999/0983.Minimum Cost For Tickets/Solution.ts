@@ -1,13 +1,32 @@
 function mincostTickets(days: number[], costs: number[]): number {
-    const n = days.length,
-        m = days[n - 1] + 1;
-    const [a, b, c] = costs;
-    let dp = new Array(m).fill(0);
-    for (let i = 1; i < m; i++) {
-        let x = days.includes(i) ? dp[i - 1] + a : dp[i - 1];
-        let y = (i > 7 ? dp[i - 7] : dp[0]) + b;
-        let z = (i > 30 ? dp[i - 30] : dp[0]) + c;
-        dp[i] = Math.min(x, y, z);
-    }
-    return dp[m - 1];
+    const n = days.length;
+    const f: number[] = Array(n).fill(0);
+    const valid: number[] = [1, 7, 30];
+    const search = (x: number): number => {
+        let [l, r] = [0, n];
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (days[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    const dfs = (i: number): number => {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i]) {
+            return f[i];
+        }
+        f[i] = Infinity;
+        for (let k = 0; k < 3; ++k) {
+            const j = search(days[i] + valid[k]);
+            f[i] = Math.min(f[i], dfs(j) + costs[k]);
+        }
+        return f[i];
+    };
+    return dfs(0);
 }
