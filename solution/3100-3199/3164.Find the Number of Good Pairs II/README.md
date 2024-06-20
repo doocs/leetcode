@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3164.Find%20the%20Number%20of%20Good%20Pairs%20II/README.md
+rating: 1777
+source: 第 399 场周赛 Q3
 tags:
     - 数组
     - 哈希表

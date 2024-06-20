@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3161.Block%20Placement%20Queries/README_EN.md
+rating: 2513
+source: Biweekly Contest 131 Q4
 tags:
     - Binary Indexed Tree
     - Segment Tree

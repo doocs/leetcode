@@ -3199,6 +3199,7 @@
 |  3186  |  [施咒的最大总伤害](/solution/3100-3199/3186.Maximum%20Total%20Damage%20With%20Spell%20Casting/README.md)  |  `数组`,`哈希表`,`双指针`,`二分查找`,`动态规划`,`计数`,`排序`  |  中等  |  第 402 场周赛  |
 |  3187  |  [数组中的峰值](/solution/3100-3199/3187.Peaks%20in%20Array/README.md)  |  `树状数组`,`线段树`,`数组`  |  困难  |  第 402 场周赛  |
 |  3188  |  [查找得分最高的学生 II](/solution/3100-3199/3188.Find%20Top%20Scoring%20Students%20II/README.md)  |    |  困难  |  🔒  |
+|  3189  |  [Minimum Moves to Get a Peaceful Board](/solution/3100-3199/3189.Minimum%20Moves%20to%20Get%20a%20Peaceful%20Board/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
