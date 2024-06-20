@@ -22,11 +22,9 @@ tags:
 
 <p>You are given an integer array <code>rolls</code> of length <code>n</code> and an integer <code>k</code>. You roll a <code>k</code> sided dice numbered from <code>1</code> to <code>k</code>, <code>n</code> times, where the result of the <code>i<sup>th</sup></code> roll is <code>rolls[i]</code>.</p>
 
-<p>Return<em> the length of the <strong>shortest</strong> sequence of rolls that <strong>cannot</strong> be taken from </em><code>rolls</code>.</p>
+<p>Return<em> the length of the <strong>shortest</strong> sequence of rolls so that there&#39;s no such <span data-keyword="subsequence-array">subsequence</span> in </em><code>rolls</code>.</p>
 
 <p>A <strong>sequence of rolls</strong> of length <code>len</code> is the result of rolling a <code>k</code> sided dice <code>len</code> times.</p>
-
-<p><strong>Note</strong> that the sequence taken does not have to be consecutive as long as it is in order.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
