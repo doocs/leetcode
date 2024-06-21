@@ -339,13 +339,7 @@ impl RandomizedSet {
         let i = rand::thread_rng().gen_range(0, self.list.len());
         *self.list.iter().collect::<Vec<&i32>>()[i]
     }
-}/**
- * Your RandomizedSet object will be instantiated and called as such:
- * let obj = RandomizedSet::new();
- * let ret_1: bool = obj.insert(val);
- * let ret_2: bool = obj.remove(val);
- * let ret_3: i32 = obj.get_random();
- */
+}
 ```
 
 #### C#

@@ -496,12 +496,7 @@ impl MagicDictionary {
     fn search(&self, search_word: String) -> bool {
         self.trie.search(&search_word, 0)
     }
-}/**
- * Your MagicDictionary object will be instantiated and called as such:
- * let obj = MagicDictionary::new();
- * obj.build_dict(dictionary);
- * let ret_2: bool = obj.search(searchWord);
- */
+}
 ```
 
 <!-- tabs:end -->

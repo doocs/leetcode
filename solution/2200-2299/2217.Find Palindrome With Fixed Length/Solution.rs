@@ -13,15 +13,14 @@ impl Solution {
                 format!(
                     "{}{}",
                     num,
-                    num
-                        .to_string()
+                    num.to_string()
                         .chars()
                         .rev()
                         .skip(if is_odd { 1 } else { 0 })
                         .collect::<String>()
                 )
-                    .parse()
-                    .unwrap()
+                .parse()
+                .unwrap()
             })
             .collect()
     }

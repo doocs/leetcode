@@ -15,10 +15,13 @@ impl DisjointSetUnion {
         let mut nodes = HashMap::new();
         for equation in equations.iter() {
             for iter in equation.iter() {
-                nodes.insert(iter.clone(), DSUNode {
-                    parent: iter.clone(),
-                    weight: 1.0,
-                });
+                nodes.insert(
+                    iter.clone(),
+                    DSUNode {
+                        parent: iter.clone(),
+                        weight: 1.0,
+                    },
+                );
             }
         }
         DisjointSetUnion { nodes }
@@ -66,7 +69,7 @@ impl Solution {
     pub fn calc_equation(
         equations: Vec<Vec<String>>,
         values: Vec<f64>,
-        queries: Vec<Vec<String>>
+        queries: Vec<Vec<String>>,
     ) -> Vec<f64> {
         let mut dsu = DisjointSetUnion::new(&equations);
         for (i, &v) in values.iter().enumerate() {

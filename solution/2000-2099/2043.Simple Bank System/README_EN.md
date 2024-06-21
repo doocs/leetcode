@@ -355,13 +355,7 @@ impl Bank {
         self.balance[account - 1] -= money;
         true
     }
-}/**
- * Your Bank object will be instantiated and called as such:
- * let obj = Bank::new(balance);
- * let ret_1: bool = obj.transfer(account1, account2, money);
- * let ret_2: bool = obj.deposit(account, money);
- * let ret_3: bool = obj.withdraw(account, money);
- */
+}
 ```
 
 <!-- tabs:end -->

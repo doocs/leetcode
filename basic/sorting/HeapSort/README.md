@@ -207,19 +207,13 @@ fn sink(nums: &mut Vec<i32>, mut i: usize, n: usize) {
 fn main() -> io::Result<()> {
     let mut s = String::new();
     io::stdin().read_line(&mut s)?;
-    let s: Vec<usize> = s
-        .split(' ')
-        .map(|s| s.trim().parse().unwrap())
-        .collect();
+    let s: Vec<usize> = s.split(' ').map(|s| s.trim().parse().unwrap()).collect();
     // let n = s[0];
     let m = s[1];
 
     let mut nums = String::new();
     io::stdin().read_line(&mut nums)?;
-    let mut nums: Vec<i32> = nums
-        .split(' ')
-        .map(|s| s.trim().parse().unwrap())
-        .collect();
+    let mut nums: Vec<i32> = nums.split(' ').map(|s| s.trim().parse().unwrap()).collect();
 
     heap_sort(&mut nums);
     for num in nums.iter().take(m) {

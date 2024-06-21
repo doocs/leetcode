@@ -10,7 +10,7 @@ impl Solution {
             i: usize,
             j: usize,
             m: usize,
-            n: usize
+            n: usize,
         ) -> bool {
             if j >= n {
                 return i == m;
@@ -20,9 +20,8 @@ impl Solution {
             }
             let mut res = -1;
             if j + 1 < n && p[j + 1] == '*' {
-                if
-                    dfs(s, p, f, i, j + 2, m, n) ||
-                    (i < m && (s[i] == p[j] || p[j] == '.') && dfs(s, p, f, i + 1, j, m, n))
+                if dfs(s, p, f, i, j + 2, m, n)
+                    || (i < m && (s[i] == p[j] || p[j] == '.') && dfs(s, p, f, i + 1, j, m, n))
                 {
                     res = 1;
                 }
@@ -33,6 +32,14 @@ impl Solution {
             res == 1
         }
 
-        dfs(&s.chars().collect(), &p.chars().collect(), &mut f, 0, 0, m, n)
+        dfs(
+            &s.chars().collect(),
+            &p.chars().collect(),
+            &mut f,
+            0,
+            0,
+            m,
+            n,
+        )
     }
 }

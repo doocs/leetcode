@@ -345,14 +345,7 @@ impl AnimalShelf {
             vec![cat, 0]
         }
     }
-}/**
- * Your AnimalShelf object will be instantiated and called as such:
- * let obj = AnimalShelf::new();
- * obj.enqueue(animal);
- * let ret_2: Vec<i32> = obj.dequeue_any();
- * let ret_3: Vec<i32> = obj.dequeue_dog();
- * let ret_4: Vec<i32> = obj.dequeue_cat();
- */
+}
 ```
 
 #### Swift

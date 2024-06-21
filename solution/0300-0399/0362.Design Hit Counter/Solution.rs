@@ -32,9 +32,4 @@ impl HitCounter {
         }
         l
     }
-}/**
- * Your HitCounter object will be instantiated and called as such:
- * let obj = HitCounter::new();
- * obj.hit(timestamp);
- * let ret_2: i32 = obj.get_hits(timestamp);
- */
+}

@@ -16,8 +16,8 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn get_height(root: &Option<Rc<RefCell<TreeNode>>>, h: u32) -> u32 {
         if let Some(node) = root {
@@ -32,15 +32,27 @@ impl Solution {
         i: usize,
         j: usize,
         res: &mut Vec<Vec<String>>,
-        height: u32
+        height: u32,
     ) {
         if root.is_none() {
             return;
         }
         let node = root.as_ref().unwrap().borrow();
         res[i][j] = node.val.to_string();
-        Self::dfs(&node.left, i + 1, j - (2usize).pow(height - (i as u32) - 1), res, height);
-        Self::dfs(&node.right, i + 1, j + (2usize).pow(height - (i as u32) - 1), res, height);
+        Self::dfs(
+            &node.left,
+            i + 1,
+            j - (2usize).pow(height - (i as u32) - 1),
+            res,
+            height,
+        );
+        Self::dfs(
+            &node.right,
+            i + 1,
+            j + (2usize).pow(height - (i as u32) - 1),
+            res,
+            height,
+        );
     }
 
     pub fn print_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<String>> {

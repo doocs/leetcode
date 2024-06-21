@@ -3,13 +3,9 @@ impl Solution {
     pub fn is_alien_sorted(words: Vec<String>, order: String) -> bool {
         let n = words.len();
         let mut map = HashMap::new();
-        order
-            .as_bytes()
-            .iter()
-            .enumerate()
-            .for_each(|(i, &v)| {
-                map.insert(v, i);
-            });
+        order.as_bytes().iter().enumerate().for_each(|(i, &v)| {
+            map.insert(v, i);
+        });
         for i in 1..n {
             let s1 = words[i - 1].as_bytes();
             let s2 = words[i].as_bytes();

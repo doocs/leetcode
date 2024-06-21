@@ -17,7 +17,7 @@
 impl Solution {
     pub fn merge_two_lists(
         mut l1: Option<Box<ListNode>>,
-        mut l2: Option<Box<ListNode>>
+        mut l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
         match (l1.is_some(), l2.is_some()) {
             (false, false) => None,

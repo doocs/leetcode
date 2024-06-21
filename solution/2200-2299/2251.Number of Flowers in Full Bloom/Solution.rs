@@ -6,13 +6,9 @@ impl Solution {
         let n = people.len();
 
         // First sort the people vector based on the first item
-        let mut people: Vec<(usize, i32)> = people
-            .into_iter()
-            .enumerate()
-            .map(|x| x)
-            .collect();
+        let mut people: Vec<(usize, i32)> = people.into_iter().enumerate().map(|x| x).collect();
 
-        people.sort_by(|lhs, rhs| { lhs.1.cmp(&rhs.1) });
+        people.sort_by(|lhs, rhs| lhs.1.cmp(&rhs.1));
 
         // Initialize the difference vector
         let mut diff = BTreeMap::new();

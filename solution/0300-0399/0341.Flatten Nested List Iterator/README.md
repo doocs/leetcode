@@ -435,12 +435,7 @@ impl NestedIterator {
     fn has_next(&self) -> bool {
         self.index < self.vals.len()
     }
-}/**
- * Your NestedIterator object will be instantiated and called as such:
- * let obj = NestedIterator::new(nestedList);
- * let ret_1: i32 = obj.next();
- * let ret_2: bool = obj.has_next();
- */
+}
 ```
 
 <!-- tabs:end -->
