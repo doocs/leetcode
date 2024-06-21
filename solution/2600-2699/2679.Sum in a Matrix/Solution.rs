@@ -4,13 +4,7 @@ impl Solution {
             row.sort();
         }
         (0..nums[0].len())
-            .map(|col|
-                nums
-                    .iter()
-                    .map(|row| row[col])
-                    .max()
-                    .unwrap()
-            )
+            .map(|col| nums.iter().map(|row| row[col]).max().unwrap())
             .sum()
     }
 }

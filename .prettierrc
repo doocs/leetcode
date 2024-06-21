@@ -17,5 +17,5 @@
             "options": { "parser": "mysql" }
         }
     ],
-    "plugins": ["prettier-plugin-rust", "prettier-plugin-sql-cst", "@prettier/plugin-php"]
+    "plugins": ["prettier-plugin-sql-cst", "@prettier/plugin-php"]
 }

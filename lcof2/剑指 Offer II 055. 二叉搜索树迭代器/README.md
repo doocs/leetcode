@@ -375,12 +375,7 @@ impl BSTIterator {
     fn has_next(&self) -> bool {
         !self.stack.is_empty()
     }
-}/**
- * Your BSTIterator object will be instantiated and called as such:
- * let obj = BSTIterator::new(root);
- * let ret_1: i32 = obj.next();
- * let ret_2: bool = obj.has_next();
- */
+}
 ```
 
 #### JavaScript

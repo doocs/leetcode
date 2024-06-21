@@ -522,15 +522,7 @@ impl MyLinkedList {
         cur.next = cur.next.take().and_then(|n| n.next);
         self.head = dummy.next;
     }
-}/**
- * Your MyLinkedList object will be instantiated and called as such:
- * let obj = MyLinkedList::new();
- * let ret_1: i32 = obj.get(index);
- * obj.add_at_head(val);
- * obj.add_at_tail(val);
- * obj.add_at_index(index, val);
- * obj.delete_at_index(index);
- */
+}
 ```
 
 <!-- tabs:end -->

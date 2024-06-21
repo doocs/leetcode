@@ -10,7 +10,10 @@ struct MinStack {
  */
 impl MinStack {
     fn new() -> Self {
-        Self { stk1: VecDeque::new(), stk2: VecDeque::new() }
+        Self {
+            stk1: VecDeque::new(),
+            stk2: VecDeque::new(),
+        }
     }
 
     fn push(&mut self, x: i32) {
@@ -34,11 +37,4 @@ impl MinStack {
     fn get_min(&self) -> i32 {
         *self.stk2.back().unwrap()
     }
-}/**
- * Your MinStack object will be instantiated and called as such:
- * let obj = MinStack::new();
- * obj.push(x);
- * obj.pop();
- * let ret_3: i32 = obj.top();
- * let ret_4: i32 = obj.get_min();
- */
+}

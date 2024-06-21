@@ -16,14 +16,14 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(
         root: Option<Rc<RefCell<TreeNode>>>,
         paths: &mut Vec<i32>,
         mut target_sum: i32,
-        res: &mut Vec<Vec<i32>>
+        res: &mut Vec<Vec<i32>>,
     ) {
         if let Some(node) = root {
             let mut node = node.borrow_mut();

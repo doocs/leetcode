@@ -317,13 +317,7 @@ impl AuthenticationManager {
             .filter(|&time| *time > current_time)
             .count() as i32
     }
-}/**
- * Your AuthenticationManager object will be instantiated and called as such:
- * let obj = AuthenticationManager::new(timeToLive);
- * obj.generate(tokenId, currentTime);
- * obj.renew(tokenId, currentTime);
- * let ret_3: i32 = obj.count_unexpired_tokens(currentTime);
- */
+}
 ```
 
 <!-- tabs:end -->

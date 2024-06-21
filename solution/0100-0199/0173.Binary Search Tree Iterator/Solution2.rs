@@ -20,8 +20,8 @@ struct BSTIterator {
     stack: Vec<Option<Rc<RefCell<TreeNode>>>>,
 }
 
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
@@ -29,7 +29,7 @@ use std::cell::RefCell;
 impl BSTIterator {
     fn dfs(
         mut root: Option<Rc<RefCell<TreeNode>>>,
-        stack: &mut Vec<Option<Rc<RefCell<TreeNode>>>>
+        stack: &mut Vec<Option<Rc<RefCell<TreeNode>>>>,
     ) {
         if root.is_some() {
             let left = root.as_mut().unwrap().borrow_mut().left.take();
@@ -56,9 +56,4 @@ impl BSTIterator {
     fn has_next(&self) -> bool {
         self.stack.len() != 0
     }
-}/**
- * Your BSTIterator object will be instantiated and called as such:
- * let obj = BSTIterator::new(root);
- * let ret_1: i32 = obj.next();
- * let ret_2: bool = obj.has_next();
- */
+}

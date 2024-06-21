@@ -28,9 +28,8 @@ impl Solution {
                 // Check the bound
                 if x <= n && y <= m {
                     // If the region can be sticked (All cells are empty, which means the sum will be zero)
-                    if
-                        prefix_vec[x][y] - prefix_vec[x][j] - prefix_vec[i][y] + prefix_vec[i][j] ==
-                        0
+                    if prefix_vec[x][y] - prefix_vec[x][j] - prefix_vec[i][y] + prefix_vec[i][j]
+                        == 0
                     {
                         // Update the difference vector
                         diff_vec[i][j] += 1;

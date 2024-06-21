@@ -17,7 +17,7 @@ impl Solution {
         v: usize,
         color: usize,
         color_vec: &mut Vec<usize>,
-        graph: &mut Vec<Vec<i32>>
+        graph: &mut Vec<Vec<i32>>,
     ) -> bool {
         color_vec[v] = color;
         for n in graph[v].clone() {

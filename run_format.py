@@ -330,10 +330,13 @@ def run():
             os.system(f'npx clang-format -i --style=file "{path}"')
 
     # format with prettier
-    os.system('npx prettier --write "**/*.{js,ts,php,sql,rs,md}"')
+    os.system('npx prettier --write "**/*.{js,ts,php,sql,md}"')
 
     # format with gofmt
     os.system("gofmt -w .")
+
+    # format with rustfmt
+    os.system('find . -name "*.rs" -exec rustfmt {} \\;')
 
     for path in paths:
         remove_header(path)

@@ -16,13 +16,13 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+use std::rc::Rc;
 impl Solution {
     pub fn is_same_tree(
         mut p: Option<Rc<RefCell<TreeNode>>>,
-        mut q: Option<Rc<RefCell<TreeNode>>>
+        mut q: Option<Rc<RefCell<TreeNode>>>,
     ) -> bool {
         let mut queue = VecDeque::new();
         if p.is_some() {
