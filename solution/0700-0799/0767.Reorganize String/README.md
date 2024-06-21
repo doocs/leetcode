@@ -210,7 +210,7 @@ func reorganizeString(s string) string {
 #### Rust
 
 ```rust
-use std::collections::{ HashMap, BinaryHeap, VecDeque };
+use std::collections::{BinaryHeap, HashMap, VecDeque};
 
 impl Solution {
     #[allow(dead_code)]

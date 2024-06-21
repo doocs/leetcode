@@ -195,7 +195,11 @@ impl Solution {
         s.chars()
             .take(length as usize)
             .map(|c| {
-                if c == ' ' { "%20".to_string() } else { c.to_string() }
+                if c == ' ' {
+                    "%20".to_string()
+                } else {
+                    c.to_string()
+                }
             })
             .collect()
     }

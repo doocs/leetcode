@@ -206,8 +206,8 @@ function mirrorTree(root: TreeNode | null): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &mut Option<Rc<RefCell<TreeNode>>>) {
         if let Some(node) = root {

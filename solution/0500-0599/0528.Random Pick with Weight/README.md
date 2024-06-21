@@ -230,7 +230,7 @@ func (this *Solution) PickIndex() int {
 #### Rust
 
 ```rust
-use rand::{ thread_rng, Rng };
+use rand::{thread_rng, Rng};
 
 struct Solution {
     sum: Vec<i32>,

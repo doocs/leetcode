@@ -235,11 +235,10 @@ impl Solution {
             if cnt[y] > 0 {
                 let mut d = 1;
                 while d * y <= (mx as usize) {
-                    ans +=
-                        ((cnt[y] as i64) *
-                            (d as i64) *
-                            (s[std::cmp::min(mx as usize, d * y + y - 1)] - s[d * y - 1])) %
-                        (MOD as i64);
+                    ans += ((cnt[y] as i64)
+                        * (d as i64)
+                        * (s[std::cmp::min(mx as usize, d * y + y - 1)] - s[d * y - 1]))
+                        % (MOD as i64);
                     ans %= MOD as i64;
                     d += 1;
                 }

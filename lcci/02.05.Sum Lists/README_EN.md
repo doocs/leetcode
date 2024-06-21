@@ -224,7 +224,7 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
 impl Solution {
     pub fn add_two_numbers(
         mut l1: Option<Box<ListNode>>,
-        mut l2: Option<Box<ListNode>>
+        mut l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
         let mut dummy = Some(Box::new(ListNode::new(0)));
         let mut cur = dummy.as_mut();

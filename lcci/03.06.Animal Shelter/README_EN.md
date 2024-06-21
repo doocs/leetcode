@@ -318,9 +318,8 @@ impl AnimalShelf {
     }
 
     fn dequeue_any(&mut self) -> Vec<i32> {
-        if
-            self.q[0].is_empty() ||
-            (!self.q[1].is_empty() && self.q[1].front().unwrap() < self.q[0].front().unwrap())
+        if self.q[0].is_empty()
+            || (!self.q[1].is_empty() && self.q[1].front().unwrap() < self.q[0].front().unwrap())
         {
             self.dequeue_dog()
         } else {

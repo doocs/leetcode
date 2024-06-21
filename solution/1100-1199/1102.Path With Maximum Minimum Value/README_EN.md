@@ -343,12 +343,11 @@ impl Solution {
             for d in 0..4 {
                 let x = (i as i32) + dirs[d];
                 let y = (j as i32) + dirs[d + 1];
-                if
-                    x >= 0 &&
-                    x < (m as i32) &&
-                    y >= 0 &&
-                    y < (n as i32) &&
-                    vis[x as usize][y as usize]
+                if x >= 0
+                    && x < (m as i32)
+                    && y >= 0
+                    && y < (n as i32)
+                    && vis[x as usize][y as usize]
                 {
                     uf.union((x as usize) * n + (y as usize), i * n + j);
                 }

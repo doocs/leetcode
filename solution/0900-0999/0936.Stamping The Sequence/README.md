@@ -330,12 +330,7 @@ impl Solution {
 
         for i in 0..n - m + 1 {
             for j in 0..m {
-                if
-                    target
-                        .chars()
-                        .nth(i + j)
-                        .unwrap() == stamp.chars().nth(j).unwrap()
-                {
+                if target.chars().nth(i + j).unwrap() == stamp.chars().nth(j).unwrap() {
                     indeg[i] -= 1;
                     if indeg[i] == 0 {
                         q.push_back(i);

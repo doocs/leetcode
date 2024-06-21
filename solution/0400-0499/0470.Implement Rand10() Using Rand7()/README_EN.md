@@ -163,7 +163,6 @@ function rand10(): number {
 #### Rust
 
 ```rust
-
 /**
  * The rand7() API is already defined for you.
  * @return a random integer in the range 1 to 7

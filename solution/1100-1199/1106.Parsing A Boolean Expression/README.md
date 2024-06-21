@@ -268,18 +268,10 @@ impl Solution {
                     res.push(!Self::dfs(i, expr)[0]);
                 }
                 b'&' => {
-                    res.push(
-                        Self::dfs(i, expr)
-                            .iter()
-                            .all(|v| *v)
-                    );
+                    res.push(Self::dfs(i, expr).iter().all(|v| *v));
                 }
                 b'|' => {
-                    res.push(
-                        Self::dfs(i, expr)
-                            .iter()
-                            .any(|v| *v)
-                    );
+                    res.push(Self::dfs(i, expr).iter().any(|v| *v));
                 }
                 _ => {}
             }

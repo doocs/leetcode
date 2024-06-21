@@ -1,6 +1,8 @@
 from typing import List
 
 import os.path
+import platform
+import subprocess
 import re
 import black
 
@@ -286,7 +288,7 @@ def format_inline_code(path: str):
             if not block or not block.strip():
                 continue
             if suf in ["c", "cpp", "java", "go"]:
-                file = f"{root}/Solution2.{suf}"
+                file = f"{root}/tmp.{suf}"
                 with open(file, "w", encoding="utf-8") as f:
                     f.write(block)
                 if suf == "go":
@@ -314,9 +316,69 @@ def format_inline_code(path: str):
                     )
                     content = content.replace(block, new_block)
                     block = new_block
+            elif suf == "rust":
+                file = f"{root}/tmp.rs"
+                with open(file, "w", encoding="utf-8") as f:
+                    f.write(block)
+                os.system(f'rustfmt "{file}"')
+                with open(file, "r", encoding="utf-8") as f:
+                    new_block = f.read()
+                if not new_block.endswith("\n"):
+                    new_block += "\n"
+                content = content.replace(block, new_block)
+                os.remove(file)
 
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
+
+
+def format_rust_files_linux():
+    # The find command to locate and format all .rs files in Linux
+    find_command = 'find . -name "*.rs" -exec rustfmt {} \\;'
+
+    # Execute the command
+    process = subprocess.Popen(
+        find_command,
+        shell=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+
+    # Get the output and errors
+    stdout, stderr = process.communicate()
+
+    if process.returncode == 0:
+        print("Rust files formatted successfully on Linux!")
+        print(stdout)
+    else:
+        print("Error formatting Rust files on Linux:")
+        print(stderr)
+
+
+def format_rust_files_windows():
+    # PowerShell command to format all .rs files recursively in Windows
+    ps_command = (
+        "Get-ChildItem -Recurse -Filter *.rs | ForEach-Object { rustfmt $_.FullName }"
+    )
+
+    # Execute the PowerShell command
+    process = subprocess.Popen(
+        ["powershell", "-Command", ps_command],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+
+    # Get the output and errors
+    stdout, stderr = process.communicate()
+
+    if process.returncode == 0:
+        print("Rust files formatted successfully on Windows!")
+        print(stdout)
+    else:
+        print("Error formatting Rust files on Windows:")
+        print(stderr)
 
 
 def run():
@@ -336,7 +398,10 @@ def run():
     os.system("gofmt -w .")
 
     # format with rustfmt
-    os.system('find . -name "*.rs" -exec rustfmt {} \\;')
+    if platform.system() == "Linux":
+        format_rust_files_linux()
+    else:
+        format_rust_files_windows()
 
     for path in paths:
         remove_header(path)

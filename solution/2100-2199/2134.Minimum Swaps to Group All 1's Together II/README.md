@@ -188,9 +188,8 @@ impl Solution {
         }
         let mut mx: i32 = cnt;
         for i in k..(n as i32) + k {
-            cnt +=
-                nums[(i % (n as i32)) as usize] -
-                nums[((i - k + (n as i32)) % (n as i32)) as usize];
+            cnt += nums[(i % (n as i32)) as usize]
+                - nums[((i - k + (n as i32)) % (n as i32)) as usize];
             mx = mx.max(cnt);
         }
         return k - mx;

@@ -243,7 +243,7 @@ impl Solution {
         cur_sum: i32,
         cur_vec: &mut Vec<i32>,
         candidates: &Vec<i32>,
-        ans: &mut Vec<Vec<i32>>
+        ans: &mut Vec<Vec<i32>>,
     ) {
         if cur_sum > target || cur_vec.len() > (length as usize) {
             // No answer for this
@@ -256,7 +256,15 @@ impl Solution {
         }
         for i in cur_index..candidates.len() {
             cur_vec.push(candidates[i]);
-            Self::dfs(target, length, i + 1, cur_sum + candidates[i], cur_vec, candidates, ans);
+            Self::dfs(
+                target,
+                length,
+                i + 1,
+                cur_sum + candidates[i],
+                cur_vec,
+                candidates,
+                ans,
+            );
             cur_vec.pop().unwrap();
         }
     }

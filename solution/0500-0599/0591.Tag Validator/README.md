@@ -320,12 +320,7 @@ impl Solution {
     pub fn is_valid(code: String) -> bool {
         fn check(tag: &str) -> bool {
             let n = tag.len();
-            n >= 1 &&
-                n <= 9 &&
-                tag
-                    .as_bytes()
-                    .iter()
-                    .all(|b| b.is_ascii_uppercase())
+            n >= 1 && n <= 9 && tag.as_bytes().iter().all(|b| b.is_ascii_uppercase())
         }
 
         let mut stk = Vec::new();

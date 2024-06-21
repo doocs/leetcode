@@ -243,14 +243,9 @@ impl Solution {
                 .map(|(current, next)| (next - current) as i32)
                 .collect();
 
-            let s: String = bytes
-                .iter()
-                .map(|&b| char::from(b as u8))
-                .collect();
+            let s: String = bytes.iter().map(|&b| char::from(b as u8)).collect();
 
-            h.entry(s)
-                .or_insert(vec![])
-                .push(w);
+            h.entry(s).or_insert(vec![]).push(w);
         }
 
         for strs in h.values() {

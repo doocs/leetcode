@@ -251,14 +251,12 @@ impl Solution {
         if count > alice_arrows[i] {
             res[i] = alice_arrows[i] + 1;
             let r2 = Self::dfs(alice_arrows, res, count - alice_arrows[i] - 1, i - 1);
-            if
-                r2
-                    .iter()
-                    .enumerate()
-                    .map(|(i, v)| if v > &0 { i } else { 0 })
-                    .sum::<usize>() >
-                r1
-                    .iter()
+            if r2
+                .iter()
+                .enumerate()
+                .map(|(i, v)| if v > &0 { i } else { 0 })
+                .sum::<usize>()
+                > r1.iter()
                     .enumerate()
                     .map(|(i, v)| if v > &0 { i } else { 0 })
                     .sum::<usize>()

@@ -232,12 +232,11 @@ impl Solution {
             for k in 0..4 {
                 let x = (i as i32) + DIRS[k];
                 let y = (j as i32) + DIRS[k + 1];
-                if
-                    x >= 0 &&
-                    (x as usize) < grid.len() &&
-                    y >= 0 &&
-                    (y as usize) < grid[0].len() &&
-                    grid[x as usize][y as usize] == '1'
+                if x >= 0
+                    && (x as usize) < grid.len()
+                    && y >= 0
+                    && (y as usize) < grid[0].len()
+                    && grid[x as usize][y as usize] == '1'
                 {
                     dfs(grid, x as usize, y as usize);
                 }
@@ -512,12 +511,11 @@ impl Solution {
                 for k in 0..4 {
                     let x = (i as i32) + DIRS[k];
                     let y = (j as i32) + DIRS[k + 1];
-                    if
-                        x >= 0 &&
-                        (x as usize) < grid.len() &&
-                        y >= 0 &&
-                        (y as usize) < grid[0].len() &&
-                        grid[x as usize][y as usize] == '1'
+                    if x >= 0
+                        && (x as usize) < grid.len()
+                        && y >= 0
+                        && (y as usize) < grid[0].len()
+                        && grid[x as usize][y as usize] == '1'
                     {
                         grid[x as usize][y as usize] = '0';
                         queue.push_back((x as usize, y as usize));
