@@ -269,8 +269,8 @@ function longestUnivaluePath(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, target: i32, res: &mut i32) -> i32 {
         if root.is_none() {
@@ -293,7 +293,11 @@ impl Solution {
         }
 
         let mut res = 0;
-        Self::dfs(&root, root.as_ref().unwrap().as_ref().borrow().val, &mut res);
+        Self::dfs(
+            &root,
+            root.as_ref().unwrap().as_ref().borrow().val,
+            &mut res,
+        );
         res
     }
 }

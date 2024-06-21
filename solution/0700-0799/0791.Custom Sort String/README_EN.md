@@ -150,9 +150,9 @@ impl Solution {
             d[(c - b'a') as usize] = i;
         }
         let mut ans = s.chars().collect::<Vec<_>>();
-        ans.sort_by(|&a, &b|
+        ans.sort_by(|&a, &b| {
             d[((a as u8) - ('a' as u8)) as usize].cmp(&d[((b as u8) - ('a' as u8)) as usize])
-        );
+        });
         ans.into_iter().collect()
     }
 }

@@ -274,7 +274,7 @@ impl Solution {
         c: usize,
         word: &[u8],
         board: &Vec<Vec<char>>,
-        vis: &mut Vec<Vec<bool>>
+        vis: &mut Vec<Vec<bool>>,
     ) -> bool {
         if (board[i][j] as u8) != word[c] {
             return false;
@@ -283,12 +283,7 @@ impl Solution {
             return true;
         }
         vis[i][j] = true;
-        let dirs = [
-            [-1, 0],
-            [0, -1],
-            [1, 0],
-            [0, 1],
-        ];
+        let dirs = [[-1, 0], [0, -1], [1, 0], [0, 1]];
         for [x, y] in dirs.into_iter() {
             let i = x + (i as i32);
             let j = y + (j as i32);

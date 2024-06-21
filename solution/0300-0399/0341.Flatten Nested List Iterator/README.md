@@ -420,10 +420,7 @@ impl NestedIterator {
     fn new(nestedList: Vec<NestedInteger>) -> Self {
         let mut vals = vec![];
         Self::dfs(&nestedList, &mut vals);
-        Self {
-            vals,
-            index: 0,
-        }
+        Self { vals, index: 0 }
     }
 
     fn next(&mut self) -> i32 {

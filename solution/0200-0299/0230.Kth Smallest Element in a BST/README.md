@@ -250,8 +250,8 @@ function kthSmallest(root: TreeNode | null, k: number): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: Option<Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>, k: usize) {
         if let Some(node) = root {

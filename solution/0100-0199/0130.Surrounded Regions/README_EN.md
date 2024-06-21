@@ -276,7 +276,7 @@ impl Solution {
             j: usize,
             dirs: &Vec<i32>,
             m: usize,
-            n: usize
+            n: usize,
         ) {
             if i >= 0 && i < m && j >= 0 && j < n && board[i][j] == 'O' {
                 board[i][j] = '.';
@@ -287,7 +287,7 @@ impl Solution {
                         ((j as i32) + dirs[k + 1]) as usize,
                         dirs,
                         m,
-                        n
+                        n,
                     );
                 }
             }

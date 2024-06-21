@@ -204,12 +204,8 @@ impl Solution {
         if matrix.len() == 0 {
             return ans;
         }
-        let (mut left, mut right, mut top, mut bottom) = (
-            0,
-            matrix[0].len() - 1,
-            0,
-            matrix.len() - 1,
-        );
+        let (mut left, mut right, mut top, mut bottom) =
+            (0, matrix[0].len() - 1, 0, matrix.len() - 1);
         loop {
             for i in left..right + 1 {
                 ans.push(matrix[top][i]);

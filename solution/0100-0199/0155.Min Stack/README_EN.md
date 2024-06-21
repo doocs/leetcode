@@ -281,7 +281,10 @@ struct MinStack {
  */
 impl MinStack {
     fn new() -> Self {
-        Self { stk1: VecDeque::new(), stk2: VecDeque::new() }
+        Self {
+            stk1: VecDeque::new(),
+            stk2: VecDeque::new(),
+        }
     }
 
     fn push(&mut self, x: i32) {

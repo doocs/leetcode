@@ -269,8 +269,8 @@ function constructMaximumBinaryTree(nums: number[]): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn construct(nums: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
         if start >= end {
@@ -284,15 +284,11 @@ impl Solution {
                 max_val = nums[i];
             }
         }
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val: max_val,
-                    left: Self::construct(nums, start, idx),
-                    right: Self::construct(nums, idx + 1, end),
-                })
-            )
-        )
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: max_val,
+            left: Self::construct(nums, start, idx),
+            right: Self::construct(nums, idx + 1, end),
+        })))
     }
 
     pub fn construct_maximum_binary_tree(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {

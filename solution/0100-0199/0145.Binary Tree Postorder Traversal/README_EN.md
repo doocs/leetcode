@@ -239,8 +239,8 @@ function postorderTraversal(root: TreeNode | null): number[] {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, ans: &mut Vec<i32>) {
         if root.is_none() {

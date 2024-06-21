@@ -303,8 +303,8 @@ class RandomizedSet {
 #### Rust
 
 ```rust
-use std::collections::HashSet;
 use rand::Rng;
+use std::collections::HashSet;
 
 struct RandomizedSet {
     list: HashSet<i32>,

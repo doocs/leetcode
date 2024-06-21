@@ -191,13 +191,12 @@ impl Solution {
                 nums.swap(i, j as usize);
             }
         }
-        (
-            nums
-                .iter()
-                .enumerate()
-                .position(|(i, &v)| (v as usize) != i + 1)
-                .unwrap_or(n) as i32
-        ) + 1
+        (nums
+            .iter()
+            .enumerate()
+            .position(|(i, &v)| (v as usize) != i + 1)
+            .unwrap_or(n) as i32)
+            + 1
     }
 }
 ```

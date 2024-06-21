@@ -227,23 +227,19 @@ function insertIntoMaxTree(root: TreeNode | null, val: number): TreeNode | null 
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     pub fn insert_into_max_tree(
         mut root: Option<Rc<RefCell<TreeNode>>>,
-        val: i32
+        val: i32,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         if root.is_none() || root.as_ref().unwrap().as_ref().borrow().val < val {
-            return Some(
-                Rc::new(
-                    RefCell::new(TreeNode {
-                        val,
-                        left: root.take(),
-                        right: None,
-                    })
-                )
-            );
+            return Some(Rc::new(RefCell::new(TreeNode {
+                val,
+                left: root.take(),
+                right: None,
+            })));
         }
         {
             let mut root = root.as_ref().unwrap().as_ref().borrow_mut();

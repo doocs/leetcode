@@ -221,8 +221,8 @@ func abs(x int) int {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
         match root {
@@ -239,9 +239,9 @@ impl Solution {
             Some(node) => {
                 let mut node = node.borrow_mut();
                 let a = 10;
-                (Self::dfs(&node.left) - Self::dfs(&node.right)).abs() <= 1 &&
-                    Self::is_balanced(node.left.take()) &&
-                    Self::is_balanced(node.right.take())
+                (Self::dfs(&node.left) - Self::dfs(&node.right)).abs() <= 1
+                    && Self::is_balanced(node.left.take())
+                    && Self::is_balanced(node.right.take())
             }
         }
     }

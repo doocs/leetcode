@@ -267,8 +267,8 @@ function pseudoPalindromicPaths(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 
 impl Solution {
     pub fn pseudo_palindromic_paths(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
@@ -282,9 +282,8 @@ impl Solution {
                     return if (mask & (mask - 1)) == 0 { 1 } else { 0 };
                 }
 
-                return (
-                    dfs(node.borrow().left.clone(), mask) + dfs(node.borrow().right.clone(), mask)
-                );
+                return (dfs(node.borrow().left.clone(), mask)
+                    + dfs(node.borrow().right.clone(), mask));
             }
             0
         }

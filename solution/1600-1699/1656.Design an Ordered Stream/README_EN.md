@@ -231,7 +231,10 @@ struct OrderedStream {
  */
 impl OrderedStream {
     fn new(n: i32) -> Self {
-        Self { ptr: 0, vals: vec![None; n as usize] }
+        Self {
+            ptr: 0,
+            vals: vec![None; n as usize],
+        }
     }
 
     fn insert(&mut self, id_key: i32, value: String) -> Vec<String> {

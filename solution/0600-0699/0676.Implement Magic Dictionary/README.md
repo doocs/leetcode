@@ -466,12 +466,7 @@ impl Trie {
         if diff == 0 {
             for (i, child) in self.children.iter().enumerate() {
                 if i != index && child.is_some() {
-                    if
-                        child
-                            .as_ref()
-                            .unwrap()
-                            .search(&word[1..], 1)
-                    {
+                    if child.as_ref().unwrap().search(&word[1..], 1) {
                         return true;
                     }
                 }

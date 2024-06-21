@@ -206,7 +206,7 @@ impl Solution {
         let mut map: HashMap<String, i32> = HashMap::new();
 
         // Sort the words vector first
-        words.sort_by(|lhs, rhs| { lhs.len().cmp(&rhs.len()) });
+        words.sort_by(|lhs, rhs| lhs.len().cmp(&rhs.len()));
 
         // Begin the "dp" process
         for w in words.iter() {

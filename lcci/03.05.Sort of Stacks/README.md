@@ -323,7 +323,11 @@ impl SortedStack {
     }
 
     fn peek(&self) -> i32 {
-        if self.is_empty() { -1 } else { *self.stk.back().unwrap() }
+        if self.is_empty() {
+            -1
+        } else {
+            *self.stk.back().unwrap()
+        }
     }
 
     fn is_empty(&self) -> bool {

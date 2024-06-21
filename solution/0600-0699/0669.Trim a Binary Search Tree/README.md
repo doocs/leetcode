@@ -243,13 +243,13 @@ function trimBST(root: TreeNode | null, low: number, high: number): TreeNode | n
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     pub fn trim_bst(
         mut root: Option<Rc<RefCell<TreeNode>>>,
         low: i32,
-        high: i32
+        high: i32,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         if root.is_none() {
             return root;

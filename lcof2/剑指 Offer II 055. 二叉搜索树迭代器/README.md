@@ -338,8 +338,8 @@ class BSTIterator {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 struct BSTIterator {
     stack: Vec<i32>,
 }
@@ -363,9 +363,7 @@ impl BSTIterator {
     fn new(root: Option<Rc<RefCell<TreeNode>>>) -> Self {
         let mut stack = Vec::new();
         Self::dfs(&root, &mut stack);
-        Self {
-            stack,
-        }
+        Self { stack }
     }
 
     fn next(&mut self) -> i32 {

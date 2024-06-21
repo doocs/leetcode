@@ -276,14 +276,14 @@ function findFrequentTreeSum(root: TreeNode | null): number[] {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::HashMap;
+use std::rc::Rc;
 impl Solution {
     fn dfs(
         root: &Option<Rc<RefCell<TreeNode>>>,
         map: &mut HashMap<i32, i32>,
-        max: &mut i32
+        max: &mut i32,
     ) -> i32 {
         if root.is_none() {
             return 0;

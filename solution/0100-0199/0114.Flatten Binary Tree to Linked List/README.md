@@ -262,8 +262,8 @@ function flatten(root: TreeNode | null): void {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     #[allow(dead_code)]
     pub fn flatten(root: &mut Option<Rc<RefCell<TreeNode>>>) {
@@ -284,7 +284,7 @@ impl Solution {
     #[allow(dead_code)]
     fn pre_order_traverse(
         v: &mut Vec<Option<Rc<RefCell<TreeNode>>>>,
-        root: &Option<Rc<RefCell<TreeNode>>>
+        root: &Option<Rc<RefCell<TreeNode>>>,
     ) {
         if root.is_none() {
             return;
