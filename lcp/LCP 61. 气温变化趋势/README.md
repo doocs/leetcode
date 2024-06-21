@@ -140,6 +140,51 @@ func temperatureTrend(temperatureA []int, temperatureB []int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function temperatureTrend(temperatureA: number[], temperatureB: number[]): number {
+    let [ans, f] = [0, 0];
+    for (let i = 0; i < temperatureA.length - 1; ++i) {
+        let x = temperatureA[i + 1] - temperatureA[i];
+        let y = temperatureB[i + 1] - temperatureB[i];
+        if ((x === 0 && y === 0) || x * y > 0) {
+            ans = Math.max(ans, ++f);
+        } else {
+            f = 0;
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn temperature_trend(temperature_a: Vec<i32>, temperature_b: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        let mut f = 0;
+
+        for i in 0..temperature_a.len() - 1 {
+            let x = temperature_a[i + 1] - temperature_a[i];
+            let y = temperature_b[i + 1] - temperature_b[i];
+
+            if (x == 0 && y == 0) || (x > 0 && y > 0) || (x < 0 && y < 0) {
+                f += 1;
+                if f > ans {
+                    ans = f;
+                }
+            } else {
+                f = 0;
+            }
+        }
+
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
