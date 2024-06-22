@@ -20,7 +20,7 @@ tags:
 
 <!-- description:start -->
 
-<p>一个房间里有 <code>n</code>&nbsp;个座位和 <code>n</code>&nbsp;名学生，房间用一个数轴表示。给你一个长度为 <code>n</code>&nbsp;的数组&nbsp;<code>seats</code>&nbsp;，其中&nbsp;<code>seats[i]</code> 是第 <code>i</code>&nbsp;个座位的位置。同时给你一个长度为 <code>n</code>&nbsp;的数组&nbsp;<code>students</code>&nbsp;，其中&nbsp;<code>students[j]</code>&nbsp;是第 <code>j</code>&nbsp;位学生的位置。</p>
+<p>一个房间里有 <code>n</code>&nbsp;个 <strong>空闲</strong> 座位和 <code>n</code>&nbsp;名 <strong>站着的</strong>&nbsp;学生，房间用一个数轴表示。给你一个长度为 <code>n</code>&nbsp;的数组&nbsp;<code>seats</code>&nbsp;，其中&nbsp;<code>seats[i]</code> 是第 <code>i</code>&nbsp;个座位的位置。同时给你一个长度为 <code>n</code>&nbsp;的数组&nbsp;<code>students</code>&nbsp;，其中&nbsp;<code>students[j]</code>&nbsp;是第 <code>j</code>&nbsp;位学生的位置。</p>
 
 <p>你可以执行以下操作任意次：</p>
 
@@ -34,9 +34,10 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre><b>输入：</b>seats = [3,1,5], students = [2,7,4]
+<pre>
+<b>输入：</b>seats = [3,1,5], students = [2,7,4]
 <b>输出：</b>4
 <b>解释：</b>学生移动方式如下：
 - 第一位学生从位置 2 移动到位置 1 ，移动 1 次。
@@ -45,9 +46,10 @@ tags:
 总共 1 + 2 + 1 = 4 次移动。
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
-<pre><b>输入：</b>seats = [4,1,5,9], students = [1,3,2,6]
+<pre>
+<b>输入：</b>seats = [4,1,5,9], students = [1,3,2,6]
 <b>输出：</b>7
 <strong>解释：</strong>学生移动方式如下：
 - 第一位学生不移动。
@@ -57,9 +59,10 @@ tags:
 总共 0 + 1 + 3 + 3 = 7 次移动。
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
-<pre><b>输入：</b>seats = [2,2,6,6], students = [1,3,2,6]
+<pre>
+<b>输入：</b>seats = [2,2,6,6], students = [1,3,2,6]
 <b>输出：</b>4
 <b>解释：</b>学生移动方式如下：
 - 第一位学生从位置 1 移动到位置 2 ，移动 1 次。

@@ -64,7 +64,11 @@ In this example, the second and third sentences (underlined) have the same numbe
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Space Counting
+
+We iterate through the array `sentences`. For each sentence, we count the number of spaces, then the number of words is the number of spaces plus $1$. Finally, we return the maximum number of words.
+
+The time complexity is $O(L)$, where $L$ is the total length of all strings in the array `sentences`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

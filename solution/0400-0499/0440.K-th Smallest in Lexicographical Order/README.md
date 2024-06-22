@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [440. 字典序的第 K 小数字](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order)
+# [440. 字典序的第K小数字](https://leetcode.cn/problems/k-th-smallest-in-lexicographical-order)
 
 [English Version](/solution/0400-0499/0440.K-th%20Smallest%20in%20Lexicographical%20Order/README_EN.md)
 
