@@ -1,18 +1,21 @@
 class Solution {
 public:
     int findMinDifference(vector<string>& timePoints) {
-        if (timePoints.size() > 24 * 60) {
+        if (timePoints.size() > 1440) {
             return 0;
         }
-        vector<int> mins;
-        for (auto& t : timePoints) {
-            mins.push_back(stoi(t.substr(0, 2)) * 60 + stoi(t.substr(3)));
+        int n = timePoints.size();
+        vector<int> nums(n + 1);
+        for (int i = 0; i < n; ++i) {
+            int hours = stoi(timePoints[i].substr(0, 2));
+            int minutes = stoi(timePoints[i].substr(3, 2));
+            nums[i] = hours * 60 + minutes;
         }
-        sort(mins.begin(), mins.end());
-        mins.push_back(mins[0] + 24 * 60);
-        int ans = 1 << 30;
-        for (int i = 1; i < mins.size(); ++i) {
-            ans = min(ans, mins[i] - mins[i - 1]);
+        sort(nums.begin(), nums.begin() + n);
+        nums[n] = nums[0] + 1440;
+        int ans = INT_MAX;
+        for (int i = 1; i <= n; ++i) {
+            ans = min(ans, nums[i] - nums[i - 1]);
         }
         return ans;
     }
