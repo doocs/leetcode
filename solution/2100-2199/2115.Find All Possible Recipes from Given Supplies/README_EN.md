@@ -97,16 +97,14 @@ class Solution:
             for v in b:
                 g[v].append(a)
             indeg[a] += len(b)
-        q = deque(supplies)
+        q = supplies
         ans = []
-        while q:
-            for _ in range(len(q)):
-                i = q.popleft()
-                for j in g[i]:
-                    indeg[j] -= 1
-                    if indeg[j] == 0:
-                        ans.append(j)
-                        q.append(j)
+        for i in q:
+            for j in g[i]:
+                indeg[j] -= 1
+                if indeg[j] == 0:
+                    ans.append(j)
+                    q.append(j)
         return ans
 ```
 

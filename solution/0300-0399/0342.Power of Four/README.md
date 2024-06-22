@@ -10,7 +10,7 @@ tags:
 
 <!-- problem:start -->
 
-# [342. 4 的幂](https://leetcode.cn/problems/power-of-four)
+# [342. 4的幂](https://leetcode.cn/problems/power-of-four)
 
 [English Version](/solution/0300-0399/0342.Power%20of%20Four/README_EN.md)
 

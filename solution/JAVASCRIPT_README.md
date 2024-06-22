@@ -1,4 +1,4 @@
-# JavaScript 专项练习
+# JavaScript专项练习
 
 [English Version](/solution/JAVASCRIPT_README_EN.md)
 

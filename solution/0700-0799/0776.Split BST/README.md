@@ -19,11 +19,11 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一棵二叉搜索树（BST）的根结点 <code>root</code>&nbsp;和一个整数 <code>target</code> 。请将该树按要求拆分为两个子树：其中一个子树结点的值都必须小于等于给定的目标值；另一个子树结点的值都必须大于目标值；树中并非一定要存在值为&nbsp;<code>target</code>&nbsp;的结点。</p>
+<p>给你一棵二叉搜索树（BST）的根结点 <code>root</code>&nbsp;和一个整数 <code>target</code> 。请将该树按要求拆分为两个子树：其中第一个子树结点的值都必须小于等于给定的目标值；另一个子树结点的值都必须大于目标值；树中并非一定要存在值为&nbsp;<code>target</code>&nbsp;的结点。</p>
 
 <p>除此之外，树中大部分结构都需要保留，也就是说原始树中父节点 <code>p</code> 的任意子节点 <code>c</code> ，假如拆分后它们仍在同一个子树中，那么结点 <code>p</code>&nbsp;应仍为 <code>c</code>&nbsp;的父结点。</p>
 
-<p>返回 <em>两个子树的根结点的数组</em> 。</p>
+<p>按顺序返回 <em>两个子树的根结点的数组</em> 。</p>
 
 <p>&nbsp;</p>
 

@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [1892. 页面推荐 Ⅱ 🔒](https://leetcode.cn/problems/page-recommendations-ii)
+# [1892. 页面推荐Ⅱ 🔒](https://leetcode.cn/problems/page-recommendations-ii)
 
 [English Version](/solution/1800-1899/1892.Page%20Recommendations%20II/README_EN.md)
 

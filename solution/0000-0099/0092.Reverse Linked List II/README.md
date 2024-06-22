@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-给你单链表的头指针 <code>head</code> 和两个整数  <code>left</code> 和 <code>right</code> ，其中  <code>left <= right</code> 。请你反转从位置 <code>left</code> 到位置 <code>right</code> 的链表节点，返回 <strong>反转后的链表</strong> 。
+给你单链表的头指针 <code>head</code> 和两个整数 <code>left</code> 和 <code>right</code> ，其中 <code>left <= right</code> 。请你反转从位置 <code>left</code> 到位置 <code>right</code> 的链表节点，返回 <strong>反转后的链表</strong> 。
 
 <p> </p>
 

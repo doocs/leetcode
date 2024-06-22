@@ -10,7 +10,7 @@ tags:
 
 <!-- problem:start -->
 
-# [1287. 有序数组中出现次数超过 25%的元素](https://leetcode.cn/problems/element-appearing-more-than-25-in-sorted-array)
+# [1287. 有序数组中出现次数超过25%的元素](https://leetcode.cn/problems/element-appearing-more-than-25-in-sorted-array)
 
 [English Version](/solution/1200-1299/1287.Element%20Appearing%20More%20Than%2025%25%20In%20Sorted%20Array/README_EN.md)
 

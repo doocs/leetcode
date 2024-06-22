@@ -22,7 +22,7 @@ tags:
 
 <ul>
 	<li><strong>右移</strong>：将字符串中每个字母都变为其在字母表中 <strong>后续</strong> 的字母，其中用 'a' 替换 'z'。比如，<code>"abc"</code>&nbsp;能够右移为&nbsp;<code>"bcd"</code>，<code>"xyz"</code>&nbsp;能够右移为&nbsp;<code>"yza"</code>。</li>
-	<li><strong>左移</strong>：将字符串中每个字母都变为其在字母表中 <b>之前</b>&nbsp;的字母，其中用 'z' 替换 'a'。比如，<code>"bcd"</code>&nbsp;能够右移为&nbsp;<code>"abc"</code>，<code>"yza"</code>&nbsp;能够右移为&nbsp;<code>"xyz"</code>。</li>
+	<li><strong>左移</strong>：将字符串中每个字母都变为其在字母表中 <b>之前</b>&nbsp;的字母，其中用 'z' 替换 'a'。比如，<code>"bcd"</code>&nbsp;能够左移为&nbsp;<code>"abc"</code>，<code>"yza"</code>&nbsp;能够左移为&nbsp;<code>"xyz"</code>。</li>
 </ul>
 
 <p>我们可以不断地向两个方向移动字符串，形成 <strong>无限的移位序列</strong>。</p>
