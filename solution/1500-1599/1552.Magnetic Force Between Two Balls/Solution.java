@@ -1,28 +1,30 @@
 class Solution {
+    private int[] position;
+
     public int maxDistance(int[] position, int m) {
         Arrays.sort(position);
-        int left = 1, right = position[position.length - 1];
-        while (left < right) {
-            int mid = (left + right + 1) >>> 1;
-            if (check(position, mid, m)) {
-                left = mid;
+        this.position = position;
+        int l = 1, r = position[position.length - 1];
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (count(mid) >= m) {
+                l = mid;
             } else {
-                right = mid - 1;
+                r = mid - 1;
             }
         }
-        return left;
+        return l;
     }
 
-    private boolean check(int[] position, int f, int m) {
+    private int count(int f) {
         int prev = position[0];
         int cnt = 1;
-        for (int i = 1; i < position.length; ++i) {
-            int curr = position[i];
+        for (int curr : position) {
             if (curr - prev >= f) {
-                prev = curr;
                 ++cnt;
+                prev = curr;
             }
         }
-        return cnt >= m;
+        return cnt;
     }
 }
