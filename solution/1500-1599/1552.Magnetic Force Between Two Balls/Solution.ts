@@ -1,12 +1,7 @@
-/**
- * @param {number[]} position
- * @param {number} m
- * @return {number}
- */
-var maxDistance = function (position, m) {
+function maxDistance(position: number[], m: number): number {
     position.sort((a, b) => a - b);
-    let [l, r] = [1, position.at(-1)];
-    const count = f => {
+    let [l, r] = [1, position.at(-1)!];
+    const count = (f: number): number => {
         let cnt = 1;
         let prev = position[0];
         for (const curr of position) {
@@ -26,4 +21,4 @@ var maxDistance = function (position, m) {
         }
     }
     return l;
-};
+}
