@@ -80,11 +80,11 @@ tags:
 
 ### 方法一：模拟
 
-创建一个矩阵 $g$ 来存放操作的结果。对于 $indices$ 中的每一对 $(r_i, c_i)$，我们将矩阵第 $r_i$ 行的所有数加 $1$，第 $c_i$ 列的所有元素加 $1$。
+我们创建一个矩阵 $g$ 来存放操作的结果。对于 $\text{indices}$ 中的每一对 $(r_i, c_i)$，我们将矩阵第 $r_i$ 行的所有数加 $1$，第 $c_i$ 列的所有元素加 $1$。
 
 模拟结束后，遍历矩阵，统计奇数的个数。
 
-时间复杂度 $O(indices.length*(m+n)+mn)$，空间复杂度 $O(mn)$。
+时间复杂度 $O(k \times (m + n) + m \times n)$，空间复杂度 $O(m \times n)$。其中 $k$ 为 $\text{indices}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -137,12 +137,19 @@ public:
         vector<vector<int>> g(m, vector<int>(n));
         for (auto& e : indices) {
             int r = e[0], c = e[1];
-            for (int i = 0; i < m; ++i) ++g[i][c];
-            for (int j = 0; j < n; ++j) ++g[r][j];
+            for (int i = 0; i < m; ++i) {
+                ++g[i][c];
+            }
+            for (int j = 0; j < n; ++j) {
+                ++g[r][j];
+            }
         }
         int ans = 0;
-        for (auto& row : g)
-            for (int v : row) ans += v % 2;
+        for (auto& row : g) {
+            for (int v : row) {
+                ans += v % 2;
+            }
+        }
         return ans;
     }
 };
@@ -183,11 +190,11 @@ func oddCells(m int, n int, indices [][]int) int {
 
 ### 方法二：空间优化
 
-用行数组 $row$ 和列数组 $col$ 来记录每一行、每一列被增加的次数。对于 $indices$ 中的每一对 $(r_i, c_i)$，我们将 $row[r_i]$ 和 $col[c_i]$ 分别加 $1$。
+我们可以使用行数组 $\text{row}$ 和列数组 $\text{col}$ 来记录每一行、每一列被增加的次数。对于 $\text{indices}$ 中的每一对 $(r_i, c_i)$，我们将 $\text{row}[r_i]$ 和 $\text{col}[c_i]$ 分别加 $1$。
 
-操作结束后，可以算出 $(i, j)$ 位置的计数为 $row[i]+col[j]$。遍历矩阵，统计奇数的个数。
+操作结束后，可以算出 $(i, j)$ 位置的计数为 $\text{row}[i]+\text{col}[j]$。遍历矩阵，统计奇数的个数。
 
-时间复杂度 $O(indices.length+mn)$，空间复杂度 $O(m+n)$。
+时间复杂度 $O(k + m \times n)$，空间复杂度 $O(m + n)$。其中 $k$ 为 $\text{indices}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -241,8 +248,11 @@ public:
             col[c]++;
         }
         int ans = 0;
-        for (int i : row)
-            for (int j : col) ans += (i + j) % 2;
+        for (int i : row) {
+            for (int j : col) {
+                ans += (i + j) % 2;
+            }
+        }
         return ans;
     }
 };
@@ -277,11 +287,11 @@ func oddCells(m int, n int, indices [][]int) int {
 
 ### 方法三：数学优化
 
-我们注意到，只有当 $row[i]$ 和 $col[j]$ 中恰好为“一奇一偶”时，矩阵 $(i, j)$ 位置的数才会是奇数。
+我们注意到，只有当 $\text{row}[i]$ 和 $\text{col}[j]$ 中恰好为“一奇一偶”时，矩阵 $(i, j)$ 位置的数才会是奇数。
 
-我们统计 $row$ 中的奇数个数，记为 $cnt1$；$col$ 中的奇数个数，记为 $cnt2$。那么最终得到的奇数个数为 $cnt1*(n-cnt2)+cnt2*(m-cnt1)$。
+我们统计 $\text{row}$ 中的奇数个数，记为 $\text{cnt1}$；而 $\text{col}$ 中的奇数个数，记为 $\text{cnt2}$。那么最终得到的奇数个数为 $\text{cnt1} \times (n - \text{cnt2}) + \text{cnt2} \times (m - \text{cnt1})$。
 
-时间复杂度 $O(indices.length+m+n)$，空间复杂度 $O(m+n)$。
+时间复杂度 $O(k + m + n)$，空间复杂度 $O(m + n)$。其中 $k$ 为 $\text{indices}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -338,8 +348,12 @@ public:
             col[c]++;
         }
         int cnt1 = 0, cnt2 = 0;
-        for (int v : row) cnt1 += v % 2;
-        for (int v : col) cnt2 += v % 2;
+        for (int v : row) {
+            cnt1 += v % 2;
+        }
+        for (int v : col) {
+            cnt2 += v % 2;
+        }
         return cnt1 * (n - cnt2) + cnt2 * (m - cnt1);
     }
 };
