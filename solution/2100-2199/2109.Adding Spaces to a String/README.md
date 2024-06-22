@@ -82,9 +82,9 @@ tags:
 
 ### 方法一：双指针
 
-我们可以用双指针 $i$ 和 $j$ 分别指向字符串 $s$ 和数组 $spaces$ 的头部，然后从头到尾遍历字符串 $s$，当 $i$ 等于 $spaces[j]$ 时，我们往结果字符串中添加一个空格，然后 $j$ 自增 1。接下来，我们将 $s[i]$ 添加到结果字符串中，然后 $i$ 自增 1。继续这个过程，直到遍历完字符串 $s$。
+我们可以用双指针 $i$ 和 $j$ 分别指向字符串 $s$ 和数组 $\text{spaces}$ 的头部，然后从头到尾遍历字符串 $s$，当 $i$ 等于 $\text{spaces}[j]$ 时，我们往结果字符串中添加一个空格，然后 $j$ 自增 $1$。接下来，我们将 $s[i]$ 添加到结果字符串中，然后 $i$ 自增 $1$。继续这个过程，直到遍历完字符串 $s$。
 
-时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是字符串 $s$ 和数组 $spaces$ 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是字符串 $s$ 和数组 $spaces$ 的长度。
 
 <!-- tabs:start -->
 
@@ -160,42 +160,16 @@ func addSpaces(s string, spaces []int) string {
 
 ```ts
 function addSpaces(s: string, spaces: number[]): string {
-    let ans = '';
+    const ans: string[] = [];
     for (let i = 0, j = 0; i < s.length; i++) {
-        if (j < spaces.length && i === spaces[j]) {
-            ans += ' ';
-            ++j;
+        if (i === spaces[j]) {
+            ans.push(' ');
+            j++;
         }
-        ans += s[i];
+        ans.push(s[i]);
     }
-    return ans;
+    return ans.join('');
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def addSpaces(self, s: str, spaces: List[int]) -> str:
-        ans = []
-        i, j = len(s) - 1, len(spaces) - 1
-        while i >= 0:
-            ans.append(s[i])
-            if j >= 0 and i == spaces[j]:
-                ans.append(' ')
-                j -= 1
-            i -= 1
-        return ''.join(ans[::-1])
 ```
 
 <!-- tabs:end -->
