@@ -1,19 +1,24 @@
 func findMinDifference(timePoints []string) int {
-	if len(timePoints) > 24*60 {
+	if len(timePoints) > 1440 {
 		return 0
 	}
-	var mins []int
-	for _, t := range timePoints {
-		time := strings.Split(t, ":")
-		h, _ := strconv.Atoi(time[0])
-		m, _ := strconv.Atoi(time[1])
-		mins = append(mins, h*60+m)
+
+	n := len(timePoints)
+	nums := make([]int, n+1)
+	for i, time := range timePoints {
+		parts := strings.Split(time, ":")
+		hours, _ := strconv.Atoi(parts[0])
+		minutes, _ := strconv.Atoi(parts[1])
+		nums[i] = hours*60 + minutes
 	}
-	sort.Ints(mins)
-	mins = append(mins, mins[0]+24*60)
+
+	sort.Ints(nums[:n])
+	nums[n] = nums[0] + 1440
+
 	ans := 1 << 30
-	for i, x := range mins[1:] {
-		ans = min(ans, x-mins[i])
+	for i := 1; i <= n; i++ {
+		ans = min(ans, nums[i]-nums[i-1])
 	}
+
 	return ans
 }
