@@ -11,6 +11,7 @@
     "braceStyle": "1tbs",
     "endOfLine": "lf",
     "sqlKeywordCase": "upper",
+    "sqlCanonicalSyntax": false,
     "overrides": [
         {
             "files": ["*.sql"],
