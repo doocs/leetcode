@@ -3200,6 +3200,14 @@
 |  3187  |  [数组中的峰值](/solution/3100-3199/3187.Peaks%20in%20Array/README.md)  |  `树状数组`,`线段树`,`数组`  |  困难  |  第 402 场周赛  |
 |  3188  |  [查找得分最高的学生 II](/solution/3100-3199/3188.Find%20Top%20Scoring%20Students%20II/README.md)  |    |  困难  |  🔒  |
 |  3189  |  [Minimum Moves to Get a Peaceful Board](/solution/3100-3199/3189.Minimum%20Moves%20to%20Get%20a%20Peaceful%20Board/README.md)  |    |  中等  |  🔒  |
+|  3190  |  [使所有元素都可以被 3 整除的最少操作数](/solution/3100-3199/3190.Find%20Minimum%20Operations%20to%20Make%20All%20Elements%20Divisible%20by%20Three/README.md)  |    |  简单  |  第 133 场双周赛  |
+|  3191  |  [使二进制数组全部等于 1 的最少操作次数 I](/solution/3100-3199/3191.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20I/README.md)  |    |  中等  |  第 133 场双周赛  |
+|  3192  |  [使二进制数组全部等于 1 的最少操作次数 II](/solution/3100-3199/3192.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20II/README.md)  |    |  中等  |  第 133 场双周赛  |
+|  3193  |  [统计逆序对的数目](/solution/3100-3199/3193.Count%20the%20Number%20of%20Inversions/README.md)  |    |  困难  |  第 133 场双周赛  |
+|  3194  |  [最小元素和最大元素的最小平均值](/solution/3100-3199/3194.Minimum%20Average%20of%20Smallest%20and%20Largest%20Elements/README.md)  |    |  简单  |  第 403 场周赛  |
+|  3195  |  [包含所有 1 的最小矩形面积 I](/solution/3100-3199/3195.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20I/README.md)  |    |  中等  |  第 403 场周赛  |
+|  3196  |  [最大化子数组的总成本](/solution/3100-3199/3196.Maximize%20Total%20Cost%20of%20Alternating%20Subarrays/README.md)  |    |  中等  |  第 403 场周赛  |
+|  3197  |  [包含所有 1 的最小矩形面积 II](/solution/3100-3199/3197.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20II/README.md)  |    |  困难  |  第 403 场周赛  |
 
 ## 版权
 
