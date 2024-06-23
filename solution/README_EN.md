@@ -3198,6 +3198,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3187  |  [Peaks in Array](/solution/3100-3199/3187.Peaks%20in%20Array/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`  |  Hard  |  Weekly Contest 402  |
 |  3188  |  [Find Top Scoring Students II](/solution/3100-3199/3188.Find%20Top%20Scoring%20Students%20II/README_EN.md)  |    |  Hard  |  🔒  |
 |  3189  |  [Minimum Moves to Get a Peaceful Board](/solution/3100-3199/3189.Minimum%20Moves%20to%20Get%20a%20Peaceful%20Board/README_EN.md)  |    |  Medium  |  🔒  |
+|  3190  |  [Find Minimum Operations to Make All Elements Divisible by Three](/solution/3100-3199/3190.Find%20Minimum%20Operations%20to%20Make%20All%20Elements%20Divisible%20by%20Three/README_EN.md)  |    |  Easy  |  Biweekly Contest 133  |
+|  3191  |  [Minimum Operations to Make Binary Array Elements Equal to One I](/solution/3100-3199/3191.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 133  |
+|  3192  |  [Minimum Operations to Make Binary Array Elements Equal to One II](/solution/3100-3199/3192.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 133  |
+|  3193  |  [Count the Number of Inversions](/solution/3100-3199/3193.Count%20the%20Number%20of%20Inversions/README_EN.md)  |    |  Hard  |  Biweekly Contest 133  |
+|  3194  |  [Minimum Average of Smallest and Largest Elements](/solution/3100-3199/3194.Minimum%20Average%20of%20Smallest%20and%20Largest%20Elements/README_EN.md)  |    |  Easy  |  Weekly Contest 403  |
+|  3195  |  [Find the Minimum Area to Cover All Ones I](/solution/3100-3199/3195.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 403  |
+|  3196  |  [Maximize Total Cost of Alternating Subarrays](/solution/3100-3199/3196.Maximize%20Total%20Cost%20of%20Alternating%20Subarrays/README_EN.md)  |    |  Medium  |  Weekly Contest 403  |
+|  3197  |  [Find the Minimum Area to Cover All Ones II](/solution/3100-3199/3197.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 403  |
 
 ## Copyright
 
