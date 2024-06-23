@@ -100,17 +100,18 @@ class Solution {
 
 ```cpp
 class Solution {
-    public int minimumOperations(int[] nums) {
+public:
+    int minimumOperations(vector<int>& nums) {
         int ans = 0;
         for (int x : nums) {
             int mod = x % 3;
-            if (mod != 0) {
-                ans += Math.min(mod, 3 - mod);
+            if (mod) {
+                ans += min(mod, 3 - mod);
             }
         }
         return ans;
     }
-}
+};
 ```
 
 #### Go
