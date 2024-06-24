@@ -114,32 +114,181 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3193.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ as the number of permutations of $[0..i]$ with $j$ inversions. Consider the relationship between the number $a_i$ at index $i$ and the previous $i$ numbers. If $a_i$ is smaller than $k$ of the previous numbers, then each of these $k$ numbers forms an inversion pair with $a_i$, contributing to $k$ inversions. Therefore, we can derive the state transition equation:
+
+$$
+f[i][j] = \sum_{k=0}^{\min(i, j)} f[i-1][j-k]
+$$
+
+Since the problem requires the number of inversions in $[0..\text{end}_i]$ to be $\text{cnt}_i$, when we calculate for $i = \text{end}_i$, we only need to compute $f[i][\text{cnt}_i]$. The rest of $f[i][..]$ will be $0$.
+
+The time complexity is $O(n \times m \times \min(n, m))$, and the space complexity is $O(n \times m)$. Here, $m$ is the maximum number of inversions, and in this problem, $m \le 400$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def numberOfPermutations(self, n: int, requirements: List[List[int]]) -> int:
+        req = [-1] * n
+        for end, cnt in requirements:
+            req[end] = cnt
+        if req[0] > 0:
+            return 0
+        req[0] = 0
+        mod = 10**9 + 7
+        m = max(req)
+        f = [[0] * (m + 1) for _ in range(n)]
+        f[0][0] = 1
+        for i in range(1, n):
+            l, r = 0, m
+            if req[i] >= 0:
+                l = r = req[i]
+            for j in range(l, r + 1):
+                for k in range(min(i, j) + 1):
+                    f[i][j] = (f[i][j] + f[i - 1][j - k]) % mod
+        return f[n - 1][req[n - 1]]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int numberOfPermutations(int n, int[][] requirements) {
+        int[] req = new int[n];
+        Arrays.fill(req, -1);
+        int m = 0;
+        for (var r : requirements) {
+            req[r[0]] = r[1];
+            m = Math.max(m, r[1]);
+        }
+        if (req[0] > 0) {
+            return 0;
+        }
+        req[0] = 0;
+        final int mod = (int) 1e9 + 7;
+        int[][] f = new int[n][m + 1];
+        f[0][0] = 1;
+        for (int i = 1; i < n; ++i) {
+            int l = 0, r = m;
+            if (req[i] >= 0) {
+                l = r = req[i];
+            }
+            for (int j = l; j <= r; ++j) {
+                for (int k = 0; k <= Math.min(i, j); ++k) {
+                    f[i][j] = (f[i][j] + f[i - 1][j - k]) % mod;
+                }
+            }
+        }
+        return f[n - 1][req[n - 1]];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int numberOfPermutations(int n, vector<vector<int>>& requirements) {
+        vector<int> req(n, -1);
+        int m = 0;
+        for (const auto& r : requirements) {
+            req[r[0]] = r[1];
+            m = max(m, r[1]);
+        }
+        if (req[0] > 0) {
+            return 0;
+        }
+        req[0] = 0;
+        const int mod = 1e9 + 7;
+        vector<vector<int>> f(n, vector<int>(m + 1, 0));
+        f[0][0] = 1;
+        for (int i = 1; i < n; ++i) {
+            int l = 0, r = m;
+            if (req[i] >= 0) {
+                l = r = req[i];
+            }
+            for (int j = l; j <= r; ++j) {
+                for (int k = 0; k <= min(i, j); ++k) {
+                    f[i][j] = (f[i][j] + f[i - 1][j - k]) % mod;
+                }
+            }
+        }
+        return f[n - 1][req[n - 1]];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func numberOfPermutations(n int, requirements [][]int) int {
+	req := make([]int, n)
+	for i := range req {
+		req[i] = -1
+	}
+	for _, r := range requirements {
+		req[r[0]] = r[1]
+	}
+	if req[0] > 0 {
+		return 0
+	}
+	req[0] = 0
+	m := slices.Max(req)
+	const mod = int(1e9 + 7)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, m+1)
+	}
+	f[0][0] = 1
+	for i := 1; i < n; i++ {
+		l, r := 0, m
+		if req[i] >= 0 {
+			l, r = req[i], req[i]
+		}
+		for j := l; j <= r; j++ {
+			for k := 0; k <= min(i, j); k++ {
+				f[i][j] = (f[i][j] + f[i-1][j-k]) % mod
+			}
+		}
+	}
+	return f[n-1][req[n-1]]
+}
+```
 
+#### TypeScript
+
+```ts
+function numberOfPermutations(n: number, requirements: number[][]): number {
+    const req: number[] = Array(n).fill(-1);
+    for (const [end, cnt] of requirements) {
+        req[end] = cnt;
+    }
+    if (req[0] > 0) {
+        return 0;
+    }
+    req[0] = 0;
+    const m = Math.max(...req);
+    const mod = 1e9 + 7;
+    const f = Array.from({ length: n }, () => Array(m + 1).fill(0));
+    f[0][0] = 1;
+    for (let i = 1; i < n; ++i) {
+        let [l, r] = [0, m];
+        if (req[i] >= 0) {
+            l = r = req[i];
+        }
+        for (let j = l; j <= r; ++j) {
+            for (let k = 0; k <= Math.min(i, j); ++k) {
+                f[i][j] = (f[i][j] + f[i - 1][j - k]) % mod;
+            }
+        }
+    }
+    return f[n - 1][req[n - 1]];
+}
 ```
 
 <!-- tabs:end -->
