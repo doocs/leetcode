@@ -78,7 +78,11 @@ Hence, the minimum cost to buy all candies is 5 + 5 = 10.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy Algorithm
+
+We can first sort the candies by price in descending order, then for every three candies, we take two. This ensures that the candies we get for free are the most expensive, thereby minimizing the total cost.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of candies.
 
 <!-- tabs:start -->
 

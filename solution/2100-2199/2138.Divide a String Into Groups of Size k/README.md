@@ -71,7 +71,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以直接模拟题目描述的过程，将字符串 $s$ 按照长度 $k$ 进行分组，然后对于最后一组不足 $k$ 个字符的情况，使用字符 $\text{fill}$ 进行填充。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -108,10 +112,13 @@ class Solution {
 public:
     vector<string> divideString(string s, int k, char fill) {
         int n = s.size();
-        if (n % k)
-            for (int i = 0; i < k - n % k; ++i) s.push_back(fill);
+        if (n % k) {
+            s += string(k - n % k, fill);
+        }
         vector<string> ans;
-        for (int i = 0; i < s.size() / k; ++i) ans.push_back(s.substr(i * k, k));
+        for (int i = 0; i < s.size() / k; ++i) {
+            ans.push_back(s.substr(i * k, k));
+        }
         return ans;
     }
 };
@@ -120,16 +127,27 @@ public:
 #### Go
 
 ```go
-func divideString(s string, k int, fill byte) []string {
+func divideString(s string, k int, fill byte) (ans []string) {
 	n := len(s)
 	if n%k != 0 {
 		s += strings.Repeat(string(fill), k-n%k)
 	}
-	var ans []string
 	for i := 0; i < len(s)/k; i++ {
 		ans = append(ans, s[i*k:(i+1)*k])
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function divideString(s: string, k: number, fill: string): string[] {
+    const ans: string[] = [];
+    for (let i = 0; i < s.length; i += k) {
+        ans.push(s.slice(i, i + k).padEnd(k, fill));
+    }
+    return ans;
 }
 ```
 
