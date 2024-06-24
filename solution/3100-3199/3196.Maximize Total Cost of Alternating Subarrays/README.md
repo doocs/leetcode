@@ -241,7 +241,7 @@ function maximumTotalCost(nums: number[]): number {
 
 <!-- solution:end -->
 
-<!-- source:start -->
+<!-- solution:start -->
 
 ### 方法二：动态规划
 
