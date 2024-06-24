@@ -71,7 +71,11 @@ Thus, the 4 groups formed are &quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;,
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can directly simulate the process described in the problem statement, dividing the string $s$ into groups of length $k$. For the last group, if it contains fewer than $k$ characters, we use the character $\text{fill}$ to pad it.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -108,10 +112,13 @@ class Solution {
 public:
     vector<string> divideString(string s, int k, char fill) {
         int n = s.size();
-        if (n % k)
-            for (int i = 0; i < k - n % k; ++i) s.push_back(fill);
+        if (n % k) {
+            s += string(k - n % k, fill);
+        }
         vector<string> ans;
-        for (int i = 0; i < s.size() / k; ++i) ans.push_back(s.substr(i * k, k));
+        for (int i = 0; i < s.size() / k; ++i) {
+            ans.push_back(s.substr(i * k, k));
+        }
         return ans;
     }
 };
@@ -120,16 +127,27 @@ public:
 #### Go
 
 ```go
-func divideString(s string, k int, fill byte) []string {
+func divideString(s string, k int, fill byte) (ans []string) {
 	n := len(s)
 	if n%k != 0 {
 		s += strings.Repeat(string(fill), k-n%k)
 	}
-	var ans []string
 	for i := 0; i < len(s)/k; i++ {
 		ans = append(ans, s[i*k:(i+1)*k])
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function divideString(s: string, k: number, fill: string): string[] {
+    const ans: string[] = [];
+    for (let i = 0; i < s.length; i += k) {
+        ans.push(s.slice(i, i + k).padEnd(k, fill));
+    }
+    return ans;
 }
 ```
 
