@@ -95,32 +95,238 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3196.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：记忆化搜索
+
+根据题目描述，如果当前数没取反，那么下一个可以取反，也可以不取反；如果当前数取反了，那么下一个只能不取反。
+
+因此，我们定义一个函数 $\text{dfs}(i, j)$，表示从第 $i$ 个数开始，第 $i$ 个数是否能取反，其中 $j$ 表示第 $i$ 个数是否取反。如果 $j = 0$，表示第 $i$ 个数不能取反，否则可以取反。答案为 $\text{dfs}(0, 0)$。
+
+函数 $dfs(i, j)$ 的执行过程如下：
+
+-   如果 $i \geq \text{len}(nums)$，表示已经遍历完了数组，返回 $0$；
+-   否则，第 $i$ 个数可以不取反，此时答案为 $nums[i] + \text{dfs}(i + 1, 1)$；如果 $j = 1$，表示第 $i$ 个数可以取反，此时答案为 $\max(\text{dfs}(i + 1, 0) - nums[i])$。我们取两者的最大值即可。
+
+为了避免重复计算，我们可以使用记忆化搜索，将已经计算过的结果保存起来。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def maximumTotalCost(self, nums: List[int]) -> int:
+        @cache
+        def dfs(i: int, j: int) -> int:
+            if i >= len(nums):
+                return 0
+            ans = nums[i] + dfs(i + 1, 1)
+            if j == 1:
+                ans = max(ans, -nums[i] + dfs(i + 1, 0))
+            return ans
 
+        return dfs(0, 0)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private Long[][] f;
+    private int[] nums;
+    private int n;
 
+    public long maximumTotalCost(int[] nums) {
+        n = nums.length;
+        this.nums = nums;
+        f = new Long[n][2];
+        return dfs(0, 0);
+    }
+
+    private long dfs(int i, int j) {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i][j] != null) {
+            return f[i][j];
+        }
+        f[i][j] = nums[i] + dfs(i + 1, 1);
+        if (j == 1) {
+            f[i][j] = Math.max(f[i][j], -nums[i] + dfs(i + 1, 0));
+        }
+        return f[i][j];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long maximumTotalCost(vector<int>& nums) {
+        int n = nums.size();
+        long long f[n][2];
+        fill(f[0], f[n], LLONG_MIN);
+        auto dfs = [&](auto&& dfs, int i, int j) -> long long {
+            if (i >= n) {
+                return 0;
+            }
+            if (f[i][j] != LLONG_MIN) {
+                return f[i][j];
+            }
+            f[i][j] = nums[i] + dfs(dfs, i + 1, 1);
+            if (j) {
+                f[i][j] = max(f[i][j], -nums[i] + dfs(dfs, i + 1, 0));
+            }
+            return f[i][j];
+        };
+        return dfs(dfs, 0, 0);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumTotalCost(nums []int) int64 {
+	n := len(nums)
+	f := make([][2]int64, n)
+	for i := range f {
+		f[i] = [2]int64{-1e18, -1e18}
+	}
+	var dfs func(int, int) int64
+	dfs = func(i, j int) int64 {
+		if i >= n {
+			return 0
+		}
+		if f[i][j] != -1e18 {
+			return f[i][j]
+		}
+		f[i][j] = int64(nums[i]) + dfs(i+1, 1)
+		if j > 0 {
+			f[i][j] = max(f[i][j], int64(-nums[i])+dfs(i+1, 0))
+		}
+		return f[i][j]
+	}
+	return dfs(0, 0)
+}
+```
 
+#### TypeScript
+
+```ts
+function maximumTotalCost(nums: number[]): number {
+    const n = nums.length;
+    const f: number[][] = Array.from({ length: n }, () => Array(2).fill(-Infinity));
+    const dfs = (i: number, j: number): number => {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i][j] !== -Infinity) {
+            return f[i][j];
+        }
+        f[i][j] = nums[i] + dfs(i + 1, 1);
+        if (j) {
+            f[i][j] = Math.max(f[i][j], -nums[i] + dfs(i + 1, 0));
+        }
+        return f[i][j];
+    };
+    return dfs(0, 0);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划
+
+我们可以将方法一中的记忆化搜索转换为动态规划。
+
+定义 $f$ 和 $g$ 为两个状态，其中 $f$ 表示当前数不取反的最大值，而 $g$ 表示当前数取反的最大值。
+
+遍历数组 $nums$，对于第 $i$ 个数，我们可以根据 $f$ 和 $g$ 的状态更新 $f$ 和 $g$ 的值：
+
+-   如果当前数不取反，那么 $f$ 的值为 $\max(f, g) + x$，表示当前数不取反，那么前一个数可以取反或不取反；
+-   如果当前数取反，那么 $g$ 的值为 $f - x$，表示当前数取反，那么前一个数不能取反
+
+最终答案为 $\max(f, g)$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumTotalCost(self, nums: List[int]) -> int:
+        f, g = -inf, 0
+        for x in nums:
+            f, g = max(f, g) + x, f - x
+        return max(f, g)
+```
+
+#### Java
+
+```java
+class Solution {
+    public long maximumTotalCost(int[] nums) {
+        long f = Long.MIN_VALUE / 2, g = 0;
+        for (int x : nums) {
+            long ff = Math.max(f, g) + x;
+            long gg = f - x;
+            f = ff;
+            g = gg;
+        }
+        return Math.max(f, g);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long maximumTotalCost(vector<int>& nums) {
+        long long f = LLONG_MIN / 2, g = 0;
+        for (int x : nums) {
+            long long ff = max(f, g) + x, gg = f - x;
+            f = ff;
+            g = gg;
+        }
+        return max(f, g);
+    }
+};
+```
+
+#### Go
+
+```go
+func maximumTotalCost(nums []int) int64 {
+	f, g := math.MinInt64/2, 0
+	for _, x := range nums {
+		f, g = max(f, g)+x, f-x
+	}
+	return int64(max(f, g))
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumTotalCost(nums: number[]): number {
+    let [f, g] = [-Infinity, 0];
+    for (const x of nums) {
+        [f, g] = [Math.max(f, g) + x, f - x];
+    }
+    return Math.max(f, g);
+}
 ```
 
 <!-- tabs:end -->
