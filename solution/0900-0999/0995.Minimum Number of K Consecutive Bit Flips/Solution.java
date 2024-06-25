@@ -5,7 +5,7 @@ class Solution {
         int ans = 0, s = 0;
         for (int i = 0; i < n; ++i) {
             s += d[i];
-            if (nums[i] % 2 == s % 2) {
+            if (s % 2 == nums[i]) {
                 if (i + k > n) {
                     return -1;
                 }
