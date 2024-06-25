@@ -94,7 +94,7 @@ class Solution:
         ans = s = 0
         for i, x in enumerate(nums):
             s += d[i]
-            if x % 2 == s % 2:
+            if s % 2 == x:
                 if i + k > n:
                     return -1
                 d[i] += 1
@@ -114,7 +114,7 @@ class Solution {
         int ans = 0, s = 0;
         for (int i = 0; i < n; ++i) {
             s += d[i];
-            if (nums[i] % 2 == s % 2) {
+            if (s % 2 == nums[i]) {
                 if (i + k > n) {
                     return -1;
                 }
@@ -141,7 +141,7 @@ public:
         int ans = 0, s = 0;
         for (int i = 0; i < n; ++i) {
             s += d[i];
-            if (s % 2 == nums[i] % 2) {
+            if (s % 2 == nums[i]) {
                 if (i + k > n) {
                     return -1;
                 }
@@ -159,13 +159,13 @@ public:
 #### Go
 
 ```go
-func minKBitFlips(nums []int, k int) int {
+func minKBitFlips(nums []int, k int) (ans int) {
 	n := len(nums)
 	d := make([]int, n+1)
-	ans, s := 0, 0
+	s := 0
 	for i, x := range nums {
 		s += d[i]
-		if s%2 == x%2 {
+		if s%2 == x {
 			if i+k > n {
 				return -1
 			}
@@ -175,7 +175,7 @@ func minKBitFlips(nums []int, k int) int {
 			ans++
 		}
 	}
-	return ans
+	return
 }
 ```
 
@@ -188,7 +188,7 @@ function minKBitFlips(nums: number[], k: number): number {
     let [ans, s] = [0, 0];
     for (let i = 0; i < n; ++i) {
         s += d[i];
-        if (s % 2 === nums[i] % 2) {
+        if (s % 2 === nums[i]) {
             if (i + k > n) {
                 return -1;
             }
@@ -213,7 +213,7 @@ impl Solution {
         let mut s = 0;
         for i in 0..n {
             s += d[i];
-            if nums[i] % 2 == s % 2 {
+            if s % 2 == nums[i] {
                 if i + (k as usize) > n {
                     return -1;
                 }
@@ -234,9 +234,108 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Sliding Window
+
+We can use a variable $\text{flipped}$ to indicate whether the current position has been flipped. If $\text{flipped} = 1$, it means the current position has already been flipped; otherwise, it means the current position has not been flipped. For positions that have been flipped, we can set their value to $-1$, allowing us to distinguish which positions have been flipped.
+
+Next, we traverse the array from left to right. For each position $i$, if $i \geq k$ and the element at position $i-k$ is $-1$, then the flip state of the current position should be the opposite of the flip state of the previous position. That is, $\text{flipped} = \text{flipped} \oplus 1$. If the element at the current position is the same as the current flip state, then we need to flip the current position. At this point, we check if $i+k$ exceeds the length of the array. If it does, then it is impossible to achieve the goal, and we return $-1$. Otherwise, we invert the current flip state, increase the answer by $1$, and set the element at the current position to $-1$.
+
+By processing all elements in the array in this manner, we can return the answer upon completion.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minKBitFlips(self, nums: List[int], k: int) -> int:
+        ans = flipped = 0
+        for i, x in enumerate(nums):
+            if i >= k and nums[i - k] == -1:
+                flipped ^= 1
+            if x == flipped:
+                if i + k > len(nums):
+                    return -1
+                flipped ^= 1
+                ans += 1
+                nums[i] = -1
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minKBitFlips(int[] nums, int k) {
+        int n = nums.length;
+        int ans = 0, flipped = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i >= k && nums[i - k] == -1) {
+                flipped ^= 1;
+            }
+            if (flipped == nums[i]) {
+                if (i + k > n) {
+                    return -1;
+                }
+                flipped ^= 1;
+                ++ans;
+                nums[i] = -1;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minKBitFlips(vector<int>& nums, int k) {
+        int n = nums.size();
+        int ans = 0, flipped = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i >= k && nums[i - k] == -1) {
+                flipped ^= 1;
+            }
+            if (flipped == nums[i]) {
+                if (i + k > n) {
+                    return -1;
+                }
+                flipped ^= 1;
+                ++ans;
+                nums[i] = -1;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func minKBitFlips(nums []int, k int) (ans int) {
+	flipped := 0
+	for i, x := range nums {
+		if i >= k && nums[i-k] == -1 {
+			flipped ^= 1
+		}
+		if flipped == x {
+			if i+k > len(nums) {
+				return -1
+			}
+			flipped ^= 1
+			ans++
+			nums[i] = -1
+		}
+	}
+	return
+}
+```
 
 #### TypeScript
 
@@ -244,19 +343,48 @@ impl Solution {
 function minKBitFlips(nums: number[], k: number): number {
     const n = nums.length;
     let [ans, flipped] = [0, 0];
-
     for (let i = 0; i < n; i++) {
-        if (nums[i - k] === -1) flipped--;
-        if (nums[i] === (flipped & 1)) {
-            flipped++;
-            ans++;
+        if (nums[i - k] === -1) {
+            flipped ^= 1;
+        }
+        if (nums[i] === flipped) {
+            if (i + k > n) {
+                return -1;
+            }
+            flipped ^= 1;
+            ++ans;
             nums[i] = -1;
-
-            if (n - k < i) return -1;
         }
     }
-
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_k_bit_flips(mut nums: Vec<i32>, k: i32) -> i32 {
+        let mut ans = 0;
+        let mut flipped = 0;
+        let k = k as usize;
+
+        for i in 0..nums.len() {
+            if i >= k && nums[i - k] == -1 {
+                flipped ^= 1;
+            }
+            if flipped == nums[i] {
+                if i + k > nums.len() {
+                    return -1;
+                }
+                flipped ^= 1;
+                ans += 1;
+                nums[i] = -1;
+            }
+        }
+
+        ans
+    }
 }
 ```
 
