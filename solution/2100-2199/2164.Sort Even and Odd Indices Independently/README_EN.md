@@ -76,7 +76,11 @@ The resultant array formed is [2,1], which is the same as the initial array.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+We can extract the elements at odd and even indices separately, then sort the array of odd indices in non-increasing order and the array of even indices in non-decreasing order. Finally, merge the two arrays back together.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\text{nums}$.
 
 <!-- tabs:start -->
 
@@ -131,16 +135,21 @@ public:
         vector<int> a;
         vector<int> b;
         for (int i = 0; i < n; ++i) {
-            if (i % 2 == 0)
+            if (i % 2 == 0) {
                 a.push_back(nums[i]);
-            else
+            } else {
                 b.push_back(nums[i]);
+            }
         }
         sort(a.begin(), a.end());
-        sort(b.begin(), b.end(), greater<int>());
+        sort(b.rbegin(), b.rend());
         vector<int> ans(n);
-        for (int i = 0, j = 0; j < a.size(); i += 2, ++j) ans[i] = a[j];
-        for (int i = 1, j = 0; j < b.size(); i += 2, ++j) ans[i] = b[j];
+        for (int i = 0, j = 0; j < a.size(); i += 2, ++j) {
+            ans[i] = a[j];
+        }
+        for (int i = 1, j = 0; j < b.size(); i += 2, ++j) {
+            ans[i] = b[j];
+        }
         return ans;
     }
 };
@@ -172,6 +181,33 @@ func sortEvenOdd(nums []int) []int {
 		ans[i] = b[j]
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function sortEvenOdd(nums: number[]): number[] {
+    const n = nums.length;
+    const a: number[] = [];
+    const b: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (i % 2 === 0) {
+            a.push(nums[i]);
+        } else {
+            b.push(nums[i]);
+        }
+    }
+    a.sort((x, y) => x - y);
+    b.sort((x, y) => y - x);
+    const ans: number[] = [];
+    for (let i = 0, j = 0; j < a.length; i += 2, ++j) {
+        ans[i] = a[j];
+    }
+    for (let i = 1, j = 0; j < b.length; i += 2, ++j) {
+        ans[i] = b[j];
+    }
+    return ans;
 }
 ```
 
