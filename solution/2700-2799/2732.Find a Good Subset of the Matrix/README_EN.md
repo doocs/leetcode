@@ -92,7 +92,7 @@ We can consider the number of rows $k$ chosen for the answer from smallest to la
 -   If $k = 4$, the maximum sum of each column is $2$. This situation definitely occurs when the condition for $k = 2$ is not met, meaning that for any two selected rows, there exists at least one column with a sum of $2$. When choosing any 2 rows out of 4, there are a total of $C_4^2 = 6$ ways to choose, so there are at least $6$ columns with a sum of $2$. Since the number of columns $n \le 5$, there must be at least one column with a sum greater than $2$, so the condition for $k = 4$ is also not met.
 -   For $k > 4$ and $k$ being even, we can draw the same conclusion, that $k$ definitely does not meet the condition.
 
-In summary, we only need to consider the cases of $k = 1$ and $k = 2$. That is, to check whether there is a row entirely composed of $0$s, or whether there exist two rows whose bitwise OR result is $0$.
+In summary, we only need to consider the cases of $k = 1$ and $k = 2$. That is, to check whether there is a row entirely composed of $0$s, or whether there exist two rows whose bitwise AND result is $0$.
 
 The time complexity is $O(m \times n + 4^n)$, and the space complexity is $O(2^n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 

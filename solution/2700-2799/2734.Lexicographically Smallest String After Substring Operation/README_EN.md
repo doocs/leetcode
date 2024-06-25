@@ -90,7 +90,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy Algorithm
+
+We can traverse the string $s$ from left to right, find the position $i$ of the first character that is not 'a', and then find the position $j$ of the first 'a' character starting from $i$. We decrement each character in $s[i:j]$, and finally return the processed string.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
