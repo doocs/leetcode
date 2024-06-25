@@ -28,7 +28,7 @@ tags:
 
 <p>返回表示修改后句子的字符串。</p>
 
-<p>注意：所有价格 <strong>最多</strong> 为&nbsp; <code>10</code> 位数字。</p>
+<p>注意：所有价格 <strong>最多</strong> 为&nbsp;<code>10</code> 位数字。</p>
 
 <p>&nbsp;</p>
 
@@ -40,7 +40,7 @@ tags:
 <strong>解释：</strong>
 表示价格的单词是 "$1" 和 "$2" 。 
 - "$1" 减免 50% 为 "$0.50" ，所以 "$1" 替换为 "$0.50" 。
-- "$2" 减免 50% 为 "$1" ，所以 "$1" 替换为 "$1.00" 。</pre>
+- "$2" 减免 50% 为 "$1" ，所以 "$2" 替换为 "$1.00" 。</pre>
 
 <p><strong>示例 2：</strong></p>
 
@@ -181,14 +181,14 @@ func discountPrices(sentence string, discount int) string {
 ```ts
 function discountPrices(sentence: string, discount: number): string {
     const sell = (100 - discount) / 100;
-    let reg = new RegExp(/^(\$)(([1-9]\d*\.?\d*)|(0\.\d*))$/g);
-    let arr = sentence.split(' ').map(d => {
+    const reg = new RegExp(/^(\$)(([1-9]\d*\.?\d*)|(0\.\d*))$/g);
+    const words = sentence.split(' ').map(d => {
         if (!reg.test(d)) return d;
         return d.replace(reg, (s, $1, $2) => {
             return `$${(sell * $2).toFixed(2)}`;
         });
     });
-    return arr.join(' ');
+    return words.join(' ');
 }
 ```
 

@@ -3,14 +3,16 @@
  * @return {number}
  */
 var findMaxLength = function (nums) {
-    const mp = new Map();
-    mp.set(0, -1);
-    let s = 0;
+    const d = { 0: -1 };
     let ans = 0;
+    let s = 0;
     for (let i = 0; i < nums.length; ++i) {
-        s += nums[i] == 0 ? -1 : 1;
-        if (mp.has(s)) ans = Math.max(ans, i - mp.get(s));
-        else mp.set(s, i);
+        s += nums[i] ? 1 : -1;
+        if (d.hasOwnProperty(s)) {
+            ans = Math.max(ans, i - d[s]);
+        } else {
+            d[s] = i;
+        }
     }
     return ans;
 };

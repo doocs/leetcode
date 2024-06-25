@@ -1,27 +1,24 @@
 func findLUSlength(strs []string) int {
-	check := func(a, b string) bool {
-		j := 0
-		for i := 0; i < len(a) && j < len(b); i++ {
-			if a[i] == b[j] {
-				j++
+	ans := -1
+	check := func(s, t string) bool {
+		m, n := len(s), len(t)
+		i := 0
+		for j := 0; i < m && j < n; j++ {
+			if s[i] == t[j] {
+				i++
 			}
 		}
-		return j == len(b)
+		return i == m
 	}
-
-	ans := -1
-	for i, j, n := 0, 0, len(strs); i < n; i++ {
-		for j = 0; j < n; j++ {
-			if i == j {
-				continue
-			}
-			if check(strs[j], strs[i]) {
+	for i, s := range strs {
+		x := len(s)
+		for j, t := range strs {
+			if i != j && check(s, t) {
+				x = -1
 				break
 			}
 		}
-		if j == n && ans < len(strs[i]) {
-			ans = len(strs[i])
-		}
+		ans = max(ans, x)
 	}
 	return ans
 }

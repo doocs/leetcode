@@ -156,29 +156,7 @@ func doesValidArrayExist(derived []int) bool {
 
 ```ts
 function doesValidArrayExist(derived: number[]): boolean {
-    let s = 0;
-    for (const x of derived) {
-        s ^= x;
-    }
-    return s === 0;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function doesValidArrayExist(derived: number[]): boolean {
-    return derived.reduce((acc, x) => acc ^ x, 0) === 0;
+    return derived.reduce((acc, x) => acc ^ x) === 0;
 }
 ```
 

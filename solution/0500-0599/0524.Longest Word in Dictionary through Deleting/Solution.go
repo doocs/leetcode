@@ -1,19 +1,19 @@
 func findLongestWord(s string, dictionary []string) string {
-	ans := ""
-	check := func(a, b string) bool {
-		m, n := len(a), len(b)
-		i, j := 0, 0
-		for i < m && j < n {
-			if a[i] == b[j] {
-				j++
+	ans := ''
+	check := func(s, t string) bool {
+		m, n := len(s), len(t)
+		i := 0
+		for j := 0; i < m && j < n; j++ {
+			if s[i] == t[j] {
+				i++
 			}
-			i++
 		}
-		return j == n
+		return i == m
 	}
-	for _, a := range dictionary {
-		if check(s, a) && (len(ans) < len(a) || (len(ans) == len(a) && a < ans)) {
-			ans = a
+	for _, t := range dictionary {
+		a, b := len(ans), len(t)
+		if check(t, s) && (a < b || (a == b && ans > t)) {
+			ans = t
 		}
 	}
 	return ans

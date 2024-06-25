@@ -264,9 +264,9 @@ function buildTree(inorder: number[], postorder: number[]): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::HashMap;
+use std::rc::Rc;
 impl Solution {
     pub fn build_tree(inorder: Vec<i32>, postorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
         let n = inorder.len();
@@ -279,7 +279,7 @@ impl Solution {
             d: &HashMap<i32, usize>,
             i: usize,
             j: usize,
-            n: usize
+            n: usize,
         ) -> Option<Rc<RefCell<TreeNode>>> {
             if n <= 0 {
                 return None;

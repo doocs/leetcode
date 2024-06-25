@@ -26,16 +26,47 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0431.Encode%20N-ary%20Tree%20to%20Binary%20Tree/images/narytreebinarytreeexample.png" style="width: 500px;"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0431.Encode%20N-ary%20Tree%20to%20Binary%20Tree/images/narytreebinarytreeexample.png" style="width: 500px;" /></p>
 
 <p>&nbsp;</p>
 
+<pre>
+<strong>输入：</strong>root = [1,null,3,2,4,null,5,6]
+</pre>
+
 <p>注意，上面的方法仅仅是一个例子，可能可行也可能不可行。你没有必要遵循这种形式转化，你可以自己创造和实现不同的方法。</p>
 
-<p><strong>注意：</strong></p>
+<p>&nbsp;</p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>root = [1,null,3,2,4,null,5,6]
+<strong>输出：</strong>[1,null,3,2,4,null,5,6]
+</pre>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>root = [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]
+<strong>输出：</strong>[1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]
+</pre>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>root = []
+<strong>输出：</strong>[]
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ol>
-	<li><code>N</code>&nbsp;的范围在 <code>[1, 1000]</code></li>
+	<li><code>N</code>&nbsp;的范围在 <code>[1, 10<sup>4</sup>]</code></li>
+	<li><code>0 &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
+	<li>N 叉树的高度小于等于&nbsp;<code>1000</code>。</li>
 	<li>不要使用类成员 / 全局变量 / 静态变量来存储状态。你的编码和解码算法应是无状态的。</li>
 </ol>
 

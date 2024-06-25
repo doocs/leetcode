@@ -27,12 +27,11 @@ impl Solution {
                 for d in 0..4 {
                     let x = p[0] + dirs[d];
                     let y = p[1] + dirs[d + 1];
-                    if
-                        x >= 0 &&
-                        x < (m as i32) &&
-                        y >= 0 &&
-                        y < (n as i32) &&
-                        grid[x as usize][y as usize] == 1
+                    if x >= 0
+                        && x < (m as i32)
+                        && y >= 0
+                        && y < (n as i32)
+                        && grid[x as usize][y as usize] == 1
                     {
                         grid[x as usize][y as usize] = 2;
                         q.push_back(vec![x, y]);

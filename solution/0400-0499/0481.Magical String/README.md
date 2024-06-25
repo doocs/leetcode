@@ -208,11 +208,7 @@ impl Solution {
             }
             i += 1;
         }
-        s
-            .as_bytes()
-            [0..n].iter()
-            .filter(|&v| v == &b'1')
-            .count() as i32
+        s.as_bytes()[0..n].iter().filter(|&v| v == &b'1').count() as i32
     }
 }
 ```

@@ -1,20 +1,11 @@
 class Solution:
     def wordCount(self, startWords: List[str], targetWords: List[str]) -> int:
-        s = set()
-        for word in startWords:
-            mask = 0
-            for c in word:
-                mask |= 1 << (ord(c) - ord('a'))
-            s.add(mask)
-
+        s = {sum(1 << (ord(c) - 97) for c in w) for w in startWords}
         ans = 0
-        for word in targetWords:
-            mask = 0
-            for c in word:
-                mask |= 1 << (ord(c) - ord('a'))
-            for c in word:
-                t = mask ^ (1 << (ord(c) - ord('a')))
-                if t in s:
+        for w in targetWords:
+            x = sum(1 << (ord(c) - 97) for c in w)
+            for c in w:
+                if x ^ (1 << (ord(c) - 97)) in s:
                     ans += 1
                     break
         return ans

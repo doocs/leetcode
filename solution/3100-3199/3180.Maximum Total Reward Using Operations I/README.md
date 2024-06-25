@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3180.Maximum%20Total%20Reward%20Using%20Operations%20I/README.md
+rating: 1848
+source: 第 401 场周赛 Q3
 tags:
     - 数组
     - 动态规划

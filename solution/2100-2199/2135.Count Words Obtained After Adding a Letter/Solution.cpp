@@ -2,20 +2,21 @@ class Solution {
 public:
     int wordCount(vector<string>& startWords, vector<string>& targetWords) {
         unordered_set<int> s;
-        for (auto& word : startWords) {
-            int mask = 0;
-            for (char c : word)
-                mask |= (1 << (c - 'a'));
-            s.insert(mask);
+        for (auto& w : startWords) {
+            int x = 0;
+            for (char c : w) {
+                x |= 1 << (c - 'a');
+            }
+            s.insert(x);
         }
         int ans = 0;
-        for (auto& word : targetWords) {
-            int mask = 0;
-            for (char c : word)
-                mask |= (1 << (c - 'a'));
-            for (char c : word) {
-                int t = mask ^ (1 << (c - 'a'));
-                if (s.count(t)) {
+        for (auto& w : targetWords) {
+            int x = 0;
+            for (char c : w) {
+                x |= 1 << (c - 'a');
+            }
+            for (char c : w) {
+                if (s.contains(x ^ (1 << (c - 'a')))) {
                     ++ans;
                     break;
                 }

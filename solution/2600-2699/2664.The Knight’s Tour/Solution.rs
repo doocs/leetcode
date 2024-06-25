@@ -12,7 +12,7 @@ impl Solution {
             m: i32,
             n: i32,
             dirs: &[i32; 9],
-            ok: &mut bool
+            ok: &mut bool,
         ) {
             if g[i][j] == m * n - 1 {
                 *ok = true;

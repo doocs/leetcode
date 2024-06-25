@@ -16,9 +16,9 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+use std::rc::Rc;
 impl Solution {
     pub fn minimum_operations(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         let mut queue = VecDeque::new();

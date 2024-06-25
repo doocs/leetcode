@@ -1,20 +1,20 @@
 {
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.5",
-    "@commitlint/config-conventional": "^17.6.5",
-    "@prettier/plugin-php": "^0.19.6",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@prettier/plugin-php": "^0.22.2",
     "clang-format": "1.8.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
-    "prettier": "^2.8.8",
-    "prettier-plugin-rust": "^0.1.9",
-    "prettier-plugin-sql-cst": "^0.10.0"
+    "husky": "^9.0.1",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2",
+    "prettier-plugin-sql-cst": "^0.11.5"
   },
   "lint-staged": {
-    "*.{js,ts,php,sql,rs,md}": "prettier --write",
-    "*.py": "black -S"
+    "*.{js,ts,php,sql,md}": "prettier --write",
+    "*.py": "black -S",
+    "*.rs": "rustfmt"
   }
 }

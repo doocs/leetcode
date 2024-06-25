@@ -239,10 +239,8 @@ impl Solution {
         // Initialize the last vector
         for (i, &r) in ranges.iter().enumerate() {
             if (i as i32) - r >= 0 {
-                last[((i as i32) - r) as usize] = std::cmp::max(
-                    last[((i as i32) - r) as usize],
-                    (i as i32) + r
-                );
+                last[((i as i32) - r) as usize] =
+                    std::cmp::max(last[((i as i32) - r) as usize], (i as i32) + r);
             } else {
                 last[0] = std::cmp::max(last[0], (i as i32) + r);
             }

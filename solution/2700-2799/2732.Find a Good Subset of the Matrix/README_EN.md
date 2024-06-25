@@ -5,9 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2732.Fi
 rating: 2239
 source: Biweekly Contest 106 Q4
 tags:
-    - Greedy
     - Bit Manipulation
     - Array
+    - Hash Table
     - Matrix
 ---
 
@@ -82,32 +82,184 @@ The length of the chosen subset is 1.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Case Analysis
+
+We can consider the number of rows $k$ chosen for the answer from smallest to largest.
+
+-   If $k = 1$, the maximum sum of each column is $0$. Therefore, there must be a row where all elements are $0$, otherwise, the condition cannot be met.
+-   If $k = 2$, the maximum sum of each column is $1$. There must exist two rows, and the bitwise OR result of these two rows' elements is $0$, otherwise, the condition cannot be met.
+-   If $k = 3$, the maximum sum of each column is also $1$. If the condition for $k = 2$ is not met, then the condition for $k = 3$ will definitely not be met either. Therefore, we do not need to consider any case where $k > 2$ and $k$ is odd.
+-   If $k = 4$, the maximum sum of each column is $2$. This situation definitely occurs when the condition for $k = 2$ is not met, meaning that for any two selected rows, there exists at least one column with a sum of $2$. When choosing any 2 rows out of 4, there are a total of $C_4^2 = 6$ ways to choose, so there are at least $6$ columns with a sum of $2$. Since the number of columns $n \le 5$, there must be at least one column with a sum greater than $2$, so the condition for $k = 4$ is also not met.
+-   For $k > 4$ and $k$ being even, we can draw the same conclusion, that $k$ definitely does not meet the condition.
+
+In summary, we only need to consider the cases of $k = 1$ and $k = 2$. That is, to check whether there is a row entirely composed of $0$s, or whether there exist two rows whose bitwise AND result is $0$.
+
+The time complexity is $O(m \times n + 4^n)$, and the space complexity is $O(2^n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def goodSubsetofBinaryMatrix(self, grid: List[List[int]]) -> List[int]:
+        g = {}
+        for i, row in enumerate(grid):
+            mask = 0
+            for j, x in enumerate(row):
+                mask |= x << j
+            if mask == 0:
+                return [i]
+            g[mask] = i
+        for a, i in g.items():
+            for b, j in g.items():
+                if (a & b) == 0:
+                    return sorted([i, j])
+        return []
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public List<Integer> goodSubsetofBinaryMatrix(int[][] grid) {
+        Map<Integer, Integer> g = new HashMap<>();
+        for (int i = 0; i < grid.length; ++i) {
+            int mask = 0;
+            for (int j = 0; j < grid[0].length; ++j) {
+                mask |= grid[i][j] << j;
+            }
+            if (mask == 0) {
+                return List.of(i);
+            }
+            g.put(mask, i);
+        }
+        for (var e1 : g.entrySet()) {
+            for (var e2 : g.entrySet()) {
+                if ((e1.getKey() & e2.getKey()) == 0) {
+                    int i = e1.getValue(), j = e2.getValue();
+                    return List.of(Math.min(i, j), Math.max(i, j));
+                }
+            }
+        }
+        return List.of();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> goodSubsetofBinaryMatrix(vector<vector<int>>& grid) {
+        unordered_map<int, int> g;
+        for (int i = 0; i < grid.size(); ++i) {
+            int mask = 0;
+            for (int j = 0; j < grid[0].size(); ++j) {
+                mask |= grid[i][j] << j;
+            }
+            if (mask == 0) {
+                return {i};
+            }
+            g[mask] = i;
+        }
+        for (auto& [a, i] : g) {
+            for (auto& [b, j] : g) {
+                if ((a & b) == 0) {
+                    return {min(i, j), max(i, j)};
+                }
+            }
+        }
+        return {};
+    }
+};
 ```
 
 #### Go
 
 ```go
+func goodSubsetofBinaryMatrix(grid [][]int) []int {
+	g := map[int]int{}
+	for i, row := range grid {
+		mask := 0
+		for j, x := range row {
+			mask |= x << j
+		}
+		if mask == 0 {
+			return []int{i}
+		}
+		g[mask] = i
+	}
+	for a, i := range g {
+		for b, j := range g {
+			if a&b == 0 {
+				return []int{min(i, j), max(i, j)}
+			}
+		}
+	}
+	return []int{}
+}
+```
 
+#### TypeScript
+
+```ts
+function goodSubsetofBinaryMatrix(grid: number[][]): number[] {
+    const g: Map<number, number> = new Map();
+    const m = grid.length;
+    const n = grid[0].length;
+    for (let i = 0; i < m; ++i) {
+        let mask = 0;
+        for (let j = 0; j < n; ++j) {
+            mask |= grid[i][j] << j;
+        }
+        if (!mask) {
+            return [i];
+        }
+        g.set(mask, i);
+    }
+    for (const [a, i] of g.entries()) {
+        for (const [b, j] of g.entries()) {
+            if ((a & b) === 0) {
+                return [Math.min(i, j), Math.max(i, j)];
+            }
+        }
+    }
+    return [];
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn good_subsetof_binary_matrix(grid: Vec<Vec<i32>>) -> Vec<i32> {
+        let mut g: HashMap<i32, i32> = HashMap::new();
+        for (i, row) in grid.iter().enumerate() {
+            let mut mask = 0;
+            for (j, &x) in row.iter().enumerate() {
+                mask |= x << j;
+            }
+            if mask == 0 {
+                return vec![i as i32];
+            }
+            g.insert(mask, i as i32);
+        }
+
+        for (&a, &i) in g.iter() {
+            for (&b, &j) in g.iter() {
+                if (a & b) == 0 {
+                    return vec![i.min(j), i.max(j)];
+                }
+            }
+        }
+
+        vec![]
+    }
+}
 ```
 
 <!-- tabs:end -->

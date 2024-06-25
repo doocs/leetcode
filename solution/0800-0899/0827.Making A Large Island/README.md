@@ -372,20 +372,19 @@ impl Solution {
             root: i32,
             i: usize,
             j: usize,
-            dirs: &[i32; 5]
+            dirs: &[i32; 5],
         ) -> i32 {
             p[i][j] = root;
             cnt[root as usize] += 1;
             for k in 0..4 {
                 let x = (i as i32) + dirs[k];
                 let y = (j as i32) + dirs[k + 1];
-                if
-                    x >= 0 &&
-                    (x as usize) < grid.len() &&
-                    y >= 0 &&
-                    (y as usize) < grid.len() &&
-                    grid[x as usize][y as usize] == 1 &&
-                    p[x as usize][y as usize] == 0
+                if x >= 0
+                    && (x as usize) < grid.len()
+                    && y >= 0
+                    && (y as usize) < grid.len()
+                    && grid[x as usize][y as usize] == 1
+                    && p[x as usize][y as usize] == 0
                 {
                     dfs(grid, p, cnt, root, x as usize, y as usize, dirs);
                 }

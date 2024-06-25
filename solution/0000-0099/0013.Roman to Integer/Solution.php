@@ -4,7 +4,7 @@ class Solution {
      * @return Integer
      */
     function romanToInt($s) {
-        $hashmap = [
+        $d = [
             'I' => 1,
             'V' => 5,
             'X' => 10,
@@ -13,16 +13,18 @@ class Solution {
             'D' => 500,
             'M' => 1000,
         ];
-        $rs = 0;
-        for ($i = 0; $i < strlen($s); $i++) {
-            $left = $hashmap[$s[$i]];
-            $right = $hashmap[$s[$i + 1]];
-            if ($left >= $right) {
-                $rs += $left;
+        $ans = 0;
+        $len = strlen($s);
+
+        for ($i = 0; $i < $len - 1; $i++) {
+            if ($d[$s[$i]] < $d[$s[$i + 1]]) {
+                $ans -= $d[$s[$i]];
             } else {
-                $rs -= $left;
+                $ans += $d[$s[$i]];
             }
         }
-        return $rs;
+
+        $ans += $d[$s[$len - 1]];
+        return $ans;
     }
 }

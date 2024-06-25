@@ -14,7 +14,7 @@ tags:
 
 <!-- problem:start -->
 
-# [692. 前 K 个高频单词](https://leetcode.cn/problems/top-k-frequent-words)
+# [692. 前K个高频单词](https://leetcode.cn/problems/top-k-frequent-words)
 
 [English Version](/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README_EN.md)
 

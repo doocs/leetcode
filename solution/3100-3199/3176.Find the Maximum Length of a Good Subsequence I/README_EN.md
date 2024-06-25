@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3176.Find%20the%20Maximum%20Length%20of%20a%20Good%20Subsequence%20I/README_EN.md
+rating: 1849
+source: Biweekly Contest 132 Q3
 tags:
     - Array
     - Hash Table

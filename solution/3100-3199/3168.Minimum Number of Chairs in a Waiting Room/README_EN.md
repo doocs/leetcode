@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3168.Minimum%20Number%20of%20Chairs%20in%20a%20Waiting%20Room/README_EN.md
+rating: 1211
+source: Weekly Contest 400 Q1
 tags:
     - String
     - Simulation

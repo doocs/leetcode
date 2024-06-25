@@ -29,6 +29,27 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 403
+
+- [3194. Minimum Average of Smallest and Largest Elements](/solution/3100-3199/3194.Minimum%20Average%20of%20Smallest%20and%20Largest%20Elements/README_EN.md)
+- [3195. Find the Minimum Area to Cover All Ones I](/solution/3100-3199/3195.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20I/README_EN.md)
+- [3196. Maximize Total Cost of Alternating Subarrays](/solution/3100-3199/3196.Maximize%20Total%20Cost%20of%20Alternating%20Subarrays/README_EN.md)
+- [3197. Find the Minimum Area to Cover All Ones II](/solution/3100-3199/3197.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20II/README_EN.md)
+
+#### Biweekly Contest 133
+
+- [3190. Find Minimum Operations to Make All Elements Divisible by Three](/solution/3100-3199/3190.Find%20Minimum%20Operations%20to%20Make%20All%20Elements%20Divisible%20by%20Three/README_EN.md)
+- [3191. Minimum Operations to Make Binary Array Elements Equal to One I](/solution/3100-3199/3191.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20I/README_EN.md)
+- [3192. Minimum Operations to Make Binary Array Elements Equal to One II](/solution/3100-3199/3192.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20II/README_EN.md)
+- [3193. Count the Number of Inversions](/solution/3100-3199/3193.Count%20the%20Number%20of%20Inversions/README_EN.md)
+
+#### Weekly Contest 402
+
+- [3184. Count Pairs That Form a Complete Day I](/solution/3100-3199/3184.Count%20Pairs%20That%20Form%20a%20Complete%20Day%20I/README_EN.md)
+- [3185. Count Pairs That Form a Complete Day II](/solution/3100-3199/3185.Count%20Pairs%20That%20Form%20a%20Complete%20Day%20II/README_EN.md)
+- [3186. Maximum Total Damage With Spell Casting](/solution/3100-3199/3186.Maximum%20Total%20Damage%20With%20Spell%20Casting/README_EN.md)
+- [3187. Peaks in Array](/solution/3100-3199/3187.Peaks%20in%20Array/README_EN.md)
+
 #### Weekly Contest 401
 
 - [3178. Find the Child Who Has the Ball After K Seconds](/solution/3100-3199/3178.Find%20the%20Child%20Who%20Has%20the%20Ball%20After%20K%20Seconds/README_EN.md)

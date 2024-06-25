@@ -16,14 +16,14 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::cmp::Ordering;
+use std::rc::Rc;
 impl Solution {
     pub fn lowest_common_ancestor(
         mut root: Option<Rc<RefCell<TreeNode>>>,
         p: Option<Rc<RefCell<TreeNode>>>,
-        q: Option<Rc<RefCell<TreeNode>>>
+        q: Option<Rc<RefCell<TreeNode>>>,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         let p = p.unwrap().borrow().val;
         let q = q.unwrap().borrow().val;

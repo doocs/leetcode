@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20OR%20Closest%20to%20K/README.md
+rating: 2162
+source: 第 400 场周赛 Q4
 tags:
     - 位运算
     - 线段树
@@ -36,13 +38,13 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p>子数组&nbsp;<code>nums[2..3]</code> 的按位 <code>OR</code> 运算值为 3 ，得到最小差值&nbsp;<code>|3 - 3| = 0</code> 。</p>
+<p>子数组&nbsp;<code>nums[0..1]</code> 的按位 <code>OR</code> 运算值为 3 ，得到最小差值&nbsp;<code>|3 - 3| = 0</code> 。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><span class="example-io"><b>输入：</b>nums = [1,2,1,2], k = 2</span></p>
+<p><span class="example-io"><b>输入：</b>nums = [1,3,1,3], k = 2</span></p>
 
 <p><span class="example-io"><b>输出：</b>1</span></p>
 

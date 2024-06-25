@@ -5,7 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1612.Ch
 tags:
     - Tree
     - Depth-First Search
+    - Hash Table
     - Binary Tree
+    - Counting
 ---
 
 <!-- problem:start -->

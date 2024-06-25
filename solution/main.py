@@ -1,3 +1,5 @@
+import platform
+import subprocess
 import time
 from datetime import timezone, timedelta, datetime
 
@@ -49,7 +51,7 @@ class Spider:
             )
             return resp.json()["stat_status_pairs"]
         except Exception as e:
-            print('get_all_questions', e)
+            print("get_all_questions", e)
             time.sleep(2)
             return self.get_all_questions(retry - 1) if retry > 0 else []
 
@@ -126,8 +128,8 @@ class Spider:
                 res = resp.json()
                 return res["data"]["question"] or {}
             except Exception as e:
-                print('get_question_detail_en', e)
-                if 'is not defined' in str(e):
+                print("get_question_detail_en", e)
+                if "is not defined" in str(e):
                     return {}
                 time.sleep(2)
         return {}
@@ -198,7 +200,7 @@ class Spider:
                 res = resp.json()
                 return res["data"]["question"] or {}
             except Exception as e:
-                print('get_question_detail', e)
+                print("get_question_detail", e)
                 time.sleep(2)
         return {}
 
@@ -373,6 +375,55 @@ def get_contests(fetch_new=True) -> List:
 ########################################################################################
 
 
+def format_rust_files_linux():
+    # The find command to locate and format all .rs files in Linux
+    find_command = 'find . -name "*.rs" -exec rustfmt {} \\;'
+
+    # Execute the command
+    process = subprocess.Popen(
+        find_command,
+        shell=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+
+    # Get the output and errors
+    stdout, stderr = process.communicate()
+
+    if process.returncode == 0:
+        print("Rust files formatted successfully on Linux!")
+        print(stdout)
+    else:
+        print("Error formatting Rust files on Linux:")
+        print(stderr)
+
+
+def format_rust_files_windows():
+    # PowerShell command to format all .rs files recursively in Windows
+    ps_command = (
+        "Get-ChildItem -Recurse -Filter *.rs | ForEach-Object { rustfmt $_.FullName }"
+    )
+
+    # Execute the PowerShell command
+    process = subprocess.Popen(
+        ["powershell", "-Command", ps_command],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+
+    # Get the output and errors
+    stdout, stderr = process.communicate()
+
+    if process.returncode == 0:
+        print("Rust files formatted successfully on Windows!")
+        print(stdout)
+    else:
+        print("Error formatting Rust files on Windows:")
+        print(stderr)
+
+
 def run():
     # 加载 cookies
     cookie_cn, cookie_en = load_cookies()
@@ -393,8 +444,8 @@ def run():
             slug = q["stat"]["question__title_slug"]
             qid = q["stat"]["frontend_question_id"]
         except:
-            slug = q['titleSlug']
-            qid = int(q['frontendQuestionId'])
+            slug = q["titleSlug"]
+            qid = int(q["frontendQuestionId"])
         if slug in question_details:
             continue
         detail = spider.get_question_detail(
@@ -451,6 +502,13 @@ def run():
     refresh(ls)
     # 格式化
     os.system('cd .. && npx prettier --write "**/*.{md,js,ts,php,sql}"')
+
+    # 格式化 rust 代码
+    # 判断当前是 windows 还是 linux
+    if platform.system() == "Linux":
+        format_rust_files_linux()
+    elif platform.system() == "Windows":
+        format_rust_files_windows()
 
 
 if __name__ == "__main__":

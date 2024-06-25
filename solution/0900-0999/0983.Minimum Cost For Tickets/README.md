@@ -78,11 +78,16 @@ tags:
 
 ### 方法一：记忆化搜索 + 二分查找
 
-定义 $dfs(i)$ 表示从第 $i$ 次出行开始的最低消费。答案为 $dfs(0)$。
+我们定义一个函数 $\text{dfs(i)}$，表示从第 $i$ 次出行开始到最后一次出行结束所需的最小花费。那么答案为 $\text{dfs(0)}$。
 
-采用记忆化搜索的方法，记录已经计算过的结果，避免重复计算。
+函数 $\text{dfs(i)}$ 的执行过程如下：
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `days` 的长度。
+-   如果 $i \geq n$，表示所有出行已经结束，返回 $0$；
+-   否则，我们需要考虑三种购买方式，分别是购买 $1$ 天通行证、购买 $7$ 天通行证和购买 $30$ 天通行证。我们分别计算这三种购买方式的花费，并且利用二分查找，找到下一次出行的下标 $j$，然后递归调用 $\text{dfs(j)}$，最后返回这三种购买方式的最小花费。
+
+为了避免重复计算，我们使用记忆化搜索，将已经计算过的结果保存起来。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 表示出行的次数。
 
 <!-- tabs:start -->
 
@@ -92,15 +97,17 @@ tags:
 class Solution:
     def mincostTickets(self, days: List[int], costs: List[int]) -> int:
         @cache
-        def dfs(i):
-            if i >= len(days):
+        def dfs(i: int) -> int:
+            if i >= n:
                 return 0
-            res = inf
-            for c, d in zip(costs, [1, 7, 30]):
-                j = bisect_left(days, days[i] + d)
-                res = min(res, c + dfs(j))
-            return res
+            ans = inf
+            for c, v in zip(costs, valid):
+                j = bisect_left(days, days[i] + v)
+                ans = min(ans, c + dfs(j))
+            return ans
 
+        n = len(days)
+        valid = [1, 7, 30]
         return dfs(0)
 ```
 
@@ -108,18 +115,17 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int[] T = new int[] {1, 7, 30};
-    private int[] costs;
+    private final int[] valid = {1, 7, 30};
     private int[] days;
-    private int[] f;
+    private int[] costs;
+    private Integer[] f;
     private int n;
 
     public int mincostTickets(int[] days, int[] costs) {
         n = days.length;
-        f = new int[n];
-        this.costs = costs;
+        f = new Integer[n];
         this.days = days;
-        Arrays.fill(f, -1);
+        this.costs = costs;
         return dfs(0);
     }
 
@@ -127,30 +133,16 @@ class Solution {
         if (i >= n) {
             return 0;
         }
-        if (f[i] != -1) {
+        if (f[i] != null) {
             return f[i];
         }
-        int res = Integer.MAX_VALUE;
-
+        f[i] = Integer.MAX_VALUE;
         for (int k = 0; k < 3; ++k) {
-            int j = lowerBound(days, days[i] + T[k]);
-            res = Math.min(res, costs[k] + dfs(j));
+            int j = Arrays.binarySearch(days, days[i] + valid[k]);
+            j = j < 0 ? -j - 1 : j;
+            f[i] = Math.min(f[i], dfs(j) + costs[k]);
         }
-        f[i] = res;
-        return res;
-    }
-
-    private int lowerBound(int[] days, int x) {
-        int left = 0, right = days.length;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (days[mid] >= x) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left;
+        return f[i];
     }
 }
 ```
@@ -160,30 +152,26 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> t = {1, 7, 30};
-    vector<int> days;
-    vector<int> costs;
-    vector<int> f;
-    int n;
-
     int mincostTickets(vector<int>& days, vector<int>& costs) {
-        n = days.size();
-        this->days = days;
-        this->costs = costs;
-        f.assign(n, -1);
+        int valid[3] = {1, 7, 30};
+        int n = days.size();
+        int f[n];
+        memset(f, 0, sizeof(f));
+        function<int(int)> dfs = [&](int i) {
+            if (i >= n) {
+                return 0;
+            }
+            if (f[i]) {
+                return f[i];
+            }
+            f[i] = INT_MAX;
+            for (int k = 0; k < 3; ++k) {
+                int j = lower_bound(days.begin(), days.end(), days[i] + valid[k]) - days.begin();
+                f[i] = min(f[i], dfs(j) + costs[k]);
+            }
+            return f[i];
+        };
         return dfs(0);
-    }
-
-    int dfs(int i) {
-        if (i >= n) return 0;
-        if (f[i] != -1) return f[i];
-        int res = INT_MAX;
-        for (int k = 0; k < 3; ++k) {
-            int j = lower_bound(days.begin(), days.end(), days[i] + t[k]) - days.begin();
-            res = min(res, costs[k] + dfs(j));
-        }
-        f[i] = res;
-        return res;
     }
 };
 ```
@@ -192,42 +180,25 @@ public:
 
 ```go
 func mincostTickets(days []int, costs []int) int {
-	t := []int{1, 7, 30}
+	valid := [3]int{1, 7, 30}
 	n := len(days)
 	f := make([]int, n)
-	for i := range f {
-		f[i] = -1
-	}
-	var dfs func(i int) int
+	var dfs func(int) int
 	dfs = func(i int) int {
 		if i >= n {
 			return 0
 		}
-		if f[i] != -1 {
+		if f[i] > 0 {
 			return f[i]
 		}
-		res := 0x3f3f3f3f
-		for k, c := range costs {
-			j := lowerBound(days, days[i]+t[k])
-			res = min(res, c+dfs(j))
+		f[i] = 1 << 30
+		for k := 0; k < 3; k++ {
+			j := sort.SearchInts(days, days[i]+valid[k])
+			f[i] = min(f[i], dfs(j)+costs[k])
 		}
-		f[i] = res
-		return res
+		return f[i]
 	}
 	return dfs(0)
-}
-
-func lowerBound(arr []int, x int) int {
-	left, right := 0, len(arr)
-	for left < right {
-		mid := (left + right) >> 1
-		if arr[mid] >= x {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
 }
 ```
 
@@ -235,17 +206,172 @@ func lowerBound(arr []int, x int) int {
 
 ```ts
 function mincostTickets(days: number[], costs: number[]): number {
-    const n = days.length,
-        m = days[n - 1] + 1;
-    const [a, b, c] = costs;
-    let dp = new Array(m).fill(0);
-    for (let i = 1; i < m; i++) {
-        let x = days.includes(i) ? dp[i - 1] + a : dp[i - 1];
-        let y = (i > 7 ? dp[i - 7] : dp[0]) + b;
-        let z = (i > 30 ? dp[i - 30] : dp[0]) + c;
-        dp[i] = Math.min(x, y, z);
+    const n = days.length;
+    const f: number[] = Array(n).fill(0);
+    const valid: number[] = [1, 7, 30];
+    const search = (x: number): number => {
+        let [l, r] = [0, n];
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (days[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    const dfs = (i: number): number => {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i]) {
+            return f[i];
+        }
+        f[i] = Infinity;
+        for (let k = 0; k < 3; ++k) {
+            const j = search(days[i] + valid[k]);
+            f[i] = Math.min(f[i], dfs(j) + costs[k]);
+        }
+        return f[i];
+    };
+    return dfs(0);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划
+
+我们不妨记 $\text{days}$ 数组中的最后一天为 $m$，那么我们可以定义一个长度为 $m + 1$ 的数组 $f$，其中 $f[i]$ 表示从第 $1$ 天到第 $i$ 天的最小花费。
+
+我们可以按照 $\text{days}$ 数组中的日期递增的顺序，从第 $1$ 天开始，依次计算 $f[i]$ 的值。如果第 $i$ 天是出行的日期，那么我们可以考虑三种购买方式，分别是购买 $1$ 天通行证、购买 $7$ 天通行证和购买 $30$ 天通行证。我们分别计算这三种购买方式的花费，并且取这三种购买方式的最小花费作为 $f[i]$ 的值。如果第 $i$ 天不是出行的日期，那么 $f[i] = f[i - 1]$。
+
+最终答案为 $f[m]$。
+
+时间复杂度 $O(m)$，空间复杂度 $O(m)$。其中 $m$ 表示出行的最后一天。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def mincostTickets(self, days: List[int], costs: List[int]) -> int:
+        m = days[-1]
+        f = [0] * (m + 1)
+        valid = [1, 7, 30]
+        j = 0
+        for i in range(1, m + 1):
+            if i == days[j]:
+                f[i] = inf
+                for c, v in zip(costs, valid):
+                    f[i] = min(f[i], f[max(0, i - v)] + c)
+                j += 1
+            else:
+                f[i] = f[i - 1]
+        return f[m]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int mincostTickets(int[] days, int[] costs) {
+        int m = days[days.length - 1];
+        int[] f = new int[m + 1];
+        final int[] valid = {1, 7, 30};
+        for (int i = 1, j = 0; i <= m; ++i) {
+            if (i == days[j]) {
+                f[i] = Integer.MAX_VALUE;
+                for (int k = 0; k < 3; ++k) {
+                    int c = costs[k], v = valid[k];
+                    f[i] = Math.min(f[i], f[Math.max(0, i - v)] + c);
+                }
+                ++j;
+            } else {
+                f[i] = f[i - 1];
+            }
+        }
+        return f[m];
     }
-    return dp[m - 1];
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int mincostTickets(vector<int>& days, vector<int>& costs) {
+        int m = days.back();
+        int f[m + 1];
+        f[0] = 0;
+        int valid[3] = {1, 7, 30};
+        for (int i = 1, j = 0; i <= m; ++i) {
+            if (i == days[j]) {
+                f[i] = INT_MAX;
+                for (int k = 0; k < 3; ++k) {
+                    int c = costs[k], v = valid[k];
+                    f[i] = min(f[i], f[max(0, i - v)] + c);
+                }
+                ++j;
+            } else {
+                f[i] = f[i - 1];
+            }
+        }
+        return f[m];
+    }
+};
+```
+
+#### Go
+
+```go
+func mincostTickets(days []int, costs []int) int {
+	m := days[len(days)-1]
+	f := make([]int, m+1)
+	valid := [3]int{1, 7, 30}
+	for i, j := 1, 0; i <= m; i++ {
+		if i == days[j] {
+			f[i] = 1 << 30
+			for k, v := range valid {
+				c := costs[k]
+				f[i] = min(f[i], f[max(0, i-v)]+c)
+			}
+			j++
+		} else {
+			f[i] = f[i-1]
+		}
+	}
+	return f[m]
+}
+```
+
+#### TypeScript
+
+```ts
+function mincostTickets(days: number[], costs: number[]): number {
+    const m = days.at(-1)!;
+    const f: number[] = Array(m).fill(0);
+    const valid: number[] = [1, 7, 30];
+    for (let i = 1, j = 0; i <= m; ++i) {
+        if (i === days[j]) {
+            f[i] = Infinity;
+            for (let k = 0; k < 3; ++k) {
+                const [c, v] = [costs[k], valid[k]];
+                f[i] = Math.min(f[i], f[Math.max(0, i - v)] + c);
+            }
+            ++j;
+        } else {
+            f[i] = f[i - 1];
+        }
+    }
+    return f[m];
 }
 ```
 

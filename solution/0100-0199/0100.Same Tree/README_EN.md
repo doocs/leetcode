@@ -209,8 +209,8 @@ function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(p: &Option<Rc<RefCell<TreeNode>>>, q: &Option<Rc<RefCell<TreeNode>>>) -> bool {
         if p.is_none() && q.is_none() {
@@ -226,7 +226,7 @@ impl Solution {
 
     pub fn is_same_tree(
         p: Option<Rc<RefCell<TreeNode>>>,
-        q: Option<Rc<RefCell<TreeNode>>>
+        q: Option<Rc<RefCell<TreeNode>>>,
     ) -> bool {
         Self::dfs(&p, &q)
     }
@@ -573,13 +573,13 @@ function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+use std::rc::Rc;
 impl Solution {
     pub fn is_same_tree(
         mut p: Option<Rc<RefCell<TreeNode>>>,
-        mut q: Option<Rc<RefCell<TreeNode>>>
+        mut q: Option<Rc<RefCell<TreeNode>>>,
     ) -> bool {
         let mut queue = VecDeque::new();
         if p.is_some() {

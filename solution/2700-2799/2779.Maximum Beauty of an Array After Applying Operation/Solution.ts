@@ -1,6 +1,6 @@
 function maximumBeauty(nums: number[], k: number): number {
     const m = Math.max(...nums) + k * 2 + 2;
-    const d: number[] = new Array(m).fill(0);
+    const d: number[] = Array(m).fill(0);
     for (const x of nums) {
         d[x]++;
         d[x + k * 2 + 1]--;

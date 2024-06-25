@@ -16,12 +16,12 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     pub fn merge_trees(
         root1: Option<Rc<RefCell<TreeNode>>>,
-        root2: Option<Rc<RefCell<TreeNode>>>
+        root2: Option<Rc<RefCell<TreeNode>>>,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         match (root1.is_some(), root2.is_some()) {
             (false, false) => None,

@@ -16,9 +16,9 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::HashMap;
+use std::rc::Rc;
 impl Solution {
     pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, sum: i32) -> i32 {
         let mut cnt = HashMap::new();
@@ -30,7 +30,7 @@ impl Solution {
         root: Option<Rc<RefCell<TreeNode>>>,
         sum: i32,
         s: i32,
-        cnt: &mut HashMap<i32, i32>
+        cnt: &mut HashMap<i32, i32>,
     ) -> i32 {
         if let Some(node) = root {
             let node = node.borrow();

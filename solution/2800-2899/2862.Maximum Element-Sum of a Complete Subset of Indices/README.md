@@ -35,7 +35,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p>我们选择下标为 2 和 8 的元素，并且&nbsp;<code>1 * 4</code>&nbsp;是一个完全平方数。</p>
+<p>我们选择下标为 2 和 8 的元素，并且&nbsp;<code>2 * 8</code>&nbsp;是一个完全平方数。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>

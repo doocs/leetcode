@@ -211,8 +211,8 @@ function isUnivalTree(root: TreeNode | null): boolean {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(val: i32, root: &Option<Rc<RefCell<TreeNode>>>) -> bool {
         if root.is_none() {

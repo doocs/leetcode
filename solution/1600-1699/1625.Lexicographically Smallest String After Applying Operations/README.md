@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1625.Le
 rating: 1992
 source: 第 211 场周赛 Q2
 tags:
+    - 深度优先搜索
     - 广度优先搜索
     - 字符串
+    - 枚举
 ---
 
 <!-- problem:start -->

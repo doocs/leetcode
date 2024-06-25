@@ -246,7 +246,6 @@ class NumMatrix {
 #### Rust
 
 ```rust
-
 /**
  * Your NumMatrix object will be instantiated and called as such:
  * let obj = NumMatrix::new(matrix);
@@ -287,10 +286,10 @@ impl NumMatrix {
         let row2: usize = row2 as usize;
         let col2: usize = col2 as usize;
         // Return the value in O(1)
-        self.prefix_vec[row2 + 1][col2 + 1] -
-            self.prefix_vec[row2 + 1][col1] -
-            self.prefix_vec[row1][col2 + 1] +
-            self.prefix_vec[row1][col1]
+        self.prefix_vec[row2 + 1][col2 + 1]
+            - self.prefix_vec[row2 + 1][col1]
+            - self.prefix_vec[row1][col2 + 1]
+            + self.prefix_vec[row1][col1]
     }
 
     fn initialize_prefix_vec(&mut self) {
@@ -298,10 +297,8 @@ impl NumMatrix {
         for i in 0..self.n {
             for j in 0..self.m {
                 self.prefix_vec[i + 1][j + 1] =
-                    self.prefix_vec[i][j + 1] +
-                    self.prefix_vec[i + 1][j] -
-                    self.prefix_vec[i][j] +
-                    self.ref_vec[i][j];
+                    self.prefix_vec[i][j + 1] + self.prefix_vec[i + 1][j] - self.prefix_vec[i][j]
+                        + self.ref_vec[i][j];
             }
         }
         self.is_initialized = true;

@@ -1,16 +1,18 @@
 function findMinDifference(timePoints: string[]): number {
-    if (timePoints.length > 24 * 60) {
+    if (timePoints.length > 1440) {
         return 0;
     }
-    const mins: number[] = timePoints.map(timePoint => {
-        const [hour, minute] = timePoint.split(':').map(num => parseInt(num));
-        return hour * 60 + minute;
-    });
-    mins.sort((a, b) => a - b);
-    mins.push(mins[0] + 24 * 60);
+    const n = timePoints.length;
+    const nums: number[] = Array(n + 1);
+    for (let i = 0; i < n; ++i) {
+        const [hours, minutes] = timePoints[i].split(':').map(Number);
+        nums[i] = hours * 60 + minutes;
+    }
+    nums.sort((a, b) => a - b);
+    nums[n] = nums[0] + 1440;
     let ans = 1 << 30;
-    for (let i = 1; i < mins.length; ++i) {
-        ans = Math.min(ans, mins[i] - mins[i - 1]);
+    for (let i = 1; i <= n; ++i) {
+        ans = Math.min(ans, nums[i] - nums[i - 1]);
     }
     return ans;
 }

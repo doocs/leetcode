@@ -14,7 +14,7 @@ impl Solution {
                     v[j..(j + i).min(v.len())]
                         .iter()
                         .map(|&x| x as i32)
-                        .collect()
+                        .collect(),
                 );
             }
         }

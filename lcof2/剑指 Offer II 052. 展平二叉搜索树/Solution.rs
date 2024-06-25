@@ -16,8 +16,8 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, vals: &mut Vec<i32>) {
         if root.is_none() {
@@ -35,15 +35,11 @@ impl Solution {
         let mut dummy = Rc::new(RefCell::new(TreeNode::new(0)));
         for &val in vals.iter().rev() {
             let mut dummy = dummy.as_ref().borrow_mut();
-            dummy.right = Some(
-                Rc::new(
-                    RefCell::new(TreeNode {
-                        val,
-                        left: None,
-                        right: dummy.right.take(),
-                    })
-                )
-            );
+            dummy.right = Some(Rc::new(RefCell::new(TreeNode {
+                val,
+                left: None,
+                right: dummy.right.take(),
+            })));
         }
         let ans = dummy.as_ref().borrow_mut().right.take();
         ans

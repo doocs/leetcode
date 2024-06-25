@@ -211,41 +211,48 @@ func isMatch(s string, p string) bool {
 
 ```rust
 impl Solution {
-    #[allow(dead_code)]
     pub fn is_match(s: String, p: String) -> bool {
-        let n = s.len();
-        let m = p.len();
-        let s = s.chars().collect::<Vec<char>>();
-        let p = p.chars().collect::<Vec<char>>();
+        let (m, n) = (s.len(), p.len());
+        let mut f = vec![vec![0; n + 1]; m + 1];
 
-        let mut dp = vec![vec![false; m + 1]; n + 1];
-
-        // Initialize the dp vector
-        dp[0][0] = true;
-
-        for i in 1..=m {
-            if p[i - 1] == '*' {
-                dp[0][i] = dp[0][i - 2];
+        fn dfs(
+            s: &Vec<char>,
+            p: &Vec<char>,
+            f: &mut Vec<Vec<i32>>,
+            i: usize,
+            j: usize,
+            m: usize,
+            n: usize,
+        ) -> bool {
+            if j >= n {
+                return i == m;
             }
+            if f[i][j] != 0 {
+                return f[i][j] == 1;
+            }
+            let mut res = -1;
+            if j + 1 < n && p[j + 1] == '*' {
+                if dfs(s, p, f, i, j + 2, m, n)
+                    || (i < m && (s[i] == p[j] || p[j] == '.') && dfs(s, p, f, i + 1, j, m, n))
+                {
+                    res = 1;
+                }
+            } else if i < m && (s[i] == p[j] || p[j] == '.') && dfs(s, p, f, i + 1, j + 1, m, n) {
+                res = 1;
+            }
+            f[i][j] = res;
+            res == 1
         }
 
-        // Begin the actual dp process
-        for i in 1..=n {
-            for j in 1..=m {
-                if s[i - 1] == p[j - 1] || p[j - 1] == '.' {
-                    dp[i][j] = dp[i - 1][j - 1];
-                }
-                if p[j - 1] == '*' {
-                    if j >= 2 && (s[i - 1] == p[j - 2] || p[j - 2] == '.') {
-                        dp[i][j] = dp[i - 1][j] || dp[i][j - 2];
-                    } else if j >= 2 && s[i - 1] != p[j - 2] {
-                        dp[i][j] = dp[i][j - 2];
-                    }
-                }
-            }
-        }
-
-        dp[n][m]
+        dfs(
+            &s.chars().collect(),
+            &p.chars().collect(),
+            &mut f,
+            0,
+            0,
+            m,
+            n,
+        )
     }
 }
 ```
@@ -440,6 +447,38 @@ func isMatch(s string, p string) bool {
 		}
 	}
 	return f[m][n]
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_match(s: String, p: String) -> bool {
+        let m = s.len();
+        let n = p.len();
+        let mut f = vec![vec![false; n + 1]; m + 1];
+
+        f[0][0] = true;
+
+        let s: Vec<char> = s.chars().collect();
+        let p: Vec<char> = p.chars().collect();
+
+        for i in 0..=m {
+            for j in 1..=n {
+                if p[j - 1] == '*' {
+                    f[i][j] = f[i][j - 2];
+                    if i > 0 && (p[j - 2] == '.' || p[j - 2] == s[i - 1]) {
+                        f[i][j] = f[i][j] || f[i - 1][j];
+                    }
+                } else if i > 0 && (p[j - 1] == '.' || p[j - 1] == s[i - 1]) {
+                    f[i][j] = f[i - 1][j - 1];
+                }
+            }
+        }
+
+        f[m][n]
+    }
 }
 ```
 

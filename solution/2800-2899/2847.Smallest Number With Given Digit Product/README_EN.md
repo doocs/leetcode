@@ -25,7 +25,7 @@ tags:
 <pre>
 <strong>Input:</strong> n = 105
 <strong>Output:</strong> &quot;357&quot;
-<strong>Explanation:</strong> 3 * 5 * 7 = 105. It can be shown that 357 is the smallest number with a product of digits equal to 105. So the answer would be &quot;105&quot;.
+<strong>Explanation:</strong> 3 * 5 * 7 = 105. It can be shown that 357 is the smallest number with a product of digits equal to 105. So the answer would be &quot;357&quot;.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>

@@ -179,9 +179,7 @@ impl Solution {
             let val = map.entry(key).or_insert(vec![]);
             val.push(s);
         }
-        map.into_iter()
-            .map(|(_, v)| v)
-            .collect()
+        map.into_iter().map(|(_, v)| v).collect()
     }
 }
 ```

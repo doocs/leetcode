@@ -16,8 +16,8 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, depth: usize, res: &mut Vec<i32>) {
         if root.is_none() {

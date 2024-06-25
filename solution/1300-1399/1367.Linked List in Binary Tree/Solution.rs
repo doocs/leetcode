@@ -32,8 +32,8 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(head: &Option<Box<ListNode>>, root: &Option<Rc<RefCell<TreeNode>>>) -> bool {
         if head.is_none() {
@@ -55,9 +55,9 @@ impl Solution {
             return false;
         }
         let node = root.as_ref().unwrap().borrow();
-        Self::dfs(head, root) ||
-            Self::my_is_sub_path(head, &node.left) ||
-            Self::my_is_sub_path(head, &node.right)
+        Self::dfs(head, root)
+            || Self::my_is_sub_path(head, &node.left)
+            || Self::my_is_sub_path(head, &node.right)
     }
 
     pub fn is_sub_path(head: Option<Box<ListNode>>, root: Option<Rc<RefCell<TreeNode>>>) -> bool {

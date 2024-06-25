@@ -16,9 +16,9 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+use std::rc::Rc;
 impl Solution {
     pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
         let root = root.unwrap();
