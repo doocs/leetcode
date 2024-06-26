@@ -2,6 +2,9 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3190.Find%20Minimum%20Operations%20to%20Make%20All%20Elements%20Divisible%20by%20Three/README.md
+tags:
+    - 数组
+    - 数学
 ---
 
 <!-- problem:start -->

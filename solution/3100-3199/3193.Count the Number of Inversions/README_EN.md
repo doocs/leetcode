@@ -2,6 +2,9 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3193.Count%20the%20Number%20of%20Inversions/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->
@@ -89,10 +92,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3193.Co
 	<li>Prefix <code>[0]</code> has 0 inversions.</li>
 	<li>Prefix <code>[0, 1]</code> has an inversion <code>(0, 1)</code>.</li>
 </ul>
-</div>
-
-<div id="gtx-trans" style="position: absolute; left: 198px; top: 756px;">
-<div class="gtx-trans-icon">&nbsp;</div>
 </div>
 
 <p>&nbsp;</p>

@@ -2,6 +2,9 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3193.Count%20the%20Number%20of%20Inversions/README.md
+tags:
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->

@@ -2,11 +2,16 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3189.Minimum%20Moves%20to%20Get%20a%20Peaceful%20Board/README.md
+tags:
+    - 贪心
+    - 数组
+    - 计数排序
+    - 排序
 ---
 
 <!-- problem:start -->
 
-# [3189. Minimum Moves to Get a Peaceful Board 🔒](https://leetcode.cn/problems/minimum-moves-to-get-a-peaceful-board)
+# [3189. 得到一个和平棋盘的最少步骤 🔒](https://leetcode.cn/problems/minimum-moves-to-get-a-peaceful-board)
 
 [English Version](/solution/3100-3199/3189.Minimum%20Moves%20to%20Get%20a%20Peaceful%20Board/README_EN.md)
 
@@ -14,42 +19,44 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3189.Mi
 
 <!-- description:start -->
 
-<p>Given a 2D array <code>rooks</code> of length <code>n</code>, where <code>rooks[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> indicates the position of a rook on an <code>n x n</code> chess board. Your task is to move the rooks <strong>1 cell </strong>at a time vertically or horizontally (to an <em>adjacent</em> cell) such that the board becomes <strong>peaceful</strong>.</p>
+<p>给定一个长度为&nbsp;<code>n</code>&nbsp;的二维数组&nbsp;<code>rooks</code>，其中&nbsp;<code>rooks[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>&nbsp;表示 <code>n x n</code>&nbsp;棋盘上一个车的位置。你的任务是每次在垂直或水平方向上移动&nbsp;<strong>1 格</strong>&nbsp;车（到一个相邻的格子）使得棋盘变得&nbsp;<strong>和平</strong>。</p>
 
-<p>A board is <strong>peaceful</strong> if there is <strong>exactly</strong> one rook in each row and each column.</p>
+<p>如果每行每列都 <strong>只有</strong> 一个车，那么这块棋盘就是和平的。</p>
 
-<p>Return the <strong>minimum</strong> number of moves required to get a <em>peaceful board</em>.</p>
+<p>返回获得和平棋盘所需的 <strong>最少</strong> 步数。</p>
 
-<p><strong>Note</strong> that <strong>at no point</strong> can there be two rooks in the same cell.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">rooks = [[0,0],[1,0],[1,1]]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">3</span></p>
-
-<p><strong>Explanation:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3100-3199/3189.Minimum%20Moves%20to%20Get%20a%20Peaceful%20Board/images/ex1-edited.gif" style="width: 150px; height: 150px;" /></div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">rooks = [[0,0],[0,1],[0,2],[0,3]]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">6</span></p>
-
-<p><strong>Explanation:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3100-3199/3189.Minimum%20Moves%20to%20Get%20a%20Peaceful%20Board/images/ex2-edited.gif" style="width: 200px; height: 200px;" /></div>
+<p><strong>注意 任何时刻&nbsp;</strong>两个车都不能在同一个格子。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">rooks = [[0,0],[1,0],[1,1]]</span></p>
+
+<p><span class="example-io"><b>输出：</b>3</span></p>
+
+<p><strong>解释：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3100-3199/3189.Minimum%20Moves%20to%20Get%20a%20Peaceful%20Board/images/1719285456-CnJqJS-ex1-edited.gif" style="width: 200px; height: 200px;" /></div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">rooks = [[0,0],[0,1],[0,2],[0,3]]</span></p>
+
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">6</span></p>
+
+<p><strong>解释：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3100-3199/3189.Minimum%20Moves%20to%20Get%20a%20Peaceful%20Board/images/1719285456-wtGRzv-ex2-edited.gif" style="width: 200px; height: 200px;" /></div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= n == rooks.length &lt;= 500</code></li>
 	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= n - 1</code></li>
-	<li>The input is generated such that there are no 2 rooks in the same cell.</li>
+	<li>输入保证没有两个车在相同的格子。</li>
 </ul>
 
 <!-- description:end -->

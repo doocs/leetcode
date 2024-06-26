@@ -36,7 +36,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3195.Fi
 <p><strong class="example">Example 2:</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">grid = [[0,0],[1,0]]</span></p>
+<p><strong>Input:</strong> <span class="example-io">grid = [[1,0],[0,0]]</span></p>
 
 <p><strong>Output:</strong> <span class="example-io">1</span></p>
 
