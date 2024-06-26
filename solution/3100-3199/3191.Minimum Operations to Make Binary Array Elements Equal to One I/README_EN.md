@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3191.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20I/README_EN.md
+tags:
+    - Bit Manipulation
+    - Queue
+    - Array
+    - Prefix Sum
+    - Sliding Window
 ---
 
 <!-- problem:start -->
