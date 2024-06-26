@@ -183,14 +183,10 @@ function minStoneSum(piles: number[], k: number): number {
         pq.enqueue(x);
     }
     while (k--) {
-        const x = pq.dequeue().element;
-        pq.enqueue(x - ((x / 2) | 0));
+        pq.enqueue((pq.dequeue().element + 1) >> 1);
     }
-    let ans = 0;
-    while (pq.size()) {
-        ans += pq.dequeue().element;
-    }
-    return ans;
+
+    return pq.toArray().reduce((a, b) => a + b.element, 0);
 }
 ```
 
