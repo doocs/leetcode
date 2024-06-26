@@ -3206,6 +3206,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3195  |  [Find the Minimum Area to Cover All Ones I](/solution/3100-3199/3195.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 403  |
 |  3196  |  [Maximize Total Cost of Alternating Subarrays](/solution/3100-3199/3196.Maximize%20Total%20Cost%20of%20Alternating%20Subarrays/README_EN.md)  |    |  Medium  |  Weekly Contest 403  |
 |  3197  |  [Find the Minimum Area to Cover All Ones II](/solution/3100-3199/3197.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 403  |
+|  3198  |  [Find Cities in Each State](/solution/3100-3199/3198.Find%20Cities%20in%20Each%20State/README_EN.md)  |    |  Easy  |  🔒  |
 
 ## Copyright
 
