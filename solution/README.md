@@ -3208,6 +3208,7 @@
 |  3195  |  [包含所有 1 的最小矩形面积 I](/solution/3100-3199/3195.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20I/README.md)  |    |  中等  |  第 403 场周赛  |
 |  3196  |  [最大化子数组的总成本](/solution/3100-3199/3196.Maximize%20Total%20Cost%20of%20Alternating%20Subarrays/README.md)  |    |  中等  |  第 403 场周赛  |
 |  3197  |  [包含所有 1 的最小矩形面积 II](/solution/3100-3199/3197.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20II/README.md)  |    |  困难  |  第 403 场周赛  |
+|  3198  |  [查找每个州的城市](/solution/3100-3199/3198.Find%20Cities%20in%20Each%20State/README.md)  |    |  简单  |  🔒  |
 
 ## 版权
 
