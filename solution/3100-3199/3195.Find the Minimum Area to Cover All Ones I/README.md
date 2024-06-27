@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3195.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20I/README.md
+tags:
+    - 数组
+    - 矩阵
 ---
 
 <!-- problem:start -->
