@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3195.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20I/README_EN.md
+tags:
+    - Array
+    - Matrix
 ---
 
 <!-- problem:start -->
@@ -36,7 +39,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3195.Fi
 <p><strong class="example">Example 2:</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">grid = [[0,0],[1,0]]</span></p>
+<p><strong>Input:</strong> <span class="example-io">grid = [[1,0],[0,0]]</span></p>
 
 <p><strong>Output:</strong> <span class="example-io">1</span></p>
 

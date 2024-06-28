@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3192.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20II/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

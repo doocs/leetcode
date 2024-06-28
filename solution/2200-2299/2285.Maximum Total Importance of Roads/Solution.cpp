@@ -8,7 +8,9 @@ public:
         }
         sort(deg.begin(), deg.end());
         long long ans = 0;
-        for (int i = 0; i < n; ++i) ans += 1ll * (i + 1) * deg[i];
+        for (int i = 0; i < n; ++i) {
+            ans += (i + 1LL) * deg[i];
+        }
         return ans;
     }
 };

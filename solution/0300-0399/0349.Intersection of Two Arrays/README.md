@@ -134,6 +134,15 @@ func intersection(nums1 []int, nums2 []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
+```ts
+function intersection(nums1: number[], nums2: number[]): number[] {
+    const s = new Set(nums1);
+    return [...new Set(nums2.filter(x => s.has(x)))];
+}
+```
+
 #### JavaScript
 
 ```js
@@ -143,18 +152,8 @@ func intersection(nums1 []int, nums2 []int) (ans []int) {
  * @return {number[]}
  */
 var intersection = function (nums1, nums2) {
-    const s = Array(1001).fill(false);
-    for (const x of nums1) {
-        s[x] = true;
-    }
-    const ans = [];
-    for (const x of nums2) {
-        if (s[x]) {
-            ans.push(x);
-            s[x] = false;
-        }
-    }
-    return ans;
+    const s = new Set(nums1);
+    return [...new Set(nums2.filter(x => s.has(x)))];
 };
 ```
 
@@ -163,15 +162,12 @@ var intersection = function (nums1, nums2) {
 ```cs
 public class Solution {
     public int[] Intersection(int[] nums1, int[] nums2) {
-        List<int> result = new List<int>();
-        HashSet<int> arr1 = new(nums1);
-        HashSet<int> arr2 = new(nums2);
-        foreach (int x in arr1) {
-            if (arr2.Contains(x)) {
-                result.Add(x);
-            }
-        }
-        return result.ToArray();
+        HashSet<int> s1 = new HashSet<int>(nums1);
+        HashSet<int> s2 = new HashSet<int>(nums2);
+        s1.IntersectWith(s2);
+        int[] ans = new int[s1.Count];
+        s1.CopyTo(ans);
+        return ans;
     }
 }
 ```
@@ -186,43 +182,12 @@ class Solution {
      * @return Integer[]
      */
     function intersection($nums1, $nums2) {
-        $rs = [];
-        $set1 = array_values(array_unique($nums1));
-        $set2 = array_values(array_unique($nums2));
-        for ($i = 0; $i < count($set1); $i++) {
-            $hashmap[$set1[$i]] = 1;
-        }
-        for ($j = 0; $j < count($set2); $j++) {
-            if ($hashmap[$set2[$j]]) {
-                array_push($rs, $set2[$j]);
-            }
-        }
-        return $rs;
+        $s1 = array_unique($nums1);
+        $s2 = array_unique($nums2);
+        $ans = array_intersect($s1, $s2);
+        return array_values($ans);
     }
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### JavaScript
-
-```js
-/**
- * @param {number[]} nums1
- * @param {number[]} nums2
- * @return {number[]}
- */
-var intersection = function (nums1, nums2) {
-    return Array.from(new Set(nums1)).filter(num => new Set(nums2).has(num));
-};
 ```
 
 <!-- tabs:end -->

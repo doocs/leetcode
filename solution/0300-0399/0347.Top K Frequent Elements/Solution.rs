@@ -1,28 +1,19 @@
-use std::collections::HashMap;
+use std::cmp::Reverse;
+use std::collections::{BinaryHeap, HashMap};
+
 impl Solution {
     pub fn top_k_frequent(nums: Vec<i32>, k: i32) -> Vec<i32> {
-        let mut map = HashMap::new();
-        let mut max_count = 0;
-        for &num in nums.iter() {
-            let val = map.get(&num).unwrap_or(&0) + 1;
-            map.insert(num, val);
-            max_count = max_count.max(val);
+        let mut cnt = HashMap::new();
+        for x in nums {
+            *cnt.entry(x).or_insert(0) += 1;
         }
-        let mut k = k as usize;
-        let mut res = vec![0; k];
-        while k > 0 {
-            let mut next = 0;
-            for key in map.keys() {
-                let val = map[key];
-                if val == max_count {
-                    res[k - 1] = *key;
-                    k -= 1;
-                } else if val < max_count {
-                    next = next.max(val);
-                }
+        let mut pq = BinaryHeap::with_capacity(k as usize);
+        for (&x, &c) in cnt.iter() {
+            pq.push(Reverse((c, x)));
+            if pq.len() > k as usize {
+                pq.pop();
             }
-            max_count = next;
         }
-        res
+        pq.into_iter().map(|Reverse((_, x))| x).collect()
     }
 }

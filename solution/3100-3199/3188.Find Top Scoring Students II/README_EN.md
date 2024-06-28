@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3188.Find%20Top%20Scoring%20Students%20II/README_EN.md
+tags:
+    - Database
 ---
 
 <!-- problem:start -->

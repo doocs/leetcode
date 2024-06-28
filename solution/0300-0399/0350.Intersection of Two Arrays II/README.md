@@ -62,7 +62,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表
+
+我们可以用一个哈希表 $\text{cnt}$ 统计数组 $\text{nums1}$ 中每个元素出现的次数，然后遍历数组 $\text{nums2}$，如果元素 $x$ 在 $\text{cnt}$ 中，并且 $x$ 的出现次数大于 $0$，那么将 $x$ 加入答案，然后将 $x$ 的出现次数减一。
+
+遍历结束后，返回答案数组即可。
+
+时间复杂度 $O(m + n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是数组 $\text{nums1}$ 和 $\text{nums2}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -71,13 +77,13 @@ tags:
 ```python
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        counter = Counter(nums1)
-        res = []
-        for num in nums2:
-            if counter[num] > 0:
-                res.append(num)
-                counter[num] -= 1
-        return res
+        cnt = Counter(nums1)
+        ans = []
+        for x in nums2:
+            if cnt[x]:
+                ans.append(x)
+                cnt[x] -= 1
+        return ans
 ```
 
 #### Java
@@ -85,22 +91,17 @@ class Solution:
 ```java
 class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        for (int num : nums1) {
-            counter.put(num, counter.getOrDefault(num, 0) + 1);
+        int[] cnt = new int[1001];
+        for (int x : nums1) {
+            ++cnt[x];
         }
-        List<Integer> t = new ArrayList<>();
-        for (int num : nums2) {
-            if (counter.getOrDefault(num, 0) > 0) {
-                t.add(num);
-                counter.put(num, counter.get(num) - 1);
+        List<Integer> ans = new ArrayList<>();
+        for (int x : nums2) {
+            if (cnt[x]-- > 0) {
+                ans.add(x);
             }
         }
-        int[] res = new int[t.size()];
-        for (int i = 0; i < res.length; ++i) {
-            res[i] = t.get(i);
-        }
-        return res;
+        return ans.stream().mapToInt(Integer::intValue).toArray();
     }
 }
 ```
@@ -111,16 +112,17 @@ class Solution {
 class Solution {
 public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
-        unordered_map<int, int> counter;
-        for (int num : nums1) ++counter[num];
-        vector<int> res;
-        for (int num : nums2) {
-            if (counter[num] > 0) {
-                --counter[num];
-                res.push_back(num);
+        unordered_map<int, int> cnt;
+        for (int x : nums1) {
+            ++cnt[x];
+        }
+        vector<int> ans;
+        for (int x : nums2) {
+            if (cnt[x]-- > 0) {
+                ans.push_back(x);
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -128,19 +130,18 @@ public:
 #### Go
 
 ```go
-func intersect(nums1 []int, nums2 []int) []int {
-	counter := make(map[int]int)
-	for _, num := range nums1 {
-		counter[num]++
+func intersect(nums1 []int, nums2 []int) (ans []int) {
+	cnt := map[int]int{}
+	for _, x := range nums1 {
+		cnt[x]++
 	}
-	var res []int
-	for _, num := range nums2 {
-		if counter[num] > 0 {
-			counter[num]--
-			res = append(res, num)
+	for _, x := range nums2 {
+		if cnt[x] > 0 {
+			ans = append(ans, x)
+			cnt[x]--
 		}
 	}
-	return res
+	return
 }
 ```
 
@@ -148,19 +149,17 @@ func intersect(nums1 []int, nums2 []int) []int {
 
 ```ts
 function intersect(nums1: number[], nums2: number[]): number[] {
-    const map = new Map<number, number>();
-    for (const num of nums1) {
-        map.set(num, (map.get(num) ?? 0) + 1);
+    const cnt: Record<number, number> = {};
+    for (const x of nums1) {
+        cnt[x] = (cnt[x] || 0) + 1;
     }
-
-    const res = [];
-    for (const num of nums2) {
-        if (map.has(num) && map.get(num) !== 0) {
-            res.push(num);
-            map.set(num, map.get(num) - 1);
+    const ans: number[] = [];
+    for (const x of nums2) {
+        if (cnt[x]-- > 0) {
+            ans.push(x);
         }
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -168,21 +167,23 @@ function intersect(nums1: number[], nums2: number[]): number[] {
 
 ```rust
 use std::collections::HashMap;
+
 impl Solution {
     pub fn intersect(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
-        let mut map = HashMap::new();
-        for num in nums1.iter() {
-            *map.entry(num).or_insert(0) += 1;
+        let mut cnt = HashMap::new();
+        for &x in &nums1 {
+            *cnt.entry(x).or_insert(0) += 1;
         }
-
-        let mut res = vec![];
-        for num in nums2.iter() {
-            if map.contains_key(num) && map.get(num).unwrap() != &0 {
-                map.insert(num, map.get(&num).unwrap() - 1);
-                res.push(*num);
+        let mut ans = Vec::new();
+        for &x in &nums2 {
+            if let Some(count) = cnt.get_mut(&x) {
+                if *count > 0 {
+                    ans.push(x);
+                    *count -= 1;
+                }
             }
         }
-        res
+        ans
     }
 }
 ```
@@ -196,18 +197,17 @@ impl Solution {
  * @return {number[]}
  */
 var intersect = function (nums1, nums2) {
-    const counter = {};
-    for (const num of nums1) {
-        counter[num] = (counter[num] || 0) + 1;
+    const cnt = {};
+    for (const x of nums1) {
+        cnt[x] = (cnt[x] || 0) + 1;
     }
-    let res = [];
-    for (const num of nums2) {
-        if (counter[num] > 0) {
-            res.push(num);
-            counter[num] -= 1;
+    const ans = [];
+    for (const x of nums2) {
+        if (cnt[x]-- > 0) {
+            ans.push(x);
         }
     }
-    return res;
+    return ans;
 };
 ```
 
@@ -216,30 +216,22 @@ var intersect = function (nums1, nums2) {
 ```cs
 public class Solution {
     public int[] Intersect(int[] nums1, int[] nums2) {
-        HashSet<int> hs1 = new HashSet<int>(nums1.Concat(nums2).ToArray());
-        Dictionary<int, int> dict = new Dictionary<int, int>();
-        List<int> result = new List<int>();
-
-        foreach (int x in hs1) {
-            dict[x] = 0;
-        }
-
+        Dictionary<int, int> cnt = new Dictionary<int, int>();
         foreach (int x in nums1) {
-            if (dict.ContainsKey(x)) {
-                dict[x] += 1;
+            if (cnt.ContainsKey(x)) {
+                cnt[x]++;
             } else {
-                dict[x] = 1;
+                cnt[x] = 1;
             }
         }
-
+        List<int> ans = new List<int>();
         foreach (int x in nums2) {
-            if (dict[x] > 0) {
-                result.Add(x);
-                dict[x] -=1;
+            if (cnt.ContainsKey(x) && cnt[x] > 0) {
+                ans.Add(x);
+                cnt[x]--;
             }
         }
-
-        return result.ToArray();
+        return ans.ToArray();
     }
 }
 ```
@@ -254,17 +246,24 @@ class Solution {
      * @return Integer[]
      */
     function intersect($nums1, $nums2) {
-        $rs = [];
-        for ($i = 0; $i < count($nums1); $i++) {
-            $hashtable[$nums1[$i]] += 1;
-        }
-        for ($j = 0; $j < count($nums2); $j++) {
-            if (isset($hashtable[$nums2[$j]]) && $hashtable[$nums2[$j]] > 0) {
-                array_push($rs, $nums2[$j]);
-                $hashtable[$nums2[$j]] -= 1;
+        $cnt = [];
+        foreach ($nums1 as $x) {
+            if (isset($cnt[$x])) {
+                $cnt[$x]++;
+            } else {
+                $cnt[$x] = 1;
             }
         }
-        return $rs;
+
+        $ans = [];
+        foreach ($nums2 as $x) {
+            if (isset($cnt[$x]) && $cnt[$x] > 0) {
+                $ans[] = $x;
+                $cnt[$x]--;
+            }
+        }
+
+        return $ans;
     }
 }
 ```

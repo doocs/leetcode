@@ -2,6 +2,10 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3194.Minimum%20Average%20of%20Smallest%20and%20Largest%20Elements/README.md
+tags:
+    - 数组
+    - 双指针
+    - 排序
 ---
 
 <!-- problem:start -->

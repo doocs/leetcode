@@ -1,14 +1,13 @@
-func intersect(nums1 []int, nums2 []int) []int {
-	counter := make(map[int]int)
-	for _, num := range nums1 {
-		counter[num]++
+func intersect(nums1 []int, nums2 []int) (ans []int) {
+	cnt := map[int]int{}
+	for _, x := range nums1 {
+		cnt[x]++
 	}
-	var res []int
-	for _, num := range nums2 {
-		if counter[num] > 0 {
-			counter[num]--
-			res = append(res, num)
+	for _, x := range nums2 {
+		if cnt[x] > 0 {
+			ans = append(ans, x)
+			cnt[x]--
 		}
 	}
-	return res
+	return
 }

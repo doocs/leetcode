@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3196.Maximize%20Total%20Cost%20of%20Alternating%20Subarrays/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

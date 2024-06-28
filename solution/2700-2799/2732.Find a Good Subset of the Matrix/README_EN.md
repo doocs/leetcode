@@ -87,7 +87,7 @@ The length of the chosen subset is 1.
 We can consider the number of rows $k$ chosen for the answer from smallest to largest.
 
 -   If $k = 1$, the maximum sum of each column is $0$. Therefore, there must be a row where all elements are $0$, otherwise, the condition cannot be met.
--   If $k = 2$, the maximum sum of each column is $1$. There must exist two rows, and the bitwise OR result of these two rows' elements is $0$, otherwise, the condition cannot be met.
+-   If $k = 2$, the maximum sum of each column is $1$. There must exist two rows, and the bitwise AND result of these two rows' elements is $0$, otherwise, the condition cannot be met.
 -   If $k = 3$, the maximum sum of each column is also $1$. If the condition for $k = 2$ is not met, then the condition for $k = 3$ will definitely not be met either. Therefore, we do not need to consider any case where $k > 2$ and $k$ is odd.
 -   If $k = 4$, the maximum sum of each column is $2$. This situation definitely occurs when the condition for $k = 2$ is not met, meaning that for any two selected rows, there exists at least one column with a sum of $2$. When choosing any 2 rows out of 4, there are a total of $C_4^2 = 6$ ways to choose, so there are at least $6$ columns with a sum of $2$. Since the number of columns $n \le 5$, there must be at least one column with a sum greater than $2$, so the condition for $k = 4$ is also not met.
 -   For $k > 4$ and $k$ being even, we can draw the same conclusion, that $k$ definitely does not meet the condition.
