@@ -1,13 +1,12 @@
-func maximumImportance(n int, roads [][]int) int64 {
+func maximumImportance(n int, roads [][]int) (ans int64) {
 	deg := make([]int, n)
 	for _, r := range roads {
 		deg[r[0]]++
 		deg[r[1]]++
 	}
 	sort.Ints(deg)
-	var ans int64
-	for i := 0; i < n; i++ {
-		ans += int64((i + 1) * deg[i])
+	for i, x := range deg {
+		ans += int64(x) * int64(i+1)
 	}
-	return ans
+	return
 }

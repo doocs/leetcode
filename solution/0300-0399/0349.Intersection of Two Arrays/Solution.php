@@ -5,17 +5,9 @@ class Solution {
      * @return Integer[]
      */
     function intersection($nums1, $nums2) {
-        $rs = [];
-        $set1 = array_values(array_unique($nums1));
-        $set2 = array_values(array_unique($nums2));
-        for ($i = 0; $i < count($set1); $i++) {
-            $hashmap[$set1[$i]] = 1;
-        }
-        for ($j = 0; $j < count($set2); $j++) {
-            if ($hashmap[$set2[$j]]) {
-                array_push($rs, $set2[$j]);
-            }
-        }
-        return $rs;
+        $s1 = array_unique($nums1);
+        $s2 = array_unique($nums2);
+        $ans = array_intersect($s1, $s2);
+        return array_values($ans);
     }
 }
