@@ -1,13 +1,10 @@
 public class Solution {
     public int[] Intersection(int[] nums1, int[] nums2) {
-        List<int> result = new List<int>();
-        HashSet<int> arr1 = new(nums1);
-        HashSet<int> arr2 = new(nums2);
-        foreach (int x in arr1) {
-            if (arr2.Contains(x)) {
-                result.Add(x);
-            }
-        }
-        return result.ToArray();
+        HashSet<int> s1 = new HashSet<int>(nums1);
+        HashSet<int> s2 = new HashSet<int>(nums2);
+        s1.IntersectWith(s2);
+        int[] ans = new int[s1.Count];
+        s1.CopyTo(ans);
+        return ans;
     }
 }
