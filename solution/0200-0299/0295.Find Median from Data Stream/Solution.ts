@@ -1,32 +1,22 @@
 class MedianFinder {
-    private nums: number[];
-
-    constructor() {
-        this.nums = [];
-    }
+    #minQ = new MinPriorityQueue();
+    #maxQ = new MaxPriorityQueue();
 
     addNum(num: number): void {
-        const { nums } = this;
-        let l = 0;
-        let r = nums.length;
-        while (l < r) {
-            const mid = (l + r) >>> 1;
-            if (nums[mid] < num) {
-                l = mid + 1;
-            } else {
-                r = mid;
-            }
+        const [minQ, maxQ] = [this.#minQ, this.#maxQ];
+        maxQ.enqueue(num);
+        minQ.enqueue(maxQ.dequeue().element);
+        if (minQ.size() - maxQ.size() > 1) {
+            maxQ.enqueue(minQ.dequeue().element);
         }
-        nums.splice(l, 0, num);
     }
 
     findMedian(): number {
-        const { nums } = this;
-        const n = nums.length;
-        if ((n & 1) === 1) {
-            return nums[n >> 1];
+        const [minQ, maxQ] = [this.#minQ, this.#maxQ];
+        if (minQ.size() === maxQ.size()) {
+            return (minQ.front().element + maxQ.front().element) / 2;
         }
-        return (nums[n >> 1] + nums[(n >> 1) - 1]) / 2;
+        return minQ.front().element;
     }
 }
 
