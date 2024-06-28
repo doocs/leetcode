@@ -1,24 +1,23 @@
 class MedianFinder {
-    private var minHeap = Heap<Int>(sort: <)
-    private var maxHeap = Heap<Int>(sort: >)
+    private var minQ = Heap<Int>(sort: <)
+    private var maxQ = Heap<Int>(sort: >)
 
     init() {
     }
 
     func addNum(_ num: Int) {
-        maxHeap.insert(num)
-        minHeap.insert(maxHeap.remove()!)
-
-        if maxHeap.count < minHeap.count {
-            maxHeap.insert(minHeap.remove()!)
+        maxQ.insert(num)
+        minQ.insert(maxQ.remove()!)
+        if maxQ.count < minQ.count {
+            maxQ.insert(minQ.remove()!)
         }
     }
 
     func findMedian() -> Double {
-        if maxHeap.count > minHeap.count {
-            return Double(maxHeap.peek()!)
+        if maxQ.count > minQ.count {
+            return Double(maxQ.peek()!)
         }
-        return (Double(maxHeap.peek()!) + Double(minHeap.peek()!)) / 2.0
+        return (Double(maxQ.peek()!) + Double(minQ.peek()!)) / 2.0
     }
 }
 
@@ -103,3 +102,10 @@ struct Heap<T> {
         return 2 * index + 2
     }
 }
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * let obj = MedianFinder()
+ * obj.addNum(num)
+ * let ret_2: Double = obj.findMedian()
+ */
