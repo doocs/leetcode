@@ -1,11 +1,14 @@
 function topKFrequent(nums: number[], k: number): number[] {
-    const cnt = new Map();
-    for (const num of nums) {
-        cnt.set(num, (cnt.get(num) || 0) + 1);
+    const cnt = new Map<number, number>();
+    for (const x of nums) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
     }
-
-    return [...cnt]
-        .sort((a, b) => b[1] - a[1])
-        .splice(0, k)
-        .map(([x]) => x);
+    const pq = new MinPriorityQueue();
+    for (const [x, c] of cnt) {
+        pq.enqueue(x, c);
+        if (pq.size() > k) {
+            pq.dequeue();
+        }
+    }
+    return pq.toArray().map(x => x.element);
 }
