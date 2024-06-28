@@ -4,16 +4,15 @@
  * @return {number[]}
  */
 var intersect = function (nums1, nums2) {
-    const counter = {};
-    for (const num of nums1) {
-        counter[num] = (counter[num] || 0) + 1;
+    const cnt = {};
+    for (const x of nums1) {
+        cnt[x] = (cnt[x] || 0) + 1;
     }
-    let res = [];
-    for (const num of nums2) {
-        if (counter[num] > 0) {
-            res.push(num);
-            counter[num] -= 1;
+    const ans = [];
+    for (const x of nums2) {
+        if (cnt[x]-- > 0) {
+            ans.push(x);
         }
     }
-    return res;
+    return ans;
 };
