@@ -3,7 +3,6 @@ class MedianFinder {
     private PriorityQueue<Integer> maxQ = new PriorityQueue<>(Collections.reverseOrder());
 
     public MedianFinder() {
-
     }
 
     public void addNum(int num) {
