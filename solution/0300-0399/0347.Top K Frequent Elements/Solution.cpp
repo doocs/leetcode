@@ -1,20 +1,21 @@
-using pii = pair<int, int>;
-
 class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
         unordered_map<int, int> cnt;
-        for (int v : nums) ++cnt[v];
+        using pii = pair<int, int>;
+        for (int x : nums) {
+            ++cnt[x];
+        }
         priority_queue<pii, vector<pii>, greater<pii>> pq;
-        for (auto& [num, freq] : cnt) {
-            pq.push({freq, num});
+        for (auto& [x, c] : cnt) {
+            pq.push({c, x});
             if (pq.size() > k) {
                 pq.pop();
             }
         }
-        vector<int> ans(k);
-        for (int i = 0; i < k; ++i) {
-            ans[i] = pq.top().second;
+        vector<int> ans;
+        while (!pq.empty()) {
+            ans.push_back(pq.top().second);
             pq.pop();
         }
         return ans;
