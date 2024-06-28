@@ -1,36 +1,35 @@
+use std::cmp::Reverse;
+use std::collections::BinaryHeap;
+
 struct MedianFinder {
-    nums: Vec<i32>,
+    minQ: BinaryHeap<Reverse<i32>>,
+    maxQ: BinaryHeap<i32>,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl MedianFinder {
-    /** initialize your data structure here. */
     fn new() -> Self {
-        Self { nums: Vec::new() }
+        MedianFinder {
+            minQ: BinaryHeap::new(),
+            maxQ: BinaryHeap::new(),
+        }
     }
 
     fn add_num(&mut self, num: i32) {
-        let mut l = 0;
-        let mut r = self.nums.len();
-        while l < r {
-            let mid = (l + r) >> 1;
-            if self.nums[mid] < num {
-                l = mid + 1;
-            } else {
-                r = mid;
-            }
+        self.maxQ.push(num);
+        self.minQ.push(Reverse(self.maxQ.pop().unwrap()));
+
+        if self.minQ.len() > self.maxQ.len() + 1 {
+            self.maxQ.push(self.minQ.pop().unwrap().0);
         }
-        self.nums.insert(l, num);
     }
 
     fn find_median(&self) -> f64 {
-        let n = self.nums.len();
-        if (n & 1) == 1 {
-            return f64::from(self.nums[n >> 1]);
+        if self.minQ.len() == self.maxQ.len() {
+            let min_top = self.minQ.peek().unwrap().0;
+            let max_top = *self.maxQ.peek().unwrap();
+            (min_top + max_top) as f64 / 2.0
+        } else {
+            self.minQ.peek().unwrap().0 as f64
         }
-        f64::from(self.nums[n >> 1] + self.nums[(n >> 1) - 1]) / 2.0
     }
 }
