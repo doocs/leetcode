@@ -67,7 +67,7 @@ reader.compareSub(4, 4, 5, 5) // 返回 1。因此，可以确定 arr[4] 是数�
 <p><strong>提示:</strong></p>
 
 <ul>
-	<li><code>2 &lt;= arr.length&nbsp;&lt;= 5 * 10^5</code></li>
+	<li><code>2 &lt;= arr.length&nbsp;&lt;= 5 * 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= arr[i] &lt;= 100</code></li>
 	<li><code>arr</code>&nbsp;中除一个最大元素外，其余所有元素都相等。</li>
 </ul>
