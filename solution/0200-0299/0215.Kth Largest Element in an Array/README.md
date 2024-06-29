@@ -309,4 +309,30 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 3: Max priority heap
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function findKthLargest(nums: number[], k: number): number {
+    const maxPQ = new MaxPriorityQueue();
+    for (const x of nums) {
+        maxPQ.enqueue(x);
+    }
+
+    let res = 0;
+    while (k--) res = maxPQ.dequeue().element;
+
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
