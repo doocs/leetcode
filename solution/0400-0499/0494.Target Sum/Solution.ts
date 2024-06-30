@@ -1,15 +1,10 @@
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-var findTargetSumWays = function (nums, target) {
+function findTargetSumWays(nums: number[], target: number): number {
     const s = nums.reduce((a, b) => a + b, 0);
     if (s < target || (s - target) % 2) {
         return 0;
     }
     const [m, n] = [nums.length, ((s - target) / 2) | 0];
-    const f = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    const f: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
     f[0][0] = 1;
     for (let i = 1; i <= m; i++) {
         for (let j = 0; j <= n; j++) {
@@ -20,4 +15,4 @@ var findTargetSumWays = function (nums, target) {
         }
     }
     return f[m][n];
-};
+}
