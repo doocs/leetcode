@@ -1,36 +1,21 @@
 impl Solution {
-    #[allow(dead_code)]
     pub fn find_target_sum_ways(nums: Vec<i32>, target: i32) -> i32 {
-        let mut sum = 0;
-        for e in &nums {
-            sum += *e;
-        }
-
-        // -x + (sum - x) = target <-> -2 * x + sum = target <-> 2 * x = sum - target
-        if sum < target || (sum - target) % 2 != 0 {
-            // There is no way to get any expression in this case
+        let s: i32 = nums.iter().sum();
+        if s < target || (s - target) % 2 != 0 {
             return 0;
         }
-        let n = nums.len();
-        let m = (sum - target) / 2;
-
-        let mut dp: Vec<Vec<i32>> = vec![vec![0; m as usize + 1]; n + 1];
-
-        // Initialize the dp vector
-        dp[0][0] = 1;
-
-        // Begin the actual dp phase
-        for i in 1..=n {
-            for j in 0..=m as usize {
-                // nums[i - 1] is not included
-                dp[i][j] = dp[i - 1][j];
-                if nums[i - 1] <= (j as i32) {
-                    // nums[i - 1] is included
-                    dp[i][j] += dp[i - 1][j - (nums[i - 1] as usize)];
+        let m = nums.len();
+        let n = ((s - target) / 2) as usize;
+        let mut f = vec![vec![0; n + 1]; m + 1];
+        f[0][0] = 1;
+        for i in 1..=m {
+            for j in 0..=n {
+                f[i][j] = f[i - 1][j];
+                if j as i32 >= nums[i - 1] {
+                    f[i][j] += f[i - 1][j - nums[i - 1] as usize];
                 }
             }
         }
-
-        dp[n][m as usize]
+        f[m][n]
     }
 }
