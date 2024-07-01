@@ -48,11 +48,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Sorting
+### Solution 1: Quick Select
 
-We can sort the array $nums$ in ascending order, and then get $nums[n-k]$.
+Quick Select is an algorithm for finding the $k^{th}$ largest or smallest element in an unsorted array. Its basic idea is to select a pivot element each time, dividing the array into two parts: one part contains elements smaller than the pivot, and the other part contains elements larger than the pivot. Then, based on the position of the pivot, it decides whether to continue the search on the left or right side until the $k^{th}$ largest element is found.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\text{nums}$.
 
 <!-- tabs:start -->
 
@@ -61,11 +61,11 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of the arra
 ```python
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        def quick_sort(left, right, k):
-            if left == right:
-                return nums[left]
-            i, j = left - 1, right + 1
-            x = nums[(left + right) >> 1]
+        def quick_sort(l: int, r: int) -> int:
+            if l == r:
+                return nums[l]
+            i, j = l - 1, r + 1
+            x = nums[(l + r) >> 1]
             while i < j:
                 while 1:
                     i += 1
@@ -78,33 +78,38 @@ class Solution:
                 if i < j:
                     nums[i], nums[j] = nums[j], nums[i]
             if j < k:
-                return quick_sort(j + 1, right, k)
-            return quick_sort(left, j, k)
+                return quick_sort(j + 1, r)
+            return quick_sort(l, j)
 
         n = len(nums)
-        return quick_sort(0, n - 1, n - k)
+        k = n - k
+        return quick_sort(0, n - 1)
 ```
 
 #### Java
 
 ```java
 class Solution {
+    private int[] nums;
+    private int k;
+
     public int findKthLargest(int[] nums, int k) {
-        int n = nums.length;
-        return quickSort(nums, 0, n - 1, n - k);
+        this.nums = nums;
+        this.k = nums.length - k;
+        return quickSort(0, nums.length - 1);
     }
 
-    private int quickSort(int[] nums, int left, int right, int k) {
-        if (left == right) {
-            return nums[left];
+    private int quickSort(int l, int r) {
+        if (l == r) {
+            return nums[l];
         }
-        int i = left - 1, j = right + 1;
-        int x = nums[(left + right) >>> 1];
+        int i = l - 1, j = r + 1;
+        int x = nums[(l + r) >>> 1];
         while (i < j) {
-            while (nums[++i] < x)
-                ;
-            while (nums[--j] > x)
-                ;
+            while (nums[++i] < x) {
+            }
+            while (nums[--j] > x) {
+            }
             if (i < j) {
                 int t = nums[i];
                 nums[i] = nums[j];
@@ -112,9 +117,9 @@ class Solution {
             }
         }
         if (j < k) {
-            return quickSort(nums, j + 1, right, k);
+            return quickSort(j + 1, r);
         }
-        return quickSort(nums, left, j, k);
+        return quickSort(l, j);
     }
 }
 ```
@@ -126,21 +131,28 @@ class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
         int n = nums.size();
-        return quickSort(nums, 0, n - 1, n - k);
-    }
-
-    int quickSort(vector<int>& nums, int left, int right, int k) {
-        if (left == right) return nums[left];
-        int i = left - 1, j = right + 1;
-        int x = nums[left + right >> 1];
-        while (i < j) {
-            while (nums[++i] < x)
-                ;
-            while (nums[--j] > x)
-                ;
-            if (i < j) swap(nums[i], nums[j]);
-        }
-        return j < k ? quickSort(nums, j + 1, right, k) : quickSort(nums, left, j, k);
+        k = n - k;
+        auto quickSort = [&](auto&& quickSort, int l, int r) -> int {
+            if (l == r) {
+                return nums[l];
+            }
+            int i = l - 1, j = r + 1;
+            int x = nums[(l + r) >> 1];
+            while (i < j) {
+                while (nums[++i] < x) {
+                }
+                while (nums[--j] > x) {
+                }
+                if (i < j) {
+                    swap(nums[i], nums[j]);
+                }
+            }
+            if (j < k) {
+                return quickSort(quickSort, j + 1, r);
+            }
+            return quickSort(quickSort, l, j);
+        };
+        return quickSort(quickSort, 0, n - 1);
     }
 };
 ```
@@ -149,37 +161,37 @@ public:
 
 ```go
 func findKthLargest(nums []int, k int) int {
-	n := len(nums)
-	return quickSort(nums, 0, n-1, n-k)
-}
-
-func quickSort(nums []int, left, right, k int) int {
-	if left == right {
-		return nums[left]
-	}
-	i, j := left-1, right+1
-	x := nums[(left+right)>>1]
-	for i < j {
-		for {
-			i++
-			if nums[i] >= x {
-				break
+	k = len(nums) - k
+	var quickSort func(l, r int) int
+	quickSort = func(l, r int) int {
+		if l == r {
+			return nums[l]
+		}
+		i, j := l-1, r+1
+		x := nums[(l+r)>>1]
+		for i < j {
+			for {
+				i++
+				if nums[i] >= x {
+					break
+				}
+			}
+			for {
+				j--
+				if nums[j] <= x {
+					break
+				}
+			}
+			if i < j {
+				nums[i], nums[j] = nums[j], nums[i]
 			}
 		}
-		for {
-			j--
-			if nums[j] <= x {
-				break
-			}
+		if j < k {
+			return quickSort(j+1, r)
 		}
-		if i < j {
-			nums[i], nums[j] = nums[j], nums[i]
-		}
+		return quickSort(l, j)
 	}
-	if j < k {
-		return quickSort(nums, j+1, right, k)
-	}
-	return quickSort(nums, left, j, k)
+	return quickSort(0, len(nums)-1)
 }
 ```
 
@@ -188,62 +200,69 @@ func quickSort(nums []int, left, right, k int) int {
 ```ts
 function findKthLargest(nums: number[], k: number): number {
     const n = nums.length;
-    const swap = (i: number, j: number) => {
-        [nums[i], nums[j]] = [nums[j], nums[i]];
-    };
-    const sort = (l: number, r: number) => {
-        if (l + 1 > k || l >= r) {
-            return;
+    k = n - k;
+    const quickSort = (l: number, r: number): number => {
+        if (l === r) {
+            return nums[l];
         }
-        swap(l, l + Math.floor(Math.random() * (r - l)));
-        const num = nums[l];
-        let mark = l;
-        for (let i = l + 1; i < r; i++) {
-            if (nums[i] > num) {
-                mark++;
-                swap(i, mark);
+        let [i, j] = [l - 1, r + 1];
+        const x = nums[(l + r) >> 1];
+        while (i < j) {
+            while (nums[++i] < x);
+            while (nums[--j] > x);
+            if (i < j) {
+                [nums[i], nums[j]] = [nums[j], nums[i]];
             }
         }
-        swap(l, mark);
-
-        sort(l, mark);
-        sort(mark + 1, r);
+        if (j < k) {
+            return quickSort(j + 1, r);
+        }
+        return quickSort(l, j);
     };
-    sort(0, n);
-    return nums[k - 1];
+    return quickSort(0, n - 1);
 }
 ```
 
 #### Rust
 
 ```rust
-use rand::Rng;
-
 impl Solution {
-    fn sort(nums: &mut Vec<i32>, l: usize, r: usize, k: usize) {
-        if l + 1 > k || l >= r {
-            return;
-        }
-        nums.swap(l, rand::thread_rng().gen_range(l, r));
-        let num = nums[l];
-        let mut mark = l;
-        for i in l..r {
-            if nums[i] > num {
-                mark += 1;
-                nums.swap(i, mark);
-            }
-        }
-        nums.swap(l, mark);
-
-        Self::sort(nums, l, mark, k);
-        Self::sort(nums, mark + 1, r, k);
+    pub fn find_kth_largest(mut nums: Vec<i32>, k: i32) -> i32 {
+        let len = nums.len();
+        let k = len - k as usize;
+        Self::quick_sort(&mut nums, 0, len - 1, k)
     }
 
-    pub fn find_kth_largest(mut nums: Vec<i32>, k: i32) -> i32 {
-        let n = nums.len();
-        let k = k as usize;
-        Self::sort(&mut nums, 0, n, k);
-        nums[k - 1]
+    fn quick_sort(nums: &mut Vec<i32>, l: usize, r: usize, k: usize) -> i32 {
+        if l == r {
+            return nums[l];
+        }
+
+        let (mut i, mut j) = (l as isize - 1, r as isize + 1);
+        let x = nums[(l + r) / 2];
+
+        while i < j {
+            i += 1;
+            while nums[i as usize] < x {
+                i += 1;
+            }
+
+            j -= 1;
+            while nums[j as usize] > x {
+                j -= 1;
+            }
+
+            if i < j {
+                nums.swap(i as usize, j as usize);
+            }
+        }
+
+        let j = j as usize;
+        if j < k {
+            Self::quick_sort(nums, j + 1, r, k)
+        } else {
+            Self::quick_sort(nums, l, j, k)
+        }
     }
 }
 ```
@@ -254,106 +273,253 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Partition
+### Solution 2: Priority Queue (Min Heap)
 
-We notice that it is not always necessary for the entire array to be in an ordered state. We only need **local order**. That is to say, if the elements in the position $[0..k)$ are sorted in descending order, then we can determine the result. Here we use **quick sort**.
+We can maintain a min heap $\text{minQ}$ of size $k$, and then iterate through the array $\text{nums}$, adding each element to the min heap. When the size of the min heap exceeds $k$, we pop the top element of the heap. This way, the final $k$ elements in the min heap are the $k$ largest elements in the array, and the top element of the heap is the $k^{th}$ largest element.
 
-Quick sort has a characteristic that at the end of each loop, it can be determined that the $partition$ is definitely at the index position it should be. Therefore, based on it, we know whether the result value is in the left array or in the right array, and then sort that array.
-
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n\log k)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array $\text{nums}$.
 
 <!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        return nlargest(k, nums)[-1]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> minQ = new PriorityQueue<>();
+        for (int x : nums) {
+            minQ.offer(x);
+            if (minQ.size() > k) {
+                minQ.poll();
+            }
+        }
+        return minQ.peek();
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int, vector<int>, greater<int>> minQ;
+        for (int x : nums) {
+            minQ.push(x);
+            if (minQ.size() > k) {
+                minQ.pop();
+            }
+        }
+        return minQ.top();
+    }
+};
+```
+
+#### Go
+
+```go
+func findKthLargest(nums []int, k int) int {
+	minQ := hp{}
+	for _, x := range nums {
+		heap.Push(&minQ, x)
+		if minQ.Len() > k {
+			heap.Pop(&minQ)
+		}
+	}
+	return minQ.IntSlice[0]
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
+func (h *hp) Push(v any)        { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() any {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+```
+
+#### TypeScript
+
+```ts
+function findKthLargest(nums: number[], k: number): number {
+    const minQ = new MinPriorityQueue();
+    for (const x of nums) {
+        minQ.enqueue(x);
+        if (minQ.size() > k) {
+            minQ.dequeue();
+        }
+    }
+    return minQ.front().element;
+}
+```
 
 #### Rust
 
 ```rust
-use rand::Rng;
+use std::collections::BinaryHeap;
 
 impl Solution {
-    pub fn find_kth_largest(mut nums: Vec<i32>, k: i32) -> i32 {
-        let k = k as usize;
-        let n = nums.len();
-        let mut l = 0;
-        let mut r = n;
-        while l <= k - 1 && l < r {
-            nums.swap(l, rand::thread_rng().gen_range(l, r));
-            let num = nums[l];
-            let mut mark = l;
-            for i in l..r {
-                if nums[i] > num {
-                    mark += 1;
-                    nums.swap(i, mark);
+    pub fn find_kth_largest(nums: Vec<i32>, k: i32) -> i32 {
+        let mut minQ = BinaryHeap::new();
+        for &x in nums.iter() {
+            minQ.push(-x);
+            if minQ.len() > k as usize {
+                minQ.pop();
+            }
+        }
+        -minQ.peek().unwrap()
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Counting Sort
+
+We can use the idea of counting sort, counting the occurrence of each element in the array $\text{nums}$ and recording it in a hash table $\text{cnt}$. Then, we iterate over the elements $i$ from largest to smallest, subtracting the occurrence count $\text{cnt}[i]$ each time, until $k$ is less than or equal to $0$. At this point, the element $i$ is the $k^{th}$ largest element in the array.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\text{nums}$, and $m$ is the maximum value among the elements in $\text{nums}$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        cnt = Counter(nums)
+        for i in count(max(cnt), -1):
+            k -= cnt[i]
+            if k <= 0:
+                return i
+```
+
+#### Java
+
+```java
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        Map<Integer, Integer> cnt = new HashMap<>(nums.length);
+        int m = Integer.MIN_VALUE;
+        for (int x : nums) {
+            m = Math.max(m, x);
+            cnt.merge(x, 1, Integer::sum);
+        }
+        for (int i = m;; --i) {
+            k -= cnt.getOrDefault(i, 0);
+            if (k <= 0) {
+                return i;
+            }
+        }
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        unordered_map<int, int> cnt;
+        int m = INT_MIN;
+        for (int x : nums) {
+            ++cnt[x];
+            m = max(m, x);
+        }
+        for (int i = m;; --i) {
+            k -= cnt[i];
+            if (k <= 0) {
+                return i;
+            }
+        }
+    }
+};
+```
+
+#### Go
+
+```go
+func findKthLargest(nums []int, k int) int {
+	cnt := map[int]int{}
+	m := -(1 << 30)
+	for _, x := range nums {
+		cnt[x]++
+		m = max(m, x)
+	}
+	for i := m; ; i-- {
+		k -= cnt[i]
+		if k <= 0 {
+			return i
+		}
+	}
+
+}
+```
+
+#### TypeScript
+
+```ts
+function findKthLargest(nums: number[], k: number): number {
+    const cnt: Record<number, number> = {};
+    for (const x of nums) {
+        cnt[x] = (cnt[x] || 0) + 1;
+    }
+    const m = Math.max(...nums);
+    for (let i = m; ; --i) {
+        k -= cnt[i] || 0;
+        if (k <= 0) {
+            return i;
+        }
+    }
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn find_kth_largest(nums: Vec<i32>, k: i32) -> i32 {
+        let mut cnt = HashMap::new();
+        let mut m = i32::MIN;
+
+        for &x in &nums {
+            *cnt.entry(x).or_insert(0) += 1;
+            if x > m {
+                m = x;
+            }
+        }
+
+        let mut k = k;
+        for i in (i32::MIN..=m).rev() {
+            if let Some(&count) = cnt.get(&i) {
+                k -= count;
+                if k <= 0 {
+                    return i;
                 }
             }
-            nums.swap(l, mark);
-            if mark + 1 <= k {
-                l = mark + 1;
-            } else {
-                r = mark;
-            }
         }
-        nums[k - 1]
+
+        unreachable!();
     }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 3: Max priority heap
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function findKthLargest(nums: number[], k: number): number {
-    const maxPQ = new MaxPriorityQueue();
-    for (const x of nums) {
-        maxPQ.enqueue(x);
-    }
-
-    let res = 0;
-    while (k--) res = maxPQ.dequeue().element;
-
-    return res;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 4: Hash + counting
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function findKthLargest(nums: number[], k: number): number {
-    const n = 10 ** 4;
-    const length = n * 2 + 1;
-    const cnt = Array(length);
-
-    for (const x of nums) {
-        cnt[x + n] = (cnt[x + n] ?? 0) + 1;
-    }
-
-    for (let i = length; i >= 0; i--) {
-        if (!cnt[i]) continue;
-        k -= cnt[i];
-        if (k <= 0) return i - n;
-    }
-
-    return -1;
 }
 ```
 
