@@ -141,4 +141,32 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2. Priority queue
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function kClosest(points: number[][], k: number): number[][] {
+    const minPQ = new MinPriorityQueue();
+
+    for (const [x, y] of points) {
+        const d = x ** 2 + y ** 2;
+        minPQ.enqueue([x, y], d);
+    }
+
+    const res: number[][] = [];
+    while (k--) res.push(minPQ.dequeue().element);
+
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
