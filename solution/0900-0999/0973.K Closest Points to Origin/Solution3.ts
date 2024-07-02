@@ -1,31 +1,19 @@
 function kClosest(points: number[][], k: number): number[][] {
-    if (k === points.length) return points;
-
-    const distance = points.map(([x, y]) => x ** 2 + y ** 2);
-    let indexes = points.map((_, i) => i);
-    let [l, r] = [0, Math.max(...distance)];
-    const res: number[] = [];
-
-    while (k) {
+    const dist = points.map(([x, y]) => x * x + y * y);
+    let [l, r] = [0, Math.max(...dist)];
+    while (l < r) {
         const mid = (l + r) >> 1;
-
-        const closer: number[] = [];
-        const farther: number[] = [];
-        for (const i of indexes) {
-            if (distance[i] <= mid) closer.push(i);
-            else farther.push(i);
+        let cnt = 0;
+        for (const d of dist) {
+            if (d <= mid) {
+                ++cnt;
+            }
         }
-
-        if (closer.length > k) {
+        if (cnt >= k) {
             r = mid;
-            indexes = closer;
         } else {
-            l = mid;
-            k -= closer.length;
-            res.push(...closer);
-            indexes = farther;
+            l = mid + 1;
         }
     }
-
-    return res.map(i => points[i]);
+    return points.filter((_, i) => dist[i] <= l);
 }
