@@ -171,4 +171,30 @@ function partitionArray(nums: number[], k: number): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function partitionArray(nums: number[], k: number): number {
+    let c = 0;
+
+    while (nums.length) {
+        const max = Math.max(...nums) - k;
+        nums = nums.filter(x => x < max);
+        c++;
+    }
+
+    return c;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
