@@ -1,13 +1,11 @@
 function kClosest(points: number[][], k: number): number[][] {
-    const minPQ = new MinPriorityQueue();
-
+    const maxQ = new MaxPriorityQueue();
     for (const [x, y] of points) {
-        const d = x ** 2 + y ** 2;
-        minPQ.enqueue([x, y], d);
+        const dist = x * x + y * y;
+        maxQ.enqueue([x, y], dist);
+        if (maxQ.size() > k) {
+            maxQ.dequeue();
+        }
     }
-
-    const res: number[][] = [];
-    while (k--) res.push(minPQ.dequeue().element);
-
-    return res;
+    return maxQ.toArray().map(item => item.element);
 }
