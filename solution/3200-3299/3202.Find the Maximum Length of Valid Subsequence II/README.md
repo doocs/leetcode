@@ -68,32 +68,112 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
 
-<!-- tabs:start -->
+根据题目描述，我们可以得知，对于子序列 $a_1, a_2, a_3, \cdots, a_x$，如果满足 $(a_1 + a_2) \bmod k = (a_2 + a_3) \bmod k$。那么 $a_1 \bmod k = a_3 \bmod k$。也即是说，所有奇数项元素对 $k$ 取模的结果相同，所有偶数项元素对 $k$ 取模的结果相同。
+
+我们可以使用动态规划的方法解决这个问题。定义状态 $f[x][y]$ 表示最后一项对 $k$ 取模为 $x$，倒数第二项对 $k$ 取模为 $y$ 的最长有效子序列的长度。初始时 $f[x][y] = 0$。
+
+遍历数组 $nums$，对于每一个数 $x$，我们得到 $x = x \bmod k$。然后我们可以枚举序列连续两个数对 $j$ 取模结果相同，其中 $j \in [0, k)$。那么 $x$ 的前一个数对 $k$ 取模结果为 $y = (j - x + k) \bmod k$。此时 $f[x][y] = f[y][x] + 1$。
+
+答案为所有 $f[x][y]$ 中的最大值。
+
+时间复杂度 $O(n \times k)$，空间复杂度 $O(k^2)$。其中 $n$ 为数组 $\text{nums}$ 的长度，而 $k$ 为给定的正整数。
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maximumLength(self, nums: List[int], k: int) -> int:
+        f = [[0] * k for _ in range(k)]
+        ans = 0
+        for x in nums:
+            x %= k
+            for j in range(k):
+                y = (j - x + k) % k
+                f[x][y] = f[y][x] + 1
+                ans = max(ans, f[x][y])
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maximumLength(int[] nums, int k) {
+        int[][] f = new int[k][k];
+        int ans = 0;
+        for (int x : nums) {
+            x %= k;
+            for (int j = 0; j < k; ++j) {
+                int y = (j - x + k) % k;
+                f[x][y] = f[y][x] + 1;
+                ans = Math.max(ans, f[x][y]);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maximumLength(vector<int>& nums, int k) {
+        int f[k][k];
+        memset(f, 0, sizeof(f));
+        int ans = 0;
+        for (int x : nums) {
+            x %= k;
+            for (int j = 0; j < k; ++j) {
+                int y = (j - x + k) % k;
+                f[x][y] = f[y][x] + 1;
+                ans = max(ans, f[x][y]);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumLength(nums []int, k int) (ans int) {
+	f := make([][]int, k)
+	for i := range f {
+		f[i] = make([]int, k)
+	}
+	for _, x := range nums {
+		x %= k
+		for j := 0; j < k; j++ {
+			y := (j - x + k) % k
+			f[x][y] = f[y][x] + 1
+			ans = max(ans, f[x][y])
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function maximumLength(nums: number[], k: number): number {
+    const f: number[][] = Array.from({ length: k }, () => Array(k).fill(0));
+    let ans: number = 0;
+    for (let x of nums) {
+        x %= k;
+        for (let j = 0; j < k; ++j) {
+            const y = (j - x + k) % k;
+            f[x][y] = f[y][x] + 1;
+            ans = Math.max(ans, f[x][y]);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
