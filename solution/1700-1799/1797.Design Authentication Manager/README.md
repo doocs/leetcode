@@ -7,6 +7,8 @@ source: 第 48 场双周赛 Q2
 tags:
     - 设计
     - 哈希表
+    - 链表
+    - 双向链表
 ---
 
 <!-- problem:start -->

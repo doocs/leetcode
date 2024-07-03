@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个由整数数组组成的数组&nbsp;<code>arrays</code>，其中&nbsp;<code>arrays[i]</code>&nbsp;是 <strong>严格递增</strong> 排序的，返回一个表示 <strong>所有</strong> 数组之间的 <strong>最长公共子序列</strong> 的整数数组。</p>
+<p>给定一个由整数数组组成的数组&nbsp;<code>arrays</code>，其中&nbsp;<code>arrays[i]</code>&nbsp;是 <strong>严格递增</strong> 排序的，返回一个 <strong>所有</strong> 数组均包含的 <strong>最长公共子序列</strong> 的整数数组。</p>
 
 <p><strong>子序列</strong> 是从另一个序列派生出来的序列，删除一些元素或不删除任何元素，而不改变其余元素的顺序。</p>
 

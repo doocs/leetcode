@@ -1807,7 +1807,7 @@
 |  1794  |  [统计距离最小的子串对个数](/solution/1700-1799/1794.Count%20Pairs%20of%20Equal%20Substrings%20With%20Minimum%20Difference/README.md)  |  `贪心`,`哈希表`,`字符串`  |  中等  |  🔒  |
 |  1795  |  [每个产品在不同商店的价格](/solution/1700-1799/1795.Rearrange%20Products%20Table/README.md)  |  `数据库`  |  简单  |    |
 |  1796  |  [字符串中第二大的数字](/solution/1700-1799/1796.Second%20Largest%20Digit%20in%20a%20String/README.md)  |  `哈希表`,`字符串`  |  简单  |  第 48 场双周赛  |
-|  1797  |  [设计一个验证系统](/solution/1700-1799/1797.Design%20Authentication%20Manager/README.md)  |  `设计`,`哈希表`  |  中等  |  第 48 场双周赛  |
+|  1797  |  [设计一个验证系统](/solution/1700-1799/1797.Design%20Authentication%20Manager/README.md)  |  `设计`,`哈希表`,`链表`,`双向链表`  |  中等  |  第 48 场双周赛  |
 |  1798  |  [你能构造出连续值的最大数目](/solution/1700-1799/1798.Maximum%20Number%20of%20Consecutive%20Values%20You%20Can%20Make/README.md)  |  `贪心`,`数组`,`排序`  |  中等  |  第 48 场双周赛  |
 |  1799  |  [N 次操作后的最大分数和](/solution/1700-1799/1799.Maximize%20Score%20After%20N%20Operations/README.md)  |  `位运算`,`数组`,`数学`,`动态规划`,`回溯`,`状态压缩`,`数论`  |  困难  |  第 48 场双周赛  |
 |  1800  |  [最大升序子数组和](/solution/1800-1899/1800.Maximum%20Ascending%20Subarray%20Sum/README.md)  |  `数组`  |  简单  |  第 233 场周赛  |
@@ -3208,12 +3208,13 @@
 |  3195  |  [包含所有 1 的最小矩形面积 I](/solution/3100-3199/3195.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20I/README.md)  |  `数组`,`矩阵`  |  中等  |  第 403 场周赛  |
 |  3196  |  [最大化子数组的总成本](/solution/3100-3199/3196.Maximize%20Total%20Cost%20of%20Alternating%20Subarrays/README.md)  |  `数组`,`动态规划`  |  中等  |  第 403 场周赛  |
 |  3197  |  [包含所有 1 的最小矩形面积 II](/solution/3100-3199/3197.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20II/README.md)  |  `数组`,`枚举`,`矩阵`  |  困难  |  第 403 场周赛  |
-|  3198  |  [查找每个州的城市](/solution/3100-3199/3198.Find%20Cities%20in%20Each%20State/README.md)  |    |  简单  |  🔒  |
-|  3199  |  [Count Triplets with Even XOR Set Bits I](/solution/3100-3199/3199.Count%20Triplets%20with%20Even%20XOR%20Set%20Bits%20I/README.md)  |    |  简单  |  🔒  |
-|  3200  |  [三角形的最大高度](/solution/3200-3299/3200.Maximum%20Height%20of%20a%20Triangle/README.md)  |    |  简单  |  第 404 场周赛  |
-|  3201  |  [找出有效子序列的最大长度 I](/solution/3200-3299/3201.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20I/README.md)  |    |  中等  |  第 404 场周赛  |
-|  3202  |  [找出有效子序列的最大长度 II](/solution/3200-3299/3202.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20II/README.md)  |    |  中等  |  第 404 场周赛  |
-|  3203  |  [合并两棵树后的最小直径](/solution/3200-3299/3203.Find%20Minimum%20Diameter%20After%20Merging%20Two%20Trees/README.md)  |    |  困难  |  第 404 场周赛  |
+|  3198  |  [查找每个州的城市](/solution/3100-3199/3198.Find%20Cities%20in%20Each%20State/README.md)  |  `数据库`  |  简单  |  🔒  |
+|  3199  |  [Count Triplets with Even XOR Set Bits I](/solution/3100-3199/3199.Count%20Triplets%20with%20Even%20XOR%20Set%20Bits%20I/README.md)  |  `位运算`,`数组`  |  简单  |  🔒  |
+|  3200  |  [三角形的最大高度](/solution/3200-3299/3200.Maximum%20Height%20of%20a%20Triangle/README.md)  |  `数组`,`枚举`  |  简单  |  第 404 场周赛  |
+|  3201  |  [找出有效子序列的最大长度 I](/solution/3200-3299/3201.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20I/README.md)  |  `数组`,`动态规划`  |  中等  |  第 404 场周赛  |
+|  3202  |  [找出有效子序列的最大长度 II](/solution/3200-3299/3202.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20II/README.md)  |  `数组`,`动态规划`  |  中等  |  第 404 场周赛  |
+|  3203  |  [合并两棵树后的最小直径](/solution/3200-3299/3203.Find%20Minimum%20Diameter%20After%20Merging%20Two%20Trees/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`图`  |  困难  |  第 404 场周赛  |
+|  3204  |  [按位用户权限分析](/solution/3200-3299/3204.Bitwise%20User%20Permissions%20Analysis/README.md)  |  `数据库`  |  中等  |  🔒  |
 
 ## 版权
 

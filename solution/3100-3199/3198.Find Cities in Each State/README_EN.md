@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3198.Find%20Cities%20in%20Each%20State/README_EN.md
+tags:
+    - Database
 ---
 
 <!-- problem:start -->
