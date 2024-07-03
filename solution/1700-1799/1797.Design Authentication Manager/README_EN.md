@@ -7,6 +7,8 @@ source: Biweekly Contest 48 Q2
 tags:
     - Design
     - Hash Table
+    - Linked List
+    - Doubly-Linked List
 ---
 
 <!-- problem:start -->

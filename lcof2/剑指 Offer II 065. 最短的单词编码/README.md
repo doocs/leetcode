@@ -228,7 +228,7 @@ class Trie {
 class Solution {
     func minimumLengthEncoding(_ words: [String]) -> Int {
         let root = Trie()
-        
+
         for word in words {
             var current = root
             for char in word.reversed() {
@@ -239,25 +239,25 @@ class Solution {
                 current = current.children[index]!
             }
         }
-        
+
         return dfs(root, 1)
     }
-    
+
     private func dfs(_ current: Trie, _ length: Int) -> Int {
         var isLeaf = true
         var result = 0
-        
+
         for child in current.children {
             if let child = child {
                 isLeaf = false
                 result += dfs(child, length + 1)
             }
         }
-        
+
         if isLeaf {
             result += length
         }
-        
+
         return result
     }
 }
