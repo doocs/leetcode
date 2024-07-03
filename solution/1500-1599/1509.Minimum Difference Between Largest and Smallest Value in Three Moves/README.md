@@ -167,6 +167,22 @@ func minDifference(nums []int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function minDifference(nums: number[]): number {
+    if (nums.length < 5) return 0;
+    nums.sort((a, b) => a - b);
+    let res = Number.POSITIVE_INFINITY;
+
+    for (let i = 0; i < 4; i++) {
+        res = Math.min(res, nums.at(i - 4)! - nums[i]);
+    }
+
+    return res;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
