@@ -72,14 +72,14 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n
 ```python
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
-        left, right = 0, len(nums)
-        while left < right:
-            mid = (left + right) >> 1
+        l, r = 0, len(nums)
+        while l < r:
+            mid = (l + r) >> 1
             if nums[mid] >= target:
-                right = mid
+                r = mid
             else:
-                left = mid + 1
-        return left
+                l = mid + 1
+        return l
 ```
 
 #### Java
@@ -87,16 +87,16 @@ class Solution:
 ```java
 class Solution {
     public int searchInsert(int[] nums, int target) {
-        int left = 0, right = nums.length;
-        while (left < right) {
-            int mid = (left + right) >>> 1;
+        int l = 0, r = nums.length;
+        while (l < r) {
+            int mid = (l + r) >>> 1;
             if (nums[mid] >= target) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
@@ -107,15 +107,16 @@ class Solution {
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
-        int left = 0, right = nums.size();
-        while (left < right) {
-            int mid = left + right >> 1;
-            if (nums[mid] >= target)
-                right = mid;
-            else
-                left = mid + 1;
+        int l = 0, r = nums.size();
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= target) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
-        return left;
+        return l;
     }
 };
 ```
@@ -124,42 +125,52 @@ public:
 
 ```go
 func searchInsert(nums []int, target int) int {
-	left, right := 0, len(nums)
-	for left < right {
-		mid := (left + right) >> 1
+	l, r := 0, len(nums)
+	for l < r {
+		mid := (l + r) >> 1
 		if nums[mid] >= target {
-			right = mid
+			r = mid
 		} else {
-			left = mid + 1
+			l = mid + 1
 		}
 	}
-	return left
+	return l
+}
+```
+
+#### TypeScript
+
+```ts
+function searchInsert(nums: number[], target: number): number {
+    let [l, r] = [0, nums.length];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (nums[mid] >= target) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
 }
 ```
 
 #### Rust
 
 ```rust
-use std::cmp::Ordering;
 impl Solution {
     pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {
-        let mut left = 0;
-        let mut right = nums.len();
-        while left < right {
-            let mid = left + (right - left) / 2;
-            match nums[mid].cmp(&target) {
-                Ordering::Less => {
-                    left = mid + 1;
-                }
-                Ordering::Greater => {
-                    right = mid;
-                }
-                Ordering::Equal => {
-                    return mid as i32;
-                }
+        let mut l: usize = 0;
+        let mut r: usize = nums.len();
+        while l < r {
+            let mid = (l + r) >> 1;
+            if nums[mid] >= target {
+                r = mid;
+            } else {
+                l = mid + 1;
             }
         }
-        left as i32
+        l as i32
     }
 }
 ```
@@ -173,34 +184,41 @@ impl Solution {
  * @return {number}
  */
 var searchInsert = function (nums, target) {
-    let left = 0;
-    let right = nums.length;
-    while (left < right) {
-        const mid = (left + right) >> 1;
+    let [l, r] = [0, nums.length];
+    while (l < r) {
+        const mid = (l + r) >> 1;
         if (nums[mid] >= target) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
 };
 ```
 
-#### TypeScript
+#### PHP
 
-```ts
-function searchInsert(nums: number[], target: number): number {
-    let [l, r] = [0, nums.length - 1];
-
-    while (l <= r) {
-        const mid = (l + r) >> 1;
-        if (nums[mid] === target) return mid;
-        if (nums[mid] < target) l = mid + 1;
-        else r = mid - 1;
+```php
+class Solution {
+    /**
+     * @param Integer[] $nums
+     * @param Integer $target
+     * @return Integer
+     */
+    function searchInsert($nums, $target) {
+        $l = 0;
+        $r = count($nums);
+        while ($l < $r) {
+            $mid = $l + $r >> 1;
+            if ($nums[$mid] >= $target) {
+                $r = $mid;
+            } else {
+                $l = $mid + 1;
+            }
+        }
+        return $l;
     }
-
-    return l;
 }
 ```
 
@@ -253,29 +271,6 @@ public:
 ```go
 func searchInsert(nums []int, target int) int {
 	return sort.SearchInts(nums, target)
-}
-```
-
-#### PHP
-
-```php
-class Solution {
-    /**
-     * @param integer[] $nums
-     * @param integer $target
-     * @return integer
-     */
-
-    function searchInsert($nums, $target) {
-        $key = array_search($target, $nums);
-        if ($key !== false) {
-            return $key;
-        }
-
-        $nums[] = $target;
-        sort($nums);
-        return array_search($target, $nums);
-    }
 }
 ```
 
