@@ -52,16 +52,16 @@ tags:
 
 ### 方法一：二分查找
 
-我们定义二分查找的左边界 $left=0$，右边界 $right=n-1$。
+我们定义二分查找的左边界 $l=0$，右边界 $r=n-1$。
 
-每一次循环，我们计算中间位置 $mid=(left+right)/2$，然后判断 $nums[mid]$ 和 $target$ 的大小关系：
+每一次循环，我们计算中间位置 $\text{mid}=(l+r)/2$，然后比较 $\text{nums}[\text{mid}]$ 和 $\text{target}$ 的大小。
 
--   如果 $nums[mid] \geq target$，则说明 $target$ 在 $[left, mid]$ 之间，我们将 $right$ 更新为 $mid$；
--   否则，说明 $target$ 在 $[mid+1, right]$ 之间，我们将 $left$ 更新为 $mid+1$。
+-   如果 $\text{nums}[\text{mid}] \geq \text{target}$，说明 $\text{target}$ 在左半部分，我们将右边界 $r$ 移动到 $\text{mid}$；
+-   否则，说明 $\text{target}$ 在右半部分，我们将左边界 $l$ 移动到 $\text{mid}+1$。
 
-当 $left \geq right$ 时，我们判断 $nums[left]$ 是否等于 $target$，如果等于则返回 $left$，否则返回 $-1$。
+循环结束的条件是 $l<r$，此时 $\text{nums}[l]$ 就是我们要找的目标值，如果 $\text{nums}[l]=\text{target}$，返回 $l$，否则返回 $-1$。
 
-时间复杂度 $O(\log n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(\log n)$，其中 $n$ 是数组 $\text{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -70,14 +70,14 @@ tags:
 ```python
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        left, right = 0, len(nums) - 1
-        while left < right:
-            mid = (left + right) >> 1
+        l, r = 0, len(nums) - 1
+        while l < r:
+            mid = (l + r) >> 1
             if nums[mid] >= target:
-                right = mid
+                r = mid
             else:
-                left = mid + 1
-        return left if nums[left] == target else -1
+                l = mid + 1
+        return l if nums[l] == target else -1
 ```
 
 #### Java
@@ -85,16 +85,16 @@ class Solution:
 ```java
 class Solution {
     public int search(int[] nums, int target) {
-        int left = 0, right = nums.length - 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        int l = 0, r = nums.length - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (nums[mid] >= target) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return nums[left] == target ? left : -1;
+        return nums[l] == target ? l : -1;
     }
 }
 ```
@@ -105,15 +105,16 @@ class Solution {
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
-        int left = 0, right = nums.size() - 1;
-        while (left < right) {
-            int mid = left + right >> 1;
-            if (nums[mid] >= target)
-                right = mid;
-            else
-                left = mid + 1;
+        int l = 0, r = nums.size() - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= target) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
-        return nums[left] == target ? left : -1;
+        return nums[l] == target ? l : -1;
     }
 };
 ```
@@ -122,46 +123,59 @@ public:
 
 ```go
 func search(nums []int, target int) int {
-	left, right := 0, len(nums)-1
-	for left < right {
-		mid := (left + right) >> 1
+	l, r := 0, len(nums)-1
+	for l < r {
+		mid := (l + r) >> 1
 		if nums[mid] >= target {
-			right = mid
+			r = mid
 		} else {
-			left = mid + 1
+			l = mid + 1
 		}
 	}
-	if nums[left] == target {
-		return left
+	if nums[l] == target {
+		return l
 	}
 	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function search(nums: number[], target: number): number {
+    let [l, r] = [0, nums.length - 1];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (nums[mid] >= target) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return nums[l] === target ? l : -1;
 }
 ```
 
 #### Rust
 
 ```rust
-use std::cmp::Ordering;
-
 impl Solution {
     pub fn search(nums: Vec<i32>, target: i32) -> i32 {
-        let mut l = 0;
-        let mut r = nums.len();
+        let mut l: usize = 0;
+        let mut r: usize = nums.len() - 1;
         while l < r {
             let mid = (l + r) >> 1;
-            match nums[mid].cmp(&target) {
-                Ordering::Less => {
-                    l = mid + 1;
-                }
-                Ordering::Greater => {
-                    r = mid;
-                }
-                Ordering::Equal => {
-                    return mid as i32;
-                }
+            if nums[mid] >= target {
+                r = mid;
+            } else {
+                l = mid + 1;
             }
         }
-        -1
+        if nums[l] == target {
+            l as i32
+        } else {
+            -1
+        }
     }
 }
 ```
@@ -175,36 +189,17 @@ impl Solution {
  * @return {number}
  */
 var search = function (nums, target) {
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
+    let [l, r] = [0, nums.length - 1];
+    while (l < r) {
+        const mid = (l + r) >> 1;
         if (nums[mid] >= target) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return nums[left] == target ? left : -1;
+    return nums[l] === target ? l : -1;
 };
-```
-
-#### TypeScript
-
-```ts
-function search(nums: number[], target: number): number {
-    let [l, r] = [0, nums.length - 1];
-
-    while (l <= r) {
-        const mid = (l + r) >> 1;
-
-        if (nums[mid] === target) return mid;
-        if (nums[mid] < target) l = mid + 1;
-        else r = mid - 1;
-    }
-
-    return -1;
-}
 ```
 
 #### C#
@@ -212,16 +207,16 @@ function search(nums: number[], target: number): number {
 ```cs
 public class Solution {
     public int Search(int[] nums, int target) {
-        int left = 0, right = nums.Length - 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        int l = 0, r = nums.Length - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (nums[mid] >= target) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return nums[left] == target ? left : -1;
+        return nums[l] == target ? l : -1;
     }
 }
 ```
