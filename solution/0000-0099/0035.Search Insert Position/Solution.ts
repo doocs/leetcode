@@ -1,9 +1,4 @@
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-var searchInsert = function (nums, target) {
+function searchInsert(nums: number[], target: number): number {
     let [l, r] = [0, nums.length];
     while (l < r) {
         const mid = (l + r) >> 1;
@@ -14,4 +9,4 @@ var searchInsert = function (nums, target) {
         }
     }
     return l;
-};
+}
