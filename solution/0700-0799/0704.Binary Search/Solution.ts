@@ -1,9 +1,4 @@
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-var search = function (nums, target) {
+function search(nums: number[], target: number): number {
     let [l, r] = [0, nums.length - 1];
     while (l < r) {
         const mid = (l + r) >> 1;
@@ -14,4 +9,4 @@ var search = function (nums, target) {
         }
     }
     return nums[l] === target ? l : -1;
-};
+}

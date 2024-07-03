@@ -1,14 +1,14 @@
 public class Solution {
     public int Search(int[] nums, int target) {
-        int left = 0, right = nums.Length - 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        int l = 0, r = nums.Length - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (nums[mid] >= target) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return nums[left] == target ? left : -1;
+        return nums[l] == target ? l : -1;
     }
 }
