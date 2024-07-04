@@ -86,32 +86,295 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Prefix Sum + Binary Search
+
+We consider enumerating Alice's standing position $i$. For each $i$, we follow the strategy below:
+
+-   First, if the number at position $i$ is $1$, we can directly pick up a $1$ without needing any moves.
+-   Then, we pick up the number $1$ from both sides of position $i$, which is action $2$, i.e., move the $1$ from position $i-1$ to position $i$, then pick it up; move the $1$ from position $i+1$ to position $i$, then pick it up. Each pick up of a $1$ requires $1$ move.
+-   Next, we maximize the conversion of $0$s at positions $i-1$ or $i+1$ to $1$s using action $1$, then move them to position $i$ using action $2$ to pick them up. This continues until the number of $1$s picked up reaches $k$ or the number of times action $1$ is used reaches $\text{maxChanges}$. Assuming the number of times action $1$ is used is $c$, then a total of $2c$ moves are needed.
+-   After utilizing action $1$, if the number of $1$s picked up has not reached $k$, we need to continue considering moving $1$s to position $i$ from the intervals $[1,..i-2]$ and $[i+2,..n]$ using action $2$ to pick them up. We can use binary search to determine the size of this interval so that the number of $1$s picked up reaches $k$. Specifically, we binary search for an interval size $d$, then within the intervals $[i-d,..i-2]$ and $[i+2,..i+d]$, we perform action $2$ to move $1$s to position $i$ for pickup. If the number of $1$s picked up reaches $k$, we update the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\text{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minimumMoves(self, nums: List[int], k: int, maxChanges: int) -> int:
+        n = len(nums)
+        cnt = [0] * (n + 1)
+        s = [0] * (n + 1)
+        for i, x in enumerate(nums, 1):
+            cnt[i] = cnt[i - 1] + x
+            s[i] = s[i - 1] + i * x
+        ans = inf
+        max = lambda x, y: x if x > y else y
+        min = lambda x, y: x if x < y else y
+        for i, x in enumerate(nums, 1):
+            t = 0
+            need = k - x
+            for j in (i - 1, i + 1):
+                if need > 0 and 1 <= j <= n and nums[j - 1] == 1:
+                    need -= 1
+                    t += 1
+            c = min(need, maxChanges)
+            need -= c
+            t += c * 2
+            if need <= 0:
+                ans = min(ans, t)
+                continue
+            l, r = 2, max(i - 1, n - i)
+            while l <= r:
+                mid = (l + r) >> 1
+                l1, r1 = max(1, i - mid), max(0, i - 2)
+                l2, r2 = min(n + 1, i + 2), min(n, i + mid)
+                c1 = cnt[r1] - cnt[l1 - 1]
+                c2 = cnt[r2] - cnt[l2 - 1]
+                if c1 + c2 >= need:
+                    t1 = c1 * i - (s[r1] - s[l1 - 1])
+                    t2 = s[r2] - s[l2 - 1] - c2 * i
+                    ans = min(ans, t + t1 + t2)
+                    r = mid - 1
+                else:
+                    l = mid + 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long minimumMoves(int[] nums, int k, int maxChanges) {
+        int n = nums.length;
+        int[] cnt = new int[n + 1];
+        long[] s = new long[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            cnt[i] = cnt[i - 1] + nums[i - 1];
+            s[i] = s[i - 1] + i * nums[i - 1];
+        }
+        long ans = Long.MAX_VALUE;
+        for (int i = 1; i <= n; ++i) {
+            long t = 0;
+            int need = k - nums[i - 1];
+            for (int j = i - 1; j <= i + 1; j += 2) {
+                if (need > 0 && 1 <= j && j <= n && nums[j - 1] == 1) {
+                    --need;
+                    ++t;
+                }
+            }
+            int c = Math.min(need, maxChanges);
+            need -= c;
+            t += c * 2;
+            if (need <= 0) {
+                ans = Math.min(ans, t);
+                continue;
+            }
+            int l = 2, r = Math.max(i - 1, n - i);
+            while (l <= r) {
+                int mid = (l + r) >> 1;
+                int l1 = Math.max(1, i - mid), r1 = Math.max(0, i - 2);
+                int l2 = Math.min(n + 1, i + 2), r2 = Math.min(n, i + mid);
+                int c1 = cnt[r1] - cnt[l1 - 1];
+                int c2 = cnt[r2] - cnt[l2 - 1];
+                if (c1 + c2 >= need) {
+                    long t1 = 1L * c1 * i - (s[r1] - s[l1 - 1]);
+                    long t2 = s[r2] - s[l2 - 1] - 1L * c2 * i;
+                    ans = Math.min(ans, t + t1 + t2);
+                    r = mid - 1;
+                } else {
+                    l = mid + 1;
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long minimumMoves(vector<int>& nums, int k, int maxChanges) {
+        int n = nums.size();
+        vector<int> cnt(n + 1, 0);
+        vector<long long> s(n + 1, 0);
 
+        for (int i = 1; i <= n; ++i) {
+            cnt[i] = cnt[i - 1] + nums[i - 1];
+            s[i] = s[i - 1] + 1LL * i * nums[i - 1];
+        }
+
+        long long ans = LLONG_MAX;
+
+        for (int i = 1; i <= n; ++i) {
+            long long t = 0;
+            int need = k - nums[i - 1];
+
+            for (int j = i - 1; j <= i + 1; j += 2) {
+                if (need > 0 && 1 <= j && j <= n && nums[j - 1] == 1) {
+                    --need;
+                    ++t;
+                }
+            }
+
+            int c = min(need, maxChanges);
+            need -= c;
+            t += c * 2;
+
+            if (need <= 0) {
+                ans = min(ans, t);
+                continue;
+            }
+
+            int l = 2, r = max(i - 1, n - i);
+
+            while (l <= r) {
+                int mid = (l + r) / 2;
+                int l1 = max(1, i - mid), r1 = max(0, i - 2);
+                int l2 = min(n + 1, i + 2), r2 = min(n, i + mid);
+
+                int c1 = cnt[r1] - cnt[l1 - 1];
+                int c2 = cnt[r2] - cnt[l2 - 1];
+
+                if (c1 + c2 >= need) {
+                    long long t1 = 1LL * c1 * i - (s[r1] - s[l1 - 1]);
+                    long long t2 = s[r2] - s[l2 - 1] - 1LL * c2 * i;
+                    ans = min(ans, t + t1 + t2);
+                    r = mid - 1;
+                } else {
+                    l = mid + 1;
+                }
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minimumMoves(nums []int, k int, maxChanges int) int64 {
+	n := len(nums)
+	cnt := make([]int, n+1)
+	s := make([]int, n+1)
 
+	for i := 1; i <= n; i++ {
+		cnt[i] = cnt[i-1] + nums[i-1]
+		s[i] = s[i-1] + i*nums[i-1]
+	}
+
+	ans := math.MaxInt64
+
+	for i := 1; i <= n; i++ {
+		t := 0
+		need := k - nums[i-1]
+
+		for _, j := range []int{i - 1, i + 1} {
+			if need > 0 && 1 <= j && j <= n && nums[j-1] == 1 {
+				need--
+				t++
+			}
+		}
+
+		c := min(need, maxChanges)
+		need -= c
+		t += c * 2
+
+		if need <= 0 {
+			ans = min(ans, t)
+			continue
+		}
+
+		l, r := 2, max(i-1, n-i)
+
+		for l <= r {
+			mid := (l + r) >> 1
+			l1, r1 := max(1, i-mid), max(0, i-2)
+			l2, r2 := min(n+1, i+2), min(n, i+mid)
+
+			c1 := cnt[r1] - cnt[l1-1]
+			c2 := cnt[r2] - cnt[l2-1]
+
+			if c1+c2 >= need {
+				t1 := c1*i - (s[r1] - s[l1-1])
+				t2 := s[r2] - s[l2-1] - c2*i
+				ans = min(ans, t+t1+t2)
+				r = mid - 1
+			} else {
+				l = mid + 1
+			}
+		}
+	}
+
+	return int64(ans)
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumMoves(nums: number[], k: number, maxChanges: number): number {
+    const n = nums.length;
+    const cnt = Array(n + 1).fill(0);
+    const s = Array(n + 1).fill(0);
+
+    for (let i = 1; i <= n; i++) {
+        cnt[i] = cnt[i - 1] + nums[i - 1];
+        s[i] = s[i - 1] + i * nums[i - 1];
+    }
+
+    let ans = Infinity;
+    for (let i = 1; i <= n; i++) {
+        let t = 0;
+        let need = k - nums[i - 1];
+
+        for (let j of [i - 1, i + 1]) {
+            if (need > 0 && 1 <= j && j <= n && nums[j - 1] === 1) {
+                need--;
+                t++;
+            }
+        }
+
+        const c = Math.min(need, maxChanges);
+        need -= c;
+        t += c * 2;
+
+        if (need <= 0) {
+            ans = Math.min(ans, t);
+            continue;
+        }
+
+        let l = 2,
+            r = Math.max(i - 1, n - i);
+
+        while (l <= r) {
+            const mid = (l + r) >> 1;
+            const [l1, r1] = [Math.max(1, i - mid), Math.max(0, i - 2)];
+            const [l2, r2] = [Math.min(n + 1, i + 2), Math.min(n, i + mid)];
+
+            const c1 = cnt[r1] - cnt[l1 - 1];
+            const c2 = cnt[r2] - cnt[l2 - 1];
+
+            if (c1 + c2 >= need) {
+                const t1 = c1 * i - (s[r1] - s[l1 - 1]);
+                const t2 = s[r2] - s[l2 - 1] - c2 * i;
+                ans = Math.min(ans, t + t1 + t2);
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
