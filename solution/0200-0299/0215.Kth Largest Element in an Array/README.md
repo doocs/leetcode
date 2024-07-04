@@ -56,11 +56,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：排序
+### 方法一：快速选择
 
-我们可以将数组 $nums$ 升序排列，然后获取 $nums[n-k]$。
+快速选择算法是一种在未排序的数组中查找第 `k` 个最大元素或最小元素的算法。它的基本思想是每次选择一个基准元素，将数组分为两部分，一部分的元素都比基准元素小，另一部分的元素都比基准元素大，然后根据基准元素的位置，决定继续在左边还是右边查找，直到找到第 `k` 个最大元素。
 
-时间复杂度 $O(n \times \log n)$，其中 $n$ 表示数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\text{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -69,11 +69,11 @@ tags:
 ```python
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        def quick_sort(left, right, k):
-            if left == right:
-                return nums[left]
-            i, j = left - 1, right + 1
-            x = nums[(left + right) >> 1]
+        def quick_sort(l: int, r: int) -> int:
+            if l == r:
+                return nums[l]
+            i, j = l - 1, r + 1
+            x = nums[(l + r) >> 1]
             while i < j:
                 while 1:
                     i += 1
@@ -86,33 +86,38 @@ class Solution:
                 if i < j:
                     nums[i], nums[j] = nums[j], nums[i]
             if j < k:
-                return quick_sort(j + 1, right, k)
-            return quick_sort(left, j, k)
+                return quick_sort(j + 1, r)
+            return quick_sort(l, j)
 
         n = len(nums)
-        return quick_sort(0, n - 1, n - k)
+        k = n - k
+        return quick_sort(0, n - 1)
 ```
 
 #### Java
 
 ```java
 class Solution {
+    private int[] nums;
+    private int k;
+
     public int findKthLargest(int[] nums, int k) {
-        int n = nums.length;
-        return quickSort(nums, 0, n - 1, n - k);
+        this.nums = nums;
+        this.k = nums.length - k;
+        return quickSort(0, nums.length - 1);
     }
 
-    private int quickSort(int[] nums, int left, int right, int k) {
-        if (left == right) {
-            return nums[left];
+    private int quickSort(int l, int r) {
+        if (l == r) {
+            return nums[l];
         }
-        int i = left - 1, j = right + 1;
-        int x = nums[(left + right) >>> 1];
+        int i = l - 1, j = r + 1;
+        int x = nums[(l + r) >>> 1];
         while (i < j) {
-            while (nums[++i] < x)
-                ;
-            while (nums[--j] > x)
-                ;
+            while (nums[++i] < x) {
+            }
+            while (nums[--j] > x) {
+            }
             if (i < j) {
                 int t = nums[i];
                 nums[i] = nums[j];
@@ -120,9 +125,9 @@ class Solution {
             }
         }
         if (j < k) {
-            return quickSort(nums, j + 1, right, k);
+            return quickSort(j + 1, r);
         }
-        return quickSort(nums, left, j, k);
+        return quickSort(l, j);
     }
 }
 ```
@@ -134,21 +139,28 @@ class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
         int n = nums.size();
-        return quickSort(nums, 0, n - 1, n - k);
-    }
-
-    int quickSort(vector<int>& nums, int left, int right, int k) {
-        if (left == right) return nums[left];
-        int i = left - 1, j = right + 1;
-        int x = nums[left + right >> 1];
-        while (i < j) {
-            while (nums[++i] < x)
-                ;
-            while (nums[--j] > x)
-                ;
-            if (i < j) swap(nums[i], nums[j]);
-        }
-        return j < k ? quickSort(nums, j + 1, right, k) : quickSort(nums, left, j, k);
+        k = n - k;
+        auto quickSort = [&](auto&& quickSort, int l, int r) -> int {
+            if (l == r) {
+                return nums[l];
+            }
+            int i = l - 1, j = r + 1;
+            int x = nums[(l + r) >> 1];
+            while (i < j) {
+                while (nums[++i] < x) {
+                }
+                while (nums[--j] > x) {
+                }
+                if (i < j) {
+                    swap(nums[i], nums[j]);
+                }
+            }
+            if (j < k) {
+                return quickSort(quickSort, j + 1, r);
+            }
+            return quickSort(quickSort, l, j);
+        };
+        return quickSort(quickSort, 0, n - 1);
     }
 };
 ```
@@ -157,37 +169,37 @@ public:
 
 ```go
 func findKthLargest(nums []int, k int) int {
-	n := len(nums)
-	return quickSort(nums, 0, n-1, n-k)
-}
-
-func quickSort(nums []int, left, right, k int) int {
-	if left == right {
-		return nums[left]
-	}
-	i, j := left-1, right+1
-	x := nums[(left+right)>>1]
-	for i < j {
-		for {
-			i++
-			if nums[i] >= x {
-				break
+	k = len(nums) - k
+	var quickSort func(l, r int) int
+	quickSort = func(l, r int) int {
+		if l == r {
+			return nums[l]
+		}
+		i, j := l-1, r+1
+		x := nums[(l+r)>>1]
+		for i < j {
+			for {
+				i++
+				if nums[i] >= x {
+					break
+				}
+			}
+			for {
+				j--
+				if nums[j] <= x {
+					break
+				}
+			}
+			if i < j {
+				nums[i], nums[j] = nums[j], nums[i]
 			}
 		}
-		for {
-			j--
-			if nums[j] <= x {
-				break
-			}
+		if j < k {
+			return quickSort(j+1, r)
 		}
-		if i < j {
-			nums[i], nums[j] = nums[j], nums[i]
-		}
+		return quickSort(l, j)
 	}
-	if j < k {
-		return quickSort(nums, j+1, right, k)
-	}
-	return quickSort(nums, left, j, k)
+	return quickSort(0, len(nums)-1)
 }
 ```
 
@@ -196,62 +208,69 @@ func quickSort(nums []int, left, right, k int) int {
 ```ts
 function findKthLargest(nums: number[], k: number): number {
     const n = nums.length;
-    const swap = (i: number, j: number) => {
-        [nums[i], nums[j]] = [nums[j], nums[i]];
-    };
-    const sort = (l: number, r: number) => {
-        if (l + 1 > k || l >= r) {
-            return;
+    k = n - k;
+    const quickSort = (l: number, r: number): number => {
+        if (l === r) {
+            return nums[l];
         }
-        swap(l, l + Math.floor(Math.random() * (r - l)));
-        const num = nums[l];
-        let mark = l;
-        for (let i = l + 1; i < r; i++) {
-            if (nums[i] > num) {
-                mark++;
-                swap(i, mark);
+        let [i, j] = [l - 1, r + 1];
+        const x = nums[(l + r) >> 1];
+        while (i < j) {
+            while (nums[++i] < x);
+            while (nums[--j] > x);
+            if (i < j) {
+                [nums[i], nums[j]] = [nums[j], nums[i]];
             }
         }
-        swap(l, mark);
-
-        sort(l, mark);
-        sort(mark + 1, r);
+        if (j < k) {
+            return quickSort(j + 1, r);
+        }
+        return quickSort(l, j);
     };
-    sort(0, n);
-    return nums[k - 1];
+    return quickSort(0, n - 1);
 }
 ```
 
 #### Rust
 
 ```rust
-use rand::Rng;
-
 impl Solution {
-    fn sort(nums: &mut Vec<i32>, l: usize, r: usize, k: usize) {
-        if l + 1 > k || l >= r {
-            return;
-        }
-        nums.swap(l, rand::thread_rng().gen_range(l, r));
-        let num = nums[l];
-        let mut mark = l;
-        for i in l..r {
-            if nums[i] > num {
-                mark += 1;
-                nums.swap(i, mark);
-            }
-        }
-        nums.swap(l, mark);
-
-        Self::sort(nums, l, mark, k);
-        Self::sort(nums, mark + 1, r, k);
+    pub fn find_kth_largest(mut nums: Vec<i32>, k: i32) -> i32 {
+        let len = nums.len();
+        let k = len - k as usize;
+        Self::quick_sort(&mut nums, 0, len - 1, k)
     }
 
-    pub fn find_kth_largest(mut nums: Vec<i32>, k: i32) -> i32 {
-        let n = nums.len();
-        let k = k as usize;
-        Self::sort(&mut nums, 0, n, k);
-        nums[k - 1]
+    fn quick_sort(nums: &mut Vec<i32>, l: usize, r: usize, k: usize) -> i32 {
+        if l == r {
+            return nums[l];
+        }
+
+        let (mut i, mut j) = (l as isize - 1, r as isize + 1);
+        let x = nums[(l + r) / 2];
+
+        while i < j {
+            i += 1;
+            while nums[i as usize] < x {
+                i += 1;
+            }
+
+            j -= 1;
+            while nums[j as usize] > x {
+                j -= 1;
+            }
+
+            if i < j {
+                nums.swap(i as usize, j as usize);
+            }
+        }
+
+        let j = j as usize;
+        if j < k {
+            Self::quick_sort(nums, j + 1, r, k)
+        } else {
+            Self::quick_sort(nums, l, j, k)
+        }
     }
 }
 ```
@@ -262,45 +281,252 @@ impl Solution {
 
 <!-- solution:start -->
 
-### 方法二：Partition
+### 方法二：优先队列（小根堆）
 
-我们注意到，并不是所有时候，都需要整个数组进入有序状态，只需要**局部有序**，或者说，从大到小排序，只要 $[0..k)$ 位置的元素有序，那么就能确定结果，此处使用**快速排序**。
+我们可以维护一个大小为 $k$ 的小根堆 $\text{minQ}$，然后遍历数组 $\text{nums}$，将数组中的元素依次加入到小根堆中，当小根堆的大小超过 $k$ 时，我们将堆顶元素弹出，这样最终小根堆中的 $k$ 个元素就是数组中的 $k$ 个最大元素，堆顶元素就是第 $k$ 个最大元素。
 
-快速排序有一特点，每一次循环结束时，能够确定的是 $partition$ 一定处于它该处于的索引位置。从而根据它得知，结果值是在左数组还是在右数组当中，然后对那一数组进行排序即可。
-
-时间复杂度 $O(n)$，其中 $n$ 表示数组 $nums$ 的长度。
+时间复杂度 $O(n\log k)$，空间复杂度 $O(k)$。其中 $n$ 为数组 $\text{nums}$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        return nlargest(k, nums)[-1]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> minQ = new PriorityQueue<>();
+        for (int x : nums) {
+            minQ.offer(x);
+            if (minQ.size() > k) {
+                minQ.poll();
+            }
+        }
+        return minQ.peek();
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int, vector<int>, greater<int>> minQ;
+        for (int x : nums) {
+            minQ.push(x);
+            if (minQ.size() > k) {
+                minQ.pop();
+            }
+        }
+        return minQ.top();
+    }
+};
+```
+
+#### Go
+
+```go
+func findKthLargest(nums []int, k int) int {
+	minQ := hp{}
+	for _, x := range nums {
+		heap.Push(&minQ, x)
+		if minQ.Len() > k {
+			heap.Pop(&minQ)
+		}
+	}
+	return minQ.IntSlice[0]
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
+func (h *hp) Push(v any)        { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() any {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+```
+
+#### TypeScript
+
+```ts
+function findKthLargest(nums: number[], k: number): number {
+    const minQ = new MinPriorityQueue();
+    for (const x of nums) {
+        minQ.enqueue(x);
+        if (minQ.size() > k) {
+            minQ.dequeue();
+        }
+    }
+    return minQ.front().element;
+}
+```
 
 #### Rust
 
 ```rust
-use rand::Rng;
+use std::collections::BinaryHeap;
 
 impl Solution {
-    pub fn find_kth_largest(mut nums: Vec<i32>, k: i32) -> i32 {
-        let k = k as usize;
-        let n = nums.len();
-        let mut l = 0;
-        let mut r = n;
-        while l <= k - 1 && l < r {
-            nums.swap(l, rand::thread_rng().gen_range(l, r));
-            let num = nums[l];
-            let mut mark = l;
-            for i in l..r {
-                if nums[i] > num {
-                    mark += 1;
-                    nums.swap(i, mark);
-                }
-            }
-            nums.swap(l, mark);
-            if mark + 1 <= k {
-                l = mark + 1;
-            } else {
-                r = mark;
+    pub fn find_kth_largest(nums: Vec<i32>, k: i32) -> i32 {
+        let mut minQ = BinaryHeap::new();
+        for &x in nums.iter() {
+            minQ.push(-x);
+            if minQ.len() > k as usize {
+                minQ.pop();
             }
         }
-        nums[k - 1]
+        -minQ.peek().unwrap()
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：计数排序
+
+我们可以使用计数排序的思想，统计数组 $\text{nums}$ 中每个元素出现的次数，记录在哈希表 $\text{cnt}$ 中，然后从大到小遍历元素 $i$，每次减去出现的次数 $\text{cnt}[i]$，直到 $k$ 小于等于 $0$，此时的元素 $i$ 就是数组中的第 $k$ 个最大元素。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\text{nums}$ 的长度，而 $m$ 为数组 $\text{nums}$ 中元素的最大值。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        cnt = Counter(nums)
+        for i in count(max(cnt), -1):
+            k -= cnt[i]
+            if k <= 0:
+                return i
+```
+
+#### Java
+
+```java
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        Map<Integer, Integer> cnt = new HashMap<>(nums.length);
+        int m = Integer.MIN_VALUE;
+        for (int x : nums) {
+            m = Math.max(m, x);
+            cnt.merge(x, 1, Integer::sum);
+        }
+        for (int i = m;; --i) {
+            k -= cnt.getOrDefault(i, 0);
+            if (k <= 0) {
+                return i;
+            }
+        }
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        unordered_map<int, int> cnt;
+        int m = INT_MIN;
+        for (int x : nums) {
+            ++cnt[x];
+            m = max(m, x);
+        }
+        for (int i = m;; --i) {
+            k -= cnt[i];
+            if (k <= 0) {
+                return i;
+            }
+        }
+    }
+};
+```
+
+#### Go
+
+```go
+func findKthLargest(nums []int, k int) int {
+	cnt := map[int]int{}
+	m := -(1 << 30)
+	for _, x := range nums {
+		cnt[x]++
+		m = max(m, x)
+	}
+	for i := m; ; i-- {
+		k -= cnt[i]
+		if k <= 0 {
+			return i
+		}
+	}
+
+}
+```
+
+#### TypeScript
+
+```ts
+function findKthLargest(nums: number[], k: number): number {
+    const cnt: Record<number, number> = {};
+    for (const x of nums) {
+        cnt[x] = (cnt[x] || 0) + 1;
+    }
+    const m = Math.max(...nums);
+    for (let i = m; ; --i) {
+        k -= cnt[i] || 0;
+        if (k <= 0) {
+            return i;
+        }
+    }
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn find_kth_largest(nums: Vec<i32>, k: i32) -> i32 {
+        let mut cnt = HashMap::new();
+        let mut m = i32::MIN;
+
+        for &x in &nums {
+            *cnt.entry(x).or_insert(0) += 1;
+            if x > m {
+                m = x;
+            }
+        }
+
+        let mut k = k;
+        for i in (i32::MIN..=m).rev() {
+            if let Some(&count) = cnt.get(&i) {
+                k -= count;
+                if k <= 0 {
+                    return i;
+                }
+            }
+        }
+
+        unreachable!();
     }
 }
 ```

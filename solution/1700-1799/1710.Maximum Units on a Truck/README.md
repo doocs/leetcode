@@ -151,18 +151,13 @@ func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 #### TypeScript
 
 ```ts
-function maximumUnits(boxTypes: number[][], truckSize: number): number {
-    boxTypes.sort((a, b) => b[1] - a[1]);
-    let sum = 0;
+export function maximumUnits(boxTypes: number[][], truckSize: number): number {
+    boxTypes.sort(([_, a], [__, b]) => b - a);
     let ans = 0;
     for (const [count, size] of boxTypes) {
-        if (sum + count < truckSize) {
-            ans += size * count;
-            sum += count;
-        } else {
-            ans += (truckSize - sum) * size;
-            break;
-        }
+        ans += Math.min(truckSize, count) * size;
+        truckSize -= count;
+        if (truckSize < 0) break;
     }
     return ans;
 }
@@ -296,16 +291,13 @@ func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 
 ```ts
 function maximumUnits(boxTypes: number[][], truckSize: number): number {
-    const cnt = new Array(1001).fill(0);
-    for (const [a, b] of boxTypes) {
-        cnt[b] += a;
-    }
+    boxTypes.sort(([_, a], [__, b]) => b - a);
     let ans = 0;
-    for (let b = 1000; b > 0 && truckSize > 0; --b) {
-        const a = cnt[b];
-        if (a > 0) {
-            ans += b * Math.min(truckSize, a);
-            truckSize -= a;
+    for (const [count, size] of boxTypes) {
+        ans += Math.min(truckSize, count) * size;
+        truckSize -= count;
+        if (truckSize < 0) {
+            break;
         }
     }
     return ans;

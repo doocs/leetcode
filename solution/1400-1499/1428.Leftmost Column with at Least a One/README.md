@@ -19,11 +19,9 @@ tags:
 
 <!-- description:start -->
 
-<p><em>（这是一个<strong>交互题</strong>）</em></p>
+<p><strong>行排序二进制矩阵</strong>&nbsp;表示所有元素都是 <code>0</code> 或 <code>1</code>，并且矩阵的每一行都以非递减排序。</p>
 
-<p>我们称只包含元素&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code>&nbsp;的矩阵为二进制矩阵。矩阵中每个<strong>单独</strong>的行都按非递减顺序排序。</p>
-
-<p>给定一个这样的二进制矩阵，返回至少包含一个&nbsp;<code>1</code>&nbsp;的最左端列的索引（从 0 开始）。如果这样的列不存在，返回&nbsp;<code>-1</code>。</p>
+<p>给定一个 <strong>行排序二进制矩阵&nbsp;</strong><code>binaryMatrix</code>，返回至少包含一个&nbsp;<code>1</code>&nbsp;的 <strong>最左端列&nbsp;</strong>的索引（从 0 开始）。如果这样的列不存在，返回&nbsp;<code>-1</code>。</p>
 
 <p><strong>您不能直接访问该二进制矩阵。</strong>你只可以通过&nbsp;<code>BinaryMatrix</code>&nbsp;接口来访问。</p>
 
@@ -62,15 +60,7 @@ tags:
 
 <pre>
 <strong>输入:</strong> mat = [[0,0],[0,0]]
-<strong>输出:</strong> -1</pre>
-
-<p><strong>示例 4:</strong></p>
-
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1428.Leftmost%20Column%20with%20at%20Least%20a%20One/images/untitled-diagram-6.jpg" style="height:121px; width:161px" /></strong></p>
-
-<pre>
-<strong>输入:</strong> mat = [[0,0,0,1],[0,0,1,1],[0,1,1,1]]
-<strong>输出:</strong> 1
+<strong>输出:</strong> -1
 </pre>
 
 <p>&nbsp;</p>

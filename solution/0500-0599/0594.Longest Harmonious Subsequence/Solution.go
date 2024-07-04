@@ -1,13 +1,12 @@
-func findLHS(nums []int) int {
-	counter := make(map[int]int)
-	for _, num := range nums {
-		counter[num]++
+func findLHS(nums []int) (ans int) {
+	cnt := map[int]int{}
+	for _, x := range nums {
+		cnt[x]++
 	}
-	ans := 0
-	for _, num := range nums {
-		if counter[num+1] > 0 {
-			ans = max(ans, counter[num]+counter[num+1])
+	for x, c := range cnt {
+		if c1, ok := cnt[x+1]; ok {
+			ans = max(ans, c+c1)
 		}
 	}
-	return ans
+	return
 }

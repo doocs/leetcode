@@ -78,7 +78,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+We can use a hash table $\text{cnt}$ to record the occurrence count of each element in the array $\text{nums}$. Then, we iterate through each key-value pair $(x, c)$ in the hash table. If the key $x + 1$ exists in the hash table, then the sum of occurrences of elements $x$ and $x + 1$, $c + \text{cnt}[x + 1]$, forms a harmonious subsequence. We just need to find the maximum length among all harmonious subsequences.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$.
 
 <!-- tabs:start -->
 
@@ -87,12 +91,8 @@ tags:
 ```python
 class Solution:
     def findLHS(self, nums: List[int]) -> int:
-        ans = 0
-        counter = Counter(nums)
-        for num in nums:
-            if num + 1 in counter:
-                ans = max(ans, counter[num] + counter[num + 1])
-        return ans
+        cnt = Counter(nums)
+        return max((c + cnt[x + 1] for x, c in cnt.items() if cnt[x + 1]), default=0)
 ```
 
 #### Java
@@ -100,14 +100,15 @@ class Solution:
 ```java
 class Solution {
     public int findLHS(int[] nums) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        for (int num : nums) {
-            counter.put(num, counter.getOrDefault(num, 0) + 1);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            cnt.merge(x, 1, Integer::sum);
         }
         int ans = 0;
-        for (int num : nums) {
-            if (counter.containsKey(num + 1)) {
-                ans = Math.max(ans, counter.get(num) + counter.get(num + 1));
+        for (var e : cnt.entrySet()) {
+            int x = e.getKey(), c = e.getValue();
+            if (cnt.containsKey(x + 1)) {
+                ans = Math.max(ans, c + cnt.get(x + 1));
             }
         }
         return ans;
@@ -121,14 +122,14 @@ class Solution {
 class Solution {
 public:
     int findLHS(vector<int>& nums) {
-        unordered_map<int, int> counter;
-        for (int num : nums) {
-            ++counter[num];
+        unordered_map<int, int> cnt;
+        for (int x : nums) {
+            ++cnt[x];
         }
         int ans = 0;
-        for (int num : nums) {
-            if (counter.count(num + 1)) {
-                ans = max(ans, counter[num] + counter[num + 1]);
+        for (auto& [x, c] : cnt) {
+            if (cnt.contains(x + 1)) {
+                ans = max(ans, c + cnt[x + 1]);
             }
         }
         return ans;
@@ -139,41 +140,37 @@ public:
 #### Go
 
 ```go
-func findLHS(nums []int) int {
-	counter := make(map[int]int)
-	for _, num := range nums {
-		counter[num]++
+func findLHS(nums []int) (ans int) {
+	cnt := map[int]int{}
+	for _, x := range nums {
+		cnt[x]++
 	}
-	ans := 0
-	for _, num := range nums {
-		if counter[num+1] > 0 {
-			ans = max(ans, counter[num]+counter[num+1])
+	for x, c := range cnt {
+		if c1, ok := cnt[x+1]; ok {
+			ans = max(ans, c+c1)
 		}
 	}
-	return ans
+	return
 }
 ```
 
-<!-- tabs:end -->
+#### TypeScript
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def findLHS(self, nums: List[int]) -> int:
-        counter = Counter(nums)
-        return max(
-            [counter[num] + counter[num + 1] for num in nums if num + 1 in counter],
-            default=0,
-        )
+```ts
+function findLHS(nums: number[]): number {
+    const cnt: Record<number, number> = {};
+    for (const x of nums) {
+        cnt[x] = (cnt[x] || 0) + 1;
+    }
+    let ans = 0;
+    for (const [x, c] of Object.entries(cnt)) {
+        const y = +x + 1;
+        if (cnt[y]) {
+            ans = Math.max(ans, c + cnt[y]);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

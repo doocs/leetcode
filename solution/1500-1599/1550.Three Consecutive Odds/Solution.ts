@@ -1,13 +1,12 @@
 function threeConsecutiveOdds(arr: number[]): boolean {
     let cnt = 0;
-    for (const v of arr) {
-        if (v & 1) {
-            ++cnt;
+    for (const x of arr) {
+        if (x & 1) {
+            if (++cnt == 3) {
+                return true;
+            }
         } else {
             cnt = 0;
-        }
-        if (cnt == 3) {
-            return true;
         }
     }
     return false;

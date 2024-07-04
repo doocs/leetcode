@@ -97,7 +97,14 @@ textEditor.cursorRight(6); // return &quot;practi&quot;
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Left and Right Stacks
+
+We can use two stacks, `left` and `right`, where the `left` stack stores the characters to the left of the cursor, and the `right` stack stores the characters to the right of the cursor.
+
+-   When the `addText` method is called, we push the characters from `text` onto the `left` stack one by one. The time complexity is $O(|\text{text}|)$.
+-   When the `deleteText` method is called, we pop characters from the `left` stack up to $k$ times. The time complexity is $O(k)$.
+-   When the `cursorLeft` method is called, we pop characters from the `left` stack up to $k$ times, then push the popped characters onto the `right` stack, and finally return up to $10$ characters from the `left` stack. The time complexity is $O(k)$.
+-   When the `cursorRight` method is called, we pop characters from the `right` stack up to $k$ times, then push the popped characters onto the `left` stack, and finally return up to $10$ characters from the `left` stack. The time complexity is $O(k)$.
 
 <!-- tabs:start -->
 
@@ -288,6 +295,57 @@ func (this *TextEditor) CursorRight(k int) string {
  * param_2 := obj.DeleteText(k);
  * param_3 := obj.CursorLeft(k);
  * param_4 := obj.CursorRight(k);
+ */
+```
+
+#### TypeScript
+
+```ts
+class TextEditor {
+    private left: string[];
+    private right: string[];
+
+    constructor() {
+        this.left = [];
+        this.right = [];
+    }
+
+    addText(text: string): void {
+        this.left.push(...text);
+    }
+
+    deleteText(k: number): number {
+        k = Math.min(k, this.left.length);
+        for (let i = 0; i < k; i++) {
+            this.left.pop();
+        }
+        return k;
+    }
+
+    cursorLeft(k: number): string {
+        k = Math.min(k, this.left.length);
+        for (let i = 0; i < k; i++) {
+            this.right.push(this.left.pop()!);
+        }
+        return this.left.slice(-10).join('');
+    }
+
+    cursorRight(k: number): string {
+        k = Math.min(k, this.right.length);
+        for (let i = 0; i < k; i++) {
+            this.left.push(this.right.pop()!);
+        }
+        return this.left.slice(-10).join('');
+    }
+}
+
+/**
+ * Your TextEditor object will be instantiated and called as such:
+ * var obj = new TextEditor()
+ * obj.addText(text)
+ * var param_2 = obj.deleteText(k)
+ * var param_3 = obj.cursorLeft(k)
+ * var param_4 = obj.cursorRight(k)
  */
 ```
 

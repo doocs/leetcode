@@ -88,32 +88,295 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心 + 前缀和 + 二分查找
+
+我们考虑枚举 Alice 的站立位置 $i$，对于每个 $i$，我们按照如下的策略进行操作：
+
+-   首先，如果位置 $i$ 的数字为 $1$，我们可以直接拾取一个 $1$，不需要行动次数。
+-   然后，我们对 $i$ 的左右两侧位置的数字 $1$ 进行拾取，执行的是行动 $2$，即把位置 $i-1$ 的 $1$ 移到位置 $i$，然后拾取；把位置 $i+1$ 的 $1$ 移到位置 $i$，然后拾取。每拾取一个 $1$，需要 $1$ 次行动。
+-   接下来，我们最大限度地将 $i-1$ 或 $i+1$ 上的 $0$，利用行动 $1$，将其置为 $1$，然后利用行动 $2$，将其移动到位置 $i$，拾取。直到拾取的 $1$ 的数量达到 $k$ 或者行动 $1$ 的次数达到 $\text{maxChanges}$。我们假设行动 $1$ 的次数为 $c$，那么总共需要 $2c$ 次行动。
+-   利用完行动 $1$，如果拾取的 $1$ 的数量还没有达到 $k$，我们需要继续考虑在 $[1,..i-2]$ 和 $[i+2,..n]$ 的区间内，进行行动 $2$，将 $1$ 移动到位置 $i$，拾取。我们可以使用二分查找来确定这个区间的大小，使得拾取的 $1$ 的数量达到 $k$。具体地，我们二分枚举一个区间的大小 $d$，然后在区间 $[i-d,..i-2]$ 和 $[i+2,..i+d]$ 内，进行行动 $2$，将 $1$ 移动到位置 $i$，拾取。如果拾取的 $1$ 的数量达到 $k$，我们就更新答案。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\text{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minimumMoves(self, nums: List[int], k: int, maxChanges: int) -> int:
+        n = len(nums)
+        cnt = [0] * (n + 1)
+        s = [0] * (n + 1)
+        for i, x in enumerate(nums, 1):
+            cnt[i] = cnt[i - 1] + x
+            s[i] = s[i - 1] + i * x
+        ans = inf
+        max = lambda x, y: x if x > y else y
+        min = lambda x, y: x if x < y else y
+        for i, x in enumerate(nums, 1):
+            t = 0
+            need = k - x
+            for j in (i - 1, i + 1):
+                if need > 0 and 1 <= j <= n and nums[j - 1] == 1:
+                    need -= 1
+                    t += 1
+            c = min(need, maxChanges)
+            need -= c
+            t += c * 2
+            if need <= 0:
+                ans = min(ans, t)
+                continue
+            l, r = 2, max(i - 1, n - i)
+            while l <= r:
+                mid = (l + r) >> 1
+                l1, r1 = max(1, i - mid), max(0, i - 2)
+                l2, r2 = min(n + 1, i + 2), min(n, i + mid)
+                c1 = cnt[r1] - cnt[l1 - 1]
+                c2 = cnt[r2] - cnt[l2 - 1]
+                if c1 + c2 >= need:
+                    t1 = c1 * i - (s[r1] - s[l1 - 1])
+                    t2 = s[r2] - s[l2 - 1] - c2 * i
+                    ans = min(ans, t + t1 + t2)
+                    r = mid - 1
+                else:
+                    l = mid + 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long minimumMoves(int[] nums, int k, int maxChanges) {
+        int n = nums.length;
+        int[] cnt = new int[n + 1];
+        long[] s = new long[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            cnt[i] = cnt[i - 1] + nums[i - 1];
+            s[i] = s[i - 1] + i * nums[i - 1];
+        }
+        long ans = Long.MAX_VALUE;
+        for (int i = 1; i <= n; ++i) {
+            long t = 0;
+            int need = k - nums[i - 1];
+            for (int j = i - 1; j <= i + 1; j += 2) {
+                if (need > 0 && 1 <= j && j <= n && nums[j - 1] == 1) {
+                    --need;
+                    ++t;
+                }
+            }
+            int c = Math.min(need, maxChanges);
+            need -= c;
+            t += c * 2;
+            if (need <= 0) {
+                ans = Math.min(ans, t);
+                continue;
+            }
+            int l = 2, r = Math.max(i - 1, n - i);
+            while (l <= r) {
+                int mid = (l + r) >> 1;
+                int l1 = Math.max(1, i - mid), r1 = Math.max(0, i - 2);
+                int l2 = Math.min(n + 1, i + 2), r2 = Math.min(n, i + mid);
+                int c1 = cnt[r1] - cnt[l1 - 1];
+                int c2 = cnt[r2] - cnt[l2 - 1];
+                if (c1 + c2 >= need) {
+                    long t1 = 1L * c1 * i - (s[r1] - s[l1 - 1]);
+                    long t2 = s[r2] - s[l2 - 1] - 1L * c2 * i;
+                    ans = Math.min(ans, t + t1 + t2);
+                    r = mid - 1;
+                } else {
+                    l = mid + 1;
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long minimumMoves(vector<int>& nums, int k, int maxChanges) {
+        int n = nums.size();
+        vector<int> cnt(n + 1, 0);
+        vector<long long> s(n + 1, 0);
 
+        for (int i = 1; i <= n; ++i) {
+            cnt[i] = cnt[i - 1] + nums[i - 1];
+            s[i] = s[i - 1] + 1LL * i * nums[i - 1];
+        }
+
+        long long ans = LLONG_MAX;
+
+        for (int i = 1; i <= n; ++i) {
+            long long t = 0;
+            int need = k - nums[i - 1];
+
+            for (int j = i - 1; j <= i + 1; j += 2) {
+                if (need > 0 && 1 <= j && j <= n && nums[j - 1] == 1) {
+                    --need;
+                    ++t;
+                }
+            }
+
+            int c = min(need, maxChanges);
+            need -= c;
+            t += c * 2;
+
+            if (need <= 0) {
+                ans = min(ans, t);
+                continue;
+            }
+
+            int l = 2, r = max(i - 1, n - i);
+
+            while (l <= r) {
+                int mid = (l + r) / 2;
+                int l1 = max(1, i - mid), r1 = max(0, i - 2);
+                int l2 = min(n + 1, i + 2), r2 = min(n, i + mid);
+
+                int c1 = cnt[r1] - cnt[l1 - 1];
+                int c2 = cnt[r2] - cnt[l2 - 1];
+
+                if (c1 + c2 >= need) {
+                    long long t1 = 1LL * c1 * i - (s[r1] - s[l1 - 1]);
+                    long long t2 = s[r2] - s[l2 - 1] - 1LL * c2 * i;
+                    ans = min(ans, t + t1 + t2);
+                    r = mid - 1;
+                } else {
+                    l = mid + 1;
+                }
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minimumMoves(nums []int, k int, maxChanges int) int64 {
+	n := len(nums)
+	cnt := make([]int, n+1)
+	s := make([]int, n+1)
 
+	for i := 1; i <= n; i++ {
+		cnt[i] = cnt[i-1] + nums[i-1]
+		s[i] = s[i-1] + i*nums[i-1]
+	}
+
+	ans := math.MaxInt64
+
+	for i := 1; i <= n; i++ {
+		t := 0
+		need := k - nums[i-1]
+
+		for _, j := range []int{i - 1, i + 1} {
+			if need > 0 && 1 <= j && j <= n && nums[j-1] == 1 {
+				need--
+				t++
+			}
+		}
+
+		c := min(need, maxChanges)
+		need -= c
+		t += c * 2
+
+		if need <= 0 {
+			ans = min(ans, t)
+			continue
+		}
+
+		l, r := 2, max(i-1, n-i)
+
+		for l <= r {
+			mid := (l + r) >> 1
+			l1, r1 := max(1, i-mid), max(0, i-2)
+			l2, r2 := min(n+1, i+2), min(n, i+mid)
+
+			c1 := cnt[r1] - cnt[l1-1]
+			c2 := cnt[r2] - cnt[l2-1]
+
+			if c1+c2 >= need {
+				t1 := c1*i - (s[r1] - s[l1-1])
+				t2 := s[r2] - s[l2-1] - c2*i
+				ans = min(ans, t+t1+t2)
+				r = mid - 1
+			} else {
+				l = mid + 1
+			}
+		}
+	}
+
+	return int64(ans)
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumMoves(nums: number[], k: number, maxChanges: number): number {
+    const n = nums.length;
+    const cnt = Array(n + 1).fill(0);
+    const s = Array(n + 1).fill(0);
+
+    for (let i = 1; i <= n; i++) {
+        cnt[i] = cnt[i - 1] + nums[i - 1];
+        s[i] = s[i - 1] + i * nums[i - 1];
+    }
+
+    let ans = Infinity;
+    for (let i = 1; i <= n; i++) {
+        let t = 0;
+        let need = k - nums[i - 1];
+
+        for (let j of [i - 1, i + 1]) {
+            if (need > 0 && 1 <= j && j <= n && nums[j - 1] === 1) {
+                need--;
+                t++;
+            }
+        }
+
+        const c = Math.min(need, maxChanges);
+        need -= c;
+        t += c * 2;
+
+        if (need <= 0) {
+            ans = Math.min(ans, t);
+            continue;
+        }
+
+        let l = 2,
+            r = Math.max(i - 1, n - i);
+
+        while (l <= r) {
+            const mid = (l + r) >> 1;
+            const [l1, r1] = [Math.max(1, i - mid), Math.max(0, i - 2)];
+            const [l2, r2] = [Math.min(n + 1, i + 2), Math.min(n, i + mid)];
+
+            const c1 = cnt[r1] - cnt[l1 - 1];
+            const c2 = cnt[r2] - cnt[l2 - 1];
+
+            if (c1 + c2 >= need) {
+                const t1 = c1 * i - (s[r1] - s[l1 - 1]);
+                const t2 = s[r2] - s[l2 - 1] - c2 * i;
+                ans = Math.min(ans, t + t1 + t2);
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

@@ -67,32 +67,170 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举
+
+根据题目描述，字符串 $\text{t}$ 的长度一定是 $\text{s}$ 的长度的因子，我们可以从小到大枚举字符串 $\text{t}$ 的长度 $k$，然后检查是否满足题目要求，如果满足则返回。因此，问题转化为如何检查字符串 $\text{t}$ 的长度 $k$ 是否满足题目要求。
+
+我们首先统计字符串 $\text{s}$ 中每个字符出现的次数，记录在数组或哈希表 $\text{cnt}$ 中。
+
+然后，我们定义一个函数 $\text{check}(k)$，用来检查字符串 $\text{t}$ 的长度 $k$ 是否满足题目要求。我们可以遍历字符串 $\text{s}$，每次取长度为 $k$ 的子串，然后统计每个字符出现的次数，如果每个字符出现的次数乘以 $\frac{n}{k}$ 不等于 $\text{cnt}$ 中的值，则返回 $\text{false}$。遍历结束，如果都满足，则返回 $\text{true}$。
+
+时间复杂度 $O(n \times A)$，其中 $n$ 是字符串 $\text{s}$ 的长度，而 $A$ 是 $n$ 的因子个数。空间复杂度 $O(|\Sigma|)$，其中 $\Sigma$ 是字符集，本题中为小写字母集合。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def minAnagramLength(self, s: str) -> int:
+        def check(k: int) -> bool:
+            for i in range(0, n, k):
+                cnt1 = Counter(s[i : i + k])
+                for c, v in cnt.items():
+                    if cnt1[c] * (n // k) != v:
+                        return False
+            return True
 
+        cnt = Counter(s)
+        n = len(s)
+        for i in range(1, n + 1):
+            if n % i == 0 and check(i):
+                return i
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private int n;
+    private char[] s;
+    private int[] cnt = new int[26];
 
+    public int minAnagramLength(String s) {
+        n = s.length();
+        this.s = s.toCharArray();
+        for (int i = 0; i < n; ++i) {
+            ++cnt[this.s[i] - 'a'];
+        }
+        for (int i = 1;; ++i) {
+            if (n % i == 0 && check(i)) {
+                return i;
+            }
+        }
+    }
+
+    private boolean check(int k) {
+        for (int i = 0; i < n; i += k) {
+            int[] cnt1 = new int[26];
+            for (int j = i; j < i + k; ++j) {
+                ++cnt1[s[j] - 'a'];
+            }
+            for (int j = 0; j < 26; ++j) {
+                if (cnt1[j] * (n / k) != cnt[j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minAnagramLength(string s) {
+        int n = s.size();
+        int cnt[26]{};
+        for (char c : s) {
+            cnt[c - 'a']++;
+        }
+        auto check = [&](int k) {
+            for (int i = 0; i < n; i += k) {
+                int cnt1[26]{};
+                for (int j = i; j < i + k; ++j) {
+                    cnt1[s[j] - 'a']++;
+                }
+                for (int j = 0; j < 26; ++j) {
+                    if (cnt1[j] * (n / k) != cnt[j]) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        };
+        for (int i = 1;; ++i) {
+            if (n % i == 0 && check(i)) {
+                return i;
+            }
+        }
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minAnagramLength(s string) int {
+	n := len(s)
+	cnt := [26]int{}
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	check := func(k int) bool {
+		for i := 0; i < n; i += k {
+			cnt1 := [26]int{}
+			for j := i; j < i+k; j++ {
+				cnt1[s[j]-'a']++
+			}
+			for j, v := range cnt {
+				if cnt1[j]*(n/k) != v {
+					return false
+				}
+			}
+		}
+		return true
+	}
+	for i := 1; ; i++ {
+		if n%i == 0 && check(i) {
+			return i
+		}
+	}
+}
+```
 
+#### TypeScript
+
+```ts
+function minAnagramLength(s: string): number {
+    const n = s.length;
+    const cnt: Record<string, number> = {};
+    for (let i = 0; i < n; i++) {
+        cnt[s[i]] = (cnt[s[i]] || 0) + 1;
+    }
+    const check = (k: number): boolean => {
+        for (let i = 0; i < n; i += k) {
+            const cnt1: Record<string, number> = {};
+            for (let j = i; j < i + k; j++) {
+                cnt1[s[j]] = (cnt1[s[j]] || 0) + 1;
+            }
+            for (const [c, v] of Object.entries(cnt)) {
+                if (cnt1[c] * ((n / k) | 0) !== v) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    };
+    for (let i = 1; ; ++i) {
+        if (n % i === 0 && check(i)) {
+            return i;
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->
