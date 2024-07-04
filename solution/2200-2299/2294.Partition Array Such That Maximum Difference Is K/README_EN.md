@@ -182,7 +182,7 @@ function partitionArray(nums: number[], k: number): number {
 ```ts
 function partitionArray(nums: number[], k: number): number {
     if (k === 0) return new Set(nums).size;
-        
+
     let c = 0;
 
     while (nums.length) {
