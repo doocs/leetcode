@@ -3215,6 +3215,7 @@
 |  3202  |  [找出有效子序列的最大长度 II](/solution/3200-3299/3202.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20II/README.md)  |  `数组`,`动态规划`  |  中等  |  第 404 场周赛  |
 |  3203  |  [合并两棵树后的最小直径](/solution/3200-3299/3203.Find%20Minimum%20Diameter%20After%20Merging%20Two%20Trees/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`图`  |  困难  |  第 404 场周赛  |
 |  3204  |  [按位用户权限分析](/solution/3200-3299/3204.Bitwise%20User%20Permissions%20Analysis/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  3205  |  [Maximum Array Hopping Score I](/solution/3200-3299/3205.Maximum%20Array%20Hopping%20Score%20I/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
