@@ -285,4 +285,128 @@ function maxScore(nums: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 3: Monotonic Stack
+
+We observe that for the current position $i$, we should jump to the next position $j$ with the maximum value to obtain the maximum score.
+
+Therefore, we traverse the array $\text{nums}$, maintaining a stack $\text{stk}$ that is monotonically decreasing from the bottom to the top of the stack. For the current position $i$ being traversed, if the value corresponding to the top element of the stack is less than or equal to $\text{nums}[i]$, we continuously pop the top element of the stack until the stack is empty or the value corresponding to the top element of the stack is greater than $\text{nums}[i]$, and then push $i$ into the stack.
+
+Next, we initialize the answer $\text{ans}$ and the current position $i = 0$, traverse the elements in the stack, each time taking out the top element $j$, updating the answer $\text{ans} += \text{nums}[j] \times (j - i)$, and then updating $i = j$.
+
+Finally, return the answer $\text{ans}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxScore(self, nums: List[int]) -> int:
+        stk = []
+        for i, x in enumerate(nums):
+            while stk and nums[stk[-1]] <= x:
+                stk.pop()
+            stk.append(i)
+        ans = i = 0
+        for j in stk:
+            ans += nums[j] * (j - i)
+            i = j
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxScore(int[] nums) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = 0; i < nums.length; ++i) {
+            while (!stk.isEmpty() && nums[stk.peek()] <= nums[i]) {
+                stk.pop();
+            }
+            stk.push(i);
+        }
+        int ans = 0, i = 0;
+        while (!stk.isEmpty()) {
+            int j = stk.pollLast();
+            ans += (j - i) * nums[j];
+            i = j;
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxScore(vector<int>& nums) {
+        vector<int> stk;
+        for (int i = 0; i < nums.size(); ++i) {
+            while (stk.size() && nums[stk.back()] <= nums[i]) {
+                stk.pop_back();
+            }
+            stk.push_back(i);
+        }
+        int ans = 0, i = 0;
+        for (int j : stk) {
+            ans += (j - i) * nums[j];
+            i = j;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func maxScore(nums []int) (ans int) {
+	stk := []int{}
+	for i, x := range nums {
+		for len(stk) > 0 && nums[stk[len(stk)-1]] <= x {
+			stk = stk[:len(stk)-1]
+		}
+		stk = append(stk, i)
+	}
+	i := 0
+	for _, j := range stk {
+		ans += (j - i) * nums[j]
+		i = j
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maxScore(nums: number[]): number {
+    const stk: number[] = [];
+    for (let i = 0; i < nums.length; ++i) {
+        while (stk.length && nums[stk.at(-1)!] <= nums[i]) {
+            stk.pop();
+        }
+        stk.push(i);
+    }
+    let ans = 0;
+    let i = 0;
+    for (const j of stk) {
+        ans += (j - i) * nums[j];
+        i = j;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
