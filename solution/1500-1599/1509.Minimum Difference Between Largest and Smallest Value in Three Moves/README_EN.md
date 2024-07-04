@@ -160,32 +160,36 @@ func minDifference(nums []int) int {
 
 ```ts
 function minDifference(nums: number[]): number {
-    if (nums.length < 5) return 0;
-    nums.sort((a, b) => a - b);
-    let res = Number.POSITIVE_INFINITY;
-
-    for (let i = 0; i < 4; i++) {
-        res = Math.min(res, nums.at(i - 4)! - nums[i]);
+    if (nums.length < 5) {
+        return 0;
     }
-
-    return res;
+    nums.sort((a, b) => a - b);
+    let ans = Number.POSITIVE_INFINITY;
+    for (let i = 0; i < 4; i++) {
+        ans = Math.min(ans, nums.at(i - 4)! - nums[i]);
+    }
+    return ans;
 }
 ```
 
 #### JavaScript
 
 ```js
-function minDifference(nums) {
-    if (nums.length < 5) return 0;
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minDifference = function (nums) {
+    if (nums.length < 5) {
+        return 0;
+    }
     nums.sort((a, b) => a - b);
     let ans = Number.POSITIVE_INFINITY;
-
     for (let i = 0; i < 4; i++) {
         ans = Math.min(ans, nums.at(i - 4) - nums[i]);
     }
-
     return ans;
-}
+};
 ```
 
 <!-- tabs:end -->
