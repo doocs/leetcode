@@ -285,4 +285,128 @@ function maxScore(nums: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法三：单调栈
+
+我们观察发现，对于当前位置 $i$，我们应该跳到下一个值最大的位置 $j$，这样才能获得最大的分数。
+
+因此，我们遍历数组 $\text{nums}$，维护一个从栈底到栈顶单调递减的栈 $\text{stk}$。对于当前遍历到的位置 $i$，如果栈顶元素对应的值小于等于 $\text{nums}[i]$，我们就不断地弹出栈顶元素，直到栈为空或者栈顶元素对应的值大于 $\text{nums}[i]$，然后将 $i$ 入栈。
+
+然后，我们初始化答案 $\text{ans}$ 和当前位置 $i = 0$，遍历栈中的元素，每次取出栈顶元素 $j$，更新答案 $\text{ans} += \text{nums}[j] \times (j - i)$，然后更新 $i = j$。
+
+最后返回答案 $\text{ans}$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxScore(self, nums: List[int]) -> int:
+        stk = []
+        for i, x in enumerate(nums):
+            while stk and nums[stk[-1]] <= x:
+                stk.pop()
+            stk.append(i)
+        ans = i = 0
+        for j in stk:
+            ans += nums[j] * (j - i)
+            i = j
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxScore(int[] nums) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = 0; i < nums.length; ++i) {
+            while (!stk.isEmpty() && nums[stk.peek()] <= nums[i]) {
+                stk.pop();
+            }
+            stk.push(i);
+        }
+        int ans = 0, i = 0;
+        while (!stk.isEmpty()) {
+            int j = stk.pollLast();
+            ans += (j - i) * nums[j];
+            i = j;
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxScore(vector<int>& nums) {
+        vector<int> stk;
+        for (int i = 0; i < nums.size(); ++i) {
+            while (stk.size() && nums[stk.back()] <= nums[i]) {
+                stk.pop_back();
+            }
+            stk.push_back(i);
+        }
+        int ans = 0, i = 0;
+        for (int j : stk) {
+            ans += (j - i) * nums[j];
+            i = j;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func maxScore(nums []int) (ans int) {
+	stk := []int{}
+	for i, x := range nums {
+		for len(stk) > 0 && nums[stk[len(stk)-1]] <= x {
+			stk = stk[:len(stk)-1]
+		}
+		stk = append(stk, i)
+	}
+	i := 0
+	for _, j := range stk {
+		ans += (j - i) * nums[j]
+		i = j
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maxScore(nums: number[]): number {
+    const stk: number[] = [];
+    for (let i = 0; i < nums.length; ++i) {
+        while (stk.length && nums[stk.at(-1)!] <= nums[i]) {
+            stk.pop();
+        }
+        stk.push(i);
+    }
+    let ans = 0;
+    let i = 0;
+    for (const j of stk) {
+        ans += (j - i) * nums[j];
+        i = j;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
