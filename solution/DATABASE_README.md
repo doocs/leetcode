@@ -284,6 +284,8 @@
 | 3172 | [第二天验证](/solution/3100-3199/3172.Second%20Day%20Verification/README.md)                                                                                 | `数据库` | 简单 | 🔒   |
 | 3182 | [查找得分最高的学生](/solution/3100-3199/3182.Find%20Top%20Scoring%20Students/README.md)                                                                     | `数据库` | 中等 | 🔒   |
 | 3188 | [查找得分最高的学生 II](/solution/3100-3199/3188.Find%20Top%20Scoring%20Students%20II/README.md)                                                             | `数据库` | 困难 | 🔒   |
+| 3198 | [查找每个州的城市](/solution/3100-3199/3198.Find%20Cities%20in%20Each%20State/README.md)                                                                     | `数据库` | 简单 | 🔒   |
+| 3204 | [按位用户权限分析](/solution/3200-3299/3204.Bitwise%20User%20Permissions%20Analysis/README.md)                                                               | `数据库` | 中等 | 🔒   |
 
 ## 版权
 

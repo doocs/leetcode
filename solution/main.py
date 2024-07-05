@@ -446,7 +446,7 @@ def run():
         except:
             slug = q["titleSlug"]
             qid = int(q["frontendQuestionId"])
-        if slug in question_details:
+        if slug in question_details and qid < 3000:
             continue
         detail = spider.get_question_detail(
             slug, retry=4
