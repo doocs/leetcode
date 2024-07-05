@@ -3209,13 +3209,13 @@
 |  3196  |  [最大化子数组的总成本](/solution/3100-3199/3196.Maximize%20Total%20Cost%20of%20Alternating%20Subarrays/README.md)  |  `数组`,`动态规划`  |  中等  |  第 403 场周赛  |
 |  3197  |  [包含所有 1 的最小矩形面积 II](/solution/3100-3199/3197.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20II/README.md)  |  `数组`,`枚举`,`矩阵`  |  困难  |  第 403 场周赛  |
 |  3198  |  [查找每个州的城市](/solution/3100-3199/3198.Find%20Cities%20in%20Each%20State/README.md)  |  `数据库`  |  简单  |  🔒  |
-|  3199  |  [Count Triplets with Even XOR Set Bits I](/solution/3100-3199/3199.Count%20Triplets%20with%20Even%20XOR%20Set%20Bits%20I/README.md)  |  `位运算`,`数组`  |  简单  |  🔒  |
+|  3199  |  [用偶数异或设置位计数三元组 I](/solution/3100-3199/3199.Count%20Triplets%20with%20Even%20XOR%20Set%20Bits%20I/README.md)  |  `位运算`,`数组`  |  简单  |  🔒  |
 |  3200  |  [三角形的最大高度](/solution/3200-3299/3200.Maximum%20Height%20of%20a%20Triangle/README.md)  |  `数组`,`枚举`  |  简单  |  第 404 场周赛  |
 |  3201  |  [找出有效子序列的最大长度 I](/solution/3200-3299/3201.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20I/README.md)  |  `数组`,`动态规划`  |  中等  |  第 404 场周赛  |
 |  3202  |  [找出有效子序列的最大长度 II](/solution/3200-3299/3202.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20II/README.md)  |  `数组`,`动态规划`  |  中等  |  第 404 场周赛  |
 |  3203  |  [合并两棵树后的最小直径](/solution/3200-3299/3203.Find%20Minimum%20Diameter%20After%20Merging%20Two%20Trees/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`图`  |  困难  |  第 404 场周赛  |
 |  3204  |  [按位用户权限分析](/solution/3200-3299/3204.Bitwise%20User%20Permissions%20Analysis/README.md)  |  `数据库`  |  中等  |  🔒  |
-|  3205  |  [Maximum Array Hopping Score I](/solution/3200-3299/3205.Maximum%20Array%20Hopping%20Score%20I/README.md)  |    |  中等  |  🔒  |
+|  3205  |  [最大数组跳跃得分 I](/solution/3200-3299/3205.Maximum%20Array%20Hopping%20Score%20I/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
