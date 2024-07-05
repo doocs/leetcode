@@ -28,17 +28,11 @@ comments: true
 
 #### 第 404 场周赛(2024-06-30 10:30, 90 分钟) 参赛人数 3485
 
-- [3200. 三角形的最大高度](/solution/3200-3299/3200.Maximum%20Height%20of%20a%20Triangle/README.md)
-- [3201. 找出有效子序列的最大长度 I](/solution/3200-3299/3201.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20I/README.md)
-- [3202. 找出有效子序列的最大长度 II](/solution/3200-3299/3202.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20II/README.md)
-- [3203. 合并两棵树后的最小直径](/solution/3200-3299/3203.Find%20Minimum%20Diameter%20After%20Merging%20Two%20Trees/README.md)
 
 #### 第 403 场周赛(2024-06-23 10:30, 90 分钟) 参赛人数 3112
 
 - [3194. 最小元素和最大元素的最小平均值](/solution/3100-3199/3194.Minimum%20Average%20of%20Smallest%20and%20Largest%20Elements/README.md)
 - [3195. 包含所有 1 的最小矩形面积 I](/solution/3100-3199/3195.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20I/README.md)
-- [3196. 最大化子数组的总成本](/solution/3100-3199/3196.Maximize%20Total%20Cost%20of%20Alternating%20Subarrays/README.md)
-- [3197. 包含所有 1 的最小矩形面积 II](/solution/3100-3199/3197.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20II/README.md)
 
 #### 第 133 场双周赛(2024-06-22 22:30, 90 分钟) 参赛人数 2326
 

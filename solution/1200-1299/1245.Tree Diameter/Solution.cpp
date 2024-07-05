@@ -1,32 +1,27 @@
 class Solution {
 public:
-    unordered_map<int, unordered_set<int>> g;
-    vector<bool> vis;
-    int ans;
-    int next;
-
     int treeDiameter(vector<vector<int>>& edges) {
+        int n = edges.size() + 1;
+        vector<int> g[n];
         for (auto& e : edges) {
-            g[e[0]].insert(e[1]);
-            g[e[1]].insert(e[0]);
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
         }
-        int n = edges.size();
-        ans = 0;
-        vis.resize(n + 1);
-        next = edges[0][0];
-        dfs(next, 0);
-        vis.assign(vis.size(), false);
-        dfs(next, 0);
+        int ans = 0, a = 0;
+        auto dfs = [&](auto&& dfs, int i, int fa, int t) -> void {
+            for (int j : g[i]) {
+                if (j != fa) {
+                    dfs(dfs, j, i, t + 1);
+                }
+            }
+            if (ans < t) {
+                ans = t;
+                a = i;
+            }
+        };
+        dfs(dfs, 0, -1, 0);
+        dfs(dfs, a, -1, 0);
         return ans;
-    }
-
-    void dfs(int u, int t) {
-        if (vis[u]) return;
-        vis[u] = true;
-        if (ans < t) {
-            ans = t;
-            next = u;
-        }
-        for (int v : g[u]) dfs(v, t + 1);
     }
 };
