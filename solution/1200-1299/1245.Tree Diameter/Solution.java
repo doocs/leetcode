@@ -1,36 +1,31 @@
 class Solution {
-    private Map<Integer, Set<Integer>> g;
-    private boolean[] vis;
-    private int next;
+    private List<Integer>[] g;
     private int ans;
+    private int a;
 
     public int treeDiameter(int[][] edges) {
-        int n = edges.length;
-        ans = 0;
-        g = new HashMap<>();
-        for (int[] e : edges) {
-            g.computeIfAbsent(e[0], k -> new HashSet<>()).add(e[1]);
-            g.computeIfAbsent(e[1], k -> new HashSet<>()).add(e[0]);
+        int n = edges.length + 1;
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
         }
-        vis = new boolean[n + 1];
-        next = edges[0][0];
-        dfs(next, 0);
-        vis = new boolean[n + 1];
-        dfs(next, 0);
+        dfs(0, -1, 0);
+        dfs(a, -1, 0);
         return ans;
     }
 
-    private void dfs(int u, int t) {
-        if (vis[u]) {
-            return;
+    private void dfs(int i, int fa, int t) {
+        for (int j : g[i]) {
+            if (j != fa) {
+                dfs(j, i, t + 1);
+            }
         }
-        vis[u] = true;
         if (ans < t) {
             ans = t;
-            next = u;
-        }
-        for (int v : g.get(u)) {
-            dfs(v, t + 1);
+            a = i;
         }
     }
 }

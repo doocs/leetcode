@@ -96,8 +96,8 @@ Each row of this table contains the text ID, email ID, signup action, and action
 <p><strong>Explanation:</strong></p>
 
 <ul>
-	<li>User with email_id 7005 signed up on 2022-08-20 10:00:00 and&nbsp;verified on second day of the signup.</li>
-	<li>User with email_id 7771 signed up on 2022-06-14 09:30:00 and&nbsp;verified on second day of the signup.</li>
+	<li>User with user_id 7005 and email_id 234 signed up on 2022-08-20 10:00:00 and&nbsp;verified on second day of the signup.</li>
+	<li>User with user_id 7771 and email_id 125 signed up on 2022-06-14 09:30:00 and&nbsp;verified on second day of the signup.</li>
 </ul>
 </div>
 

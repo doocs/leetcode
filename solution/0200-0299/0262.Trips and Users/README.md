@@ -29,7 +29,7 @@ tags:
 | driver_id   | int      |
 | city_id     | int      |
 | status      | enum     |
-| request_at  | date     |     
+| request_at  | varchar  |     
 +-------------+----------+
 id 是这张表的主键（具有唯一值的列）。
 这张表中存所有出租车的行程信息。每段行程有唯一 id ，其中 client_id 和 driver_id 是 Users 表中 users_id 的外键。

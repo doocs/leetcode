@@ -1,24 +1,19 @@
 class Solution:
     def treeDiameter(self, edges: List[List[int]]) -> int:
-        def dfs(u, t):
-            nonlocal ans, vis, d, next
-            if vis[u]:
-                return
-            vis[u] = True
-            for v in d[u]:
-                dfs(v, t + 1)
+        def dfs(i: int, fa: int, t: int):
+            for j in g[i]:
+                if j != fa:
+                    dfs(j, i, t + 1)
+            nonlocal ans, a
             if ans < t:
                 ans = t
-                next = u
+                a = i
 
-        d = defaultdict(set)
-        vis = [False] * (len(edges) + 1)
-        for u, v in edges:
-            d[u].add(v)
-            d[v].add(u)
-        ans = 0
-        next = 0
-        dfs(edges[0][0], 0)
-        vis = [False] * (len(edges) + 1)
-        dfs(next, 0)
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        ans = a = 0
+        dfs(0, -1, 0)
+        dfs(a, -1, 0)
         return ans
