@@ -11,26 +11,21 @@
 class Solution {
 public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
-        ListNode* prev = head;
-        ListNode* curr = head->next;
-        int first = 0, last = 0;
-        int i = 1;
-        vector<int> ans(2, INT_MAX);
-        while (curr->next) {
-            if (curr->val < min(prev->val, curr->next->val) || curr->val > max(prev->val, curr->next->val)) {
-                if (last == 0)
+        vector<int> ans = {1 << 30, 0};
+        int first = -1, last = -1;
+        for (int i = 0; head->next->next; head = head->next, ++i) {
+            int a = head->val, b = head->next->val, c = head->next->next->val;
+            if (b < min(a, c) || b > max(a, c)) {
+                if (last == -1) {
                     first = i;
-                else {
+                    last = i;
+                } else {
                     ans[0] = min(ans[0], i - last);
-                    ans[1] = i - first;
+                    last = i;
+                    ans[1] = max(ans[1], last - first);
                 }
-                last = i;
             }
-            ++i;
-            prev = curr;
-            curr = curr->next;
         }
-        if (first == last) return {-1, -1};
-        return ans;
+        return first == last ? vector<int>{-1, -1} : ans;
     }
 };

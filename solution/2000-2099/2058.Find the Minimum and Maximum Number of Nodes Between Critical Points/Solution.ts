@@ -11,28 +11,20 @@
  */
 
 function nodesBetweenCriticalPoints(head: ListNode | null): number[] {
-    let idx = 1;
-    let pre = head.val;
-    head = head.next;
-    let nums = [];
-    while (head.next != null) {
-        let val = head.val,
-            post = head.next.val;
-        if (pre < val && val > post) {
-            nums.push(idx);
+    const ans: number[] = [Infinity, 0];
+    let [first, last] = [-1, -1];
+    for (let i = 0; head.next.next; head = head.next, ++i) {
+        const [a, b, c] = [head.val, head.next.val, head.next.next.val];
+        if (b < Math.min(a, c) || b > Math.max(a, c)) {
+            if (last < 0) {
+                first = i;
+                last = i;
+            } else {
+                ans[0] = Math.min(ans[0], i - last);
+                last = i;
+                ans[1] = Math.max(ans[1], last - first);
+            }
         }
-        if (pre > val && val < post) {
-            nums.push(idx);
-        }
-        pre = val;
-        idx++;
-        head = head.next;
     }
-    let n = nums.length;
-    if (n < 2) return [-1, -1];
-    let min = Infinity;
-    for (let i = 1; i < n; i++) {
-        min = Math.min(nums[i] - nums[i - 1], min);
-    }
-    return [min, nums[n - 1] - nums[0]];
+    return first === last ? [-1, -1] : ans;
 }
