@@ -245,7 +245,7 @@ function arriveOnTime(dist, speed, hour) {
     let res = 0.0;
     let n = dist.length;
     for (let i = 0; i < n; i++) {
-        let cost = parseFloat(dist[i]) / speed;
+        let cost = dist[i] / speed;
         if (i != n - 1) {
             cost = Math.ceil(cost);
         }
