@@ -1,15 +1,10 @@
-/**
- * @param {number[]} dist
- * @param {number} hour
- * @return {number}
- */
-var minSpeedOnTime = function (dist, hour) {
+function minSpeedOnTime(dist: number[], hour: number): number {
     if (dist.length > Math.ceil(hour)) {
         return -1;
     }
     const n = dist.length;
     const m = 10 ** 7;
-    const check = v => {
+    const check = (v: number): boolean => {
         let s = 0;
         for (let i = 0; i < n; ++i) {
             const t = dist[i] / v;
@@ -27,4 +22,4 @@ var minSpeedOnTime = function (dist, hour) {
         }
     }
     return l > m ? -1 : l;
-};
+}

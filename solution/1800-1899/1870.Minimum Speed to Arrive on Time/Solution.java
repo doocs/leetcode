@@ -1,23 +1,28 @@
 class Solution {
     public int minSpeedOnTime(int[] dist, double hour) {
-        int left = 1, right = (int) 1e7;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        if (dist.length > Math.ceil(hour)) {
+            return -1;
+        }
+        final int m = (int) 1e7;
+        int l = 1, r = m + 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (check(dist, mid, hour)) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return check(dist, left, hour) ? left : -1;
+        return l > m ? -1 : l;
     }
 
-    private boolean check(int[] dist, int speed, double hour) {
-        double res = 0;
-        for (int i = 0; i < dist.length; ++i) {
-            double cost = dist[i] * 1.0 / speed;
-            res += (i == dist.length - 1 ? cost : Math.ceil(cost));
+    private boolean check(int[] dist, int v, double hour) {
+        double s = 0;
+        int n = dist.length;
+        for (int i = 0; i < n; ++i) {
+            double t = dist[i] * 1.0 / v;
+            s += i == n - 1 ? t : Math.ceil(t);
         }
-        return res <= hour;
+        return s <= hour;
     }
 }
