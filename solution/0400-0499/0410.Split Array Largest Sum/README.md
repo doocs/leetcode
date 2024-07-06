@@ -190,6 +190,42 @@ func splitArray(nums []int, k int) int {
 }
 ```
 
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var splitArray = function (nums, k) {
+    let l = Math.max(...nums);
+    let r = nums.reduce((a, b) => a + b);
+
+    const check = mx => {
+        let [s, cnt] = [0, 0];
+        for (const x of nums) {
+            s += x;
+            if (s > mx) {
+                s = x;
+                if (++cnt === k) return false;
+            }
+        }
+        return true;
+    };
+
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (check(mid)) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+};
+```
+
 #### TypeScript
 
 ```ts
