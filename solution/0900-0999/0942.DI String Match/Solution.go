@@ -1,9 +1,7 @@
-func diStringMatch(s string) []int {
-	n := len(s)
-	low, high := 0, n
-	var ans []int
-	for i := 0; i < n; i++ {
-		if s[i] == 'I' {
+func diStringMatch(s string) (ans []int) {
+	low, high := 0, len(s)
+	for _, c := range s {
+		if c == 'I' {
 			ans = append(ans, low)
 			low++
 		} else {
@@ -12,5 +10,5 @@ func diStringMatch(s string) []int {
 		}
 	}
 	ans = append(ans, low)
-	return ans
+	return
 }

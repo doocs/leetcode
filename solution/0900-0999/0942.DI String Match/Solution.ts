@@ -1,15 +1,13 @@
 function diStringMatch(s: string): number[] {
-    const n = s.length;
-    const res = new Array(n + 1);
-    let low = 0;
-    let high = n;
-    for (let i = 0; i < n; i++) {
-        if (s[i] === 'I') {
-            res[i] = low++;
+    const ans: number[] = [];
+    let [low, high] = [0, s.length];
+    for (const c of s) {
+        if (c === 'I') {
+            ans.push(low++);
         } else {
-            res[i] = high--;
+            ans.push(high--);
         }
     }
-    res[n] = low;
-    return res;
+    ans.push(low);
+    return ans;
 }
