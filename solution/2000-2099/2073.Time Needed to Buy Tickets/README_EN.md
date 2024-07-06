@@ -67,7 +67,13 @@ The person at&nbsp;position 0 has successfully bought 5 tickets and it took 4 + 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Pass
+
+According to the problem description, when the $k^{th}$ person finishes buying tickets, all the people in front of the $k^{th}$ person will not buy more tickets than the $k^{th}$ person, and all the people behind the $k^{th}$ person will not buy more tickets than the $k^{th}$ person minus $1$.
+
+Therefore, we can traverse the entire queue. For the $i^{th}$ person, if $i \leq k$, the time to buy tickets is $\min(\text{tickets}[i], \text{tickets}[k])$; otherwise, the time to buy tickets is $\min(\text{tickets}[i], \text{tickets}[k] - 1)$. We sum the buying time for all people to get the result.
+
+The time complexity is $O(n)$, where $n$ is the length of the queue. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -77,11 +83,8 @@ The person at&nbsp;position 0 has successfully bought 5 tickets and it took 4 + 
 class Solution:
     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
         ans = 0
-        for i, t in enumerate(tickets):
-            if i <= k:
-                ans += min(tickets[k], t)
-            else:
-                ans += min(tickets[k] - 1, t)
+        for i, x in enumerate(tickets):
+            ans += min(x, tickets[k] if i <= k else tickets[k] - 1)
         return ans
 ```
 
@@ -91,12 +94,8 @@ class Solution:
 class Solution {
     public int timeRequiredToBuy(int[] tickets, int k) {
         int ans = 0;
-        for (int i = 0; i < tickets.length; i++) {
-            if (i <= k) {
-                ans += Math.min(tickets[k], tickets[i]);
-            } else {
-                ans += Math.min(tickets[k] - 1, tickets[i]);
-            }
+        for (int i = 0; i < tickets.length; ++i) {
+            ans += Math.min(tickets[i], i <= k ? tickets[k] : tickets[k] - 1);
         }
         return ans;
     }
@@ -111,11 +110,7 @@ public:
     int timeRequiredToBuy(vector<int>& tickets, int k) {
         int ans = 0;
         for (int i = 0; i < tickets.size(); ++i) {
-            if (i <= k) {
-                ans += min(tickets[k], tickets[i]);
-            } else {
-                ans += min(tickets[k] - 1, tickets[i]);
-            }
+            ans += min(tickets[i], i <= k ? tickets[k] : tickets[k] - 1);
         }
         return ans;
     }
@@ -125,16 +120,15 @@ public:
 #### Go
 
 ```go
-func timeRequiredToBuy(tickets []int, k int) int {
-	ans := 0
-	for i, t := range tickets {
-		if i <= k {
-			ans += min(tickets[k], t)
-		} else {
-			ans += min(tickets[k]-1, t)
+func timeRequiredToBuy(tickets []int, k int) (ans int) {
+	for i, x := range tickets {
+		t := tickets[k]
+		if i > k {
+			t--
 		}
+		ans += min(x, t)
 	}
-	return ans
+	return
 }
 ```
 
@@ -142,25 +136,10 @@ func timeRequiredToBuy(tickets []int, k int) int {
 
 ```ts
 function timeRequiredToBuy(tickets: number[], k: number): number {
-    const n = tickets.length;
-    let target = tickets[k] - 1;
     let ans = 0;
-    // round1
-    for (let i = 0; i < n; i++) {
-        let num = tickets[i];
-        if (num <= target) {
-            ans += num;
-            tickets[i] = 0;
-        } else {
-            ans += target;
-            tickets[i] -= target;
-        }
-    }
-
-    // round2
-    for (let i = 0; i <= k; i++) {
-        let num = tickets[i];
-        ans += num > 0 ? 1 : 0;
+    const n = tickets.length;
+    for (let i = 0; i < n; ++i) {
+        ans += Math.min(tickets[i], i <= k ? tickets[k] : tickets[k] - 1);
     }
     return ans;
 }
