@@ -1,10 +1,7 @@
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        l, r = 1, max(nums)
-        while l < r:
-            mid = (l + r) >> 1
-            if sum((x + mid - 1) // mid for x in nums) <= threshold:
-                r = mid
-            else:
-                l = mid + 1
-        return l
+        def f(v: int) -> bool:
+            v += 1
+            return sum((x + v - 1) // v for x in nums) <= threshold
+
+        return bisect_left(range(max(nums)), True, key=f) + 1
