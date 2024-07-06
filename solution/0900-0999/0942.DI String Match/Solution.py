@@ -1,10 +1,9 @@
 class Solution:
     def diStringMatch(self, s: str) -> List[int]:
-        n = len(s)
-        low, high = 0, n
+        low, high = 0, len(s)
         ans = []
-        for i in range(n):
-            if s[i] == 'I':
+        for c in s:
+            if c == "I":
                 ans.append(low)
                 low += 1
             else:
