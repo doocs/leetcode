@@ -87,7 +87,15 @@ All 3 columns are not sorted, so you will delete all 3.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Compare Column by Column
+
+We denote the number of rows in the string array $\textit{strs}$ as $n$, and the number of columns as $m$.
+
+We traverse each column, starting from the second row, and compare the character of the current row with that of the previous row column by column. If the character of the current row is less than that of the previous row, it indicates that the current column is not arranged in non-strictly increasing lexicographical order, and we need to delete it, incrementing the result by one, then break out of the inner loop.
+
+Finally, we return the result.
+
+The time complexity is $O(L)$, where $L$ is the total length of the strings in the array $\textit{strs}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -132,18 +140,17 @@ class Solution {
 class Solution {
 public:
     int minDeletionSize(vector<string>& strs) {
-        int n = strs.size();
-        int m = strs[0].size();
-        int res = 0;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n - 1; ++j) {
-                if (strs[j][i] > strs[j + 1][i]) {
-                    res++;
+        int m = strs[0].size(), n = strs.size();
+        int ans = 0;
+        for (int j = 0; j < m; ++j) {
+            for (int i = 1; i < n; ++i) {
+                if (strs[i][j] < strs[i - 1][j]) {
+                    ++ans;
                     break;
                 }
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -151,9 +158,8 @@ public:
 #### Go
 
 ```go
-func minDeletionSize(strs []string) int {
+func minDeletionSize(strs []string) (ans int) {
 	m, n := len(strs[0]), len(strs)
-	ans := 0
 	for j := 0; j < m; j++ {
 		for i := 1; i < n; i++ {
 			if strs[i][j] < strs[i-1][j] {
@@ -162,7 +168,25 @@ func minDeletionSize(strs []string) int {
 			}
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function minDeletionSize(strs: string[]): number {
+    const [m, n] = [strs[0].length, strs.length];
+    let ans = 0;
+    for (let j = 0; j < m; ++j) {
+        for (let i = 1; i < n; ++i) {
+            if (strs[i][j] < strs[i - 1][j]) {
+                ++ans;
+                break;
+            }
+        }
+    }
+    return ans;
 }
 ```
 
@@ -173,16 +197,16 @@ impl Solution {
     pub fn min_deletion_size(strs: Vec<String>) -> i32 {
         let n = strs.len();
         let m = strs[0].len();
-        let mut res = 0;
-        for i in 0..m {
-            for j in 1..n {
-                if strs[j - 1].as_bytes()[i] > strs[j].as_bytes()[i] {
-                    res += 1;
+        let mut ans = 0;
+        for j in 0..m {
+            for i in 1..n {
+                if strs[i].as_bytes()[j] < strs[i - 1].as_bytes()[j] {
+                    ans += 1;
                     break;
                 }
             }
         }
-        res
+        ans
     }
 }
 ```
