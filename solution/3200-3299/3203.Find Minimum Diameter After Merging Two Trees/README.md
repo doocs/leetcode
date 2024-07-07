@@ -38,7 +38,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p>将第一棵树中的节点 0 与第二棵树中的任意节点连接，得到一棵直径为 3 得树。</p>
+<p>将第一棵树中的节点 0 与第二棵树中的任意节点连接，得到一棵直径为 3 的树。</p>
 </div>
 
 <p><strong class="example">示例 2：<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3200-3299/3203.Find%20Minimum%20Diameter%20After%20Merging%20Two%20Trees/images/example211.png" style="width: 1000px; height: 492px;" /></strong></p>

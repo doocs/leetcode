@@ -1,20 +1,24 @@
 class Solution {
 public:
-    vector<vector<int>> dirs = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
-    int n = 8;
-
     bool checkMove(vector<vector<char>>& board, int rMove, int cMove, char color) {
-        for (auto& d : dirs) {
-            int a = d[0], b = d[1];
-            int i = rMove, j = cMove;
-            int t = 0;
-            while (0 <= i + a && i + a < n && 0 <= j + b && j + b < n) {
-                ++t;
-                i += a;
-                j += b;
-                if (board[i][j] == '.' || board[i][j] == color) break;
+        for (int a = -1; a <= 1; ++a) {
+            for (int b = -1; b <= 1; ++b) {
+                if (a == 0 && b == 0) {
+                    continue;
+                }
+                int i = rMove, j = cMove;
+                int cnt = 0;
+                while (0 <= i + a && i + a < 8 && 0 <= j + b && j + b < 8) {
+                    i += a;
+                    j += b;
+                    if (++cnt > 1 && board[i][j] == color) {
+                        return true;
+                    }
+                    if (board[i][j] == color || board[i][j] == '.') {
+                        break;
+                    }
+                }
             }
-            if (board[i][j] == color && t > 1) return true;
         }
         return false;
     }

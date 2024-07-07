@@ -26,7 +26,21 @@ comments: true
 
 ## 往期竞赛
 
-#### 第 404 场周赛(2024-06-30 10:30, 90 分钟) 参赛人数 3485
+#### 第 405 场周赛(2024-07-07 10:30, 90 分钟) 参赛人数 3239
+
+- [3210. 找出加密后的字符串](/solution/3200-3299/3210.Find%20the%20Encrypted%20String/README.md)
+- [3211. 生成不含相邻零的二进制字符串](/solution/3200-3299/3211.Generate%20Binary%20Strings%20Without%20Adjacent%20Zeros/README.md)
+- [3212. 统计 X 和 Y 频数相等的子矩阵数量](/solution/3200-3299/3212.Count%20Submatrices%20With%20Equal%20Frequency%20of%20X%20and%20Y/README.md)
+- [3213. 最小代价构造字符串](/solution/3200-3299/3213.Construct%20String%20with%20Minimum%20Cost/README.md)
+
+#### 第 134 场双周赛(2024-07-06 22:30, 90 分钟) 参赛人数 2411
+
+- [3206. 交替组 I](/solution/3200-3299/3206.Alternating%20Groups%20I/README.md)
+- [3207. 与敌人战斗后的最大分数](/solution/3200-3299/3207.Maximum%20Points%20After%20Enemy%20Battles/README.md)
+- [3208. 交替组 II](/solution/3200-3299/3208.Alternating%20Groups%20II/README.md)
+- [3209. 子数组按位与值为 K 的数目](/solution/3200-3299/3209.Number%20of%20Subarrays%20With%20AND%20Value%20of%20K/README.md)
+
+#### 第 404 场周赛(2024-06-30 10:30, 90 分钟) 参赛人数 3486
 
 - [3200. 三角形的最大高度](/solution/3200-3299/3200.Maximum%20Height%20of%20a%20Triangle/README.md)
 - [3201. 找出有效子序列的最大长度 I](/solution/3200-3299/3201.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20I/README.md)
