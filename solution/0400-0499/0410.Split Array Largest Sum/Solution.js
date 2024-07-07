@@ -1,8 +1,13 @@
-function splitArray(nums: number[], k: number): number {
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var splitArray = function (nums, k) {
     let l = Math.max(...nums);
     let r = nums.reduce((a, b) => a + b);
 
-    const check = (mx: number) => {
+    const check = mx => {
         let [s, cnt] = [0, 0];
         for (const x of nums) {
             s += x;
@@ -23,4 +28,4 @@ function splitArray(nums: number[], k: number): number {
         }
     }
     return l;
-}
+};
