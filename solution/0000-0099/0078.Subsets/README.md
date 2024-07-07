@@ -315,4 +315,27 @@ function subsets(nums: number[]): number[][] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法三
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function subsets(nums: number[]): number[][] {
+    const res: number[][] = [[]];
+    for (const x of nums) {
+        res.push(...res.map(arr => [...arr, x]));
+    }
+
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
