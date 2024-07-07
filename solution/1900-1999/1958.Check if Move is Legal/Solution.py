@@ -2,16 +2,17 @@ class Solution:
     def checkMove(
         self, board: List[List[str]], rMove: int, cMove: int, color: str
     ) -> bool:
-        dirs = [(1, 0), (0, 1), (-1, 0), (0, -1), (1, 1), (1, -1), (-1, 1), (-1, -1)]
-        n = 8
-        for a, b in dirs:
-            i, j = rMove, cMove
-            t = 0
-            while 0 <= i + a < n and 0 <= j + b < n:
-                t += 1
-                i, j = i + a, j + b
-                if board[i][j] in ['.', color]:
-                    break
-            if board[i][j] == color and t > 1:
-                return True
+        for a in range(-1, 2):
+            for b in range(-1, 2):
+                if a == 0 and b == 0:
+                    continue
+                i, j = rMove, cMove
+                cnt = 0
+                while 0 <= i + a < 8 and 0 <= j + b < 8:
+                    cnt += 1
+                    i, j = i + a, j + b
+                    if cnt > 1 and board[i][j] == color:
+                        return True
+                    if board[i][j] in (color, "."):
+                        break
         return False

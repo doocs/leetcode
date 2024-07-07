@@ -33,7 +33,7 @@ tags:
 <strong>Input:</strong> n = 4, time = 5
 <strong>Output:</strong> 2
 <strong>Explanation:</strong> People pass the pillow in the following way: 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 3 -&gt; 2.
-Afer five seconds, the pillow is given to the 2<sup>nd</sup> person.
+After five seconds, the 2<sup>nd</sup> person is holding the pillow.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -42,7 +42,7 @@ Afer five seconds, the pillow is given to the 2<sup>nd</sup> person.
 <strong>Input:</strong> n = 3, time = 2
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> People pass the pillow in the following way: 1 -&gt; 2 -&gt; 3.
-Afer two seconds, the pillow is given to the 3<sup>r</sup><sup>d</sup> person.
+After two seconds, the 3<sup>r</sup><sup>d</sup> person is holding the pillow.
 </pre>
 
 <p>&nbsp;</p>
