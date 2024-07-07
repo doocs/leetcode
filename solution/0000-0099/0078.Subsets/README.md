@@ -317,7 +317,7 @@ function subsets(nums: number[]): number[][] {
 
 <!-- solution:start -->
 
-### Solution 3
+### 方法三
 
 <!-- tabs:start -->
 
