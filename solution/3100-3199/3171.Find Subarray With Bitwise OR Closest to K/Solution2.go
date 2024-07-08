@@ -1,22 +1,15 @@
 func minimumDifference(nums []int, k int) int {
-	ans := abs(nums[0] - k)
-	pre := map[int]bool{nums[0]: true}
+	ans := math.MaxInt32
+	pre := map[int]bool{}
 	for _, x := range nums {
 		cur := map[int]bool{x: true}
 		for y := range pre {
-			cur[x&y] = true
+			cur[x|y] = true
 		}
 		for y := range cur {
-			ans = min(ans, abs(y-k))
+			ans = min(ans, max(y-k, k-y))
 		}
 		pre = cur
 	}
 	return ans
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
 }
