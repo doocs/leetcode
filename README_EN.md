@@ -22,6 +22,46 @@ This project contains solutions for problems from LeetCode, "Coding Interviews (
 
 https://doocs.github.io/leetcode
 
+## Using Docker
+
+To facilitate the setup and usage of the project, you can use Docker. Below are the instructions to build and run the Docker container.
+
+### Prerequisites
+
+- Install [Docker](https://docs.docker.com/get-docker/).
+
+### Building the Docker Image
+
+Navigate to the root directory of the project and build the Docker image using the following command:
+
+```sh
+docker build -t leetcode-solutions .
+```
+
+### Running the Docker Container
+
+Once the image is built, you can run the container with the following command:
+
+```sh
+docker run -it --rm leetcode-solutions
+```
+
+This command will start a container and open an interactive shell session where you can work with the project.
+
+### Accessing Project Files
+
+To access project files from within the Docker container, you can mount the project directory as a volume. Use the following command:
+
+```sh
+docker run -it --rm -v $(pwd):/app leetcode-solutions
+```
+
+This command mounts the current directory (where you run the command) to the `/app` directory in the container, allowing you to access and modify files as needed.
+
+### Stopping the Docker Container
+
+To stop the Docker container, you can use the `exit` command or press `Ctrl + D` in the terminal where the container is running.
+
 ## Solutions
 
 -   [LeetCode](/solution/README_EN.md)
