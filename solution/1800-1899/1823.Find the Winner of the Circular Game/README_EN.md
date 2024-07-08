@@ -179,9 +179,6 @@ impl Solution {
 }
 ```
 
-
-
-
 <!-- tabs:end -->
 
 <!-- solution:end -->
