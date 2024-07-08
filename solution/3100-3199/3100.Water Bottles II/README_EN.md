@@ -155,9 +155,9 @@ function maxBottlesDrunk(numBottles: number, numExchange: number): number {
 }
 ```
 
-#### TypeScript
+#### Rust
 
-```rs
+```rust
 impl Solution {
     pub fn max_bottles_drunk(mut num_bottles: i32, mut num_exchange: i32) -> i32 {
         let mut ans = num_bottles;
