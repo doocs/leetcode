@@ -200,8 +200,6 @@ class Solution {
         return left
     }
 }
-
-
 ```
 
 <!-- tabs:end -->
