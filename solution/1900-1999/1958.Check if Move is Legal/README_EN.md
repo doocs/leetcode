@@ -62,7 +62,13 @@ The two good lines with the chosen cell as an endpoint are annotated above with 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+We enumerate all possible directions. For each direction $(a, b)$, we start from $(\textit{rMove}, \textit{cMove})$ and use a variable $\textit{cnt}$ to record the number of cells we have passed. If, during our traversal, we encounter a cell of color $\textit{color}$ and $\textit{cnt} > 1$, then we have found a good line segment and return $\text{true}$.
+
+If no good line segments are found after the enumeration, we return $\text{false}$.
+
+The time complexity is $O(m + n)$, where $m$ is the number of rows and $n$ is the number of columns in $\textit{board}$, with $m = n = 8$ in this problem. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -73,18 +79,19 @@ class Solution:
     def checkMove(
         self, board: List[List[str]], rMove: int, cMove: int, color: str
     ) -> bool:
-        dirs = [(1, 0), (0, 1), (-1, 0), (0, -1), (1, 1), (1, -1), (-1, 1), (-1, -1)]
-        n = 8
-        for a, b in dirs:
-            i, j = rMove, cMove
-            t = 0
-            while 0 <= i + a < n and 0 <= j + b < n:
-                t += 1
-                i, j = i + a, j + b
-                if board[i][j] in ['.', color]:
-                    break
-            if board[i][j] == color and t > 1:
-                return True
+        for a in range(-1, 2):
+            for b in range(-1, 2):
+                if a == 0 and b == 0:
+                    continue
+                i, j = rMove, cMove
+                cnt = 0
+                while 0 <= i + a < 8 and 0 <= j + b < 8:
+                    cnt += 1
+                    i, j = i + a, j + b
+                    if cnt > 1 and board[i][j] == color:
+                        return True
+                    if board[i][j] in (color, "."):
+                        break
         return False
 ```
 
@@ -92,25 +99,24 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int[][] DIRS
-        = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
-    private static final int N = 8;
-
     public boolean checkMove(char[][] board, int rMove, int cMove, char color) {
-        for (int[] d : DIRS) {
-            int i = rMove, j = cMove;
-            int t = 0;
-            int a = d[0], b = d[1];
-            while (0 <= i + a && i + a < N && 0 <= j + b && j + b < N) {
-                ++t;
-                i += a;
-                j += b;
-                if (board[i][j] == '.' || board[i][j] == color) {
-                    break;
+        for (int a = -1; a <= 1; ++a) {
+            for (int b = -1; b <= 1; ++b) {
+                if (a == 0 && b == 0) {
+                    continue;
                 }
-            }
-            if (board[i][j] == color && t > 1) {
-                return true;
+                int i = rMove, j = cMove;
+                int cnt = 0;
+                while (0 <= i + a && i + a < 8 && 0 <= j + b && j + b < 8) {
+                    i += a;
+                    j += b;
+                    if (++cnt > 1 && board[i][j] == color) {
+                        return true;
+                    }
+                    if (board[i][j] == color || board[i][j] == '.') {
+                        break;
+                    }
+                }
             }
         }
         return false;
@@ -123,21 +129,25 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<vector<int>> dirs = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
-    int n = 8;
-
     bool checkMove(vector<vector<char>>& board, int rMove, int cMove, char color) {
-        for (auto& d : dirs) {
-            int a = d[0], b = d[1];
-            int i = rMove, j = cMove;
-            int t = 0;
-            while (0 <= i + a && i + a < n && 0 <= j + b && j + b < n) {
-                ++t;
-                i += a;
-                j += b;
-                if (board[i][j] == '.' || board[i][j] == color) break;
+        for (int a = -1; a <= 1; ++a) {
+            for (int b = -1; b <= 1; ++b) {
+                if (a == 0 && b == 0) {
+                    continue;
+                }
+                int i = rMove, j = cMove;
+                int cnt = 0;
+                while (0 <= i + a && i + a < 8 && 0 <= j + b && j + b < 8) {
+                    i += a;
+                    j += b;
+                    if (++cnt > 1 && board[i][j] == color) {
+                        return true;
+                    }
+                    if (board[i][j] == color || board[i][j] == '.') {
+                        break;
+                    }
+                }
             }
-            if (board[i][j] == color && t > 1) return true;
         }
         return false;
     }
@@ -148,25 +158,54 @@ public:
 
 ```go
 func checkMove(board [][]byte, rMove int, cMove int, color byte) bool {
-	dirs := [8][2]int{{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}}
-	n := 8
-	for _, d := range dirs {
-		a, b := d[0], d[1]
-		i, j := rMove, cMove
-		t := 0
-		for 0 <= i+a && i+a < n && 0 <= j+b && j+b < n {
-			t++
-			i += a
-			j += b
-			if board[i][j] == '.' || board[i][j] == color {
-				break
+	for a := -1; a <= 1; a++ {
+		for b := -1; b <= 1; b++ {
+			if a == 0 && b == 0 {
+				continue
 			}
-		}
-		if board[i][j] == color && t > 1 {
-			return true
+			i, j := rMove, cMove
+			cnt := 0
+			for 0 <= i+a && i+a < 8 && 0 <= j+b && j+b < 8 {
+				i += a
+				j += b
+				cnt++
+				if cnt > 1 && board[i][j] == color {
+					return true
+				}
+				if board[i][j] == color || board[i][j] == '.' {
+					break
+				}
+			}
 		}
 	}
 	return false
+}
+```
+
+#### TypeScript
+
+```ts
+function checkMove(board: string[][], rMove: number, cMove: number, color: string): boolean {
+    for (let a = -1; a <= 1; ++a) {
+        for (let b = -1; b <= 1; ++b) {
+            if (a === 0 && b === 0) {
+                continue;
+            }
+            let [i, j] = [rMove, cMove];
+            let cnt = 0;
+            while (0 <= i + a && i + a < 8 && 0 <= j + b && j + b < 8) {
+                i += a;
+                j += b;
+                if (++cnt > 1 && board[i][j] === color) {
+                    return true;
+                }
+                if (board[i][j] === color || board[i][j] === '.') {
+                    break;
+                }
+            }
+        }
+    }
+    return false;
 }
 ```
 

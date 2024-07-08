@@ -184,37 +184,70 @@ func splitArray(nums []int, k int) int {
 }
 ```
 
-#### TypeScript
+#### JavaScript
 
-```ts
-function splitArray(nums: number[], k: number): number {
-    let left = 0;
-    let right = 0;
-    for (const x of nums) {
-        left = Math.max(left, x);
-        right += x;
-    }
-    const check = (mx: number) => {
-        let s = 1 << 30;
-        let cnt = 0;
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var splitArray = function (nums, k) {
+    let l = Math.max(...nums);
+    let r = nums.reduce((a, b) => a + b);
+
+    const check = mx => {
+        let [s, cnt] = [0, 0];
         for (const x of nums) {
             s += x;
             if (s > mx) {
                 s = x;
-                ++cnt;
+                if (++cnt === k) return false;
             }
         }
-        return cnt <= k;
+        return true;
     };
-    while (left < right) {
-        const mid = (left + right) >> 1;
+
+    while (l < r) {
+        const mid = (l + r) >> 1;
         if (check(mid)) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
+};
+```
+
+#### TypeScript
+
+```ts
+function splitArray(nums: number[], k: number): number {
+    let l = Math.max(...nums);
+    let r = nums.reduce((a, b) => a + b);
+
+    const check = (mx: number) => {
+        let [s, cnt] = [0, 0];
+        for (const x of nums) {
+            s += x;
+            if (s > mx) {
+                s = x;
+                if (++cnt === k) return false;
+            }
+        }
+        return true;
+    };
+
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (check(mid)) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
 }
 ```
 

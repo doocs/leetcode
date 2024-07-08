@@ -8,18 +8,18 @@ class Solution {
         int[] cnt = new int[m];
         int n = nums.length;
         int ans = Integer.MAX_VALUE;
-        for (int i = 0, j = 0, s = -1; j < n; ++j) {
-            s &= nums[j];
+        for (int i = 0, j = 0, s = 0; j < n; ++j) {
+            s |= nums[j];
             ans = Math.min(ans, Math.abs(s - k));
             for (int h = 0; h < m; ++h) {
-                if ((nums[j] >> h & 1) == 0) {
+                if ((nums[j] >> h & 1) == 1) {
                     ++cnt[h];
                 }
             }
-            while (i < j && s < k) {
+            while (i < j && s > k) {
                 for (int h = 0; h < m; ++h) {
-                    if ((nums[i] >> h & 1) == 0 && --cnt[h] == 0) {
-                        s |= 1 << h;
+                    if ((nums[i] >> h & 1) == 1 && --cnt[h] == 0) {
+                        s ^= 1 << h;
                     }
                 }
                 ++i;

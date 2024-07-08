@@ -31,6 +31,8 @@ tags:
 	<li>在字符串中，用&nbsp;<code>values[i]</code> 替换字符 <code>c</code> 。</li>
 </ol>
 
+<p>请注意，如果&nbsp;<code>keys</code> 中不存在字符串中的字符，则无法执行加密过程，返回空字符串 <code>""</code>。</p>
+
 <p>字符串 <strong>解密</strong> 按下述步骤进行：</p>
 
 <ol>

@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3205.Ma
 
 <!-- problem:start -->
 
-# [3205. Maximum Array Hopping Score I 🔒](https://leetcode.cn/problems/maximum-array-hopping-score-i)
+# [3205. 最大数组跳跃得分 I 🔒](https://leetcode.cn/problems/maximum-array-hopping-score-i)
 
 [English Version](/solution/3200-3299/3205.Maximum%20Array%20Hopping%20Score%20I/README_EN.md)
 
@@ -14,44 +14,46 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3205.Ma
 
 <!-- description:start -->
 
-<p>Given an array <code>nums</code>, you have to get the <strong>maximum</strong> score starting from index 0 and <strong>hopping</strong> until you reach the last element of the array.</p>
+<p>给定一个数组&nbsp;<code>nums</code>，你必须从索引 0 开始跳跃，直到到达数组的最后一个元素，使得获取 <strong>最大</strong> 分数。</p>
 
-<p>In each <strong>hop</strong>, you can jump from index <code>i</code> to an index <code>j &gt; i</code>, and you get a <strong>score</strong> of <code>(j - i) * nums[j]</code>.</p>
+<p>每一次 <strong>跳跃</strong> 中，你可以从下标&nbsp;<code>i</code>&nbsp;跳到一个&nbsp;<code>j &gt; i</code>&nbsp;的下标，并且可以得到&nbsp;<code>(j - i) * nums[j]</code>&nbsp;的分数。</p>
 
-<p>Return the <em>maximum score</em> you can get.</p>
+<p>返回你能够取得的最大分数。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,5,8]</span></p>
+<p><span class="example-io"><b>输入：</b></span><span class="example-io">nums = [1,5,8]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">16</span></p>
+<p><span class="example-io"><b>输出：</b>16</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>There are two possible ways to reach the last element:</p>
+<p>有两种可能的方法可以到达最后一个元素：</p>
 
 <ul>
-	<li><code>0 -&gt; 1 -&gt; 2</code> with a score of&nbsp;<code>(1 - 0) * 5 + (2 - 1) * 8 = 13</code>.</li>
-	<li><code>0 -&gt; 2</code> with a score of&nbsp;<code>(2 - 0) * 8 =&nbsp;16</code>.</li>
+	<li><code>0 -&gt; 1 -&gt; 2</code> 得分为&nbsp;<code>(1 - 0) * 5 + (2 - 1) * 8 = 13</code>。</li>
+	<li><code>0 -&gt; 2</code> 得分为&nbsp;<code>(2 - 0) * 8 =&nbsp;16</code>。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [4,5,2,8,9,1,3]</span></p>
+<p><span class="example-io"><b>输入：</b>nums = [4,5,2,8,9,1,3]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">42</span></p>
+<p><span class="example-io"><b>输出：</b>42</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>We can do the hopping <code>0 -&gt; 4 -&gt; 6</code> with a score of&nbsp;<code>(4 - 0) * 9 + (6 - 4) * 3 = 42</code>.</p>
+<p>我们可以按&nbsp;<code>0 -&gt; 4 -&gt; 6</code>&nbsp;进行跳跃，得分为&nbsp;<code>(4 - 0) * 9 + (6 - 4) * 3 = 42</code>。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>2 &lt;= nums.length &lt;= 10<sup>3</sup></code></li>

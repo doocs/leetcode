@@ -67,7 +67,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：一次遍历
+
+根据题目描述，当第 $k$ 个人完成购票时，在第 $k$ 个人前面的所有人，购买的票数都不会超过第 $k$ 个人购买的票数，而在第 $k$ 个人后面的所有人，购买的票数都不会超过第 $k$ 个人购买的票数减 $1$。
+
+因此，我们可以遍历整个队伍，对于第 $i$ 个人，如果 $i \leq k$，购票时间为 $\min(\text{tickets}[i], \text{tickets}[k])$，否则购票时间为 $\min(\text{tickets}[i], \text{tickets}[k] - 1)$。我们将所有人的购票时间相加即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为队伍的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -77,11 +83,8 @@ tags:
 class Solution:
     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
         ans = 0
-        for i, t in enumerate(tickets):
-            if i <= k:
-                ans += min(tickets[k], t)
-            else:
-                ans += min(tickets[k] - 1, t)
+        for i, x in enumerate(tickets):
+            ans += min(x, tickets[k] if i <= k else tickets[k] - 1)
         return ans
 ```
 
@@ -91,12 +94,8 @@ class Solution:
 class Solution {
     public int timeRequiredToBuy(int[] tickets, int k) {
         int ans = 0;
-        for (int i = 0; i < tickets.length; i++) {
-            if (i <= k) {
-                ans += Math.min(tickets[k], tickets[i]);
-            } else {
-                ans += Math.min(tickets[k] - 1, tickets[i]);
-            }
+        for (int i = 0; i < tickets.length; ++i) {
+            ans += Math.min(tickets[i], i <= k ? tickets[k] : tickets[k] - 1);
         }
         return ans;
     }
@@ -111,11 +110,7 @@ public:
     int timeRequiredToBuy(vector<int>& tickets, int k) {
         int ans = 0;
         for (int i = 0; i < tickets.size(); ++i) {
-            if (i <= k) {
-                ans += min(tickets[k], tickets[i]);
-            } else {
-                ans += min(tickets[k] - 1, tickets[i]);
-            }
+            ans += min(tickets[i], i <= k ? tickets[k] : tickets[k] - 1);
         }
         return ans;
     }
@@ -125,16 +120,15 @@ public:
 #### Go
 
 ```go
-func timeRequiredToBuy(tickets []int, k int) int {
-	ans := 0
-	for i, t := range tickets {
-		if i <= k {
-			ans += min(tickets[k], t)
-		} else {
-			ans += min(tickets[k]-1, t)
+func timeRequiredToBuy(tickets []int, k int) (ans int) {
+	for i, x := range tickets {
+		t := tickets[k]
+		if i > k {
+			t--
 		}
+		ans += min(x, t)
 	}
-	return ans
+	return
 }
 ```
 
@@ -142,25 +136,10 @@ func timeRequiredToBuy(tickets []int, k int) int {
 
 ```ts
 function timeRequiredToBuy(tickets: number[], k: number): number {
-    const n = tickets.length;
-    let target = tickets[k] - 1;
     let ans = 0;
-    // round1
-    for (let i = 0; i < n; i++) {
-        let num = tickets[i];
-        if (num <= target) {
-            ans += num;
-            tickets[i] = 0;
-        } else {
-            ans += target;
-            tickets[i] -= target;
-        }
-    }
-
-    // round2
-    for (let i = 0; i <= k; i++) {
-        let num = tickets[i];
-        ans += num > 0 ? 1 : 0;
+    const n = tickets.length;
+    for (let i = 0; i < n; ++i) {
+        ans += Math.min(tickets[i], i <= k ? tickets[k] : tickets[k] - 1);
     }
     return ans;
 }

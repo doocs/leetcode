@@ -1,20 +1,22 @@
 func checkMove(board [][]byte, rMove int, cMove int, color byte) bool {
-	dirs := [8][2]int{{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}}
-	n := 8
-	for _, d := range dirs {
-		a, b := d[0], d[1]
-		i, j := rMove, cMove
-		t := 0
-		for 0 <= i+a && i+a < n && 0 <= j+b && j+b < n {
-			t++
-			i += a
-			j += b
-			if board[i][j] == '.' || board[i][j] == color {
-				break
+	for a := -1; a <= 1; a++ {
+		for b := -1; b <= 1; b++ {
+			if a == 0 && b == 0 {
+				continue
 			}
-		}
-		if board[i][j] == color && t > 1 {
-			return true
+			i, j := rMove, cMove
+			cnt := 0
+			for 0 <= i+a && i+a < 8 && 0 <= j+b && j+b < 8 {
+				i += a
+				j += b
+				cnt++
+				if cnt > 1 && board[i][j] == color {
+					return true
+				}
+				if board[i][j] == color || board[i][j] == '.' {
+					break
+				}
+			}
 		}
 	}
 	return false

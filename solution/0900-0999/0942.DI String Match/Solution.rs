@@ -1,19 +1,20 @@
 impl Solution {
     pub fn di_string_match(s: String) -> Vec<i32> {
-        let s = s.as_bytes();
-        let n = s.len();
-        let mut res = Vec::with_capacity(n + 1);
-        let (mut low, mut high) = (-1, (n + 1) as i32);
-        for i in 0..n {
-            res.push(if s[i] == b'I' {
+        let mut low = 0;
+        let mut high = s.len() as i32;
+        let mut ans = Vec::with_capacity(s.len() + 1);
+
+        for c in s.chars() {
+            if c == 'I' {
+                ans.push(low);
                 low += 1;
-                low
             } else {
+                ans.push(high);
                 high -= 1;
-                high
-            });
+            }
         }
-        res.push(low + 1);
-        res
+
+        ans.push(low);
+        ans
     }
 }

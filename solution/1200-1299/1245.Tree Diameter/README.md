@@ -69,21 +69,9 @@ tags:
 
 ### 方法一：两次 DFS
 
-首先对任意一个结点做 DFS 求出最远的结点，然后以这个结点为根结点再做 DFS 到达另一个最远结点。第一次 DFS 到达的结点可以证明一定是这个图的直径的一端，第二次 DFS 就会达到另一端。下面来证明这个定理。
+我们首先任选一个节点，从该节点开始进行深度优先搜索，找到距离该节点最远的节点，记为节点 $a$。然后从节点 $a$ 开始进行深度优先搜索，找到距离节点 $a$ 最远的节点，记为节点 $b$。可以证明，节点 $a$ 和节点 $b$ 之间的路径即为树的直径。
 
-定理：在一个连通无向无环图中，以任意结点出发所能到达的最远结点，一定是该图直径的端点之一。
-
-证明：假设这条直径是 δ(s, t)。分两种情况：
-
-1.  当出发结点 y 在 δ(s, t) 时，假设到达的最远结点 z 不是 s, t 中的任一个。这时将 δ(y, z) 与不与之重合的 δ(y, s) 拼接（也可以假设不与之重合的是直径的另一个方向），可以得到一条更长的直径，与前提矛盾。
-1.  当出发结点 y 不在 δ(s, t) 上时，分两种情况：
-
-    -   当 y 到达的最远结点 z 横穿 δ(s, t) 时，记与之相交的结点为 x。此时有 δ(y, z) = δ(y, x) + δ(x, z)。而此时 δ(y, z) > δ(y, t)，故可得 δ(x, z) ＞ δ(x, t)。由 1 的结论可知该假设不成立。
-    -   当 y 到达的最远结点 z 与 δ(s, t) 不相交时，定义从 y 开始到 t 结束的简单路径上，第一个同时也存在于简单路径 δ(s, t) 上的结点为 x，最后一个存在于简单路径 δ(y, z) 上的结点为 x’。如下图。那么根据假设，有 δ(y, z) ≥ δ(y, t) => δ(x', z) ≥ δ(x', x) + δ(x, t)。既然这样，那么 δ(x, z) ≥ δ(x, t)，和 δ(s, t) 对应着直径这一前提不符，故 y 的最远结点 z 不可能在 s 到 t 这个直径对应的路外面。
-
-    <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/tree-diameter.svg">
-
-因此定理成立。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 相似题目：
 
@@ -96,27 +84,22 @@ tags:
 ```python
 class Solution:
     def treeDiameter(self, edges: List[List[int]]) -> int:
-        def dfs(u, t):
-            nonlocal ans, vis, d, next
-            if vis[u]:
-                return
-            vis[u] = True
-            for v in d[u]:
-                dfs(v, t + 1)
+        def dfs(i: int, fa: int, t: int):
+            for j in g[i]:
+                if j != fa:
+                    dfs(j, i, t + 1)
+            nonlocal ans, a
             if ans < t:
                 ans = t
-                next = u
+                a = i
 
-        d = defaultdict(set)
-        vis = [False] * (len(edges) + 1)
-        for u, v in edges:
-            d[u].add(v)
-            d[v].add(u)
-        ans = 0
-        next = 0
-        dfs(edges[0][0], 0)
-        vis = [False] * (len(edges) + 1)
-        dfs(next, 0)
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        ans = a = 0
+        dfs(0, -1, 0)
+        dfs(a, -1, 0)
         return ans
 ```
 
@@ -124,38 +107,33 @@ class Solution:
 
 ```java
 class Solution {
-    private Map<Integer, Set<Integer>> g;
-    private boolean[] vis;
-    private int next;
+    private List<Integer>[] g;
     private int ans;
+    private int a;
 
     public int treeDiameter(int[][] edges) {
-        int n = edges.length;
-        ans = 0;
-        g = new HashMap<>();
-        for (int[] e : edges) {
-            g.computeIfAbsent(e[0], k -> new HashSet<>()).add(e[1]);
-            g.computeIfAbsent(e[1], k -> new HashSet<>()).add(e[0]);
+        int n = edges.length + 1;
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
         }
-        vis = new boolean[n + 1];
-        next = edges[0][0];
-        dfs(next, 0);
-        vis = new boolean[n + 1];
-        dfs(next, 0);
+        dfs(0, -1, 0);
+        dfs(a, -1, 0);
         return ans;
     }
 
-    private void dfs(int u, int t) {
-        if (vis[u]) {
-            return;
+    private void dfs(int i, int fa, int t) {
+        for (int j : g[i]) {
+            if (j != fa) {
+                dfs(j, i, t + 1);
+            }
         }
-        vis[u] = true;
         if (ans < t) {
             ans = t;
-            next = u;
-        }
-        for (int v : g.get(u)) {
-            dfs(v, t + 1);
+            a = i;
         }
     }
 }
@@ -166,34 +144,29 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    unordered_map<int, unordered_set<int>> g;
-    vector<bool> vis;
-    int ans;
-    int next;
-
     int treeDiameter(vector<vector<int>>& edges) {
+        int n = edges.size() + 1;
+        vector<int> g[n];
         for (auto& e : edges) {
-            g[e[0]].insert(e[1]);
-            g[e[1]].insert(e[0]);
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
         }
-        int n = edges.size();
-        ans = 0;
-        vis.resize(n + 1);
-        next = edges[0][0];
-        dfs(next, 0);
-        vis.assign(vis.size(), false);
-        dfs(next, 0);
+        int ans = 0, a = 0;
+        auto dfs = [&](auto&& dfs, int i, int fa, int t) -> void {
+            for (int j : g[i]) {
+                if (j != fa) {
+                    dfs(dfs, j, i, t + 1);
+                }
+            }
+            if (ans < t) {
+                ans = t;
+                a = i;
+            }
+        };
+        dfs(dfs, 0, -1, 0);
+        dfs(dfs, a, -1, 0);
         return ans;
-    }
-
-    void dfs(int u, int t) {
-        if (vis[u]) return;
-        vis[u] = true;
-        if (ans < t) {
-            ans = t;
-            next = u;
-        }
-        for (int v : g[u]) dfs(v, t + 1);
     }
 };
 ```
@@ -201,36 +174,58 @@ public:
 #### Go
 
 ```go
-func treeDiameter(edges [][]int) int {
-	n := len(edges)
-	g := make(map[int][]int)
+func treeDiameter(edges [][]int) (ans int) {
+	n := len(edges) + 1
+	g := make([][]int, n)
 	for _, e := range edges {
-		g[e[0]] = append(g[e[0]], e[1])
-		g[e[1]] = append(g[e[1]], e[0])
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
 	}
-	vis := make(map[int]bool, n+1)
-	ans := 0
-	next := edges[0][0]
-	var dfs func(u, t int)
-	dfs = func(u, t int) {
-		if vis[u] {
-			return
-		}
-		vis[u] = true
-		if ans < t {
-			ans = t
-			next = u
-		}
-		if vs, ok := g[u]; ok {
-			for _, v := range vs {
-				dfs(v, t+1)
+	a := 0
+	var dfs func(i, fa, t int)
+	dfs = func(i, fa, t int) {
+		for _, j := range g[i] {
+			if j != fa {
+				dfs(j, i, t+1)
 			}
 		}
+		if ans < t {
+			ans = t
+			a = i
+		}
 	}
-	dfs(next, 0)
-	vis = make(map[int]bool, n+1)
-	dfs(next, 0)
-	return ans
+	dfs(0, -1, 0)
+	dfs(a, -1, 0)
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function treeDiameter(edges: number[][]): number {
+    const n = edges.length + 1;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    let [ans, a] = [0, 0];
+    const dfs = (i: number, fa: number, t: number): void => {
+        for (const j of g[i]) {
+            if (j !== fa) {
+                dfs(j, i, t + 1);
+            }
+        }
+        if (ans < t) {
+            ans = t;
+            a = i;
+        }
+    };
+    dfs(0, -1, 0);
+    dfs(a, -1, 0);
+    return ans;
 }
 ```
 

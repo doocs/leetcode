@@ -77,7 +77,11 @@ Note that the last node is not considered a local maxima because it does not hav
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Direct Traversal
+
+Based on the problem description, we need to find the positions of the first and last critical points in the linked list, $\text{first}$ and $\text{last}$, respectively. This allows us to calculate the maximum distance $\text{maxDistance} = \text{last} - \text{first}$. For the minimum distance $\text{minDistance}$, we need to traverse the linked list, calculate the distance between two adjacent critical points, and take the minimum value.
+
+The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -91,23 +95,21 @@ Note that the last node is not considered a local maxima because it does not hav
 #         self.next = next
 class Solution:
     def nodesBetweenCriticalPoints(self, head: Optional[ListNode]) -> List[int]:
-        prev, curr = head, head.next
-        first = last = None
-        i = 1
         ans = [inf, -inf]
-        while curr.next:
-            if curr.val < min(prev.val, curr.next.val) or curr.val > max(
-                prev.val, curr.next.val
-            ):
-                if last is None:
+        first = last = -1
+        i = 0
+        while head.next.next:
+            a, b, c = head.val, head.next.val, head.next.next.val
+            if a > b < c or a < b > c:
+                if last == -1:
                     first = last = i
                 else:
                     ans[0] = min(ans[0], i - last)
-                    ans[1] = i - first
                     last = i
+                    ans[1] = max(ans[1], last - first)
             i += 1
-            prev, curr = curr, curr.next
-        return ans if first != last else [-1, -1]
+            head = head.next
+        return [-1, -1] if first == last else ans
 ```
 
 #### Java
@@ -124,28 +126,21 @@ class Solution:
  * }
  */
 class Solution {
-
     public int[] nodesBetweenCriticalPoints(ListNode head) {
-        ListNode prev = head;
-        ListNode curr = head.next;
-        int first = 0, last = 0;
-        int i = 1;
-        int[] ans = new int[] {Integer.MAX_VALUE, Integer.MIN_VALUE};
-        while (curr.next != null) {
-            if (curr.val < Math.min(prev.val, curr.next.val)
-                || curr.val > Math.max(prev.val, curr.next.val)) {
-                if (last == 0) {
+        int[] ans = {1 << 30, 0};
+        int first = -1, last = -1;
+        for (int i = 0; head.next.next != null; head = head.next, ++i) {
+            int a = head.val, b = head.next.val, c = head.next.next.val;
+            if (b < Math.min(a, c) || b > Math.max(a, c)) {
+                if (last == -1) {
                     first = i;
                     last = i;
                 } else {
                     ans[0] = Math.min(ans[0], i - last);
-                    ans[1] = i - first;
                     last = i;
+                    ans[1] = Math.max(ans[1], last - first);
                 }
             }
-            ++i;
-            prev = curr;
-            curr = curr.next;
         }
         return first == last ? new int[] {-1, -1} : ans;
     }
@@ -168,27 +163,22 @@ class Solution {
 class Solution {
 public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
-        ListNode* prev = head;
-        ListNode* curr = head->next;
-        int first = 0, last = 0;
-        int i = 1;
-        vector<int> ans(2, INT_MAX);
-        while (curr->next) {
-            if (curr->val < min(prev->val, curr->next->val) || curr->val > max(prev->val, curr->next->val)) {
-                if (last == 0)
+        vector<int> ans = {1 << 30, 0};
+        int first = -1, last = -1;
+        for (int i = 0; head->next->next; head = head->next, ++i) {
+            int a = head->val, b = head->next->val, c = head->next->next->val;
+            if (b < min(a, c) || b > max(a, c)) {
+                if (last == -1) {
                     first = i;
-                else {
+                    last = i;
+                } else {
                     ans[0] = min(ans[0], i - last);
-                    ans[1] = i - first;
+                    last = i;
+                    ans[1] = max(ans[1], last - first);
                 }
-                last = i;
             }
-            ++i;
-            prev = curr;
-            curr = curr->next;
         }
-        if (first == last) return {-1, -1};
-        return ans;
+        return first == last ? vector<int>{-1, -1} : ans;
     }
 };
 ```
@@ -204,22 +194,19 @@ public:
  * }
  */
 func nodesBetweenCriticalPoints(head *ListNode) []int {
-	prev, curr := head, head.Next
-	first, last := 0, 0
-	i := 1
-	ans := []int{math.MaxInt32, 0}
-	for curr.Next != nil {
-		if curr.Val < min(prev.Val, curr.Next.Val) || curr.Val > max(prev.Val, curr.Next.Val) {
-			if last == 0 {
+	ans := []int{1 << 30, 0}
+	first, last := -1, -1
+	for i := 0; head.Next.Next != nil; head, i = head.Next, i+1 {
+		a, b, c := head.Val, head.Next.Val, head.Next.Next.Val
+		if b < min(a, c) || b > max(a, c) {
+			if last == -1 {
 				first, last = i, i
 			} else {
 				ans[0] = min(ans[0], i-last)
-				ans[1] = i - first
 				last = i
+				ans[1] = max(ans[1], last-first)
 			}
 		}
-		i++
-		prev, curr = curr, curr.Next
 	}
 	if first == last {
 		return []int{-1, -1}
@@ -244,30 +231,22 @@ func nodesBetweenCriticalPoints(head *ListNode) []int {
  */
 
 function nodesBetweenCriticalPoints(head: ListNode | null): number[] {
-    let idx = 1;
-    let pre = head.val;
-    head = head.next;
-    let nums = [];
-    while (head.next != null) {
-        let val = head.val,
-            post = head.next.val;
-        if (pre < val && val > post) {
-            nums.push(idx);
+    const ans: number[] = [Infinity, 0];
+    let [first, last] = [-1, -1];
+    for (let i = 0; head.next.next; head = head.next, ++i) {
+        const [a, b, c] = [head.val, head.next.val, head.next.next.val];
+        if (b < Math.min(a, c) || b > Math.max(a, c)) {
+            if (last < 0) {
+                first = i;
+                last = i;
+            } else {
+                ans[0] = Math.min(ans[0], i - last);
+                last = i;
+                ans[1] = Math.max(ans[1], last - first);
+            }
         }
-        if (pre > val && val < post) {
-            nums.push(idx);
-        }
-        pre = val;
-        idx++;
-        head = head.next;
     }
-    let n = nums.length;
-    if (n < 2) return [-1, -1];
-    let min = Infinity;
-    for (let i = 1; i < n; i++) {
-        min = Math.min(nums[i] - nums[i - 1], min);
-    }
-    return [min, nums[n - 1] - nums[0]];
+    return first === last ? [-1, -1] : ans;
 }
 ```
 

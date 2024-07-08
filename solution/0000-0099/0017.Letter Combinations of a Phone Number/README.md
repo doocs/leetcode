@@ -165,13 +165,13 @@ func letterCombinations(digits string) []string {
 
 ```ts
 function letterCombinations(digits: string): string[] {
-    if (digits.length == 0) {
+    if (digits.length === 0) {
         return [];
     }
     const ans: string[] = [''];
     const d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
     for (const i of digits) {
-        const s = d[parseInt(i) - 2];
+        const s = d[+i - 2];
         const t: string[] = [];
         for (const a of ans) {
             for (const b of s) {
@@ -218,13 +218,13 @@ impl Solution {
  * @return {string[]}
  */
 var letterCombinations = function (digits) {
-    if (digits.length == 0) {
+    if (digits.length === 0) {
         return [];
     }
     const ans = [''];
     const d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
     for (const i of digits) {
-        const s = d[parseInt(i) - 2];
+        const s = d[+i - 2];
         const t = [];
         for (const a of ans) {
             for (const b of s) {
@@ -392,7 +392,7 @@ func letterCombinations(digits string) (ans []string) {
 
 ```ts
 function letterCombinations(digits: string): string[] {
-    if (digits.length == 0) {
+    if (digits.length === 0) {
         return [];
     }
     const ans: string[] = [];
@@ -403,7 +403,7 @@ function letterCombinations(digits: string): string[] {
             ans.push(t.join(''));
             return;
         }
-        const s = d[parseInt(digits[i]) - 2];
+        const s = d[+digits[i] - 2];
         for (const c of s) {
             t.push(c);
             dfs(i + 1);
@@ -453,7 +453,7 @@ impl Solution {
  * @return {string[]}
  */
 var letterCombinations = function (digits) {
-    if (digits.length == 0) {
+    if (digits.length === 0) {
         return [];
     }
     const ans = [];
@@ -464,7 +464,7 @@ var letterCombinations = function (digits) {
             ans.push(t.join(''));
             return;
         }
-        const s = d[parseInt(digits[i]) - 2];
+        const s = d[+digits[i] - 2];
         for (const c of s) {
             t.push(c);
             dfs(i + 1);

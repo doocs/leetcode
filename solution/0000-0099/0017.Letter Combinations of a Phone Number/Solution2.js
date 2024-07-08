@@ -3,7 +3,7 @@
  * @return {string[]}
  */
 var letterCombinations = function (digits) {
-    if (digits.length == 0) {
+    if (digits.length === 0) {
         return [];
     }
     const ans = [];
@@ -14,7 +14,7 @@ var letterCombinations = function (digits) {
             ans.push(t.join(''));
             return;
         }
-        const s = d[parseInt(digits[i]) - 2];
+        const s = d[+digits[i] - 2];
         for (const c of s) {
             t.push(c);
             dfs(i + 1);
