@@ -87,32 +87,106 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3207.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心 + 排序
+
+根据题目描述，我们每次需要通过具有最小能量值的敌人来获得分数，通过具有最大能量值的敌人来增加能量值并进行标记。
+
+因此，我们可以对敌人的能量值进行排序，然后从能量值最大的敌人开始，每次都选择能量值最小的敌人来获得分数，并消耗能量值。然后，我们将能量值最大的敌人的能量值加到当前能量值上，并标记该敌人。重复上述操作，直到所有敌人都被标记。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是敌人的数量。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maximumPoints(self, enemyEnergies: List[int], currentEnergy: int) -> int:
+        enemyEnergies.sort()
+        if currentEnergy < enemyEnergies[0]:
+            return 0
+        ans = 0
+        for i in range(len(enemyEnergies) - 1, -1, -1):
+            ans += currentEnergy // enemyEnergies[0]
+            currentEnergy %= enemyEnergies[0]
+            currentEnergy += enemyEnergies[i]
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maximumPoints(int[] enemyEnergies, int currentEnergy) {
+        Arrays.sort(enemyEnergies);
+        if (currentEnergy < enemyEnergies[0]) {
+            return 0;
+        }
+        long ans = 0;
+        for (int i = enemyEnergies.length - 1; i >= 0; --i) {
+            ans += currentEnergy / enemyEnergies[0];
+            currentEnergy %= enemyEnergies[0];
+            currentEnergy += enemyEnergies[i];
+        }
+        return ans;
+    }
+};
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long maximumPoints(vector<int>& enemyEnergies, int currentEnergy) {
+        sort(enemyEnergies.begin(), enemyEnergies.end());
+        if (currentEnergy < enemyEnergies[0]) {
+            return 0;
+        }
+        long long ans = 0;
+        for (int i = enemyEnergies.size() - 1; i >= 0; --i) {
+            ans += currentEnergy / enemyEnergies[0];
+            currentEnergy %= enemyEnergies[0];
+            currentEnergy += enemyEnergies[i];
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumPoints(enemyEnergies []int, currentEnergy int) (ans int64) {
+	sort.Ints(enemyEnergies)
+	if currentEnergy < enemyEnergies[0] {
+		return 0
+	}
+	for i := len(enemyEnergies) - 1; i >= 0; i-- {
+		ans += int64(currentEnergy / enemyEnergies[0])
+		currentEnergy %= enemyEnergies[0]
+		currentEnergy += enemyEnergies[i]
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function maximumPoints(enemyEnergies: number[], currentEnergy: number): number {
+    enemyEnergies.sort((a, b) => a - b);
+    if (currentEnergy < enemyEnergies[0]) {
+        return 0;
+    }
+    let ans = 0;
+    for (let i = enemyEnergies.length - 1; ~i; --i) {
+        ans += Math.floor(currentEnergy / enemyEnergies[0]);
+        currentEnergy %= enemyEnergies[0];
+        currentEnergy += enemyEnergies[i];
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

@@ -60,32 +60,138 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3211.Ge
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：DFS
+
+我们可以枚举长度为 $n$ 的二进制字符串的每个位置 $i$，然后对于每个位置 $i$，我们可以枚举其可以取的值 $j$，如果 $j$ 为 $0$，那么我们需要判断其前一个位置是否为 $1$，如果为 $1$，则可以继续递归下去，否则不合法，如果 $j$ 为 $1$，则直接递归下去。
+
+时间复杂度 $O(n \times 2^n)$，其中 $n$ 为字符串长度。忽略答案数组的空间消耗，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def validStrings(self, n: int) -> List[str]:
+        def dfs(i: int):
+            if i >= n:
+                ans.append("".join(t))
+                return
+            for j in range(2):
+                if (j == 0 and (i == 0 or t[i - 1] == "1")) or j == 1:
+                    t.append(str(j))
+                    dfs(i + 1)
+                    t.pop()
 
+        ans = []
+        t = []
+        dfs(0)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private List<String> ans = new ArrayList<>();
+    private StringBuilder t = new StringBuilder();
+    private int n;
 
+    public List<String> validStrings(int n) {
+        this.n = n;
+        dfs(0);
+        return ans;
+    }
+
+    private void dfs(int i) {
+        if (i >= n) {
+            ans.add(t.toString());
+            return;
+        }
+        for (int j = 0; j < 2; ++j) {
+            if ((j == 0 && (i == 0 || t.charAt(i - 1) == '1')) || j == 1) {
+                t.append(j);
+                dfs(i + 1);
+                t.deleteCharAt(t.length() - 1);
+            }
+        }
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<string> validStrings(int n) {
+        vector<string> ans;
+        string t;
+        auto dfs = [&](auto&& dfs, int i) {
+            if (i >= n) {
+                ans.emplace_back(t);
+                return;
+            }
+            for (int j = 0; j < 2; ++j) {
+                if ((j == 0 && (i == 0 || t[i - 1] == '1')) || j == 1) {
+                    t.push_back('0' + j);
+                    dfs(dfs, i + 1);
+                    t.pop_back();
+                }
+            }
+        };
+        dfs(dfs, 0);
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func validStrings(n int) (ans []string) {
+	t := []byte{}
+	var dfs func(int)
+	dfs = func(i int) {
+		if i >= n {
+			ans = append(ans, string(t))
+			return
+		}
+		for j := 0; j < 2; j++ {
+			if (j == 0 && (i == 0 || t[i-1] == '1')) || j == 1 {
+				t = append(t, byte('0'+j))
+				dfs(i + 1)
+				t = t[:len(t)-1]
+			}
+		}
+	}
+	dfs(0)
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function validStrings(n: number): string[] {
+    const ans: string[] = [];
+    const t: string[] = [];
+    const dfs = (i: number) => {
+        if (i >= n) {
+            ans.push(t.join(''));
+            return;
+        }
+        for (let j = 0; j < 2; ++j) {
+            if ((j == 0 && (i == 0 || t[i - 1] == '1')) || j == 1) {
+                t.push(j.toString());
+                dfs(i + 1);
+                t.pop();
+            }
+        }
+    };
+    dfs(0);
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

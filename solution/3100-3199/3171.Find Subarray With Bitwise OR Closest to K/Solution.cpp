@@ -6,18 +6,18 @@ public:
         int n = nums.size();
         int ans = INT_MAX;
         vector<int> cnt(m);
-        for (int i = 0, j = 0, s = -1; j < n; ++j) {
-            s &= nums[j];
+        for (int i = 0, j = 0, s = 0; j < n; ++j) {
+            s |= nums[j];
             ans = min(ans, abs(s - k));
             for (int h = 0; h < m; ++h) {
-                if (nums[j] >> h & 1 ^ 1) {
+                if (nums[j] >> h & 1) {
                     ++cnt[h];
                 }
             }
-            while (i < j && s < k) {
+            while (i < j && s > k) {
                 for (int h = 0; h < m; ++h) {
-                    if (nums[i] >> h & 1 ^ 1 && --cnt[h] == 0) {
-                        s |= 1 << h;
+                    if (nums[i] >> h & 1 && --cnt[h] == 0) {
+                        s ^= 1 << h;
                     }
                 }
                 ans = min(ans, abs(s - k));

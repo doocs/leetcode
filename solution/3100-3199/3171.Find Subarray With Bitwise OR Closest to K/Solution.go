@@ -2,22 +2,22 @@ func minimumDifference(nums []int, k int) int {
 	m := bits.Len(uint(slices.Max(nums)))
 	cnt := make([]int, m)
 	ans := math.MaxInt32
-	s, i := -1, 0
+	s, i := 0, 0
 	for j, x := range nums {
-		s &= x
+		s |= x
 		ans = min(ans, abs(s-k))
 		for h := 0; h < m; h++ {
-			if x>>h&1 == 0 {
+			if x>>h&1 == 1 {
 				cnt[h]++
 			}
 		}
-		for i < j && s < k {
+		for i < j && s > k {
 			y := nums[i]
 			for h := 0; h < m; h++ {
-				if y>>h&1 == 0 {
+				if y>>h&1 == 1 {
 					cnt[h]--
 					if cnt[h] == 0 {
-						s |= 1 << h
+						s ^= 1 << h
 					}
 				}
 			}

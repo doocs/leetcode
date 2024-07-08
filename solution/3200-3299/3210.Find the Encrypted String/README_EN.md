@@ -67,32 +67,80 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3210.Fi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can use the simulation method. For the $i^{th}$ character of the string, we replace it with the character at position $(i + k) \bmod n$ of the string.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def getEncryptedString(self, s: str, k: int) -> str:
+        cs = list(s)
+        n = len(s)
+        for i in range(n):
+            cs[i] = s[(i + k) % n]
+        return "".join(cs)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public String getEncryptedString(String s, int k) {
+        char[] cs = s.toCharArray();
+        int n = cs.length;
+        for (int i = 0; i < n; ++i) {
+            cs[i] = s.charAt((i + k) % n);
+        }
+        return new String(cs);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    string getEncryptedString(string s, int k) {
+        int n = s.length();
+        string cs(n, ' ');
+        for (int i = 0; i < n; ++i) {
+            cs[i] = s[(i + k) % n];
+        }
+        return cs;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func getEncryptedString(s string, k int) string {
+	cs := []byte(s)
+	for i := range s {
+		cs[i] = s[(i+k)%len(s)]
+	}
+	return string(cs)
+}
+```
 
+#### TypeScript
+
+```ts
+function getEncryptedString(s: string, k: number): string {
+    const cs: string[] = [];
+    const n = s.length;
+    for (let i = 0; i < n; ++i) {
+        cs[i] = s[(i + k) % n];
+    }
+    return cs.join('');
+}
 ```
 
 <!-- tabs:end -->

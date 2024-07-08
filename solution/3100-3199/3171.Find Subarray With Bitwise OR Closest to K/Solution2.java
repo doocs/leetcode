@@ -1,12 +1,11 @@
 class Solution {
     public int minimumDifference(int[] nums, int k) {
-        int ans = Math.abs(nums[0] - k);
+        int ans = Integer.MAX_VALUE;
         Set<Integer> pre = new HashSet<>();
-        pre.add(nums[0]);
         for (int x : nums) {
             Set<Integer> cur = new HashSet<>();
             for (int y : pre) {
-                cur.add(x & y);
+                cur.add(x | y);
             }
             cur.add(x);
             for (int y : cur) {

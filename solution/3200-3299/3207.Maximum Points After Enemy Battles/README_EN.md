@@ -89,32 +89,106 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3207.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Sorting
+
+According to the problem description, we need to score by defeating enemies with the lowest energy value and increase our energy value by defeating enemies with the highest energy value and marking them.
+
+Therefore, we can sort the enemies by their energy values, then start from the enemy with the highest energy value, always choose the enemy with the lowest energy value to score and consume energy. Next, we add the energy value of the enemy with the highest energy to our current energy and mark that enemy. Repeat the above steps until all enemies are marked.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of enemies.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maximumPoints(self, enemyEnergies: List[int], currentEnergy: int) -> int:
+        enemyEnergies.sort()
+        if currentEnergy < enemyEnergies[0]:
+            return 0
+        ans = 0
+        for i in range(len(enemyEnergies) - 1, -1, -1):
+            ans += currentEnergy // enemyEnergies[0]
+            currentEnergy %= enemyEnergies[0]
+            currentEnergy += enemyEnergies[i]
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maximumPoints(int[] enemyEnergies, int currentEnergy) {
+        Arrays.sort(enemyEnergies);
+        if (currentEnergy < enemyEnergies[0]) {
+            return 0;
+        }
+        long ans = 0;
+        for (int i = enemyEnergies.length - 1; i >= 0; --i) {
+            ans += currentEnergy / enemyEnergies[0];
+            currentEnergy %= enemyEnergies[0];
+            currentEnergy += enemyEnergies[i];
+        }
+        return ans;
+    }
+};
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long maximumPoints(vector<int>& enemyEnergies, int currentEnergy) {
+        sort(enemyEnergies.begin(), enemyEnergies.end());
+        if (currentEnergy < enemyEnergies[0]) {
+            return 0;
+        }
+        long long ans = 0;
+        for (int i = enemyEnergies.size() - 1; i >= 0; --i) {
+            ans += currentEnergy / enemyEnergies[0];
+            currentEnergy %= enemyEnergies[0];
+            currentEnergy += enemyEnergies[i];
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumPoints(enemyEnergies []int, currentEnergy int) (ans int64) {
+	sort.Ints(enemyEnergies)
+	if currentEnergy < enemyEnergies[0] {
+		return 0
+	}
+	for i := len(enemyEnergies) - 1; i >= 0; i-- {
+		ans += int64(currentEnergy / enemyEnergies[0])
+		currentEnergy %= enemyEnergies[0]
+		currentEnergy += enemyEnergies[i]
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function maximumPoints(enemyEnergies: number[], currentEnergy: number): number {
+    enemyEnergies.sort((a, b) => a - b);
+    if (currentEnergy < enemyEnergies[0]) {
+        return 0;
+    }
+    let ans = 0;
+    for (let i = enemyEnergies.length - 1; ~i; --i) {
+        ans += Math.floor(currentEnergy / enemyEnergies[0]);
+        currentEnergy %= enemyEnergies[0];
+        currentEnergy += enemyEnergies[i];
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
