@@ -139,40 +139,71 @@ func findTheWinner(n int, k int) int {
 #### TypeScript
 
 ```ts
-class LinkNode {
-    public val: number;
-    public next: LinkNode;
-
-    constructor(val: number = 0, next?: LinkNode) {
-        this.val = val;
-        this.next = next;
-    }
-}
-
 function findTheWinner(n: number, k: number): number {
-    if (k === 1) {
-        return n;
+    if (n === 1) {
+        return 1;
     }
-    const dummy = new LinkNode(0);
-    let cur = dummy;
-    for (let i = 1; i <= n; i++) {
-        cur.next = new LinkNode(i);
-        cur = cur.next;
-    }
-    cur.next = dummy.next;
+    const ans = (k + findTheWinner(n - 1, k)) % n;
+    return ans ? ans : n;
+}
+```
 
-    cur = dummy;
-    let count = 0;
-    while (cur.next != cur) {
-        count++;
-        if (count === k) {
-            cur.next = cur.next.next;
-            count = 0;
-        } else {
-            cur = cur.next;
-        }
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @param {number} k
+ * @return {number}
+ */
+var findTheWinner = function (n, k) {
+    if (n === 1) {
+        return 1;
     }
-    return cur.val;
+    const ans = (k + findTheWinner(n - 1, k)) % n;
+    return ans ? ans : n;
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Simulation
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function findTheWinner(n: number, k: number): number {
+    const arr = Array.from({ length: n }, (_, i) => i + 1);
+    let i = 0;
+
+    while (arr.length > 1) {
+        i = (i + k - 1) % arr.length;
+        arr.splice(i, 1);
+    }
+
+    return arr[0];
+}
+```
+
+#### JavaScript
+
+```js
+function findTheWinner(n, k) {
+    const arr = Array.from({ length: n }, (_, i) => i + 1);
+    let i = 0;
+
+    while (arr.length > 1) {
+        i = (i + k - 1) % arr.length;
+        arr.splice(i, 1);
+    }
+
+    return arr[0];
 }
 ```
 
