@@ -3222,6 +3222,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3211  |  [Generate Binary Strings Without Adjacent Zeros](/solution/3200-3299/3211.Generate%20Binary%20Strings%20Without%20Adjacent%20Zeros/README_EN.md)  |    |  Medium  |  Weekly Contest 405  |
 |  3212  |  [Count Submatrices With Equal Frequency of X and Y](/solution/3200-3299/3212.Count%20Submatrices%20With%20Equal%20Frequency%20of%20X%20and%20Y/README_EN.md)  |    |  Medium  |  Weekly Contest 405  |
 |  3213  |  [Construct String with Minimum Cost](/solution/3200-3299/3213.Construct%20String%20with%20Minimum%20Cost/README_EN.md)  |    |  Hard  |  Weekly Contest 405  |
+|  3214  |  [Year on Year Growth Rate](/solution/3200-3299/3214.Year%20on%20Year%20Growth%20Rate/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 
 ## Copyright
 

@@ -3,7 +3,7 @@ impl Solution {
         if n == 1 {
             return 1;
         }
-		let mut ans = (k + Solution::find_the_winner(n - 1, k)) % n;
-		return if ans == 0 { n } else { ans };
+        let mut ans = (k + Solution::find_the_winner(n - 1, k)) % n;
+        return if ans == 0 { n } else { ans };
     }
 }
