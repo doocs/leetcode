@@ -6,7 +6,7 @@ public:
             add(x);
         }
     }
-    
+
     int add(int val) {
         minQ.push(val);
         if (minQ.size() > k) {
