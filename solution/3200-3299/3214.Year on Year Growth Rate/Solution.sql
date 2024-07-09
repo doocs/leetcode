@@ -1,7 +1,7 @@
 # Write your MySQL query statement below
 WITH
     T AS (
-        SELECT product_id, year(transaction_date) year, SUM(spend) tot_spend
+        SELECT product_id, YEAR(transaction_date) year, SUM(spend) tot_spend
         FROM user_transactions
         GROUP BY 1, 2
     ),
