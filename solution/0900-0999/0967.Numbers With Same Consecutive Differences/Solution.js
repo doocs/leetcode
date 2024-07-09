@@ -1,10 +1,10 @@
 function numsSameConsecDiff(n, k) {
-    const res = new Set();
+    const ans = new Set();
     const boundary = 10 ** (n - 1);
 
     const dfs = nums => {
         if (nums >= boundary) {
-            res.add(nums);
+            ans.add(nums);
             return;
         }
 
@@ -20,5 +20,5 @@ function numsSameConsecDiff(n, k) {
         dfs(i);
     }
 
-    return [...res];
+    return [...ans];
 }
