@@ -4,6 +4,7 @@
 .temp
 .vitepress
 .cache
+.vitepress/cache
 *.iml
 __pycache__
 /node_modules
