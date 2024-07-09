@@ -137,12 +137,12 @@ We can first group by `product_id` and `year(transaction_date)` to perform the s
 # Write your MySQL query statement below
 WITH
     T AS (
-        SELECT product_id, YEAR(transaction_date) year, SUM(spend) tot_spend
+        SELECT product_id, YEAR(transaction_date) year, SUM(spend) curr_year_spend
         FROM user_transactions
         GROUP BY 1, 2
     ),
     S AS (
-        SELECT t1.year, t1.product_id, t1.tot_spend curr_year_spend, t2.tot_spend prev_year_spend
+        SELECT t1.year, t1.product_id, t1.curr_year_spend, t2.curr_year_spend prev_year_spend
         FROM
             T t1
             LEFT JOIN T t2 ON t1.product_id = t2.product_id AND t1.year = t2.year + 1
