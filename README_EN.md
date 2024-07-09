@@ -28,7 +28,7 @@ To facilitate the setup and usage of the project, you can use Docker. Below are 
 
 ### Prerequisites
 
-- Install [Docker](https://docs.docker.com/get-docker/).
+-   Install [Docker](https://docs.docker.com/get-docker/).
 
 ### Building the Docker Image
 
