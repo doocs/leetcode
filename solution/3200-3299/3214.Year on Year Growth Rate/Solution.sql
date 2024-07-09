@@ -1,22 +1,18 @@
 # Write your MySQL query statement below
 WITH
     T AS (
-        SELECT YEAR(transaction_date) year, product_id, SUM(spend) tot_spend
+        SELECT product_id, year(transaction_date) year, SUM(spend) tot_spend
         FROM user_transactions
         GROUP BY 1, 2
     ),
     S AS (
-        SELECT
-            year,
-            product_id,
-            tot_spend curr_year_spend,
-            LAG(tot_spend) OVER (
-                PARTITION BY product_id
-                ORDER BY year
-            ) prev_year_spend
-        FROM T
+        SELECT t1.year, t1.product_id, t1.tot_spend curr_year_spend, t2.tot_spend prev_year_spend
+        FROM
+            T t1
+            LEFT JOIN T t2 ON t1.product_id = t2.product_id AND t1.year = t2.year + 1
     )
 SELECT
     *,
     ROUND((curr_year_spend - prev_year_spend) / prev_year_spend * 100, 2) yoy_rate
-FROM S;
+FROM S
+ORDER BY 2, 1;

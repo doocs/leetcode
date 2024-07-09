@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3208.Alternating%20Groups%20II/README.md
+tags:
+    - 数组
+    - 滑动窗口
 ---
 
 <!-- problem:start -->

@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3214. Year on Year Growth Rate 🔒](https://leetcode.cn/problems/year-on-year-growth-rate)
+# [3214. 同比增长率 🔒](https://leetcode.cn/problems/year-on-year-growth-rate)
 
 [English Version](/solution/3200-3299/3214.Year%20on%20Year%20Growth%20Rate/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>user_transactions</code></p>
+<p>表：<code>user_transactions</code></p>
 
 <pre>
 +------------------+----------+
@@ -27,33 +27,34 @@ tags:
 | spend            | decimal  |
 | transaction_date | datetime |
 +------------------+----------+
-The transaction_id column uniquely identifies each row in this table.
-Each row of this table contains the transaction ID, product ID, the spend amount, and the transaction date.
+transaction_id 列唯一标识了表中的每一列。
+这张表的每一行含有交易 ID，产品 ID，总花费以及交易日期。
 </pre>
 
-<p>Write a solution to calculate the <strong>year-on-year growth rate</strong> for the total spend <strong>for each product</strong>.</p>
+<p>编写一个解决方案来计算 <strong>每个产品</strong> 总支出的 <strong>同比增长率</strong>。</p>
 
-<p>The result table should include the following columns:</p>
+<p>结果表应该包含以下列：</p>
 
 <ul>
-	<li><code>year</code>: The year of the transaction.</li>
-	<li><code>product_id</code>: The ID of the product.</li>
-	<li><code>curr_year_spend</code>: The total spend for the current year.</li>
-	<li><code>prev_year_spend</code>: The total spend for the previous year.</li>
-	<li><code>yoy_rate</code>: The year-on-year growth rate percentage, rounded to <code>2</code> decimal places.</li>
+	<li><code>year</code>：交易的年份。</li>
+	<li><code>product_id</code>：产品的 ID。</li>
+	<li><code>curr_year_spend</code>：当年的总支出。</li>
+	<li><code>prev_year_spend</code>：上一年的总支出。</li>
+	<li><code>yoy_rate</code>：同比增速百分比，四舍五入至小数点后 2 位。</li>
 </ul>
 
-<p>Return <em>the result table ordered by</em>&nbsp;<code>product_id</code>,<code>year</code> <em>in <strong>ascending</strong> order</em>.</p>
+<p>返回结果表以&nbsp;<code>product_id</code>，<code>year</code>&nbsp;<strong>升序</strong> 排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p><code>user_transactions</code> table:</p>
+<p><code>user_transactions</code> 表：</p>
 
 <pre class="example-io">
 +----------------+------------+---------+---------------------+
@@ -66,7 +67,7 @@ Each row of this table contains the transaction ID, product ID, the spend amount
 +----------------+------------+---------+---------------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +------+------------+----------------+----------------+----------+
@@ -79,44 +80,44 @@ Each row of this table contains the transaction ID, product ID, the spend amount
 +------+------------+----------------+----------------+----------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>For product ID 123424:
+	<li>对于产品 ID 123424:
 	<ul>
-		<li>In 2019:
+		<li>在 2019：
 		<ul>
-			<li>Current year&#39;s spend is 1500.60</li>
-			<li>No previous year&#39;s spend recorded</li>
-			<li>YoY growth rate: NULL</li>
+			<li>当年的支出是 1500.60</li>
+			<li>没有上一年支出的记录</li>
+			<li>同比增长率：NULL</li>
 		</ul>
 		</li>
-		<li>In 2020:
+		<li>在 2020：
 		<ul>
-			<li>Current year&#39;s spend is 1000.20</li>
-			<li>Previous year&#39;s spend is 1500.60</li>
-			<li>YoY growth rate: ((1000.20 - 1500.60) / 1500.60) * 100 = -33.35%</li>
+			<li>当年的支出是 1000.20</li>
+			<li>上一年的支出是 1500.60</li>
+			<li>同比增长率：((1000.20 - 1500.60) / 1500.60) * 100 = -33.35%</li>
 		</ul>
 		</li>
-		<li>In 2021:
+		<li>在 2021：
 		<ul>
-			<li>Current year&#39;s spend is 1246.44</li>
-			<li>Previous year&#39;s spend is 1000.20</li>
-			<li>YoY growth rate: ((1246.44 - 1000.20) / 1000.20) * 100 = 24.62%</li>
+			<li>当年的支出是 1246.44</li>
+			<li>上一年的支出是 1000.20</li>
+			<li>同比增长率：((1246.44 - 1000.20) / 1000.20) * 100 = 24.62%</li>
 		</ul>
 		</li>
-		<li>In 2022:
+		<li>在 2022：
 		<ul>
-			<li>Current year&#39;s spend is 2145.32</li>
-			<li>Previous year&#39;s spend is 1246.44</li>
-			<li>YoY growth rate: ((2145.32 - 1246.44) / 1246.44) * 100 = 72.12%</li>
+			<li>当年的支出是 2145.32</li>
+			<li>上一年的支出是 1246.44</li>
+			<li>同比增长率：((2145.32 - 1246.44) / 1246.44) * 100 = 72.12%</li>
 		</ul>
 		</li>
 	</ul>
 	</li>
 </ul>
 
-<p><strong>Note:</strong> Output table is ordered by <code>product_id</code> and <code>year</code> in ascending order.</p>
+<p><strong>注意：</strong>输出表以&nbsp;<code>product_id</code> 和&nbsp;<code>year</code>&nbsp;升序排序。</p>
 </div>
 
 <!-- description:end -->
@@ -125,9 +126,9 @@ Each row of this table contains the transaction ID, product ID, the spend amount
 
 <!-- solution:start -->
 
-### 方法一：分组统计 + 窗口函数
+### 方法一：分组统计 + 左连接
 
-我们可以先按照年份和产品 ID 进行分组统计每个产品每年的总花费，记录在 `T` 表中。然后使用窗口函数 `LAG` 计算出上一年的总花费，记录在 `S` 表中。最后根据公式计算出年增长率。
+我们可以先按照 `product_id` 和 `year(transaction_date)` 进行分组统计，然后使用左连接将当前年份的统计结果与上一年份的统计结果进行关联，最后计算年同比增长率。
 
 <!-- tabs:start -->
 
@@ -137,25 +138,21 @@ Each row of this table contains the transaction ID, product ID, the spend amount
 # Write your MySQL query statement below
 WITH
     T AS (
-        SELECT YEAR(transaction_date) year, product_id, SUM(spend) tot_spend
+        SELECT product_id, year(transaction_date) year, SUM(spend) tot_spend
         FROM user_transactions
         GROUP BY 1, 2
     ),
     S AS (
-        SELECT
-            year,
-            product_id,
-            tot_spend curr_year_spend,
-            LAG(tot_spend) OVER (
-                PARTITION BY product_id
-                ORDER BY year
-            ) prev_year_spend
-        FROM T
+        SELECT t1.year, t1.product_id, t1.tot_spend curr_year_spend, t2.tot_spend prev_year_spend
+        FROM
+            T t1
+            LEFT JOIN T t2 ON t1.product_id = t2.product_id AND t1.year = t2.year + 1
     )
 SELECT
     *,
     ROUND((curr_year_spend - prev_year_spend) / prev_year_spend * 100, 2) yoy_rate
-FROM S;
+FROM S
+ORDER BY 2, 1;
 ```
 
 <!-- tabs:end -->
