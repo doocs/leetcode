@@ -1,23 +1,20 @@
 class KthLargest {
-    #pq = new MinPriorityQueue();
-    #k = 0;
+    #k: number = 0;
+    #minQ = new MinPriorityQueue();
 
     constructor(k: number, nums: number[]) {
         this.#k = k;
         for (const x of nums) {
-            this.#pq.enqueue(x);
-            if (this.#pq.size() > k) {
-                this.#pq.dequeue();
-            }
+            this.add(x);
         }
     }
 
     add(val: number): number {
-        this.#pq.enqueue(val);
-        if (this.#pq.size() > this.#k) {
-            this.#pq.dequeue();
+        this.#minQ.enqueue(val);
+        if (this.#minQ.size() > this.#k) {
+            this.#minQ.dequeue();
         }
-        return this.#pq.front().element;
+        return this.#minQ.front().element;
     }
 }
 

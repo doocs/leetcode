@@ -3,11 +3,12 @@
  * @return {boolean}
  */
 var halvesAreAlike = function (s) {
-    const str = 'aeiouAEIOU';
+    const vowels = new Set('aeiouAEIOU'.split(''));
     let cnt = 0;
-    for (let i = 0; i < s.length / 2; i++) {
-        if (str.indexOf(s[i]) > -1) cnt++;
-        if (str.indexOf(s[s.length - 1 - i]) > -1) cnt--;
+    const n = s.length >> 1;
+    for (let i = 0; i < n; ++i) {
+        cnt += vowels.has(s[i]);
+        cnt -= vowels.has(s[n + i]);
     }
     return cnt === 0;
 };
