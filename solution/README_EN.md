@@ -3213,15 +3213,15 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3202  |  [Find the Maximum Length of Valid Subsequence II](/solution/3200-3299/3202.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20II/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 404  |
 |  3203  |  [Find Minimum Diameter After Merging Two Trees](/solution/3200-3299/3203.Find%20Minimum%20Diameter%20After%20Merging%20Two%20Trees/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Graph`  |  Hard  |  Weekly Contest 404  |
 |  3204  |  [Bitwise User Permissions Analysis](/solution/3200-3299/3204.Bitwise%20User%20Permissions%20Analysis/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
-|  3205  |  [Maximum Array Hopping Score I](/solution/3200-3299/3205.Maximum%20Array%20Hopping%20Score%20I/README_EN.md)  |    |  Medium  |  🔒  |
-|  3206  |  [Alternating Groups I](/solution/3200-3299/3206.Alternating%20Groups%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 134  |
-|  3207  |  [Maximum Points After Enemy Battles](/solution/3200-3299/3207.Maximum%20Points%20After%20Enemy%20Battles/README_EN.md)  |    |  Medium  |  Biweekly Contest 134  |
-|  3208  |  [Alternating Groups II](/solution/3200-3299/3208.Alternating%20Groups%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 134  |
-|  3209  |  [Number of Subarrays With AND Value of K](/solution/3200-3299/3209.Number%20of%20Subarrays%20With%20AND%20Value%20of%20K/README_EN.md)  |    |  Hard  |  Biweekly Contest 134  |
-|  3210  |  [Find the Encrypted String](/solution/3200-3299/3210.Find%20the%20Encrypted%20String/README_EN.md)  |    |  Easy  |  Weekly Contest 405  |
-|  3211  |  [Generate Binary Strings Without Adjacent Zeros](/solution/3200-3299/3211.Generate%20Binary%20Strings%20Without%20Adjacent%20Zeros/README_EN.md)  |    |  Medium  |  Weekly Contest 405  |
-|  3212  |  [Count Submatrices With Equal Frequency of X and Y](/solution/3200-3299/3212.Count%20Submatrices%20With%20Equal%20Frequency%20of%20X%20and%20Y/README_EN.md)  |    |  Medium  |  Weekly Contest 405  |
-|  3213  |  [Construct String with Minimum Cost](/solution/3200-3299/3213.Construct%20String%20with%20Minimum%20Cost/README_EN.md)  |    |  Hard  |  Weekly Contest 405  |
+|  3205  |  [Maximum Array Hopping Score I](/solution/3200-3299/3205.Maximum%20Array%20Hopping%20Score%20I/README_EN.md)  |  `Stack`,`Array`,`Dynamic Programming`,`Monotonic Stack`  |  Medium  |  🔒  |
+|  3206  |  [Alternating Groups I](/solution/3200-3299/3206.Alternating%20Groups%20I/README_EN.md)  |  `Array`,`Sliding Window`  |  Easy  |  Biweekly Contest 134  |
+|  3207  |  [Maximum Points After Enemy Battles](/solution/3200-3299/3207.Maximum%20Points%20After%20Enemy%20Battles/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |  Biweekly Contest 134  |
+|  3208  |  [Alternating Groups II](/solution/3200-3299/3208.Alternating%20Groups%20II/README_EN.md)  |  `Array`,`Sliding Window`  |  Medium  |  Biweekly Contest 134  |
+|  3209  |  [Number of Subarrays With AND Value of K](/solution/3200-3299/3209.Number%20of%20Subarrays%20With%20AND%20Value%20of%20K/README_EN.md)  |  `Bit Manipulation`,`Segment Tree`,`Array`,`Binary Search`  |  Hard  |  Biweekly Contest 134  |
+|  3210  |  [Find the Encrypted String](/solution/3200-3299/3210.Find%20the%20Encrypted%20String/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 405  |
+|  3211  |  [Generate Binary Strings Without Adjacent Zeros](/solution/3200-3299/3211.Generate%20Binary%20Strings%20Without%20Adjacent%20Zeros/README_EN.md)  |  `Bit Manipulation`,`Recursion`,`String`  |  Medium  |  Weekly Contest 405  |
+|  3212  |  [Count Submatrices With Equal Frequency of X and Y](/solution/3200-3299/3212.Count%20Submatrices%20With%20Equal%20Frequency%20of%20X%20and%20Y/README_EN.md)  |  `Array`,`Matrix`,`Prefix Sum`  |  Medium  |  Weekly Contest 405  |
+|  3213  |  [Construct String with Minimum Cost](/solution/3200-3299/3213.Construct%20String%20with%20Minimum%20Cost/README_EN.md)  |  `Array`,`String`,`Dynamic Programming`,`Suffix Array`  |  Hard  |  Weekly Contest 405  |
 |  3214  |  [Year on Year Growth Rate](/solution/3200-3299/3214.Year%20on%20Year%20Growth%20Rate/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 
 ## Copyright

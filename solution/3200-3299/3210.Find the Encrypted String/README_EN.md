@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3210.Find%20the%20Encrypted%20String/README_EN.md
+tags:
+    - String
 ---
 
 <!-- problem:start -->

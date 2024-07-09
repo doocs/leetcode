@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3211.Generate%20Binary%20Strings%20Without%20Adjacent%20Zeros/README_EN.md
+tags:
+    - Bit Manipulation
+    - Recursion
+    - String
 ---
 
 <!-- problem:start -->
