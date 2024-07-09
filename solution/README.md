@@ -3224,6 +3224,7 @@
 |  3211  |  [生成不含相邻零的二进制字符串](/solution/3200-3299/3211.Generate%20Binary%20Strings%20Without%20Adjacent%20Zeros/README.md)  |    |  中等  |  第 405 场周赛  |
 |  3212  |  [统计 X 和 Y 频数相等的子矩阵数量](/solution/3200-3299/3212.Count%20Submatrices%20With%20Equal%20Frequency%20of%20X%20and%20Y/README.md)  |    |  中等  |  第 405 场周赛  |
 |  3213  |  [最小代价构造字符串](/solution/3200-3299/3213.Construct%20String%20with%20Minimum%20Cost/README.md)  |    |  困难  |  第 405 场周赛  |
+|  3214  |  [Year on Year Growth Rate](/solution/3200-3299/3214.Year%20on%20Year%20Growth%20Rate/README.md)  |  `数据库`  |  困难  |  🔒  |
 
 ## 版权
 

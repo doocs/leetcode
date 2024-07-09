@@ -284,6 +284,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3188 | [Find Top Scoring Students II](/solution/3100-3199/3188.Find%20Top%20Scoring%20Students%20II/README_EN.md)                                                                                   | `Database` | Hard       | 🔒     |
 | 3198 | [Find Cities in Each State](/solution/3100-3199/3198.Find%20Cities%20in%20Each%20State/README_EN.md)                                                                                         | `Database` | Easy       | 🔒     |
 | 3204 | [Bitwise User Permissions Analysis](/solution/3200-3299/3204.Bitwise%20User%20Permissions%20Analysis/README_EN.md)                                                                           | `Database` | Medium     | 🔒     |
+| 3214 | [Year on Year Growth Rate](/solution/3200-3299/3214.Year%20on%20Year%20Growth%20Rate/README_EN.md)                                                                                           | `Database` | Hard       | 🔒     |
 
 ## Copyright
 
