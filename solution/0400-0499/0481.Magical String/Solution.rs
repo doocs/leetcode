@@ -1,16 +1,17 @@
 impl Solution {
     pub fn magical_string(n: i32) -> i32 {
-        let n = n as usize;
-        let mut s = String::from("1221121");
-        let mut i = 5;
-        while s.len() < n {
-            let c = s.as_bytes()[s.len() - 1];
-            s.push(if c == b'1' { '2' } else { '1' });
-            if s.as_bytes()[i] != b'1' {
-                s.push(if c == b'1' { '2' } else { '1' });
+        let mut s = vec![1, 2, 2];
+        let mut i = 2;
+
+        while s.len() < n as usize {
+            let pre = s[s.len() - 1];
+            let cur = 3 - pre;
+            for _ in 0..s[i] {
+                s.push(cur);
             }
             i += 1;
         }
-        s.as_bytes()[0..n].iter().filter(|&v| v == &b'1').count() as i32
+
+        s.iter().take(n as usize).filter(|&&x| x == 1).count() as i32
     }
 }

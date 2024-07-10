@@ -57,7 +57,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们先统计出字符串 $s$ 中除去破折号之外的字符个数，并对 $k$ 取模，得到第一组字符的个数。如果为 $0$，则第一组字符个数为 $k$，否则为取模的结果。
+
+接着我们遍历字符串 $s$，对于每个字符，如果是破折号，则跳过；否则将其转换为大写字母，并将其加入答案字符串中。同时，我们维护一个计数器 $cnt$，表示当前组还剩余的字符个数，当 $cnt$ 减为 $0$ 时，我们需要更新 $cnt$ 为 $k$，并且如果当前字符不是最后一个字符，我们需要在答案字符串中加入一个破折号。
+
+最后，我们移除答案字符串末尾的破折号，并返回答案字符串。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。忽略答案字符串的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -66,19 +74,19 @@ tags:
 ```python
 class Solution:
     def licenseKeyFormatting(self, s: str, k: int) -> str:
-        s = s.replace('-', '').upper()
-        res = []
-        cnt = (len(s) % k) or k
-        t = 0
+        n = len(s)
+        cnt = (n - s.count("-")) % k or k
+        ans = []
         for i, c in enumerate(s):
-            res.append(c)
-            t += 1
-            if t == cnt:
-                t = 0
+            if c == "-":
+                continue
+            ans.append(c.upper())
+            cnt -= 1
+            if cnt == 0:
                 cnt = k
-                if i != len(s) - 1:
-                    res.append('-')
-        return ''.join(res)
+                if i != n - 1:
+                    ans.append("-")
+        return "".join(ans).rstrip("-")
 ```
 
 #### Java
@@ -86,25 +94,30 @@ class Solution:
 ```java
 class Solution {
     public String licenseKeyFormatting(String s, int k) {
-        s = s.replace("-", "").toUpperCase();
-        StringBuilder sb = new StringBuilder();
-        int t = 0;
-        int cnt = s.length() % k;
+        int n = s.length();
+        int cnt = (int) (n - s.chars().filter(ch -> ch == '-').count()) % k;
         if (cnt == 0) {
             cnt = k;
         }
-        for (int i = 0; i < s.length(); ++i) {
-            sb.append(s.charAt(i));
-            ++t;
-            if (t == cnt) {
-                t = 0;
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            char c = s.charAt(i);
+            if (c == '-') {
+                continue;
+            }
+            ans.append(Character.toUpperCase(c));
+            --cnt;
+            if (cnt == 0) {
                 cnt = k;
-                if (i != s.length() - 1) {
-                    sb.append('-');
+                if (i != n - 1) {
+                    ans.append('-');
                 }
             }
         }
-        return sb.toString();
+        if (ans.length() > 0 && ans.charAt(ans.length() - 1) == '-') {
+            ans.deleteCharAt(ans.length() - 1);
+        }
+        return ans.toString();
     }
 }
 ```
@@ -115,26 +128,29 @@ class Solution {
 class Solution {
 public:
     string licenseKeyFormatting(string s, int k) {
-        string ss = "";
-        for (char c : s) {
-            if (c == '-') continue;
-            if ('a' <= c && c <= 'z') c += 'A' - 'a';
-            ss += c;
+        int n = s.length();
+        int cnt = (n - count(s.begin(), s.end(), '-')) % k;
+        if (cnt == 0) {
+            cnt = k;
         }
-        int cnt = ss.size() % k;
-        if (cnt == 0) cnt = k;
-        int t = 0;
-        string res = "";
-        for (int i = 0; i < ss.size(); ++i) {
-            res += ss[i];
-            ++t;
-            if (t == cnt) {
-                t = 0;
+        string ans;
+        for (int i = 0; i < n; ++i) {
+            char c = s[i];
+            if (c == '-') {
+                continue;
+            }
+            ans += toupper(c);
+            if (--cnt == 0) {
                 cnt = k;
-                if (i != ss.size() - 1) res += '-';
+                if (i != n - 1) {
+                    ans += '-';
+                }
             }
         }
-        return res;
+        if (!ans.empty() && ans.back() == '-') {
+            ans.pop_back();
+        }
+        return ans;
     }
 };
 ```
@@ -143,25 +159,54 @@ public:
 
 ```go
 func licenseKeyFormatting(s string, k int) string {
-	s = strings.ReplaceAll(s, "-", "")
-	cnt := len(s) % k
+	n := len(s)
+	cnt := (n - strings.Count(s, "-")) % k
 	if cnt == 0 {
 		cnt = k
 	}
-	t := 0
-	res := []byte{}
-	for i, c := range s {
-		res = append(res, byte(unicode.ToUpper(c)))
-		t++
-		if t == cnt {
-			t = 0
-			cnt = k
-			if i != len(s)-1 {
-				res = append(res, byte('-'))
-			}
+
+	var ans strings.Builder
+	for i := 0; i < n; i++ {
+		c := s[i]
+		if c == '-' {
+			continue
 		}
+		if cnt == 0 {
+			cnt = k
+			ans.WriteByte('-')
+		}
+		ans.WriteRune(unicode.ToUpper(rune(c)))
+		cnt--
 	}
-	return string(res)
+
+	return ans.String()
+}
+```
+
+#### TypeScript
+
+```ts
+function licenseKeyFormatting(s: string, k: number): string {
+    const n = s.length;
+    let cnt = (n - (s.match(/-/g) || []).length) % k || k;
+    const ans: string[] = [];
+    for (let i = 0; i < n; i++) {
+        const c = s[i];
+        if (c === '-') {
+            continue;
+        }
+        ans.push(c.toUpperCase());
+        if (--cnt === 0) {
+            cnt = k;
+            if (i !== n - 1) {
+                ans.push('-');
+            }
+        }
+    }
+    while (ans.at(-1) === '-') {
+        ans.pop();
+    }
+    return ans.join('');
 }
 ```
 
