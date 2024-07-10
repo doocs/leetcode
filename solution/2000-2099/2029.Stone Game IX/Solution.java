@@ -1,23 +1,22 @@
 class Solution {
     public boolean stoneGameIX(int[] stones) {
-        int[] c = new int[3];
-        for (int s : stones) {
-            ++c[s % 3];
+        int[] c1 = new int[3];
+        for (int x : stones) {
+            c1[x % 3]++;
         }
-        int[] t = new int[] {c[0], c[2], c[1]};
-        return check(c) || check(t);
+        int[] c2 = {c1[0], c1[2], c1[1]};
+        return check(c1) || check(c2);
     }
 
-    private boolean check(int[] c) {
-        if (c[1] == 0) {
+    private boolean check(int[] cnt) {
+        if (--cnt[1] < 0) {
             return false;
         }
-        --c[1];
-        int turn = 1 + Math.min(c[1], c[2]) * 2 + c[0];
-        if (c[1] > c[2]) {
-            --c[1];
-            ++turn;
+        int r = 1 + Math.min(cnt[1], cnt[2]) * 2 + cnt[0];
+        if (cnt[1] > cnt[2]) {
+            --cnt[1];
+            ++r;
         }
-        return turn % 2 == 1 && c[1] != c[2];
+        return r % 2 == 1 && cnt[1] != cnt[2];
     }
 }

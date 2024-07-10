@@ -1,20 +1,22 @@
 class Solution {
 public:
     bool stoneGameIX(vector<int>& stones) {
-        vector<int> c(3);
-        for (int s : stones) ++c[s % 3];
-        vector<int> t = {c[0], c[2], c[1]};
-        return check(c) || check(t);
-    }
-
-    bool check(vector<int>& c) {
-        if (c[1] == 0) return false;
-        --c[1];
-        int turn = 1 + min(c[1], c[2]) * 2 + c[0];
-        if (c[1] > c[2]) {
-            --c[1];
-            ++turn;
+        vector<int> c1(3);
+        for (int x : stones) {
+            ++c1[x % 3];
         }
-        return turn % 2 == 1 && c[1] != c[2];
+        vector<int> c2 = {c1[0], c1[2], c1[1]};
+        auto check = [](auto& cnt) -> bool {
+            if (--cnt[1] < 0) {
+                return false;
+            }
+            int r = 1 + min(cnt[1], cnt[2]) * 2 + cnt[0];
+            if (cnt[1] > cnt[2]) {
+                --cnt[1];
+                ++r;
+            }
+            return r % 2 && cnt[1] != cnt[2];
+        };
+        return check(c1) || check(c2);
     }
 };
