@@ -1,15 +1,17 @@
 impl Solution {
     pub fn find_max_consecutive_ones(nums: Vec<i32>) -> i32 {
-        let mut res = 0;
-        let mut count = 0;
-        for num in nums {
-            if num == 0 {
-                res = res.max(count);
-                count = 0;
+        let mut ans = 0;
+        let mut cnt = 0;
+
+        for &x in nums.iter() {
+            if x == 1 {
+                cnt += 1;
+                ans = ans.max(cnt);
             } else {
-                count += 1;
+                cnt = 0;
             }
         }
-        res.max(count)
+
+        ans
     }
 }
