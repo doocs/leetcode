@@ -273,19 +273,55 @@ func findLatestStep(arr []int, m int) int {
 
 ```javascript
 const findLatestStep = function (arr, m) {
-    let result = -1;
-    const len = arr.length;
-    const reOnes = new RegExp(`\\b1{${m}}\\b`);
-    arr.reduce( (accum, item, iIndex) => { 
-        accum[item-1] = '1';
-        iIndex++;
-        if (iIndex >= m && reOnes.test(accum.join(''))) { 
-            result = iIndex;
+    let p = [];
+    let size = [];
+
+    function find(x) {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
         }
-        return accum
-    },  [...(" ".repeat(len))] );
-    return result
-}
+        return p[x];
+    }
+
+    function union(a, b) {
+        const pa = find(a);
+        const pb = find(b);
+        if (pa === pb) {
+            return;
+        }
+        p[pa] = pb;
+        size[pb] += size[pa];
+    }
+
+    const n = arr.length;
+    if (m === n) {
+        return n;
+    }
+    const vis = new Array(n).fill(false);
+    p = new Array(n);
+    size = new Array(n).fill(1);
+    for (let i = 0; i < n; ++i) {
+        p[i] = i;
+    }
+    let ans = -1;
+    for (let i = 0; i < n; ++i) {
+        const v = arr[i] - 1;
+        if (v > 0 && vis[v - 1]) {
+            if (size[find(v - 1)] === m) {
+                ans = i;
+            }
+            union(v, v - 1);
+        }
+        if (v < n - 1 && vis[v + 1]) {
+            if (size[find(v + 1)] === m) {
+                ans = i;
+            }
+            union(v, v + 1);
+        }
+        vis[v] = true;
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
