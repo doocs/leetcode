@@ -677,7 +677,7 @@ function combinationSum3(k: number, n: number): number[][] {
     return ans;
 }
 
-function bitCount(i: number) {
+function bitCount(i: number): number {
     i = i - ((i >>> 1) & 0x55555555);
     i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
     i = (i + (i >>> 4)) & 0x0f0f0f0f;
