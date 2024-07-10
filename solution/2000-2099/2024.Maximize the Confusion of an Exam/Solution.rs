@@ -1,20 +1,22 @@
 impl Solution {
     pub fn max_consecutive_answers(answer_key: String, k: i32) -> i32 {
+        let n = answer_key.len();
+        let k = k as usize;
         let s: Vec<char> = answer_key.chars().collect();
-        let f = |c: char| -> i32 {
+
+        let f = |c: char| -> usize {
+            let mut l = 0;
             let mut cnt = 0;
-            let mut j = 0;
-            let mut ans = 0;
-            for i in 0..s.len() {
-                cnt += if s[i] == c { 1 } else { 0 };
-                while cnt > k {
-                    cnt -= if s[j] == c { 1 } else { 0 };
-                    j += 1;
+            for &ch in &s {
+                cnt += if ch == c { 1 } else { 0 };
+                if cnt > k {
+                    cnt -= if s[l] == c { 1 } else { 0 };
+                    l += 1;
                 }
-                ans = ans.max((i - j + 1) as i32);
             }
-            ans
+            n - l
         };
-        f('T').max(f('F'))
+
+        std::cmp::max(f('T'), f('F')) as i32
     }
 }
