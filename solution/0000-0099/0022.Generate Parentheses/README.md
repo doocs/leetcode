@@ -258,7 +258,7 @@ class Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Recursion
+### 方法二：递归
 
 <!-- tabs:start -->
 
