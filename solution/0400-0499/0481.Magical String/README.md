@@ -115,7 +115,7 @@ class Solution:
 ```java
 class Solution {
     public int magicalString(int n) {
-        List<Integer> s = new ArrayList<>(Arrays.asList(1, 2, 2));
+        List<Integer> s = new ArrayList<>(List.of(1, 2, 2));
         for (int i = 2; s.size() < n; ++i) {
             int pre = s.get(s.size() - 1);
             int cur = 3 - pre;
@@ -178,17 +178,15 @@ func magicalString(n int) (ans int) {
 
 ```ts
 function magicalString(n: number): number {
-    const cs = [...'1221121'];
-    let i = 5;
-    while (cs.length < n) {
-        const c = cs[cs.length - 1];
-        cs.push(c === '1' ? '2' : '1');
-        if (cs[i] !== '1') {
-            cs.push(c === '1' ? '2' : '1');
+    const s: number[] = [1, 2, 2];
+    for (let i = 2; s.length < n; ++i) {
+        let pre = s[s.length - 1];
+        let cur = 3 - pre;
+        for (let j = 0; j < s[i]; ++j) {
+            s.push(cur);
         }
-        i++;
     }
-    return cs.slice(0, n).reduce((r, c) => r + (c === '1' ? 1 : 0), 0);
+    return s.slice(0, n).filter(x => x === 1).length;
 }
 ```
 
@@ -197,18 +195,19 @@ function magicalString(n: number): number {
 ```rust
 impl Solution {
     pub fn magical_string(n: i32) -> i32 {
-        let n = n as usize;
-        let mut s = String::from("1221121");
-        let mut i = 5;
-        while s.len() < n {
-            let c = s.as_bytes()[s.len() - 1];
-            s.push(if c == b'1' { '2' } else { '1' });
-            if s.as_bytes()[i] != b'1' {
-                s.push(if c == b'1' { '2' } else { '1' });
+        let mut s = vec![1, 2, 2];
+        let mut i = 2;
+
+        while s.len() < n as usize {
+            let pre = s[s.len() - 1];
+            let cur = 3 - pre;
+            for _ in 0..s[i] {
+                s.push(cur);
             }
             i += 1;
         }
-        s.as_bytes()[0..n].iter().filter(|&v| v == &b'1').count() as i32
+
+        s.iter().take(n as usize).filter(|&&x| x == 1).count() as i32
     }
 }
 ```
