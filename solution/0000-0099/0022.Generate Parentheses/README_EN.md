@@ -148,25 +148,21 @@ func generateParenthesis(n int) (ans []string) {
 #### TypeScript
 
 ```ts
-impl Solution {
-    pub fn generate_parenthesis(n: i32) -> Vec<String> {
-        let mut ans = Vec::new();
-
-        fn dfs(ans: &mut Vec<String>, l: i32, r: i32, t: String, n: i32) {
-            if l > n || r > n || l < r {
-                return;
-            }
-            if l == n && r == n {
-                ans.push(t);
-                return;
-            }
-            dfs(ans, l + 1, r, format!("{}(", t), n);
-            dfs(ans, l, r + 1, format!("{})", t), n);
+function generateParenthesis(n: number): string[] {
+    function dfs(l, r, t) {
+        if (l > n || r > n || l < r) {
+            return;
         }
-
-        dfs(&mut ans, 0, 0, String::new(), n);
-        ans
+        if (l == n && r == n) {
+            ans.push(t);
+            return;
+        }
+        dfs(l + 1, r, t + '(');
+        dfs(l, r + 1, t + ')');
     }
+    let ans = [];
+    dfs(0, 0, '');
+    return ans;
 }
 ```
 
@@ -250,6 +246,48 @@ class Solution {
         $dfs(0, 0, '');
         return $ans;
     }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Recursion
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function generateParenthesis(n: number): string[] {
+    if (n === 1) return ['()'];
+
+    return [
+        ...new Set(
+            generateParenthesis(n - 1).flatMap(s =>
+                Array.from(s, (_, i) => s.slice(0, i) + '()' + s.slice(i)),
+            ),
+        ),
+    ];
+}
+```
+
+#### JavaScript
+
+```js
+function generateParenthesis(n) {
+    if (n === 1) return ['()'];
+
+    return [
+        ...new Set(
+            generateParenthesis(n - 1).flatMap(s =>
+                Array.from(s, (_, i) => s.slice(0, i) + '()' + s.slice(i)),
+            ),
+        ),
+    ];
 }
 ```
 

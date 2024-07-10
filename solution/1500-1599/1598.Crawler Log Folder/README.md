@@ -160,15 +160,31 @@ func minOperations(logs []string) int {
 
 ```ts
 function minOperations(logs: string[]): number {
-    let depth = 0;
-    for (const log of logs) {
-        if (log === '../') {
-            depth = Math.max(0, depth - 1);
-        } else if (log !== './') {
-            depth++;
+    let ans = 0;
+    for (const x of logs) {
+        if (x === '../') {
+            ans && ans--;
+        } else if (x !== './') {
+            ans++;
         }
     }
-    return depth;
+    return ans;
+}
+```
+
+#### JavaScript
+
+```ts
+function minOperations(logs) {
+    let ans = 0;
+    for (const x of logs) {
+        if (x === '../') {
+            ans && ans--;
+        } else if (x !== './') {
+            ans++;
+        }
+    }
+    return ans;
 }
 ```
 

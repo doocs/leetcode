@@ -56,7 +56,39 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulate the Construction Process
+
+According to the problem, we know that each group of numbers in the string $s$ can be obtained from the digits of the string $s$ itself.
+
+The first two groups of numbers in string $s$ are $1$ and $22$, which are obtained from the first and second digits of string $s$, respectively. Moreover, the first group of numbers contains only $1$, the second group contains only $2$, the third group contains only $1$, and so on.
+
+Since the first two groups of numbers are known, we initialize string $s$ as $122$, and then start constructing from the third group. The third group of numbers is obtained from the third digit of string $s$ (index $i=2$), so at this point, we point the pointer $i$ to the third digit $2$ of string $s$.
+
+```
+1 2 2
+    ^
+    i
+```
+
+The digit pointed by pointer $i$ is $2$, indicating that the third group of numbers will appear twice. Since the previous group of numbers is $2$, and the numbers alternate between groups, the third group of numbers is two $1$s, i.e., $11$. After construction, the pointer $i$ moves to the next position, pointing to the fourth digit $1$ of string $s$.
+
+```
+1 2 2 1 1
+      ^
+      i
+```
+
+At this point, the digit pointed by pointer $i$ is $1$, indicating that the fourth group of numbers will appear once. Since the previous group of numbers is $1$, and the numbers alternate between groups, the fourth group of numbers is one $2$, i.e., $2$. After construction, the pointer $i$ moves to the next position, pointing to the fifth digit $1$ of string $s$.
+
+```
+1 2 2 1 1 2
+        ^
+        i
+```
+
+Following this rule, we simulate the construction process sequentially until the length of string $s$ is greater than or equal to $n$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
@@ -70,7 +102,6 @@ class Solution:
         while len(s) < n:
             pre = s[-1]
             cur = 3 - pre
-            # cur 表示这一组的数字，s[i] 表示这一组数字出现的次数
             s += [cur] * s[i]
             i += 1
         return s[:n].count(1)
@@ -81,7 +112,7 @@ class Solution:
 ```java
 class Solution {
     public int magicalString(int n) {
-        List<Integer> s = new ArrayList<>(Arrays.asList(1, 2, 2));
+        List<Integer> s = new ArrayList<>(List.of(1, 2, 2));
         for (int i = 2; s.size() < n; ++i) {
             int pre = s.get(s.size() - 1);
             int cur = 3 - pre;
@@ -144,17 +175,15 @@ func magicalString(n int) (ans int) {
 
 ```ts
 function magicalString(n: number): number {
-    const cs = [...'1221121'];
-    let i = 5;
-    while (cs.length < n) {
-        const c = cs[cs.length - 1];
-        cs.push(c === '1' ? '2' : '1');
-        if (cs[i] !== '1') {
-            cs.push(c === '1' ? '2' : '1');
+    const s: number[] = [1, 2, 2];
+    for (let i = 2; s.length < n; ++i) {
+        let pre = s[s.length - 1];
+        let cur = 3 - pre;
+        for (let j = 0; j < s[i]; ++j) {
+            s.push(cur);
         }
-        i++;
     }
-    return cs.slice(0, n).reduce((r, c) => r + (c === '1' ? 1 : 0), 0);
+    return s.slice(0, n).filter(x => x === 1).length;
 }
 ```
 
@@ -163,18 +192,19 @@ function magicalString(n: number): number {
 ```rust
 impl Solution {
     pub fn magical_string(n: i32) -> i32 {
-        let n = n as usize;
-        let mut s = String::from("1221121");
-        let mut i = 5;
-        while s.len() < n {
-            let c = s.as_bytes()[s.len() - 1];
-            s.push(if c == b'1' { '2' } else { '1' });
-            if s.as_bytes()[i] != b'1' {
-                s.push(if c == b'1' { '2' } else { '1' });
+        let mut s = vec![1, 2, 2];
+        let mut i = 2;
+
+        while s.len() < n as usize {
+            let pre = s[s.len() - 1];
+            let cur = 3 - pre;
+            for _ in 0..s[i] {
+                s.push(cur);
             }
             i += 1;
         }
-        s.as_bytes()[0..n].iter().filter(|&v| v == &b'1').count() as i32
+
+        s.iter().take(n as usize).filter(|&&x| x == 1).count() as i32
     }
 }
 ```

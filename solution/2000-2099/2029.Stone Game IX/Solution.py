@@ -1,17 +1,17 @@
 class Solution:
     def stoneGameIX(self, stones: List[int]) -> bool:
-        def check(c):
-            if c[1] == 0:
+        def check(cnt: List[int]) -> bool:
+            if cnt[1] == 0:
                 return False
-            c[1] -= 1
-            turn = 1 + min(c[1], c[2]) * 2 + c[0]
-            if c[1] > c[2]:
-                turn += 1
-                c[1] -= 1
-            return turn % 2 == 1 and c[1] != c[2]
+            cnt[1] -= 1
+            r = 1 + min(cnt[1], cnt[2]) * 2 + cnt[0]
+            if cnt[1] > cnt[2]:
+                cnt[1] -= 1
+                r += 1
+            return r % 2 == 1 and cnt[1] != cnt[2]
 
-        c = [0] * 3
-        for s in stones:
-            c[s % 3] += 1
-        c1 = [c[0], c[2], c[1]]
-        return check(c) or check(c1)
+        c1 = [0] * 3
+        for x in stones:
+            c1[x % 3] += 1
+        c2 = [c1[0], c1[2], c1[1]]
+        return check(c1) or check(c2)
