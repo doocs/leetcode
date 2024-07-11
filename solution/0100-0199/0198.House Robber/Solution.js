@@ -1,7 +1,7 @@
-function rob(nums: number[]): number {
+function rob(nums) {
     const n = nums.length;
-    const f: number[] = Array(n).fill(-1);
-    const dfs = (i: number): number => {
+    const f = Array(n).fill(-1);
+    const dfs = i => {
         if (i >= n) {
             return 0;
         }

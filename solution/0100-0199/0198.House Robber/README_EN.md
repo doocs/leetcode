@@ -54,7 +54,174 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 
 <!-- solution:start -->
 
-### Solution 1: Dynamic Programming
+### Solution 1: Memoization Search
+
+We design a function $\textit{dfs}(i)$, which represents the maximum amount of money that can be stolen starting from the $i$-th house. Thus, the answer is $\textit{dfs}(0)$.
+
+The execution process of the function $\textit{dfs}(i)$ is as follows:
+
+-   If $i \ge \textit{len}(\textit{nums})$, it means all houses have been considered, and we directly return $0$;
+-   Otherwise, consider stealing from the $i$-th house, then $\textit{dfs}(i) = \textit{nums}[i] + \textit{dfs}(i+2)$; if not stealing from the $i$-th house, then $\textit{dfs}(i) = \textit{dfs}(i+1)$.
+-   Return $\max(\textit{nums}[i] + \textit{dfs}(i+2), \textit{dfs}(i+1))$.
+
+To avoid repeated calculations, we use memoization search. The result of $\textit{dfs}(i)$ is saved in an array or hash table. Before each calculation, we first check if it has been calculated. If so, we directly return the result.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        @cache
+        def dfs(i: int) -> int:
+            if i >= len(nums):
+                return 0
+            return max(nums[i] + dfs(i + 2), dfs(i + 1))
+
+        return dfs(0)
+```
+
+#### Java
+
+```java
+class Solution {
+    private Integer[] f;
+    private int[] nums;
+
+    public int rob(int[] nums) {
+        this.nums = nums;
+        f = new Integer[nums.length];
+        return dfs(0);
+    }
+
+    private int dfs(int i) {
+        if (i >= nums.length) {
+            return 0;
+        }
+        if (f[i] == null) {
+            f[i] = Math.max(nums[i] + dfs(i + 2), dfs(i + 1));
+        }
+        return f[i];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int n = nums.size();
+        int f[n];
+        memset(f, -1, sizeof(f));
+        auto dfs = [&](auto&& dfs, int i) -> int {
+            if (i >= n) {
+                return 0;
+            }
+            if (f[i] < 0) {
+                f[i] = max(nums[i] + dfs(dfs, i + 2), dfs(dfs, i + 1));
+            }
+            return f[i];
+        };
+        return dfs(dfs, 0);
+    }
+};
+```
+
+#### Go
+
+```go
+func rob(nums []int) int {
+	n := len(nums)
+	f := make([]int, n)
+	for i := range f {
+		f[i] = -1
+	}
+	var dfs func(int) int
+	dfs = func(i int) int {
+		if i >= n {
+			return 0
+		}
+		if f[i] < 0 {
+			f[i] = max(nums[i]+dfs(i+2), dfs(i+1))
+		}
+		return f[i]
+	}
+	return dfs(0)
+}
+```
+
+#### TypeScript
+
+```ts
+function rob(nums: number[]): number {
+    const n = nums.length;
+    const f: number[] = Array(n).fill(-1);
+    const dfs = (i: number): number => {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i] < 0) {
+            f[i] = Math.max(nums[i] + dfs(i + 2), dfs(i + 1));
+        }
+        return f[i];
+    };
+    return dfs(0);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn rob(nums: Vec<i32>) -> i32 {
+        fn dfs(i: usize, nums: &Vec<i32>, f: &mut Vec<i32>) -> i32 {
+            if i >= nums.len() {
+                return 0;
+            }
+            if f[i] < 0 {
+                f[i] = (nums[i] + dfs(i + 2, nums, f)).max(dfs(i + 1, nums, f));
+            }
+            f[i]
+        }
+
+        let n = nums.len();
+        let mut f = vec![-1; n];
+        dfs(0, &nums, &mut f)
+    }
+}
+```
+
+#### JavaScript
+
+```js
+function rob(nums) {
+    const n = nums.length;
+    const f = Array(n).fill(-1);
+    const dfs = i => {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i] < 0) {
+            f[i] = Math.max(nums[i] + dfs(i + 2), dfs(i + 1));
+        }
+        return f[i];
+    };
+    return dfs(0);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
 
 We define $f[i]$ as the maximum total amount that can be robbed from the first $i$ houses, initially $f[0]=0$, $f[1]=nums[0]$.
 
@@ -160,12 +327,28 @@ function rob(nums: number[]): number {
 ```rust
 impl Solution {
     pub fn rob(nums: Vec<i32>) -> i32 {
-        let mut f = [0, 0];
-        for x in nums {
-            f = [f[0].max(f[1]), f[0] + x];
+        let n = nums.len();
+        let mut f = vec![0; n + 1];
+        f[1] = nums[0];
+        for i in 2..=n {
+            f[i] = f[i - 1].max(f[i - 2] + nums[i - 1]);
         }
-        f[0].max(f[1])
+        f[n]
     }
+}
+```
+
+#### JavaScript
+
+```js
+function rob(nums) {
+    const n = nums.length;
+    const f = Array(n + 1).fill(0);
+    f[1] = nums[0];
+    for (let i = 2; i <= n; ++i) {
+        f[i] = Math.max(f[i - 1], f[i - 2] + nums[i - 1]);
+    }
+    return f[n];
 }
 ```
 
@@ -175,7 +358,7 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Dynamic Programming (Space Optimization)
+### Solution 3: Dynamic Programming (Space Optimization)
 
 We notice that when $i \gt 2$, $f[i]$ is only related to $f[i-1]$ and $f[i-2]$. Therefore, we can use two variables instead of an array to reduce the space complexity to $O(1)$.
 
@@ -241,6 +424,32 @@ func rob(nums []int) int {
 
 ```ts
 function rob(nums: number[]): number {
+    let [f, g] = [0, 0];
+    for (const x of nums) {
+        [f, g] = [Math.max(f, g), f + x];
+    }
+    return Math.max(f, g);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn rob(nums: Vec<i32>) -> i32 {
+        let mut f = [0, 0];
+        for x in nums {
+            f = [f[0].max(f[1]), f[0] + x];
+        }
+        f[0].max(f[1])
+    }
+}
+```
+
+#### JavaScript
+
+```js
+function rob(nums) {
     let [f, g] = [0, 0];
     for (const x of nums) {
         [f, g] = [Math.max(f, g), f + x];

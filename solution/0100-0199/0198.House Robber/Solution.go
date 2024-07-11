@@ -1,9 +1,18 @@
 func rob(nums []int) int {
 	n := len(nums)
-	f := make([]int, n+1)
-	f[1] = nums[0]
-	for i := 2; i <= n; i++ {
-		f[i] = max(f[i-1], f[i-2]+nums[i-1])
+	f := make([]int, n)
+	for i := range f {
+		f[i] = -1
 	}
-	return f[n]
+	var dfs func(int) int
+	dfs = func(i int) int {
+		if i >= n {
+			return 0
+		}
+		if f[i] < 0 {
+			f[i] = max(nums[i]+dfs(i+2), dfs(i+1))
+		}
+		return f[i]
+	}
+	return dfs(0)
 }
