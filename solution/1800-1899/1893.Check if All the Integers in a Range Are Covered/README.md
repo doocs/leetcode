@@ -67,7 +67,7 @@ tags:
 
 我们可以使用差分数组的思想，创建一个长度为 $52$ 的差分数组 $\textit{diff}$。
 
-接下来，我们遍历数组 $\textit{ranges}$，对于每个区间 $[l, r]$，我们令 $\textit{diff}[l]$ 自增 $1$，$\textit{diff}[r + 1]$ 自减 $1$。
+接下来，我们遍历数组 $\textit{ranges}$，对于每个区间 $[l, r]$，我们令 $\textit{diff}[l]$ 自增 $1$，而 $\textit{diff}[r + 1]$ 自减 $1$。
 
 接着，我们遍历差分数组 $\textit{diff}$，维护一个前缀和 $s$，对于每个位置 $i$，我们令 $s$ 自增 $\textit{diff}[i]$，如果 $s \le 0$ 且 $left \le i \le right$，则说明区间 $[left, right]$ 中有一个整数 $i$ 没有被覆盖，返回 $\textit{false}$。
 
