@@ -1,14 +1,14 @@
 func isCovered(ranges [][]int, left int, right int) bool {
 	diff := [52]int{}
-	for _, rg := range ranges {
-		l, r := rg[0], rg[1]
+	for _, e := range ranges {
+		l, r := e[0], e[1]
 		diff[l]++
 		diff[r+1]--
 	}
-	cur := 0
+	s := 0
 	for i, x := range diff {
-		cur += x
-		if i >= left && i <= right && cur <= 0 {
+		s += x
+		if s <= 0 && left <= i && i <= right {
 			return false
 		}
 	}
