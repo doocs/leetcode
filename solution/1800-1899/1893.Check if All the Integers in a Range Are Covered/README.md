@@ -71,7 +71,7 @@ tags:
 
 接着，我们遍历差分数组 $\textit{diff}$，维护一个前缀和 $s$，对于每个位置 $i$，我们令 $s$ 自增 $\textit{diff}[i]$，如果 $s \le 0$ 且 $left \le i \le right$，则说明区间 $[left, right]$ 中有一个整数 $i$ 没有被覆盖，返回 $\textit{false}$。
 
-如果遍历完差分数组 $\textit{diff}$ 后都没有返回 $\textit{False}$，则说明区间 $[left, right]$ 中的每个整数都被 $\textit{ranges}$ 中至少一个区间覆盖，返回 $\textit{true}$。
+如果遍历完差分数组 $\textit{diff}$ 后都没有返回 $\textit{false}$，则说明区间 $[left, right]$ 中的每个整数都被 $\textit{ranges}$ 中至少一个区间覆盖，返回 $\textit{true}$。
 
 时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $\textit{ranges}$ 的长度，而 $M$ 是区间的最大值，本题中 $M \le 50$。
 

@@ -69,7 +69,7 @@ Next, we iterate through the array $\textit{ranges}$. For each interval $[l, r]$
 
 Then, we iterate through the difference array $\textit{diff}$, maintaining a prefix sum $s$. For each position $i$, we increment $s$ by $\textit{diff}[i]$. If $s \le 0$ and $left \le i \le right$, it indicates that an integer $i$ within the interval $[left, right]$ is not covered, and we return $\textit{false}$.
 
-If we finish iterating through the difference array $\textit{diff}$ without returning $\textit{False}$, it means that every integer within the interval $[left, right]$ is covered by at least one interval in $\textit{ranges}$, and we return $\textit{true}$.
+If we finish iterating through the difference array $\textit{diff}$ without returning $\textit{false}$, it means that every integer within the interval $[left, right]$ is covered by at least one interval in $\textit{ranges}$, and we return $\textit{true}$.
 
 The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array $\textit{ranges}$, and $M$ is the maximum value of the interval, which in this case is $M \le 50$.
 
