@@ -693,7 +693,7 @@
 |  0680  |  [验证回文串 II](/solution/0600-0699/0680.Valid%20Palindrome%20II/README.md)  |  `贪心`,`双指针`,`字符串`  |  简单  |    |
 |  0681  |  [最近时刻](/solution/0600-0699/0681.Next%20Closest%20Time/README.md)  |  `哈希表`,`字符串`,`回溯`,`枚举`  |  中等  |  🔒  |
 |  0682  |  [棒球比赛](/solution/0600-0699/0682.Baseball%20Game/README.md)  |  `栈`,`数组`,`模拟`  |  简单  |    |
-|  0683  |  [K 个关闭的灯泡](/solution/0600-0699/0683.K%20Empty%20Slots/README.md)  |  `树状数组`,`数组`,`有序集合`,`滑动窗口`  |  困难  |  🔒  |
+|  0683  |  [K 个关闭的灯泡](/solution/0600-0699/0683.K%20Empty%20Slots/README.md)  |  `树状数组`,`线段树`,`队列`,`数组`,`有序集合`,`滑动窗口`,`单调队列`,`堆（优先队列）`  |  困难  |  🔒  |
 |  0684  |  [冗余连接](/solution/0600-0699/0684.Redundant%20Connection/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`,`图`  |  中等  |    |
 |  0685  |  [冗余连接 II](/solution/0600-0699/0685.Redundant%20Connection%20II/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`,`图`  |  困难  |    |
 |  0686  |  [重复叠加字符串匹配](/solution/0600-0699/0686.Repeated%20String%20Match/README.md)  |  `字符串`,`字符串匹配`  |  中等  |    |
@@ -1525,7 +1525,7 @@
 |  1512  |  [好数对的数目](/solution/1500-1599/1512.Number%20of%20Good%20Pairs/README.md)  |  `数组`,`哈希表`,`数学`,`计数`  |  简单  |  第 197 场周赛  |
 |  1513  |  [仅含 1 的子串数](/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README.md)  |  `数学`,`字符串`  |  中等  |  第 197 场周赛  |
 |  1514  |  [概率最大的路径](/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README.md)  |  `图`,`数组`,`最短路`,`堆（优先队列）`  |  中等  |  第 197 场周赛  |
-|  1515  |  [服务中心的最佳位置](/solution/1500-1599/1515.Best%20Position%20for%20a%20Service%20Centre/README.md)  |  `几何`,`数学`,`随机化`  |  困难  |  第 197 场周赛  |
+|  1515  |  [服务中心的最佳位置](/solution/1500-1599/1515.Best%20Position%20for%20a%20Service%20Centre/README.md)  |  `几何`,`数组`,`数学`,`随机化`  |  困难  |  第 197 场周赛  |
 |  1516  |  [移动 N 叉树的子树](/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/README.md)  |  `树`,`深度优先搜索`  |  困难  |  🔒  |
 |  1517  |  [查找拥有有效邮箱的用户](/solution/1500-1599/1517.Find%20Users%20With%20Valid%20E-Mails/README.md)  |  `数据库`  |  简单  |    |
 |  1518  |  [换水问题](/solution/1500-1599/1518.Water%20Bottles/README.md)  |  `数学`,`模拟`  |  简单  |  第 198 场周赛  |
