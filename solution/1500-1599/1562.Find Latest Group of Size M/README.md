@@ -291,11 +291,8 @@ func findLatestStep(arr []int, m int) int {
 
 #### JavaScript
 
-```javascript
+```js
 const findLatestStep = function (arr, m) {
-    let p = [];
-    let size = [];
-
     function find(x) {
         if (p[x] !== x) {
             p[x] = find(p[x]);
@@ -317,12 +314,9 @@ const findLatestStep = function (arr, m) {
     if (m === n) {
         return n;
     }
-    const vis = new Array(n).fill(false);
-    p = new Array(n);
-    size = new Array(n).fill(1);
-    for (let i = 0; i < n; ++i) {
-        p[i] = i;
-    }
+    const vis = Array(n).fill(false);
+    const p = Array.from({ length: n }, (_, i) => i);
+    const size = Array(n).fill(1);
     let ans = -1;
     for (let i = 0; i < n; ++i) {
         const v = arr[i] - 1;
