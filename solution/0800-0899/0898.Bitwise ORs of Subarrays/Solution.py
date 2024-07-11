@@ -1,7 +1,7 @@
 class Solution:
     def subarrayBitwiseORs(self, arr: List[int]) -> int:
-        s = {0}
         ans = set()
+        s = set()
         for x in arr:
             s = {x | y for y in s} | {x}
             ans |= s
