@@ -1,7 +1,7 @@
 function reverseParentheses(s: string): string {
     const n = s.length;
     const d = new Array(n).fill(0);
-    const stk = [];
+    const stk: number[] = [];
     for (let i = 0; i < n; ++i) {
         if (s[i] === '(') {
             stk.push(i);
@@ -13,7 +13,7 @@ function reverseParentheses(s: string): string {
     }
     let i = 0;
     let x = 1;
-    const ans = [];
+    const ans: string[] = [];
     while (i < n) {
         const c = s.charAt(i);
         if (c === '(' || c === ')') {

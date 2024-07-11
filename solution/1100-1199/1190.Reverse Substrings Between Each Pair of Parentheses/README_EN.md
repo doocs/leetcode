@@ -207,13 +207,13 @@ var reverseParentheses = function (s) {
 };
 ```
 
-#### JavaScript
+#### TypeScript
 
 ```ts
 function reverseParentheses(s: string): string {
     const n = s.length;
     const d = new Array(n).fill(0);
-    const stk = [];
+    const stk: number[] = [];
     for (let i = 0; i < n; ++i) {
         if (s[i] === '(') {
             stk.push(i);
@@ -225,7 +225,7 @@ function reverseParentheses(s: string): string {
     }
     let i = 0;
     let x = 1;
-    const ans = [];
+    const ans: string[] = [];
     while (i < n) {
         const c = s.charAt(i);
         if (c === '(' || c === ')') {
@@ -353,18 +353,18 @@ func reverseParentheses(s string) string {
 #### JavaScript
 
 ```js
-function reverseParentheses(s: string): string {
-    const res: string[] = [];
+function reverseParentheses(s) {
+    const res = [];
     const n = s.length;
-    const pairs = Array(n).fill(-1);
-    const stack: number[] = [];
+    const d = Array(n).fill(-1);
+    const stk = [];
 
     for (let i = 0; i < n; i++) {
-        if (s[i] === '(') stack.push(i);
+        if (s[i] === '(') stk.push(i);
         else if (s[i] === ')') {
-            const j = stack.pop()!;
-            pairs[i] = j;
-            pairs[j] = i;
+            const j = stk.pop();
+            d[i] = j;
+            d[j] = i;
         }
     }
 
@@ -374,7 +374,7 @@ function reverseParentheses(s: string): string {
         switch (s[i]) {
             case '(':
             case ')':
-                i = forward ? pairs[i] - 1 : pairs[i] + 1;
+                i = forward ? d[i] - 1 : d[i] + 1;
                 forward = !forward;
                 break;
 
@@ -394,15 +394,15 @@ function reverseParentheses(s: string): string {
 function reverseParentheses(s: string): string {
     const res: string[] = [];
     const n = s.length;
-    const pairs = Array(n).fill(-1);
-    const stack: number[] = [];
+    const d = Array(n).fill(-1);
+    const stk: number[] = [];
 
     for (let i = 0; i < n; i++) {
-        if (s[i] === '(') stack.push(i);
+        if (s[i] === '(') stk.push(i);
         else if (s[i] === ')') {
-            const j = stack.pop()!;
-            pairs[i] = j;
-            pairs[j] = i;
+            const j = stk.pop()!;
+            d[i] = j;
+            d[j] = i;
         }
     }
 
@@ -412,7 +412,7 @@ function reverseParentheses(s: string): string {
         switch (s[i]) {
             case '(':
             case ')':
-                i = forward ? pairs[i] - 1 : pairs[i] + 1;
+                i = forward ? d[i] - 1 : d[i] + 1;
                 forward = !forward;
                 break;
 
