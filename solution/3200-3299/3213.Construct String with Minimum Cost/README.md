@@ -92,7 +92,7 @@ $$
 f[i] = \min(f[i], f[i - j] + \textit{cost}[k])
 $$
 
-其中 $textit{cost}[k]$ 表示长度为 $j$ 的单词且哈希值与 $\textit{target}[i - j + 1, i]$ 相同的单词的最小代价。
+其中 $\textit{cost}[k]$ 表示长度为 $j$ 的单词且哈希值与 $\textit{target}[i - j + 1, i]$ 相同的单词的最小代价。
 
 时间复杂度 $O(n \times \sqrt{L})$，空间复杂度 $O(n)$。其中 $n$ 是 $\textit{target}$ 的长度，而 $L$ 是数组 $\textit{words}$ 中所有单词的长度之和。
 
