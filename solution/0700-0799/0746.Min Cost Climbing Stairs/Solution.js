@@ -1,8 +1,14 @@
 function minCostClimbingStairs(cost) {
     const n = cost.length;
-    const f = Array(n + 1).fill(0);
-    for (let i = 2; i <= n; ++i) {
-        f[i] = Math.min(f[i - 1] + cost[i - 1], f[i - 2] + cost[i - 2]);
-    }
-    return f[n];
+    const f = Array(n).fill(-1);
+    const dfs = i => {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i] < 0) {
+            f[i] = cost[i] + Math.min(dfs(i + 1), dfs(i + 2));
+        }
+        return f[i];
+    };
+    return Math.min(dfs(0), dfs(1));
 }
