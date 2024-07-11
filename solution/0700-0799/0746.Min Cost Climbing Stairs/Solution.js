@@ -1,7 +1,7 @@
-function minCostClimbingStairs(cost: number[]): number {
+function minCostClimbingStairs(cost) {
     const n = cost.length;
-    const f: number[] = Array(n).fill(-1);
-    const dfs = (i: number): number => {
+    const f = Array(n).fill(-1);
+    const dfs = i => {
         if (i >= n) {
             return 0;
         }
