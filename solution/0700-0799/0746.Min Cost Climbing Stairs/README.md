@@ -67,7 +67,7 @@ tags:
 
 ### 方法一：记忆化搜索
 
-我们设计一个函数 $textit{dfs}(i)$，表示从第 $i$ 个阶梯开始爬楼梯所需要的最小花费。那么答案为 $\min(\textit{dfs}(0), \textit{dfs}(1))$。
+我们设计一个函数 $\textit{dfs}(i)$，表示从第 $i$ 个阶梯开始爬楼梯所需要的最小花费。那么答案为 $\min(\textit{dfs}(0), \textit{dfs}(1))$。
 
 函数 $\textit{dfs}(i)$ 的执行过程如下：
 
