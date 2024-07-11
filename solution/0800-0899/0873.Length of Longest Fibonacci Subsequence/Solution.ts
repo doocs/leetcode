@@ -1,11 +1,7 @@
-/**
- * @param {number[]} arr
- * @return {number}
- */
-var lenLongestFibSubseq = function (arr) {
+function lenLongestFibSubseq(arr: number[]): number {
     const n = arr.length;
-    const f = Array.from({ length: n }, () => Array(n).fill(0));
-    const d = new Map();
+    const f: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    const d: Map<number, number> = new Map();
     for (let i = 0; i < n; ++i) {
         d.set(arr[i], i);
         for (let j = 0; j < i; ++j) {
@@ -24,4 +20,4 @@ var lenLongestFibSubseq = function (arr) {
         }
     }
     return ans;
-};
+}

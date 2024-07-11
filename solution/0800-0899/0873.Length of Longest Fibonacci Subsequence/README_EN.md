@@ -58,7 +58,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ as the length of the longest Fibonacci-like subsequence, with $\textit{arr}[i]$ as the last element and $\textit{arr}[j]$ as the second to last element. Initially, for any $i \in [0, n)$ and $j \in [0, i)$, we have $f[i][j] = 2$. All other elements are $0$.
+
+We use a hash table $d$ to record the indices of each element in the array $\textit{arr}$.
+
+Then, we can enumerate $\textit{arr}[i]$ and $\textit{arr}[j]$, where $i \in [2, n)$ and $j \in [1, i)$. Suppose the currently enumerated elements are $\textit{arr}[i]$ and $\textit{arr}[j]$, we can obtain $\textit{arr}[i] - \textit{arr}[j]$, denoted as $t$. If $t$ is in the array $\textit{arr}$, and the index $k$ of $t$ satisfies $k < j$, then we can get a Fibonacci-like subsequence with $\textit{arr}[j]$ and $\textit{arr}[i]$ as the last two elements, and its length is $f[i][j] = \max(f[i][j], f[j][k] + 1)$. We can continuously update the value of $f[i][j]$ in this way, and then update the answer.
+
+After the enumeration ends, return the answer.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -67,19 +77,19 @@ tags:
 ```python
 class Solution:
     def lenLongestFibSubseq(self, arr: List[int]) -> int:
-        mp = {v: i for i, v in enumerate(arr)}
         n = len(arr)
-        dp = [[0] * n for _ in range(n)]
+        f = [[0] * n for _ in range(n)]
+        d = {x: i for i, x in enumerate(arr)}
         for i in range(n):
             for j in range(i):
-                dp[j][i] = 2
+                f[i][j] = 2
         ans = 0
-        for i in range(n):
-            for j in range(i):
-                d = arr[i] - arr[j]
-                if d in mp and (k := mp[d]) < j:
-                    dp[j][i] = max(dp[j][i], dp[k][j] + 1)
-                    ans = max(ans, dp[j][i])
+        for i in range(2, n):
+            for j in range(1, i):
+                t = arr[i] - arr[j]
+                if t in d and (k := d[t]) < j:
+                    f[i][j] = max(f[i][j], f[j][k] + 1)
+                    ans = max(ans, f[i][j])
         return ans
 ```
 
@@ -89,26 +99,22 @@ class Solution:
 class Solution {
     public int lenLongestFibSubseq(int[] arr) {
         int n = arr.length;
-        Map<Integer, Integer> mp = new HashMap<>();
+        int[][] f = new int[n][n];
+        Map<Integer, Integer> d = new HashMap<>();
         for (int i = 0; i < n; ++i) {
-            mp.put(arr[i], i);
-        }
-        int[][] dp = new int[n][n];
-        for (int i = 0; i < n; ++i) {
+            d.put(arr[i], i);
             for (int j = 0; j < i; ++j) {
-                dp[j][i] = 2;
+                f[i][j] = 2;
             }
         }
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                int d = arr[i] - arr[j];
-                if (mp.containsKey(d)) {
-                    int k = mp.get(d);
-                    if (k < j) {
-                        dp[j][i] = Math.max(dp[j][i], dp[k][j] + 1);
-                        ans = Math.max(ans, dp[j][i]);
-                    }
+        for (int i = 2; i < n; ++i) {
+            for (int j = 1; j < i; ++j) {
+                int t = arr[i] - arr[j];
+                Integer k = d.get(t);
+                if (k != null && k < j) {
+                    f[i][j] = Math.max(f[i][j], f[j][k] + 1);
+                    ans = Math.max(ans, f[i][j]);
                 }
             }
         }
@@ -123,23 +129,26 @@ class Solution {
 class Solution {
 public:
     int lenLongestFibSubseq(vector<int>& arr) {
-        unordered_map<int, int> mp;
         int n = arr.size();
-        for (int i = 0; i < n; ++i) mp[arr[i]] = i;
-        vector<vector<int>> dp(n, vector<int>(n));
-        for (int i = 0; i < n; ++i)
-            for (int j = 0; j < i; ++j)
-                dp[j][i] = 2;
-        int ans = 0;
+        int f[n][n];
+        memset(f, 0, sizeof(f));
+        unordered_map<int, int> d;
         for (int i = 0; i < n; ++i) {
+            d[arr[i]] = i;
             for (int j = 0; j < i; ++j) {
-                int d = arr[i] - arr[j];
-                if (mp.count(d)) {
-                    int k = mp[d];
-                    if (k < j) {
-                        dp[j][i] = max(dp[j][i], dp[k][j] + 1);
-                        ans = max(ans, dp[j][i]);
-                    }
+                f[i][j] = 2;
+            }
+        }
+
+        int ans = 0;
+        for (int i = 2; i < n; ++i) {
+            for (int j = 1; j < i; ++j) {
+                int t = arr[i] - arr[j];
+                auto it = d.find(t);
+                if (it != d.end() && it->second < j) {
+                    int k = it->second;
+                    f[i][j] = max(f[i][j], f[j][k] + 1);
+                    ans = max(ans, f[i][j]);
                 }
             }
         }
@@ -151,31 +160,92 @@ public:
 #### Go
 
 ```go
-func lenLongestFibSubseq(arr []int) int {
+func lenLongestFibSubseq(arr []int) (ans int) {
 	n := len(arr)
-	mp := make(map[int]int, n)
-	for i, v := range arr {
-		mp[v] = i + 1
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
 	}
-	dp := make([][]int, n)
-	for i := 0; i < n; i++ {
-		dp[i] = make([]int, n)
+
+	d := make(map[int]int)
+	for i, x := range arr {
+		d[x] = i
 		for j := 0; j < i; j++ {
-			dp[j][i] = 2
+			f[i][j] = 2
 		}
 	}
-	ans := 0
-	for i := 0; i < n; i++ {
-		for j := 0; j < i; j++ {
-			d := arr[i] - arr[j]
-			k := mp[d] - 1
-			if k >= 0 && k < j {
-				dp[j][i] = max(dp[j][i], dp[k][j]+1)
-				ans = max(ans, dp[j][i])
+
+	for i := 2; i < n; i++ {
+		for j := 1; j < i; j++ {
+			t := arr[i] - arr[j]
+			if k, ok := d[t]; ok && k < j {
+				f[i][j] = max(f[i][j], f[j][k]+1)
+				ans = max(ans, f[i][j])
 			}
 		}
 	}
-	return ans
+
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function lenLongestFibSubseq(arr: number[]): number {
+    const n = arr.length;
+    const f: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    const d: Map<number, number> = new Map();
+    for (let i = 0; i < n; ++i) {
+        d.set(arr[i], i);
+        for (let j = 0; j < i; ++j) {
+            f[i][j] = 2;
+        }
+    }
+    let ans = 0;
+    for (let i = 2; i < n; ++i) {
+        for (let j = 1; j < i; ++j) {
+            const t = arr[i] - arr[j];
+            const k = d.get(t);
+            if (k !== undefined && k < j) {
+                f[i][j] = Math.max(f[i][j], f[j][k] + 1);
+                ans = Math.max(ans, f[i][j]);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+impl Solution {
+    pub fn len_longest_fib_subseq(arr: Vec<i32>) -> i32 {
+        let n = arr.len();
+        let mut f = vec![vec![0; n]; n];
+        let mut d = HashMap::new();
+        for i in 0..n {
+            d.insert(arr[i], i);
+            for j in 0..i {
+                f[i][j] = 2;
+            }
+        }
+        let mut ans = 0;
+        for i in 2..n {
+            for j in 1..i {
+                let t = arr[i] - arr[j];
+                if let Some(&k) = d.get(&t) {
+                    if k < j {
+                        f[i][j] = f[i][j].max(f[j][k] + 1);
+                        ans = ans.max(f[i][j]);
+                    }
+                }
+            }
+        }
+        ans
+    }
 }
 ```
 
@@ -187,25 +257,23 @@ func lenLongestFibSubseq(arr []int) int {
  * @return {number}
  */
 var lenLongestFibSubseq = function (arr) {
-    const mp = new Map();
     const n = arr.length;
-    const dp = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    const f = Array.from({ length: n }, () => Array(n).fill(0));
+    const d = new Map();
     for (let i = 0; i < n; ++i) {
-        mp.set(arr[i], i);
+        d.set(arr[i], i);
         for (let j = 0; j < i; ++j) {
-            dp[j][i] = 2;
+            f[i][j] = 2;
         }
     }
     let ans = 0;
-    for (let i = 0; i < n; ++i) {
-        for (let j = 0; j < i; ++j) {
-            const d = arr[i] - arr[j];
-            if (mp.has(d)) {
-                const k = mp.get(d);
-                if (k < j) {
-                    dp[j][i] = Math.max(dp[j][i], dp[k][j] + 1);
-                    ans = Math.max(ans, dp[j][i]);
-                }
+    for (let i = 2; i < n; ++i) {
+        for (let j = 1; j < i; ++j) {
+            const t = arr[i] - arr[j];
+            const k = d.get(t);
+            if (k !== undefined && k < j) {
+                f[i][j] = Math.max(f[i][j], f[j][k] + 1);
+                ans = Math.max(ans, f[i][j]);
             }
         }
     }
