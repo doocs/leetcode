@@ -12,13 +12,12 @@
 class Solution {
 public:
     bool evaluateTree(TreeNode* root) {
-        return dfs(root);
-    }
-
-    bool dfs(TreeNode* root) {
-        if (!root->left && !root->right) return root->val;
-        bool l = dfs(root->left), r = dfs(root->right);
-        if (root->val == 2) return l || r;
-        return l && r;
+        if (!root->left) {
+            return root->val;
+        }
+        if (root->val == 2) {
+            return evaluateTree(root->left) || evaluateTree(root->right);
+        }
+        return evaluateTree(root->left) && evaluateTree(root->right);
     }
 };

@@ -7,16 +7,12 @@
  * }
  */
 func evaluateTree(root *TreeNode) bool {
-	var dfs func(*TreeNode) bool
-	dfs = func(root *TreeNode) bool {
-		if root.Left == nil && root.Right == nil {
-			return root.Val == 1
-		}
-		l, r := dfs(root.Left), dfs(root.Right)
-		if root.Val == 2 {
-			return l || r
-		}
-		return l && r
+	if root.Left == nil {
+		return root.Val == 1
 	}
-	return dfs(root)
+	if root.Val == 2 {
+		return evaluateTree(root.Left) || evaluateTree(root.Right)
+	} else {
+		return evaluateTree(root.Left) && evaluateTree(root.Right)
+	}
 }
