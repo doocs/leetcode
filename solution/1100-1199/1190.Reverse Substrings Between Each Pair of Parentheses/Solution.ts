@@ -1,28 +1,16 @@
 function reverseParentheses(s: string): string {
-    const n = s.length;
-    const d = new Array(n).fill(0);
-    const stk: number[] = [];
-    for (let i = 0; i < n; ++i) {
-        if (s[i] === '(') {
-            stk.push(i);
-        } else if (s[i] === ')') {
-            const j = stk.pop()!;
-            d[i] = j;
-            d[j] = i;
-        }
-    }
-    let i = 0;
-    let x = 1;
-    const ans: string[] = [];
-    while (i < n) {
-        const c = s.charAt(i);
-        if (c === '(' || c === ')') {
-            i = d[i];
-            x = -x;
+    const stk: string[] = [];
+    for (const c of s) {
+        if (c === ')') {
+            const t: string[] = [];
+            while (stk.at(-1)! !== '(') {
+                t.push(stk.pop()!);
+            }
+            stk.pop();
+            stk.push(...t);
         } else {
-            ans.push(c);
+            stk.push(c);
         }
-        i += x;
     }
-    return ans.join('');
+    return stk.join('');
 }
