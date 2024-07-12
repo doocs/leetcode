@@ -3225,7 +3225,7 @@
 |  3212  |  [统计 X 和 Y 频数相等的子矩阵数量](/solution/3200-3299/3212.Count%20Submatrices%20With%20Equal%20Frequency%20of%20X%20and%20Y/README.md)  |  `数组`,`矩阵`,`前缀和`  |  中等  |  第 405 场周赛  |
 |  3213  |  [最小代价构造字符串](/solution/3200-3299/3213.Construct%20String%20with%20Minimum%20Cost/README.md)  |  `数组`,`字符串`,`动态规划`,`后缀数组`  |  困难  |  第 405 场周赛  |
 |  3214  |  [同比增长率](/solution/3200-3299/3214.Year%20on%20Year%20Growth%20Rate/README.md)  |  `数据库`  |  困难  |  🔒  |
-|  3215  |  [Count Triplets with Even XOR Set Bits II](/solution/3200-3299/3215.Count%20Triplets%20with%20Even%20XOR%20Set%20Bits%20II/README.md)  |    |  中等  |  🔒  |
+|  3215  |  [用偶数异或设置位计数三元组 II](/solution/3200-3299/3215.Count%20Triplets%20with%20Even%20XOR%20Set%20Bits%20II/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

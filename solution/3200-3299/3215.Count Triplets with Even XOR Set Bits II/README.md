@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3215.Co
 
 <!-- problem:start -->
 
-# [3215. Count Triplets with Even XOR Set Bits II 🔒](https://leetcode.cn/problems/count-triplets-with-even-xor-set-bits-ii)
+# [3215. 用偶数异或设置位计数三元组 II 🔒](https://leetcode.cn/problems/count-triplets-with-even-xor-set-bits-ii)
 
 [English Version](/solution/3200-3299/3215.Count%20Triplets%20with%20Even%20XOR%20Set%20Bits%20II/README_EN.md)
 
@@ -14,31 +14,29 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3215.Co
 
 <!-- description:start -->
 
-Given three integer arrays <code>a</code>, <code>b</code>, and <code>c</code>, return the number of triplets <code>(a[i], b[j], c[k])</code>, such that the bitwise <code>XOR</code> between the elements of each triplet has an <strong>even</strong> number of <span data-keyword="set-bit">set bits</span>.
+<p>给定三个整数数组&nbsp;<code>a</code>，<code>b</code>&nbsp;和&nbsp;<code>c</code>，返回组内元素按位&nbsp;<code>XOR</code>&nbsp;有&nbsp;<strong>偶数</strong>&nbsp;个 设置位 的三元组&nbsp;<code>(a[i], b[j], c[k])</code>&nbsp;的数量。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
 
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">a = [1], b = [2], c = [3]</span></p>
+<p><strong>示例 1:</strong></p>
 
-<p><strong>Output:</strong> <span class="example-io">1</span></p>
+<p><b>输入：</b>a = [1], b = [2], c = [3]</p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>输出：</strong>1</p>
 
-<p>The only triplet is <code>(a[0], b[0], c[0])</code> and their <code>XOR</code> is: <code>1 XOR 2 XOR 3 = 00<sub>2</sub></code>.</p>
-</div>
+<p><strong>解释：</strong></p>
 
-<p><strong class="example">Example 2:</strong></p>
+<p>只有一个三元组&nbsp;<code>(a[0], b[0], c[0])</code>&nbsp;并且它们的&nbsp;<code>XOR</code>&nbsp;为：<code>1 XOR 2 XOR 3 = 00<sub>2</sub></code>。</p>
 
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">a = [1,1], b = [2,3], c = [1,5]</span></p>
+<p><strong>示例 2:</strong></p>
 
-<p><strong>Output:</strong> <span class="example-io">4</span></p>
+<p><b>输入：</b>a = [1,1], b = [2,3], c = [1,5]</p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>输出：</strong>4</p>
 
-<p>Consider these four triplets:</p>
+<p><strong>解释：</strong></p>
+
+<p>考虑以下 4 个三元组：</p>
 
 <ul>
 	<li><code>(a[0], b[1], c[0])</code>: <code>1 XOR 3 XOR 1 = 011<sub>2</sub></code></li>
@@ -46,15 +44,17 @@ Given three integer arrays <code>a</code>, <code>b</code>, and <code>c</code>, r
 	<li><code>(a[0], b[0], c[1])</code>: <code>1 XOR 2 XOR 5 = 110<sub>2</sub></code></li>
 	<li><code>(a[1], b[0], c[1])</code>: <code>1 XOR 2 XOR 5 = 110<sub>2</sub></code></li>
 </ul>
-</div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= a.length, b.length, c.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= a[i], b[i], c[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<p>&nbsp;</p>
 
 <!-- description:end -->
 

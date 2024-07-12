@@ -76,7 +76,15 @@ A total of 15 button presses are needed, so return 15.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting + Greedy
+
+First, we count the occurrence of each character in the string $s$, and record it in an array or hash table $\textit{cnt}$.
+
+The problem requires minimizing the number of key presses, so the $9$ most frequent characters should correspond to keys $1$ to $9$, the $10$th to $18$th most frequent characters should correspond to keys $1$ to $9$ again, and so on.
+
+Therefore, we can sort the values in $\textit{cnt}$ in descending order, and then allocate them to the keys in the order from $1$ to $9$, adding $1$ to the number of key presses after allocating every $9$ characters.
+
+The time complexity is $O(n + |\Sigma| \times \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string $s$, and $\Sigma$ is the set of characters appearing in the string $s$. In this problem, $\Sigma$ is the set of lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 
@@ -86,13 +94,11 @@ A total of 15 button presses are needed, so return 15.
 class Solution:
     def minimumKeypresses(self, s: str) -> int:
         cnt = Counter(s)
-        ans = 0
-        i, j = 0, 1
-        for v in sorted(cnt.values(), reverse=True):
-            i += 1
-            ans += j * v
+        ans, k = 0, 1
+        for i, x in enumerate(sorted(cnt.values(), reverse=True), 1):
+            ans += k * x
             if i % 9 == 0:
-                j += 1
+                k += 1
         return ans
 ```
 
@@ -102,15 +108,15 @@ class Solution:
 class Solution {
     public int minimumKeypresses(String s) {
         int[] cnt = new int[26];
-        for (char c : s.toCharArray()) {
-            ++cnt[c - 'a'];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
         }
         Arrays.sort(cnt);
-        int ans = 0;
-        for (int i = 1, j = 1; i <= 26; ++i) {
-            ans += j * cnt[26 - i];
+        int ans = 0, k = 1;
+        for (int i = 1; i <= 26; ++i) {
+            ans += k * cnt[26 - i];
             if (i % 9 == 0) {
-                ++j;
+                ++k;
             }
         }
         return ans;
@@ -124,13 +130,17 @@ class Solution {
 class Solution {
 public:
     int minimumKeypresses(string s) {
-        vector<int> cnt(26);
-        for (char& c : s) ++cnt[c - 'a'];
-        sort(cnt.begin(), cnt.end());
-        int ans = 0;
-        for (int i = 1, j = 1; i <= 26; ++i) {
-            ans += j * cnt[26 - i];
-            if (i % 9 == 0) ++j;
+        int cnt[26]{};
+        for (char& c : s) {
+            ++cnt[c - 'a'];
+        }
+        sort(begin(cnt), end(cnt), greater<int>());
+        int ans = 0, k = 1;
+        for (int i = 1; i <= 26; ++i) {
+            ans += k * cnt[i - 1];
+            if (i % 9 == 0) {
+                ++k;
+            }
         }
         return ans;
     }
@@ -140,20 +150,41 @@ public:
 #### Go
 
 ```go
-func minimumKeypresses(s string) int {
+func minimumKeypresses(s string) (ans int) {
 	cnt := make([]int, 26)
 	for _, c := range s {
 		cnt[c-'a']++
 	}
 	sort.Ints(cnt)
-	ans := 0
-	for i, j := 1, 1; i <= 26; i++ {
-		ans += j * cnt[26-i]
+	k := 1
+	for i := 1; i <= 26; i++ {
+		ans += k * cnt[26-i]
 		if i%9 == 0 {
-			j++
+			k++
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumKeypresses(s: string): number {
+    const cnt: number[] = Array(26).fill(0);
+    const a = 'a'.charCodeAt(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - a];
+    }
+    cnt.sort((a, b) => b - a);
+    let [ans, k] = [0, 1];
+    for (let i = 1; i <= 26; ++i) {
+        ans += k * cnt[i - 1];
+        if (i % 9 === 0) {
+            ++k;
+        }
+    }
+    return ans;
 }
 ```
 
