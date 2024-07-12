@@ -1,37 +1,33 @@
 class Solution {
 public:
-    int n;
-
     int snakesAndLadders(vector<vector<int>>& board) {
-        n = board.size();
+        int n = board.size();
         queue<int> q{{1}};
-        vector<bool> vis(n * n + 1);
+        int m = n * n;
+        vector<bool> vis(m + 1);
         vis[1] = true;
-        int ans = 0;
-        while (!q.empty()) {
-            for (int t = q.size(); t; --t) {
-                int curr = q.front();
-                if (curr == n * n) return ans;
+
+        for (int ans = 0; !q.empty(); ++ans) {
+            for (int k = q.size(); k > 0; --k) {
+                int x = q.front();
                 q.pop();
-                for (int k = curr + 1; k <= min(curr + 6, n * n); ++k) {
-                    auto p = get(k);
-                    int next = k;
-                    int i = p[0], j = p[1];
-                    if (board[i][j] != -1) next = board[i][j];
-                    if (!vis[next]) {
-                        vis[next] = true;
-                        q.push(next);
+                if (x == m) {
+                    return ans;
+                }
+                for (int y = x + 1; y <= min(x + 6, m); ++y) {
+                    int i = (y - 1) / n, j = (y - 1) % n;
+                    if (i % 2 == 1) {
+                        j = n - j - 1;
+                    }
+                    i = n - i - 1;
+                    int z = board[i][j] == -1 ? y : board[i][j];
+                    if (!vis[z]) {
+                        vis[z] = true;
+                        q.push(z);
                     }
                 }
             }
-            ++ans;
         }
         return -1;
-    }
-
-    vector<int> get(int x) {
-        int i = (x - 1) / n, j = (x - 1) % n;
-        if (i % 2 == 1) j = n - 1 - j;
-        return {n - 1 - i, j};
     }
 };
