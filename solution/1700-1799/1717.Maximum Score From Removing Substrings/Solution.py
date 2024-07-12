@@ -1,26 +1,21 @@
 class Solution:
     def maximumGain(self, s: str, x: int, y: int) -> int:
+        a, b = "a", "b"
         if x < y:
-            return self.maximumGain(s[::-1], y, x)
-        ans = 0
-        stk1, stk2 = [], []
+            x, y = y, x
+            a, b = b, a
+        ans = cnt1 = cnt2 = 0
         for c in s:
-            if c != 'b':
-                stk1.append(c)
-            else:
-                if stk1 and stk1[-1] == 'a':
-                    stk1.pop()
+            if c == a:
+                cnt1 += 1
+            elif c == b:
+                if cnt1:
                     ans += x
+                    cnt1 -= 1
                 else:
-                    stk1.append(c)
-        while stk1:
-            c = stk1.pop()
-            if c != 'b':
-                stk2.append(c)
+                    cnt2 += 1
             else:
-                if stk2 and stk2[-1] == 'a':
-                    stk2.pop()
-                    ans += y
-                else:
-                    stk2.append(c)
+                ans += min(cnt1, cnt2) * y
+                cnt1 = cnt2 = 0
+        ans += min(cnt1, cnt2) * y
         return ans
