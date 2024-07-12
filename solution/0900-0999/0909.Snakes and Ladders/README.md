@@ -88,6 +88,18 @@ tags:
 
 ### 方法一：BFS
 
+我们可以使用广度优先搜索的方法，从起点开始，每次向前走 1 到 6 步，然后判断是否有蛇或梯子，如果有，就走到蛇或梯子的目的地，否则就走到下一个方格。
+
+具体地，我们使用一个队列 $\textit{q}$ 来存储当前可以到达的方格编号，初始时将编号 $1$ 放入队列。同时我们使用一个集合 $\textit{vis}$ 来记录已经到达过的方格，避免重复访问，初始时将编号 $1$ 加入集合 $\textit{vis}$。
+
+在每一次的操作中，我们取出队首的方格编号 $x$，如果 $x$ 是终点，那么我们就可以返回当前的步数。否则我们将 $x$ 向前走 $1$ 到 $6$ 步，设新的编号为 $y$，如果 $y$ 落在棋盘外，那么我们就直接跳过。否则，我们需要找到 $y$ 对应的行和列，由于行的编号是从下到上递减的，而列的编号与行的奇偶性有关，因此我们需要进行一些计算得到 $y$ 对应的行和列。
+
+如果 $y$ 对应的方格上有蛇或梯子，那么我们需要额外走到蛇或梯子的目的地，设其为 $z$。如果 $z$ 没有被访问过，我们就将 $z$ 加入队列和集合中，这样我们就可以继续进行广度优先搜索。
+
+如果我们最终无法到达终点，那么我们就返回 $-1$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是棋盘的边长。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -95,28 +107,25 @@ tags:
 ```python
 class Solution:
     def snakesAndLadders(self, board: List[List[int]]) -> int:
-        def get(x):
-            i, j = (x - 1) // n, (x - 1) % n
-            if i & 1:
-                j = n - 1 - j
-            return n - 1 - i, j
-
         n = len(board)
         q = deque([1])
         vis = {1}
         ans = 0
+        m = n * n
         while q:
             for _ in range(len(q)):
-                curr = q.popleft()
-                if curr == n * n:
+                x = q.popleft()
+                if x == m:
                     return ans
-                for next in range(curr + 1, min(curr + 7, n * n + 1)):
-                    i, j = get(next)
-                    if board[i][j] != -1:
-                        next = board[i][j]
-                    if next not in vis:
-                        q.append(next)
-                        vis.add(next)
+                for y in range(x + 1, min(x + 6, m) + 1):
+                    i, j = divmod(y - 1, n)
+                    if i & 1:
+                        j = n - j - 1
+                    i = n - i - 1
+                    z = y if board[i][j] == -1 else board[i][j]
+                    if z not in vis:
+                        vis.add(z)
+                        q.append(z)
             ans += 1
         return -1
 ```
@@ -125,45 +134,34 @@ class Solution:
 
 ```java
 class Solution {
-    private int n;
-
     public int snakesAndLadders(int[][] board) {
-        n = board.length;
+        int n = board.length;
         Deque<Integer> q = new ArrayDeque<>();
         q.offer(1);
-        boolean[] vis = new boolean[n * n + 1];
+        int m = n * n;
+        boolean[] vis = new boolean[m + 1];
         vis[1] = true;
-        int ans = 0;
-        while (!q.isEmpty()) {
-            for (int t = q.size(); t > 0; --t) {
-                int curr = q.poll();
-                if (curr == n * n) {
+        for (int ans = 0; !q.isEmpty(); ++ans) {
+            for (int k = q.size(); k > 0; --k) {
+                int x = q.poll();
+                if (x == m) {
                     return ans;
                 }
-                for (int k = curr + 1; k <= Math.min(curr + 6, n * n); ++k) {
-                    int[] p = get(k);
-                    int next = k;
-                    int i = p[0], j = p[1];
-                    if (board[i][j] != -1) {
-                        next = board[i][j];
+                for (int y = x + 1; y <= Math.min(x + 6, m); ++y) {
+                    int i = (y - 1) / n, j = (y - 1) % n;
+                    if (i % 2 == 1) {
+                        j = n - j - 1;
                     }
-                    if (!vis[next]) {
-                        vis[next] = true;
-                        q.offer(next);
+                    i = n - i - 1;
+                    int z = board[i][j] == -1 ? y : board[i][j];
+                    if (!vis[z]) {
+                        vis[z] = true;
+                        q.offer(z);
                     }
                 }
             }
-            ++ans;
         }
         return -1;
-    }
-
-    private int[] get(int x) {
-        int i = (x - 1) / n, j = (x - 1) % n;
-        if (i % 2 == 1) {
-            j = n - 1 - j;
-        }
-        return new int[] {n - 1 - i, j};
     }
 }
 ```
@@ -173,39 +171,35 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int n;
-
     int snakesAndLadders(vector<vector<int>>& board) {
-        n = board.size();
+        int n = board.size();
         queue<int> q{{1}};
-        vector<bool> vis(n * n + 1);
+        int m = n * n;
+        vector<bool> vis(m + 1);
         vis[1] = true;
-        int ans = 0;
-        while (!q.empty()) {
-            for (int t = q.size(); t; --t) {
-                int curr = q.front();
-                if (curr == n * n) return ans;
+
+        for (int ans = 0; !q.empty(); ++ans) {
+            for (int k = q.size(); k > 0; --k) {
+                int x = q.front();
                 q.pop();
-                for (int k = curr + 1; k <= min(curr + 6, n * n); ++k) {
-                    auto p = get(k);
-                    int next = k;
-                    int i = p[0], j = p[1];
-                    if (board[i][j] != -1) next = board[i][j];
-                    if (!vis[next]) {
-                        vis[next] = true;
-                        q.push(next);
+                if (x == m) {
+                    return ans;
+                }
+                for (int y = x + 1; y <= min(x + 6, m); ++y) {
+                    int i = (y - 1) / n, j = (y - 1) % n;
+                    if (i % 2 == 1) {
+                        j = n - j - 1;
+                    }
+                    i = n - i - 1;
+                    int z = board[i][j] == -1 ? y : board[i][j];
+                    if (!vis[z]) {
+                        vis[z] = true;
+                        q.push(z);
                     }
                 }
             }
-            ++ans;
         }
         return -1;
-    }
-
-    vector<int> get(int x) {
-        int i = (x - 1) / n, j = (x - 1) % n;
-        if (i % 2 == 1) j = n - 1 - j;
-        return {n - 1 - i, j};
     }
 };
 ```
@@ -215,40 +209,75 @@ public:
 ```go
 func snakesAndLadders(board [][]int) int {
 	n := len(board)
-	get := func(x int) []int {
-		i, j := (x-1)/n, (x-1)%n
-		if i%2 == 1 {
-			j = n - 1 - j
-		}
-		return []int{n - 1 - i, j}
-	}
 	q := []int{1}
-	vis := make([]bool, n*n+1)
+	m := n * n
+	vis := make([]bool, m+1)
 	vis[1] = true
-	ans := 0
-	for len(q) > 0 {
-		for t := len(q); t > 0; t-- {
-			curr := q[0]
-			if curr == n*n {
+
+	for ans := 0; len(q) > 0; ans++ {
+		for k := len(q); k > 0; k-- {
+			x := q[0]
+			q = q[1:]
+			if x == m {
 				return ans
 			}
-			q = q[1:]
-			for k := curr + 1; k <= curr+6 && k <= n*n; k++ {
-				p := get(k)
-				next := k
-				i, j := p[0], p[1]
-				if board[i][j] != -1 {
-					next = board[i][j]
+			for y := x + 1; y <= min(x+6, m); y++ {
+				i, j := (y-1)/n, (y-1)%n
+				if i%2 == 1 {
+					j = n - j - 1
 				}
-				if !vis[next] {
-					vis[next] = true
-					q = append(q, next)
+				i = n - i - 1
+				z := y
+				if board[i][j] != -1 {
+					z = board[i][j]
+				}
+				if !vis[z] {
+					vis[z] = true
+					q = append(q, z)
 				}
 			}
 		}
-		ans++
 	}
 	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function snakesAndLadders(board: number[][]): number {
+    const n = board.length;
+    const q: number[] = [1];
+    const m = n * n;
+    const vis: boolean[] = Array(m + 1).fill(false);
+    vis[1] = true;
+
+    for (let ans = 0; q.length > 0; ans++) {
+        const nq: number[] = [];
+        for (const x of q) {
+            if (x === m) {
+                return ans;
+            }
+            for (let y = x + 1; y <= Math.min(x + 6, m); y++) {
+                let i = Math.floor((y - 1) / n);
+                let j = (y - 1) % n;
+                if (i % 2 === 1) {
+                    j = n - j - 1;
+                }
+                i = n - i - 1;
+                const z = board[i][j] === -1 ? y : board[i][j];
+                if (!vis[z]) {
+                    vis[z] = true;
+                    nq.push(z);
+                }
+            }
+        }
+        q.length = 0;
+        for (const x of nq) {
+            q.push(x);
+        }
+    }
+    return -1;
 }
 ```
 
