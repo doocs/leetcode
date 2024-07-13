@@ -51,7 +51,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 对两个组分别进行异或运算，即可得到两个只出现一次的数字。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -197,6 +197,30 @@ public class Solution {
         }
         int b = xs ^ a;
         return new int[] {a, b};
+    }
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func singleNumbers(_ nums: [Int]) -> [Int] {
+        var xorSum = 0
+        for num in nums {
+            xorSum ^= num
+        }
+
+        let lowBit = xorSum & -xorSum
+        var a = 0
+        for num in nums {
+            if (num & lowBit) != 0 {
+                a ^= num
+            }
+        }
+
+        let b = xorSum ^ a
+        return [a, b]
     }
 }
 ```

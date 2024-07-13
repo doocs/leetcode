@@ -16,8 +16,8 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     pub fn generate_trees(n: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
         Self::dfs(1, n)
@@ -34,17 +34,11 @@ impl Solution {
             let right = Self::dfs(v + 1, j);
             for l in &left {
                 for r in &right {
-                    ans.push(
-                        Some(
-                            Rc::new(
-                                RefCell::new(TreeNode {
-                                    val: v,
-                                    left: l.clone(),
-                                    right: r.clone(),
-                                })
-                            )
-                        )
-                    );
+                    ans.push(Some(Rc::new(RefCell::new(TreeNode {
+                        val: v,
+                        left: l.clone(),
+                        right: r.clone(),
+                    }))));
                 }
             }
         }

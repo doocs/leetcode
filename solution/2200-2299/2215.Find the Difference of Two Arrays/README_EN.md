@@ -191,7 +191,7 @@ impl Solution {
                 .filter_map(|&v| if nums1.contains(&v) { None } else { Some(v) })
                 .collect::<HashSet<i32>>()
                 .into_iter()
-                .collect()
+                .collect(),
         ]
     }
 }

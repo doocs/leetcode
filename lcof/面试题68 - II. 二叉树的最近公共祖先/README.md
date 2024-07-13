@@ -238,13 +238,13 @@ function lowestCommonAncestor(
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     pub fn lowest_common_ancestor(
         root: Option<Rc<RefCell<TreeNode>>>,
         p: Option<Rc<RefCell<TreeNode>>>,
-        q: Option<Rc<RefCell<TreeNode>>>
+        q: Option<Rc<RefCell<TreeNode>>>,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         if root.is_none() || root == p || root == q {
             return root;
@@ -252,12 +252,12 @@ impl Solution {
         let left = Self::lowest_common_ancestor(
             root.as_ref().unwrap().borrow_mut().left.take(),
             p.clone(),
-            q.clone()
+            q.clone(),
         );
         let right = Self::lowest_common_ancestor(
             root.as_ref().unwrap().borrow_mut().right.take(),
             p.clone(),
-            q.clone()
+            q.clone(),
         );
         match (left.is_none(), right.is_none()) {
             (true, false) => right,
@@ -293,6 +293,41 @@ var lowestCommonAncestor = function (root, p, q) {
     if (!right) return left;
     return root;
 };
+```
+
+#### Swift
+
+```swift
+/* public class TreeNode {
+*     public var val: Int
+*     public var left: TreeNode?
+*     public var right: TreeNode?
+*     public init() { self.val = 0; self.left = nil; self.right = nil; }
+*     public init(_ val: Int) { self.val = val; self.left = nil; self.right = nil; }
+*     public init(_ val: Int, _ left: TreeNode?, _ right: TreeNode?) {
+*         self.val = val
+*         self.left = left
+*         self.right = right
+*     }
+* }
+*/
+
+class Solution {
+    func lowestCommonAncestor(_ root: TreeNode?, _ p: TreeNode, _ q: TreeNode) -> TreeNode? {
+        if root == nil || root === p || root === q {
+            return root
+        }
+
+        let left = lowestCommonAncestor(root?.left, p, q)
+        let right = lowestCommonAncestor(root?.right, p, q)
+
+        if let _ = left, let _ = right {
+            return root
+        }
+
+        return left ?? right
+    }
+}
 ```
 
 <!-- tabs:end -->

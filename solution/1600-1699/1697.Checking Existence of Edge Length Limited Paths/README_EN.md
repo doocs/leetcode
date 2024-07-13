@@ -224,7 +224,7 @@ impl Solution {
     pub fn distance_limited_paths_exist(
         n: i32,
         edge_list: Vec<Vec<i32>>,
-        queries: Vec<Vec<i32>>
+        queries: Vec<Vec<i32>>,
     ) -> Vec<bool> {
         let mut disjoint_set: Vec<usize> = vec![0; n as usize];
         let mut ans_vec: Vec<bool> = vec![false; queries.len()];
@@ -257,7 +257,7 @@ impl Solution {
                 Solution::union(
                     edge_list[edge_idx][0] as usize,
                     edge_list[edge_idx][1] as usize,
-                    &mut disjoint_set
+                    &mut disjoint_set,
                 );
                 edge_idx += 1;
             }

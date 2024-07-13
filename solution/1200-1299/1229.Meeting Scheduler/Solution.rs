@@ -3,14 +3,14 @@ impl Solution {
     pub fn min_available_duration(
         slots1: Vec<Vec<i32>>,
         slots2: Vec<Vec<i32>>,
-        duration: i32
+        duration: i32,
     ) -> Vec<i32> {
         let mut slots1 = slots1;
         let mut slots2 = slots2;
 
         // First sort the two vectors based on the beginning time
-        slots1.sort_by(|lhs, rhs| { lhs[0].cmp(&rhs[0]) });
-        slots2.sort_by(|lhs, rhs| { lhs[0].cmp(&rhs[0]) });
+        slots1.sort_by(|lhs, rhs| lhs[0].cmp(&rhs[0]));
+        slots2.sort_by(|lhs, rhs| lhs[0].cmp(&rhs[0]));
 
         // Then traverse the two vector
         let mut i: usize = 0;

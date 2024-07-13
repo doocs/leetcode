@@ -76,7 +76,13 @@ We return the array [2,1].
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+First, we use a hash table $d$ to record the index of each number in the array `nums`. Then, we iterate through the operation array `operations`. For each operation $[a, b]$, we replace the number at index $d[a]$ in `nums` with $b$, and update the index of $b$ in $d$ to $d[a]$.
+
+Finally, we return `nums`.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the arrays `nums` and `operations`, respectively.
 
 <!-- tabs:start -->
 

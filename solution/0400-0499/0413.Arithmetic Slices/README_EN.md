@@ -57,7 +57,22 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Iteration and Counting
+
+We use $d$ to represent the current difference between two adjacent elements, and $cnt$ to represent the length of the current arithmetic sequence. Initially, $d = 3000$, $cnt = 2$.
+
+We iterate through the array `nums`. For two adjacent elements $a$ and $b$, if $b - a = d$, it means that the current element $b$ also belongs to the current arithmetic sequence, and we increment $cnt$ by 1. Otherwise, it means that the current element $b$ does not belong to the current arithmetic sequence, and we update $d = b - a$, and $cnt = 2$. If $cnt \ge 3$, it means that the length of the current arithmetic sequence is at least 3, and the number of arithmetic sequences is $cnt - 2$, which we add to the answer.
+
+After the iteration, we can get the answer.
+
+In the code implementation, we can also initialize $cnt$ to $0$, and when resetting $cnt$, we directly set $cnt$ to $0$. When adding to the answer, we directly add $cnt$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of the array `nums`.
+
+Similar problems:
+
+-   [1513. Number of Substrings With Only 1s](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README_EN.md)
+-   [2348. Number of Zero-Filled Subarrays](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -66,15 +81,15 @@ tags:
 ```python
 class Solution:
     def numberOfArithmeticSlices(self, nums: List[int]) -> int:
-        ans, cnt = 0, 2
+        ans = cnt = 0
         d = 3000
         for a, b in pairwise(nums):
             if b - a == d:
                 cnt += 1
             else:
                 d = b - a
-                cnt = 2
-            ans += max(0, cnt - 2)
+                cnt = 0
+            ans += cnt
         return ans
 ```
 
@@ -160,33 +175,6 @@ function numberOfArithmeticSlices(nums: number[]): number {
     }
     return ans;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def numberOfArithmeticSlices(self, nums: List[int]) -> int:
-        ans = cnt = 0
-        d = 3000
-        for a, b in pairwise(nums):
-            if b - a == d:
-                cnt += 1
-            else:
-                d = b - a
-                cnt = 0
-            ans += cnt
-        return ans
 ```
 
 <!-- tabs:end -->

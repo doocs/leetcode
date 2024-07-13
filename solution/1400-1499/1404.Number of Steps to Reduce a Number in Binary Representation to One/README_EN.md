@@ -52,7 +52,7 @@ Step 6) 2 is even, divide by 2 and obtain 1.&nbsp;
 <pre>
 <strong>Input:</strong> s = &quot;10&quot;
 <strong>Output:</strong> 1
-<strong>Explanation:</strong> &quot;10&quot; corressponds to number 2 in their decimal representation.
+<strong>Explanation:</strong> &quot;10&quot; corresponds to number 2 in their decimal representation.
 Step 1) 2 is even, divide by 2 and obtain 1.&nbsp; 
 </pre>
 

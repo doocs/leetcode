@@ -16,21 +16,24 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
-impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> bool {
-        let root = root.as_ref().unwrap().as_ref().borrow();
-        if root.left.is_none() {
-            return root.val == 1;
-        }
-        if root.val == 2 {
-            return Self::dfs(&root.left) || Self::dfs(&root.right);
-        }
-        Self::dfs(&root.left) && Self::dfs(&root.right)
-    }
+use std::rc::Rc;
 
+impl Solution {
     pub fn evaluate_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
-        Self::dfs(&root)
+        match root {
+            Some(node) => {
+                let node = node.borrow();
+                if node.left.is_none() {
+                    return node.val == 1;
+                }
+                if node.val == 2 {
+                    return Self::evaluate_tree(node.left.clone())
+                        || Self::evaluate_tree(node.right.clone());
+                }
+                Self::evaluate_tree(node.left.clone()) && Self::evaluate_tree(node.right.clone())
+            }
+            None => false,
+        }
     }
 }

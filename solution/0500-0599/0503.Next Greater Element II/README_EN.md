@@ -54,135 +54,15 @@ The second 1&#39;s next greater number needs to search circularly, which is also
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Monotonic Stack
 
-<!-- tabs:start -->
+The problem requires us to find the next greater element for each element. Therefore, we can traverse the array from back to front, which effectively turns the problem into finding the previous greater element. Additionally, since the array is circular, we can traverse the array twice.
 
-#### Python3
+Specifically, we start traversing the array from index $n \times 2 - 1$, where $n$ is the length of the array. Then, we let $j = i \bmod n$, where $\bmod$ represents the modulo operation. If the stack is not empty and the top element of the stack is less than or equal to $nums[j]$, then we continuously pop the top element of the stack until the stack is empty or the top element of the stack is greater than $nums[j]$. At this point, the top element of the stack is the previous greater element for $nums[j]$, and we assign it to $ans[j]$. Finally, we push $nums[j]$ onto the stack. We continue to the next element.
 
-```python
-class Solution:
-    def nextGreaterElements(self, nums: List[int]) -> List[int]:
-        n = len(nums)
-        ans = [-1] * n
-        stk = []
-        for i in range(n << 1):
-            while stk and nums[stk[-1]] < nums[i % n]:
-                ans[stk.pop()] = nums[i % n]
-            stk.append(i % n)
-        return ans
-```
+After the traversal is complete, we can obtain the array $ans$, which represents the next greater element for each element in the array $nums$.
 
-#### Java
-
-```java
-class Solution {
-    public int[] nextGreaterElements(int[] nums) {
-        int n = nums.length;
-        int[] ans = new int[n];
-        Arrays.fill(ans, -1);
-        Deque<Integer> stk = new ArrayDeque<>();
-        for (int i = 0; i < (n << 1); ++i) {
-            while (!stk.isEmpty() && nums[stk.peek()] < nums[i % n]) {
-                ans[stk.pop()] = nums[i % n];
-            }
-            stk.push(i % n);
-        }
-        return ans;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    vector<int> nextGreaterElements(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> ans(n, -1);
-        stack<int> stk;
-        for (int i = 0; i < (n << 1); ++i) {
-            while (!stk.empty() && nums[stk.top()] < nums[i % n]) {
-                ans[stk.top()] = nums[i % n];
-                stk.pop();
-            }
-            stk.push(i % n);
-        }
-        return ans;
-    }
-};
-```
-
-#### Go
-
-```go
-func nextGreaterElements(nums []int) []int {
-	n := len(nums)
-	ans := make([]int, n)
-	for i := range ans {
-		ans[i] = -1
-	}
-	var stk []int
-	for i := 0; i < (n << 1); i++ {
-		for len(stk) > 0 && nums[stk[len(stk)-1]] < nums[i%n] {
-			ans[stk[len(stk)-1]] = nums[i%n]
-			stk = stk[:len(stk)-1]
-		}
-		stk = append(stk, i%n)
-	}
-	return ans
-}
-```
-
-#### TypeScript
-
-```ts
-function nextGreaterElements(nums: number[]): number[] {
-    const stack: number[] = [],
-        len = nums.length;
-    const res: number[] = new Array(len).fill(-1);
-    for (let i = 0; i < 2 * len - 1; i++) {
-        const j = i % len;
-        while (stack.length !== 0 && nums[stack[stack.length - 1]] < nums[j]) {
-            res[stack[stack.length - 1]] = nums[j];
-            stack.pop();
-        }
-        stack.push(j);
-    }
-    return res;
-}
-```
-
-#### JavaScript
-
-```js
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var nextGreaterElements = function (nums) {
-    const n = nums.length;
-    let stk = [];
-    let ans = new Array(n).fill(-1);
-    for (let i = 0; i < n << 1; i++) {
-        const j = i % n;
-        while (stk.length && nums[stk[stk.length - 1]] < nums[j]) {
-            ans[stk.pop()] = nums[j];
-        }
-        stk.push(j);
-    }
-    return ans;
-};
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -239,8 +119,12 @@ public:
         stack<int> stk;
         for (int i = n * 2 - 1; ~i; --i) {
             int j = i % n;
-            while (!stk.empty() && stk.top() <= nums[j]) stk.pop();
-            if (!stk.empty()) ans[j] = stk.top();
+            while (stk.size() && stk.top() <= nums[j]) {
+                stk.pop();
+            }
+            if (stk.size()) {
+                ans[j] = stk.top();
+            }
             stk.push(nums[j]);
         }
         return ans;
@@ -257,7 +141,7 @@ func nextGreaterElements(nums []int) []int {
 	for i := range ans {
 		ans[i] = -1
 	}
-	var stk []int
+	stk := []int{}
 	for i := n*2 - 1; i >= 0; i-- {
 		j := i % n
 		for len(stk) > 0 && stk[len(stk)-1] <= nums[j] {
@@ -272,6 +156,27 @@ func nextGreaterElements(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function nextGreaterElements(nums: number[]): number[] {
+    const n = nums.length;
+    const stk: number[] = [];
+    const ans: number[] = Array(n).fill(-1);
+    for (let i = n * 2 - 1; ~i; --i) {
+        const j = i % n;
+        while (stk.length && stk.at(-1)! <= nums[j]) {
+            stk.pop();
+        }
+        if (stk.length) {
+            ans[j] = stk.at(-1)!;
+        }
+        stk.push(nums[j]);
+    }
+    return ans;
+}
+```
+
 #### JavaScript
 
 ```js
@@ -281,15 +186,15 @@ func nextGreaterElements(nums []int) []int {
  */
 var nextGreaterElements = function (nums) {
     const n = nums.length;
-    let stk = [];
-    let ans = new Array(n).fill(-1);
+    const stk = [];
+    const ans = Array(n).fill(-1);
     for (let i = n * 2 - 1; ~i; --i) {
         const j = i % n;
-        while (stk.length && stk[stk.length - 1] <= nums[j]) {
+        while (stk.length && stk.at(-1) <= nums[j]) {
             stk.pop();
         }
         if (stk.length) {
-            ans[j] = stk[stk.length - 1];
+            ans[j] = stk.at(-1);
         }
         stk.push(nums[j]);
     }

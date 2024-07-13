@@ -315,13 +315,7 @@ impl MaxQueue {
         }
         res
     }
-}/**
- * Your MaxQueue object will be instantiated and called as such:
- * let obj = MaxQueue::new();
- * let ret_1: i32 = obj.max_value();
- * obj.push_back(value);
- * let ret_3: i32 = obj.pop_front();
- */
+}
 ```
 
 #### JavaScript
@@ -419,6 +413,49 @@ public class MaxQueue {
  * int param_1 = obj.Max_value();
  * obj.Push_back(value);
  * int param_3 = obj.Pop_front();
+ */
+```
+
+#### Swift
+
+```swift
+class MaxQueue {
+    private var q1: [Int] = []
+    private var q2: [Int] = []
+
+    init() {
+    }
+
+    func max_value() -> Int {
+        return q2.isEmpty ? -1 : q2.first!
+    }
+
+    func push_back(_ value: Int) {
+        q1.append(value)
+        while !q2.isEmpty && q2.last! < value {
+            q2.removeLast()
+        }
+        q2.append(value)
+    }
+
+    func pop_front() -> Int {
+        if q1.isEmpty {
+            return -1
+        }
+        let ans = q1.removeFirst()
+        if q2.first == ans {
+            q2.removeFirst()
+        }
+        return ans
+    }
+}
+
+/**
+ * Your MaxQueue object will be instantiated and called as such:
+ * let obj = MaxQueue();
+ * let param_1 = obj.max_value();
+ * obj.push_back(value);
+ * let param_3 = obj.pop_front();
  */
 ```
 

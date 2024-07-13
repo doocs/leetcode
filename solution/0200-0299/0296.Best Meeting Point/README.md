@@ -221,8 +221,8 @@ impl Solution {
         // Since the row vector is originally sorted, we only need to sort the col vector here
         col_vec.sort();
 
-        Self::compute_manhattan_dis(&row_vec, row_vec[row_vec.len() / 2]) +
-            Self::compute_manhattan_dis(&col_vec, col_vec[col_vec.len() / 2])
+        Self::compute_manhattan_dis(&row_vec, row_vec[row_vec.len() / 2])
+            + Self::compute_manhattan_dis(&col_vec, col_vec[col_vec.len() / 2])
     }
 
     #[allow(dead_code)]

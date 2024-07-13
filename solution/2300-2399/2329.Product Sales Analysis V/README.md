@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [2329. 产品销售分析 Ⅴ 🔒](https://leetcode.cn/problems/product-sales-analysis-v)
+# [2329. 产品销售分析Ⅴ 🔒](https://leetcode.cn/problems/product-sales-analysis-v)
 
 [English Version](/solution/2300-2399/2329.Product%20Sales%20Analysis%20V/README_EN.md)
 

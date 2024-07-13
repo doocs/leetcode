@@ -78,7 +78,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：排序
+
+我们可以将奇数下标和偶数下标分别取出来，然后对奇数下标的数组进行非递增排序，对偶数下标的数组进行非递减排序，最后再将两个数组合并即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\text{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -133,16 +137,21 @@ public:
         vector<int> a;
         vector<int> b;
         for (int i = 0; i < n; ++i) {
-            if (i % 2 == 0)
+            if (i % 2 == 0) {
                 a.push_back(nums[i]);
-            else
+            } else {
                 b.push_back(nums[i]);
+            }
         }
         sort(a.begin(), a.end());
-        sort(b.begin(), b.end(), greater<int>());
+        sort(b.rbegin(), b.rend());
         vector<int> ans(n);
-        for (int i = 0, j = 0; j < a.size(); i += 2, ++j) ans[i] = a[j];
-        for (int i = 1, j = 0; j < b.size(); i += 2, ++j) ans[i] = b[j];
+        for (int i = 0, j = 0; j < a.size(); i += 2, ++j) {
+            ans[i] = a[j];
+        }
+        for (int i = 1, j = 0; j < b.size(); i += 2, ++j) {
+            ans[i] = b[j];
+        }
         return ans;
     }
 };
@@ -174,6 +183,33 @@ func sortEvenOdd(nums []int) []int {
 		ans[i] = b[j]
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function sortEvenOdd(nums: number[]): number[] {
+    const n = nums.length;
+    const a: number[] = [];
+    const b: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (i % 2 === 0) {
+            a.push(nums[i]);
+        } else {
+            b.push(nums[i]);
+        }
+    }
+    a.sort((x, y) => x - y);
+    b.sort((x, y) => y - x);
+    const ans: number[] = [];
+    for (let i = 0, j = 0; j < a.length; i += 2, ++j) {
+        ans[i] = a[j];
+    }
+    for (let i = 1, j = 0; j < b.length; i += 2, ++j) {
+        ans[i] = b[j];
+    }
+    return ans;
 }
 ```
 

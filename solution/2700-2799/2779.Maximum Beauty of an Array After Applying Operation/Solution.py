@@ -5,8 +5,4 @@ class Solution:
         for x in nums:
             d[x] += 1
             d[x + k * 2 + 1] -= 1
-        ans = s = 0
-        for x in d:
-            s += x
-            ans = max(ans, s)
-        return ans
+        return max(accumulate(d))

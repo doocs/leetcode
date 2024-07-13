@@ -122,7 +122,7 @@ func minMeetingRooms(intervals [][]int) int {
 #### Rust
 
 ```rust
-use std::{ collections::BinaryHeap, cmp::Reverse };
+use std::{cmp::Reverse, collections::BinaryHeap};
 
 impl Solution {
     #[allow(dead_code)]
@@ -133,7 +133,7 @@ impl Solution {
         let n = intervals.len();
 
         // Let's first sort the intervals vector
-        intervals.sort_by(|lhs, rhs| { lhs[0].cmp(&rhs[0]) });
+        intervals.sort_by(|lhs, rhs| lhs[0].cmp(&rhs[0]));
 
         // Push the first end time to the heap
         pq.push(Reverse(intervals[0][1]));

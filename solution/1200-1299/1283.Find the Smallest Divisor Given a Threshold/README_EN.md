@@ -74,21 +74,6 @@ The time complexity is $O(n \times \log M)$, where $n$ is the length of the arra
 ```python
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        l, r = 1, max(nums)
-        while l < r:
-            mid = (l + r) >> 1
-            if sum((x + mid - 1) // mid for x in nums) <= threshold:
-                r = mid
-            else:
-                l = mid + 1
-        return l
-```
-
-#### Python3
-
-```python
-class Solution:
-    def smallestDivisor(self, nums: List[int], threshold: int) -> int:
         def f(v: int) -> bool:
             v += 1
             return sum((x + v - 1) // v for x in nums) <= threshold
@@ -148,7 +133,7 @@ public:
 
 ```go
 func smallestDivisor(nums []int, threshold int) int {
-	return sort.Search(1000000, func(v int) bool {
+	return sort.Search(slices.Max(nums), func(v int) bool {
 		v++
 		s := 0
 		for _, x := range nums {
@@ -167,10 +152,7 @@ function smallestDivisor(nums: number[], threshold: number): number {
     let r = Math.max(...nums);
     while (l < r) {
         const mid = (l + r) >> 1;
-        let s = 0;
-        for (const x of nums) {
-            s += Math.ceil(x / mid);
-        }
+        const s = nums.reduce((acc, x) => acc + Math.ceil(x / mid), 0);
         if (s <= threshold) {
             r = mid;
         } else {
@@ -178,6 +160,27 @@ function smallestDivisor(nums: number[], threshold: number): number {
         }
     }
     return l;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn smallest_divisor(nums: Vec<i32>, threshold: i32) -> i32 {
+        let mut l = 1;
+        let mut r = *nums.iter().max().unwrap();
+        while l < r {
+            let mid = (l + r) / 2;
+            let s: i32 = nums.iter().map(|&x| (x + mid - 1) / mid).sum();
+            if s <= threshold {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        l
+    }
 }
 ```
 
@@ -194,10 +197,7 @@ var smallestDivisor = function (nums, threshold) {
     let r = Math.max(...nums);
     while (l < r) {
         const mid = (l + r) >> 1;
-        let s = 0;
-        for (const x of nums) {
-            s += Math.ceil(x / mid);
-        }
+        const s = nums.reduce((acc, x) => acc + Math.ceil(x / mid), 0);
         if (s <= threshold) {
             r = mid;
         } else {

@@ -185,8 +185,8 @@ function minBuildTime(blocks: number[], split: number): number {
 #### Rust
 
 ```rust
-use std::collections::BinaryHeap;
 use std::cmp::Reverse;
+use std::collections::BinaryHeap;
 
 impl Solution {
     pub fn min_build_time(blocks: Vec<i32>, split: i32) -> i32 {

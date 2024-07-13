@@ -211,10 +211,7 @@ function reformatNumber(number: string): string {
 ```rust
 impl Solution {
     pub fn reformat_number(number: String) -> String {
-        let cs: Vec<char> = number
-            .chars()
-            .filter(|&c| c != ' ' && c != '-')
-            .collect();
+        let cs: Vec<char> = number.chars().filter(|&c| c != ' ' && c != '-').collect();
         let n = cs.len();
         cs.iter()
             .enumerate()

@@ -1,9 +1,9 @@
 function canSortArray(nums: number[]): boolean {
-    let preMx = -300;
+    let preMx = 0;
     const n = nums.length;
     for (let i = 0; i < n; ) {
-        let j = i + 1;
         const cnt = bitCount(nums[i]);
+        let j = i + 1;
         let [mi, mx] = [nums[i], nums[i]];
         while (j < n && bitCount(nums[j]) === cnt) {
             mi = Math.min(mi, nums[j]);

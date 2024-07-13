@@ -8,6 +8,7 @@ tags:
     - 并查集
     - 图
     - 数组
+    - 字符串
     - 最短路
 ---
 
@@ -273,10 +274,13 @@ impl DisjointSetUnion {
         let mut nodes = HashMap::new();
         for equation in equations.iter() {
             for iter in equation.iter() {
-                nodes.insert(iter.clone(), DSUNode {
-                    parent: iter.clone(),
-                    weight: 1.0,
-                });
+                nodes.insert(
+                    iter.clone(),
+                    DSUNode {
+                        parent: iter.clone(),
+                        weight: 1.0,
+                    },
+                );
             }
         }
         DisjointSetUnion { nodes }
@@ -324,7 +328,7 @@ impl Solution {
     pub fn calc_equation(
         equations: Vec<Vec<String>>,
         values: Vec<f64>,
-        queries: Vec<Vec<String>>
+        queries: Vec<Vec<String>>,
     ) -> Vec<f64> {
         let mut dsu = DisjointSetUnion::new(&equations);
         for (i, &v) in values.iter().enumerate() {
@@ -339,6 +343,53 @@ impl Solution {
         }
         ans
     }
+}
+```
+
+#### TypeScript
+
+```ts
+function calcEquation(equations: string[][], values: number[], queries: string[][]): number[] {
+    const g: Record<string, [string, number][]> = {};
+    const ans = Array.from({ length: queries.length }, () => -1);
+
+    for (let i = 0; i < equations.length; i++) {
+        const [a, b] = equations[i];
+        (g[a] ??= []).push([b, values[i]]);
+        (g[b] ??= []).push([a, 1 / values[i]]);
+    }
+
+    for (let i = 0; i < queries.length; i++) {
+        const [c, d] = queries[i];
+        const vis = new Set<string>();
+        const q: [string, number][] = [[c, 1]];
+
+        if (!g[c] || !g[d]) continue;
+        if (c === d) {
+            ans[i] = 1;
+            continue;
+        }
+
+        for (const [current, v] of q) {
+            if (vis.has(current)) continue;
+            vis.add(current);
+
+            for (const [intermediate, multiplier] of g[current]) {
+                if (vis.has(intermediate)) continue;
+
+                if (intermediate === d) {
+                    ans[i] = v * multiplier;
+                    break;
+                }
+
+                q.push([intermediate, v * multiplier]);
+            }
+
+            if (ans[i] !== -1) break;
+        }
+    }
+
+    return ans;
 }
 ```
 

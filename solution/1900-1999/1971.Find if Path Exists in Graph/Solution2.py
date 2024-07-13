@@ -2,12 +2,19 @@ class Solution:
     def validPath(
         self, n: int, edges: List[List[int]], source: int, destination: int
     ) -> bool:
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
 
-        p = list(range(n))
-        for u, v in edges:
-            p[find(u)] = find(v)
-        return find(source) == find(destination)
+        q = deque([source])
+        vis = {source}
+        while q:
+            i = q.popleft()
+            if i == destination:
+                return True
+            for j in g[i]:
+                if j not in vis:
+                    vis.add(j)
+                    q.append(j)
+        return False

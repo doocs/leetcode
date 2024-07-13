@@ -21,68 +21,67 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given a <strong>0-indexed</strong> string <code>s</code> and an integer <code>k</code>.</p>
+<p>You are given a string <code>s</code> and an integer <code>k</code>.</p>
 
-<p>You are to perform the following partitioning operations until <code>s</code> is <strong>empty</strong>:</p>
+<p>First, you are allowed to change <strong>at most</strong> <strong>one</strong> index in <code>s</code> to another lowercase English letter.</p>
+
+<p>After that, do the following partitioning operation until <code>s</code> is <strong>empty</strong>:</p>
 
 <ul>
 	<li>Choose the <strong>longest</strong> <strong>prefix</strong> of <code>s</code> containing at most <code>k</code> <strong>distinct</strong> characters.</li>
 	<li><strong>Delete</strong> the prefix from <code>s</code> and increase the number of partitions by one. The remaining characters (if any) in <code>s</code> maintain their initial order.</li>
 </ul>
 
-<p><strong>Before</strong> the operations, you are allowed to change <strong>at most</strong> <strong>one</strong> index in <code>s</code> to another lowercase English letter.</p>
+<p>Return an integer denoting the <strong>maximum</strong> number of resulting partitions after the operations by optimally choosing at most one index to change.</p>
 
-<p>Return <em>an integer denoting the <strong>maximum</strong> number of resulting partitions after the operations by optimally choosing at most one index to change.</em></p>
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> s = &quot;accca&quot;, k = 2
-<strong>Output:</strong> 3
-<strong>Explanation: </strong>In this example, to maximize the number of resulting partitions, s[2] can be changed to &#39;b&#39;.
-s becomes &quot;acbca&quot;.
-The operations can now be performed as follows until s becomes empty:
-- Choose the longest prefix containing at most 2 distinct characters, &quot;<u>ac</u>bca&quot;.
-- Delete the prefix, and s becomes &quot;bca&quot;. The number of partitions is now 1.
-- Choose the longest prefix containing at most 2 distinct characters, &quot;<u>bc</u>a&quot;.
-- Delete the prefix, and s becomes &quot;a&quot;. The number of partitions is now 2.
-- Choose the longest prefix containing at most 2 distinct characters, &quot;<u>a</u>&quot;.
-- Delete the prefix, and s becomes empty. The number of partitions is now 3.
-Hence, the answer is 3.
-It can be shown that it is not possible to obtain more than 3 partitions.</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s = &quot;accca&quot;, k = 2</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">3</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The optimal way is to change <code>s[2]</code> to something other than a and c, for example, b. then it becomes <code>&quot;acbca&quot;</code>.</p>
+
+<p>Then we perform the operations:</p>
+
+<ol>
+	<li>The longest prefix containing at most 2 distinct characters is <code>&quot;ac&quot;</code>, we remove it and <code>s</code> becomes <code>&quot;bca&quot;</code>.</li>
+	<li>Now The longest prefix containing at most 2 distinct characters is <code>&quot;bc&quot;</code>, so we remove it and <code>s</code> becomes <code>&quot;a&quot;</code>.</li>
+	<li>Finally, we remove <code>&quot;a&quot;</code> and <code>s</code> becomes empty, so the procedure ends.</li>
+</ol>
+
+<p>Doing the operations, the string is divided into 3 partitions, so the answer is 3.</p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> s = &quot;aabaab&quot;, k = 3
-<strong>Output:</strong> 1
-<strong>Explanation: </strong>In this example, to maximize the number of resulting partitions we can leave s as it is.
-The operations can now be performed as follows until s becomes empty: 
-- Choose the longest prefix containing at most 3 distinct characters, &quot;<u>aabaab</u>&quot;.
-- Delete the prefix, and s becomes empty. The number of partitions becomes 1. 
-Hence, the answer is 1. 
-It can be shown that it is not possible to obtain more than 1 partition.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s = &quot;aabaab&quot;, k = 3</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">1</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>Initially&nbsp;<code>s</code>&nbsp;contains 2 distinct characters, so whichever character we change, it will contain at most 3 distinct characters, so the longest prefix with at most 3 distinct characters would always be all of it, therefore the answer is 1.</p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> s = &quot;xxyz&quot;, k = 1
-<strong>Output:</strong> 4
-<strong>Explanation:</strong> In this example, to maximize the number of resulting partitions, s[1] can be changed to &#39;a&#39;.
-s becomes &quot;xayz&quot;.
-The operations can now be performed as follows until s becomes empty:
-- Choose the longest prefix containing at most 1 distinct character, &quot;<u>x</u>ayz&quot;.
-- Delete the prefix, and s becomes &quot;ayz&quot;. The number of partitions is now 1.
-- Choose the longest prefix containing at most 1 distinct character, &quot;<u>a</u>yz&quot;.
-- Delete the prefix, and s becomes &quot;yz&quot;. The number of partitions is now 2.
-- Choose the longest prefix containing at most 1 distinct character, &quot;<u>y</u>z&quot;.
-- Delete the prefix, and s becomes &quot;z&quot;. The number of partitions is now 3.
-- Choose the longest prefix containing at most 1 distinct character, &quot;<u>z</u>&quot;.
-- Delete the prefix, and s becomes empty. The number of partitions is now 4.
-Hence, the answer is 4.
-It can be shown that it is not possible to obtain more than 4 partitions.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s = &quot;xxyz&quot;, k = 1</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">4</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The optimal way is to change&nbsp;<code>s[0]</code>&nbsp;or&nbsp;<code>s[1]</code>&nbsp;to something other than characters in&nbsp;<code>s</code>, for example, to change&nbsp;<code>s[0]</code>&nbsp;to&nbsp;<code>w</code>.</p>
+
+<p>Then&nbsp;<code>s</code>&nbsp;becomes <code>&quot;wxyz&quot;</code>, which consists of 4 distinct characters, so as <code>k</code> is 1, it will divide into 4 partitions.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

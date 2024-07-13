@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README.md
+rating: 1696
+source: 第 130 场双周赛 Q2
 tags:
     - 数组
     - 哈希表

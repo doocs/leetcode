@@ -27,7 +27,7 @@ tags:
 | operation_day | int     |
 | price         | int     |
 +---------------+---------+
-(stock_name, day) 是这张表的主键(具有唯一值的列的组合)
+(stock_name, operation_day) 是这张表的主键(具有唯一值的列的组合)
 operation 列使用的是一种枚举类型，包括：('Sell','Buy')
 此表的每一行代表了名为 stock_name 的某支股票在 operation_day 这一天的操作价格。
 此表可以保证，股票的每个“卖出”操作在前一天都有相应的“买入”操作。并且，股票的每个“买入”操作在即将到来的一天都有相应的“卖出”操作。

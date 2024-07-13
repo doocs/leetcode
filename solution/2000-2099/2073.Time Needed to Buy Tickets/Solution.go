@@ -1,11 +1,10 @@
-func timeRequiredToBuy(tickets []int, k int) int {
-	ans := 0
-	for i, t := range tickets {
-		if i <= k {
-			ans += min(tickets[k], t)
-		} else {
-			ans += min(tickets[k]-1, t)
+func timeRequiredToBuy(tickets []int, k int) (ans int) {
+	for i, x := range tickets {
+		t := tickets[k]
+		if i > k {
+			t--
 		}
+		ans += min(x, t)
 	}
-	return ans
+	return
 }

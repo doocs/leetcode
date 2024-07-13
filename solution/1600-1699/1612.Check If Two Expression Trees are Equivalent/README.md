@@ -5,7 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1612.Ch
 tags:
     - 树
     - 深度优先搜索
+    - 哈希表
     - 二叉树
+    - 计数
 ---
 
 <!-- problem:start -->

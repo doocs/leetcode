@@ -49,7 +49,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：自定义排序
 
-将数组中的数字转换为字符串，然后按照字符串拼接的大小进行排序。具体地，比较两个字符串 $a$ 和 $b$，如果 $a + b \lt b + a$，则 $a$ 小于 $b$，否则 $a$ 大于 $b$。
+我们将数组中的数字转换为字符串，然后按照字符串拼接的大小进行排序。具体地，比较两个字符串 $a$ 和 $b$，如果 $a + b \lt b + a$，则 $a$ 小于 $b$，否则 $a$ 大于 $b$。
 
 时间复杂度 $O(n \times \log n + n \times m)$，空间复杂度 $O(n \times m)$。其中 $n $ 和 $m$ 分别为数组的长度和字符串的平均长度。
 
@@ -132,9 +132,7 @@ function minNumber(nums: number[]): string {
 impl Solution {
     pub fn min_number(mut nums: Vec<i32>) -> String {
         nums.sort_by(|a, b| format!("{}{}", a, b).cmp(&format!("{}{}", b, a)));
-        nums.iter()
-            .map(|num| num.to_string())
-            .collect()
+        nums.iter().map(|num| num.to_string()).collect()
     }
 }
 ```
@@ -167,6 +165,18 @@ public class Solution {
         }
         ans.Sort((a, b) => (a + b).CompareTo(b + a));
         return string.Join("", ans);
+    }
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func minNumber(_ nums: [Int]) -> String {
+        let sortedNums = nums.map { String($0) }
+                             .sorted { $0 + $1 < $1 + $0 }
+        return sortedNums.joined()
     }
 }
 ```

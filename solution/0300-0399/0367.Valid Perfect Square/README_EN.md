@@ -53,7 +53,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Binary search
+### Solution 1: Binary Search
+
+We can use binary search to solve this problem. Define the left boundary $l = 1$ and the right boundary $r = num$ of the binary search, then find the smallest integer $x$ that satisfies $x^2 \geq num$ in the range $[l, r]$. Finally, if $x^2 = num$, then $num$ is a perfect square.
+
+The time complexity is $O(\log n)$, where $n$ is the given number. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -62,14 +66,8 @@ tags:
 ```python
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
-        left, right = 1, num
-        while left < right:
-            mid = (left + right) >> 1
-            if mid * mid >= num:
-                right = mid
-            else:
-                left = mid + 1
-        return left * left == num
+        l = bisect_left(range(1, num + 1), num, key=lambda x: x * x) + 1
+        return l * l == num
 ```
 
 #### Java
@@ -77,16 +75,16 @@ class Solution:
 ```java
 class Solution {
     public boolean isPerfectSquare(int num) {
-        long left = 1, right = num;
-        while (left < right) {
-            long mid = (left + right) >>> 1;
-            if (mid * mid >= num) {
-                right = mid;
+        int l = 1, r = num;
+        while (l < r) {
+            int mid = (l + r) >>> 1;
+            if (1L * mid * mid >= num) {
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left * left == num;
+        return l * l == num;
     }
 }
 ```
@@ -97,15 +95,16 @@ class Solution {
 class Solution {
 public:
     bool isPerfectSquare(int num) {
-        long left = 1, right = num;
-        while (left < right) {
-            long mid = left + right >> 1;
-            if (mid * mid >= num)
-                right = mid;
-            else
-                left = mid + 1;
+        int l = 1, r = num;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            if (1LL * mid * mid >= num) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
-        return left * left == num;
+        return 1LL * l * l == num;
     }
 };
 ```
@@ -114,16 +113,8 @@ public:
 
 ```go
 func isPerfectSquare(num int) bool {
-	left, right := 1, num
-	for left < right {
-		mid := (left + right) >> 1
-		if mid*mid >= num {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left*left == num
+	l := sort.Search(num, func(i int) bool { return i*i >= num })
+	return l*l == num
 }
 ```
 
@@ -131,44 +122,35 @@ func isPerfectSquare(num int) bool {
 
 ```ts
 function isPerfectSquare(num: number): boolean {
-    let left = 1;
-    let right = num >> 1;
-    while (left < right) {
-        const mid = (left + right) >>> 1;
-        if (mid * mid < num) {
-            left = mid + 1;
+    let [l, r] = [1, num];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (mid >= num / mid) {
+            r = mid;
         } else {
-            right = mid;
+            l = mid + 1;
         }
     }
-    return left * left === num;
+    return l * l === num;
 }
 ```
 
 #### Rust
 
 ```rust
-use std::cmp::Ordering;
 impl Solution {
     pub fn is_perfect_square(num: i32) -> bool {
-        let num: i64 = num as i64;
-        let mut left = 1;
-        let mut right = num >> 1;
-        while left < right {
-            let mid = left + (right - left) / 2;
-            match (mid * mid).cmp(&num) {
-                Ordering::Less => {
-                    left = mid + 1;
-                }
-                Ordering::Greater => {
-                    right = mid - 1;
-                }
-                Ordering::Equal => {
-                    return true;
-                }
+        let mut l = 1;
+        let mut r = num as i64;
+        while l < r {
+            let mid = (l + r) / 2;
+            if mid * mid >= (num as i64) {
+                r = mid;
+            } else {
+                l = mid + 1;
             }
         }
-        left * left == num
+        l * l == (num as i64)
     }
 }
 ```
@@ -179,20 +161,11 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Math trick
+### Solution 2: Mathematics
 
-This is a math problem：
+Since $1 + 3 + 5 + \cdots + (2n - 1) = n^2$, we can gradually subtract $1, 3, 5, \cdots$ from $num$. If $num$ finally equals $0$, then $num$ is a perfect square.
 
-```bash
-1 = 1
-4 = 1 + 3
-9 = 1 + 3 + 5
-16 = 1 + 3 + 5 + 7
-25 = 1 + 3 + 5 + 7 + 9
-36 = 1 + 3 + 5 + 7 + 9 + 11
-....
-so 1+3+...+(2n-1) = (2n-1 + 1)n/2 = n²
-```
+The time complexity is $O(\sqrt n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -227,7 +200,9 @@ class Solution {
 class Solution {
 public:
     bool isPerfectSquare(int num) {
-        for (int i = 1; num > 0; i += 2) num -= i;
+        for (int i = 1; num > 0; i += 2) {
+            num -= i;
+        }
         return num == 0;
     }
 };

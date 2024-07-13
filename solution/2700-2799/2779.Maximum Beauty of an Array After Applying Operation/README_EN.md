@@ -74,7 +74,15 @@ The beauty of the array nums is 4 (whole array).
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Difference Array
+
+We notice that for each operation, all elements within the interval $[nums[i]-k, nums[i]+k]$ will increase by $1$. Therefore, we can use a difference array to record the contributions of these operations to the beauty value.
+
+In the problem, $nums[i]-k$ might be negative. We add $k$ to all elements to ensure the results are non-negative. Thus, we can create a difference array $d$ with a length of $\max(nums) + k \times 2 + 2$.
+
+Next, we iterate through the array $nums$. For the current element $x$ being iterated, we increase $d[x]$ by $1$ and decrease $d[x+k\times2+1]$ by $1$. In this way, we can calculate the prefix sum for each position using the $d$ array, which represents the beauty value for each position. The maximum beauty value can then be found.
+
+The time complexity is $O(M + 2 \times k + n)$, and the space complexity is $O(M + 2 \times k)$. Here, $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
 
 <!-- tabs:start -->
 
@@ -88,11 +96,7 @@ class Solution:
         for x in nums:
             d[x] += 1
             d[x + k * 2 + 1] -= 1
-        ans = s = 0
-        for x in d:
-            s += x
-            ans = max(ans, s)
-        return ans
+        return max(accumulate(d))
 ```
 
 #### Java
@@ -165,7 +169,7 @@ func maximumBeauty(nums []int, k int) (ans int) {
 ```ts
 function maximumBeauty(nums: number[], k: number): number {
     const m = Math.max(...nums) + k * 2 + 2;
-    const d: number[] = new Array(m).fill(0);
+    const d: number[] = Array(m).fill(0);
     for (const x of nums) {
         d[x]++;
         d[x + k * 2 + 1]--;

@@ -61,7 +61,29 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：位运算
+
+根据题目描述，有：
+
+$$
+\text{encoded}[i] = \text{arr}[i] \oplus \text{arr}[i + 1]
+$$
+
+如果我们将等式两边同时异或上 $\text{arr}[i]$，那么就会得到：
+
+$$
+\text{arr}[i] \oplus \text{arr}[i] \oplus \text{arr}[i + 1] = \text{arr}[i] \oplus \text{encoded}[i]
+$$
+
+即：
+
+$$
+\text{arr}[i + 1] = \text{arr}[i] \oplus \text{encoded}[i]
+$$
+
+根据上述推导，我们可以从 $\text{first}$ 开始，依次计算出数组 $\text{arr}$ 的每一个元素。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 
@@ -98,9 +120,10 @@ class Solution {
 class Solution {
 public:
     vector<int> decode(vector<int>& encoded, int first) {
-        vector<int> ans{{first}};
-        for (int i = 0; i < encoded.size(); ++i)
-            ans.push_back(ans[i] ^ encoded[i]);
+        vector<int> ans = {{first}};
+        for (int x : encoded) {
+            ans.push_back(ans.back() ^ x);
+        }
         return ans;
     }
 };
@@ -111,10 +134,22 @@ public:
 ```go
 func decode(encoded []int, first int) []int {
 	ans := []int{first}
-	for i, e := range encoded {
-		ans = append(ans, ans[i]^e)
+	for i, x := range encoded {
+		ans = append(ans, ans[i]^x)
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function decode(encoded: number[], first: number): number[] {
+    const ans: number[] = [first];
+    for (const x of encoded) {
+        ans.push(ans.at(-1)! ^ x);
+    }
+    return ans;
 }
 ```
 

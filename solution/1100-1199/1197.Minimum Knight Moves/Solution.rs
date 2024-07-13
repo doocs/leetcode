@@ -44,7 +44,7 @@ impl Solution {
         q: &mut VecDeque<(i32, i32, i32)>,
         i: i32,
         j: i32,
-        cur_step: i32
+        cur_step: i32,
     ) {
         let next_step = cur_step + 1;
         for (dx, dy) in DIR {

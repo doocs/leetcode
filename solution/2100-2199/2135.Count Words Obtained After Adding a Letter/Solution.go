@@ -1,25 +1,23 @@
-func wordCount(startWords []string, targetWords []string) int {
-	s := make(map[int]bool)
-	for _, word := range startWords {
-		mask := 0
-		for _, c := range word {
-			mask |= (1 << (c - 'a'))
+func wordCount(startWords []string, targetWords []string) (ans int) {
+	s := map[int]bool{}
+	for _, w := range startWords {
+		x := 0
+		for _, c := range w {
+			x |= 1 << (c - 'a')
 		}
-		s[mask] = true
+		s[x] = true
 	}
-	ans := 0
-	for _, word := range targetWords {
-		mask := 0
-		for _, c := range word {
-			mask |= (1 << (c - 'a'))
+	for _, w := range targetWords {
+		x := 0
+		for _, c := range w {
+			x |= 1 << (c - 'a')
 		}
-		for _, c := range word {
-			t := mask ^ (1 << (c - 'a'))
-			if s[t] {
+		for _, c := range w {
+			if s[x^(1<<(c-'a'))] {
 				ans++
 				break
 			}
 		}
 	}
-	return ans
+	return
 }

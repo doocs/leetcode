@@ -76,7 +76,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+我们定义 $f[i]$ 表示以第 $i$ 个元素结尾且最后是上升趋势的摆动序列的长度，定义 $g[i]$ 表示以第 $i$ 个元素结尾且最后是下降趋势的摆动序列的长度。初始时 $f[0] = g[0] = 1$，因为只有一个元素时，摆动序列的长度为 $1$。初始化答案为 $1$。
+
+对于 $f[i]$，其中 $i \geq 1$，我们在 $[0, i)$ 的范围内枚举 $j$，如果 $nums[j] < nums[i]$，则说明 $i$ 可以接在 $j$ 的后面形成一个上升的摆动序列，此时 $f[i] = \max(f[i], g[j] + 1)$；如果 $nums[j] > nums[i]$，则说明 $i$ 可以接在 $j$ 的后面形成一个下降的摆动序列，此时 $g[i] = \max(g[i], f[j] + 1)$。然后我们更新答案为 $\max(f[i], g[i])$。
+
+最后，我们返回答案。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -85,13 +93,18 @@ tags:
 ```python
 class Solution:
     def wiggleMaxLength(self, nums: List[int]) -> int:
-        up = down = 1
-        for i in range(1, len(nums)):
-            if nums[i] > nums[i - 1]:
-                up = max(up, down + 1)
-            elif nums[i] < nums[i - 1]:
-                down = max(down, up + 1)
-        return max(up, down)
+        n = len(nums)
+        ans = 1
+        f = [1] * n
+        g = [1] * n
+        for i in range(1, n):
+            for j in range(i):
+                if nums[j] < nums[i]:
+                    f[i] = max(f[i], g[j] + 1)
+                elif nums[j] > nums[i]:
+                    g[i] = max(g[i], f[j] + 1)
+            ans = max(ans, f[i], g[i])
+        return ans
 ```
 
 #### Java
@@ -99,15 +112,23 @@ class Solution:
 ```java
 class Solution {
     public int wiggleMaxLength(int[] nums) {
-        int up = 1, down = 1;
-        for (int i = 1; i < nums.length; ++i) {
-            if (nums[i] > nums[i - 1]) {
-                up = Math.max(up, down + 1);
-            } else if (nums[i] < nums[i - 1]) {
-                down = Math.max(down, up + 1);
+        int n = nums.length;
+        int ans = 1;
+        int[] f = new int[n];
+        int[] g = new int[n];
+        f[0] = 1;
+        g[0] = 1;
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (nums[j] < nums[i]) {
+                    f[i] = Math.max(f[i], g[j] + 1);
+                } else if (nums[j] > nums[i]) {
+                    g[i] = Math.max(g[i], f[j] + 1);
+                }
             }
+            ans = Math.max(ans, Math.max(f[i], g[i]));
         }
-        return Math.max(up, down);
+        return ans;
     }
 }
 ```
@@ -118,15 +139,21 @@ class Solution {
 class Solution {
 public:
     int wiggleMaxLength(vector<int>& nums) {
-        int up = 1, down = 1;
-        for (int i = 1; i < nums.size(); ++i) {
-            if (nums[i] > nums[i - 1]) {
-                up = max(up, down + 1);
-            } else if (nums[i] < nums[i - 1]) {
-                down = max(down, up + 1);
+        int n = nums.size();
+        int ans = 1;
+        vector<int> f(n, 1);
+        vector<int> g(n, 1);
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (nums[j] < nums[i]) {
+                    f[i] = max(f[i], g[j] + 1);
+                } else if (nums[j] > nums[i]) {
+                    g[i] = max(g[i], f[j] + 1);
+                }
             }
+            ans = max({ans, f[i], g[i]});
         }
-        return max(up, down);
+        return ans;
     }
 };
 ```
@@ -135,15 +162,22 @@ public:
 
 ```go
 func wiggleMaxLength(nums []int) int {
-	up, down := 1, 1
-	for i := 1; i < len(nums); i++ {
-		if nums[i] > nums[i-1] {
-			up = max(up, down+1)
-		} else if nums[i] < nums[i-1] {
-			down = max(down, up+1)
+	n := len(nums)
+	f := make([]int, n)
+	g := make([]int, n)
+	f[0], g[0] = 1, 1
+	ans := 1
+	for i := 1; i < n; i++ {
+		for j := 0; j < i; j++ {
+			if nums[j] < nums[i] {
+				f[i] = max(f[i], g[j]+1)
+			} else if nums[j] > nums[i] {
+				g[i] = max(g[i], f[j]+1)
+			}
 		}
+		ans = max(ans, max(f[i], g[i]))
 	}
-	return max(up, down)
+	return ans
 }
 ```
 
@@ -151,18 +185,21 @@ func wiggleMaxLength(nums []int) int {
 
 ```ts
 function wiggleMaxLength(nums: number[]): number {
-    let up = 1,
-        down = 1;
-    for (let i = 1; i < nums.length; ++i) {
-        let prev = nums[i - 1],
-            cur = nums[i];
-        if (cur > prev) {
-            up = Math.max(up, down + 1);
-        } else if (cur < prev) {
-            down = Math.max(down, up + 1);
+    const n = nums.length;
+    const f: number[] = Array(n).fill(1);
+    const g: number[] = Array(n).fill(1);
+    let ans = 1;
+    for (let i = 1; i < n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            if (nums[i] > nums[j]) {
+                f[i] = Math.max(f[i], g[j] + 1);
+            } else if (nums[i] < nums[j]) {
+                g[i] = Math.max(g[i], f[j] + 1);
+            }
         }
+        ans = Math.max(ans, f[i], g[i]);
     }
-    return Math.max(up, down);
+    return ans;
 }
 ```
 

@@ -60,7 +60,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumerate Boundaries + Ordered Set
+
+We can enumerate the upper and lower boundaries $i$ and $j$ of the rectangle, then calculate the sum of the elements in each column within this boundary, and record it in the array $nums$. The problem is transformed into how to find the maximum subarray sum not exceeding $k$ in the array $nums$.
+
+We can use an ordered set to quickly find the maximum value less than or equal to $x$, thereby obtaining a subarray with the maximum subarray sum not exceeding $k$.
+
+The time complexity is $O(m^2 \times n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

@@ -219,7 +219,7 @@ impl Solution {
         mut initial_energy: i32,
         mut initial_experience: i32,
         energy: Vec<i32>,
-        experience: Vec<i32>
+        experience: Vec<i32>,
     ) -> i32 {
         let n = energy.len();
         let mut res = 0;

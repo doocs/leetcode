@@ -86,7 +86,18 @@ At minute 3, nums[0] does not exist.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Direct Calculation
+
+First, we initialize an array $ans$ with length $m$ to store the answers, initializing all elements to $-1$.
+
+Next, we iterate through the array $queries$. For each query, we first obtain the current query time $t$ and index $i$. We then take $t$ modulo $2n$ and compare $t$ with $n$:
+
+-   If $t < n$, then the number of array elements at time $t$ is $n - t$, and the array elements are the result of the original array elements shifted left by $t$ positions. Therefore, if $i < n - t$, the answer is $nums[i + t]$;
+-   If $t > n$, then the number of array elements at time $t$ is $t - n$, and the array elements are the first $t - n$ elements of the original array. Therefore, if $i < t - n$, the answer is $nums[i]$.
+
+Finally, return the array $ans$.
+
+The time complexity is $O(m)$, where $m$ is the length of the array $queries$. Ignoring the space consumed by the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -167,6 +178,26 @@ func elementInNums(nums []int, queries [][]int) []int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function elementInNums(nums: number[], queries: number[][]): number[] {
+    const n = nums.length;
+    const m = queries.length;
+    const ans: number[] = Array(m).fill(-1);
+    for (let j = 0; j < m; ++j) {
+        let [t, i] = queries[j];
+        t %= 2 * n;
+        if (t < n && i < n - t) {
+            ans[j] = nums[i + t];
+        } else if (t >= n && i < t - n) {
+            ans[j] = nums[i];
+        }
+    }
+    return ans;
 }
 ```
 

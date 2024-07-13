@@ -11,10 +11,12 @@
     "braceStyle": "1tbs",
     "endOfLine": "lf",
     "sqlKeywordCase": "upper",
+    "sqlCanonicalSyntax": false,
     "overrides": [
         {
             "files": ["*.sql"],
             "options": { "parser": "mysql" }
         }
-    ]
+    ],
+    "plugins": ["prettier-plugin-sql-cst", "@prettier/plugin-php"]
 }

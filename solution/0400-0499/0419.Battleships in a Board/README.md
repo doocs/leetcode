@@ -10,7 +10,7 @@ tags:
 
 <!-- problem:start -->
 
-# [419. 甲板上的战舰](https://leetcode.cn/problems/battleships-in-a-board)
+# [419. 棋盘上的战舰](https://leetcode.cn/problems/battleships-in-a-board)
 
 [English Version](/solution/0400-0499/0419.Battleships%20in%20a%20Board/README_EN.md)
 
@@ -18,14 +18,14 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个大小为 <code>m x n</code> 的矩阵 <code>board</code> 表示甲板，其中，每个单元格可以是一艘战舰 <code>'X'</code> 或者是一个空位 <code>'.'</code> ，返回在甲板 <code>board</code> 上放置的 <strong>战舰</strong> 的数量。</p>
+<p>给你一个大小为 <code>m x n</code> 的矩阵 <code>board</code> 表示棋盘，其中，每个单元格可以是一艘战舰 <code>'X'</code> 或者是一个空位 <code>'.'</code> ，返回在棋盘 <code>board</code> 上放置的 <strong>舰队</strong> 的数量。</p>
 
-<p><strong>战舰</strong> 只能水平或者垂直放置在 <code>board</code> 上。换句话说，战舰只能按 <code>1 x k</code>（<code>1</code> 行，<code>k</code> 列）或 <code>k x 1</code>（<code>k</code> 行，<code>1</code> 列）的形状建造，其中 <code>k</code> 可以是任意大小。两艘战舰之间至少有一个水平或垂直的空位分隔 （即没有相邻的战舰）。</p>
+<p><strong>舰队</strong> 只能水平或者垂直放置在 <code>board</code> 上。换句话说，舰队只能按 <code>1 x k</code>（<code>1</code> 行，<code>k</code> 列）或 <code>k x 1</code>（<code>k</code> 行，<code>1</code> 列）的形状放置，其中 <code>k</code> 可以是任意大小。两个舰队之间至少有一个水平或垂直的空格分隔 （即没有相邻的舰队）。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0419.Battleships%20in%20a%20Board/images/battelship-grid.jpg" style="width: 333px; height: 333px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0419.Battleships%20in%20a%20Board/images/1719200420-KKnzye-image.png" style="width: 333px; height: 333px;" />
 <pre>
 <strong>输入：</strong>board = [["X",".",".","X"],[".",".",".","X"],[".",".",".","X"]]
 <strong>输出：</strong>2
@@ -59,7 +59,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：直接遍历
+
+我们可以遍历矩阵，找到每个战舰的左上角，即当前位置为 `X` 且上方和左方都不是 `X` 的位置，将答案加一。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -118,9 +124,15 @@ public:
         int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (board[i][j] == '.') continue;
-                if (i > 0 && board[i - 1][j] == 'X') continue;
-                if (j > 0 && board[i][j - 1] == 'X') continue;
+                if (board[i][j] == '.') {
+                    continue;
+                }
+                if (i > 0 && board[i - 1][j] == 'X') {
+                    continue;
+                }
+                if (j > 0 && board[i][j - 1] == 'X') {
+                    continue;
+                }
                 ++ans;
             }
         }
@@ -132,12 +144,10 @@ public:
 #### Go
 
 ```go
-func countBattleships(board [][]byte) int {
-	m, n := len(board), len(board[0])
-	ans := 0
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if board[i][j] == '.' {
+func countBattleships(board [][]byte) (ans int) {
+	for i, row := range board {
+		for j, c := range row {
+			if c == '.' {
 				continue
 			}
 			if i > 0 && board[i-1][j] == 'X' {
@@ -149,7 +159,32 @@ func countBattleships(board [][]byte) int {
 			ans++
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countBattleships(board: string[][]): number {
+    const m = board.length;
+    const n = board[0].length;
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (board[i][j] === '.') {
+                continue;
+            }
+            if (i && board[i - 1][j] === 'X') {
+                continue;
+            }
+            if (j && board[i][j - 1] === 'X') {
+                continue;
+            }
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 

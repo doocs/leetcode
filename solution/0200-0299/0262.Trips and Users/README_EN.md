@@ -27,7 +27,7 @@ tags:
 | driver_id   | int      |
 | city_id     | int      |
 | status      | enum     |
-| request_at  | date     |     
+| request_at  | varchar  |     
 +-------------+----------+
 id is the primary key (column with unique values) for this table.
 The table holds all taxi trips. Each trip has a unique id, while client_id and driver_id are foreign keys to the users_id at the Users table.

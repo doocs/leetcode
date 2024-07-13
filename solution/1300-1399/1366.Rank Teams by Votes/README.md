@@ -37,46 +37,33 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre><strong>输入：</strong>votes = [&quot;ABC&quot;,&quot;ACB&quot;,&quot;ABC&quot;,&quot;ACB&quot;,&quot;ACB&quot;]
-<strong>输出：</strong>&quot;ACB&quot;
-<strong>解释：</strong>A 队获得五票「排位第一」，没有其他队获得「排位第一」，所以 A 队排名第一。
+<pre>
+<strong>输入：</strong>votes = ["ABC","ACB","ABC","ACB","ACB"]
+<strong>输出：</strong>"ACB"
+<strong>解释：</strong>
+A 队获得五票「排位第一」，没有其他队获得「排位第一」，所以 A 队排名第一。
 B 队获得两票「排位第二」，三票「排位第三」。
 C 队获得三票「排位第二」，两票「排位第三」。
 由于 C 队「排位第二」的票数较多，所以 C 队排第二，B 队排第三。
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
-<pre><strong>输入：</strong>votes = [&quot;WXYZ&quot;,&quot;XYZW&quot;]
-<strong>输出：</strong>&quot;XWYZ&quot;
-<strong>解释：</strong>X 队在并列僵局打破后成为排名第一的团队。X 队和 W 队的「排位第一」票数一样，但是 X 队有一票「排位第二」，而 W 没有获得「排位第二」。 
+<pre>
+<strong>输入：</strong>votes = ["WXYZ","XYZW"]
+<strong>输出：</strong>"XWYZ"
+<strong>解释：</strong>
+X 队在并列僵局打破后成为排名第一的团队。X 队和 W 队的「排位第一」票数一样，但是 X 队有一票「排位第二」，而 W 没有获得「排位第二」。 
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
-<pre><strong>输入：</strong>votes = [&quot;ZMNAGUEDSJYLBOPHRQICWFXTVK&quot;]
-<strong>输出：</strong>&quot;ZMNAGUEDSJYLBOPHRQICWFXTVK&quot;
+<pre>
+<strong>输入：</strong>votes = ["ZMNAGUEDSJYLBOPHRQICWFXTVK"]
+<strong>输出：</strong>"ZMNAGUEDSJYLBOPHRQICWFXTVK"
 <strong>解释：</strong>只有一个投票者，所以排名完全按照他的意愿。
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>votes = [&quot;BCA&quot;,&quot;CAB&quot;,&quot;CBA&quot;,&quot;ABC&quot;,&quot;ACB&quot;,&quot;BAC&quot;]
-<strong>输出：</strong>&quot;ABC&quot;
-<strong>解释：</strong> 
-A 队获得两票「排位第一」，两票「排位第二」，两票「排位第三」。
-B 队获得两票「排位第一」，两票「排位第二」，两票「排位第三」。
-C 队获得两票「排位第一」，两票「排位第二」，两票「排位第三」。
-完全并列，所以我们需要按照字母升序排名。
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre><strong>输入：</strong>votes = [&quot;M&quot;,&quot;M&quot;,&quot;M&quot;,&quot;M&quot;]
-<strong>输出：</strong>&quot;M&quot;
-<strong>解释：</strong>只有 M 队参赛，所以它排名第一。
 </pre>
 
 <p>&nbsp;</p>

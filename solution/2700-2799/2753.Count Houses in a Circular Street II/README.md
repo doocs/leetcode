@@ -14,7 +14,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2753.Co
 
 <!-- description:start -->
 
-<p>给定一个代表&nbsp;<strong>环形&nbsp;</strong>街道的类&nbsp;<code>Street</code>&nbsp;和一个正整数&nbsp;<code>k</code>，表示街道上房屋的最大数量（也就是说房屋数量不超过&nbsp;<code>k</code>）。每个房屋的门初始时可以是开着的也可以是关着的（至少有一个房屋的门是开着的）。</p>
+<p>给定一个代表&nbsp;<strong>环形&nbsp;</strong>街道的类&nbsp;<code>Street</code>&nbsp;的对象&nbsp;<code>street</code> 和一个正整数&nbsp;<code>k</code>，表示街道上房屋的最大数量（也就是说房屋数量不超过&nbsp;<code>k</code>）。每个房屋的门初始时可以是开着的也可以是关着的（至少有一个房屋的门是开着的）。</p>
 
 <p>刚开始，你站在一座房子的门前。你的任务是计算街道上的房屋数量。</p>
 

@@ -18,13 +18,14 @@ var pathSum = function (root, target) {
         if (!root) {
             return;
         }
-        t.push(root.val);
-        s -= root.val;
-        if (!root.left && !root.right && !s) {
+        const { val, left, right } = root;
+        t.push(val);
+        s -= val;
+        if (!left && !right && !s) {
             ans.push([...t]);
         }
-        dfs(root.left, s);
-        dfs(root.right, s);
+        dfs(left, s);
+        dfs(right, s);
         t.pop();
     };
     dfs(root, target);

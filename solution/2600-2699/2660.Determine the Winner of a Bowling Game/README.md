@@ -42,34 +42,61 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>player1 = [4,10,7,9], player2 = [6,5,2,3]
-<strong>输出：</strong>1
-<strong>解释：</strong>player1 的得分是 4 + 10 + 2*7 + 2*9 = 46 。
-player2 的得分是 6 + 5 + 2 + 3 = 16 。
-player1 的得分高于 player2 的得分，所以 play1 在比赛中获胜，答案为 1 。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">player1 = [5,10,3,2], player2 = [6,5,7,3]</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>输出：</strong><span class="example-io">1</span></p>
 
-<pre>
-<strong>输入：</strong>player1 = [3,5,7,6], player2 = [8,10,10,2]
-<strong>输出：</strong>2
-<strong>解释：</strong>player1 的得分是 3 + 5 + 7 + 6 = 21 。
-player2 的得分是 8 + 10 + 2*10 + 2*2 = 42 。
-player2 的得分高于 player1 的得分，所以 play2 在比赛中获胜，答案为 2 。</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<p>玩家 1 的分数为 5 + 10 + 2*3 + 2*2 = 25。</p>
 
-<pre>
-<strong>输入：</strong>player1 = [2,3], player2 = [4,1]
-<strong>输出：</strong>0
-<strong>解释：</strong>player1 的得分是 2 + 3 = 5 。
-player2 的得分是 4 + 1 = 5 。
-player1 的得分等于 player2 的得分，所以这一场比赛平局，答案为 0 。
-</pre>
+<p>玩家 2&nbsp;的分数为 6 + 5 + 7 + 3 = 21。</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">player1 = [3,5,7,6], player2 = [8,10,10,2]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">2</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>玩家 1 的分数为 3 + 5 + 7 + 6 = 21。</p>
+
+<p>玩家 2&nbsp;的分数为 8 + 10 + 2*10 + 2*2 = 42。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">player1 = [2,3], player2 = [4,1]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">0</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>玩家 1 的分数为&nbsp;2 + 3 = 5。</p>
+
+<p>玩家 2 的分数为&nbsp;4 + 1 = 5。</p>
+</div>
+
+<p><strong class="example">示例 4：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">player1 = [1,1,1,10,10,10,10], player2 = [10,10,10,10,1,1,1]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">2</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>玩家 1 的分数为 1 + 1 + 1 + 10 + 2*10 + 2*10 + 2*10 = 73。</p>
+
+<p>玩家 2 的分数为 is 10 + 2*10 + 2*10 + 2*10 + 2*1 + 2*1 + 1 = 75。</p>
+</div>
 
 <p>&nbsp;</p>
 

@@ -294,27 +294,23 @@ function reverseOddLevels(root: TreeNode | null): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+use std::rc::Rc;
 impl Solution {
     fn create_tree(vals: &Vec<Vec<i32>>, i: usize, j: usize) -> Option<Rc<RefCell<TreeNode>>> {
         if i == vals.len() {
             return None;
         }
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val: vals[i][j],
-                    left: Self::create_tree(vals, i + 1, j * 2),
-                    right: Self::create_tree(vals, i + 1, j * 2 + 1),
-                })
-            )
-        )
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: vals[i][j],
+            left: Self::create_tree(vals, i + 1, j * 2),
+            right: Self::create_tree(vals, i + 1, j * 2 + 1),
+        })))
     }
 
     pub fn reverse_odd_levels(
-        root: Option<Rc<RefCell<TreeNode>>>
+        root: Option<Rc<RefCell<TreeNode>>>,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         let mut queue = VecDeque::new();
         queue.push_back(root);

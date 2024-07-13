@@ -91,12 +91,10 @@ tags:
 class Solution:
     def validWordSquare(self, words: List[str]) -> bool:
         m = len(words)
-        n = max(len(w) for w in words)
-        if m != n:
-            return False
-        for j in range(n):
-            if words[j] != "".join(w[j] for w in words if j < len(w)):
-                return False
+        for i, w in enumerate(words):
+            for j, c in enumerate(w):
+                if j >= m or i >= len(words[j]) or c != words[j][i]:
+                    return False
         return True
 ```
 
@@ -173,29 +171,6 @@ function validWordSquare(words: string[]): boolean {
     }
     return true;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def validWordSquare(self, words: List[str]) -> bool:
-        m = len(words)
-        for i, w in enumerate(words):
-            for j, c in enumerate(w):
-                if j >= m or i >= len(words[j]) or c != words[j][i]:
-                    return False
-        return True
 ```
 
 <!-- tabs:end -->

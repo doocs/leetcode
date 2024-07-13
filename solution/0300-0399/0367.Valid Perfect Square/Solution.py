@@ -1,10 +1,4 @@
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
-        left, right = 1, num
-        while left < right:
-            mid = (left + right) >> 1
-            if mid * mid >= num:
-                right = mid
-            else:
-                left = mid + 1
-        return left * left == num
+        l = bisect_left(range(1, num + 1), num, key=lambda x: x * x) + 1
+        return l * l == num

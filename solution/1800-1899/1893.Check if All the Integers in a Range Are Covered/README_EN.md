@@ -61,7 +61,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Difference Array
+
+We can use the idea of a difference array to create a difference array $\textit{diff}$ of length $52$.
+
+Next, we iterate through the array $\textit{ranges}$. For each interval $[l, r]$, we increment $\textit{diff}[l]$ by $1$ and decrement $\textit{diff}[r + 1]$ by $1$.
+
+Then, we iterate through the difference array $\textit{diff}$, maintaining a prefix sum $s$. For each position $i$, we increment $s$ by $\textit{diff}[i]$. If $s \le 0$ and $left \le i \le right$, it indicates that an integer $i$ within the interval $[left, right]$ is not covered, and we return $\textit{false}$.
+
+If we finish iterating through the difference array $\textit{diff}$ without returning $\textit{false}$, it means that every integer within the interval $[left, right]$ is covered by at least one interval in $\textit{ranges}$, and we return $\textit{true}$.
+
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array $\textit{ranges}$, and $M$ is the maximum value of the interval, which in this case is $M \le 50$.
 
 <!-- tabs:start -->
 
@@ -74,10 +84,10 @@ class Solution:
         for l, r in ranges:
             diff[l] += 1
             diff[r + 1] -= 1
-        cur = 0
+        s = 0
         for i, x in enumerate(diff):
-            cur += x
-            if left <= i <= right and cur == 0:
+            s += x
+            if s <= 0 and left <= i <= right:
                 return False
         return True
 ```
@@ -93,10 +103,10 @@ class Solution {
             ++diff[l];
             --diff[r + 1];
         }
-        int cur = 0;
+        int s = 0;
         for (int i = 0; i < diff.length; ++i) {
-            cur += diff[i];
-            if (i >= left && i <= right && cur == 0) {
+            s += diff[i];
+            if (s <= 0 && left <= i && i <= right) {
                 return false;
             }
         }
@@ -111,16 +121,16 @@ class Solution {
 class Solution {
 public:
     bool isCovered(vector<vector<int>>& ranges, int left, int right) {
-        int diff[52]{};
+        vector<int> diff(52);
         for (auto& range : ranges) {
             int l = range[0], r = range[1];
             ++diff[l];
             --diff[r + 1];
         }
-        int cur = 0;
-        for (int i = 0; i < 52; ++i) {
-            cur += diff[i];
-            if (i >= left && i <= right && cur <= 0) {
+        int s = 0;
+        for (int i = 0; i < diff.size(); ++i) {
+            s += diff[i];
+            if (s <= 0 && left <= i && i <= right) {
                 return false;
             }
         }
@@ -134,15 +144,15 @@ public:
 ```go
 func isCovered(ranges [][]int, left int, right int) bool {
 	diff := [52]int{}
-	for _, rg := range ranges {
-		l, r := rg[0], rg[1]
+	for _, e := range ranges {
+		l, r := e[0], e[1]
 		diff[l]++
 		diff[r+1]--
 	}
-	cur := 0
+	s := 0
 	for i, x := range diff {
-		cur += x
-		if i >= left && i <= right && cur <= 0 {
+		s += x
+		if s <= 0 && left <= i && i <= right {
 			return false
 		}
 	}
@@ -154,15 +164,15 @@ func isCovered(ranges [][]int, left int, right int) bool {
 
 ```ts
 function isCovered(ranges: number[][], left: number, right: number): boolean {
-    const diff = new Array(52).fill(0);
+    const diff: number[] = Array(52).fill(0);
     for (const [l, r] of ranges) {
         ++diff[l];
         --diff[r + 1];
     }
-    let cur = 0;
-    for (let i = 0; i < 52; ++i) {
-        cur += diff[i];
-        if (i >= left && i <= right && cur <= 0) {
+    let s = 0;
+    for (let i = 0; i < diff.length; ++i) {
+        s += diff[i];
+        if (s <= 0 && left <= i && i <= right) {
             return false;
         }
     }
@@ -180,15 +190,15 @@ function isCovered(ranges: number[][], left: number, right: number): boolean {
  * @return {boolean}
  */
 var isCovered = function (ranges, left, right) {
-    const diff = new Array(52).fill(0);
+    const diff = Array(52).fill(0);
     for (const [l, r] of ranges) {
         ++diff[l];
         --diff[r + 1];
     }
-    let cur = 0;
-    for (let i = 0; i < 52; ++i) {
-        cur += diff[i];
-        if (i >= left && i <= right && cur <= 0) {
+    let s = 0;
+    for (let i = 0; i < diff.length; ++i) {
+        s += diff[i];
+        if (s <= 0 && left <= i && i <= right) {
             return false;
         }
     }

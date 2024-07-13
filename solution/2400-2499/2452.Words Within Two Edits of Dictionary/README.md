@@ -189,13 +189,9 @@ impl Solution {
         queries
             .into_iter()
             .filter(|s| {
-                dictionary.iter().any(|t| {
-                    s
-                        .chars()
-                        .zip(t.chars())
-                        .filter(|&(a, b)| a != b)
-                        .count() < 3
-                })
+                dictionary
+                    .iter()
+                    .any(|t| s.chars().zip(t.chars()).filter(|&(a, b)| a != b).count() < 3)
             })
             .collect()
     }

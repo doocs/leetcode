@@ -237,6 +237,92 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func nthUglyNumber(_ n: Int) -> Int {
+        var vis = Set<Int64>()
+        var pq = PriorityQueue<Int64>()
+        let factors: [Int64] = [2, 3, 5]
+
+        pq.push(1)
+        vis.insert(1)
+        var ans: Int64 = 0
+
+        for _ in 0..<n {
+            ans = pq.pop()!
+            for factor in factors {
+                let next = ans * factor
+                if vis.insert(next).inserted {
+                    pq.push(next)
+                }
+            }
+        }
+
+        return Int(ans)
+    }
+}
+
+struct PriorityQueue<T: Comparable> {
+    private var heap: [T] = []
+
+    var isEmpty: Bool {
+        return heap.isEmpty
+    }
+
+    mutating func push(_ element: T) {
+        heap.append(element)
+        heapifyUp(from: heap.count - 1)
+    }
+
+    mutating func pop() -> T? {
+        guard !heap.isEmpty else {
+            return nil
+        }
+        if heap.count == 1 {
+            return heap.removeLast()
+        }
+        let value = heap[0]
+        heap[0] = heap.removeLast()
+        heapifyDown(from: 0)
+        return value
+    }
+
+    private mutating func heapifyUp(from index: Int) {
+        var index = index
+        let element = heap[index]
+        while index > 0 {
+            let parentIndex = (index - 1) / 2
+            if element >= heap[parentIndex] {
+                break
+            }
+            heap[index] = heap[parentIndex]
+            index = parentIndex
+        }
+        heap[index] = element
+    }
+
+    private mutating func heapifyDown(from index: Int) {
+        var index = index
+        let element = heap[index]
+        let count = heap.count
+        while index < count / 2 {
+            var childIndex = index * 2 + 1
+            if childIndex + 1 < count && heap[childIndex + 1] < heap[childIndex] {
+                childIndex += 1
+            }
+            if element <= heap[childIndex] {
+                break
+            }
+            heap[index] = heap[childIndex]
+            index = childIndex
+        }
+        heap[index] = element
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -245,7 +331,7 @@ public class Solution {
 
 ### 方法二：动态规划
 
-定义数组 $dp$，其中 $dp[i-1]$ 表示第 $i$ 个丑数，那么第 $n$ 个丑数就是 $dp[n - 1]$。最小的丑数是 $1$，所以 $dp[0]=1$。
+我们定义数组 $dp$，其中 $dp[i-1]$ 表示第 $i$ 个丑数，那么第 $n$ 个丑数就是 $dp[n - 1]$。最小的丑数是 $1$，所以 $dp[0]=1$。
 
 定义 $3$ 个指针 $p_2$, $p_3$ 和 $p_5$，表示下一个丑数是当前指针指向的丑数乘以对应的质因数。初始时，三个指针的值都指向 $0$。
 

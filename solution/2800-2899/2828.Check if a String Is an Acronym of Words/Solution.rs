@@ -3,6 +3,7 @@ impl Solution {
         words
             .iter()
             .map(|w| w.chars().next().unwrap_or_default())
-            .collect::<String>() == s
+            .collect::<String>()
+            == s
     }
 }

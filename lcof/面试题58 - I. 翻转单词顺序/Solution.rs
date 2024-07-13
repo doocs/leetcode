@@ -1,11 +1,25 @@
 impl Solution {
-    pub fn reverse_words(mut s: String) -> String {
-        let mut res = s.trim().split(' ').rev().collect::<Vec<&str>>();
-        for i in (0..res.len()).rev() {
-            if res[i] == "" {
-                res.remove(i);
+    pub fn reverse_words(s: String) -> String {
+        let mut words = Vec::new();
+        let s: Vec<char> = s.chars().collect();
+        let mut i = 0;
+        let n = s.len();
+
+        while i < n {
+            while i < n && s[i] == ' ' {
+                i += 1;
+            }
+            if i < n {
+                let mut j = i;
+                while j < n && s[j] != ' ' {
+                    j += 1;
+                }
+                words.push(s[i..j].iter().collect::<String>());
+                i = j;
             }
         }
-        res.join(" ")
+
+        words.reverse();
+        words.join(" ")
     }
 }

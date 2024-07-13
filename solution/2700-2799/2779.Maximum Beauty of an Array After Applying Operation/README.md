@@ -80,11 +80,11 @@ tags:
 
 我们注意到，对于每一次操作，区间 $[nums[i]-k, nums[i]+k]$ 内的所有元素都会增加 $1$，因此我们可以使用差分数组来记录这些操作对美丽值的贡献。
 
-题目中 $nums[i]-k$ 可能为负数，我们统一将所有元素加上 $k$，保证结果为非负数。因此，我们需要创建一个长度为 $\max(nums) + k \times 2 + 2$ 的差分数组 $d$。
+题目中 $nums[i]-k$ 可能为负数，我们统一将所有元素加上 $k$，保证结果为非负数。因此，我们可以创建一个长度为 $\max(nums) + k \times 2 + 2$ 的差分数组 $d$。
 
 接下来，遍历数组 $nums$，对于当前遍历到的元素 $x$，我们将 $d[x]$ 增加 $1$，将 $d[x+k\times2+1]$ 减少 $1$。这样，我们就可以通过 $d$ 数组计算出每个位置的前缀和，即为每个位置的美丽值。找到最大的美丽值即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(M + 2 \times k)$。其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组 $nums$ 中的最大值。
+时间复杂度 $O(M + 2 \times k + n)$，空间复杂度 $O(M + 2 \times k)$。其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
 
@@ -98,11 +98,7 @@ class Solution:
         for x in nums:
             d[x] += 1
             d[x + k * 2 + 1] -= 1
-        ans = s = 0
-        for x in d:
-            s += x
-            ans = max(ans, s)
-        return ans
+        return max(accumulate(d))
 ```
 
 #### Java
@@ -175,7 +171,7 @@ func maximumBeauty(nums []int, k int) (ans int) {
 ```ts
 function maximumBeauty(nums: number[], k: number): number {
     const m = Math.max(...nums) + k * 2 + 2;
-    const d: number[] = new Array(m).fill(0);
+    const d: number[] = Array(m).fill(0);
     for (const x of nums) {
         d[x]++;
         d[x + k * 2 + 1]--;

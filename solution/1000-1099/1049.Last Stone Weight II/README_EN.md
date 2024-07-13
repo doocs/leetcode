@@ -182,7 +182,7 @@ impl Solution {
                 } else {
                     std::cmp::max(
                         dp[i - 1][j],
-                        dp[i - 1][j - (stones[i - 1] as usize)] + stones[i - 1]
+                        dp[i - 1][j - (stones[i - 1] as usize)] + stones[i - 1],
                     )
                 };
             }

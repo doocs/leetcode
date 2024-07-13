@@ -48,7 +48,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Mathematics
+
+The smallest and largest integers with $k$ digits are $10^{k-1}$ and $10^k-1$ respectively, so the total number of digits for $k$-digit numbers is $k \times 9 \times 10^{k-1}$.
+
+We use $k$ to represent the number of digits of the current number, and $cnt$ to represent the total number of numbers with the current number of digits. Initially, $k=1$, $cnt=9$.
+
+Each time we subtract $cnt \times k$ from $n$, when $n$ is less than or equal to $cnt \times k$, it means that the number corresponding to $n$ is within the range of numbers with the current number of digits. At this time, we can calculate the corresponding number.
+
+The specific method is to first calculate which number of the current number of digits corresponds to $n$, and then calculate which digit of this number it is, so as to get the number on this digit.
+
+The time complexity is $O(\log_{10} n)$.
 
 <!-- tabs:start -->
 

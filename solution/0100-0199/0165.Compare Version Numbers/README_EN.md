@@ -17,16 +17,16 @@ tags:
 
 <!-- description:start -->
 
-<p>Given two <strong>version strings</strong>,&nbsp;<code>version1</code> and <code>version2</code>, compare them. A version string consists of <strong>revisions</strong> separated by dots <code>&#39;.&#39;</code>. The <strong>value of the revision</strong> is its <strong>integer conversion</strong> ignoring leading zeros.</p>
+<p>Given two <strong>version strings</strong>, <code>version1</code> and <code>version2</code>, compare them. A version string consists of <strong>revisions</strong> separated by dots <code>&#39;.&#39;</code>. The <strong>value of the revision</strong> is its <strong>integer conversion</strong> ignoring leading zeros.</p>
 
 <p>To compare version strings, compare their revision values in <strong>left-to-right order</strong>. If one of the version strings has fewer revisions, treat the missing revision values as <code>0</code>.</p>
 
-<p><em>Return the following:</em></p>
+<p>Return the following:</p>
 
 <ul>
-	<li>If <code>version1 &lt; version2</code>, return <code>-1</code>.</li>
-	<li>If <code>version1 &gt; version2</code>, return <code>1</code>.</li>
-	<li>Otherwise, return <code>0</code>.</li>
+	<li>If <code>version1 &lt; version2</code>, return -1.</li>
+	<li>If <code>version1 &gt; version2</code>, return 1.</li>
+	<li>Otherwise, return 0.</li>
 </ul>
 
 <p>&nbsp;</p>

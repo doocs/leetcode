@@ -33,7 +33,7 @@ Each row of this table contains user_id, tweet_id, tweet_date and tweet.
 
 <p>Write a solution to find the <strong>top</strong> <code>3</code> trending <strong>hashtags</strong> in <strong>February</strong> <code>2024</code>. Every tweet may contain <strong>several</strong> <strong>hashtags</strong>.</p>
 
-<p>Return <em>the result table orderd by count of hashtag, hashtag in </em><strong>descending</strong><em> order.</em></p>
+<p>Return <em>the result table ordered by count of hashtag, hashtag in </em><strong>descending</strong><em> order.</em></p>
 
 <p>The result format is in the following example.</p>
 

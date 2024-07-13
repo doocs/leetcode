@@ -324,12 +324,7 @@ func cutOffTree(forest [][]int) int {
 use std::collections::HashSet;
 use std::collections::VecDeque;
 
-const DIRS: [[i32; 2]; 4] = [
-    [-1, 0],
-    [1, 0],
-    [0, -1],
-    [0, 1],
-];
+const DIRS: [[i32; 2]; 4] = [[-1, 0], [1, 0], [0, -1], [0, 1]];
 
 impl Solution {
     pub fn cut_off_tree(forest: Vec<Vec<i32>>) -> i32 {
@@ -352,13 +347,12 @@ impl Solution {
                         let x = state / col + DIRS[k][0];
                         let y = (state % col) + DIRS[k][1];
                         let nxt = x * col + y;
-                        if
-                            x >= 0 &&
-                            x < row &&
-                            y >= 0 &&
-                            y < col &&
-                            forest[x as usize][y as usize] != 0 &&
-                            !vis.contains(&nxt)
+                        if x >= 0
+                            && x < row
+                            && y >= 0
+                            && y < col
+                            && forest[x as usize][y as usize] != 0
+                            && !vis.contains(&nxt)
                         {
                             queue.push_back(nxt);
                             vis.insert(nxt);

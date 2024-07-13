@@ -6,6 +6,7 @@ tags:
     - Stack
     - Tree
     - Design
+    - Array
     - Math
     - Binary Tree
 ---

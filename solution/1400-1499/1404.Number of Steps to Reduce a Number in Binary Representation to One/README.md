@@ -23,10 +23,10 @@ tags:
 
 <ul>
 	<li>
-	<p>如果当前数字为偶数，则将其除以 2 。</p>
+	<p>如果当前数字为偶数，则将其除以 <code>2</code> 。</p>
 	</li>
 	<li>
-	<p>如果当前数字为奇数，则将其加上 1 。</p>
+	<p>如果当前数字为奇数，则将其加上 <code>1</code> 。</p>
 	</li>
 </ul>
 
@@ -36,9 +36,10 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>s = &quot;1101&quot;
+<pre>
+<strong>输入：</strong>s = "1101"
 <strong>输出：</strong>6
-<strong>解释：</strong>&quot;1101&quot; 表示十进制数 13 。
+<strong>解释：</strong>"1101" 表示十进制数 13 。
 Step 1) 13 是奇数，加 1 得到 14&nbsp;
 Step 2) 14 是偶数，除 2 得到 7
 Step 3) 7  是奇数，加 1 得到 8
@@ -49,15 +50,17 @@ Step 6) 2  是偶数，除 2 得到 1&nbsp;
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>s = &quot;10&quot;
+<pre>
+<strong>输入：</strong>s = "10"
 <strong>输出：</strong>1
-<strong>解释：</strong>&quot;10&quot; 表示十进制数 2 。
+<strong>解释：</strong>"10" 表示十进制数 2 。
 Step 1) 2 是偶数，除 2 得到 1 
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>s = &quot;1&quot;
+<pre>
+<strong>输入：</strong>s = "1"
 <strong>输出：</strong>0
 </pre>
 
@@ -67,8 +70,8 @@ Step 1) 2 是偶数，除 2 得到 1
 
 <ul>
 	<li><code>1 &lt;= s.length&nbsp;&lt;= 500</code></li>
-	<li><code>s</code> 由字符 <code>&#39;0&#39;</code> 或 <code>&#39;1&#39;</code> 组成。</li>
-	<li><code>s[0] == &#39;1&#39;</code></li>
+	<li><code>s</code> 由字符 <code>'0'</code> 或 <code>'1'</code> 组成。</li>
+	<li><code>s[0] == '1'</code></li>
 </ul>
 
 <!-- description:end -->

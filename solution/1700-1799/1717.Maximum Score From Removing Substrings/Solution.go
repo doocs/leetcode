@@ -1,37 +1,26 @@
-func maximumGain(s string, x int, y int) int {
+func maximumGain(s string, x int, y int) (ans int) {
+	a, b := 'a', 'b'
 	if x < y {
-		t := []rune(s)
-		for i, j := 0, len(t)-1; i < j; i, j = i+1, j-1 {
-			t[i], t[j] = t[j], t[i]
-		}
-		return maximumGain(string(t), y, x)
+		x, y = y, x
+		a, b = b, a
 	}
-	ans := 0
-	var stk1 []byte
-	var stk2 []byte
-	for i := range s {
-		if s[i] != 'b' {
-			stk1 = append(stk1, s[i])
-		} else {
-			if len(stk1) > 0 && stk1[len(stk1)-1] == 'a' {
-				stk1 = stk1[0 : len(stk1)-1]
+
+	var cnt1, cnt2 int
+	for _, c := range s {
+		if c == a {
+			cnt1++
+		} else if c == b {
+			if cnt1 > 0 {
 				ans += x
+				cnt1--
 			} else {
-				stk1 = append(stk1, s[i])
+				cnt2++
 			}
-		}
-	}
-	for _, c := range stk1 {
-		if c != 'a' {
-			stk2 = append(stk2, c)
 		} else {
-			if len(stk2) > 0 && stk2[len(stk2)-1] == 'b' {
-				stk2 = stk2[0 : len(stk2)-1]
-				ans += y
-			} else {
-				stk2 = append(stk2, c)
-			}
+			ans += min(cnt1, cnt2) * y
+			cnt1, cnt2 = 0, 0
 		}
 	}
-	return ans
+	ans += min(cnt1, cnt2) * y
+	return
 }

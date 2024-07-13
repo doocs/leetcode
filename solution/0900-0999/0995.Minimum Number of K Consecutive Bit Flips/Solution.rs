@@ -6,7 +6,7 @@ impl Solution {
         let mut s = 0;
         for i in 0..n {
             s += d[i];
-            if nums[i] % 2 == s % 2 {
+            if s % 2 == nums[i] {
                 if i + (k as usize) > n {
                     return -1;
                 }

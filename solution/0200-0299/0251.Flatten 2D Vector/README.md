@@ -19,34 +19,50 @@ tags:
 
 <!-- description:start -->
 
-<p>请设计并实现一个能够展开二维向量的迭代器。该迭代器需要支持 <code>next</code> 和 <code>hasNext</code> 两种操作。</p>
+<p>请设计并实现一个能够展开二维向量的迭代器。该迭代器需要支持&nbsp;<code>next</code> 和&nbsp;<code>hasNext</code>&nbsp;两种操作。</p>
 
-<p> </p>
+<p>实现&nbsp;<code>Vector2D</code>&nbsp;类：</p>
 
-<p><strong>示例：</strong></p>
+<ul>
+	<li><code>Vector2D(int[][] vec)</code>&nbsp;使用二维向量&nbsp;<code>vec</code>&nbsp;初始化对象</li>
+	<li><code>next()</code>&nbsp;从二维向量返回下一个元素并将指针移动到下一个位置。你可以假设对&nbsp;<code>next</code>&nbsp;的所有调用都是合法的。</li>
+	<li><code>hasNext()</code>&nbsp;当向量中还有元素返回&nbsp;<code>true</code>，否则返回 <code>false</code>。</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
-Vector2D iterator = new Vector2D([[1,2],[3],[4]]);
+<strong>输入：</strong>
+["Vector2D", "next", "next", "next", "hasNext", "hasNext", "next", "hasNext"]
+[[[[1, 2], [3], [4]]], [], [], [], [], [], [], []]
+<strong>输出：</strong>
+[null, 1, 2, 3, true, true, 4, false]
 
-iterator.next(); // 返回 1
-iterator.next(); // 返回 2
-iterator.next(); // 返回 3
-iterator.hasNext(); // 返回 true
-iterator.hasNext(); // 返回 true
-iterator.next(); // 返回 4
-iterator.hasNext(); // 返回 false
+<strong>解释：</strong>
+Vector2D vector2D = new Vector2D([[1, 2], [3], [4]]);
+vector2D.next();    // return 1
+vector2D.next();    // return 2
+vector2D.next();    // return 3
+vector2D.hasNext(); // return True
+vector2D.hasNext(); // return True
+vector2D.next();    // return 4
+vector2D.hasNext(); // return False
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><strong>注意：</strong></p>
+<p><b>提示：</b></p>
 
-<ol>
-	<li>请记得 <strong>重置 </strong>在 Vector2D 中声明的类变量（静态变量），因为类变量会 <strong>在多个测试用例中保持不变</strong>，影响判题准确。请 <a href="https://support.leetcode.cn/hc/kb/section/1071534/" target="_blank">查阅</a> 这里。</li>
-	<li>你可以假定 <code>next()</code> 的调用总是合法的，即当 <code>next()</code> 被调用时，二维向量总是存在至少一个后续元素。</li>
-</ol>
+<ul>
+	<li><code>0 &lt;= vec.length &lt;= 200</code></li>
+	<li><code>0 &lt;= vec[i].length &lt;= 500</code></li>
+	<li><code>-500 &lt;= vec[i][j] &lt;= 500</code></li>
+	<li>最多调用&nbsp;<code>next</code> 和&nbsp;<code>hasNext</code>&nbsp;<code>10<sup>5</sup></code>&nbsp;次。</li>
+</ul>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>进阶：</strong>尝试在代码中仅使用 <a href="http://www.cplusplus.com/reference/iterator/iterator/">C++ 提供的迭代器</a> 或 <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html">Java 提供的迭代器</a>。</p>
 

@@ -70,7 +70,23 @@ You cannot add more items, though only $9 for 2A ,2B and 1C.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: State Compression + Memoization Search
+
+We notice that the number of types of items $n \leq 6$ in the problem, and the quantity of each item needed does not exceed $10$. We can use $4$ binary bits to represent the quantity of each item needed. Thus, we only need at most $6 \times 4 = 24$ binary bits to represent the entire shopping list.
+
+First, we convert the shopping list $\text{needs}$ into an integer $\text{mask}$, where the quantity of the $i$-th item needed is stored in the $i \times 4$ to $(i + 1) \times 4 - 1$ bits of $\text{mask}$. For example, when $\text{needs} = [1, 2, 1]$, we have $\text{mask} = 0b0001 0010 0001$.
+
+Then, we design a function $\text{dfs}(cur)$, representing the minimum amount of money we need to spend when the current state of the shopping list is $\text{cur}$. Therefore, the answer is $\text{dfs}(\text{mask})$.
+
+The calculation method of the function $\text{dfs}(cur)$ is as follows:
+
+-   First, we calculate the cost of the current shopping list $\text{cur}$ without using any bundles, denoted as $\text{ans}$.
+-   Then, we iterate through each bundle $\text{offer}$. If the current shopping list $\text{cur}$ can use the bundle $\text{offer}$, i.e., the quantity of each item in $\text{cur}$ is not less than that in the bundle $\text{offer}$, then we can try to use this bundle. We subtract the quantity of each item in the bundle $\text{offer}$ from $\text{cur}$, obtaining a new shopping list $\text{nxt}$, then recursively calculate the minimum cost of $\text{nxt}$ and add the price of the bundle $\text{offer}[n]$, updating $\text{ans}$, i.e., $\text{ans} = \min(\text{ans}, \text{offer}[n] + \text{dfs}(\text{nxt}))$.
+-   Finally, return $\text{ans}$.
+
+To avoid repeated calculations, we use a hash table $\text{f}$ to record the minimum cost corresponding to each state $\text{cur}$.
+
+The time complexity is $O(n \times k \times m^n)$, where $n$ represents the types of items, and $k$ and $m$ respectively represent the number of bundles and the maximum demand for each type of item. The space complexity is $O(n \times m^n)$.
 
 <!-- tabs:start -->
 
@@ -81,54 +97,71 @@ class Solution:
     def shoppingOffers(
         self, price: List[int], special: List[List[int]], needs: List[int]
     ) -> int:
-        def total(price, needs):
-            return sum(price[i] * needs[i] for i in range(len(needs)))
+        @cache
+        def dfs(cur: int) -> int:
+            ans = sum(p * (cur >> (i * bits) & 0xF) for i, p in enumerate(price))
+            for offer in special:
+                nxt = cur
+                for j in range(len(needs)):
+                    if (cur >> (j * bits) & 0xF) < offer[j]:
+                        break
+                    nxt -= offer[j] << (j * bits)
+                else:
+                    ans = min(ans, offer[-1] + dfs(nxt))
+            return ans
 
-        ans = total(price, needs)
-        t = []
-        for offer in special:
-            t.clear()
-            for j in range(len(needs)):
-                if offer[j] > needs[j]:
-                    t.clear()
-                    break
-                t.append(needs[j] - offer[j])
-            if t:
-                ans = min(ans, offer[-1] + self.shoppingOffers(price, special, t))
-        return ans
+        bits, mask = 4, 0
+        for i, need in enumerate(needs):
+            mask |= need << i * bits
+        return dfs(mask)
 ```
 
 #### Java
 
 ```java
 class Solution {
+    private final int bits = 4;
+    private int n;
+    private List<Integer> price;
+    private List<List<Integer>> special;
+    private Map<Integer, Integer> f = new HashMap<>();
+
     public int shoppingOffers(
         List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
-        int ans = total(price, needs);
-        List<Integer> t = new ArrayList<>();
-        for (List<Integer> offer : special) {
-            t.clear();
-            for (int j = 0; j < needs.size(); ++j) {
-                if (offer.get(j) > needs.get(j)) {
-                    t.clear();
-                    break;
-                }
-                t.add(needs.get(j) - offer.get(j));
-            }
-            if (!t.isEmpty()) {
-                ans = Math.min(
-                    ans, offer.get(offer.size() - 1) + shoppingOffers(price, special, t));
-            }
+        n = needs.size();
+        this.price = price;
+        this.special = special;
+        int mask = 0;
+        for (int i = 0; i < n; ++i) {
+            mask |= needs.get(i) << (i * bits);
         }
-        return ans;
+        return dfs(mask);
     }
 
-    private int total(List<Integer> price, List<Integer> needs) {
-        int s = 0;
-        for (int i = 0; i < price.size(); ++i) {
-            s += price.get(i) * needs.get(i);
+    private int dfs(int cur) {
+        if (f.containsKey(cur)) {
+            return f.get(cur);
         }
-        return s;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += price.get(i) * (cur >> (i * bits) & 0xf);
+        }
+        for (List<Integer> offer : special) {
+            int nxt = cur;
+            boolean ok = true;
+            for (int j = 0; j < n; ++j) {
+                if ((cur >> (j * bits) & 0xf) < offer.get(j)) {
+                    ok = false;
+                    break;
+                }
+                nxt -= offer.get(j) << (j * bits);
+            }
+            if (ok) {
+                ans = Math.min(ans, offer.get(n) + dfs(nxt));
+            }
+        }
+        f.put(cur, ans);
+        return ans;
     }
 }
 ```
@@ -139,26 +172,39 @@ class Solution {
 class Solution {
 public:
     int shoppingOffers(vector<int>& price, vector<vector<int>>& special, vector<int>& needs) {
-        int ans = total(price, needs);
-        vector<int> t;
-        for (auto& offer : special) {
-            t.clear();
-            for (int j = 0; j < needs.size(); ++j) {
-                if (offer[j] > needs[j]) {
-                    t.clear();
-                    break;
-                }
-                t.push_back(needs[j] - offer[j]);
-            }
-            if (!t.empty()) ans = min(ans, offer[offer.size() - 1] + shoppingOffers(price, special, t));
+        const int bits = 4;
+        int n = needs.size();
+        unordered_map<int, int> f;
+        int mask = 0;
+        for (int i = 0; i < n; ++i) {
+            mask |= needs[i] << (i * bits);
         }
-        return ans;
-    }
-
-    int total(vector<int>& price, vector<int>& needs) {
-        int s = 0;
-        for (int i = 0; i < price.size(); ++i) s += price[i] * needs[i];
-        return s;
+        function<int(int)> dfs = [&](int cur) {
+            if (f.contains(cur)) {
+                return f[cur];
+            }
+            int ans = 0;
+            for (int i = 0; i < n; ++i) {
+                ans += price[i] * ((cur >> (i * bits)) & 0xf);
+            }
+            for (const auto& offer : special) {
+                int nxt = cur;
+                bool ok = true;
+                for (int j = 0; j < n; ++j) {
+                    if (((cur >> (j * bits)) & 0xf) < offer[j]) {
+                        ok = false;
+                        break;
+                    }
+                    nxt -= offer[j] << (j * bits);
+                }
+                if (ok) {
+                    ans = min(ans, offer[n] + dfs(nxt));
+                }
+            }
+            f[cur] = ans;
+            return ans;
+        };
+        return dfs(mask);
     }
 };
 ```
@@ -167,37 +213,85 @@ public:
 
 ```go
 func shoppingOffers(price []int, special [][]int, needs []int) int {
-	total := func(price, needs []int) int {
-		s := 0
-		for i := 0; i < len(needs); i++ {
-			s += price[i] * needs[i]
-		}
-		return s
+	const bits = 4
+	n := len(needs)
+	f := make(map[int]int)
+	mask := 0
+	for i, need := range needs {
+		mask |= need << (i * bits)
 	}
 
-	min := func(a, b int) int {
-		if a < b {
-			return a
+	var dfs func(int) int
+	dfs = func(cur int) int {
+		if v, ok := f[cur]; ok {
+			return v
 		}
-		return b
-	}
-
-	ans := total(price, needs)
-	var t []int
-	for _, offer := range special {
-		t = t[:0]
-		for j := 0; j < len(needs); j++ {
-			if offer[j] > needs[j] {
-				t = t[:0]
-				break
+		ans := 0
+		for i := 0; i < n; i++ {
+			ans += price[i] * ((cur >> (i * bits)) & 0xf)
+		}
+		for _, offer := range special {
+			nxt := cur
+			ok := true
+			for j := 0; j < n; j++ {
+				if ((cur >> (j * bits)) & 0xf) < offer[j] {
+					ok = false
+					break
+				}
+				nxt -= offer[j] << (j * bits)
 			}
-			t = append(t, needs[j]-offer[j])
+			if ok {
+				ans = min(ans, offer[n]+dfs(nxt))
+			}
 		}
-		if len(t) > 0 {
-			ans = min(ans, offer[len(offer)-1]+shoppingOffers(price, special, t))
-		}
+		f[cur] = ans
+		return ans
 	}
-	return ans
+
+	return dfs(mask)
+}
+```
+
+#### TypeScript
+
+```ts
+function shoppingOffers(price: number[], special: number[][], needs: number[]): number {
+    const bits = 4;
+    const n = needs.length;
+    const f: Map<number, number> = new Map();
+
+    let mask = 0;
+    for (let i = 0; i < n; i++) {
+        mask |= needs[i] << (i * bits);
+    }
+
+    const dfs = (cur: number): number => {
+        if (f.has(cur)) {
+            return f.get(cur)!;
+        }
+        let ans = 0;
+        for (let i = 0; i < n; i++) {
+            ans += price[i] * ((cur >> (i * bits)) & 0xf);
+        }
+        for (const offer of special) {
+            let nxt = cur;
+            let ok = true;
+            for (let j = 0; j < n; j++) {
+                if (((cur >> (j * bits)) & 0xf) < offer[j]) {
+                    ok = false;
+                    break;
+                }
+                nxt -= offer[j] << (j * bits);
+            }
+            if (ok) {
+                ans = Math.min(ans, offer[n] + dfs(nxt));
+            }
+        }
+        f.set(cur, ans);
+        return ans;
+    };
+
+    return dfs(mask);
 }
 ```
 

@@ -1,18 +1,20 @@
 class Solution {
     /**
-     * @param integer[] $nums
-     * @param integer $target
-     * @return integer
+     * @param Integer[] $nums
+     * @param Integer $target
+     * @return Integer
      */
-
     function searchInsert($nums, $target) {
-        $key = array_search($target, $nums);
-        if ($key !== false) {
-            return $key;
+        $l = 0;
+        $r = count($nums);
+        while ($l < $r) {
+            $mid = $l + $r >> 1;
+            if ($nums[$mid] >= $target) {
+                $r = $mid;
+            } else {
+                $l = $mid + 1;
+            }
         }
-
-        $nums[] = $target;
-        sort($nums);
-        return array_search($target, $nums);
+        return $l;
     }
 }

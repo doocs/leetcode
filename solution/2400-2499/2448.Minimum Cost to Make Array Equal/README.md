@@ -218,7 +218,7 @@ impl Solution {
         let mut zip_vec: Vec<_> = nums.into_iter().zip(cost.into_iter()).collect();
 
         // Sort the zip vector based on nums
-        zip_vec.sort_by(|lhs, rhs| { lhs.0.cmp(&rhs.0) });
+        zip_vec.sort_by(|lhs, rhs| lhs.0.cmp(&rhs.0));
 
         let (nums, cost): (Vec<i32>, Vec<i32>) = zip_vec.into_iter().unzip();
 

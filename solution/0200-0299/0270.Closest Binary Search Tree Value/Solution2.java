@@ -16,18 +16,14 @@
 class Solution {
     public int closestValue(TreeNode root, double target) {
         int ans = root.val;
-        double mi = Double.MAX_VALUE;
+        double diff = Double.MAX_VALUE;
         while (root != null) {
-            double t = Math.abs(root.val - target);
-            if (t < mi || (t == mi && root.val < ans)) {
-                mi = t;
+            double nxt = Math.abs(root.val - target);
+            if (nxt < diff || (nxt == diff && root.val < ans)) {
+                diff = nxt;
                 ans = root.val;
             }
-            if (root.val > target) {
-                root = root.left;
-            } else {
-                root = root.right;
-            }
+            root = target < root.val ? root.left : root.right;
         }
         return ans;
     }

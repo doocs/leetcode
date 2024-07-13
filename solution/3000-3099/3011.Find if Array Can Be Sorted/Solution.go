@@ -1,9 +1,9 @@
 func canSortArray(nums []int) bool {
-	preMx := -300
+	preMx := 0
 	i, n := 0, len(nums)
 	for i < n {
-		j := i + 1
 		cnt := bits.OnesCount(uint(nums[i]))
+		j := i + 1
 		mi, mx := nums[i], nums[i]
 		for j < n && bits.OnesCount(uint(nums[j])) == cnt {
 			mi = min(mi, nums[j])

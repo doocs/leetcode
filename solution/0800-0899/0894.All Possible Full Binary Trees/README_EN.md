@@ -280,8 +280,8 @@ function allPossibleFBT(n: number): Array<TreeNode | null> {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     pub fn all_possible_fbt(n: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
         let mut f: Vec<Option<Vec<Option<Rc<RefCell<TreeNode>>>>>> = vec![None; (n + 1) as usize];
@@ -290,7 +290,7 @@ impl Solution {
 
     fn dfs(
         n: i32,
-        f: &mut Vec<Option<Vec<Option<Rc<RefCell<TreeNode>>>>>>
+        f: &mut Vec<Option<Vec<Option<Rc<RefCell<TreeNode>>>>>>,
     ) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
         if let Some(ref result) = f[n as usize] {
             return result.clone();
@@ -306,15 +306,11 @@ impl Solution {
             let j = n - 1 - i;
             for left in Self::dfs(i, f).iter() {
                 for right in Self::dfs(j, f).iter() {
-                    let new_node = Some(
-                        Rc::new(
-                            RefCell::new(TreeNode {
-                                val: 0,
-                                left: left.clone(),
-                                right: right.clone(),
-                            })
-                        )
-                    );
+                    let new_node = Some(Rc::new(RefCell::new(TreeNode {
+                        val: 0,
+                        left: left.clone(),
+                        right: right.clone(),
+                    })));
                     ans.push(new_node);
                 }
             }

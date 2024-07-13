@@ -1,23 +1,13 @@
 class HitCounter:
+
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.counter = Counter()
+        self.ts = []
 
     def hit(self, timestamp: int) -> None:
-        """
-        Record a hit.
-        @param timestamp - The current timestamp (in seconds granularity).
-        """
-        self.counter[timestamp] += 1
+        self.ts.append(timestamp)
 
     def getHits(self, timestamp: int) -> int:
-        """
-        Return the number of hits in the past 5 minutes.
-        @param timestamp - The current timestamp (in seconds granularity).
-        """
-        return sum([v for t, v in self.counter.items() if t + 300 > timestamp])
+        return len(self.ts) - bisect_left(self.ts, timestamp - 300 + 1)
 
 
 # Your HitCounter object will be instantiated and called as such:

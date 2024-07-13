@@ -244,8 +244,8 @@ function kthLargest(root: TreeNode | null, k: number): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, arr: &mut Vec<i32>) {
@@ -331,48 +331,41 @@ public class Solution {
 }
 ```
 
-<!-- tabs:end -->
+#### Swift
 
-<!-- solution:end -->
+```swift
+/* public class TreeNode {
+*     public var val: Int
+*     public var left: TreeNode?
+*     public var right: TreeNode?
+*     public init(_ val: Int) {
+*         self.val = val
+*         self.left = nil
+*         self.right = nil
+*     }
+* }
+*/
 
-<!-- solution:start-->
+class Solution {
+    private var k: Int = 0
+    private var ans: Int = 0
 
-### 方法二
+    func kthLargest(_ root: TreeNode?, _ k: Int) -> Int {
+        self.k = k
+        dfs(root)
+        return ans
+    }
 
-<!-- tabs:start -->
-
-#### Go
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func kthLargest(root *TreeNode, k int) int {
-	ch := make(chan int)
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	go inorder(ctx, root, ch)
-	for ; k > 1; k-- {
-		<-ch
-	}
-	return <-ch
-}
-
-func inorder(ctx context.Context, cur *TreeNode, ch chan<- int) {
-	if cur != nil {
-		inorder(ctx, cur.Right, ch)
-		select {
-		case ch <- cur.Val:
-		case <-ctx.Done():
-			return
-		}
-		inorder(ctx, cur.Left, ch)
-	}
+    private func dfs(_ root: TreeNode?) {
+        guard let root = root, k > 0 else { return }
+        dfs(root.right)
+        k -= 1
+        if k == 0 {
+            ans = root.val
+            return
+        }
+        dfs(root.left)
+    }
 }
 ```
 

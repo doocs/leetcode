@@ -1,9 +1,7 @@
-func countBattleships(board [][]byte) int {
-	m, n := len(board), len(board[0])
-	ans := 0
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if board[i][j] == '.' {
+func countBattleships(board [][]byte) (ans int) {
+	for i, row := range board {
+		for j, c := range row {
+			if c == '.' {
 				continue
 			}
 			if i > 0 && board[i-1][j] == 'X' {
@@ -15,5 +13,5 @@ func countBattleships(board [][]byte) int {
 			ans++
 		}
 	}
-	return ans
+	return
 }

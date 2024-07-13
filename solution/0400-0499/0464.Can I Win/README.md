@@ -75,6 +75,20 @@ tags:
 
 ### 方法一：状态压缩 + 记忆化搜索
 
+我们首先判断可以选择的所有整数的和是否小于目标值，如果是，说明无论如何都无法赢，直接返回 `false`。
+
+然后，我们设计一个函数 $\text{dfs}(mask, s)$，其中 `mask` 表示当前已选择的整数的状态，`s` 表示当前的累计和。函数返回值为当前玩家是否能赢。
+
+函数 $\text{dfs}(mask, s)$ 的执行过程如下：
+
+我们遍历 $1$ 到 $maxChoosableInteger$ 中的每个整数 $i$，如果 $i$ 还没有被选择，我们可以选择 $i$，如果选择 $i$ 后的累计和 $s + i$ 大于等于目标值 `desiredTotal`，或者对手选择 $i$ 后的结果是输的，那么当前玩家就是赢的，返回 `true`。
+
+如果没有任何一个选择能让当前玩家赢，那么当前玩家就是输的，返回 `false`。
+
+为了避免重复计算，我们使用一个哈希表 `f` 记录已经计算过的状态，键为 `mask`，值为当前玩家是否能赢。
+
+时间复杂度 $O(2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 是 `maxChoosableInteger`。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -83,16 +97,14 @@ tags:
 class Solution:
     def canIWin(self, maxChoosableInteger: int, desiredTotal: int) -> bool:
         @cache
-        def dfs(state, t):
+        def dfs(mask: int, s: int) -> bool:
             for i in range(1, maxChoosableInteger + 1):
-                if (state >> i) & 1:
-                    continue
-                if t + i >= desiredTotal or not dfs(state | 1 << i, t + i):
-                    return True
+                if mask >> i & 1 ^ 1:
+                    if s + i >= desiredTotal or not dfs(mask | 1 << i, s + i):
+                        return True
             return False
 
-        s = (1 + maxChoosableInteger) * maxChoosableInteger // 2
-        if s < desiredTotal:
+        if (1 + maxChoosableInteger) * maxChoosableInteger // 2 < desiredTotal:
             return False
         return dfs(0, 0)
 ```
@@ -101,32 +113,33 @@ class Solution:
 
 ```java
 class Solution {
-    private Map<Integer, Boolean> memo = new HashMap<>();
+    private Map<Integer, Boolean> f = new HashMap<>();
+    private int maxChoosableInteger;
+    private int desiredTotal;
 
     public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
-        int s = (1 + maxChoosableInteger) * maxChoosableInteger / 2;
-        if (s < desiredTotal) {
+        if ((1 + maxChoosableInteger) * maxChoosableInteger / 2 < desiredTotal) {
             return false;
         }
-        return dfs(0, 0, maxChoosableInteger, desiredTotal);
+        this.maxChoosableInteger = maxChoosableInteger;
+        this.desiredTotal = desiredTotal;
+        return dfs(0, 0);
     }
 
-    private boolean dfs(int state, int t, int maxChoosableInteger, int desiredTotal) {
-        if (memo.containsKey(state)) {
-            return memo.get(state);
+    private boolean dfs(int mask, int s) {
+        if (f.containsKey(mask)) {
+            return f.get(mask);
         }
-        boolean res = false;
-        for (int i = 1; i <= maxChoosableInteger; ++i) {
-            if (((state >> i) & 1) == 0) {
-                if (t + i >= desiredTotal
-                    || !dfs(state | 1 << i, t + i, maxChoosableInteger, desiredTotal)) {
-                    res = true;
-                    break;
+        for (int i = 0; i < maxChoosableInteger; ++i) {
+            if ((mask >> i & 1) == 0) {
+                if (s + i + 1 >= desiredTotal || !dfs(mask | 1 << i, s + i + 1)) {
+                    f.put(mask, true);
+                    return true;
                 }
             }
         }
-        memo.put(state, res);
-        return res;
+        f.put(mask, false);
+        return false;
     }
 }
 ```
@@ -137,24 +150,24 @@ class Solution {
 class Solution {
 public:
     bool canIWin(int maxChoosableInteger, int desiredTotal) {
-        int s = (1 + maxChoosableInteger) * maxChoosableInteger / 2;
-        if (s < desiredTotal) return false;
-        unordered_map<int, bool> memo;
-        return dfs(0, 0, maxChoosableInteger, desiredTotal, memo);
-    }
-
-    bool dfs(int state, int t, int maxChoosableInteger, int desiredTotal, unordered_map<int, bool>& memo) {
-        if (memo.count(state)) return memo[state];
-        bool res = false;
-        for (int i = 1; i <= maxChoosableInteger; ++i) {
-            if ((state >> i) & 1) continue;
-            if (t + i >= desiredTotal || !dfs(state | 1 << i, t + i, maxChoosableInteger, desiredTotal, memo)) {
-                res = true;
-                break;
-            }
+        if ((1 + maxChoosableInteger) * maxChoosableInteger / 2 < desiredTotal) {
+            return false;
         }
-        memo[state] = res;
-        return res;
+        unordered_map<int, int> f;
+        function<bool(int, int)> dfs = [&](int mask, int s) {
+            if (f.contains(mask)) {
+                return f[mask];
+            }
+            for (int i = 0; i < maxChoosableInteger; ++i) {
+                if (mask >> i & 1 ^ 1) {
+                    if (s + i + 1 >= desiredTotal || !dfs(mask | 1 << i, s + i + 1)) {
+                        return f[mask] = true;
+                    }
+                }
+            }
+            return f[mask] = false;
+        };
+        return dfs(0, 0);
     }
 };
 ```
@@ -163,30 +176,52 @@ public:
 
 ```go
 func canIWin(maxChoosableInteger int, desiredTotal int) bool {
-	s := (1 + maxChoosableInteger) * maxChoosableInteger / 2
-	if s < desiredTotal {
+	if (1+maxChoosableInteger)*maxChoosableInteger/2 < desiredTotal {
 		return false
 	}
-	memo := map[int]bool{}
+	f := map[int]bool{}
 	var dfs func(int, int) bool
-	dfs = func(state, t int) bool {
-		if v, ok := memo[state]; ok {
+	dfs = func(mask, s int) bool {
+		if v, ok := f[mask]; ok {
 			return v
 		}
-		res := false
 		for i := 1; i <= maxChoosableInteger; i++ {
-			if (state>>i)&1 == 1 {
-				continue
-			}
-			if t+i >= desiredTotal || !dfs(state|1<<i, t+i) {
-				res = true
-				break
+			if mask>>i&1 == 0 {
+				if s+i >= desiredTotal || !dfs(mask|1<<i, s+i) {
+					f[mask] = true
+					return true
+				}
 			}
 		}
-		memo[state] = res
-		return res
+		f[mask] = false
+		return false
 	}
 	return dfs(0, 0)
+}
+```
+
+#### TypeScript
+
+```ts
+function canIWin(maxChoosableInteger: number, desiredTotal: number): boolean {
+    if (((1 + maxChoosableInteger) * maxChoosableInteger) / 2 < desiredTotal) {
+        return false;
+    }
+    const f: Record<string, boolean> = {};
+    const dfs = (mask: number, s: number): boolean => {
+        if (f.hasOwnProperty(mask)) {
+            return f[mask];
+        }
+        for (let i = 1; i <= maxChoosableInteger; ++i) {
+            if (((mask >> i) & 1) ^ 1) {
+                if (s + i >= desiredTotal || !dfs(mask ^ (1 << i), s + i)) {
+                    return (f[mask] = true);
+                }
+            }
+        }
+        return (f[mask] = false);
+    };
+    return dfs(0, 0);
 }
 ```
 

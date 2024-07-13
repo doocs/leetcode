@@ -183,8 +183,7 @@ impl Solution {
         let s = s.as_bytes();
         let mut ss = HashSet::new();
         let mut i = 0;
-        s
-            .iter()
+        s.iter()
             .map(|c| {
                 while ss.contains(&c) {
                     ss.remove(&s[i]);

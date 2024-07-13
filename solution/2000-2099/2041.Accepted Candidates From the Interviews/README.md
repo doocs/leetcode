@@ -106,7 +106,9 @@ Rounds table:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：连接表 + 分组 + 过滤
+
+我们可以将 `Candidates` 表和 `Rounds` 表按照 `interview_id` 进行连接，筛选出工作年限至少为 2 年的候选人，然后按照 `candidate_id` 进行分组，计算每个候选人的总分，最后筛选出总分大于 15 分的候选人。
 
 <!-- tabs:start -->
 
@@ -116,11 +118,24 @@ Rounds table:
 # Write your MySQL query statement below
 SELECT candidate_id
 FROM
-    Candidates AS c
-    LEFT JOIN Rounds AS r ON c.interview_id = r.interview_id
+    Candidates
+    JOIN Rounds USING (interview_id)
 WHERE years_of_exp >= 2
-GROUP BY c.interview_id
+GROUP BY 1
 HAVING SUM(score) > 15;
+```
+
+#### Pandas
+
+```python
+import pandas as pd
+
+
+def accepted_candidates(candidates: pd.DataFrame, rounds: pd.DataFrame) -> pd.DataFrame:
+    merged_df = pd.merge(candidates, rounds, on="interview_id")
+    filtered_df = merged_df[merged_df["years_of_exp"] >= 2]
+    grouped_df = filtered_df.groupby("candidate_id").agg({"score": "sum"})
+    return grouped_df[grouped_df["score"] > 15].reset_index()[["candidate_id"]]
 ```
 
 <!-- tabs:end -->

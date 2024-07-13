@@ -206,8 +206,8 @@ function mirrorTree(root: TreeNode | null): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &mut Option<Rc<RefCell<TreeNode>>>) {
         if let Some(node) = root {
@@ -281,36 +281,34 @@ public class Solution {
 }
 ```
 
-<!-- tabs:end -->
+#### Swift
 
-<!-- solution:end -->
+```swift
+/* public class TreeNode {
+*     var val: Int
+*     var left: TreeNode?
+*     var right: TreeNode?
+*     init(_ val: Int) {
+*         self.val = val
+*         self.left = nil
+*         self.right = nil
+*     }
+* }
+*/
 
-<!-- solution:start-->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
-class Solution:
-    def mirrorTree(self, root: TreeNode) -> TreeNode:
-        if root is None:
-            return root
-        left = self.mirrorTree(root.left)
-        right = self.mirrorTree(root.right)
-        root.left = right
-        root.right = left
+class Solution {
+    func mirrorTree(_ root: TreeNode?) -> TreeNode? {
+        guard let root = root else {
+            return nil
+        }
+        let temp = root.left
+        root.left = root.right
+        root.right = temp
+        _ = mirrorTree(root.left)
+        _ = mirrorTree(root.right)
         return root
+    }
+}
 ```
 
 <!-- tabs:end -->

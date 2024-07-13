@@ -135,52 +135,7 @@ func countSeniors(details []string) (ans int) {
 
 ```ts
 function countSeniors(details: string[]): number {
-    let ans = 0;
-    for (const x of details) {
-        const age = parseInt(x.slice(11, 13));
-        if (age > 60) {
-            ++ans;
-        }
-    }
-    return ans;
-}
-```
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn count_seniors(details: Vec<String>) -> i32 {
-        let mut ans = 0;
-
-        for s in details.iter() {
-            if let Ok(age) = s[11..13].parse::<i32>() {
-                if age > 60 {
-                    ans += 1;
-                }
-            }
-        }
-
-        ans
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function countSeniors(details: string[]): number {
-    return details.filter(v => parseInt(v.slice(11, 13)) > 60).length;
+    return details.filter(x => +x.slice(11, 13) > 60).length;
 }
 ```
 

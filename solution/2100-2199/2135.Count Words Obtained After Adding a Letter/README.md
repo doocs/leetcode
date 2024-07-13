@@ -88,7 +88,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表 + 位运算
+
+我们注意到，题目中给定的字符串只包含小写字母，并且每个字符串的字母至多出现一次。因此，我们可以用一个长度为 $26$ 的二进制数表示一个字符串，其中第 $i$ 位为 $1$ 表示字符串中包含第 $i$ 个小写字母，为 $0$ 表示字符串中不包含第 $i$ 个小写字母。
+
+我们可以将字符串数组 $\text{startWords}$ 中的每个字符串转换为一个二进制数，并将这些二进制数存储到一个集合 $\text{s}$ 中。对于字符串数组 $\text{targetWords}$ 中的每个字符串，我们首先将其转换为一个二进制数，然后枚举这个字符串中的每个字母，将这个字母从二进制数中去掉，再检查是否存在一个二进制数在集合 $\text{s}$ 中，使得这个二进制数与去掉的字母的二进制数的异或结果在集合 $\text{s}$ 中，如果存在，那么这个字符串可以由 $\text{startWords}$ 中的某个字符串执行转换操作获得，答案加一。然后我们跳过这个字符串，继续处理下一个字符串。
+
+时间复杂度 $O(n \times |\Sigma|)$，空间复杂度 $O(n)$。其中 $n$ 为字符串数组 $\text{targetWords}$ 的长度，而 $|\Sigma|$ 为字符串中的字符集大小，本题中 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
 
@@ -97,21 +103,12 @@ tags:
 ```python
 class Solution:
     def wordCount(self, startWords: List[str], targetWords: List[str]) -> int:
-        s = set()
-        for word in startWords:
-            mask = 0
-            for c in word:
-                mask |= 1 << (ord(c) - ord('a'))
-            s.add(mask)
-
+        s = {sum(1 << (ord(c) - 97) for c in w) for w in startWords}
         ans = 0
-        for word in targetWords:
-            mask = 0
-            for c in word:
-                mask |= 1 << (ord(c) - ord('a'))
-            for c in word:
-                t = mask ^ (1 << (ord(c) - ord('a')))
-                if t in s:
+        for w in targetWords:
+            x = sum(1 << (ord(c) - 97) for c in w)
+            for c in w:
+                if x ^ (1 << (ord(c) - 97)) in s:
                     ans += 1
                     break
         return ans
@@ -121,25 +118,23 @@ class Solution:
 
 ```java
 class Solution {
-
     public int wordCount(String[] startWords, String[] targetWords) {
         Set<Integer> s = new HashSet<>();
-        for (String word : startWords) {
-            int mask = 0;
-            for (char c : word.toCharArray()) {
-                mask |= (1 << (c - 'a'));
+        for (var w : startWords) {
+            int x = 0;
+            for (var c : w.toCharArray()) {
+                x |= 1 << (c - 'a');
             }
-            s.add(mask);
+            s.add(x);
         }
         int ans = 0;
-        for (String word : targetWords) {
-            int mask = 0;
-            for (char c : word.toCharArray()) {
-                mask |= (1 << (c - 'a'));
+        for (var w : targetWords) {
+            int x = 0;
+            for (var c : w.toCharArray()) {
+                x |= 1 << (c - 'a');
             }
-            for (char c : word.toCharArray()) {
-                int t = mask ^ (1 << (c - 'a'));
-                if (s.contains(t)) {
+            for (var c : w.toCharArray()) {
+                if (s.contains(x ^ (1 << (c - 'a')))) {
                     ++ans;
                     break;
                 }
@@ -157,20 +152,21 @@ class Solution {
 public:
     int wordCount(vector<string>& startWords, vector<string>& targetWords) {
         unordered_set<int> s;
-        for (auto& word : startWords) {
-            int mask = 0;
-            for (char c : word)
-                mask |= (1 << (c - 'a'));
-            s.insert(mask);
+        for (auto& w : startWords) {
+            int x = 0;
+            for (char c : w) {
+                x |= 1 << (c - 'a');
+            }
+            s.insert(x);
         }
         int ans = 0;
-        for (auto& word : targetWords) {
-            int mask = 0;
-            for (char c : word)
-                mask |= (1 << (c - 'a'));
-            for (char c : word) {
-                int t = mask ^ (1 << (c - 'a'));
-                if (s.count(t)) {
+        for (auto& w : targetWords) {
+            int x = 0;
+            for (char c : w) {
+                x |= 1 << (c - 'a');
+            }
+            for (char c : w) {
+                if (s.contains(x ^ (1 << (c - 'a')))) {
                     ++ans;
                     break;
                 }
@@ -184,30 +180,57 @@ public:
 #### Go
 
 ```go
-func wordCount(startWords []string, targetWords []string) int {
-	s := make(map[int]bool)
-	for _, word := range startWords {
-		mask := 0
-		for _, c := range word {
-			mask |= (1 << (c - 'a'))
+func wordCount(startWords []string, targetWords []string) (ans int) {
+	s := map[int]bool{}
+	for _, w := range startWords {
+		x := 0
+		for _, c := range w {
+			x |= 1 << (c - 'a')
 		}
-		s[mask] = true
+		s[x] = true
 	}
-	ans := 0
-	for _, word := range targetWords {
-		mask := 0
-		for _, c := range word {
-			mask |= (1 << (c - 'a'))
+	for _, w := range targetWords {
+		x := 0
+		for _, c := range w {
+			x |= 1 << (c - 'a')
 		}
-		for _, c := range word {
-			t := mask ^ (1 << (c - 'a'))
-			if s[t] {
+		for _, c := range w {
+			if s[x^(1<<(c-'a'))] {
 				ans++
 				break
 			}
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function wordCount(startWords: string[], targetWords: string[]): number {
+    const s = new Set<number>();
+    for (const w of startWords) {
+        let x = 0;
+        for (const c of w) {
+            x ^= 1 << (c.charCodeAt(0) - 97);
+        }
+        s.add(x);
+    }
+    let ans = 0;
+    for (const w of targetWords) {
+        let x = 0;
+        for (const c of w) {
+            x ^= 1 << (c.charCodeAt(0) - 97);
+        }
+        for (const c of w) {
+            if (s.has(x ^ (1 << (c.charCodeAt(0) - 97)))) {
+                ++ans;
+                break;
+            }
+        }
+    }
+    return ans;
 }
 ```
 

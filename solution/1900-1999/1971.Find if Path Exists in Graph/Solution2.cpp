@@ -1,13 +1,28 @@
 class Solution {
 public:
     bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
-        vector<int> p(n);
-        iota(p.begin(), p.end(), 0);
-        function<int(int)> find = [&](int x) -> int {
-            if (p[x] != x) p[x] = find(p[x]);
-            return p[x];
-        };
-        for (auto& e : edges) p[find(e[0])] = find(e[1]);
-        return find(source) == find(destination);
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        queue<int> q{{source}};
+        vector<bool> vis(n);
+        vis[source] = true;
+        while (q.size()) {
+            int i = q.front();
+            q.pop();
+            if (i == destination) {
+                return true;
+            }
+            for (int j : g[i]) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    q.push(j);
+                }
+            }
+        }
+        return false;
     }
 };

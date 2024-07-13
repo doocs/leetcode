@@ -61,7 +61,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+Traverse each word `b` in `words2`, count the maximum occurrence of each letter, and record it as `cnt`.
+
+Then traverse each word `a` in `words1`, count the occurrence of each letter, and record it as `t`. If the occurrence of each letter in `cnt` is not greater than the occurrence in `t`, then `a` is a universal word, and add it to the answer.
+
+The time complexity is $O(L)$, where $L$ is the sum of the lengths of all words in `words1` and `words2`.
 
 <!-- tabs:start -->
 

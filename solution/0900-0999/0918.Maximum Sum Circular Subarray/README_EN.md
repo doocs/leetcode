@@ -66,110 +66,32 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Maintain Prefix Maximum
 
-<!-- tabs:start -->
+The maximum sum of a circular subarray can be divided into two cases:
 
-#### Python3
+-   Case 1: The subarray with the maximum sum does not include the circular part, which is the ordinary maximum subarray sum;
+-   Case 2: The subarray with the maximum sum includes the circular part, which can be transformed into: the total sum of the array minus the minimum subarray sum.
 
-```python
-class Solution:
-    def maxSubarraySumCircular(self, nums: List[int]) -> int:
-        s1 = s2 = f1 = f2 = nums[0]
-        for num in nums[1:]:
-            f1 = num + max(f1, 0)
-            f2 = num + min(f2, 0)
-            s1 = max(s1, f1)
-            s2 = min(s2, f2)
-        return s1 if s1 <= 0 else max(s1, sum(nums) - s2)
-```
+Therefore, we maintain the following variables:
 
-#### Java
+-   The minimum prefix sum $pmi$, initially $0$;
+-   The maximum prefix sum $pmx$, initially $-\infty$;
+-   The prefix sum $s$, initially $0$;
+-   The minimum subarray sum $smi$, initially $\infty$;
+-   The answer $ans$, initially $-\infty$.
 
-```java
-class Solution {
-    public int maxSubarraySumCircular(int[] nums) {
-        int s1 = nums[0], s2 = nums[0], f1 = nums[0], f2 = nums[0], total = nums[0];
-        for (int i = 1; i < nums.length; ++i) {
-            total += nums[i];
-            f1 = nums[i] + Math.max(f1, 0);
-            f2 = nums[i] + Math.min(f2, 0);
-            s1 = Math.max(s1, f1);
-            s2 = Math.min(s2, f2);
-        }
-        return s1 > 0 ? Math.max(s1, total - s2) : s1;
-    }
-}
-```
+Next, we only need to traverse the array $nums$. For the current element $x$ we are traversing, we perform the following update operations:
 
-#### C++
+-   Update the prefix sum $s = s + x$;
+-   Update the answer $ans = \max(ans, s - pmi)$, which is the answer for Case 1 (the prefix sum $s$ minus the minimum prefix sum $pmi$ can give the maximum subarray sum);
+-   Update $smi = \min(smi, s - pmx)$, which is the minimum subarray sum for Case 2;
+-   Update $pmi = \min(pmi, s)$, which is the minimum prefix sum;
+-   Update $pmx = \max(pmx, s)$, which is the maximum prefix sum.
 
-```cpp
-class Solution {
-public:
-    int maxSubarraySumCircular(vector<int>& nums) {
-        int s1 = nums[0], s2 = nums[0], f1 = nums[0], f2 = nums[0], total = nums[0];
-        for (int i = 1; i < nums.size(); ++i) {
-            total += nums[i];
-            f1 = nums[i] + max(f1, 0);
-            f2 = nums[i] + min(f2, 0);
-            s1 = max(s1, f1);
-            s2 = min(s2, f2);
-        }
-        return s1 > 0 ? max(s1, total - s2) : s1;
-    }
-};
-```
+After the traversal, we return the maximum value of $ans$ and $s - smi$ as the answer.
 
-#### Go
-
-```go
-func maxSubarraySumCircular(nums []int) int {
-	s1, s2, f1, f2, total := nums[0], nums[0], nums[0], nums[0], nums[0]
-	for i := 1; i < len(nums); i++ {
-		total += nums[i]
-		f1 = nums[i] + max(f1, 0)
-		f2 = nums[i] + min(f2, 0)
-		s1 = max(s1, f1)
-		s2 = min(s2, f2)
-	}
-	if s1 <= 0 {
-		return s1
-	}
-	return max(s1, total-s2)
-}
-```
-
-#### TypeScript
-
-```ts
-function maxSubarraySumCircular(nums: number[]): number {
-    let pre1 = nums[0],
-        pre2 = nums[0];
-    let ans1 = nums[0],
-        ans2 = nums[0];
-    let sum = nums[0];
-
-    for (let i = 1; i < nums.length; ++i) {
-        let cur = nums[i];
-        sum += cur;
-        pre1 = Math.max(pre1 + cur, cur);
-        ans1 = Math.max(pre1, ans1);
-
-        pre2 = Math.min(pre2 + cur, cur);
-        ans2 = Math.min(pre2, ans2);
-    }
-    return ans1 > 0 ? Math.max(ans1, sum - ans2) : ans1;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -252,9 +174,8 @@ func maxSubarraySumCircular(nums []int) int {
 
 ```ts
 function maxSubarraySumCircular(nums: number[]): number {
-    const inf = 1 << 30;
-    let [pmi, pmx] = [0, -inf];
-    let [ans, s, smi] = [-inf, 0, inf];
+    let [pmi, pmx] = [0, -Infinity];
+    let [ans, s, smi] = [-Infinity, 0, Infinity];
     for (const x of nums) {
         s += x;
         ans = Math.max(ans, s - pmi);

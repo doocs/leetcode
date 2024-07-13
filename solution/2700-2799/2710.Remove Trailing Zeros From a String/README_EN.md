@@ -52,7 +52,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Traversal
+
+We can traverse the string from the end to the beginning, stopping when we encounter the first character that is not `0`. Then, we return the substring from the beginning to this character.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. Ignoring the space consumed by the answer string, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -128,32 +132,6 @@ impl Solution {
         }
 
         num[..i + 1].to_string()
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn remove_trailing_zeros(num: String) -> String {
-        num.chars()
-            .rev()
-            .skip_while(|&c| c == '0')
-            .collect::<String>()
-            .chars()
-            .rev()
-            .collect::<String>()
     }
 }
 ```

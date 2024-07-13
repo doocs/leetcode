@@ -48,7 +48,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 我们用一个长度为 32 的数组 $cnt$ 来统计所有数字的每一位中 $1$ 的出现次数。如果某一位的 $1$ 的出现次数能被 $3$ 整除，那么那个只出现一次的数字二进制表示中对应的那一位也是 $0$；否则，那个只出现一次的数字二进制表示中对应的那一位是 $1$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是数组的长度；而 $C$ 是整数的位数，本题中 $C=32$。
+时间复杂度 $O(n \times C)$，空间复杂度 $O(C)$。其中 $n$ 是数组的长度；而 $C$ 是整数的位数，本题中 $C=32$。
 
 <!-- tabs:start -->
 
@@ -198,6 +198,33 @@ public class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func singleNumber(_ nums: [Int]) -> Int {
+        var bitCounts = [Int](repeating: 0, count: 32)
+
+        for num in nums {
+            var x = num
+            for i in 0..<32 {
+                bitCounts[i] += x & 1
+                x >>= 1
+            }
+        }
+
+        var result = 0
+        for i in 0..<32 {
+            if bitCounts[i] % 3 == 1 {
+                result |= 1 << i
+            }
+        }
+
+        return result
     }
 }
 ```

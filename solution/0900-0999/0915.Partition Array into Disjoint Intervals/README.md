@@ -102,14 +102,13 @@ class Solution {
             mi[i] = Math.min(nums[i], mi[i + 1]);
         }
         int mx = 0;
-        for (int i = 1; i <= n; ++i) {
+        for (int i = 1;; ++i) {
             int v = nums[i - 1];
             mx = Math.max(mx, v);
             if (mx <= mi[i]) {
                 return i;
             }
         }
-        return 0;
     }
 }
 ```
@@ -122,14 +121,17 @@ public:
     int partitionDisjoint(vector<int>& nums) {
         int n = nums.size();
         vector<int> mi(n + 1, INT_MAX);
-        for (int i = n - 1; ~i; --i) mi[i] = min(nums[i], mi[i + 1]);
+        for (int i = n - 1; ~i; --i) {
+            mi[i] = min(nums[i], mi[i + 1]);
+        }
         int mx = 0;
-        for (int i = 1; i <= n; ++i) {
+        for (int i = 1;; ++i) {
             int v = nums[i - 1];
             mx = max(mx, v);
-            if (mx <= mi[i]) return i;
+            if (mx <= mi[i]) {
+                return i;
+            }
         }
-        return 0;
     }
 };
 ```
@@ -145,14 +147,13 @@ func partitionDisjoint(nums []int) int {
 		mi[i] = min(nums[i], mi[i+1])
 	}
 	mx := 0
-	for i := 1; i <= n; i++ {
+	for i := 1; ; i++ {
 		v := nums[i-1]
 		mx = max(mx, v)
 		if mx <= mi[i] {
 			return i
 		}
 	}
-	return 0
 }
 ```
 

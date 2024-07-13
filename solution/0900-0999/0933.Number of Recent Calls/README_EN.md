@@ -226,11 +226,7 @@ impl RecentCounter {
         }
         self.queue.len() as i32
     }
-}/**
- * Your RecentCounter object will be instantiated and called as such:
- * let obj = RecentCounter::new();
- * let ret_1: i32 = obj.ping(t);
- */
+}
 ```
 
 #### JavaScript

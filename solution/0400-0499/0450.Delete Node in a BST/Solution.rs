@@ -16,8 +16,8 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
         let node = root.as_ref().unwrap().borrow();
@@ -29,7 +29,7 @@ impl Solution {
 
     pub fn delete_node(
         mut root: Option<Rc<RefCell<TreeNode>>>,
-        key: i32
+        key: i32,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         if root.is_some() {
             let mut node = root.as_mut().unwrap().borrow_mut();

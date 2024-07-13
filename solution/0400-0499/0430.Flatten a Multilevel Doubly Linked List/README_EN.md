@@ -64,7 +64,7 @@ After flattening the multilevel linked list it becomes:
 <p>&nbsp;</p>
 <p><strong>How the multilevel linked list is represented in test cases:</strong></p>
 
-<p>We use the multilevel linked list from <strong class="example">Example 1</strong> above:</p>
+<p>We use the multilevel linked list from <strong>Example 1</strong> above:</p>
 
 <pre>
  1---2---3---4---5---6--NULL

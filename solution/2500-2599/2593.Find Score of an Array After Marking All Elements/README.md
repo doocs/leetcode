@@ -6,6 +6,7 @@ rating: 1665
 source: 第 100 场双周赛 Q3
 tags:
     - 数组
+    - 哈希表
     - 排序
     - 模拟
     - 堆（优先队列）
@@ -38,23 +39,25 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><b>输入：</b>nums = [2,1,3,4,5,2]
+<pre>
+<b>输入：</b>nums = [2,1,3,4,5,2]
 <b>输出：</b>7
 <b>解释：</b>我们按照如下步骤标记元素：
-- 1 是最小未标记元素，所以标记它和相邻两个元素：[<em><strong>2</strong></em>,<em><strong>1</strong></em>,<em><strong>3</strong></em>,4,5,2] 。
-- 2 是最小未标记元素，所以标记它和左边相邻元素：[<em><strong>2</strong></em>,<em><strong>1</strong></em>,<em><strong>3</strong></em>,4,<em><strong>5</strong></em>,<em><strong>2</strong></em>] 。
-- 4 是仅剩唯一未标记的元素，所以我们标记它：[<em><strong>2</strong></em>,<em><strong>1</strong></em>,<em><strong>3</strong></em>,<em><strong>4</strong></em>,<em><strong>5</strong></em>,<em><strong>2</strong></em>] 。
+- 1 是最小未标记元素，所以标记它和相邻两个元素：[<u><em><strong>2</strong></em></u>,<u><em><strong>1</strong></em></u>,<u><em><strong>3</strong></em></u>,4,5,2] 。
+- 2 是最小未标记元素，所以标记它和左边相邻元素：[<u><em><strong>2</strong></em></u>,<u><em><strong>1</strong></em></u>,<u><em><strong>3</strong></em></u>,4,<u><em><strong>5</strong></em></u>,<u><em><strong>2</strong></em></u>] 。
+- 4 是仅剩唯一未标记的元素，所以我们标记它：[<u><em><strong>2</strong></em></u>,<u><em><strong>1</strong></em></u>,<u><em><strong>3</strong></em></u>,<u><em><strong>4</strong></em></u>,<u><em><strong>5</strong></em></u>,<u><em><strong>2</strong></em></u>] 。
 总得分为 1 + 2 + 4 = 7 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>nums = [2,3,5,1,3,2]
+<pre>
+<b>输入：</b>nums = [2,3,5,1,3,2]
 <b>输出：</b>5
 <b>解释：</b>我们按照如下步骤标记元素：
-- 1 是最小未标记元素，所以标记它和相邻两个元素：[2,3,<em><strong>5</strong></em>,<em><strong>1</strong></em>,<em><strong>3</strong></em>,2] 。
-- 2 是最小未标记元素，由于有两个 2 ，我们选择最左边的一个 2 ，也就是下标为 0 处的 2 ，以及它右边相邻的元素：[<em><strong>2</strong></em>,<em><strong>3</strong></em>,<em><strong>5</strong></em>,<em><strong>1</strong></em>,<em><strong>3</strong></em>,2] 。
-- 2 是仅剩唯一未标记的元素，所以我们标记它：[<em><strong>2</strong></em>,<em><strong>3</strong></em>,<em><strong>5</strong></em>,<em><strong>1</strong></em>,<em><strong>3</strong></em>,<em><strong>2</strong></em>] 。
+- 1 是最小未标记元素，所以标记它和相邻两个元素：[2,3,<u><em><strong>5</strong></em></u>,<u><em><strong>1</strong></em></u>,<u><em><strong>3</strong></em></u>,2] 。
+- 2 是最小未标记元素，由于有两个 2 ，我们选择最左边的一个 2 ，也就是下标为 0 处的 2 ，以及它右边相邻的元素：[<u><em><strong>2</strong></em></u>,<u><em><strong>3</strong></em></u>,<u><em><strong>5</strong></em></u>,<u><em><strong>1</strong></em></u>,<u><em><strong>3</strong></em></u>,2] 。
+- 2 是仅剩唯一未标记的元素，所以我们标记它：[<u><em><strong>2</strong></em></u>,<u><em><strong>3</strong></em></u>,<u><em><strong>5</strong></em></u>,<u><em><strong>1</strong></em></u>,<u><em><strong>3</strong></em></u>,<u><em><strong>2</strong></em></u>] 。
 总得分为 1 + 2 + 2 = 5 。
 </pre>
 

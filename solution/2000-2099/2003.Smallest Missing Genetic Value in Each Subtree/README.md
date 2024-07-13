@@ -347,7 +347,7 @@ impl Solution {
             vis: &mut Vec<bool>,
             has: &mut Vec<bool>,
             g: &Vec<Vec<usize>>,
-            nums: &Vec<i32>
+            nums: &Vec<i32>,
         ) {
             if vis[i] {
                 return;

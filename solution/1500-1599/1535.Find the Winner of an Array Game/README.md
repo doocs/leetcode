@@ -80,6 +80,10 @@ tags:
 
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
+相似题目：
+
+-   [3175. 找到连续赢 K 场比赛的第一位玩家](https://github.com/doocs/leetcode/blob/main/solution/3100-3199/3175.Find%20The%20First%20Player%20to%20win%20K%20Games%20in%20a%20Row/README.md)
+
 <!-- tabs:start -->
 
 #### Python3

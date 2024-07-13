@@ -58,15 +58,21 @@ tags:
 
 ### 方法一：数学推导
 
-连续正整数构成一个等差数列($d=1$)。我们假设等差数列的第一项为 $a$，项数为 $k$，则 $n=(a+a+k-1)*k/2$，即 $n*2=(a*2+k-1)*k$ ①。
+连续正整数构成一个公差 $d = 1$ 的等差数列。我们假设等差数列的第一项为 $a$，项数为 $k$，那么 $n = (a + a + k - 1) \times k / 2$，即 $n \times 2 = (a \times 2 + k - 1) \times k$。这里我们可以得出 $k$ 一定能整除 $n \times 2$，并且 $(n \times 2) / k - k + 1$ 一定是偶数。
 
-由于是连续正整数， $a>=1$，所以 ① 可以化为 $n*2>=(k+1)*k$，即 $k*(k+1)<=n*2$ ②。
+由于 $a \geq 1$，所以 $n \times 2 = (a \times 2 + k - 1) \times k \geq k \times (k + 1)$。
 
-因此，$k$ 的范围需要满足 $k>=1$ 并且 $k*(k+1)<=n*2$。另外，我们从 ① 式可以发现，$k$ 必须能整除 $n*2$。
+综上，我们可以得出：
 
-综上，我们枚举 $k$，累加满足条件的 $k$ 的个数即可。
+1. $k$ 一定能整除 $n \times 2$；
+2. $k \times (k + 1) \leq n \times 2$；
+3. $(n \times 2) / k - k + 1$ 一定是偶数。
 
-时间复杂度 $O(\sqrt{n})$。
+我们从 $k = 1$ 开始枚举，当 $k \times (k + 1) > n \times 2$ 时，我们可以结束枚举。在枚举的过程中，我们判断 $k$ 是否能整除 $n \times 2$，并且 $(n \times 2) / k - k + 1$ 是否是偶数，如果是则满足条件，答案加一。
+
+枚举结束后，返回答案即可。
+
+时间复杂度 $O(\sqrt{n})$，其中 $n$ 为给定的正整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -132,6 +138,21 @@ func consecutiveNumbersSum(n int) int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function consecutiveNumbersSum(n: number): number {
+    let ans = 0;
+    n <<= 1;
+    for (let k = 1; k * (k + 1) <= n; ++k) {
+        if (n % k === 0 && (Math.floor(n / k) + 1 - k) % 2 === 0) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 

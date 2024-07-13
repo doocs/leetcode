@@ -68,7 +68,17 @@ Note that [8,6] is not a smooth descent period as 8 - 6 &ne; 1.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Pointers
+
+We define an answer variable `ans`, initially set to $0$.
+
+Next, we use two pointers $i$ and $j$, pointing to the first day of the current smooth decline phase and the day after the last day of this phase, respectively. Initially, $i = 0$, $j = 0$.
+
+Iterate through the array `prices` from left to right. For each position $i$, we move $j$ to the right until $j$ reaches the end of the array or $prices[j - 1] - prices[j] \neq 1$. At this point, $cnt = j - i$ is the length of the current smooth decline phase, and we add $\frac{(1 + cnt) \times cnt}{2}$ to the answer variable `ans`. Then, we update $i$ to $j$ and continue the iteration.
+
+After the iteration ends, return the answer variable `ans`.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `prices`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

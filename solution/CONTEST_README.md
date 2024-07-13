@@ -26,6 +26,83 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 405 场周赛(2024-07-07 10:30, 90 分钟) 参赛人数 3240
+
+- [3210. 找出加密后的字符串](/solution/3200-3299/3210.Find%20the%20Encrypted%20String/README.md)
+- [3211. 生成不含相邻零的二进制字符串](/solution/3200-3299/3211.Generate%20Binary%20Strings%20Without%20Adjacent%20Zeros/README.md)
+- [3212. 统计 X 和 Y 频数相等的子矩阵数量](/solution/3200-3299/3212.Count%20Submatrices%20With%20Equal%20Frequency%20of%20X%20and%20Y/README.md)
+- [3213. 最小代价构造字符串](/solution/3200-3299/3213.Construct%20String%20with%20Minimum%20Cost/README.md)
+
+#### 第 134 场双周赛(2024-07-06 22:30, 90 分钟) 参赛人数 2411
+
+- [3206. 交替组 I](/solution/3200-3299/3206.Alternating%20Groups%20I/README.md)
+- [3207. 与敌人战斗后的最大分数](/solution/3200-3299/3207.Maximum%20Points%20After%20Enemy%20Battles/README.md)
+- [3208. 交替组 II](/solution/3200-3299/3208.Alternating%20Groups%20II/README.md)
+- [3209. 子数组按位与值为 K 的数目](/solution/3200-3299/3209.Number%20of%20Subarrays%20With%20AND%20Value%20of%20K/README.md)
+
+#### 第 404 场周赛(2024-06-30 10:30, 90 分钟) 参赛人数 3486
+
+- [3200. 三角形的最大高度](/solution/3200-3299/3200.Maximum%20Height%20of%20a%20Triangle/README.md)
+- [3201. 找出有效子序列的最大长度 I](/solution/3200-3299/3201.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20I/README.md)
+- [3202. 找出有效子序列的最大长度 II](/solution/3200-3299/3202.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20II/README.md)
+- [3203. 合并两棵树后的最小直径](/solution/3200-3299/3203.Find%20Minimum%20Diameter%20After%20Merging%20Two%20Trees/README.md)
+
+#### 第 403 场周赛(2024-06-23 10:30, 90 分钟) 参赛人数 3112
+
+- [3194. 最小元素和最大元素的最小平均值](/solution/3100-3199/3194.Minimum%20Average%20of%20Smallest%20and%20Largest%20Elements/README.md)
+- [3195. 包含所有 1 的最小矩形面积 I](/solution/3100-3199/3195.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20I/README.md)
+- [3196. 最大化子数组的总成本](/solution/3100-3199/3196.Maximize%20Total%20Cost%20of%20Alternating%20Subarrays/README.md)
+- [3197. 包含所有 1 的最小矩形面积 II](/solution/3100-3199/3197.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20II/README.md)
+
+#### 第 133 场双周赛(2024-06-22 22:30, 90 分钟) 参赛人数 2326
+
+- [3190. 使所有元素都可以被 3 整除的最少操作数](/solution/3100-3199/3190.Find%20Minimum%20Operations%20to%20Make%20All%20Elements%20Divisible%20by%20Three/README.md)
+- [3191. 使二进制数组全部等于 1 的最少操作次数 I](/solution/3100-3199/3191.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20I/README.md)
+- [3192. 使二进制数组全部等于 1 的最少操作次数 II](/solution/3100-3199/3192.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20II/README.md)
+- [3193. 统计逆序对的数目](/solution/3100-3199/3193.Count%20the%20Number%20of%20Inversions/README.md)
+
+#### 第 402 场周赛(2024-06-16 10:30, 90 分钟) 参赛人数 3283
+
+- [3184. 构成整天的下标对数目 I](/solution/3100-3199/3184.Count%20Pairs%20That%20Form%20a%20Complete%20Day%20I/README.md)
+- [3185. 构成整天的下标对数目 II](/solution/3100-3199/3185.Count%20Pairs%20That%20Form%20a%20Complete%20Day%20II/README.md)
+- [3186. 施咒的最大总伤害](/solution/3100-3199/3186.Maximum%20Total%20Damage%20With%20Spell%20Casting/README.md)
+- [3187. 数组中的峰值](/solution/3100-3199/3187.Peaks%20in%20Array/README.md)
+
+#### 第 401 场周赛(2024-06-09 10:30, 90 分钟) 参赛人数 3160
+
+- [3178. 找出 K 秒后拿着球的孩子](/solution/3100-3199/3178.Find%20the%20Child%20Who%20Has%20the%20Ball%20After%20K%20Seconds/README.md)
+- [3179. K 秒后第 N 个元素的值](/solution/3100-3199/3179.Find%20the%20N-th%20Value%20After%20K%20Seconds/README.md)
+- [3180. 执行操作可获得的最大总奖励 I](/solution/3100-3199/3180.Maximum%20Total%20Reward%20Using%20Operations%20I/README.md)
+- [3181. 执行操作可获得的最大总奖励 II](/solution/3100-3199/3181.Maximum%20Total%20Reward%20Using%20Operations%20II/README.md)
+
+#### 第 132 场双周赛(2024-06-08 22:30, 90 分钟) 参赛人数 2457
+
+- [3174. 清除数字](/solution/3100-3199/3174.Clear%20Digits/README.md)
+- [3175. 找到连续赢 K 场比赛的第一位玩家](/solution/3100-3199/3175.Find%20The%20First%20Player%20to%20win%20K%20Games%20in%20a%20Row/README.md)
+- [3176. 求出最长好子序列 I](/solution/3100-3199/3176.Find%20the%20Maximum%20Length%20of%20a%20Good%20Subsequence%20I/README.md)
+- [3177. 求出最长好子序列 II](/solution/3100-3199/3177.Find%20the%20Maximum%20Length%20of%20a%20Good%20Subsequence%20II/README.md)
+
+#### 第 400 场周赛(2024-06-02 10:30, 90 分钟) 参赛人数 3534
+
+- [3168. 候诊室中的最少椅子数](/solution/3100-3199/3168.Minimum%20Number%20of%20Chairs%20in%20a%20Waiting%20Room/README.md)
+- [3169. 无需开会的工作日](/solution/3100-3199/3169.Count%20Days%20Without%20Meetings/README.md)
+- [3170. 删除星号以后字典序最小的字符串](/solution/3100-3199/3170.Lexicographically%20Minimum%20String%20After%20Removing%20Stars/README.md)
+- [3171. 找到按位或最接近 K 的子数组](/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20OR%20Closest%20to%20K/README.md)
+
+#### 第 399 场周赛(2024-05-26 10:30, 90 分钟) 参赛人数 3424
+
+- [3162. 优质数对的总数 I](/solution/3100-3199/3162.Find%20the%20Number%20of%20Good%20Pairs%20I/README.md)
+- [3163. 压缩字符串 III](/solution/3100-3199/3163.String%20Compression%20III/README.md)
+- [3164. 优质数对的总数 II](/solution/3100-3199/3164.Find%20the%20Number%20of%20Good%20Pairs%20II/README.md)
+- [3165. 不包含相邻元素的子序列的最大和](/solution/3100-3199/3165.Maximum%20Sum%20of%20Subsequence%20With%20Non-adjacent%20Elements/README.md)
+
+#### 第 131 场双周赛(2024-05-25 22:30, 90 分钟) 参赛人数 2537
+
+- [3158. 求出出现两次数字的 XOR 值](/solution/3100-3199/3158.Find%20the%20XOR%20of%20Numbers%20Which%20Appear%20Twice/README.md)
+- [3159. 查询数组中元素的出现位置](/solution/3100-3199/3159.Find%20Occurrences%20of%20an%20Element%20in%20an%20Array/README.md)
+- [3160. 所有球里面不同颜色的数目](/solution/3100-3199/3160.Find%20the%20Number%20of%20Distinct%20Colors%20Among%20the%20Balls/README.md)
+- [3161. 物块放置查询](/solution/3100-3199/3161.Block%20Placement%20Queries/README.md)
+
 #### 第 398 场周赛(2024-05-19 10:30, 90 分钟) 参赛人数 3606
 
 - [3151. 特殊数组 I](/solution/3100-3199/3151.Special%20Array%20I/README.md)
@@ -47,35 +124,35 @@ comments: true
 - [3144. 分割字符频率相等的最少子字符串](/solution/3100-3199/3144.Minimum%20Substring%20Partition%20of%20Equal%20Character%20Frequency/README.md)
 - [3145. 大数组元素的乘积](/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README.md)
 
-#### 第 396 场周赛(2024-05-05 10:30, 90 分钟) 参赛人数 2931
+#### 第 396 场周赛(2024-05-05 10:30, 90 分钟) 参赛人数 2932
 
 - [3136. 有效单词](/solution/3100-3199/3136.Valid%20Word/README.md)
 - [3137. K 周期字符串需要的最少操作次数](/solution/3100-3199/3137.Minimum%20Number%20of%20Operations%20to%20Make%20Word%20K-Periodic/README.md)
 - [3138. 同位字符串连接的最小长度](/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README.md)
 - [3139. 使数组中所有元素相等的最小开销](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README.md)
 
-#### 第 395 场周赛(2024-04-28 10:30, 90 分钟) 参赛人数 2968
+#### 第 395 场周赛(2024-04-28 10:30, 90 分钟) 参赛人数 2969
 
 - [3131. 找出与数组相加的整数 I](/solution/3100-3199/3131.Find%20the%20Integer%20Added%20to%20Array%20I/README.md)
 - [3132. 找出与数组相加的整数 II](/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README.md)
 - [3133. 数组最后一个元素的最小值](/solution/3100-3199/3133.Minimum%20Array%20End/README.md)
 - [3134. 找出唯一性数组的中位数](/solution/3100-3199/3134.Find%20the%20Median%20of%20the%20Uniqueness%20Array/README.md)
 
-#### 第 129 场双周赛(2024-04-27 22:30, 90 分钟) 参赛人数 2510
+#### 第 129 场双周赛(2024-04-27 22:30, 90 分钟) 参赛人数 2511
 
 - [3127. 构造相同颜色的正方形](/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README.md)
 - [3128. 直角三角形](/solution/3100-3199/3128.Right%20Triangles/README.md)
 - [3129. 找出所有稳定的二进制数组 I](/solution/3100-3199/3129.Find%20All%20Possible%20Stable%20Binary%20Arrays%20I/README.md)
 - [3130. 找出所有稳定的二进制数组 II](/solution/3100-3199/3130.Find%20All%20Possible%20Stable%20Binary%20Arrays%20II/README.md)
 
-#### 第 394 场周赛(2024-04-21 10:30, 90 分钟) 参赛人数 3957
+#### 第 394 场周赛(2024-04-21 10:30, 90 分钟) 参赛人数 3958
 
 - [3120. 统计特殊字母的数量 I](/solution/3100-3199/3120.Count%20the%20Number%20of%20Special%20Characters%20I/README.md)
 - [3121. 统计特殊字母的数量 II](/solution/3100-3199/3121.Count%20the%20Number%20of%20Special%20Characters%20II/README.md)
 - [3122. 使矩阵满足条件的最少操作次数](/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README.md)
 - [3123. 最短路径中的边](/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README.md)
 
-#### 第 393 场周赛(2024-04-14 10:30, 90 分钟) 参赛人数 4218
+#### 第 393 场周赛(2024-04-14 10:30, 90 分钟) 参赛人数 4219
 
 - [3114. 替换字符可以得到的最晚时间](/solution/3100-3199/3114.Latest%20Time%20You%20Can%20Obtain%20After%20Replacing%20Characters/README.md)
 - [3115. 质数的最大距离](/solution/3100-3199/3115.Maximum%20Prime%20Difference/README.md)
@@ -306,7 +383,7 @@ comments: true
 - [2939. 最大异或乘积](/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md)
 - [2940. 找到 Alice 和 Bob 可以相遇的建筑](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)
 
-#### 第 371 场周赛(2023-11-12 10:30, 90 分钟) 参赛人数 3637
+#### 第 371 场周赛(2023-11-12 10:30, 90 分钟) 参赛人数 3638
 
 - [2932. 找出强数对的最大异或值 I](/solution/2900-2999/2932.Maximum%20Strong%20Pair%20XOR%20I/README.md)
 - [2933. 高访问员工](/solution/2900-2999/2933.High-Access%20Employees/README.md)
@@ -2798,7 +2875,7 @@ comments: true
 - [1031. 两个非重叠子数组的最大和](/solution/1000-1099/1031.Maximum%20Sum%20of%20Two%20Non-Overlapping%20Subarrays/README.md)
 - [1032. 字符流](/solution/1000-1099/1032.Stream%20of%20Characters/README.md)
 
-#### 第 132 场周赛(2019-04-14 10:30, 90 分钟) 参赛人数 1049
+#### 第 132 场周赛(2019-04-14 10:30, 90 分钟) 参赛人数 1050
 
 - [1025. 除数博弈](/solution/1000-1099/1025.Divisor%20Game/README.md)
 - [1026. 节点与其祖先之间的最大差值](/solution/1000-1099/1026.Maximum%20Difference%20Between%20Node%20and%20Ancestor/README.md)
@@ -2859,7 +2936,7 @@ comments: true
 - [0993. 二叉树的堂兄弟节点](/solution/0900-0999/0993.Cousins%20in%20Binary%20Tree/README.md)
 - [0994. 腐烂的橘子](/solution/0900-0999/0994.Rotting%20Oranges/README.md)
 - [0995. K 连续位的最小翻转次数](/solution/0900-0999/0995.Minimum%20Number%20of%20K%20Consecutive%20Bit%20Flips/README.md)
-- [0996. 正方形数组的数目](/solution/0900-0999/0996.Number%20of%20Squareful%20Arrays/README.md)
+- [0996. 平方数组的数目](/solution/0900-0999/0996.Number%20of%20Squareful%20Arrays/README.md)
 
 #### 第 123 场周赛(2019-02-10 10:30, 90 分钟) 参赛人数 247
 

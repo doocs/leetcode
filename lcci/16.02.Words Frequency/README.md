@@ -194,11 +194,7 @@ impl WordsFrequency {
     fn get(&self, word: String) -> i32 {
         *self.cnt.get(&word).unwrap_or(&0)
     }
-}/**
- * Your WordsFrequency object will be instantiated and called as such:
- * let obj = WordsFrequency::new(book);
- * let ret_1: i32 = obj.get(word);
- */
+}
 ```
 
 #### JavaScript

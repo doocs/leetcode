@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README_EN.md
+rating: 2641
+source: Weekly Contest 397 Q4
 tags:
     - Bit Manipulation
     - Array

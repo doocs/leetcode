@@ -67,7 +67,15 @@ The total cost to make all characters equal is 9. It can be shown that 9 is the 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy Algorithm
+
+According to the problem description, if $s[i] \neq s[i - 1]$, an operation must be performed; otherwise, it's impossible to make all characters equal.
+
+We can either choose to reverse all characters from $s[0..i-1]$, with a cost of $i$, or reverse all characters from $s[i..n-1]$, with a cost of $n - i$. We take the minimum of the two.
+
+By iterating through the string $s$ and summing up the costs of all characters that need to be reversed, we can obtain the minimum cost.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

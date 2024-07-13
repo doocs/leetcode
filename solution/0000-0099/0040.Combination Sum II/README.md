@@ -81,8 +81,6 @@ tags:
 -   [77. 组合](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0077.Combinations/README.md)
 -   [216. 组合总和 III](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0216.Combination%20Sum%20III/README.md)
 
-<!-- 这里可写通用的实现逻辑 -->
-
 <!-- tabs:start -->
 
 #### Python3

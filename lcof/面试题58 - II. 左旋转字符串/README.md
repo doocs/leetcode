@@ -121,28 +121,17 @@ public class Solution {
 }
 ```
 
-<!-- tabs:end -->
+#### Swift
 
-<!-- solution:end -->
-
-<!-- solution:start-->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### C++
-
-```cpp
+```swift
 class Solution {
-public:
-    string reverseLeftWords(string s, int n) {
-        reverse(s.begin(), s.begin() + n);
-        reverse(s.begin() + n, s.end());
-        reverse(s.begin(), s.end());
-        return s;
+    func reverseLeftWords(_ s: String, _ n: Int) -> String {
+        let leftIndex = s.index(s.startIndex, offsetBy: n)
+        let rightPart = s[leftIndex..<s.endIndex]
+        let leftPart = s[s.startIndex..<leftIndex]
+        return String(rightPart) + String(leftPart)
     }
-};
+}
 ```
 
 <!-- tabs:end -->

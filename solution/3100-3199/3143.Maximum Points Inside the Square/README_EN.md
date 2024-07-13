@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README_EN.md
+rating: 1696
+source: Biweekly Contest 130 Q2
 tags:
     - Array
     - Hash Table

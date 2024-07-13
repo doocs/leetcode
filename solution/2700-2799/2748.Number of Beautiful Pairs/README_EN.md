@@ -6,7 +6,9 @@ rating: 1301
 source: Weekly Contest 351 Q1
 tags:
     - Array
+    - Hash Table
     - Math
+    - Counting
     - Number Theory
 ---
 
@@ -67,7 +69,15 @@ Thus, we return 2.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+We can use an array $\text{cnt}$ of length $10$ to record the count of the first digit of each number.
+
+Iterate through the array $\text{nums}$. For each number $x$, we enumerate each digit $y$ from $0$ to $9$. If $\text{cnt}[y]$ is not $0$ and $\text{gcd}(x \mod 10, y) = 1$, then the answer is incremented by $\text{cnt}[y]$. Then, we increment the count of the first digit of $x$ by $1$.
+
+After the iteration, return the answer.
+
+The time complexity is $O(n \times (k + \log M))$, and the space complexity is $O(k + \log M)$. Here, $n$ is the length of the array $\text{nums}$, while $k$ and $M$ respectively represent the number of distinct numbers and the maximum value in the array $\text{nums}$.
 
 <!-- tabs:start -->
 

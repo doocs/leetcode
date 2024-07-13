@@ -81,7 +81,26 @@ derived[1] = original[1] &oplus; original[0] = 1
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bit Manipulation
+
+Let's assume the original binary array is $a$, and the derived array is $b$. Then, we have:
+
+$$
+b_0 = a_0 \oplus a_1 \\
+b_1 = a_1 \oplus a_2 \\
+\cdots \\
+b_{n-1} = a_{n-1} \oplus a_0
+$$
+
+Since the XOR operation is commutative and associative, we get:
+
+$$
+b_0 \oplus b_1 \oplus \cdots \oplus b_{n-1} = (a_0 \oplus a_1) \oplus (a_1 \oplus a_2) \oplus \cdots \oplus (a_{n-1} \oplus a_0) = 0
+$$
+
+Therefore, as long as the XOR sum of all elements in the derived array is $0$, there must exist an original binary array that meets the requirements.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -138,29 +157,7 @@ func doesValidArrayExist(derived []int) bool {
 
 ```ts
 function doesValidArrayExist(derived: number[]): boolean {
-    let s = 0;
-    for (const x of derived) {
-        s ^= x;
-    }
-    return s === 0;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function doesValidArrayExist(derived: number[]): boolean {
-    return derived.reduce((acc, x) => acc ^ x, 0) === 0;
+    return derived.reduce((acc, x) => acc ^ x) === 0;
 }
 ```
 

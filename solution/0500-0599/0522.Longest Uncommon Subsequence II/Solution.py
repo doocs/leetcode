@@ -1,23 +1,18 @@
 class Solution:
     def findLUSlength(self, strs: List[str]) -> int:
-        def check(a, b):
+        def check(s: str, t: str):
             i = j = 0
-            while i < len(a) and j < len(b):
-                if a[i] == b[j]:
-                    j += 1
-                i += 1
-            return j == len(b)
+            while i < len(s) and j < len(t):
+                if s[i] == t[j]:
+                    i += 1
+                j += 1
+            return i == len(s)
 
-        n = len(strs)
         ans = -1
-
-        for i in range(n):
-            j = 0
-            while j < n:
-                if i == j or not check(strs[j], strs[i]):
-                    j += 1
-                else:
+        for i, s in enumerate(strs):
+            for j, t in enumerate(strs):
+                if i != j and check(s, t):
                     break
-            if j == n:
-                ans = max(ans, len(strs[i]))
+            else:
+                ans = max(ans, len(s))
         return ans

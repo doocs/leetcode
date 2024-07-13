@@ -218,4 +218,135 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：BFS
+
+我们也可以使用广度优先搜索的方法遍历整张图，用一个哈希表或者数组 `vis` 标记当前节点是否访问过，以防止重复访问。
+
+具体地，我们定义一个队列 $q$，初始时将节点 $0$ 放入队列中，然后不断遍历队列。每次取出队首节点 $i$，如果 $i$ 被访问过则直接跳过，否则我们将其标记为已访问，然后将 $i$ 可以到达的节点加入队列中。
+
+最后统计访问过的节点个数，若与节点总数相同则说明可以访问所有节点，否则说明存在无法到达的节点。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n)$，其中 $n$ 为节点个数，而 $m$ 为边的个数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        vis = set()
+        q = deque([0])
+        while q:
+            i = q.popleft()
+            if i in vis:
+                continue
+            vis.add(i)
+            q.extend(j for j in rooms[i])
+        return len(vis) == len(rooms)
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+        int n = rooms.size();
+        boolean[] vis = new boolean[n];
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(0);
+        int cnt = 0;
+        while (!q.isEmpty()) {
+            int i = q.poll();
+            if (vis[i]) {
+                continue;
+            }
+            vis[i] = true;
+            ++cnt;
+            for (int j : rooms.get(i)) {
+                q.offer(j);
+            }
+        }
+        return cnt == n;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool canVisitAllRooms(vector<vector<int>>& rooms) {
+        int n = rooms.size();
+        vector<bool> vis(n);
+        queue<int> q{{0}};
+        int cnt = 0;
+        while (q.size()) {
+            int i = q.front();
+            q.pop();
+            if (vis[i]) {
+                continue;
+            }
+            vis[i] = true;
+            ++cnt;
+            for (int j : rooms[i]) {
+                q.push(j);
+            }
+        }
+        return cnt == n;
+    }
+};
+```
+
+#### Go
+
+```go
+func canVisitAllRooms(rooms [][]int) bool {
+	n := len(rooms)
+	vis := make([]bool, n)
+	cnt := 0
+	q := []int{0}
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		if vis[i] {
+			continue
+		}
+		vis[i] = true
+		cnt++
+		for _, j := range rooms[i] {
+			q = append(q, j)
+		}
+	}
+	return cnt == n
+}
+```
+
+#### TypeScript
+
+```ts
+function canVisitAllRooms(rooms: number[][]): boolean {
+    const vis = new Set<number>();
+    const q: number[] = [0];
+
+    while (q.length) {
+        const i = q.pop()!;
+        if (vis.has(i)) {
+            continue;
+        }
+        vis.add(i);
+        q.push(...rooms[i]);
+    }
+
+    return vis.size == rooms.length;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

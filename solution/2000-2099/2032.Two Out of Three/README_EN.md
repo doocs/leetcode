@@ -200,14 +200,11 @@ impl Solution {
                 count[v as usize] += 1;
             });
         let mut ans = Vec::new();
-        count
-            .iter()
-            .enumerate()
-            .for_each(|(i, v)| {
-                if *v >= 2 {
-                    ans.push(i as i32);
-                }
-            });
+        count.iter().enumerate().for_each(|(i, v)| {
+            if *v >= 2 {
+                ans.push(i as i32);
+            }
+        });
         ans
     }
 }

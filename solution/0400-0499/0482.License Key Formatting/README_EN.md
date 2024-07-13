@@ -55,7 +55,15 @@ Note that the two extra dashes are not needed and can be removed.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+First, we count the number of characters in the string $s$ excluding the hyphens, and take the modulus of $k$ to determine the number of characters in the first group. If it is $0$, then the number of characters in the first group is $k$; otherwise, it is the result of the modulus operation.
+
+Next, we iterate through the string $s$. For each character, if it is a hyphen, we skip it; otherwise, we convert it to an uppercase letter and add it to the answer string. Meanwhile, we maintain a counter $cnt$, representing the remaining number of characters in the current group. When $cnt$ decreases to $0$, we need to update $cnt$ to $k$, and if the current character is not the last one, we need to add a hyphen to the answer string.
+
+Finally, we remove the hyphen at the end of the answer string and return the answer string.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space consumption of the answer string, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -64,19 +72,19 @@ Note that the two extra dashes are not needed and can be removed.
 ```python
 class Solution:
     def licenseKeyFormatting(self, s: str, k: int) -> str:
-        s = s.replace('-', '').upper()
-        res = []
-        cnt = (len(s) % k) or k
-        t = 0
+        n = len(s)
+        cnt = (n - s.count("-")) % k or k
+        ans = []
         for i, c in enumerate(s):
-            res.append(c)
-            t += 1
-            if t == cnt:
-                t = 0
+            if c == "-":
+                continue
+            ans.append(c.upper())
+            cnt -= 1
+            if cnt == 0:
                 cnt = k
-                if i != len(s) - 1:
-                    res.append('-')
-        return ''.join(res)
+                if i != n - 1:
+                    ans.append("-")
+        return "".join(ans).rstrip("-")
 ```
 
 #### Java
@@ -84,25 +92,30 @@ class Solution:
 ```java
 class Solution {
     public String licenseKeyFormatting(String s, int k) {
-        s = s.replace("-", "").toUpperCase();
-        StringBuilder sb = new StringBuilder();
-        int t = 0;
-        int cnt = s.length() % k;
+        int n = s.length();
+        int cnt = (int) (n - s.chars().filter(ch -> ch == '-').count()) % k;
         if (cnt == 0) {
             cnt = k;
         }
-        for (int i = 0; i < s.length(); ++i) {
-            sb.append(s.charAt(i));
-            ++t;
-            if (t == cnt) {
-                t = 0;
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            char c = s.charAt(i);
+            if (c == '-') {
+                continue;
+            }
+            ans.append(Character.toUpperCase(c));
+            --cnt;
+            if (cnt == 0) {
                 cnt = k;
-                if (i != s.length() - 1) {
-                    sb.append('-');
+                if (i != n - 1) {
+                    ans.append('-');
                 }
             }
         }
-        return sb.toString();
+        if (ans.length() > 0 && ans.charAt(ans.length() - 1) == '-') {
+            ans.deleteCharAt(ans.length() - 1);
+        }
+        return ans.toString();
     }
 }
 ```
@@ -113,26 +126,29 @@ class Solution {
 class Solution {
 public:
     string licenseKeyFormatting(string s, int k) {
-        string ss = "";
-        for (char c : s) {
-            if (c == '-') continue;
-            if ('a' <= c && c <= 'z') c += 'A' - 'a';
-            ss += c;
+        int n = s.length();
+        int cnt = (n - count(s.begin(), s.end(), '-')) % k;
+        if (cnt == 0) {
+            cnt = k;
         }
-        int cnt = ss.size() % k;
-        if (cnt == 0) cnt = k;
-        int t = 0;
-        string res = "";
-        for (int i = 0; i < ss.size(); ++i) {
-            res += ss[i];
-            ++t;
-            if (t == cnt) {
-                t = 0;
+        string ans;
+        for (int i = 0; i < n; ++i) {
+            char c = s[i];
+            if (c == '-') {
+                continue;
+            }
+            ans += toupper(c);
+            if (--cnt == 0) {
                 cnt = k;
-                if (i != ss.size() - 1) res += '-';
+                if (i != n - 1) {
+                    ans += '-';
+                }
             }
         }
-        return res;
+        if (!ans.empty() && ans.back() == '-') {
+            ans.pop_back();
+        }
+        return ans;
     }
 };
 ```
@@ -141,25 +157,54 @@ public:
 
 ```go
 func licenseKeyFormatting(s string, k int) string {
-	s = strings.ReplaceAll(s, "-", "")
-	cnt := len(s) % k
+	n := len(s)
+	cnt := (n - strings.Count(s, "-")) % k
 	if cnt == 0 {
 		cnt = k
 	}
-	t := 0
-	res := []byte{}
-	for i, c := range s {
-		res = append(res, byte(unicode.ToUpper(c)))
-		t++
-		if t == cnt {
-			t = 0
-			cnt = k
-			if i != len(s)-1 {
-				res = append(res, byte('-'))
-			}
+
+	var ans strings.Builder
+	for i := 0; i < n; i++ {
+		c := s[i]
+		if c == '-' {
+			continue
 		}
+		if cnt == 0 {
+			cnt = k
+			ans.WriteByte('-')
+		}
+		ans.WriteRune(unicode.ToUpper(rune(c)))
+		cnt--
 	}
-	return string(res)
+
+	return ans.String()
+}
+```
+
+#### TypeScript
+
+```ts
+function licenseKeyFormatting(s: string, k: number): string {
+    const n = s.length;
+    let cnt = (n - (s.match(/-/g) || []).length) % k || k;
+    const ans: string[] = [];
+    for (let i = 0; i < n; i++) {
+        const c = s[i];
+        if (c === '-') {
+            continue;
+        }
+        ans.push(c.toUpperCase());
+        if (--cnt === 0) {
+            cnt = k;
+            if (i !== n - 1) {
+                ans.push('-');
+            }
+        }
+    }
+    while (ans.at(-1) === '-') {
+        ans.pop();
+    }
+    return ans.join('');
 }
 ```
 

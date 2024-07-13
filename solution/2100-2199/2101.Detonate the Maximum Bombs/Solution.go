@@ -1,22 +1,18 @@
-func maximumDetonation(bombs [][]int) int {
-	check := func(i, j int) bool {
-		if i == j {
-			return false
-		}
-		x, y := bombs[i][0]-bombs[j][0], bombs[i][1]-bombs[j][1]
-		r := bombs[i][2]
-		return r*r >= x*x+y*y
-	}
+func maximumDetonation(bombs [][]int) (ans int) {
 	n := len(bombs)
-	g := make([][]bool, n)
-	for i := range g {
-		g[i] = make([]bool, n)
-		for j := range g[i] {
-			g[i][j] = check(i, j)
+	g := make([][]int, n)
+	for i, p1 := range bombs[:n-1] {
+		for j := i + 1; j < n; j++ {
+			p2 := bombs[j]
+			dist := math.Hypot(float64(p1[0]-p2[0]), float64(p1[1]-p2[1]))
+			if dist <= float64(p1[2]) {
+				g[i] = append(g[i], j)
+			}
+			if dist <= float64(p2[2]) {
+				g[j] = append(g[j], i)
+			}
 		}
 	}
-
-	ans := 0
 	for k := 0; k < n; k++ {
 		q := []int{k}
 		vis := make([]bool, n)
@@ -26,14 +22,17 @@ func maximumDetonation(bombs [][]int) int {
 			i := q[0]
 			q = q[1:]
 			cnt++
-			for j := 0; j < n; j++ {
-				if g[i][j] && !vis[j] {
+			for _, j := range g[i] {
+				if !vis[j] {
 					vis[j] = true
 					q = append(q, j)
 				}
 			}
 		}
+		if cnt == n {
+			return n
+		}
 		ans = max(ans, cnt)
 	}
-	return ans
+	return
 }

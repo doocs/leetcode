@@ -66,11 +66,11 @@ tags:
 
 ### 方法一：模拟
 
-遍历数组 `words`，对于每个字符串 `w`，判断其是否为回文字符串，如果是，则返回 `w`，否则继续遍历。
+我们遍历数组 `words`，对于每个字符串 `w`，判断其是否为回文字符串，如果是，则返回 `w`，否则继续遍历。
 
 判断一个字符串是否为回文字符串，可以使用双指针，分别指向字符串的首尾，向中间移动，判断对应的字符是否相等。如果遍历完整个字符串，都没有发现不相等的字符，则该字符串为回文字符串。
 
-时间复杂度 $O(L)$，空间复杂度 $O(1)$，其中 $L$ 为数组 `words` 中所有字符串的长度之和。
+时间复杂度 $O(L)$，其中 $L$ 为数组 `words` 中所有字符串的长度之和。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -148,21 +148,7 @@ func firstPalindrome(words []string) string {
 
 ```ts
 function firstPalindrome(words: string[]): string {
-    for (const word of words) {
-        let left = 0;
-        let right = word.length - 1;
-        while (left < right) {
-            if (word[left] !== word[right]) {
-                break;
-            }
-            left++;
-            right--;
-        }
-        if (left >= right) {
-            return word;
-        }
-    }
-    return '';
+    return words.find(w => w === w.split('').reverse().join('')) || '';
 }
 ```
 
@@ -171,19 +157,9 @@ function firstPalindrome(words: string[]): string {
 ```rust
 impl Solution {
     pub fn first_palindrome(words: Vec<String>) -> String {
-        for word in words.iter() {
-            let s = word.as_bytes();
-            let mut left = 0;
-            let mut right = s.len() - 1;
-            while left < right {
-                if s[left] != s[right] {
-                    break;
-                }
-                left += 1;
-                right -= 1;
-            }
-            if left >= right {
-                return word.clone();
+        for w in words {
+            if w == w.chars().rev().collect::<String>() {
+                return w;
             }
         }
         String::new()
@@ -195,18 +171,17 @@ impl Solution {
 
 ```c
 char* firstPalindrome(char** words, int wordsSize) {
-    for (int i = 0; i < wordsSize; i++) {
-        int left = 0;
-        int right = strlen(words[i]) - 1;
-        while (left < right) {
-            if (words[i][left] != words[i][right]) {
-                break;
+    for (int i = 0; i < wordsSize; ++i) {
+        char* w = words[i];
+        int len = strlen(w);
+        bool ok = true;
+        for (int j = 0, k = len - 1; j < k && ok; ++j, --k) {
+            if (w[j] != w[k]) {
+                ok = false;
             }
-            left++;
-            right--;
         }
-        if (left >= right) {
-            return words[i];
+        if (ok) {
+            return w;
         }
     }
     return "";

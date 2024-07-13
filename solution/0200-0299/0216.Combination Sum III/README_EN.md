@@ -221,6 +221,32 @@ function combinationSum3(k: number, n: number): number[][] {
 }
 ```
 
+#### JavaScript
+
+```js
+function combinationSum3(k, n) {
+    const ans = [];
+    const t = [];
+    const dfs = (i, s) => {
+        if (s === 0) {
+            if (t.length === k) {
+                ans.push(t.slice());
+            }
+            return;
+        }
+        if (i > 9 || i > s || t.length >= k) {
+            return;
+        }
+        t.push(i);
+        dfs(i + 1, s - i);
+        t.pop();
+        dfs(i + 1, s);
+    };
+    dfs(1, n);
+    return ans;
+}
+```
+
 #### Rust
 
 ```rust
@@ -242,7 +268,7 @@ impl Solution {
         cur_sum: i32,
         cur_vec: &mut Vec<i32>,
         candidates: &Vec<i32>,
-        ans: &mut Vec<Vec<i32>>
+        ans: &mut Vec<Vec<i32>>,
     ) {
         if cur_sum > target || cur_vec.len() > (length as usize) {
             // No answer for this
@@ -255,7 +281,15 @@ impl Solution {
         }
         for i in cur_index..candidates.len() {
             cur_vec.push(candidates[i]);
-            Self::dfs(target, length, i + 1, cur_sum + candidates[i], cur_vec, candidates, ans);
+            Self::dfs(
+                target,
+                length,
+                i + 1,
+                cur_sum + candidates[i],
+                cur_vec,
+                candidates,
+                ans,
+            );
             cur_vec.pop().unwrap();
         }
     }
@@ -448,6 +482,33 @@ function combinationSum3(k: number, n: number): number[][] {
 }
 ```
 
+#### JavaScript
+
+```js
+function combinationSum3(k, n) {
+    const ans = [];
+    const t = [];
+    const dfs = (i, s) => {
+        if (s === 0) {
+            if (t.length === k) {
+                ans.push(t.slice());
+            }
+            return;
+        }
+        if (i > 9 || i > s || t.length >= k) {
+            return;
+        }
+        for (let j = i; j <= 9; ++j) {
+            t.push(j);
+            dfs(j + 1, s - j);
+            t.pop();
+        }
+    };
+    dfs(1, n);
+    return ans;
+}
+```
+
 #### C#
 
 ```cs
@@ -617,6 +678,39 @@ function combinationSum3(k: number, n: number): number[][] {
 }
 
 function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
+}
+```
+
+#### JavaScript
+
+```js
+function combinationSum3(k, n) {
+    const ans = [];
+    for (let mask = 0; mask < 1 << 9; ++mask) {
+        if (bitCount(mask) === k) {
+            const t = [];
+            let s = 0;
+            for (let i = 0; i < 9; ++i) {
+                if (mask & (1 << i)) {
+                    t.push(i + 1);
+                    s += i + 1;
+                }
+            }
+            if (s === n) {
+                ans.push(t);
+            }
+        }
+    }
+    return ans;
+}
+
+function bitCount(i) {
     i = i - ((i >>> 1) & 0x55555555);
     i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
     i = (i + (i >>> 4)) & 0x0f0f0f0f;

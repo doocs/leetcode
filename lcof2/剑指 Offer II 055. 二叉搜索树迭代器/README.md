@@ -338,8 +338,8 @@ class BSTIterator {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 struct BSTIterator {
     stack: Vec<i32>,
 }
@@ -363,9 +363,7 @@ impl BSTIterator {
     fn new(root: Option<Rc<RefCell<TreeNode>>>) -> Self {
         let mut stack = Vec::new();
         Self::dfs(&root, &mut stack);
-        Self {
-            stack,
-        }
+        Self { stack }
     }
 
     fn next(&mut self) -> i32 {
@@ -375,12 +373,7 @@ impl BSTIterator {
     fn has_next(&self) -> bool {
         !self.stack.is_empty()
     }
-}/**
- * Your BSTIterator object will be instantiated and called as such:
- * let obj = BSTIterator::new(root);
- * let ret_1: i32 = obj.next();
- * let ret_2: bool = obj.has_next();
- */
+}
 ```
 
 #### JavaScript
@@ -429,6 +422,60 @@ BSTIterator.prototype.hasNext = function () {
  * var param_1 = obj.next()
  * var param_2 = obj.hasNext()
  */
+```
+
+#### Swift
+
+```swift
+/* class TreeNode {
+*     var val: Int
+*     var left: TreeNode?
+*     var right: TreeNode?
+*     init() {
+*         self.val = 0
+*         self.left = nil
+*         self.right = nil
+*     }
+*     init(_ val: Int) {
+*         self.val = val
+*         self.left = nil
+*         self.right = nil
+*     }
+*     init(_ val: Int, _ left: TreeNode?, _ right: TreeNode?) {
+*         self.val = val
+*         self.left = left
+*         self.right = right
+*     }
+* }
+*/
+
+class BSTIterator {
+    private var cur = 0
+    private var vals = [Int]()
+
+    init(_ root: TreeNode?) {
+        inorder(root)
+    }
+
+    func next() -> Int {
+        let value = vals[cur]
+        cur += 1
+        return value
+    }
+
+    func hasNext() -> Bool {
+        return cur < vals.count
+    }
+
+    private func inorder(_ root: TreeNode?) {
+        guard let node = root else {
+            return
+        }
+        inorder(node.left)
+        vals.append(node.val)
+        inorder(node.right)
+    }
+}
 ```
 
 <!-- tabs:end -->

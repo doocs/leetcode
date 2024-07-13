@@ -72,7 +72,7 @@ reader.query(4,5,6,7) // 返回 4，因为 nums[4], nums[5], nums[6], nums[7] �
 <p><strong>提示:</strong></p>
 
 <ul>
-	<li><code>5 &lt;= nums.length&nbsp;&lt;= 10^5</code></li>
+	<li><code>5 &lt;= nums.length&nbsp;&lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 1</code></li>
 </ul>
 

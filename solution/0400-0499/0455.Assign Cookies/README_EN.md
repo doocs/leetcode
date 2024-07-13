@@ -59,7 +59,18 @@ You need to output 2.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Two Pointers
+
+According to the problem description, we should prioritize giving cookies to children with smaller appetites, so as to satisfy as many children as possible.
+
+Therefore, we first sort the two arrays, and then use two pointers $i$ and $j$ to point to the head of arrays $g$ and $s$ respectively. Each time we compare the size of $g[i]$ and $s[j]$:
+
+-   If $s[j] < g[i]$, it means that the current cookie $s[j]$ cannot satisfy the current child $g[i]$. We should allocate a larger cookie to the current child, so $j$ should move to the right by one. If $j$ goes out of bounds, it means that the current child cannot be satisfied. At this time, the number of successfully allocated children is $i$, and we can return directly.
+-   If $s[j] \ge g[i]$, it means that the current cookie $s[j]$ can satisfy the current child $g[i]$. We allocate the current cookie to the current child, so both $i$ and $j$ should move to the right by one.
+
+If we have traversed the array $g$, it means that all children have been allocated cookies, and we can return the total number of children.
+
+The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(\log m + \log n)$. Where $m$ and $n$ are the lengths of arrays $g$ and $s$ respectively.
 
 <!-- tabs:start -->
 

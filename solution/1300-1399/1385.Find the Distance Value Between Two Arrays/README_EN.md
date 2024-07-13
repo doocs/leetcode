@@ -211,9 +211,7 @@ impl Solution {
                     right = mid;
                 }
             }
-            if
-                i32::abs(num - arr2[left]) <= d ||
-                (left != 0 && i32::abs(num - arr2[left - 1]) <= d)
+            if i32::abs(num - arr2[left]) <= d || (left != 0 && i32::abs(num - arr2[left - 1]) <= d)
             {
                 continue;
             }

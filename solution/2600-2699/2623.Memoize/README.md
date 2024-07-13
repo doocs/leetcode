@@ -42,7 +42,7 @@ const memoizedSum = memoize(sum);
 memoizedSum (2, 2);// "call" - 返回 4。sum() 被调用，因为之前没有使用参数 (2, 2) 调用过。
 memoizedSum (2, 2);// "call" - 返回 4。没有调用 sum()，因为前面有相同的输入。
 // "getCallCount" - 总调用数： 1
-memoizedSum(1、2);// "call" - 返回 3。sum() 被调用，因为之前没有使用参数 (1, 2) 调用过。
+memoizedSum(1, 2);// "call" - 返回 3。sum() 被调用，因为之前没有使用参数 (1, 2) 调用过。
 // "getCallCount" - 总调用数： 2
 </pre>
 

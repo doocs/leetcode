@@ -1,15 +1,15 @@
-func minimumKeypresses(s string) int {
+func minimumKeypresses(s string) (ans int) {
 	cnt := make([]int, 26)
 	for _, c := range s {
 		cnt[c-'a']++
 	}
 	sort.Ints(cnt)
-	ans := 0
-	for i, j := 1, 1; i <= 26; i++ {
-		ans += j * cnt[26-i]
+	k := 1
+	for i := 1; i <= 26; i++ {
+		ans += k * cnt[26-i]
 		if i%9 == 0 {
-			j++
+			k++
 		}
 	}
-	return ans
+	return
 }

@@ -218,7 +218,7 @@ function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | nul
 impl Solution {
     pub fn merge_two_lists(
         mut l1: Option<Box<ListNode>>,
-        mut l2: Option<Box<ListNode>>
+        mut l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
         match (l1.is_some(), l2.is_some()) {
             (false, false) => None,
@@ -307,6 +307,44 @@ public class Solution {
         }
         cur.next = l1 == null ? l2 : l1;
         return dummy.next;
+    }
+}
+```
+
+#### Swift
+
+```swift
+/* public class ListNode {
+*     var val: Int
+*     var next: ListNode?
+*     init(_ val: Int) {
+*         self.val = val
+*         self.next = nil
+*     }
+* }
+*/
+
+class Solution {
+    func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        let dummy = ListNode(0)
+        var cur: ListNode? = dummy
+        var l1 = l1
+        var l2 = l2
+
+        while let l1Node = l1, let l2Node = l2 {
+            if l1Node.val <= l2Node.val {
+                cur?.next = l1Node
+                l1 = l1Node.next
+            } else {
+                cur?.next = l2Node
+                l2 = l2Node.next
+            }
+            cur = cur?.next
+        }
+
+        cur?.next = l1 ?? l2
+
+        return dummy.next
     }
 }
 ```
@@ -490,7 +528,7 @@ function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | nul
 impl Solution {
     pub fn merge_two_lists(
         l1: Option<Box<ListNode>>,
-        l2: Option<Box<ListNode>>
+        l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
         match (l1, l2) {
             (Some(mut n1), Some(mut n2)) => {

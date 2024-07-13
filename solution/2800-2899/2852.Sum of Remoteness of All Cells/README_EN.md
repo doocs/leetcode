@@ -7,6 +7,7 @@ tags:
     - Breadth-First Search
     - Union Find
     - Array
+    - Hash Table
     - Matrix
 ---
 

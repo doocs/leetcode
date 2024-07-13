@@ -77,7 +77,11 @@ It can be shown that we cannot obtain a greater total importance than 20.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Sorting
+
+We consider the contribution of each city to the total importance of all roads, recorded in the array $\text{deg}$. Then, we sort $\text{deg}$ by contribution from smallest to largest and allocate $[1, 2, ..., n]$ to the cities in order.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
@@ -127,7 +131,9 @@ public:
         }
         sort(deg.begin(), deg.end());
         long long ans = 0;
-        for (int i = 0; i < n; ++i) ans += 1ll * (i + 1) * deg[i];
+        for (int i = 0; i < n; ++i) {
+            ans += (i + 1LL) * deg[i];
+        }
         return ans;
     }
 };
@@ -136,18 +142,31 @@ public:
 #### Go
 
 ```go
-func maximumImportance(n int, roads [][]int) int64 {
+func maximumImportance(n int, roads [][]int) (ans int64) {
 	deg := make([]int, n)
 	for _, r := range roads {
 		deg[r[0]]++
 		deg[r[1]]++
 	}
 	sort.Ints(deg)
-	var ans int64
-	for i := 0; i < n; i++ {
-		ans += int64((i + 1) * deg[i])
+	for i, x := range deg {
+		ans += int64(x) * int64(i+1)
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumImportance(n: number, roads: number[][]): number {
+    const deg: number[] = Array(n).fill(0);
+    for (const [a, b] of roads) {
+        ++deg[a];
+        ++deg[b];
+    }
+    deg.sort((a, b) => a - b);
+    return deg.reduce((acc, cur, idx) => acc + (idx + 1) * cur, 0);
 }
 ```
 

@@ -5,9 +5,7 @@ function canPartition(nums: number[]): boolean {
     }
     const n = nums.length;
     const m = s >> 1;
-    const f: boolean[][] = Array(n + 1)
-        .fill(0)
-        .map(() => Array(m + 1).fill(false));
+    const f: boolean[][] = Array.from({ length: n + 1 }, () => Array(m + 1).fill(false));
     f[0][0] = true;
     for (let i = 1; i <= n; ++i) {
         const x = nums[i - 1];

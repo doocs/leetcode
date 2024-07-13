@@ -72,7 +72,13 @@ For queries[1]: Only server with id 3 gets no request in the duration [2,4].
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Offline Queries + Sorting + Two Pointers
+
+We can sort all the queries by time from smallest to largest, and then process each query in chronological order.
+
+For each query $q = (r, i)$, its window left boundary is $l = r - x$, and we need to count how many servers received requests within the window $[l, r]$. We use two pointers $j$ and $k$ to maintain the left and right boundaries of the window, initially $j = k = 0$. Each time, if the log time pointed by $k$ is less than or equal to $r$, we add it to the window, and then move $k$ to the right by one. If the log time pointed by $j$ is less than $l$, we remove it from the window, and then move $j$ to the right by one. During the movement, we need to count how many different servers are in the window, which can be implemented using a hash table. After the movement, the number of servers that did not receive requests in the current time interval is $n$ minus the number of different servers in the hash table.
+
+The time complexity is $O(l \times \log l + m \times \log m + n)$, and the space complexity is $O(l + m)$. Here, $l$ and $n$ are the lengths of the arrays $\text{logs}$ and the number of servers, respectively, while $m$ is the length of the array $\text{queries}$.
 
 <!-- tabs:start -->
 

@@ -65,13 +65,15 @@ tags:
 
 ### 方法一：差分数组
 
-我们可以使用差分数组的思想，对于每个区间 $[l, r]$，我们将 $diff[l]$ 加 $1$，将 $diff[r + 1]$ 减 $1$。
+我们可以使用差分数组的思想，创建一个长度为 $52$ 的差分数组 $\textit{diff}$。
 
-最后遍历差分数组，累加每个位置的值，记为 $cur$，如果 $left \le i \le right$ 且 $cur = 0$，则说明 $i$ 没有被任何区间覆盖，返回 `false`。
+接下来，我们遍历数组 $\textit{ranges}$，对于每个区间 $[l, r]$，我们令 $\textit{diff}[l]$ 自增 $1$，而 $\textit{diff}[r + 1]$ 自减 $1$。
 
-否则遍历结束后，返回 `true`。
+接着，我们遍历差分数组 $\textit{diff}$，维护一个前缀和 $s$，对于每个位置 $i$，我们令 $s$ 自增 $\textit{diff}[i]$，如果 $s \le 0$ 且 $left \le i \le right$，则说明区间 $[left, right]$ 中有一个整数 $i$ 没有被覆盖，返回 $\textit{false}$。
 
-时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 和 $M$ 分别为区间的数量和区间的范围。
+如果遍历完差分数组 $\textit{diff}$ 后都没有返回 $\textit{false}$，则说明区间 $[left, right]$ 中的每个整数都被 $\textit{ranges}$ 中至少一个区间覆盖，返回 $\textit{true}$。
+
+时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $\textit{ranges}$ 的长度，而 $M$ 是区间的最大值，本题中 $M \le 50$。
 
 <!-- tabs:start -->
 
@@ -84,10 +86,10 @@ class Solution:
         for l, r in ranges:
             diff[l] += 1
             diff[r + 1] -= 1
-        cur = 0
+        s = 0
         for i, x in enumerate(diff):
-            cur += x
-            if left <= i <= right and cur == 0:
+            s += x
+            if s <= 0 and left <= i <= right:
                 return False
         return True
 ```
@@ -103,10 +105,10 @@ class Solution {
             ++diff[l];
             --diff[r + 1];
         }
-        int cur = 0;
+        int s = 0;
         for (int i = 0; i < diff.length; ++i) {
-            cur += diff[i];
-            if (i >= left && i <= right && cur == 0) {
+            s += diff[i];
+            if (s <= 0 && left <= i && i <= right) {
                 return false;
             }
         }
@@ -121,16 +123,16 @@ class Solution {
 class Solution {
 public:
     bool isCovered(vector<vector<int>>& ranges, int left, int right) {
-        int diff[52]{};
+        vector<int> diff(52);
         for (auto& range : ranges) {
             int l = range[0], r = range[1];
             ++diff[l];
             --diff[r + 1];
         }
-        int cur = 0;
-        for (int i = 0; i < 52; ++i) {
-            cur += diff[i];
-            if (i >= left && i <= right && cur <= 0) {
+        int s = 0;
+        for (int i = 0; i < diff.size(); ++i) {
+            s += diff[i];
+            if (s <= 0 && left <= i && i <= right) {
                 return false;
             }
         }
@@ -144,15 +146,15 @@ public:
 ```go
 func isCovered(ranges [][]int, left int, right int) bool {
 	diff := [52]int{}
-	for _, rg := range ranges {
-		l, r := rg[0], rg[1]
+	for _, e := range ranges {
+		l, r := e[0], e[1]
 		diff[l]++
 		diff[r+1]--
 	}
-	cur := 0
+	s := 0
 	for i, x := range diff {
-		cur += x
-		if i >= left && i <= right && cur <= 0 {
+		s += x
+		if s <= 0 && left <= i && i <= right {
 			return false
 		}
 	}
@@ -164,15 +166,15 @@ func isCovered(ranges [][]int, left int, right int) bool {
 
 ```ts
 function isCovered(ranges: number[][], left: number, right: number): boolean {
-    const diff = new Array(52).fill(0);
+    const diff: number[] = Array(52).fill(0);
     for (const [l, r] of ranges) {
         ++diff[l];
         --diff[r + 1];
     }
-    let cur = 0;
-    for (let i = 0; i < 52; ++i) {
-        cur += diff[i];
-        if (i >= left && i <= right && cur <= 0) {
+    let s = 0;
+    for (let i = 0; i < diff.length; ++i) {
+        s += diff[i];
+        if (s <= 0 && left <= i && i <= right) {
             return false;
         }
     }
@@ -190,15 +192,15 @@ function isCovered(ranges: number[][], left: number, right: number): boolean {
  * @return {boolean}
  */
 var isCovered = function (ranges, left, right) {
-    const diff = new Array(52).fill(0);
+    const diff = Array(52).fill(0);
     for (const [l, r] of ranges) {
         ++diff[l];
         --diff[r + 1];
     }
-    let cur = 0;
-    for (let i = 0; i < 52; ++i) {
-        cur += diff[i];
-        if (i >= left && i <= right && cur <= 0) {
+    let s = 0;
+    for (let i = 0; i < diff.length; ++i) {
+        s += diff[i];
+        if (s <= 0 && left <= i && i <= right) {
             return false;
         }
     }

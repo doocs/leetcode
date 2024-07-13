@@ -50,7 +50,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2061.%20%E6%B0%94%
 
 <!-- solution:start -->
 
-### 方法一：动态规划
+### 方法一：一次遍历
 
 我们用变量 $f$ 维护当前趋势相同的连续天数，用变量 $ans$ 维护最大的连续天数。
 
@@ -58,7 +58,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2061.%20%E6%B0%94%
 
 最终返回 $ans$ 即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -68,10 +68,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2061.%20%E6%B0%94%
 class Solution:
     def temperatureTrend(self, temperatureA: List[int], temperatureB: List[int]) -> int:
         ans = f = 0
-        n = len(temperatureA)
-        for i in range(n - 1):
-            x = temperatureA[i + 1] - temperatureA[i]
-            y = temperatureB[i + 1] - temperatureB[i]
+        for (a1, b1), (a2, b2) in pairwise(zip(temperatureA, temperatureB)):
+            x, y = a2 - a1, b2 - b1
             if x == y == 0 or x * y > 0:
                 f += 1
                 ans = max(ans, f)
@@ -137,6 +135,51 @@ func temperatureTrend(temperatureA []int, temperatureB []int) int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function temperatureTrend(temperatureA: number[], temperatureB: number[]): number {
+    let [ans, f] = [0, 0];
+    for (let i = 0; i < temperatureA.length - 1; ++i) {
+        let x = temperatureA[i + 1] - temperatureA[i];
+        let y = temperatureB[i + 1] - temperatureB[i];
+        if ((x === 0 && y === 0) || x * y > 0) {
+            ans = Math.max(ans, ++f);
+        } else {
+            f = 0;
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn temperature_trend(temperature_a: Vec<i32>, temperature_b: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        let mut f = 0;
+
+        for i in 0..temperature_a.len() - 1 {
+            let x = temperature_a[i + 1] - temperature_a[i];
+            let y = temperature_b[i + 1] - temperature_b[i];
+
+            if (x == 0 && y == 0) || (x > 0 && y > 0) || (x < 0 && y < 0) {
+                f += 1;
+                if f > ans {
+                    ans = f;
+                }
+            } else {
+                f = 0;
+            }
+        }
+
+        ans
+    }
 }
 ```
 

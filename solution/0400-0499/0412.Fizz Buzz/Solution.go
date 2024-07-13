@@ -1,5 +1,4 @@
-func fizzBuzz(n int) []string {
-	var ans []string
+func fizzBuzz(n int) (ans []string) {
 	for i := 1; i <= n; i++ {
 		s := &strings.Builder{}
 		if i%3 == 0 {
@@ -13,5 +12,5 @@ func fizzBuzz(n int) []string {
 		}
 		ans = append(ans, s.String())
 	}
-	return ans
+	return
 }

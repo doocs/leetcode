@@ -204,7 +204,7 @@ impl Solution {
                     // Take i-th num
                     nums[i] - dp[i + 1][j],
                     // Take j-th num
-                    nums[j] - dp[i][j - 1]
+                    nums[j] - dp[i][j - 1],
                 );
             }
         }

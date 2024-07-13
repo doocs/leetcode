@@ -210,10 +210,7 @@ impl Solution {
             mask[j] |= d[c];
         }
 
-        mask
-            .iter()
-            .filter(|&&x| x == 7)
-            .count() as i32
+        mask.iter().filter(|&&x| x == 7).count() as i32
     }
 }
 ```

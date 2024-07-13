@@ -1,15 +1,15 @@
 class Solution {
 public:
     int equalSubstring(string s, string t, int maxCost) {
-        int n = s.size();
-        int ans = 0, sum = 0;
-        for (int i = 0, j = 0; i < n; ++i) {
-            sum += abs(s[i] - t[i]);
-            while (sum > maxCost) {
-                sum -= abs(s[j] - t[j]);
-                ++j;
+        int n = s.length();
+        int ans = 0, cost = 0;
+        for (int l = 0, r = 0; r < n; ++r) {
+            cost += abs(s[r] - t[r]);
+            while (cost > maxCost) {
+                cost -= abs(s[l] - t[l]);
+                ++l;
             }
-            ans = max(ans, i - j + 1);
+            ans = max(ans, r - l + 1);
         }
         return ans;
     }

@@ -314,14 +314,7 @@ impl MyQueue {
             }
         }
     }
-}/**
- * Your MyQueue object will be instantiated and called as such:
- * let obj = MyQueue::new();
- * obj.push(x);
- * let ret_2: i32 = obj.pop();
- * let ret_3: i32 = obj.peek();
- * let ret_4: bool = obj.empty();
- */
+}
 ```
 
 #### Swift

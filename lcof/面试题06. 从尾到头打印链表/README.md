@@ -100,9 +100,11 @@ class Solution {
 class Solution {
 public:
     vector<int> reversePrint(ListNode* head) {
-        if (!head) return {};
-        vector<int> ans = reversePrint(head->next);
-        ans.push_back(head->val);
+        vector<int> ans;
+        for (; head; head = head->next) {
+            ans.push_back(head->val);
+        }
+        reverse(ans.begin(), ans.end());
         return ans;
     }
 };
@@ -145,11 +147,11 @@ func reversePrint(head *ListNode) (ans []int) {
  */
 
 function reversePrint(head: ListNode | null): number[] {
-    let ans: number[] = [];
-    for (; !!head; head = head.next) {
-        ans.unshift(head.val);
+    const ans: number[] = [];
+    for (; head; head = head.next) {
+        ans.push(head.val);
     }
-    return ans;
+    return ans.reverse();
 }
 ```
 
@@ -174,14 +176,14 @@ function reversePrint(head: ListNode | null): number[] {
 // }
 impl Solution {
     pub fn reverse_print(head: Option<Box<ListNode>>) -> Vec<i32> {
-        let mut arr: Vec<i32> = vec![];
+        let mut ans: Vec<i32> = vec![];
         let mut cur = head;
         while let Some(node) = cur {
-            arr.push(node.val);
+            ans.push(node.val);
             cur = node.next;
         }
-        arr.reverse();
-        arr
+        ans.reverse();
+        ans
     }
 }
 ```
@@ -191,9 +193,9 @@ impl Solution {
 ```js
 /**
  * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
  * }
  */
 /**
@@ -201,11 +203,11 @@ impl Solution {
  * @return {number[]}
  */
 var reversePrint = function (head) {
-    let ans = [];
-    for (; !!head; head = head.next) {
-        ans.unshift(head.val);
+    const ans = [];
+    for (; head; head = head.next) {
+        ans.push(head.val);
     }
-    return ans;
+    return ans.reverse();
 };
 ```
 
@@ -217,20 +219,49 @@ var reversePrint = function (head) {
  * public class ListNode {
  *     public int val;
  *     public ListNode next;
- *     public ListNode(int x) { val = x; }
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
  * }
  */
- public class Solution {
-     public int[] ReversePrint(ListNode head) {
-         List<int> ans = new List<int>();
-         while (head != null) {
-             ans.Add(head.val);
-             head = head.next;
-         }
-         ans.Reverse();
-         return ans.ToArray();
-     }
- }
+public class Solution {
+    public int[] ReversePrint(ListNode head) {
+        List<int> ans = new List<int>();
+        for (; head != null; head = head.next) {
+            ans.Add(head.val);
+        }
+        ans.Reverse();
+        return ans.ToArray();
+    }
+}
+```
+
+#### Swift
+
+```swift
+/* public class ListNode {
+*    public var val: Int
+*    public var next: ListNode?
+*    public init(_ val: Int) {
+*        self.val = val
+*        self.next = nil
+*    }
+* }
+*/
+
+class Solution {
+    func reversePrint(_ head: ListNode?) -> [Int] {
+        var stack = [Int]()
+        var current = head
+        while let node = current {
+            stack.append(node.val)
+            current = node.next
+        }
+
+        return stack.reversed()
+    }
+}
 ```
 
 <!-- tabs:end -->
@@ -308,11 +339,11 @@ class Solution {
 class Solution {
 public:
     vector<int> reversePrint(ListNode* head) {
-        vector<int> ans;
-        for (; head; head = head->next) {
-            ans.push_back(head->val);
+        if (!head) {
+            return {};
         }
-        reverse(ans.begin(), ans.end());
+        vector<int> ans = reversePrint(head->next);
+        ans.push_back(head->val);
         return ans;
     }
 };
@@ -400,33 +431,6 @@ var reversePrint = function (head) {
     ans.push(head.val);
     return ans;
 };
-```
-
-#### Swift
-
-```swift
-/* public class ListNode {
-*    public var val: Int
-*    public var next: ListNode?
-*    public init(_ val: Int) {
-*        self.val = val
-*        self.next = nil
-*    }
-* }
-*/
-
-class Solution {
-    func reversePrint(_ head: ListNode?) -> [Int] {
-        var stack = [Int]()
-        var current = head
-        while let node = current {
-            stack.append(node.val)
-            current = node.next
-        }
-
-        return stack.reversed()
-    }
-}
 ```
 
 <!-- tabs:end -->

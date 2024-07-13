@@ -197,10 +197,7 @@ impl Solution {
 
         while left < right {
             let mid = (left + right) >> 1;
-            let cnt = nums
-                .iter()
-                .filter(|x| **x <= (mid as i32))
-                .count();
+            let cnt = nums.iter().filter(|x| **x <= (mid as i32)).count();
             if cnt > mid {
                 right = mid;
             } else {

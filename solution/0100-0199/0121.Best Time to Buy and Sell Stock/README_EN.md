@@ -142,13 +142,13 @@ function maxProfit(prices: number[]): number {
 ```rust
 impl Solution {
     pub fn max_profit(prices: Vec<i32>) -> i32 {
-        let mut res = 0;
-        let mut min = i32::MAX;
-        for price in prices {
-            res = res.max(price - min);
-            min = min.min(price);
+        let mut ans = 0;
+        let mut mi = prices[0];
+        for &v in &prices {
+            ans = ans.max(v - mi);
+            mi = mi.min(v);
         }
-        res
+        ans
     }
 }
 ```
@@ -195,14 +195,13 @@ class Solution {
      * @return Integer
      */
     function maxProfit($prices) {
-        $win = 0;
-        $minPrice = $prices[0];
-        $len = count($prices);
-        for ($i = 1; $i < $len; $i++) {
-            $minPrice = min($minPrice, $prices[$i]);
-            $win = max($win, $prices[$i] - $minPrice);
+        $ans = 0;
+        $mi = $prices[0];
+        foreach ($prices as $v) {
+            $ans = max($ans, $v - $mi);
+            $mi = min($mi, $v);
         }
-        return $win;
+        return $ans;
     }
 }
 ```

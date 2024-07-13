@@ -70,9 +70,9 @@ tags:
 
 ### Solution 1: Enumeration
 
-We can enumerate any two horizontal fences $a$ and $b$ in $hFences$, calculate the distance $d$ between $a$ and $b$, and record it in the hash table $hs$. Then, we enumerate any two vertical fences $c$ and $d$ in $vFences$, calculate the distance $d$ between $c$ and $d$, and record it in the hash table $vs$. Finally, we traverse the hash table $hs$. If a distance $d$ in $hs$ also exists in the hash table $vs$, it means that there exists a square field with a side length of $d$ and an area of $d^2$. We just need to take the largest $d$ and calculate $d^2 \bmod 10^9 + 7$.
+We can enumerate any two horizontal fences $a$ and $b$ in $\textit{hFences}$, calculate the distance $d$ between $a$ and $b$, and record it in the hash table $hs$. Then, we enumerate any two vertical fences $c$ and $d$ in $\textit{vFences}$, calculate the distance $d$ between $c$ and $d$, and record it in the hash table $vs$. Finally, we traverse the hash table $hs$. If a certain distance $d$ in $hs$ also exists in the hash table $vs$, it indicates that there exists a square field with a side length of $d$, and the area is $d^2$. We just need to take the largest $d$ and calculate $d^2 \bmod 10^9 + 7$.
 
-The time complexity is $O(h^2 + v^2)$, and the space complexity is $O(h^2 + v^2)$. Where $h$ and $v$ are the lengths of $hFences$ and $vFences$ respectively.
+The time complexity is $O(h^2 + v^2)$, and the space complexity is $O(h^2 + v^2)$. Here, $h$ and $v$ are the lengths of $\textit{hFences}$ and $\textit{vFences}$, respectively.
 
 <!-- tabs:start -->
 

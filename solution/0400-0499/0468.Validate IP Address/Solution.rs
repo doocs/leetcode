@@ -1,54 +1,68 @@
 impl Solution {
-    fn is_IPv4(s: &String) -> bool {
-        let ss = s.split('.').collect::<Vec<&str>>();
+    pub fn valid_ip_address(query_ip: String) -> String {
+        if Self::is_ipv4(&query_ip) {
+            return "IPv4".to_string();
+        }
+        if Self::is_ipv6(&query_ip) {
+            return "IPv6".to_string();
+        }
+        "Neither".to_string()
+    }
+
+    fn is_ipv4(s: &str) -> bool {
+        if s.ends_with('.') {
+            return false;
+        }
+        let ss: Vec<&str> = s.split('.').collect();
         if ss.len() != 4 {
             return false;
         }
-        for s in ss {
-            match s.parse::<i32>() {
-                Err(_) => {
-                    return false;
+        for t in ss {
+            if t.is_empty() || (t.len() > 1 && t.starts_with('0')) {
+                return false;
+            }
+            match Self::convert(t) {
+                Some(x) if x <= 255 => {
+                    continue;
                 }
-                Ok(num) => {
-                    if num < 0 || num > 255 || num.to_string() != s.to_string() {
-                        return false;
-                    }
+                _ => {
+                    return false;
                 }
             }
         }
         true
     }
 
-    fn is_IPv6(s: &String) -> bool {
-        let ss = s.split(':').collect::<Vec<&str>>();
+    fn is_ipv6(s: &str) -> bool {
+        if s.ends_with(':') {
+            return false;
+        }
+        let ss: Vec<&str> = s.split(':').collect();
         if ss.len() != 8 {
             return false;
         }
-        for s in ss {
-            if s.len() == 0 || s.len() > 4 {
+        for t in ss {
+            if t.len() < 1 || t.len() > 4 {
                 return false;
             }
-            for &c in s.as_bytes() {
-                if
-                    (c >= b'0' && c <= b'9') ||
-                    (c >= b'a' && c <= b'f') ||
-                    (c >= b'A' && c <= b'F')
-                {
-                    continue;
-                }
+            if !t.chars().all(|c| c.is_digit(16)) {
                 return false;
             }
         }
         true
     }
 
-    pub fn valid_ip_address(query_ip: String) -> String {
-        if Self::is_IPv4(&query_ip) {
-            return String::from("IPv4");
+    fn convert(s: &str) -> Option<i32> {
+        let mut x = 0;
+        for c in s.chars() {
+            if !c.is_digit(10) {
+                return None;
+            }
+            x = x * 10 + (c.to_digit(10).unwrap() as i32);
+            if x > 255 {
+                return Some(x);
+            }
         }
-        if Self::is_IPv6(&query_ip) {
-            return String::from("IPv6");
-        }
-        String::from("Neither")
+        Some(x)
     }
 }

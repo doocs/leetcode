@@ -66,7 +66,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表
+
+我们用一个哈希表来存储糖果的种类，如果糖果的种类数小于 $n / 2$，那么 Alice 最多可以吃到的糖果种类数就是糖果的种类数；否则，Alice 最多可以吃到的糖果种类数就是 $n / 2$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为糖果的数量。
 
 <!-- tabs:start -->
 
@@ -98,8 +102,7 @@ class Solution {
 class Solution {
 public:
     int distributeCandies(vector<int>& candyType) {
-        unordered_set<int> s;
-        for (int c : candyType) s.insert(c);
+        unordered_set<int> s(candyType.begin(), candyType.end());
         return min(candyType.size() >> 1, s.size());
     }
 };
@@ -114,6 +117,15 @@ func distributeCandies(candyType []int) int {
 		s.Add(c)
 	}
 	return min(len(candyType)>>1, s.Size())
+}
+```
+
+#### TypeScript
+
+```ts
+function distributeCandies(candyType: number[]): number {
+    const s = new Set(candyType);
+    return Math.min(s.size, candyType.length >> 1);
 }
 ```
 

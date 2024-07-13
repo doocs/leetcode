@@ -106,13 +106,14 @@ var sumNums = function (n: number): number {
 ```rust
 impl Solution {
     pub fn sum_nums(mut n: i32) -> i32 {
-        n != 0 &&
-            (
+        n != 0
+            && (
                 {
                     n += Solution::sum_nums(n - 1);
                 },
                 true,
-            ).1;
+            )
+                .1;
         n
     }
 }
@@ -143,6 +144,18 @@ public class Solution {
     public bool helper(int n) {
         result += n;
         return n == 0 || helper(n - 1);
+    }
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func sumNums(_ n: Int) -> Int {
+        var s = n
+        let _ = n > 0 && { s += sumNums(n - 1); return true }()
+        return s
     }
 }
 ```

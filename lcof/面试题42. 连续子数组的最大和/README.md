@@ -65,7 +65,7 @@ $$
 
 我们可以不用开一个数组来存储所有的计算结果，而是只用两个变量 $f$ 和 $ans$ 来维护对于每一个位置 $i$ 我们的最大值，这样我们可以省去空间复杂度的开销。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -185,6 +185,24 @@ public class Solution {
             ans = Math.Max(ans, f);
         }
         return ans;
+    }
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func maxSubArray(_ nums: [Int]) -> Int {
+        var ans = Int.min
+        var currentSum = 0
+
+        for x in nums {
+            currentSum = max(currentSum, 0) + x
+            ans = max(ans, currentSum)
+        }
+
+        return ans
     }
 }
 ```

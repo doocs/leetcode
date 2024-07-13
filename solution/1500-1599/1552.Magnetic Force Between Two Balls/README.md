@@ -64,9 +64,13 @@ tags:
 
 ### 方法一：二分查找
 
-先对 position 进行排序。
+我们注意到，任意两球间的最小磁力越大，能够放入的球的数量就越少，这存在着单调性。我们可以使用二分查找，找到最大的最小磁力，使得能够放入的球的数量不小于 $m$。
 
-然后二分枚举磁力值（相邻两球的最小间距），统计当前最小磁力值下能放下多少个小球，记为 cnt。若 `cnt >= m`，说明此磁力值符合条件。继续二分查找，最终找到符合条件的最大磁力值。
+我们首先对篮子的位置进行排序，然后使用二分查找的方法，定义二分查找的左边界 $l = 1$，右边界 $r = \text{position}[n - 1]$，其中 $n$ 为篮子的数量。在每次二分查找的过程中，我们计算取中值 $m = (l + r + 1) / 2$，然后判断是否存在一种放置球的方法，使得能够放入的球的数量不小于 $m$。
+
+问题转换为判断一个给定的最小磁力 $f$ 是否能够放入 $m$ 个球。我们可以从左到右遍历篮子的位置，如果上一个球的位置与当前篮子的位置的距离大于等于 $f$，则说明可以在当前篮子放置一个球。最后判断放置的球的数量是否不小于 $m$ 即可。
+
+时间复杂度 $O(n \times \log n + n \times \log M)$，空间复杂度 $O(\log n)$。其中 $n$ 和 $M$ 分别为篮子的数量和篮子的位置的最大值。
 
 <!-- tabs:start -->
 
@@ -75,56 +79,51 @@ tags:
 ```python
 class Solution:
     def maxDistance(self, position: List[int], m: int) -> int:
-        def check(f):
-            prev = position[0]
-            cnt = 1
-            for curr in position[1:]:
+        def check(f: int) -> bool:
+            prev = -inf
+            cnt = 0
+            for curr in position:
                 if curr - prev >= f:
                     prev = curr
                     cnt += 1
-            return cnt >= m
+            return cnt < m
 
         position.sort()
-        left, right = 1, position[-1]
-        while left < right:
-            mid = (left + right + 1) >> 1
-
-            if check(mid):
-                left = mid
-            else:
-                right = mid - 1
-        return left
+        l, r = 1, position[-1]
+        return bisect_left(range(l, r + 1), True, key=check)
 ```
 
 #### Java
 
 ```java
 class Solution {
+    private int[] position;
+
     public int maxDistance(int[] position, int m) {
         Arrays.sort(position);
-        int left = 1, right = position[position.length - 1];
-        while (left < right) {
-            int mid = (left + right + 1) >>> 1;
-            if (check(position, mid, m)) {
-                left = mid;
+        this.position = position;
+        int l = 1, r = position[position.length - 1];
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (count(mid) >= m) {
+                l = mid;
             } else {
-                right = mid - 1;
+                r = mid - 1;
             }
         }
-        return left;
+        return l;
     }
 
-    private boolean check(int[] position, int f, int m) {
+    private int count(int f) {
         int prev = position[0];
         int cnt = 1;
-        for (int i = 1; i < position.length; ++i) {
-            int curr = position[i];
+        for (int curr : position) {
             if (curr - prev >= f) {
-                prev = curr;
                 ++cnt;
+                prev = curr;
             }
         }
-        return cnt >= m;
+        return cnt;
     }
 }
 ```
@@ -136,28 +135,27 @@ class Solution {
 public:
     int maxDistance(vector<int>& position, int m) {
         sort(position.begin(), position.end());
-        int left = 1, right = position[position.size() - 1];
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
-            if (check(position, mid, m))
-                left = mid;
-            else
-                right = mid - 1;
-        }
-        return left;
-    }
-
-    bool check(vector<int>& position, int f, int m) {
-        int prev = position[0];
-        int cnt = 1;
-        for (int i = 1; i < position.size(); ++i) {
-            int curr = position[i];
-            if (curr - prev >= f) {
-                prev = curr;
-                ++cnt;
+        int l = 1, r = position.back();
+        auto count = [&](int f) {
+            int prev = position[0];
+            int cnt = 1;
+            for (int& curr : position) {
+                if (curr - prev >= f) {
+                    prev = curr;
+                    cnt++;
+                }
+            }
+            return cnt;
+        };
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (count(mid) >= m) {
+                l = mid;
+            } else {
+                r = mid - 1;
             }
         }
-        return cnt >= m;
+        return l;
     }
 };
 ```
@@ -167,26 +165,46 @@ public:
 ```go
 func maxDistance(position []int, m int) int {
 	sort.Ints(position)
-	left, right := 1, position[len(position)-1]
-	check := func(f int) bool {
-		prev, cnt := position[0], 1
-		for _, curr := range position[1:] {
+	return sort.Search(position[len(position)-1], func(f int) bool {
+		prev := position[0]
+		cnt := 1
+		for _, curr := range position {
 			if curr-prev >= f {
-				prev = curr
 				cnt++
+				prev = curr
 			}
 		}
-		return cnt >= m
-	}
-	for left < right {
-		mid := (left + right + 1) >> 1
-		if check(mid) {
-			left = mid
-		} else {
-			right = mid - 1
-		}
-	}
-	return left
+		return cnt < m
+	}) - 1
+}
+```
+
+#### TypeScript
+
+```ts
+function maxDistance(position: number[], m: number): number {
+    position.sort((a, b) => a - b);
+    let [l, r] = [1, position.at(-1)!];
+    const count = (f: number): number => {
+        let cnt = 1;
+        let prev = position[0];
+        for (const curr of position) {
+            if (curr - prev >= f) {
+                cnt++;
+                prev = curr;
+            }
+        }
+        return cnt;
+    };
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (count(mid) >= m) {
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
+    }
+    return l;
 }
 ```
 
@@ -199,32 +217,28 @@ func maxDistance(position []int, m int) int {
  * @return {number}
  */
 var maxDistance = function (position, m) {
-    position.sort((a, b) => {
-        return a - b;
-    });
-    let left = 1,
-        right = position[position.length - 1];
-    const check = function (f) {
-        let prev = position[0];
+    position.sort((a, b) => a - b);
+    let [l, r] = [1, position.at(-1)];
+    const count = f => {
         let cnt = 1;
-        for (let i = 1; i < position.length; ++i) {
-            const curr = position[i];
+        let prev = position[0];
+        for (const curr of position) {
             if (curr - prev >= f) {
+                cnt++;
                 prev = curr;
-                ++cnt;
             }
         }
-        return cnt >= m;
+        return cnt;
     };
-    while (left < right) {
-        const mid = (left + right + 1) >> 1;
-        if (check(mid)) {
-            left = mid;
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (count(mid) >= m) {
+            l = mid;
         } else {
-            right = mid - 1;
+            r = mid - 1;
         }
     }
-    return left;
+    return l;
 };
 ```
 

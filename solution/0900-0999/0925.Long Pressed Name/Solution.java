@@ -2,23 +2,23 @@ class Solution {
     public boolean isLongPressedName(String name, String typed) {
         int m = name.length(), n = typed.length();
         int i = 0, j = 0;
-        for (; i < m && j < n; ++i, ++j) {
+        while (i < m && j < n) {
             if (name.charAt(i) != typed.charAt(j)) {
                 return false;
             }
-            int cnt1 = 0, cnt2 = 0;
-            char c = name.charAt(i);
-            while (i + 1 < m && name.charAt(i + 1) == c) {
-                ++i;
-                ++cnt1;
+            int x = i + 1;
+            while (x < m && name.charAt(x) == name.charAt(i)) {
+                ++x;
             }
-            while (j + 1 < n && typed.charAt(j + 1) == c) {
-                ++j;
-                ++cnt2;
+            int y = j + 1;
+            while (y < n && typed.charAt(y) == typed.charAt(j)) {
+                ++y;
             }
-            if (cnt1 > cnt2) {
+            if (x - i > y - j) {
                 return false;
             }
+            i = x;
+            j = y;
         }
         return i == m && j == n;
     }

@@ -77,7 +77,18 @@ Total points earned: 2 + 5 = 7. There is no other way to earn 7 or more points.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoization Search
+
+We design a function $dfs(i)$, which represents the maximum score that can be obtained starting from the $i$-th problem. Therefore, the answer is $dfs(0)$.
+
+The calculation method of the function $dfs(i)$ is as follows:
+
+-   If $i \geq n$, it means that all problems have been solved, return $0$;
+-   Otherwise, let the score of the $i$-th problem be $p$, and the number of problems to skip be $b$, then $dfs(i) = \max(p + dfs(i + b + 1), dfs(i + 1))$.
+
+To avoid repeated calculations, we can use the method of memoization search, using an array $f$ to record the values of all already computed $dfs(i)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of problems.
 
 <!-- tabs:start -->
 
@@ -196,7 +207,19 @@ function mostPoints(questions: number[][]): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming
+
+We define $f[i]$ as the maximum score that can be obtained starting from the $i$-th problem. Therefore, the answer is $f[0]$.
+
+Considering $f[i]$, let the score of the $i$-th problem be $p$, and the number of problems to skip be $b$. If we solve the $i$-th problem, then we need to solve the problem after skipping $b$ problems, thus $f[i] = p + f[i + b + 1]$. If we skip the $i$-th problem, then we start solving from the $(i + 1)$-th problem, thus $f[i] = f[i + 1]$. We take the maximum value of the two. The state transition equation is as follows:
+
+$$
+f[i] = \max(p + f[i + b + 1], f[i + 1])
+$$
+
+We calculate the values of $f$ from back to front, and finally return $f[0]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of problems.
 
 <!-- tabs:start -->
 

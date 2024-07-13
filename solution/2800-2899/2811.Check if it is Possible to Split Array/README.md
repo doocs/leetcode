@@ -22,51 +22,69 @@ tags:
 
 <p>给你一个长度为 <code>n</code> 的数组 <code>nums</code> 和一个整数 <code>m</code> 。请你判断能否执行一系列操作，将数组拆分成 <code>n</code> 个 <strong>非空 </strong>数组。</p>
 
-<p>在每一步操作中，你可以选择一个 <strong>长度至少为 2</strong> 的现有数组（之前步骤的结果） 并将其拆分成 <strong>2</strong> 个子数组，而得到的 <strong>每个</strong> 子数组，<strong>至少</strong> 需要满足以下条件之一：</p>
+<p>一个数组被称为 <strong>好</strong> 的，如果：</p>
 
 <ul>
 	<li>子数组的长度为 1 ，或者</li>
 	<li>子数组元素之和 <strong>大于或等于</strong>&nbsp; <code>m</code> 。</li>
 </ul>
 
-<p>如果你可以将给定数组拆分成 <code>n</code> 个满足要求的数组，返回 <code>true</code><em> </em>；否则，返回 <code>false</code> 。</p>
+<p>在每一步操作中，你可以选择一个 <strong>长度至少为 2</strong> 的现有数组（之前步骤的结果） 并将其拆分成 <strong>2</strong> 个子数组，而得到的 <strong>每个</strong> 子数组都需要是好的。</p>
 
-<p><strong>注意：</strong>子数组是数组中的一个连续非空元素序列。</p>
+<p>如果你可以将给定数组拆分成 <code>n</code> 个满足要求的数组，返回 <code>true</code><em> </em>；否则，返回 <code>false</code> 。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>nums = [2, 2, 1], m = 4
-<strong>输出：</strong>true
-<strong>解释：</strong>
-第 1 步，将数组 nums 拆分成 [2, 2] 和 [1] 。
-第 2 步，将数组 [2, 2] 拆分成 [2] 和 [2] 。
-因此，答案为 true 。</pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums = [2, 2, 1], m = 4</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><span class="example-io"><b>输出：</b>true</span></p>
 
-<pre>
-<strong>输入：</strong>nums = [2, 1, 3], m = 5 
-<strong>输出：</strong>false
-<strong>解释：
-</strong>存在两种不同的拆分方法：
-第 1 种，将数组 nums 拆分成 [2, 1] 和 [3] 。
-第 2 种，将数组 nums 拆分成 [2] 和 [1, 3] 。
-然而，这两种方法都不满足题意。因此，答案为 false 。</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<ul>
+	<li>将 <code>[2, 2, 1]</code> <span class="example-io">切分为</span> <code>[2, 2]</code> 和&nbsp;<code>[1]</code>。数组 <code>[1]</code> 的长度为 1，数组 <code>[2, 2]</code> 的元素之和等于 <code>4 &gt;= m</code>，所以两者都是好的数组。</li>
+	<li>将 <code>[2, 2]</code> <span class="example-io">切分为</span> <code>[2]</code> 和&nbsp;<code>[2]</code>。两个数组的长度都是 1，所以都是好的数组。</li>
+</ul>
+</div>
 
-<pre>
-<strong>输入：</strong>nums = [2, 3, 3, 2, 3], m = 6
-<strong>输出：</strong>true
-<strong>解释：</strong>
-第 1 步，将数组 nums 拆分成 [2, 3, 3, 2] 和 [3] 。
-第 2 步，将数组 [2, 3, 3, 2] 拆分成 [2, 3, 3] 和 [2] 。
-第 3 步，将数组 [2, 3, 3] 拆分成 [2] 和 [3, 3] 。
-第 4 步，将数组 [3, 3] 拆分成 [3] 和 [3] 。
-因此，答案为 true 。 </pre>
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b></span><span class="example-io">nums = [2, 1, 3], m = 5</span></p>
+
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">false</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>第一步必须是以下之一：</p>
+
+<ul>
+	<li>将&nbsp;<code>[2, 1, 3]</code> <span class="example-io">切分为</span> <code>[2, 1]</code> 和&nbsp;<code>[3]</code>。数组&nbsp;<code>[2, 1]</code> 既不是长度为 1，也没有大于或等于 <code>m</code> 的元素和。</li>
+	<li>将 <code>[2, 1, 3]</code> <span class="example-io">切分为</span> <code>[2]</code> 和 <code>[1, 3]</code>。数组&nbsp;<code>[1, 3]</code> 既不是长度为 1，也没有大于或等于 <code>m</code> 的元素和。</li>
+</ul>
+
+<p>因此，由于这两个操作都无效（它们没有将数组分成两个好的数组），因此我们无法将 <code>nums</code> 分成 <code>n</code> 个大小为 1 的数组。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b></span><span class="example-io">nums = [2, 3, 3, 2, 3], m = 6</span></p>
+
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">true</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li><span class="example-io">将&nbsp;<code>[2, 3, 3, 2, 3]</code>&nbsp;切分为&nbsp;<code>[2]</code> 和&nbsp;<code>[3, 3, 2, 3]</code>。</span></li>
+	<li><span class="example-io">将 <code>[3, 3, 2, 3]</code> 切分为 <code>[3, 3, 2]</code> 和 <code>[3]</code>。</span></li>
+	<li><span class="example-io">将 <code>[3, 3, 2]</code> 切分为 <code>[3, 3]</code> 和 <code>[2]</code>。</span></li>
+	<li><span class="example-io">将 <code>[3, 3]</code> 切分为 <code>[3]</code> 和 <code>[3]</code>。</span></li>
+</ul>
+</div>
 
 <p>&nbsp;</p>
 

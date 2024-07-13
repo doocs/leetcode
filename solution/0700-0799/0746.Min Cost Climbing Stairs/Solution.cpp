@@ -2,10 +2,17 @@ class Solution {
 public:
     int minCostClimbingStairs(vector<int>& cost) {
         int n = cost.size();
-        vector<int> f(n + 1);
-        for (int i = 2; i <= n; ++i) {
-            f[i] = min(f[i - 2] + cost[i - 2], f[i - 1] + cost[i - 1]);
-        }
-        return f[n];
+        int f[n];
+        memset(f, -1, sizeof(f));
+        auto dfs = [&](auto&& dfs, int i) -> int {
+            if (i >= n) {
+                return 0;
+            }
+            if (f[i] < 0) {
+                f[i] = cost[i] + min(dfs(dfs, i + 1), dfs(dfs, i + 2));
+            }
+            return f[i];
+        };
+        return min(dfs(dfs, 0), dfs(dfs, 1));
     }
 };

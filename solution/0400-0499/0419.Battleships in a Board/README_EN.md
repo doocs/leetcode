@@ -24,7 +24,7 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0419.Battleships%20in%20a%20Board/images/battelship-grid.jpg" style="width: 333px; height: 333px;" />
+<img height="333" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0419.Battleships%20in%20a%20Board/images/image.png" width="333" />
 <pre>
 <strong>Input:</strong> board = [[&quot;X&quot;,&quot;.&quot;,&quot;.&quot;,&quot;X&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;X&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;X&quot;]]
 <strong>Output:</strong> 2
@@ -56,7 +56,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Direct Iteration
+
+We can iterate through the matrix, find the top-left corner of each battleship, i.e., the position where the current position is `X` and both the top and left are not `X`, and increment the answer by one.
+
+After the iteration ends, return the answer.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -115,9 +121,15 @@ public:
         int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (board[i][j] == '.') continue;
-                if (i > 0 && board[i - 1][j] == 'X') continue;
-                if (j > 0 && board[i][j - 1] == 'X') continue;
+                if (board[i][j] == '.') {
+                    continue;
+                }
+                if (i > 0 && board[i - 1][j] == 'X') {
+                    continue;
+                }
+                if (j > 0 && board[i][j - 1] == 'X') {
+                    continue;
+                }
                 ++ans;
             }
         }
@@ -129,12 +141,10 @@ public:
 #### Go
 
 ```go
-func countBattleships(board [][]byte) int {
-	m, n := len(board), len(board[0])
-	ans := 0
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if board[i][j] == '.' {
+func countBattleships(board [][]byte) (ans int) {
+	for i, row := range board {
+		for j, c := range row {
+			if c == '.' {
 				continue
 			}
 			if i > 0 && board[i-1][j] == 'X' {
@@ -146,7 +156,32 @@ func countBattleships(board [][]byte) int {
 			ans++
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countBattleships(board: string[][]): number {
+    const m = board.length;
+    const n = board[0].length;
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (board[i][j] === '.') {
+                continue;
+            }
+            if (i && board[i - 1][j] === 'X') {
+                continue;
+            }
+            if (j && board[i][j - 1] === 'X') {
+                continue;
+            }
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 

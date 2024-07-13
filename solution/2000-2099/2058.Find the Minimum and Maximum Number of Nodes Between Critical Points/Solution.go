@@ -6,22 +6,19 @@
  * }
  */
 func nodesBetweenCriticalPoints(head *ListNode) []int {
-	prev, curr := head, head.Next
-	first, last := 0, 0
-	i := 1
-	ans := []int{math.MaxInt32, 0}
-	for curr.Next != nil {
-		if curr.Val < min(prev.Val, curr.Next.Val) || curr.Val > max(prev.Val, curr.Next.Val) {
-			if last == 0 {
+	ans := []int{1 << 30, 0}
+	first, last := -1, -1
+	for i := 0; head.Next.Next != nil; head, i = head.Next, i+1 {
+		a, b, c := head.Val, head.Next.Val, head.Next.Next.Val
+		if b < min(a, c) || b > max(a, c) {
+			if last == -1 {
 				first, last = i, i
 			} else {
 				ans[0] = min(ans[0], i-last)
-				ans[1] = i - first
 				last = i
+				ans[1] = max(ans[1], last-first)
 			}
 		}
-		i++
-		prev, curr = curr, curr.Next
 	}
 	if first == last {
 		return []int{-1, -1}

@@ -43,7 +43,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Pointers
+
+We use two pointers $i$ and $j$, initially pointing to the start and end of the array respectively. Each time, we swap the elements at $i$ and $j$, then move $i$ forward and $j$ backward, until $i$ and $j$ meet.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -136,35 +140,6 @@ var reverseString = function (s) {
         [s[i], s[j]] = [s[j], s[i]];
     }
 };
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def reverseString(self, s: List[str]) -> None:
-        s[:] = s[::-1]
-```
-
-#### TypeScript
-
-```ts
-/**
- Do not return anything, modify s in-place instead.
- */
-function reverseString(s: string[]): void {
-    s.reverse();
-}
 ```
 
 <!-- tabs:end -->

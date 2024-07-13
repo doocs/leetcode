@@ -8,17 +8,21 @@
  */
 
 func search(reader ArrayReader, target int) int {
-	left, right := 0, 20000
-	for left < right {
-		mid := (left + right) >> 1
+	r := 1
+	for reader.get(r) < target {
+		r <<= 1
+	}
+	l := r >> 1
+	for l < r {
+		mid := (l + r) >> 1
 		if reader.get(mid) >= target {
-			right = mid
+			r = mid
 		} else {
-			left = mid + 1
+			l = mid + 1
 		}
 	}
-	if reader.get(left) == target {
-		return left
+	if reader.get(l) == target {
+		return l
 	}
 	return -1
 }

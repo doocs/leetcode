@@ -76,9 +76,9 @@ tags:
 
 ### 方法一：双指针
 
-我们可以使用双指针，将数组 $nums$ 分成若干个子数组，每个子数组中的元素的二进制表示中 $1$ 的个数相同。对于每个子数组，我们只需要关注它的最大值和最小值，如果最小值比上一个子数组的最大值小，那么就无法通过交换使得数组有序。
+我们可以使用双指针，将数组 $\textit{nums}$ 分成若干个子数组，每个子数组中的元素的二进制表示中 $1$ 的个数相同。对于每个子数组，我们只需要关注它的最大值和最小值，如果最小值比上一个子数组的最大值小，那么就无法通过交换使得数组有序。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -87,11 +87,11 @@ tags:
 ```python
 class Solution:
     def canSortArray(self, nums: List[int]) -> bool:
-        pre_mx = -inf
+        pre_mx = 0
         i, n = 0, len(nums)
         while i < n:
-            j = i + 1
             cnt = nums[i].bit_count()
+            j = i + 1
             mi = mx = nums[i]
             while j < n and nums[j].bit_count() == cnt:
                 mi = min(mi, nums[j])
@@ -109,11 +109,11 @@ class Solution:
 ```java
 class Solution {
     public boolean canSortArray(int[] nums) {
-        int preMx = -300;
+        int preMx = 0;
         int i = 0, n = nums.length;
         while (i < n) {
-            int j = i + 1;
             int cnt = Integer.bitCount(nums[i]);
+            int j = i + 1;
             int mi = nums[i], mx = nums[i];
             while (j < n && Integer.bitCount(nums[j]) == cnt) {
                 mi = Math.min(mi, nums[j]);
@@ -137,11 +137,11 @@ class Solution {
 class Solution {
 public:
     bool canSortArray(vector<int>& nums) {
-        int preMx = -300;
+        int preMx = 0;
         int i = 0, n = nums.size();
         while (i < n) {
-            int j = i + 1;
             int cnt = __builtin_popcount(nums[i]);
+            int j = i + 1;
             int mi = nums[i], mx = nums[i];
             while (j < n && __builtin_popcount(nums[j]) == cnt) {
                 mi = min(mi, nums[j]);
@@ -163,11 +163,11 @@ public:
 
 ```go
 func canSortArray(nums []int) bool {
-	preMx := -300
+	preMx := 0
 	i, n := 0, len(nums)
 	for i < n {
-		j := i + 1
 		cnt := bits.OnesCount(uint(nums[i]))
+		j := i + 1
 		mi, mx := nums[i], nums[i]
 		for j < n && bits.OnesCount(uint(nums[j])) == cnt {
 			mi = min(mi, nums[j])
@@ -188,11 +188,11 @@ func canSortArray(nums []int) bool {
 
 ```ts
 function canSortArray(nums: number[]): boolean {
-    let preMx = -300;
+    let preMx = 0;
     const n = nums.length;
     for (let i = 0; i < n; ) {
-        let j = i + 1;
         const cnt = bitCount(nums[i]);
+        let j = i + 1;
         let [mi, mx] = [nums[i], nums[i]];
         while (j < n && bitCount(nums[j]) === cnt) {
             mi = Math.min(mi, nums[j]);

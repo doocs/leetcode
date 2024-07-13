@@ -348,13 +348,7 @@ impl FrequencyTracker {
     fn has_frequency(&self, frequency: i32) -> bool {
         self.freq.get(&frequency).map_or(false, |&freq| freq > 0)
     }
-}/**
- * Your FrequencyTracker object will be instantiated and called as such:
- * let obj = FrequencyTracker::new();
- * obj.add(number);
- * obj.delete_one(number);
- * let ret_3: bool = obj.has_frequency(frequency);
- */
+}
 ```
 
 <!-- tabs:end -->

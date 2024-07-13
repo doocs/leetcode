@@ -23,44 +23,56 @@ tags:
 
 <p>给定两个整数数组&nbsp;<code>position</code>&nbsp;和&nbsp;<code>speed</code>&nbsp;，长度都是 <code>n</code> ，其中&nbsp;<code>position[i]</code>&nbsp;是第 <code>i</code> 辆车的位置，&nbsp;<code>speed[i]</code>&nbsp;是第 <code>i</code> 辆车的速度(单位是英里/小时)。</p>
 
-<p>一辆车永远不会超过前面的另一辆车，但它可以追上去，并与前车 <strong>以相同的速度</strong> 紧接着行驶。此时，我们会忽略这两辆车之间的距离，也就是说，它们被假定处于相同的位置。</p>
+<p>一辆车永远不会超过前面的另一辆车，但它可以追上去，并以较慢车的速度在另一辆车旁边行驶。</p>
 
-<p><strong>车队</strong><em>&nbsp;</em>是一些由行驶在相同位置、具有相同速度的车组成的非空集合。注意，一辆车也可以是一个车队。</p>
+<p><strong>车队 </strong>是指并排行驶的一辆或几辆汽车。车队的速度是车队中 <strong>最慢</strong> 的车的速度。</p>
 
-<p>即便一辆车在目的地才赶上了一个车队，它们仍然会被视作是同一个车队。</p>
+<p>即便一辆车在&nbsp;<code>target</code> 才赶上了一个车队，它们仍然会被视作是同一个车队。</p>
 
-<p>返回到达目的地的 <strong>车队数量</strong> 。</p>
+<p>返回到达目的地的车队数量 。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]
-<strong>输出：</strong>3
-<strong>解释：</strong>
-从 10 和 8 开始的车会组成一个车队，它们在 12 处相遇。
-从 0 处开始的车无法追上其它车，所以它自己就是一个车队。
-从 5 和 3 开始的车会组成一个车队，它们在 6 处相遇。
-请注意，在到达目的地之前没有其它车会遇到这些车队，所以答案是 3。
-</pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]</span></p>
 
-<p><strong>示例 2:</strong></p>
+<p><span class="example-io"><b>输出：</b>3</span></p>
 
-<pre>
-<strong>输入:</strong> target = 10, position = [3], speed = [3]
-<strong>输出:</strong> 1
-<strong>解释:</strong> 只有一辆车，因此只有一个车队。
-</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例 3:</strong></p>
+<ul>
+	<li>从 10（速度为 2）和 8（速度为 4）开始的车会组成一个车队，它们在 12 相遇。车队在&nbsp;<code>target</code>&nbsp;形成。</li>
+	<li>从 0（速度为 1）开始的车不会追上其它任何车，所以它自己是一个车队。</li>
+	<li>从 5（速度为 1） 和 3（速度为 3）开始的车组成一个车队，在 6 相遇。车队以速度 1 移动直到它到达&nbsp;<code>target</code>。</li>
+</ul>
+</div>
 
-<pre>
-<strong>输入:</strong> target = 100, position = [0,2,4], speed = [4,2,1]
-<strong>输出:</strong> 1
-<strong>解释:</strong>
-以0(速度4)和2(速度2)出发的车辆组成车队，在4点相遇。舰队以2的速度前进。
-然后，车队(速度2)和以4(速度1)出发的汽车组成一个车队，在6点相遇。舰队以1的速度前进，直到到达目标。</pre>
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b></span><span class="example-io">target = 10, position = [3], speed = [3]</span></p>
+
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">1</span></p>
+
+<p><strong>解释：</strong></p>
+只有一辆车，因此只有一个车队。</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b></span><span class="example-io">target = 100, position = [0,2,4], speed = [4,2,1]</span></p>
+
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">1</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>从 0（速度为 4） 和 2（速度为 2）开始的车组成一个车队，在 4&nbsp;相遇。从 4 开始的车（速度为 1）移动到了 5。</li>
+	<li>然后，在 4（速度为 2）的车队和在 5（速度为 1）的车成为一个车队，在 6 相遇。车队以速度 1 移动直到它到达&nbsp;<code>target</code>。</li>
+</ul>
+</div>
 
 <p>&nbsp;</p>
 

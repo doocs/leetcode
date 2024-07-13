@@ -8,7 +8,11 @@ impl Solution {
             }
             if bs[i] == b'(' {
                 ans.push_str({
-                    if bs[i + 1] == b')' { "o" } else { "al" }
+                    if bs[i + 1] == b')' {
+                        "o"
+                    } else {
+                        "al"
+                    }
                 });
             }
         }

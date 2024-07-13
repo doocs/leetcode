@@ -177,64 +177,20 @@ function semiOrderedPermutation(nums: number[]): number {
 ```rust
 impl Solution {
     pub fn semi_ordered_permutation(nums: Vec<i32>) -> i32 {
-        let mut i = 0;
-        let mut j = 0;
-        let mut n = nums.len();
-
-        for idx in 0..n {
-            if nums[idx] == 1 {
-                i = idx;
-            }
-            if nums[idx] == (n as i32) {
-                j = idx;
-            }
-        }
-
-        let mut ans = i - 1 + n - j;
-        if i > j {
-            ans = i - 1 + n - j - 1;
-        }
-
-        ans as i32
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn semi_ordered_permutation(nums: Vec<i32>) -> i32 {
         let n = nums.len();
-        let i = nums
-            .iter()
-            .enumerate()
-            .find(|&(_, &v)| v == 1)
-            .map(|(i, _)| i)
-            .unwrap();
-        let j = nums
-            .iter()
-            .enumerate()
-            .find(|&(_, &v)| v == (n as i32))
-            .map(|(i, _)| i)
-            .unwrap();
+        let (mut i, mut j) = (0, 0);
 
-        let mut ans = i - 1 + n - j;
-        if i > j {
-            ans = i - 1 + n - j - 1;
+        for k in 0..n {
+            if nums[k] == 1 {
+                i = k;
+            }
+            if nums[k] == (n as i32) {
+                j = k;
+            }
         }
 
-        ans as i32
+        let k = if i < j { 1 } else { 2 };
+        (i + n - j - k) as i32
     }
 }
 ```

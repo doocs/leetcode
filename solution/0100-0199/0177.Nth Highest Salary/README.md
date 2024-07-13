@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [177. 第 N 高的薪水](https://leetcode.cn/problems/nth-highest-salary)
+# [177. 第N高的薪水](https://leetcode.cn/problems/nth-highest-salary)
 
 [English Version](/solution/0100-0199/0177.Nth%20Highest%20Salary/README_EN.md)
 

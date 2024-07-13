@@ -20,7 +20,7 @@ tags:
 
 <!-- description:start -->
 
-<p>There are <code>n</code> seats and <code>n</code> students in a room. You are given an array <code>seats</code> of length <code>n</code>, where <code>seats[i]</code> is the position of the <code>i<sup>th</sup></code> seat. You are also given the array <code>students</code> of length <code>n</code>, where <code>students[j]</code> is the position of the <code>j<sup>th</sup></code> student.</p>
+<p>There are <code>n</code> <strong>availabe </strong>seats and <code>n</code> students <strong>standing</strong> in a room. You are given an array <code>seats</code> of length <code>n</code>, where <code>seats[i]</code> is the position of the <code>i<sup>th</sup></code> seat. You are also given the array <code>students</code> of length <code>n</code>, where <code>students[j]</code> is the position of the <code>j<sup>th</sup></code> student.</p>
 
 <p>You may perform the following move any number of times:</p>
 
@@ -165,12 +165,7 @@ func abs(x int) int {
 function minMovesToSeat(seats: number[], students: number[]): number {
     seats.sort((a, b) => a - b);
     students.sort((a, b) => a - b);
-    const n = seats.length;
-    let ans = 0;
-    for (let i = 0; i < n; i++) {
-        ans += Math.abs(seats[i] - students[i]);
-    }
-    return ans;
+    return seats.reduce((acc, seat, i) => acc + Math.abs(seat - students[i]), 0);
 }
 ```
 

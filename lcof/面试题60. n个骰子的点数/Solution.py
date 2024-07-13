@@ -9,4 +9,4 @@ class Solution:
                     if j - k >= 0:
                         f[i][j] += f[i - 1][j - k]
         m = pow(6, n)
-        return [f[n][i] / m for i in range(n, 6 * n + 1)]
+        return [f[n][j] / m for j in range(n, 6 * n + 1)]

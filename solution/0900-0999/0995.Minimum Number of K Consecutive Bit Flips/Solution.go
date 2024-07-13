@@ -1,10 +1,10 @@
-func minKBitFlips(nums []int, k int) int {
+func minKBitFlips(nums []int, k int) (ans int) {
 	n := len(nums)
 	d := make([]int, n+1)
-	ans, s := 0, 0
+	s := 0
 	for i, x := range nums {
 		s += d[i]
-		if s%2 == x%2 {
+		if s%2 == x {
 			if i+k > n {
 				return -1
 			}
@@ -14,5 +14,5 @@ func minKBitFlips(nums []int, k int) int {
 			ans++
 		}
 	}
-	return ans
+	return
 }

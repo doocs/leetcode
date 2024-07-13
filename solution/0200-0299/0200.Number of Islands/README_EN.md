@@ -198,20 +198,19 @@ function numIslands(grid: string[][]): number {
     const m = grid.length;
     const n = grid[0].length;
     let ans = 0;
-    function dfs(i, j) {
-        grid[i][j] = '0';
-        const dirs = [-1, 0, 1, 0, -1];
-        for (let k = 0; k < 4; ++k) {
-            const x = i + dirs[k];
-            const y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
-                dfs(x, y);
-            }
+    const dfs = (i: number, j: number) => {
+        if (grid[i]?.[j] !== '1') {
+            return;
         }
-    }
+        grid[i][j] = '0';
+        dfs(i + 1, j);
+        dfs(i - 1, j);
+        dfs(i, j + 1);
+        dfs(i, j - 1);
+    };
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            if (grid[i][j] == '1') {
+            if (grid[i][j] === '1') {
                 dfs(i, j);
                 ++ans;
             }
@@ -233,12 +232,11 @@ impl Solution {
             for k in 0..4 {
                 let x = (i as i32) + DIRS[k];
                 let y = (j as i32) + DIRS[k + 1];
-                if
-                    x >= 0 &&
-                    (x as usize) < grid.len() &&
-                    y >= 0 &&
-                    (y as usize) < grid[0].len() &&
-                    grid[x as usize][y as usize] == '1'
+                if x >= 0
+                    && (x as usize) < grid.len()
+                    && y >= 0
+                    && (y as usize) < grid[0].len()
+                    && grid[x as usize][y as usize] == '1'
                 {
                     dfs(grid, x as usize, y as usize);
                 }
@@ -513,12 +511,11 @@ impl Solution {
                 for k in 0..4 {
                     let x = (i as i32) + DIRS[k];
                     let y = (j as i32) + DIRS[k + 1];
-                    if
-                        x >= 0 &&
-                        (x as usize) < grid.len() &&
-                        y >= 0 &&
-                        (y as usize) < grid[0].len() &&
-                        grid[x as usize][y as usize] == '1'
+                    if x >= 0
+                        && (x as usize) < grid.len()
+                        && y >= 0
+                        && (y as usize) < grid[0].len()
+                        && grid[x as usize][y as usize] == '1'
                     {
                         grid[x as usize][y as usize] = '0';
                         queue.push_back((x as usize, y as usize));

@@ -70,7 +70,20 @@ The third distinct maximum is 1.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Pass
+
+We can use three variables $m_1$, $m_2$, and $m_3$ to represent the first, second, and third largest numbers in the array respectively. Initially, we set these three variables to negative infinity.
+
+Then, we iterate through each number in the array. For each number:
+
+-   If it equals any of $m_1$, $m_2$, or $m_3$, we skip this number.
+-   If it is greater than $m_1$, we update the values of $m_1$, $m_2$, and $m_3$ to $m_2$, $m_3$, and this number respectively.
+-   If it is greater than $m_2$, we update the values of $m_2$ and $m_3$ to $m_3$ and this number respectively.
+-   If it is greater than $m_3$, we update the value of $m_3$ to this number.
+
+Finally, if the value of $m_3$ has not been updated, it means that there is no third largest number in the array, so we return $m_1$. Otherwise, we return $m_3$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `nums`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

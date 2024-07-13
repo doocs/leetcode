@@ -239,7 +239,8 @@ impl Leaderboard {
     fn add_score(&mut self, player_id: i32, score: i32) {
         if self.record_map.contains_key(&player_id) {
             // The player exists, just add the score
-            self.record_map.insert(player_id, self.record_map.get(&player_id).unwrap() + score);
+            self.record_map
+                .insert(player_id, self.record_map.get(&player_id).unwrap() + score);
         } else {
             // Add the new player to the map
             self.record_map.insert(player_id, score);
@@ -248,11 +249,8 @@ impl Leaderboard {
 
     #[allow(dead_code)]
     fn top(&self, k: i32) -> i32 {
-        let mut cur_vec: Vec<(i32, i32)> = self.record_map
-            .iter()
-            .map(|(k, v)| (*k, *v))
-            .collect();
-        cur_vec.sort_by(|lhs, rhs| { rhs.1.cmp(&lhs.1) });
+        let mut cur_vec: Vec<(i32, i32)> = self.record_map.iter().map(|(k, v)| (*k, *v)).collect();
+        cur_vec.sort_by(|lhs, rhs| rhs.1.cmp(&lhs.1));
         // Iterate reversely for K
         let mut sum = 0;
         let mut i = 0;

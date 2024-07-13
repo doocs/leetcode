@@ -54,4 +54,110 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2080.%20%E7%94%9F%
 
 <!-- solution:start -->
 
+### 方法一：DFS
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def evolutionaryRecord(self, parents: List[int]) -> str:
+        def dfs(i: int) -> str:
+            t = sorted(dfs(j) for j in g[i])
+            return "0" + "".join(t) + "1"
+
+        n = len(parents)
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parents[i]].append(i)
+        return dfs(0)[1:].rstrip("1")
+```
+
+#### Java
+
+```java
+class Solution {
+    private List<Integer>[] g;
+
+    public String evolutionaryRecord(int[] parents) {
+        int n = parents.length;
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            g[parents[i]].add(i);
+        }
+        return dfs(0).substring(1).replaceAll("1+$", "");
+    }
+
+    private String dfs(int i) {
+        List<String> t = new ArrayList<>();
+        for (int j : g[i]) {
+            t.add(dfs(j));
+        }
+        Collections.sort(t);
+        return "0" + String.join("", t) + "1";
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    string evolutionaryRecord(vector<int>& parents) {
+        int n = parents.size();
+        vector<vector<int>> g(n);
+        for (int i = 1; i < n; ++i) {
+            g[parents[i]].push_back(i);
+        }
+
+        function<string(int)> dfs = [&](int i) -> string {
+            vector<string> t;
+            for (int j : g[i]) {
+                t.push_back(dfs(j));
+            }
+            sort(t.begin(), t.end());
+            string res = "0";
+            for (const string& s : t) {
+                res += s;
+            }
+            res += "1";
+            return res;
+        };
+
+        string ans = dfs(0);
+        return ans.substr(1, ans.find_last_not_of('1'));
+    }
+};
+```
+
+#### Go
+
+```go
+func evolutionaryRecord(parents []int) string {
+	n := len(parents)
+	g := make([][]int, n)
+	for i := 1; i < n; i++ {
+		g[parents[i]] = append(g[parents[i]], i)
+	}
+
+	var dfs func(int) string
+	dfs = func(i int) string {
+		var t []string
+		for _, j := range g[i] {
+			t = append(t, dfs(j))
+		}
+		sort.Strings(t)
+		return "0" + strings.Join(t, "") + "1"
+	}
+
+	ans := dfs(0)[1:]
+	return strings.TrimRight(ans, "1")
+}
+```
+
+<!-- tabs:end -->
+
 <!-- problem:end -->

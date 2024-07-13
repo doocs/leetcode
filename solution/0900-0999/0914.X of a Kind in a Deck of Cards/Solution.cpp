@@ -1,13 +1,13 @@
 class Solution {
 public:
     bool hasGroupsSizeX(vector<int>& deck) {
-        int cnt[10000] = {0};
-        for (int& v : deck) ++cnt[v];
-        int g = -1;
-        for (int& v : cnt) {
-            if (v) {
-                g = g == -1 ? v : __gcd(g, v);
-            }
+        unordered_map<int, int> cnt;
+        for (int x : deck) {
+            ++cnt[x];
+        }
+        int g = cnt[deck[0]];
+        for (auto& [_, x] : cnt) {
+            g = gcd(g, x);
         }
         return g >= 2;
     }

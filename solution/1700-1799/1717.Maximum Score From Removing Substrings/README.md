@@ -74,7 +74,25 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心
+
+我们不妨假设子字符串 "ab" 的得分总是不低于子字符串 "ba" 的得分，如果不是，我们可以交换 "a" 和 "b"，同时交换 $x$ 和 $y$。
+
+接下来，我们只需要考虑字符串中只包含 "a" 和 "b" 的情况。如果字符串中包含其他字符，我们可以将其视为一个分割点，将字符串分割成若干个只包含 "a" 和 "b" 的子字符串，然后分别计算每个子字符串的得分。
+
+我们观察发现，对于一个只包含 "a" 和 "b" 的子字符串，无论采取什么样的操作，最后一定只剩下一种字符，或者空串。由于每次操作都会同时删除一个 "a" 和一个 "b"，因此总的操作次数一定是固定的。我们可以贪心地先删除 "ab"，再删除 "ba"，这样可以保证得分最大。
+
+因此，我们可以使用两个变量 $\textit{cnt1}$ 和 $\textit{cnt2}$ 分别记录 "a" 和 "b" 的数量，然后遍历字符串，根据当前字符的不同情况更新 $\textit{cnt1}$ 和 $\textit{cnt2}$，并计算得分。
+
+对于当前遍历到的字符 $c$：
+
+-   如果 $c$ 是 "a"，由于要先删除 "ab"，因此此时我们不消除该字符，只增加 $\textit{cnt1}$；
+-   如果 $c$ 是 "b"，如果此时 $\textit{cnt1} > 0$，我们可以消除一个 "ab"，并增加 $x$ 分，否则我们只能增加 $\textit{cnt2}$；
+-   如果 $c$ 是其他字符，那么对于该子字符串，我们剩下了一个 $\textit{cnt2}$ 个 "b" 和 $\textit{cnt1}$ 个 "a"，我们可以消除 $\min(\textit{cnt1}, \textit{cnt2})$ 个 "ab"，并增加 $y$ 分。
+
+遍历结束后，我们还需要额外处理一下剩余的 "ab"，增加若干个 $y$ 分。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -83,29 +101,24 @@ tags:
 ```python
 class Solution:
     def maximumGain(self, s: str, x: int, y: int) -> int:
+        a, b = "a", "b"
         if x < y:
-            return self.maximumGain(s[::-1], y, x)
-        ans = 0
-        stk1, stk2 = [], []
+            x, y = y, x
+            a, b = b, a
+        ans = cnt1 = cnt2 = 0
         for c in s:
-            if c != 'b':
-                stk1.append(c)
-            else:
-                if stk1 and stk1[-1] == 'a':
-                    stk1.pop()
+            if c == a:
+                cnt1 += 1
+            elif c == b:
+                if cnt1:
                     ans += x
+                    cnt1 -= 1
                 else:
-                    stk1.append(c)
-        while stk1:
-            c = stk1.pop()
-            if c != 'b':
-                stk2.append(c)
+                    cnt2 += 1
             else:
-                if stk2 and stk2[-1] == 'a':
-                    stk2.pop()
-                    ans += y
-                else:
-                    stk2.append(c)
+                ans += min(cnt1, cnt2) * y
+                cnt1 = cnt2 = 0
+        ans += min(cnt1, cnt2) * y
         return ans
 ```
 
@@ -114,37 +127,35 @@ class Solution:
 ```java
 class Solution {
     public int maximumGain(String s, int x, int y) {
+        char a = 'a', b = 'b';
         if (x < y) {
-            return maximumGain(new StringBuilder(s).reverse().toString(), y, x);
+            int t = x;
+            x = y;
+            y = t;
+            char c = a;
+            a = b;
+            b = c;
         }
-        int ans = 0;
-        Deque<Character> stk1 = new ArrayDeque<>();
-        Deque<Character> stk2 = new ArrayDeque<>();
-        for (char c : s.toCharArray()) {
-            if (c != 'b') {
-                stk1.push(c);
-            } else {
-                if (!stk1.isEmpty() && stk1.peek() == 'a') {
-                    stk1.pop();
+        int ans = 0, cnt1 = 0, cnt2 = 0;
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            char c = s.charAt(i);
+            if (c == a) {
+                cnt1++;
+            } else if (c == b) {
+                if (cnt1 > 0) {
                     ans += x;
+                    cnt1--;
                 } else {
-                    stk1.push(c);
+                    cnt2++;
                 }
-            }
-        }
-        while (!stk1.isEmpty()) {
-            char c = stk1.pop();
-            if (c != 'b') {
-                stk2.push(c);
             } else {
-                if (!stk2.isEmpty() && stk2.peek() == 'a') {
-                    stk2.pop();
-                    ans += y;
-                } else {
-                    stk2.push(c);
-                }
+                ans += Math.min(cnt1, cnt2) * y;
+                cnt1 = 0;
+                cnt2 = 0;
             }
         }
+        ans += Math.min(cnt1, cnt2) * y;
         return ans;
     }
 }
@@ -156,37 +167,30 @@ class Solution {
 class Solution {
 public:
     int maximumGain(string s, int x, int y) {
+        char a = 'a', b = 'b';
         if (x < y) {
-            reverse(s.begin(), s.end());
-            return maximumGain(s, y, x);
+            swap(x, y);
+            swap(a, b);
         }
-        int ans = 0;
-        stack<char> stk1;
-        stack<char> stk2;
+
+        int ans = 0, cnt1 = 0, cnt2 = 0;
         for (char c : s) {
-            if (c != 'b')
-                stk1.push(c);
-            else {
-                if (!stk1.empty() && stk1.top() == 'a') {
-                    stk1.pop();
+            if (c == a) {
+                cnt1++;
+            } else if (c == b) {
+                if (cnt1) {
                     ans += x;
-                } else
-                    stk1.push(c);
+                    cnt1--;
+                } else {
+                    cnt2++;
+                }
+            } else {
+                ans += min(cnt1, cnt2) * y;
+                cnt1 = 0;
+                cnt2 = 0;
             }
         }
-        while (!stk1.empty()) {
-            char c = stk1.top();
-            stk1.pop();
-            if (c != 'b')
-                stk2.push(c);
-            else {
-                if (!stk2.empty() && stk2.top() == 'a') {
-                    stk2.pop();
-                    ans += y;
-                } else
-                    stk2.push(c);
-            }
-        }
+        ans += min(cnt1, cnt2) * y;
         return ans;
     }
 };
@@ -195,42 +199,63 @@ public:
 #### Go
 
 ```go
-func maximumGain(s string, x int, y int) int {
+func maximumGain(s string, x int, y int) (ans int) {
+	a, b := 'a', 'b'
 	if x < y {
-		t := []rune(s)
-		for i, j := 0, len(t)-1; i < j; i, j = i+1, j-1 {
-			t[i], t[j] = t[j], t[i]
-		}
-		return maximumGain(string(t), y, x)
+		x, y = y, x
+		a, b = b, a
 	}
-	ans := 0
-	var stk1 []byte
-	var stk2 []byte
-	for i := range s {
-		if s[i] != 'b' {
-			stk1 = append(stk1, s[i])
-		} else {
-			if len(stk1) > 0 && stk1[len(stk1)-1] == 'a' {
-				stk1 = stk1[0 : len(stk1)-1]
+
+	var cnt1, cnt2 int
+	for _, c := range s {
+		if c == a {
+			cnt1++
+		} else if c == b {
+			if cnt1 > 0 {
 				ans += x
+				cnt1--
 			} else {
-				stk1 = append(stk1, s[i])
+				cnt2++
 			}
-		}
-	}
-	for _, c := range stk1 {
-		if c != 'a' {
-			stk2 = append(stk2, c)
 		} else {
-			if len(stk2) > 0 && stk2[len(stk2)-1] == 'b' {
-				stk2 = stk2[0 : len(stk2)-1]
-				ans += y
-			} else {
-				stk2 = append(stk2, c)
-			}
+			ans += min(cnt1, cnt2) * y
+			cnt1, cnt2 = 0, 0
 		}
 	}
-	return ans
+	ans += min(cnt1, cnt2) * y
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumGain(s: string, x: number, y: number): number {
+    let [a, b] = ['a', 'b'];
+    if (x < y) {
+        [x, y] = [y, x];
+        [a, b] = [b, a];
+    }
+
+    let [ans, cnt1, cnt2] = [0, 0, 0];
+    for (let c of s) {
+        if (c === a) {
+            cnt1++;
+        } else if (c === b) {
+            if (cnt1) {
+                ans += x;
+                cnt1--;
+            } else {
+                cnt2++;
+            }
+        } else {
+            ans += Math.min(cnt1, cnt2) * y;
+            cnt1 = 0;
+            cnt2 = 0;
+        }
+    }
+    ans += Math.min(cnt1, cnt2) * y;
+    return ans;
 }
 ```
 

@@ -17,7 +17,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个 <strong>正</strong> 整数 <code>n</code>，返回一个字符串，表示 <strong>最小的正整数</strong>，使其各位数字的乘积等于 <code>n</code>&nbsp;，如果不存在这样的数字，则返回 <code>"-1"</code>&nbsp;。</p>
+<p>给定一个 <strong>正</strong> 整数 <code>n</code>，返回一个字符串，表示使其各位数字的乘积等于 <code>n</code>&nbsp;的 <strong>最小正整数</strong>，如果不存在这样的数字，则返回 <code>"-1"</code>&nbsp;。</p>
 
 <p>&nbsp;</p>
 
@@ -26,7 +26,7 @@ tags:
 <pre>
 <strong>输入：</strong>n = 105
 <b>输出：</b>"357"
-<b>解释：</b>3 * 5 * 7 = 105。可以证明，357 是乘积等于 105 的最小数字。因此答案为 "105"。
+<b>解释：</b>3 * 5 * 7 = 105。可以证明，357 是各位数字的乘积等于 105 的最小数字。因此答案为 "357"。
 </pre>
 
 <p><strong class="example">示例 2：</strong></p>

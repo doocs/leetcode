@@ -205,26 +205,4 @@ int largestAltitude(int* gain, int gainSize) {
 
 <!-- solution:end -->
 
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def largestAltitude(self, gain: List[int]) -> int:
-        ans = h = 0
-        for v in gain:
-            h += v
-            ans = max(ans, h)
-        return ans
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
 <!-- problem:end -->

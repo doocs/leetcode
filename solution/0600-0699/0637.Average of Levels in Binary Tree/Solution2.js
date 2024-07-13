@@ -11,8 +11,8 @@
  * @return {number[]}
  */
 var averageOfLevels = function (root) {
-    let s = [];
-    let cnt = [];
+    const s = [];
+    const cnt = [];
     function dfs(root, i) {
         if (!root) {
             return;
@@ -28,9 +28,5 @@ var averageOfLevels = function (root) {
         dfs(root.right, i + 1);
     }
     dfs(root, 0);
-    let ans = [];
-    for (let i = 0; i < s.length; ++i) {
-        ans.push(s[i] / cnt[i]);
-    }
-    return ans;
+    return s.map((v, i) => v / cnt[i]);
 };

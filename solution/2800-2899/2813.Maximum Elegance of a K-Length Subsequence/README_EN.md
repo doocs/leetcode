@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2813.Ma
 rating: 2582
 source: Weekly Contest 357 Q4
 tags:
+    - Stack
     - Greedy
     - Array
     - Hash Table

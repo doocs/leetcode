@@ -239,9 +239,8 @@ impl Solution {
                 ret = (cur_height as i64) + diff;
                 break;
             } else {
-                extra_sum -=
-                    ((batteries[i + 1] - batteries[i]) as i64) *
-                    ((i - ((m - n) as usize) + 1) as i64);
+                extra_sum -= ((batteries[i + 1] - batteries[i]) as i64)
+                    * ((i - ((m - n) as usize) + 1) as i64);
                 ret = batteries[i + 1] as i64;
             }
 

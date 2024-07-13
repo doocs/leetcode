@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3148.Maximum%20Difference%20Score%20in%20a%20Grid/README.md
+rating: 1819
+source: 第 397 场周赛 Q3
 tags:
     - 数组
     - 动态规划

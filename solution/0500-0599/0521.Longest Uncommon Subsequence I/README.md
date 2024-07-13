@@ -66,7 +66,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：脑筋急转弯
+
+如果字符串 `a` 和 `b` 相等，那么它们没有特殊序列，返回 `-1`；否则，返回长度较长的字符串的长度。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 `a` 和 `b` 中较长的字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -117,7 +121,7 @@ func findLUSlength(a string, b string) int {
 
 ```ts
 function findLUSlength(a: string, b: string): number {
-    return a != b ? Math.max(a.length, b.length) : -1;
+    return a === b ? -1 : Math.max(a.length, b.length);
 }
 ```
 

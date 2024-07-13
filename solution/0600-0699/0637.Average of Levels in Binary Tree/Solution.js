@@ -15,18 +15,15 @@ var averageOfLevels = function (root) {
     const ans = [];
     while (q.length) {
         const n = q.length;
+        const nq = [];
         let s = 0;
-        for (let i = 0; i < n; ++i) {
-            root = q.shift();
-            s += root.val;
-            if (root.left) {
-                q.push(root.left);
-            }
-            if (root.right) {
-                q.push(root.right);
-            }
+        for (const { val, left, right } of q) {
+            s += val;
+            left && nq.push(left);
+            right && nq.push(right);
         }
         ans.push(s / n);
+        q.splice(0, q.length, ...nq);
     }
     return ans;
 };

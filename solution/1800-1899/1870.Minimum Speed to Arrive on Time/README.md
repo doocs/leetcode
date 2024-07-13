@@ -83,60 +83,17 @@ tags:
 
 ### 方法一：二分查找
 
-二分枚举速度值，找到满足条件的最小速度。
+我们注意到，如果一个速度值 $v$ 能够使得我们在规定时间内到达，那么对于任意 $v' > v$，我们也一定能在规定时间内到达。这存在着单调性，因此我们可以使用二分查找，找到最小的满足条件的速度值。
 
-时间复杂度 $O(n\times \log m)$，其中 $n$ 和 $m$ 分别为数组 `dist` 和最大速度值。
+在二分查找之前，我们需要先判断是否有可能在规定时间内到达。如果列车数量大于向上取整的规定时间，那么一定无法在规定时间内到达，直接返回 $-1$。
 
-以下是二分查找的两个通用模板：
+接下来，我们定义二分的左右边界为 $l = 1$, $r = 10^7 + 1$，然后我们每次取中间值 $\text{mid} = \frac{l + r}{2}$，判断是否满足条件。如果满足条件，我们将右边界移动到 $\text{mid}$，否则将左边界移动到 $\text{mid} + 1$。
 
-模板 1：
+问题转化为判断一个速度值 $v$ 是否能够在规定时间内到达。我们可以遍历每一趟列车，计算每一趟列车的运行时间 $t = \frac{d}{v}$，如果是最后一趟列车，我们直接加上 $t$，否则我们向上取整加上 $t$。最后判断总时间是否小于等于规定时间，如果是则说明满足条件。
 
-```java
-boolean check(int x) {
-}
+二分结束后，如果左边界超过了 $10^7$，说明无法在规定时间内到达，返回 $-1$，否则返回左边界。
 
-int search(int left, int right) {
-    while (left < right) {
-        int mid = (left + right) >> 1;
-        if (check(mid)) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
-}
-```
-
-模板 2：
-
-```java
-boolean check(int x) {
-}
-
-int search(int left, int right) {
-    while (left < right) {
-        int mid = (left + right + 1) >> 1;
-        if (check(mid)) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-}
-```
-
-做二分题目时，可以按照以下套路：
-
-1. 写出循环条件 $left < right$；
-1. 循环体内，不妨先写 $mid = \lfloor \frac{left + right}{2} \rfloor$；
-1. 根据具体题目，实现 $check()$ 函数（有时很简单的逻辑，可以不定义 $check$），想一下究竟要用 $right = mid$（模板 $1$） 还是 $left = mid$（模板 $2$）；
-       - 如果 $right = mid$，那么写出 else 语句 $left = mid + 1$，并且不需要更改 mid 的计算，即保持 $mid = \lfloor \frac{left + right}{2} \rfloor$；
-       - 如果 $left = mid$，那么写出 else 语句 $right = mid - 1$，并且在 $mid$ 计算时补充 +1，即 $mid = \lfloor \frac{left + right + 1}{2} \rfloor$；
-1. 循环结束时，$left$ 与 $right$ 相等。
-
-注意，这两个模板的优点是始终保持答案位于二分区间内，二分结束条件对应的值恰好在答案所处的位置。 对于可能无解的情况，只要判断二分结束后的 $left$ 或者 $right$ 是否满足题意即可。
+时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别为列车数量和速度的上界。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -145,12 +102,15 @@ int search(int left, int right) {
 ```python
 class Solution:
     def minSpeedOnTime(self, dist: List[int], hour: float) -> int:
-        def check(speed):
-            res = 0
+        def check(v: int) -> bool:
+            s = 0
             for i, d in enumerate(dist):
-                res += (d / speed) if i == len(dist) - 1 else math.ceil(d / speed)
-            return res <= hour
+                t = d / v
+                s += t if i == len(dist) - 1 else ceil(t)
+            return s <= hour
 
+        if len(dist) > ceil(hour):
+            return -1
         r = 10**7 + 1
         ans = bisect_left(range(1, r), True, key=check) + 1
         return -1 if ans == r else ans
@@ -161,25 +121,30 @@ class Solution:
 ```java
 class Solution {
     public int minSpeedOnTime(int[] dist, double hour) {
-        int left = 1, right = (int) 1e7;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        if (dist.length > Math.ceil(hour)) {
+            return -1;
+        }
+        final int m = (int) 1e7;
+        int l = 1, r = m + 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (check(dist, mid, hour)) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return check(dist, left, hour) ? left : -1;
+        return l > m ? -1 : l;
     }
 
-    private boolean check(int[] dist, int speed, double hour) {
-        double res = 0;
-        for (int i = 0; i < dist.length; ++i) {
-            double cost = dist[i] * 1.0 / speed;
-            res += (i == dist.length - 1 ? cost : Math.ceil(cost));
+    private boolean check(int[] dist, int v, double hour) {
+        double s = 0;
+        int n = dist.length;
+        for (int i = 0; i < n; ++i) {
+            double t = dist[i] * 1.0 / v;
+            s += i == n - 1 ? t : Math.ceil(t);
         }
-        return res <= hour;
+        return s <= hour;
     }
 }
 ```
@@ -190,25 +155,29 @@ class Solution {
 class Solution {
 public:
     int minSpeedOnTime(vector<int>& dist, double hour) {
-        int left = 1, right = 1e7;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (check(dist, mid, hour)) {
-                right = mid;
+        if (dist.size() > ceil(hour)) {
+            return -1;
+        }
+        const int m = 1e7;
+        int l = 1, r = m + 1;
+        int n = dist.size();
+        auto check = [&](int v) {
+            double s = 0;
+            for (int i = 0; i < n; ++i) {
+                double t = dist[i] * 1.0 / v;
+                s += i == n - 1 ? t : ceil(t);
+            }
+            return s <= hour;
+        };
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (check(mid)) {
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return check(dist, left, hour) ? left : -1;
-    }
-
-    bool check(vector<int>& dist, int speed, double hour) {
-        double res = 0;
-        for (int i = 0; i < dist.size(); ++i) {
-            double cost = dist[i] * 1.0 / speed;
-            res += (i == dist.size() - 1 ? cost : ceil(cost));
-        }
-        return res <= hour;
+        return l > m ? -1 : l;
     }
 };
 ```
@@ -217,21 +186,58 @@ public:
 
 ```go
 func minSpeedOnTime(dist []int, hour float64) int {
-	n := len(dist)
-	const mx int = 1e7
-	x := sort.Search(mx, func(s int) bool {
-		s++
-		var cost float64
-		for _, v := range dist[:n-1] {
-			cost += math.Ceil(float64(v) / float64(s))
-		}
-		cost += float64(dist[n-1]) / float64(s)
-		return cost <= hour
-	})
-	if x == mx {
+	if float64(len(dist)) > math.Ceil(hour) {
 		return -1
 	}
-	return x + 1
+	const m int = 1e7
+	n := len(dist)
+	ans := sort.Search(m+1, func(v int) bool {
+		v++
+		s := 0.0
+		for i, d := range dist {
+			t := float64(d) / float64(v)
+			if i == n-1 {
+				s += t
+			} else {
+				s += math.Ceil(t)
+			}
+		}
+		return s <= hour
+	}) + 1
+	if ans > m {
+		return -1
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minSpeedOnTime(dist: number[], hour: number): number {
+    if (dist.length > Math.ceil(hour)) {
+        return -1;
+    }
+    const n = dist.length;
+    const m = 10 ** 7;
+    const check = (v: number): boolean => {
+        let s = 0;
+        for (let i = 0; i < n; ++i) {
+            const t = dist[i] / v;
+            s += i === n - 1 ? t : Math.ceil(t);
+        }
+        return s <= hour;
+    };
+    let [l, r] = [1, m + 1];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (check(mid)) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l > m ? -1 : l;
 }
 ```
 
@@ -240,35 +246,33 @@ func minSpeedOnTime(dist []int, hour float64) int {
 ```rust
 impl Solution {
     pub fn min_speed_on_time(dist: Vec<i32>, hour: f64) -> i32 {
+        if dist.len() as f64 > hour.ceil() {
+            return -1;
+        }
+        const M: i32 = 10_000_000;
+        let (mut l, mut r) = (1, M + 1);
         let n = dist.len();
-
-        let check = |speed| {
-            let mut cur = 0.0;
-            for (i, &d) in dist.iter().enumerate() {
-                if i == n - 1 {
-                    cur += (d as f64) / (speed as f64);
-                } else {
-                    cur += ((d as f64) / (speed as f64)).ceil();
-                }
+        let check = |v: i32| -> bool {
+            let mut s = 0.0;
+            for i in 0..n {
+                let t = dist[i] as f64 / v as f64;
+                s += if i == n - 1 { t } else { t.ceil() };
             }
-            cur <= hour
+            s <= hour
         };
-
-        let mut left = 1;
-        let mut right = 1e7 as i32;
-        while left < right {
-            let mid = left + (right - left) / 2;
-            if !check(mid) {
-                left = mid + 1;
+        while l < r {
+            let mid = (l + r) / 2;
+            if check(mid) {
+                r = mid;
             } else {
-                right = mid;
+                l = mid + 1;
             }
         }
-
-        if check(left) {
-            return left;
+        if l > M {
+            -1
+        } else {
+            l
         }
-        -1
     }
 }
 ```
@@ -282,32 +286,30 @@ impl Solution {
  * @return {number}
  */
 var minSpeedOnTime = function (dist, hour) {
-    if (dist.length > Math.ceil(hour)) return -1;
-    let left = 1,
-        right = 10 ** 7;
-    while (left < right) {
-        let mid = (left + right) >> 1;
-        if (arriveOnTime(dist, mid, hour)) {
-            right = mid;
+    if (dist.length > Math.ceil(hour)) {
+        return -1;
+    }
+    const n = dist.length;
+    const m = 10 ** 7;
+    const check = v => {
+        let s = 0;
+        for (let i = 0; i < n; ++i) {
+            const t = dist[i] / v;
+            s += i === n - 1 ? t : Math.ceil(t);
+        }
+        return s <= hour;
+    };
+    let [l, r] = [1, m + 1];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (check(mid)) {
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l > m ? -1 : l;
 };
-
-function arriveOnTime(dist, speed, hour) {
-    let res = 0.0;
-    let n = dist.length;
-    for (let i = 0; i < n; i++) {
-        let cost = parseFloat(dist[i]) / speed;
-        if (i != n - 1) {
-            cost = Math.ceil(cost);
-        }
-        res += cost;
-    }
-    return res <= hour;
-}
 ```
 
 <!-- tabs:end -->

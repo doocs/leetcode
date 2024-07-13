@@ -86,7 +86,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Bit Manipulation
+
+We notice that the given strings only contain lowercase letters, and each letter in a string appears at most once. Therefore, we can represent a string with a binary number of length $26$, where the $i$-th bit being $1$ indicates that the string contains the $i$-th lowercase letter, and $0$ indicates the absence of the $i$-th lowercase letter.
+
+We can convert each string in the array $\text{startWords}$ into a binary number and store these binary numbers in a set $\text{s}$. For each string in the array $\text{targetWords}$, we first convert it into a binary number, then enumerate each letter in this string, remove this letter from the binary number, and check if there exists a binary number in the set $\text{s}$ such that the XOR result of this binary number with the removed letter's binary number is in the set $\text{s}$. If such a binary number exists, then this string can be obtained by performing a transformation operation on some string in $\text{startWords}$, and we increment the answer by one. Then, we skip this string and continue processing the next string.
+
+The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string array $\text{targetWords}$, and $|\Sigma|$ is the size of the character set in the string, which is $26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -95,21 +101,12 @@ tags:
 ```python
 class Solution:
     def wordCount(self, startWords: List[str], targetWords: List[str]) -> int:
-        s = set()
-        for word in startWords:
-            mask = 0
-            for c in word:
-                mask |= 1 << (ord(c) - ord('a'))
-            s.add(mask)
-
+        s = {sum(1 << (ord(c) - 97) for c in w) for w in startWords}
         ans = 0
-        for word in targetWords:
-            mask = 0
-            for c in word:
-                mask |= 1 << (ord(c) - ord('a'))
-            for c in word:
-                t = mask ^ (1 << (ord(c) - ord('a')))
-                if t in s:
+        for w in targetWords:
+            x = sum(1 << (ord(c) - 97) for c in w)
+            for c in w:
+                if x ^ (1 << (ord(c) - 97)) in s:
                     ans += 1
                     break
         return ans
@@ -119,25 +116,23 @@ class Solution:
 
 ```java
 class Solution {
-
     public int wordCount(String[] startWords, String[] targetWords) {
         Set<Integer> s = new HashSet<>();
-        for (String word : startWords) {
-            int mask = 0;
-            for (char c : word.toCharArray()) {
-                mask |= (1 << (c - 'a'));
+        for (var w : startWords) {
+            int x = 0;
+            for (var c : w.toCharArray()) {
+                x |= 1 << (c - 'a');
             }
-            s.add(mask);
+            s.add(x);
         }
         int ans = 0;
-        for (String word : targetWords) {
-            int mask = 0;
-            for (char c : word.toCharArray()) {
-                mask |= (1 << (c - 'a'));
+        for (var w : targetWords) {
+            int x = 0;
+            for (var c : w.toCharArray()) {
+                x |= 1 << (c - 'a');
             }
-            for (char c : word.toCharArray()) {
-                int t = mask ^ (1 << (c - 'a'));
-                if (s.contains(t)) {
+            for (var c : w.toCharArray()) {
+                if (s.contains(x ^ (1 << (c - 'a')))) {
                     ++ans;
                     break;
                 }
@@ -155,20 +150,21 @@ class Solution {
 public:
     int wordCount(vector<string>& startWords, vector<string>& targetWords) {
         unordered_set<int> s;
-        for (auto& word : startWords) {
-            int mask = 0;
-            for (char c : word)
-                mask |= (1 << (c - 'a'));
-            s.insert(mask);
+        for (auto& w : startWords) {
+            int x = 0;
+            for (char c : w) {
+                x |= 1 << (c - 'a');
+            }
+            s.insert(x);
         }
         int ans = 0;
-        for (auto& word : targetWords) {
-            int mask = 0;
-            for (char c : word)
-                mask |= (1 << (c - 'a'));
-            for (char c : word) {
-                int t = mask ^ (1 << (c - 'a'));
-                if (s.count(t)) {
+        for (auto& w : targetWords) {
+            int x = 0;
+            for (char c : w) {
+                x |= 1 << (c - 'a');
+            }
+            for (char c : w) {
+                if (s.contains(x ^ (1 << (c - 'a')))) {
                     ++ans;
                     break;
                 }
@@ -182,30 +178,57 @@ public:
 #### Go
 
 ```go
-func wordCount(startWords []string, targetWords []string) int {
-	s := make(map[int]bool)
-	for _, word := range startWords {
-		mask := 0
-		for _, c := range word {
-			mask |= (1 << (c - 'a'))
+func wordCount(startWords []string, targetWords []string) (ans int) {
+	s := map[int]bool{}
+	for _, w := range startWords {
+		x := 0
+		for _, c := range w {
+			x |= 1 << (c - 'a')
 		}
-		s[mask] = true
+		s[x] = true
 	}
-	ans := 0
-	for _, word := range targetWords {
-		mask := 0
-		for _, c := range word {
-			mask |= (1 << (c - 'a'))
+	for _, w := range targetWords {
+		x := 0
+		for _, c := range w {
+			x |= 1 << (c - 'a')
 		}
-		for _, c := range word {
-			t := mask ^ (1 << (c - 'a'))
-			if s[t] {
+		for _, c := range w {
+			if s[x^(1<<(c-'a'))] {
 				ans++
 				break
 			}
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function wordCount(startWords: string[], targetWords: string[]): number {
+    const s = new Set<number>();
+    for (const w of startWords) {
+        let x = 0;
+        for (const c of w) {
+            x ^= 1 << (c.charCodeAt(0) - 97);
+        }
+        s.add(x);
+    }
+    let ans = 0;
+    for (const w of targetWords) {
+        let x = 0;
+        for (const c of w) {
+            x ^= 1 << (c.charCodeAt(0) - 97);
+        }
+        for (const c of w) {
+            if (s.has(x ^ (1 << (c.charCodeAt(0) - 97)))) {
+                ++ans;
+                break;
+            }
+        }
+    }
+    return ans;
 }
 ```
 

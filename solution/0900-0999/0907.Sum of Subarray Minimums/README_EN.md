@@ -311,9 +311,8 @@ impl Solution {
         let MOD = 1_000_000_007;
         let mut ans: i64 = 0;
         for i in 0..n {
-            ans +=
-                ((((right[i] - (i as i32)) * ((i as i32) - left[i])) as i64) * (arr[i] as i64)) %
-                MOD;
+            ans += ((((right[i] - (i as i32)) * ((i as i32) - left[i])) as i64) * (arr[i] as i64))
+                % MOD;
             ans %= MOD;
         }
         ans as i32

@@ -1,11 +1,18 @@
 func wiggleMaxLength(nums []int) int {
-	up, down := 1, 1
-	for i := 1; i < len(nums); i++ {
-		if nums[i] > nums[i-1] {
-			up = max(up, down+1)
-		} else if nums[i] < nums[i-1] {
-			down = max(down, up+1)
+	n := len(nums)
+	f := make([]int, n)
+	g := make([]int, n)
+	f[0], g[0] = 1, 1
+	ans := 1
+	for i := 1; i < n; i++ {
+		for j := 0; j < i; j++ {
+			if nums[j] < nums[i] {
+				f[i] = max(f[i], g[j]+1)
+			} else if nums[j] > nums[i] {
+				g[i] = max(g[i], f[j]+1)
+			}
 		}
+		ans = max(ans, max(f[i], g[i]))
 	}
-	return max(up, down)
+	return ans
 }

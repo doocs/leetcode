@@ -69,7 +69,7 @@ tags:
 
 因此，我们求出所有数字出现次数的最大公约数 $g$，然后判断其是否大于等于 $2$ 即可。
 
-时间复杂度 $O(n\log C)$，其中 $n$ 是数组 `deck` 的长度，而 $C$ 是数组 `deck` 中的最大值。
+时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n + \log M)$。其中 $n$ 和 $M$ 分别是数组 `deck` 的长度和数组 `deck` 中的最大值。
 
 <!-- tabs:start -->
 
@@ -78,8 +78,8 @@ tags:
 ```python
 class Solution:
     def hasGroupsSizeX(self, deck: List[int]) -> bool:
-        vals = Counter(deck).values()
-        return reduce(gcd, vals) >= 2
+        cnt = Counter(deck)
+        return reduce(gcd, cnt.values()) >= 2
 ```
 
 #### Java
@@ -87,15 +87,13 @@ class Solution:
 ```java
 class Solution {
     public boolean hasGroupsSizeX(int[] deck) {
-        int[] cnt = new int[10000];
-        for (int v : deck) {
-            ++cnt[v];
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : deck) {
+            cnt.merge(x, 1, Integer::sum);
         }
-        int g = -1;
-        for (int v : cnt) {
-            if (v > 0) {
-                g = g == -1 ? v : gcd(g, v);
-            }
+        int g = cnt.get(deck[0]);
+        for (int x : cnt.values()) {
+            g = gcd(g, x);
         }
         return g >= 2;
     }
@@ -112,13 +110,13 @@ class Solution {
 class Solution {
 public:
     bool hasGroupsSizeX(vector<int>& deck) {
-        int cnt[10000] = {0};
-        for (int& v : deck) ++cnt[v];
-        int g = -1;
-        for (int& v : cnt) {
-            if (v) {
-                g = g == -1 ? v : __gcd(g, v);
-            }
+        unordered_map<int, int> cnt;
+        for (int x : deck) {
+            ++cnt[x];
+        }
+        int g = cnt[deck[0]];
+        for (auto& [_, x] : cnt) {
+            g = gcd(g, x);
         }
         return g >= 2;
     }
@@ -129,19 +127,13 @@ public:
 
 ```go
 func hasGroupsSizeX(deck []int) bool {
-	cnt := make([]int, 10000)
-	for _, v := range deck {
-		cnt[v]++
+	cnt := map[int]int{}
+	for _, x := range deck {
+		cnt[x]++
 	}
-	g := -1
-	for _, v := range cnt {
-		if v > 0 {
-			if g == -1 {
-				g = v
-			} else {
-				g = gcd(g, v)
-			}
-		}
+	g := cnt[deck[0]]
+	for _, x := range cnt {
+		g = gcd(g, x)
 	}
 	return g >= 2
 }
@@ -151,6 +143,23 @@ func gcd(a, b int) int {
 		return a
 	}
 	return gcd(b, a%b)
+}
+```
+
+#### TypeScript
+
+```ts
+function hasGroupsSizeX(deck: number[]): boolean {
+    const cnt: Record<number, number> = {};
+    for (const x of deck) {
+        cnt[x] = (cnt[x] || 0) + 1;
+    }
+    const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
+    let g = cnt[deck[0]];
+    for (const [_, x] of Object.entries(cnt)) {
+        g = gcd(g, x);
+    }
+    return g >= 2;
 }
 ```
 

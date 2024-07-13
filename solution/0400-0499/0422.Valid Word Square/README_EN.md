@@ -73,7 +73,13 @@ Therefore, it is NOT a valid word square.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Iterative Check
+
+We observe that if $words[i][j] \neq words[j][i]$, we can directly return `false`.
+
+Therefore, we only need to iterate through each row, and then check whether each row satisfies $words[i][j] = words[j][i]$. Note that if the index is out of bounds, we also directly return `false`.
+
+The time complexity is $O(n^2)$, where $n$ is the length of `words`. The space complexity is $O(1)`.
 
 <!-- tabs:start -->
 
@@ -83,12 +89,10 @@ Therefore, it is NOT a valid word square.
 class Solution:
     def validWordSquare(self, words: List[str]) -> bool:
         m = len(words)
-        n = max(len(w) for w in words)
-        if m != n:
-            return False
-        for j in range(n):
-            if words[j] != "".join(w[j] for w in words if j < len(w)):
-                return False
+        for i, w in enumerate(words):
+            for j, c in enumerate(w):
+                if j >= m or i >= len(words[j]) or c != words[j][i]:
+                    return False
         return True
 ```
 
@@ -165,29 +169,6 @@ function validWordSquare(words: string[]): boolean {
     }
     return true;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def validWordSquare(self, words: List[str]) -> bool:
-        m = len(words)
-        for i, w in enumerate(words):
-            for j, c in enumerate(w):
-                if j >= m or i >= len(words[j]) or c != words[j][i]:
-                    return False
-        return True
 ```
 
 <!-- tabs:end -->

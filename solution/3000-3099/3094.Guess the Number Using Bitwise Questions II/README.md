@@ -35,28 +35,6 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong class="example">示例 1：</strong></p>
-
-<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
-<p><strong>输入：</strong><span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;">n = 31 </span></p>
-
-<p><strong>输出：</strong><span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;">31 </span></p>
-
-<p><strong>解释：</strong>可以证明，使用提供的 API 可以找到 31。</p>
-</div>
-
-<p><strong class="example">示例 2：</strong></p>
-
-<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
-<p><strong>输入：</strong><span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;">n = 33 </span></p>
-
-<p><strong>输出：</strong><span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;">33 </span></p>
-
-<p><strong>解释：</strong>可以证明，使用提供的 API 可以找到 33。</p>
-</div>
-
-<p>&nbsp;</p>
-
 <p><strong>提示：</strong></p>
 
 <ul>

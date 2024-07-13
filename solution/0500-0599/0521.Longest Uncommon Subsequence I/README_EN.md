@@ -60,7 +60,11 @@ Note that &quot;cdc&quot; is also a longest uncommon subsequence.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Quick Thinking
+
+If strings `a` and `b` are equal, then they have no special sequences, return `-1`; otherwise, return the length of the longer string.
+
+The time complexity is $O(n)$, where $n$ is the length of the longer string among `a` and `b`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -111,7 +115,7 @@ func findLUSlength(a string, b string) int {
 
 ```ts
 function findLUSlength(a: string, b: string): number {
-    return a != b ? Math.max(a.length, b.length) : -1;
+    return a === b ? -1 : Math.max(a.length, b.length);
 }
 ```
 

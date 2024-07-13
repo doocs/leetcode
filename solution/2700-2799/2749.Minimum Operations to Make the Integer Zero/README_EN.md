@@ -62,7 +62,19 @@ It can be proven, that 3 is the minimum number of operations that we need to per
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+If we operate $k$ times, then the problem essentially becomes: determining whether $\text{num1} - k \times \text{num2}$ can be split into the sum of $k$ $2^i$s.
+
+Let's assume $x = \text{num1} - k \times \text{num2}$. Next, we discuss in categories:
+
+-   If $x < 0$, then $x$ cannot be split into the sum of $k$ $2^i$s, because $2^i > 0$, which obviously has no solution;
+-   If the number of $1$s in the binary representation of $x$ is greater than $k$, there is also no solution in this case;
+-   Otherwise, for the current $k$, there must exist a splitting scheme.
+
+Therefore, we start enumerating $k$ from $1$. Once we find a $k$ that meets the condition, we can directly return the answer.
+
+The time complexity is $O(\log x)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

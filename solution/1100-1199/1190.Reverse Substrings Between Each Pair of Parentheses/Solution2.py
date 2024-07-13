@@ -4,18 +4,18 @@ class Solution:
         d = [0] * n
         stk = []
         for i, c in enumerate(s):
-            if c == '(':
+            if c == "(":
                 stk.append(i)
-            elif c == ')':
+            elif c == ")":
                 j = stk.pop()
                 d[i], d[j] = j, i
         i, x = 0, 1
         ans = []
         while i < n:
-            if s[i] in '()':
+            if s[i] in "()":
                 i = d[i]
                 x = -x
             else:
                 ans.append(s[i])
             i += x
-        return ''.join(ans)
+        return "".join(ans)

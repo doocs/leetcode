@@ -105,13 +105,16 @@ type Promisified = (...args: number[]) => Promise<number>;
 function promisify(fn: CallbackFn): Promisified {
     return async function (...args) {
         return new Promise((resolve, reject) => {
-            fn((data, error) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve(data);
-                }
-            }, ...args);
+            fn(
+                (data, error) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        resolve(data);
+                    }
+                },
+                ...args,
+            );
         });
     };
 }

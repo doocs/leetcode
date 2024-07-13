@@ -328,7 +328,7 @@ class Trie {
 #### Rust
 
 ```rust
-use std::{ rc::Rc, cell::RefCell, collections::HashMap };
+use std::{cell::RefCell, collections::HashMap, rc::Rc};
 
 struct TrieNode {
     pub val: Option<char>,
@@ -377,7 +377,9 @@ impl Trie {
         for c in &char_vec {
             if !root.borrow().child.contains_key(c) {
                 // We need to manually create the entry
-                root.borrow_mut().child.insert(*c, Rc::new(RefCell::new(TrieNode::new())));
+                root.borrow_mut()
+                    .child
+                    .insert(*c, Rc::new(RefCell::new(TrieNode::new())));
             }
             // Get the child node
             let root_clone = Rc::clone(root.borrow().child.get(c).unwrap());

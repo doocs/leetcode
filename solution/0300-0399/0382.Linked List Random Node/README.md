@@ -46,7 +46,7 @@ solution.getRandom(); // 返回 3
 solution.getRandom(); // 返回 2
 solution.getRandom(); // 返回 2
 solution.getRandom(); // 返回 3
-// getRandom() 方法应随机返回 1、2、3 中的一个，每个元素被返回的概率相等。</pre>
+// getRandom() 方法应随机返回 1、2、3中的一个，每个元素被返回的概率相等。</pre>
 
 <p>&nbsp;</p>
 

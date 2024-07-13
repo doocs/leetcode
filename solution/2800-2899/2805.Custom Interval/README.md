@@ -99,11 +99,14 @@ function customInterval(fn: Function, delay: number, period: number): number {
     function recursiveTimeout() {
         intervalMap.set(
             id,
-            setTimeout(() => {
-                fn();
-                count++;
-                recursiveTimeout();
-            }, delay + period * count),
+            setTimeout(
+                () => {
+                    fn();
+                    count++;
+                    recursiveTimeout();
+                },
+                delay + period * count,
+            ),
         );
     }
 

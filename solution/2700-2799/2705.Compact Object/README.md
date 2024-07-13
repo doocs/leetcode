@@ -82,12 +82,11 @@ function compactObject(obj: Obj): Obj {
         return obj;
     }
     if (Array.isArray(obj)) {
-        return obj.map(compactObject).filter(Boolean);
+        return obj.filter(Boolean).map(compactObject);
     }
     return Object.entries(obj).reduce((acc, [key, value]) => {
-        const compactedValue = compactObject(value);
-        if (compactedValue) {
-            acc[key] = compactedValue;
+        if (value) {
+            acc[key] = compactObject(value);
         }
         return acc;
     }, {} as Obj);
@@ -106,12 +105,11 @@ var compactObject = function (obj) {
         return obj;
     }
     if (Array.isArray(obj)) {
-        return obj.map(compactObject).filter(Boolean);
+        return obj.filter(Boolean).map(compactObject);
     }
     return Object.entries(obj).reduce((acc, [key, value]) => {
-        const compactedValue = compactObject(value);
-        if (compactedValue) {
-            acc[key] = compactedValue;
+        if (value) {
+            acc[key] = compactObject(value);
         }
         return acc;
     }, {});

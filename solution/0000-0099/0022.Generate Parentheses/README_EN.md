@@ -220,76 +220,74 @@ var generateParenthesis = function (n) {
 };
 ```
 
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param Integer $n
+     * @return String[]
+     */
+    function generateParenthesis($n) {
+        $ans = [];
+
+        $dfs = function ($l, $r, $t) use ($n, &$ans, &$dfs) {
+            if ($l > $n || $r > $n || $l < $r) {
+                return;
+            }
+            if ($l == $n && $r == $n) {
+                $ans[] = $t;
+                return;
+            }
+            $dfs($l + 1, $r, $t . '(');
+            $dfs($l, $r + 1, $t . ')');
+        };
+
+        $dfs(0, 0, '');
+        return $ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Recursion
 
 <!-- tabs:start -->
 
-#### Rust
+#### TypeScript
 
-```rust
-impl Solution {
-    pub fn generate_parenthesis(n: i32) -> Vec<String> {
-        let mut dp: Vec<Vec<String>> = vec![vec![]; n as usize + 1];
+```ts
+function generateParenthesis(n: number): string[] {
+    if (n === 1) return ['()'];
 
-        // Initialize the dp vector
-        dp[0].push(String::from(""));
-        dp[1].push(String::from("()"));
-
-        // Begin the actual dp process
-        for i in 2..=n as usize {
-            for j in 0..i as usize {
-                let dp_c = dp.clone();
-                let first_half = &dp_c[j];
-                let second_half = &dp_c[i - j - 1];
-
-                for f in first_half {
-                    for s in second_half {
-                        let f_c = f.clone();
-                        let cur_str = f_c + "(" + &*s + ")";
-                        dp[i].push(cur_str);
-                    }
-                }
-            }
-        }
-
-        dp[n as usize].clone()
-    }
+    return [
+        ...new Set(
+            generateParenthesis(n - 1).flatMap(s =>
+                Array.from(s, (_, i) => s.slice(0, i) + '()' + s.slice(i)),
+            ),
+        ),
+    ];
 }
 ```
 
-#### PHP
+#### JavaScript
 
-```php
-class Solution {
-    /**
-     * @param int $n
-     * @return string[]
-     */
+```js
+function generateParenthesis(n) {
+    if (n === 1) return ['()'];
 
-    function generateParenthesis($n) {
-        $result = [];
-        $this->backtrack($result, '', 0, 0, $n);
-        return $result;
-    }
-
-    function backtrack(&$result, $current, $open, $close, $max) {
-        if (strlen($current) === $max * 2) {
-            $result[] = $current;
-            return;
-        }
-        if ($open < $max) {
-            $this->backtrack($result, $current . '(', $open + 1, $close, $max);
-        }
-        if ($close < $open) {
-            $this->backtrack($result, $current . ')', $open, $close + 1, $max);
-        }
-    }
+    return [
+        ...new Set(
+            generateParenthesis(n - 1).flatMap(s =>
+                Array.from(s, (_, i) => s.slice(0, i) + '()' + s.slice(i)),
+            ),
+        ),
+    ];
 }
 ```
 

@@ -90,7 +90,7 @@ https://doocs.github.io/leetcode
 -   [Shortest Path Visiting All Nodes](/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/README_EN.md) - `BFS`, `Minimum steps model`, `A* search`
 -   [Cut Off Trees for Golf Event](/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/README_EN.md) - `BFS`, `A* search`
 -   [Minimum Cost to Make at Least One Valid Path in a Grid](/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/README_EN.md) - `BFS using deque`
--   [Minimum Cost to Make at Least One Valid Path in a Grid](/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README_EN.md) - `BFS using deque`
+-   [Minimum Obstacle Removal to Reach Corner](/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README_EN.md) - `BFS using deque`
 -   [The Maze](/solution/0400-0499/0490.The%20Maze/README_EN.md) - `DFS, Flood fill`
 -   [Word Search](/solution/0000-0099/0079.Word%20Search/README_EN.md) - `DFS`, `Backtracking`
 -   [Path with Maximum Gold](/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README_EN.md) - `DFS`, `Backtracking`

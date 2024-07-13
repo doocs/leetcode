@@ -58,7 +58,7 @@ class Node {
 
 <ul>
 	<li>给定的 N 叉树的深度小于或等于&nbsp;<code>1000</code>。</li>
-	<li>节点的总个数在&nbsp;<code>[0,&nbsp;10^4]</code>&nbsp;之间</li>
+	<li>节点的总个数在&nbsp;<code>[0,&nbsp;10<sup>4</sup>]</code>&nbsp;之间</li>
 </ul>
 
 <p>&nbsp;</p>

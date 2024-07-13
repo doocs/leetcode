@@ -21,37 +21,47 @@ tags:
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的字符串&nbsp;<code>s</code>&nbsp;，这个字符串只包含&nbsp;<code>0</code>&nbsp;到&nbsp;<code>9</code>&nbsp;的数字字符。</p>
 
-<p>如果一个字符串&nbsp;<code>t</code>&nbsp;中至多有一对相邻字符是相等的，那么称这个字符串 <code>t</code> 是 <strong>半重复的</strong>&nbsp;。例如，<code>0010</code> 、<code>002020</code> 、<code>0123</code> 、<code>2002</code> 和 <code>54944</code> 是半重复字符串，而 <code>00101022</code> 和 <code>1101234883</code> 不是。</p>
+<p>如果一个字符串&nbsp;<code>t</code>&nbsp;中至多有一对相邻字符是相等的，那么称这个字符串 <code>t</code> 是 <strong>半重复的</strong>&nbsp;。例如，<code>"0010"</code>&nbsp;、<code>"002020"</code>&nbsp;、<code>"0123"</code>&nbsp;、<code>"2002"</code>&nbsp;和 <code>"54944"</code>&nbsp;是半重复字符串，而 <code>"00101022"</code>&nbsp;（相邻的相同数字对是 00 和 22）和 <code>"1101234883"</code>&nbsp;（相邻的相同数字对是 11 和 88）不是半重复字符串。</p>
 
-<p>请你返回 <code>s</code>&nbsp;中最长 <strong>半重复</strong>&nbsp;子字符串的长度。</p>
-
-<p>一个 <strong>子字符串</strong>&nbsp;是一个字符串中一段连续 <strong>非空</strong>&nbsp;的字符。</p>
+<p>请你返回 <code>s</code>&nbsp;中最长 <strong>半重复</strong>&nbsp;<span data-keyword="substring-nonempty">子字符串</span> 的长度。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<b>输入：</b>s = "52233"
-<b>输出：</b>4
-<b>解释：</b>最长半重复子字符串是 "5223" ，子字符串从 i = 0 开始，在 j = 3 处结束。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">s = "52233"</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>输出：</strong><span class="example-io">4</span></p>
 
-<pre>
-<b>输入：</b>s = "5494"
-<b>输出：</b>4
-<b>解释：</b>s 就是一个半重复字符串，所以答案为 4 。
-</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<p>最长的半重复子字符串是 "5223"。整个字符串 "52233" 有两个相邻的相同数字对 22 和 33，但最多只能选取一个。</p>
+</div>
 
-<pre>
-<b>输入：</b>s = "1111111"
-<b>输出：</b>2
-<b>解释：</b>最长半重复子字符串是 "11" ，子字符串从 i = 0 开始，在 j = 1 处结束。
-</pre>
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">s = "5494"</span></p>
+
+<p><strong>输出：</strong><span class="example-io">4</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p><code>s</code>&nbsp;是一个半重复字符串。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">s = "1111111"</span></p>
+
+<p><strong>输出：</strong><span class="example-io">2</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>最长的半重复子字符串是 "11"。子字符串 "111" 有两个相邻的相同数字对，但最多允许选取一个。</p>
+</div>
 
 <p>&nbsp;</p>
 

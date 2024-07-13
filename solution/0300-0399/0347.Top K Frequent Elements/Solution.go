@@ -1,18 +1,18 @@
 func topKFrequent(nums []int, k int) []int {
 	cnt := map[int]int{}
-	for _, v := range nums {
-		cnt[v]++
+	for _, x := range nums {
+		cnt[x]++
 	}
-	h := hp{}
-	for v, freq := range cnt {
-		heap.Push(&h, pair{v, freq})
-		if len(h) > k {
-			heap.Pop(&h)
+	pq := hp{}
+	for x, c := range cnt {
+		heap.Push(&pq, pair{x, c})
+		if pq.Len() > k {
+			heap.Pop(&pq)
 		}
 	}
 	ans := make([]int, k)
-	for i := range ans {
-		ans[i] = heap.Pop(&h).(pair).v
+	for i := 0; i < k; i++ {
+		ans[i] = heap.Pop(&pq).(pair).v
 	}
 	return ans
 }

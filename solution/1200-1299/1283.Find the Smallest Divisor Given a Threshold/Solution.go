@@ -1,5 +1,5 @@
 func smallestDivisor(nums []int, threshold int) int {
-	return sort.Search(1000000, func(v int) bool {
+	return sort.Search(slices.Max(nums), func(v int) bool {
 		v++
 		s := 0
 		for _, x := range nums {

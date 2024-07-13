@@ -54,8 +54,6 @@ $$
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为棋盘的行数和列数。
 
-我们注意到 $f[i][j]$ 只与 $f[i-1][j]$ 和 $f[i][j-1]$ 有关，因此我们可以仅用两行数组 $f[2][n+1]$ 来存储状态，从而将空间复杂度优化到 $O(n)$。
-
 <!-- tabs:start -->
 
 #### Python3
@@ -200,13 +198,35 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func maxValue(_ grid: [[Int]]) -> Int {
+        let m = grid.count
+        let n = grid[0].count
+        var f = [[Int]](repeating: [Int](repeating: 0, count: n + 1), count: m + 1)
+
+        for i in 1...m {
+            for j in 1...n {
+                f[i][j] = max(f[i - 1][j], f[i][j - 1]) + grid[i - 1][j - 1]
+            }
+        }
+
+        return f[m][n]
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start-->
 
-### 方法二
+### 方法二：动态规划（空间优化）
+
+我们注意到 $f[i][j]$ 只与 $f[i-1][j]$ 和 $f[i][j-1]$ 有关，因此我们可以仅用两行数组 $f[2][n+1]$ 来存储状态，从而将空间复杂度优化到 $O(n)$。
 
 <!-- tabs:start -->
 

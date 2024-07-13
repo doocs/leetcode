@@ -70,7 +70,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：二分查找
+
+我们先定义一个指针 $r = 1$，每一次判断 $r$ 处的值是否小于目标值，如果小于目标值，我们将 $r$ 乘以 $2$，即左移一位，直到 $r$ 处的值大于等于目标值。此时，我们可以确定目标值在 $[r / 2, r]$ 的区间内。
+
+接下来，我们定义一个指针 $l = r / 2$，然后我们可以使用二分查找的方法在 $[l, r]$ 的区间内查找目标值的位置。
+
+时间复杂度 $O(\log M)$，其中 $M$ 为目标值的位置。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -86,20 +92,18 @@ tags:
 
 
 class Solution:
-    def search(self, reader, target):
-        """
-        :type reader: ArrayReader
-        :type target: int
-        :rtype: int
-        """
-        left, right = 0, 20000
-        while left < right:
-            mid = (left + right) >> 1
+    def search(self, reader: "ArrayReader", target: int) -> int:
+        r = 1
+        while reader.get(r) < target:
+            r <<= 1
+        l = r >> 1
+        while l < r:
+            mid = (l + r) >> 1
             if reader.get(mid) >= target:
-                right = mid
+                r = mid
             else:
-                left = mid + 1
-        return left if reader.get(left) == target else -1
+                l = mid + 1
+        return l if reader.get(l) == target else -1
 ```
 
 #### Java
@@ -115,16 +119,20 @@ class Solution:
 
 class Solution {
     public int search(ArrayReader reader, int target) {
-        int left = 0, right = 20000;
-        while (left < right) {
-            int mid = left + right >> 1;
+        int r = 1;
+        while (reader.get(r) < target) {
+            r <<= 1;
+        }
+        int l = r >> 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (reader.get(mid) >= target) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return reader.get(left) == target ? left : -1;
+        return reader.get(l) == target ? l : -1;
     }
 }
 ```
@@ -144,16 +152,20 @@ class Solution {
 class Solution {
 public:
     int search(const ArrayReader& reader, int target) {
-        int left = 0, right = 20000;
-        while (left < right) {
-            int mid = left + right >> 1;
+        int r = 1;
+        while (reader.get(r) < target) {
+            r <<= 1;
+        }
+        int l = r >> 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (reader.get(mid) >= target) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return reader.get(left) == target ? left : -1;
+        return reader.get(l) == target ? l : -1;
     }
 };
 ```
@@ -171,19 +183,52 @@ public:
  */
 
 func search(reader ArrayReader, target int) int {
-	left, right := 0, 20000
-	for left < right {
-		mid := (left + right) >> 1
+	r := 1
+	for reader.get(r) < target {
+		r <<= 1
+	}
+	l := r >> 1
+	for l < r {
+		mid := (l + r) >> 1
 		if reader.get(mid) >= target {
-			right = mid
+			r = mid
 		} else {
-			left = mid + 1
+			l = mid + 1
 		}
 	}
-	if reader.get(left) == target {
-		return left
+	if reader.get(l) == target {
+		return l
 	}
 	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * class ArrayReader {
+ *		// This is the ArrayReader's API interface.
+ *		// You should not implement it, or speculate about its implementation
+ *		get(index: number): number {};
+ *  };
+ */
+
+function search(reader: ArrayReader, target: number): number {
+    let r = 1;
+    while (reader.get(r) < target) {
+        r <<= 1;
+    }
+    let l = r >> 1;
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (reader.get(mid) >= target) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return reader.get(l) === target ? l : -1;
 }
 ```
 

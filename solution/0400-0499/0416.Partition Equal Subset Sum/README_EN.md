@@ -50,7 +50,21 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+First, we calculate the total sum $s$ of the array. If the total sum is odd, it cannot be divided into two subsets with equal sums, so we directly return `false`. If the total sum is even, we set the target subset sum to $m = \frac{s}{2}$. The problem is then transformed into: does there exist a subset whose element sum is $m$?
+
+We define $f[i][j]$ to represent whether it is possible to select several numbers from the first $i$ numbers so that their sum is exactly $j$. Initially, $f[0][0] = true$ and the rest $f[i][j] = false$. The answer is $f[n][m]$.
+
+Considering $f[i][j]$, if we select the $i$-th number $x$, then $f[i][j] = f[i - 1][j - x]$. If we do not select the $i$-th number $x$, then $f[i][j] = f[i - 1][j]$. Therefore, the state transition equation is:
+
+$$
+f[i][j] = f[i - 1][j] \text{ or } f[i - 1][j - x] \text{ if } j \geq x
+$$
+
+The final answer is $f[n][m]$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are half of the total sum of the array and the length of the array, respectively.
 
 <!-- tabs:start -->
 
@@ -162,9 +176,7 @@ function canPartition(nums: number[]): boolean {
     }
     const n = nums.length;
     const m = s >> 1;
-    const f: boolean[][] = Array(n + 1)
-        .fill(0)
-        .map(() => Array(m + 1).fill(false));
+    const f: boolean[][] = Array.from({ length: n + 1 }, () => Array(m + 1).fill(false));
     f[0][0] = true;
     for (let i = 1; i <= n; ++i) {
         const x = nums[i - 1];
@@ -228,9 +240,7 @@ var canPartition = function (nums) {
     }
     const n = nums.length;
     const m = s >> 1;
-    const f = Array(n + 1)
-        .fill(0)
-        .map(() => Array(m + 1).fill(false));
+    const f = Array.from({ length: n + 1 }, () => Array(m + 1).fill(false));
     f[0][0] = true;
     for (let i = 1; i <= n; ++i) {
         const x = nums[i - 1];
@@ -248,7 +258,11 @@ var canPartition = function (nums) {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Space Optimization)
+
+We notice that in Solution 1, $f[i][j]$ is only related to $f[i - 1][\cdot]$. Therefore, we can compress the two-dimensional array into a one-dimensional array.
+
+The time complexity is $O(n \times m)$, and the space complexity is $O(m)$. Where $n$ is the length of the array, and $m$ is half of the total sum of the array.
 
 <!-- tabs:start -->
 

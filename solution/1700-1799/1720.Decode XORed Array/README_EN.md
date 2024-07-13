@@ -59,7 +59,29 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bit Manipulation
+
+Based on the problem description, we have:
+
+$$
+\text{encoded}[i] = \text{arr}[i] \oplus \text{arr}[i + 1]
+$$
+
+If we XOR both sides of the equation with $\text{arr}[i]$, we get:
+
+$$
+\text{arr}[i] \oplus \text{arr}[i] \oplus \text{arr}[i + 1] = \text{arr}[i] \oplus \text{encoded}[i]
+$$
+
+Which simplifies to:
+
+$$
+\text{arr}[i + 1] = \text{arr}[i] \oplus \text{encoded}[i]
+$$
+
+Following the derivation above, we can start with $\text{first}$ and sequentially calculate every element of the array $\text{arr}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -69,8 +91,8 @@ tags:
 class Solution:
     def decode(self, encoded: List[int], first: int) -> List[int]:
         ans = [first]
-        for e in encoded:
-            ans.append(ans[-1] ^ e)
+        for x in encoded:
+            ans.append(ans[-1] ^ x)
         return ans
 ```
 
@@ -96,9 +118,10 @@ class Solution {
 class Solution {
 public:
     vector<int> decode(vector<int>& encoded, int first) {
-        vector<int> ans{{first}};
-        for (int i = 0; i < encoded.size(); ++i)
-            ans.push_back(ans[i] ^ encoded[i]);
+        vector<int> ans = {{first}};
+        for (int x : encoded) {
+            ans.push_back(ans.back() ^ x);
+        }
         return ans;
     }
 };
@@ -109,10 +132,22 @@ public:
 ```go
 func decode(encoded []int, first int) []int {
 	ans := []int{first}
-	for i, e := range encoded {
-		ans = append(ans, ans[i]^e)
+	for i, x := range encoded {
+		ans = append(ans, ans[i]^x)
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function decode(encoded: number[], first: number): number[] {
+    const ans: number[] = [first];
+    for (const x of encoded) {
+        ans.push(ans.at(-1)! ^ x);
+    }
+    return ans;
 }
 ```
 

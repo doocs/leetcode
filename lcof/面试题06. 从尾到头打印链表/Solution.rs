@@ -16,13 +16,13 @@
 // }
 impl Solution {
     pub fn reverse_print(head: Option<Box<ListNode>>) -> Vec<i32> {
-        let mut arr: Vec<i32> = vec![];
+        let mut ans: Vec<i32> = vec![];
         let mut cur = head;
         while let Some(node) = cur {
-            arr.push(node.val);
+            ans.push(node.val);
             cur = node.next;
         }
-        arr.reverse();
-        arr
+        ans.reverse();
+        ans
     }
 }

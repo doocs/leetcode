@@ -27,7 +27,11 @@ impl Solution {
         }
         let mut flag = false;
         while !deque.is_empty() {
-            *tail = if flag { deque.pop_front().unwrap() } else { deque.pop_back().unwrap() };
+            *tail = if flag {
+                deque.pop_front().unwrap()
+            } else {
+                deque.pop_back().unwrap()
+            };
             tail = &mut tail.as_mut().unwrap().next;
             flag = !flag;
         }

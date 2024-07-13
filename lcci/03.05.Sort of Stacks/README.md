@@ -323,20 +323,17 @@ impl SortedStack {
     }
 
     fn peek(&self) -> i32 {
-        if self.is_empty() { -1 } else { *self.stk.back().unwrap() }
+        if self.is_empty() {
+            -1
+        } else {
+            *self.stk.back().unwrap()
+        }
     }
 
     fn is_empty(&self) -> bool {
         self.stk.is_empty()
     }
-}/**
- * Your SortedStack object will be instantiated and called as such:
- * let obj = SortedStack::new();
- * obj.push(val);
- * obj.pop();
- * let ret_3: i32 = obj.peek();
- * let ret_4: bool = obj.is_empty();
- */
+}
 ```
 
 #### Swift

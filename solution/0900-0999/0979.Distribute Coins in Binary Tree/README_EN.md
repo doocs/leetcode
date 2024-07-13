@@ -57,7 +57,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS
+
+We define a function $\text{dfs(node)}$, which represents the coin overload in the subtree rooted at $\text{node}$, i.e., the number of coins minus the number of nodes. If $\text{dfs(node)}$ is positive, it means the subtree has more coins than nodes, and the excess coins need to be moved out of the subtree; if $\text{dfs(node)}$ is negative, it means the subtree has fewer coins than nodes, and the shortfall needs to be moved into the subtree.
+
+In the function $\text{dfs(node)}$, we first traverse the left and right subtrees to obtain the coin overload $\text{left}$ and $\text{right}$ of the left and right subtrees, respectively. Then, the current number of moves needs to be increased by $|\text{left}| + |\text{right}|$, which means moving the coins from the left and right subtrees to the current node. After that, we return the coin overload of the entire subtree, which is $\text{left} + \text{right} + \text{node.val} - 1$.
+
+Finally, we return the number of moves.
+
+The time complexity is $O(n)$, and the space complexity is $O(h)$. Here, $n$ and $h$ respectively represent the number of nodes and the height of the binary tree.
 
 <!-- tabs:start -->
 

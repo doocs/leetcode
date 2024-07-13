@@ -215,14 +215,14 @@ function lowestCommonAncestor(
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::cmp::Ordering;
+use std::rc::Rc;
 impl Solution {
     pub fn lowest_common_ancestor(
         mut root: Option<Rc<RefCell<TreeNode>>>,
         p: Option<Rc<RefCell<TreeNode>>>,
-        q: Option<Rc<RefCell<TreeNode>>>
+        q: Option<Rc<RefCell<TreeNode>>>,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         let p = p.unwrap().borrow().val;
         let q = q.unwrap().borrow().val;
@@ -412,6 +412,44 @@ function lowestCommonAncestor(
         } else {
             return root;
         }
+    }
+}
+```
+
+#### Swift
+
+```swift
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public var val: Int
+ *     public var left: TreeNode?
+ *     public var right: TreeNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.left = nil
+ *         self.right = nil
+ *     }
+ * }
+ */
+
+class Solution {
+    func lowestCommonAncestor(_ root: TreeNode?, _ p: TreeNode?, _ q: TreeNode?) -> TreeNode? {
+        guard let p = p, let q = q else {
+            return nil
+        }
+
+        var node = root
+        while let current = node {
+            if current.val < p.val && current.val < q.val {
+                node = current.right
+            } else if current.val > p.val && current.val > q.val {
+                node = current.left
+            } else {
+                return current
+            }
+        }
+        return nil
     }
 }
 ```

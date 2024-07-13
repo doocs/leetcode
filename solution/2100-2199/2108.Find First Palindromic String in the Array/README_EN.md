@@ -65,7 +65,13 @@ Note that &quot;racecar&quot; is also palindromic, but it is not the first.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We iterate through the array `words`, for each string `w`, we determine if it is a palindrome. If it is, then we return `w`; otherwise, we continue to iterate.
+
+To determine if a string is a palindrome, we can use two pointers, one pointing to the start and the other to the end of the string, moving towards the center, and checking if the corresponding characters are equal. If, after traversing the entire string, no unequal characters are found, then the string is a palindrome.
+
+The time complexity is $O(L)$, where $L$ is the sum of the lengths of all strings in the array `words`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -143,21 +149,7 @@ func firstPalindrome(words []string) string {
 
 ```ts
 function firstPalindrome(words: string[]): string {
-    for (const word of words) {
-        let left = 0;
-        let right = word.length - 1;
-        while (left < right) {
-            if (word[left] !== word[right]) {
-                break;
-            }
-            left++;
-            right--;
-        }
-        if (left >= right) {
-            return word;
-        }
-    }
-    return '';
+    return words.find(w => w === w.split('').reverse().join('')) || '';
 }
 ```
 
@@ -166,19 +158,9 @@ function firstPalindrome(words: string[]): string {
 ```rust
 impl Solution {
     pub fn first_palindrome(words: Vec<String>) -> String {
-        for word in words.iter() {
-            let s = word.as_bytes();
-            let mut left = 0;
-            let mut right = s.len() - 1;
-            while left < right {
-                if s[left] != s[right] {
-                    break;
-                }
-                left += 1;
-                right -= 1;
-            }
-            if left >= right {
-                return word.clone();
+        for w in words {
+            if w == w.chars().rev().collect::<String>() {
+                return w;
             }
         }
         String::new()
@@ -190,18 +172,17 @@ impl Solution {
 
 ```c
 char* firstPalindrome(char** words, int wordsSize) {
-    for (int i = 0; i < wordsSize; i++) {
-        int left = 0;
-        int right = strlen(words[i]) - 1;
-        while (left < right) {
-            if (words[i][left] != words[i][right]) {
-                break;
+    for (int i = 0; i < wordsSize; ++i) {
+        char* w = words[i];
+        int len = strlen(w);
+        bool ok = true;
+        for (int j = 0, k = len - 1; j < k && ok; ++j, --k) {
+            if (w[j] != w[k]) {
+                ok = false;
             }
-            left++;
-            right--;
         }
-        if (left >= right) {
-            return words[i];
+        if (ok) {
+            return w;
         }
     }
     return "";

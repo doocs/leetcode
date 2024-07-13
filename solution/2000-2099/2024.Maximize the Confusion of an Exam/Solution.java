@@ -9,15 +9,13 @@ class Solution {
     }
 
     private int f(char c) {
-        int cnt = 0, ans = 0;
-        for (int i = 0, j = 0; i < s.length; ++i) {
-            cnt += s[i] == c ? 1 : 0;
-            while (cnt > k) {
-                cnt -= s[j] == c ? 1 : 0;
-                ++j;
+        int l = 0, cnt = 0;
+        for (char ch : s) {
+            cnt += ch == c ? 1 : 0;
+            if (cnt > k) {
+                cnt -= s[l++] == c ? 1 : 0;
             }
-            ans = Math.max(ans, i - j + 1);
         }
-        return ans;
+        return s.length - l;
     }
 }

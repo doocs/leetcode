@@ -259,8 +259,8 @@ function increasingBST(root: TreeNode | null): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, vals: &mut Vec<i32>) {
         if root.is_none() {
@@ -278,15 +278,11 @@ impl Solution {
         let mut dummy = Rc::new(RefCell::new(TreeNode::new(0)));
         for &val in vals.iter().rev() {
             let mut dummy = dummy.as_ref().borrow_mut();
-            dummy.right = Some(
-                Rc::new(
-                    RefCell::new(TreeNode {
-                        val,
-                        left: None,
-                        right: dummy.right.take(),
-                    })
-                )
-            );
+            dummy.right = Some(Rc::new(RefCell::new(TreeNode {
+                val,
+                left: None,
+                right: dummy.right.take(),
+            })));
         }
         let ans = dummy.as_ref().borrow_mut().right.take();
         ans
@@ -323,6 +319,58 @@ struct TreeNode* increasingBST(struct TreeNode* root) {
     struct TreeNode* dummy = malloc(sizeof(struct TreeNode));
     dfs(root, dummy);
     return dummy->right;
+}
+```
+
+#### Swift
+
+```swift
+/* class TreeNode {
+*     var val: Int
+*     var left: TreeNode?
+*     var right: TreeNode?
+*     init() {
+*         self.val = 0
+*         self.left = nil
+*         self.right = nil
+*     }
+*     init(_ val: Int) {
+*         self.val = val
+*         self.left = nil
+*         self.right = nil
+*     }
+*     init(_ val: Int, _ left: TreeNode?, _ right: TreeNode?) {
+*         self.val = val
+*         self.left = left
+*         self.right = right
+*     }
+* }
+*/
+
+class Solution {
+    func increasingBST(_ root: TreeNode?) -> TreeNode? {
+        var head: TreeNode? = nil
+        var tail: TreeNode? = nil
+        var stack = [TreeNode]()
+        var cur = root
+
+        while !stack.isEmpty || cur != nil {
+            while cur != nil {
+                stack.append(cur!)
+                cur = cur?.left
+            }
+            cur = stack.removeLast()
+            if head == nil {
+                head = cur
+            } else {
+                tail?.right = cur
+            }
+            tail = cur
+            cur?.left = nil
+            cur = cur?.right
+        }
+        return head
+    }
 }
 ```
 

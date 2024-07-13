@@ -51,11 +51,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：遍历数组
+### 方法一：遍历 + 计数
 
-直接遍历数组，统计连续奇数的个数，如果个数达到 3，则返回 `true`，否则遍历结束，返回 `false`。
+我们用一个变量 $\text{cnt}$ 记录当前连续奇数的个数。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$，其中 $n$ 为数组 `arr` 的长度。
+接下来，我们遍历数组，如果当前元素是奇数，则 $\text{cnt}$ 加一，如果 $\text{cnt}$ 等于 3，则返回 $\text{True}$。如果当前元素是偶数，则 $\text{cnt}$ 置零。
+
+遍历结束后，如果没有找到连续三个奇数，则返回 $\text{False}$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\text{arr}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -65,13 +69,13 @@ tags:
 class Solution:
     def threeConsecutiveOdds(self, arr: List[int]) -> bool:
         cnt = 0
-        for v in arr:
-            if v & 1:
+        for x in arr:
+            if x & 1:
                 cnt += 1
+                if cnt == 3:
+                    return True
             else:
                 cnt = 0
-            if cnt == 3:
-                return True
         return False
 ```
 
@@ -81,14 +85,13 @@ class Solution:
 class Solution {
     public boolean threeConsecutiveOdds(int[] arr) {
         int cnt = 0;
-        for (int v : arr) {
-            if (v % 2 == 1) {
-                ++cnt;
+        for (int x : arr) {
+            if (x % 2 == 1) {
+                if (++cnt == 3) {
+                    return true;
+                }
             } else {
                 cnt = 0;
-            }
-            if (cnt == 3) {
-                return true;
             }
         }
         return false;
@@ -103,12 +106,14 @@ class Solution {
 public:
     bool threeConsecutiveOdds(vector<int>& arr) {
         int cnt = 0;
-        for (int v : arr) {
-            if (v & 1)
-                ++cnt;
-            else
+        for (int x : arr) {
+            if (x & 1) {
+                if (++cnt == 3) {
+                    return true;
+                }
+            } else {
                 cnt = 0;
-            if (cnt == 3) return true;
+            }
         }
         return false;
     }
@@ -120,14 +125,14 @@ public:
 ```go
 func threeConsecutiveOdds(arr []int) bool {
 	cnt := 0
-	for _, v := range arr {
-		if v%2 == 1 {
+	for _, x := range arr {
+		if x&1 == 1 {
 			cnt++
+			if cnt == 3 {
+				return true
+			}
 		} else {
 			cnt = 0
-		}
-		if cnt == 3 {
-			return true
 		}
 	}
 	return false
@@ -139,14 +144,13 @@ func threeConsecutiveOdds(arr []int) bool {
 ```ts
 function threeConsecutiveOdds(arr: number[]): boolean {
     let cnt = 0;
-    for (const v of arr) {
-        if (v & 1) {
-            ++cnt;
+    for (const x of arr) {
+        if (x & 1) {
+            if (++cnt == 3) {
+                return true;
+            }
         } else {
             cnt = 0;
-        }
-        if (cnt == 3) {
-            return true;
         }
     }
     return false;
@@ -159,7 +163,13 @@ function threeConsecutiveOdds(arr: number[]): boolean {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：遍历 + 位运算
+
+根据位运算的性质，两个数进行按位与运算是奇数，当且仅当两个数都是奇数。如果有连续三个数按位与运算的结果是奇数，那么这三个数都是奇数。
+
+因此，我们只需要遍历数组，判断是否存在连续三个数的按位与结果是否是奇数即可，如果存在则返回 $\text{True}$，否则返回 $\text{False}$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\text{arr}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -168,10 +178,65 @@ function threeConsecutiveOdds(arr: number[]): boolean {
 ```python
 class Solution:
     def threeConsecutiveOdds(self, arr: List[int]) -> bool:
-        for i in range(len(arr) - 2):
-            if arr[i] % 2 + arr[i + 1] % 2 + arr[i + 2] % 2 == 3:
-                return True
-        return False
+        return any(x & arr[i + 1] & arr[i + 2] & 1 for i, x in enumerate(arr[:-2]))
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean threeConsecutiveOdds(int[] arr) {
+        for (int i = 2, n = arr.length; i < n; ++i) {
+            if ((arr[i - 2] & arr[i - 1] & arr[i] & 1) == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool threeConsecutiveOdds(vector<int>& arr) {
+        for (int i = 2, n = arr.size(); i < n; ++i) {
+            if (arr[i - 2] & arr[i - 1] & arr[i] & 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+#### Go
+
+```go
+func threeConsecutiveOdds(arr []int) bool {
+	for i, n := 2, len(arr); i < n; i++ {
+		if arr[i-2]&arr[i-1]&arr[i]&1 == 1 {
+			return true
+		}
+	}
+	return false
+}
+```
+
+#### TypeScript
+
+```ts
+function threeConsecutiveOdds(arr: number[]): boolean {
+    const n = arr.length;
+    for (let i = 2; i < n; ++i) {
+        if (arr[i - 2] & arr[i - 1] & arr[i] & 1) {
+            return true;
+        }
+    }
+    return false;
+}
 ```
 
 <!-- tabs:end -->

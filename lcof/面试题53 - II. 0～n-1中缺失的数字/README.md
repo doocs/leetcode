@@ -46,7 +46,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 最后返回左边界 $l$ 即可。
 
-时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组的长度。
+时间复杂度 $O(\log n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -181,27 +181,23 @@ public class Solution {
 }
 ```
 
-<!-- tabs:end -->
+#### Swift
 
-<!-- solution:end -->
+```swift
+class Solution {
+    func missingNumber(_ nums: [Int]) -> Int {
+        var left = 0
+        var right = nums.count
 
-<!-- solution:start-->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn missing_number(nums: Vec<i32>) -> i32 {
-        let n = nums.len() as i32;
-        let mut sum = ((1 + n) * n) / 2;
-        for num in nums.iter() {
-            sum -= num;
+        while left < right {
+            let mid = (left + right) / 2
+            if nums[mid] > mid {
+                right = mid
+            } else {
+                left = mid + 1
+            }
         }
-        sum
+        return left
     }
 }
 ```

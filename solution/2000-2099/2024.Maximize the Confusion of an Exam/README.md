@@ -79,13 +79,18 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：双指针
+### 方法一：滑动窗口
 
-我们设计一个函数 $f(c)$，表示最多替换 $k$ 个字符 $c$ 的情况下，最长的连续字符的长度，其中 $c$ 可以是 'T' 或 'F'。答案就是 $\max(f('T'), f('F'))$。
+我们设计一个函数 $\textit{f}(c)$，表示最多替换 $k$ 个字符 $c$ 的情况下，最长的连续字符的长度，其中 $c$ 可以是 'T' 或 'F'。答案就是 $\max(\textit{f}('T'), \textit{f}('F'))$。
 
-我们使用双指针维护一个区间 $[j, i]$，使得区间内的字符 $c$ 的数量不超过 $k$。当区间内的字符 $c$ 的数量超过 $k$ 时，我们移动左指针 $j$，直到区间内的字符 $c$ 的数量不超过 $k$，然后更新答案 $ans = \max(ans, i - j + 1)$。
+我们遍历字符串 $\textit{answerKey}$，用一个变量 $\textit{cnt}$ 记录当前窗口内字符 $c$ 的个数，当 $\textit{cnt} > k$ 时，我们将窗口的左指针右移一位。遍历结束后，窗口的长度即为最大连续字符的长度。
 
 时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
+
+相似题目：
+
+-   [487. 最大连续1的个数 II](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README.md)
+-   [1004. 最大连续1的个数 III](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)
 
 <!-- tabs:start -->
 
@@ -95,15 +100,13 @@ tags:
 class Solution:
     def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
         def f(c: str) -> int:
-            cnt = j = 0
-            ans = 0
-            for i, ch in enumerate(answerKey):
+            cnt = l = 0
+            for ch in answerKey:
                 cnt += ch == c
-                while cnt > k:
-                    cnt -= answerKey[j] == c
-                    j += 1
-                ans = max(ans, i - j + 1)
-            return ans
+                if cnt > k:
+                    cnt -= answerKey[l] == c
+                    l += 1
+            return len(answerKey) - l
 
         return max(f("T"), f("F"))
 ```
@@ -122,16 +125,14 @@ class Solution {
     }
 
     private int f(char c) {
-        int cnt = 0, ans = 0;
-        for (int i = 0, j = 0; i < s.length; ++i) {
-            cnt += s[i] == c ? 1 : 0;
-            while (cnt > k) {
-                cnt -= s[j] == c ? 1 : 0;
-                ++j;
+        int l = 0, cnt = 0;
+        for (char ch : s) {
+            cnt += ch == c ? 1 : 0;
+            if (cnt > k) {
+                cnt -= s[l++] == c ? 1 : 0;
             }
-            ans = Math.max(ans, i - j + 1);
         }
-        return ans;
+        return s.length - l;
     }
 }
 ```
@@ -142,16 +143,16 @@ class Solution {
 class Solution {
 public:
     int maxConsecutiveAnswers(string answerKey, int k) {
+        int n = answerKey.size();
         auto f = [&](char c) {
-            int ans = 0, cnt = 0;
-            for (int i = 0, j = 0; i < answerKey.size(); ++i) {
-                cnt += answerKey[i] == c;
-                while (cnt > k) {
-                    cnt -= answerKey[j++] == c;
+            int l = 0, cnt = 0;
+            for (char& ch : answerKey) {
+                cnt += ch == c;
+                if (cnt > k) {
+                    cnt -= answerKey[l++] == c;
                 }
-                ans = max(ans, i - j + 1);
             }
-            return ans;
+            return n - l;
         };
         return max(f('T'), f('F'));
     }
@@ -163,20 +164,19 @@ public:
 ```go
 func maxConsecutiveAnswers(answerKey string, k int) int {
 	f := func(c byte) int {
-		var ans, cnt, j int
-		for i := range answerKey {
-			if answerKey[i] == c {
+		l, cnt := 0, 0
+		for _, ch := range answerKey {
+			if byte(ch) == c {
 				cnt++
 			}
-			for cnt > k {
-				if answerKey[j] == c {
+			if cnt > k {
+				if answerKey[l] == c {
 					cnt--
 				}
-				j++
+				l++
 			}
-			ans = max(ans, i-j+1)
 		}
-		return ans
+		return len(answerKey) - l
 	}
 	return max(f('T'), f('F'))
 }
@@ -188,15 +188,14 @@ func maxConsecutiveAnswers(answerKey string, k int) int {
 function maxConsecutiveAnswers(answerKey: string, k: number): number {
     const n = answerKey.length;
     const f = (c: string): number => {
-        let [ans, cnt, j] = [0, 0, 0];
-        for (let i = 0; i < n; ++i) {
-            cnt += answerKey[i] === c ? 0 : 1;
-            while (cnt > k) {
-                cnt -= answerKey[j++] === c ? 0 : 1;
+        let [l, cnt] = [0, 0];
+        for (const ch of answerKey) {
+            cnt += ch === c ? 1 : 0;
+            if (cnt > k) {
+                cnt -= answerKey[l++] === c ? 1 : 0;
             }
-            ans = Math.max(ans, i - j + 1);
         }
-        return ans;
+        return n - l;
     };
     return Math.max(f('T'), f('F'));
 }
@@ -207,22 +206,24 @@ function maxConsecutiveAnswers(answerKey: string, k: number): number {
 ```rust
 impl Solution {
     pub fn max_consecutive_answers(answer_key: String, k: i32) -> i32 {
+        let n = answer_key.len();
+        let k = k as usize;
         let s: Vec<char> = answer_key.chars().collect();
-        let f = |c: char| -> i32 {
+
+        let f = |c: char| -> usize {
+            let mut l = 0;
             let mut cnt = 0;
-            let mut j = 0;
-            let mut ans = 0;
-            for i in 0..s.len() {
-                cnt += if s[i] == c { 1 } else { 0 };
-                while cnt > k {
-                    cnt -= if s[j] == c { 1 } else { 0 };
-                    j += 1;
+            for &ch in &s {
+                cnt += if ch == c { 1 } else { 0 };
+                if cnt > k {
+                    cnt -= if s[l] == c { 1 } else { 0 };
+                    l += 1;
                 }
-                ans = ans.max((i - j + 1) as i32);
             }
-            ans
+            n - l
         };
-        f('T').max(f('F'))
+
+        std::cmp::max(f('T'), f('F')) as i32
     }
 }
 ```

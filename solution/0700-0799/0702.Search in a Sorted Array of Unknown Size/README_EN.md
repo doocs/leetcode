@@ -65,7 +65,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Search
+
+First, we define a pointer $r = 1$. Each time, we check if the value at position $r$ is less than the target value. If it is, we multiply $r$ by $2$, i.e., shift it left by one bit, until the value at position $r$ is greater than or equal to the target value. At this point, we can determine that the target value is within the interval $[r / 2, r]$.
+
+Next, we define a pointer $l = r / 2$, and then we can use the binary search method to find the position of the target value within the interval $[l, r]$.
+
+The time complexity is $O(\log M)$, where $M$ is the position of the target value. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -81,20 +87,18 @@ tags:
 
 
 class Solution:
-    def search(self, reader, target):
-        """
-        :type reader: ArrayReader
-        :type target: int
-        :rtype: int
-        """
-        left, right = 0, 20000
-        while left < right:
-            mid = (left + right) >> 1
+    def search(self, reader: "ArrayReader", target: int) -> int:
+        r = 1
+        while reader.get(r) < target:
+            r <<= 1
+        l = r >> 1
+        while l < r:
+            mid = (l + r) >> 1
             if reader.get(mid) >= target:
-                right = mid
+                r = mid
             else:
-                left = mid + 1
-        return left if reader.get(left) == target else -1
+                l = mid + 1
+        return l if reader.get(l) == target else -1
 ```
 
 #### Java
@@ -110,16 +114,20 @@ class Solution:
 
 class Solution {
     public int search(ArrayReader reader, int target) {
-        int left = 0, right = 20000;
-        while (left < right) {
-            int mid = left + right >> 1;
+        int r = 1;
+        while (reader.get(r) < target) {
+            r <<= 1;
+        }
+        int l = r >> 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (reader.get(mid) >= target) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return reader.get(left) == target ? left : -1;
+        return reader.get(l) == target ? l : -1;
     }
 }
 ```
@@ -139,16 +147,20 @@ class Solution {
 class Solution {
 public:
     int search(const ArrayReader& reader, int target) {
-        int left = 0, right = 20000;
-        while (left < right) {
-            int mid = left + right >> 1;
+        int r = 1;
+        while (reader.get(r) < target) {
+            r <<= 1;
+        }
+        int l = r >> 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (reader.get(mid) >= target) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return reader.get(left) == target ? left : -1;
+        return reader.get(l) == target ? l : -1;
     }
 };
 ```
@@ -166,19 +178,52 @@ public:
  */
 
 func search(reader ArrayReader, target int) int {
-	left, right := 0, 20000
-	for left < right {
-		mid := (left + right) >> 1
+	r := 1
+	for reader.get(r) < target {
+		r <<= 1
+	}
+	l := r >> 1
+	for l < r {
+		mid := (l + r) >> 1
 		if reader.get(mid) >= target {
-			right = mid
+			r = mid
 		} else {
-			left = mid + 1
+			l = mid + 1
 		}
 	}
-	if reader.get(left) == target {
-		return left
+	if reader.get(l) == target {
+		return l
 	}
 	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * class ArrayReader {
+ *		// This is the ArrayReader's API interface.
+ *		// You should not implement it, or speculate about its implementation
+ *		get(index: number): number {};
+ *  };
+ */
+
+function search(reader: ArrayReader, target: number): number {
+    let r = 1;
+    while (reader.get(r) < target) {
+        r <<= 1;
+    }
+    let l = r >> 1;
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (reader.get(mid) >= target) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return reader.get(l) === target ? l : -1;
 }
 ```
 

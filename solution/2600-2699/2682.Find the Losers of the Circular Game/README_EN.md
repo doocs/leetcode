@@ -76,7 +76,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We use an array `vis` to record whether each friend has received the ball, initially, all friends have not received the ball. Then, we simulate the game process according to the rules described in the problem statement until a friend receives the ball for the second time.
+
+In the simulation process, we use two variables $i$ and $p$ to represent the current friend holding the ball and the current passing step length, respectively. Initially, $i=0, p=1$, indicating the first friend receives the ball. Each time the ball is passed, we update $i$ to $(i+p \times k) \bmod n$, representing the next friend's number to receive the ball, and then update $p$ to $p+1$, representing the step length for the next pass. The game ends when a friend receives the ball for the second time.
+
+Finally, we iterate through the array `vis` and add the numbers of friends who have not received the ball to the answer array.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of friends.
 
 <!-- tabs:start -->
 
