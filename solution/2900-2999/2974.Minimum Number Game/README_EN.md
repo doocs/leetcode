@@ -66,9 +66,9 @@ At the begining of round two, nums = [5,4]. Now, first Alice removes 4 and then 
 
 ### Solution 1: Simulation + Priority Queue (Min Heap)
 
-We can put the elements in the array $nums$ into a min heap one by one, and each time take out two elements $a$ and $b$ from the min heap, then put $b$ and $a$ into the answer array in turn, until the min heap is empty.
+We can put the elements of the array $\textit{nums}$ into a min heap one by one. Each time, we take out two elements $a$ and $b$ from the min heap, and then sequentially put $b$ and $a$ into the answer array until the min heap is empty.
 
-Time complexity is $O(n \times \log n)$, and space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -215,9 +215,9 @@ impl Solution {
 
 ### Solution 2: Sorting + Swapping
 
-We can sort the array $nums$, and then swap the positions of every two adjacent elements in sequence to get the answer array.
+We can sort the array $\textit{nums}$, and then iterate through the array, swapping adjacent elements each time until the iteration is complete, and return the swapped array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

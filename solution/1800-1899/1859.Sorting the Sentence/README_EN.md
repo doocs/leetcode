@@ -83,13 +83,9 @@ tags:
 
 ### Solution 1: String Splitting
 
-First, we split the string $s$ by spaces to get the string array $words$. Then, we create a string array $ans$ of length $|words|$ to store the answer.
+First, we split the string $s$ by spaces to get the array of strings $\textit{ws}$. Then, we iterate through the array $\textit{ws}$, subtracting the character '1' from the last character of each word to get the result as the index of the word. We take the prefix of the word as the content of the word. Finally, we concatenate the words in index order.
 
-Next, we iterate over each string $w$ in the string array $words$, find the position $i$ represented by the last character of $w$, then take the first $|w|-1$ characters of $w$ as the new string $w'$, and place $w'$ in the $i$th position of the array $ans$.
-
-Finally, we join the array $ans$ into a string by spaces, which is the answer.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -98,9 +94,11 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 ```python
 class Solution:
     def sortSentence(self, s: str) -> str:
-        ws = [(w[:-1], int(w[-1])) for w in s.split()]
-        ws.sort(key=lambda x: x[1])
-        return ' '.join(w for w, _ in ws)
+        ws = s.split()
+        ans = [None] * len(ws)
+        for w in ws:
+            ans[int(w[-1]) - 1] = w[:-1]
+        return " ".join(ans)
 ```
 
 #### Java
@@ -187,28 +185,6 @@ var sortSentence = function (s) {
     }
     return ans.join(' ');
 };
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def sortSentence(self, s: str) -> str:
-        ws = s.split()
-        ans = [None] * len(ws)
-        for w in ws:
-            ans[int(w[-1]) - 1] = w[:-1]
-        return ' '.join(ans)
 ```
 
 <!-- tabs:end -->

@@ -6,6 +6,7 @@ rating: 2156
 source: Weekly Contest 197 Q4
 tags:
     - Geometry
+    - Array
     - Math
     - Randomized
 ---

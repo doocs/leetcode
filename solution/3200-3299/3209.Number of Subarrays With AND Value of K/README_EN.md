@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3209.Number%20of%20Subarrays%20With%20AND%20Value%20of%20K/README_EN.md
+tags:
+    - Bit Manipulation
+    - Segment Tree
+    - Array
+    - Binary Search
 ---
 
 <!-- problem:start -->

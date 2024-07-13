@@ -1,13 +1,11 @@
 function magicalString(n: number): number {
-    const cs = [...'1221121'];
-    let i = 5;
-    while (cs.length < n) {
-        const c = cs[cs.length - 1];
-        cs.push(c === '1' ? '2' : '1');
-        if (cs[i] !== '1') {
-            cs.push(c === '1' ? '2' : '1');
+    const s: number[] = [1, 2, 2];
+    for (let i = 2; s.length < n; ++i) {
+        let pre = s[s.length - 1];
+        let cur = 3 - pre;
+        for (let j = 0; j < s[i]; ++j) {
+            s.push(cur);
         }
-        i++;
     }
-    return cs.slice(0, n).reduce((r, c) => r + (c === '1' ? 1 : 0), 0);
+    return s.slice(0, n).filter(x => x === 1).length;
 }

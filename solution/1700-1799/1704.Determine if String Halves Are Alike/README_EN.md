@@ -83,14 +83,13 @@ class Solution:
 
 ```java
 class Solution {
-    private static final Set<Character> VOWELS
-        = Set.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
-
     public boolean halvesAreAlike(String s) {
-        int cnt = 0, n = s.length() >> 1;
+        Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
+        int n = s.length() >> 1;
+        int cnt = 0;
         for (int i = 0; i < n; ++i) {
-            cnt += VOWELS.contains(s.charAt(i)) ? 1 : 0;
-            cnt -= VOWELS.contains(s.charAt(i + n)) ? 1 : 0;
+            cnt += vowels.contains(s.charAt(i)) ? 1 : 0;
+            cnt -= vowels.contains(s.charAt(i + n)) ? 1 : 0;
         }
         return cnt == 0;
     }
@@ -139,38 +138,36 @@ func halvesAreAlike(s string) bool {
 
 ```ts
 function halvesAreAlike(s: string): boolean {
-    const set = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
+    const vowels = new Set('aeiouAEIOU'.split(''));
+    let cnt = 0;
     const n = s.length >> 1;
-    let count = 0;
-    for (let i = 0; i < n; i++) {
-        set.has(s[i]) && count++;
-        set.has(s[n + i]) && count--;
+    for (let i = 0; i < n; ++i) {
+        cnt += vowels.has(s[i]) ? 1 : 0;
+        cnt -= vowels.has(s[n + i]) ? 1 : 0;
     }
-    return count === 0;
+    return cnt === 0;
 }
 ```
 
 #### Rust
 
 ```rust
-use std::collections::HashSet;
 impl Solution {
     pub fn halves_are_alike(s: String) -> bool {
-        let set: HashSet<&u8> = [b'a', b'e', b'i', b'o', b'u', b'A', b'E', b'I', b'O', b'U']
-            .into_iter()
-            .collect();
-        let s = s.as_bytes();
-        let n = s.len() >> 1;
-        let mut count = 0;
+        let n = s.len() / 2;
+        let vowels: std::collections::HashSet<char> = "aeiouAEIOU".chars().collect();
+        let mut cnt = 0;
+
         for i in 0..n {
-            if set.contains(&s[i]) {
-                count += 1;
+            if vowels.contains(&s.chars().nth(i).unwrap()) {
+                cnt += 1;
             }
-            if set.contains(&s[n + i]) {
-                count -= 1;
+            if vowels.contains(&s.chars().nth(i + n).unwrap()) {
+                cnt -= 1;
             }
         }
-        count == 0
+
+        cnt == 0
     }
 }
 ```
@@ -183,11 +180,12 @@ impl Solution {
  * @return {boolean}
  */
 var halvesAreAlike = function (s) {
-    const str = 'aeiouAEIOU';
+    const vowels = new Set('aeiouAEIOU'.split(''));
     let cnt = 0;
-    for (let i = 0; i < s.length / 2; i++) {
-        if (str.indexOf(s[i]) > -1) cnt++;
-        if (str.indexOf(s[s.length - 1 - i]) > -1) cnt--;
+    const n = s.length >> 1;
+    for (let i = 0; i < n; ++i) {
+        cnt += vowels.has(s[i]);
+        cnt -= vowels.has(s[n + i]);
     }
     return cnt === 0;
 };
@@ -202,15 +200,19 @@ class Solution {
      * @return Boolean
      */
     function halvesAreAlike($s) {
+        $n = strlen($s) / 2;
+        $vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
         $cnt = 0;
-        for ($i = 0; $i < strlen($s) / 2; $i++) {
-            if (strpos('aeiouAEIOU', $s[$i]) !== false) {
+
+        for ($i = 0; $i < $n; $i++) {
+            if (in_array($s[$i], $vowels)) {
                 $cnt++;
             }
-            if (strpos('aeiouAEIOU', $s[strlen($s) / 2 + $i]) !== false) {
+            if (in_array($s[$i + $n], $vowels)) {
                 $cnt--;
             }
         }
+
         return $cnt == 0;
     }
 }

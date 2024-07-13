@@ -73,9 +73,9 @@ tags:
 
 ### 方法一：模拟
 
-用双端队列或者栈，模拟反转的过程。
+我们可以直接用栈来模拟反转的过程。
 
-时间复杂度 $O(n^2)$，其中 $n$ 为字符串 $s$ 的长度。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -86,15 +86,15 @@ class Solution:
     def reverseParentheses(self, s: str) -> str:
         stk = []
         for c in s:
-            if c == ')':
+            if c == ")":
                 t = []
-                while stk[-1] != '(':
+                while stk[-1] != "(":
                     t.append(stk.pop())
                 stk.pop()
                 stk.extend(t)
             else:
                 stk.append(c)
-        return ''.join(stk)
+        return "".join(stk)
 ```
 
 #### Java
@@ -102,30 +102,21 @@ class Solution:
 ```java
 class Solution {
     public String reverseParentheses(String s) {
-        int n = s.length();
-        int[] d = new int[n];
-        Deque<Integer> stk = new ArrayDeque<>();
-        for (int i = 0; i < n; ++i) {
-            if (s.charAt(i) == '(') {
-                stk.push(i);
-            } else if (s.charAt(i) == ')') {
-                int j = stk.pop();
-                d[i] = j;
-                d[j] = i;
-            }
-        }
-        StringBuilder ans = new StringBuilder();
-        int i = 0, x = 1;
-        while (i < n) {
-            if (s.charAt(i) == '(' || s.charAt(i) == ')') {
-                i = d[i];
-                x = -x;
+        StringBuilder stk = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (c == ')') {
+                StringBuilder t = new StringBuilder();
+                while (stk.charAt(stk.length() - 1) != '(') {
+                    t.append(stk.charAt(stk.length() - 1));
+                    stk.deleteCharAt(stk.length() - 1);
+                }
+                stk.deleteCharAt(stk.length() - 1);
+                stk.append(t);
             } else {
-                ans.append(s.charAt(i));
+                stk.append(c);
             }
-            i += x;
         }
-        return ans.toString();
+        return stk.toString();
     }
 }
 ```
@@ -177,6 +168,27 @@ func reverseParentheses(s string) string {
 }
 ```
 
+#### TypeScript
+
+```ts
+function reverseParentheses(s: string): string {
+    const stk: string[] = [];
+    for (const c of s) {
+        if (c === ')') {
+            const t: string[] = [];
+            while (stk.at(-1)! !== '(') {
+                t.push(stk.pop()!);
+            }
+            stk.pop();
+            stk.push(...t);
+        } else {
+            stk.push(c);
+        }
+    }
+    return stk.join('');
+}
+```
+
 #### JavaScript
 
 ```js
@@ -185,32 +197,20 @@ func reverseParentheses(s string) string {
  * @return {string}
  */
 var reverseParentheses = function (s) {
-    const n = s.length;
-    const d = new Array(n).fill(0);
     const stk = [];
-    for (let i = 0; i < n; ++i) {
-        if (s[i] == '(') {
-            stk.push(i);
-        } else if (s[i] == ')') {
-            const j = stk.pop();
-            d[i] = j;
-            d[j] = i;
-        }
-    }
-    let i = 0;
-    let x = 1;
-    const ans = [];
-    while (i < n) {
-        const c = s.charAt(i);
-        if (c == '(' || c == ')') {
-            i = d[i];
-            x = -x;
+    for (const c of s) {
+        if (c === ')') {
+            const t = [];
+            while (stk.at(-1) !== '(') {
+                t.push(stk.pop());
+            }
+            stk.pop();
+            stk.push(...t);
         } else {
-            ans.push(c);
+            stk.push(c);
         }
-        i += x;
     }
-    return ans.join('');
+    return stk.join('');
 };
 ```
 
@@ -228,7 +228,7 @@ var reverseParentheses = function (s) {
 
 然后，我们从左到右遍历字符串，遇到 `(` 或者 `)` 时，根据 $d$ 数组跳到对应的位置，然后反转方向，继续遍历，直到遍历完整个字符串。
 
-时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -241,21 +241,54 @@ class Solution:
         d = [0] * n
         stk = []
         for i, c in enumerate(s):
-            if c == '(':
+            if c == "(":
                 stk.append(i)
-            elif c == ')':
+            elif c == ")":
                 j = stk.pop()
                 d[i], d[j] = j, i
         i, x = 0, 1
         ans = []
         while i < n:
-            if s[i] in '()':
+            if s[i] in "()":
                 i = d[i]
                 x = -x
             else:
                 ans.append(s[i])
             i += x
-        return ''.join(ans)
+        return "".join(ans)
+```
+
+#### Java
+
+```java
+class Solution {
+    public String reverseParentheses(String s) {
+        int n = s.length();
+        int[] d = new int[n];
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == '(') {
+                stk.push(i);
+            } else if (s.charAt(i) == ')') {
+                int j = stk.pop();
+                d[i] = j;
+                d[j] = i;
+            }
+        }
+        StringBuilder ans = new StringBuilder();
+        int i = 0, x = 1;
+        while (i < n) {
+            if (s.charAt(i) == '(' || s.charAt(i) == ')') {
+                i = d[i];
+                x = -x;
+            } else {
+                ans.append(s.charAt(i));
+            }
+            i += x;
+        }
+        return ans.toString();
+    }
+}
 ```
 
 #### C++
@@ -322,6 +355,76 @@ func reverseParentheses(s string) string {
 	}
 	return string(ans)
 }
+```
+
+#### TypeScript
+
+```ts
+function reverseParentheses(s: string): string {
+    const n = s.length;
+    const d: number[] = Array(n).fill(0);
+    const stk: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (s[i] === '(') {
+            stk.push(i);
+        } else if (s[i] === ')') {
+            const j = stk.pop()!;
+            d[i] = j;
+            d[j] = i;
+        }
+    }
+    let i = 0;
+    let x = 1;
+    const ans: string[] = [];
+    while (i < n) {
+        const c = s.charAt(i);
+        if ('()'.includes(c)) {
+            i = d[i];
+            x = -x;
+        } else {
+            ans.push(c);
+        }
+        i += x;
+    }
+    return ans.join('');
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseParentheses = function (s) {
+    const n = s.length;
+    const d = Array(n).fill(0);
+    const stk = [];
+    for (let i = 0; i < n; ++i) {
+        if (s[i] === '(') {
+            stk.push(i);
+        } else if (s[i] === ')') {
+            const j = stk.pop();
+            d[i] = j;
+            d[j] = i;
+        }
+    }
+    let i = 0;
+    let x = 1;
+    const ans = [];
+    while (i < n) {
+        const c = s.charAt(i);
+        if ('()'.includes(c)) {
+            i = d[i];
+            x = -x;
+        } else {
+            ans.push(c);
+        }
+        i += x;
+    }
+    return ans.join('');
+};
 ```
 
 <!-- tabs:end -->

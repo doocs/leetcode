@@ -286,6 +286,7 @@
 | 3188 | [查找得分最高的学生 II](/solution/3100-3199/3188.Find%20Top%20Scoring%20Students%20II/README.md)                                                             | `数据库` | 困难 | 🔒   |
 | 3198 | [查找每个州的城市](/solution/3100-3199/3198.Find%20Cities%20in%20Each%20State/README.md)                                                                     | `数据库` | 简单 | 🔒   |
 | 3204 | [按位用户权限分析](/solution/3200-3299/3204.Bitwise%20User%20Permissions%20Analysis/README.md)                                                               | `数据库` | 中等 | 🔒   |
+| 3214 | [同比增长率](/solution/3200-3299/3214.Year%20on%20Year%20Growth%20Rate/README.md)                                                                            | `数据库` | 困难 | 🔒   |
 
 ## 版权
 

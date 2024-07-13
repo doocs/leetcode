@@ -26,7 +26,7 @@ comments: true
 
 ## 往期竞赛
 
-#### 第 405 场周赛(2024-07-07 10:30, 90 分钟) 参赛人数 3239
+#### 第 405 场周赛(2024-07-07 10:30, 90 分钟) 参赛人数 3240
 
 - [3210. 找出加密后的字符串](/solution/3200-3299/3210.Find%20the%20Encrypted%20String/README.md)
 - [3211. 生成不含相邻零的二进制字符串](/solution/3200-3299/3211.Generate%20Binary%20Strings%20Without%20Adjacent%20Zeros/README.md)
@@ -145,14 +145,14 @@ comments: true
 - [3129. 找出所有稳定的二进制数组 I](/solution/3100-3199/3129.Find%20All%20Possible%20Stable%20Binary%20Arrays%20I/README.md)
 - [3130. 找出所有稳定的二进制数组 II](/solution/3100-3199/3130.Find%20All%20Possible%20Stable%20Binary%20Arrays%20II/README.md)
 
-#### 第 394 场周赛(2024-04-21 10:30, 90 分钟) 参赛人数 3957
+#### 第 394 场周赛(2024-04-21 10:30, 90 分钟) 参赛人数 3958
 
 - [3120. 统计特殊字母的数量 I](/solution/3100-3199/3120.Count%20the%20Number%20of%20Special%20Characters%20I/README.md)
 - [3121. 统计特殊字母的数量 II](/solution/3100-3199/3121.Count%20the%20Number%20of%20Special%20Characters%20II/README.md)
 - [3122. 使矩阵满足条件的最少操作次数](/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README.md)
 - [3123. 最短路径中的边](/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README.md)
 
-#### 第 393 场周赛(2024-04-14 10:30, 90 分钟) 参赛人数 4218
+#### 第 393 场周赛(2024-04-14 10:30, 90 分钟) 参赛人数 4219
 
 - [3114. 替换字符可以得到的最晚时间](/solution/3100-3199/3114.Latest%20Time%20You%20Can%20Obtain%20After%20Replacing%20Characters/README.md)
 - [3115. 质数的最大距离](/solution/3100-3199/3115.Maximum%20Prime%20Difference/README.md)

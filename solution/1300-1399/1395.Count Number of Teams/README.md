@@ -20,18 +20,18 @@ tags:
 
 <!-- description:start -->
 
-<p> <code>n</code> 名士兵站成一排。每个士兵都有一个 <strong>独一无二</strong> 的评分 <code>rating</code> 。</p>
+<p>&nbsp;<code>n</code> 名士兵站成一排。每个士兵都有一个 <strong>独一无二</strong> 的评分 <code>rating</code> 。</p>
 
-<p>每 <strong>3</strong> 个士兵可以组成一个作战单位，分组规则如下：</p>
+<p>从中选出 <strong>3</strong> 个士兵组成一个作战单位，规则如下：</p>
 
 <ul>
 	<li>从队伍中选出下标分别为 <code>i</code>、<code>j</code>、<code>k</code> 的 3 名士兵，他们的评分分别为 <code>rating[i]</code>、<code>rating[j]</code>、<code>rating[k]</code></li>
-	<li>作战单位需满足： <code>rating[i] < rating[j] < rating[k]</code> 或者 <code>rating[i] > rating[j] > rating[k]</code> ，其中  <code>0 <= i < j < k < n</code></li>
+	<li>作战单位需满足： <code>rating[i] &lt; rating[j] &lt; rating[k]</code> 或者 <code>rating[i] &gt; rating[j] &gt; rating[k]</code> ，其中&nbsp; <code>0&nbsp;&lt;= i &lt;&nbsp;j &lt;&nbsp;k &lt;&nbsp;n</code></li>
 </ul>
 
-<p>请你返回按上述条件可以组建的作战单位数量。每个士兵都可以是多个作战单位的一部分。</p>
+<p>请你返回按上述条件组建的作战单位的方案数。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -56,15 +56,15 @@ tags:
 <strong>输出：</strong>4
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>n == rating.length</code></li>
-	<li><code>3 <= n <= 1000</code></li>
-	<li><code>1 <= rating[i] <= 10^5</code></li>
-	<li><code>rating</code> 中的元素都是唯一的</li>
+	<li><code>3 &lt;= n &lt;= 1000</code></li>
+	<li><code>1 &lt;= rating[i] &lt;= 10^5</code></li>
+	<li><code>rating</code>&nbsp;中的元素都是唯一的</li>
 </ul>
 
 <!-- description:end -->
