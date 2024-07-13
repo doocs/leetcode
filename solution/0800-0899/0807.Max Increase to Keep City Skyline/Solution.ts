@@ -1,19 +1,18 @@
 function maxIncreaseKeepingSkyline(grid: number[][]): number {
-    let rows = grid.map(arr => Math.max(...arr)),
-        cols = [];
-    let m = grid.length,
-        n = grid[0].length;
-    for (let j = 0; j < n; ++j) {
-        cols[j] = grid[0][j];
-        for (let i = 1; i < m; ++i) {
-            cols[j] = Math.max(cols[j], grid[i][j]);
+    const m = grid.length;
+    const n = grid[0].length;
+    const rowMax = Array(m).fill(0);
+    const colMax = Array(n).fill(0);
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            rowMax[i] = Math.max(rowMax[i], grid[i][j]);
+            colMax[j] = Math.max(colMax[j], grid[i][j]);
         }
     }
-
     let ans = 0;
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            ans += Math.min(rows[i], cols[j]) - grid[i][j];
+            ans += Math.min(rowMax[i], colMax[j]) - grid[i][j];
         }
     }
     return ans;
