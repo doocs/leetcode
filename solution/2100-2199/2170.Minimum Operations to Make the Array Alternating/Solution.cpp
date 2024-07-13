@@ -1,32 +1,28 @@
-typedef pair<int, int> PII;
-
 class Solution {
 public:
     int minimumOperations(vector<int>& nums) {
-        int ans = INT_MAX;
-        int n = nums.size();
-        for (auto& [a, n1] : get(0, nums))
-            for (auto& [b, n2] : get(1, nums))
-                if (a != b)
-                    ans = min(ans, n - (n1 + n2));
-        return ans;
-    }
-
-    vector<PII> get(int i, vector<int>& nums) {
-        unordered_map<int, int> freq;
-        for (; i < nums.size(); i += 2) ++freq[nums[i]];
-        int a = 0, n1 = 0, b = 0, n2 = 0;
-        for (auto& [k, v] : freq) {
-            if (v > n1) {
-                b = a;
-                n2 = n1;
-                a = k;
-                n1 = v;
-            } else if (v > n2) {
-                b = k;
-                n2 = v;
+        auto f = [&](int i) -> vector<int> {
+            int k1 = 0, k2 = 0;
+            unordered_map<int, int> cnt;
+            for (; i < nums.size(); i += 2) {
+                cnt[nums[i]]++;
             }
+            for (auto& [k, v] : cnt) {
+                if (!k1 || cnt[k1] < v) {
+                    k2 = k1;
+                    k1 = k;
+                } else if (!k2 || cnt[k2] < v) {
+                    k2 = k;
+                }
+            }
+            return {k1, !k1 ? 0 : cnt[k1], k2, !k2 ? 0 : cnt[k2]};
+        };
+        vector<int> a = f(0);
+        vector<int> b = f(1);
+        int n = nums.size();
+        if (a[0] != b[0]) {
+            return n - (a[1] + b[1]);
         }
-        return {{a, n1}, {b, n2}};
+        return n - max(a[1] + b[3], a[3] + b[1]);
     }
 };

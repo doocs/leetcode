@@ -71,7 +71,15 @@ Note that the array cannot be converted to [<u><strong>2</strong></u>,2,2,2,2] b
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Maintain Count of Odd and Even Positions
+
+According to the problem description, if an array $\textit{nums}$ is an alternating array, then the elements at odd positions and even positions must be different, and the elements at odd positions are the same, as well as the elements at even positions.
+
+To minimize the number of operations required to transform the array $\textit{nums}$ into an alternating array, we can count the occurrence of elements at odd and even positions. We find the two elements with the highest occurrence at even positions, $a_0$ and $a_2$, and their corresponding counts $a_1$ and $a_3$; similarly, we find the two elements with the highest occurrence at odd positions, $b_0$ and $b_2$, and their corresponding counts $b_1$ and $b_3$.
+
+If $a_0 \neq b_0$, then we can change all elements at even positions in the array $\textit{nums}$ to $a_0$ and all elements at odd positions to $b_0$, making the number of operations $n - (a_1 + b_1)$; if $a_0 = b_0$, then we can change all elements at even positions in the array $\textit{nums}$ to $a_0$ and all elements at odd positions to $b_2$, or change all elements at even positions to $a_2$ and all elements at odd positions to $b_0$, making the number of operations $n - \max(a_1 + b_3, a_3 + b_1)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -80,62 +88,53 @@ Note that the array cannot be converted to [<u><strong>2</strong></u>,2,2,2,2] b
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
-        def get(i):
-            c = Counter(nums[i::2]).most_common(2)
-            if not c:
-                return [(0, 0), (0, 0)]
-            if len(c) == 1:
-                return [c[0], (0, 0)]
-            return c
+        def f(i: int) -> Tuple[int, int, int, int]:
+            k1 = k2 = 0
+            cnt = Counter(nums[i::2])
+            for k, v in cnt.items():
+                if cnt[k1] < v:
+                    k2, k1 = k1, k
+                elif cnt[k2] < v:
+                    k2 = k
+            return k1, cnt[k1], k2, cnt[k2]
 
+        a, b = f(0), f(1)
         n = len(nums)
-        return min(n - (n1 + n2) for a, n1 in get(0) for b, n2 in get(1) if a != b)
+        if a[0] != b[0]:
+            return n - (a[1] + b[1])
+        return n - max(a[1] + b[3], a[3] + b[1])
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private int[] nums;
-    private int n;
-
     public int minimumOperations(int[] nums) {
-        this.nums = nums;
-        n = nums.length;
-        int ans = Integer.MAX_VALUE;
-        for (int[] e1 : get(0)) {
-            for (int[] e2 : get(1)) {
-                if (e1[0] != e2[0]) {
-                    ans = Math.min(ans, n - (e1[1] + e2[1]));
-                }
-            }
+        int[] a = f(nums, 0);
+        int[] b = f(nums, 1);
+        int n = nums.length;
+        if (a[0] != b[0]) {
+            return n - (a[1] + b[1]);
         }
-        return ans;
+        return n - Math.max(a[1] + b[3], a[3] + b[1]);
     }
 
-    private int[][] get(int i) {
-        Map<Integer, Integer> freq = new HashMap<>();
-        for (; i < n; i += 2) {
-            freq.put(nums[i], freq.getOrDefault(nums[i], 0) + 1);
+    private int[] f(int[] nums, int i) {
+        int k1 = 0, k2 = 0;
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (; i < nums.length; i += 2) {
+            cnt.merge(nums[i], 1, Integer::sum);
         }
-        int a = 0;
-        int n1 = 0;
-        int b = 0;
-        int n2 = 0;
-        for (Map.Entry<Integer, Integer> e : freq.entrySet()) {
-            int k = e.getKey();
-            int v = e.getValue();
-            if (v > n1) {
-                b = a;
-                n2 = n1;
-                a = k;
-                n1 = v;
-            } else if (v > n2) {
-                b = k;
-                n2 = v;
+        for (var e : cnt.entrySet()) {
+            int k = e.getKey(), v = e.getValue();
+            if (cnt.getOrDefault(k1, 0) < v) {
+                k2 = k1;
+                k1 = k;
+            } else if (cnt.getOrDefault(k2, 0) < v) {
+                k2 = k;
             }
         }
-        return new int[][] {{a, n1}, {b, n2}};
+        return new int[] {k1, cnt.getOrDefault(k1, 0), k2, cnt.getOrDefault(k2, 0)};
     }
 }
 ```
@@ -143,36 +142,32 @@ class Solution {
 #### C++
 
 ```cpp
-typedef pair<int, int> PII;
-
 class Solution {
 public:
     int minimumOperations(vector<int>& nums) {
-        int ans = INT_MAX;
-        int n = nums.size();
-        for (auto& [a, n1] : get(0, nums))
-            for (auto& [b, n2] : get(1, nums))
-                if (a != b)
-                    ans = min(ans, n - (n1 + n2));
-        return ans;
-    }
-
-    vector<PII> get(int i, vector<int>& nums) {
-        unordered_map<int, int> freq;
-        for (; i < nums.size(); i += 2) ++freq[nums[i]];
-        int a = 0, n1 = 0, b = 0, n2 = 0;
-        for (auto& [k, v] : freq) {
-            if (v > n1) {
-                b = a;
-                n2 = n1;
-                a = k;
-                n1 = v;
-            } else if (v > n2) {
-                b = k;
-                n2 = v;
+        auto f = [&](int i) -> vector<int> {
+            int k1 = 0, k2 = 0;
+            unordered_map<int, int> cnt;
+            for (; i < nums.size(); i += 2) {
+                cnt[nums[i]]++;
             }
+            for (auto& [k, v] : cnt) {
+                if (!k1 || cnt[k1] < v) {
+                    k2 = k1;
+                    k1 = k;
+                } else if (!k2 || cnt[k2] < v) {
+                    k2 = k;
+                }
+            }
+            return {k1, !k1 ? 0 : cnt[k1], k2, !k2 ? 0 : cnt[k2]};
+        };
+        vector<int> a = f(0);
+        vector<int> b = f(1);
+        int n = nums.size();
+        if (a[0] != b[0]) {
+            return n - (a[1] + b[1]);
         }
-        return {{a, n1}, {b, n2}};
+        return n - max(a[1] + b[3], a[3] + b[1]);
     }
 };
 ```
@@ -181,31 +176,30 @@ public:
 
 ```go
 func minimumOperations(nums []int) int {
+	f := func(i int) [4]int {
+		cnt := make(map[int]int)
+		for ; i < len(nums); i += 2 {
+			cnt[nums[i]]++
+		}
+
+		k1, k2 := 0, 0
+		for k, v := range cnt {
+			if cnt[k1] < v {
+				k2, k1 = k1, k
+			} else if cnt[k2] < v {
+				k2 = k
+			}
+		}
+		return [4]int{k1, cnt[k1], k2, cnt[k2]}
+	}
+
+	a := f(0)
+	b := f(1)
 	n := len(nums)
-	get := func(i int) [][]int {
-		freq := make(map[int]int)
-		for ; i < n; i += 2 {
-			freq[nums[i]]++
-		}
-		a, n1, b, n2 := 0, 0, 0, 0
-		for k, v := range freq {
-			if v > n1 {
-				b, n2, a, n1 = a, n1, k, v
-			} else if v > n2 {
-				b, n2 = k, v
-			}
-		}
-		return [][]int{{a, n1}, {b, n2}}
+	if a[0] != b[0] {
+		return n - (a[1] + b[1])
 	}
-	ans := 100000
-	for _, e1 := range get(0) {
-		for _, e2 := range get(1) {
-			if e1[0] != e2[0] && ans > (n-(e1[1]+e2[1])) {
-				ans = n - (e1[1] + e2[1])
-			}
-		}
-	}
-	return ans
+	return n - max(a[1]+b[3], a[3]+b[1])
 }
 ```
 
@@ -213,30 +207,31 @@ func minimumOperations(nums []int) int {
 
 ```ts
 function minimumOperations(nums: number[]): number {
-    const n = nums.length,
-        m = 10 ** 5;
-    let odd = new Array(m).fill(0);
-    let even = new Array(m).fill(0);
-    for (let i = 0; i < n; i++) {
-        let cur = nums[i];
-        if (i & 1) {
-            odd[cur] = (odd[cur] || 0) + 1;
-        } else {
-            even[cur] = (even[cur] || 0) + 1;
+    const f = (i: number): [number, number, number, number] => {
+        const cnt: Map<number, number> = new Map();
+        for (; i < nums.length; i += 2) {
+            cnt.set(nums[i], (cnt.get(nums[i]) || 0) + 1);
         }
+
+        let [k1, k2] = [0, 0];
+        for (const [k, v] of cnt) {
+            if ((cnt.get(k1) || 0) < v) {
+                k2 = k1;
+                k1 = k;
+            } else if ((cnt.get(k2) || 0) < v) {
+                k2 = k;
+            }
+        }
+        return [k1, cnt.get(k1) || 0, k2, cnt.get(k2) || 0];
+    };
+
+    const a = f(0);
+    const b = f(1);
+    const n = nums.length;
+    if (a[0] !== b[0]) {
+        return n - (a[1] + b[1]);
     }
-    let i1 = odd.indexOf(Math.max(...odd));
-    let i2 = even.indexOf(Math.max(...even));
-    if (i1 != i2) {
-        return n - odd[i1] - even[i2];
-    } else {
-        let l1 = odd[i1],
-            l2 = even[i2];
-        (odd[i1] = 0), (even[i2] = 0);
-        let j1 = odd.indexOf(Math.max(...odd));
-        let j2 = even.indexOf(Math.max(...even));
-        return n - Math.max(l1 + even[j2], l2 + odd[j1]);
-    }
+    return n - Math.max(a[1] + b[3], a[3] + b[1]);
 }
 ```
 

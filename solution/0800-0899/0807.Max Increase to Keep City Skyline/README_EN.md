@@ -65,7 +65,13 @@ gridNew = [ [8, 4, 8, 7],
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+According to the problem description, we can increase the value of each cell $(i, j)$ to the smaller value between the maximum value of the $i$-th row and the $j$-th column, ensuring it does not affect the skyline. Thus, the height added to each cell is $\min(\text{rowMax}[i], \text{colMax}[j]) - \text{grid}[i][j]$.
+
+Therefore, we can first traverse the matrix once to calculate the maximum value of each row and column, storing them in the arrays $\text{rowMax}$ and $\text{colMax}$, respectively. Then, we traverse the matrix again to compute the answer.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the side length of the matrix $\text{grid}$.
 
 <!-- tabs:start -->
 
@@ -74,12 +80,12 @@ gridNew = [ [8, 4, 8, 7],
 ```python
 class Solution:
     def maxIncreaseKeepingSkyline(self, grid: List[List[int]]) -> int:
-        rmx = [max(row) for row in grid]
-        cmx = [max(col) for col in zip(*grid)]
+        row_max = [max(row) for row in grid]
+        col_max = [max(col) for col in zip(*grid)]
         return sum(
-            (min(rmx[i], cmx[j]) - grid[i][j])
-            for i in range(len(grid))
-            for j in range(len(grid[0]))
+            min(row_max[i], col_max[j]) - x
+            for i, row in enumerate(grid)
+            for j, x in enumerate(row)
         )
 ```
 
@@ -89,18 +95,18 @@ class Solution:
 class Solution {
     public int maxIncreaseKeepingSkyline(int[][] grid) {
         int m = grid.length, n = grid[0].length;
-        int[] rmx = new int[m];
-        int[] cmx = new int[n];
+        int[] rowMax = new int[m];
+        int[] colMax = new int[n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                rmx[i] = Math.max(rmx[i], grid[i][j]);
-                cmx[j] = Math.max(cmx[j], grid[i][j]);
+                rowMax[i] = Math.max(rowMax[i], grid[i][j]);
+                colMax[j] = Math.max(colMax[j], grid[i][j]);
             }
         }
         int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                ans += Math.min(rmx[i], cmx[j]) - grid[i][j];
+                ans += Math.min(rowMax[i], colMax[j]) - grid[i][j];
             }
         }
         return ans;
@@ -114,19 +120,22 @@ class Solution {
 class Solution {
 public:
     int maxIncreaseKeepingSkyline(vector<vector<int>>& grid) {
-        int m = grid.size(), n = grid[0].size();
-        vector<int> rmx(m, 0);
-        vector<int> cmx(n, 0);
+        int m = grid.size();
+        int n = grid[0].size();
+        vector<int> rowMax(m);
+        vector<int> colMax(n);
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                rmx[i] = max(rmx[i], grid[i][j]);
-                cmx[j] = max(cmx[j], grid[i][j]);
+                rowMax[i] = max(rowMax[i], grid[i][j]);
+                colMax[j] = max(colMax[j], grid[i][j]);
             }
         }
         int ans = 0;
-        for (int i = 0; i < m; ++i)
-            for (int j = 0; j < n; ++j)
-                ans += min(rmx[i], cmx[j]) - grid[i][j];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                ans += min(rowMax[i], colMax[j]) - grid[i][j];
+            }
+        }
         return ans;
     }
 };
@@ -135,23 +144,21 @@ public:
 #### Go
 
 ```go
-func maxIncreaseKeepingSkyline(grid [][]int) int {
-	m, n := len(grid), len(grid[0])
-	rmx := make([]int, m)
-	cmx := make([]int, n)
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			rmx[i] = max(rmx[i], grid[i][j])
-			cmx[j] = max(cmx[j], grid[i][j])
+func maxIncreaseKeepingSkyline(grid [][]int) (ans int) {
+	rowMax := make([]int, len(grid))
+	colMax := make([]int, len(grid[0]))
+	for i, row := range grid {
+		for j, x := range row {
+			rowMax[i] = max(rowMax[i], x)
+			colMax[j] = max(colMax[j], x)
 		}
 	}
-	ans := 0
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			ans += min(rmx[i], cmx[j]) - grid[i][j]
+	for i, row := range grid {
+		for j, x := range row {
+			ans += min(rowMax[i], colMax[j]) - x
 		}
 	}
-	return ans
+	return
 }
 ```
 
@@ -159,21 +166,20 @@ func maxIncreaseKeepingSkyline(grid [][]int) int {
 
 ```ts
 function maxIncreaseKeepingSkyline(grid: number[][]): number {
-    let rows = grid.map(arr => Math.max(...arr)),
-        cols = [];
-    let m = grid.length,
-        n = grid[0].length;
-    for (let j = 0; j < n; ++j) {
-        cols[j] = grid[0][j];
-        for (let i = 1; i < m; ++i) {
-            cols[j] = Math.max(cols[j], grid[i][j]);
+    const m = grid.length;
+    const n = grid[0].length;
+    const rowMax = Array(m).fill(0);
+    const colMax = Array(n).fill(0);
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            rowMax[i] = Math.max(rowMax[i], grid[i][j]);
+            colMax[j] = Math.max(colMax[j], grid[i][j]);
         }
     }
-
     let ans = 0;
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            ans += Math.min(rows[i], cols[j]) - grid[i][j];
+            ans += Math.min(rowMax[i], colMax[j]) - grid[i][j];
         }
     }
     return ans;

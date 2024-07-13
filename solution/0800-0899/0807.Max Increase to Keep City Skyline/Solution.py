@@ -1,9 +1,9 @@
 class Solution:
     def maxIncreaseKeepingSkyline(self, grid: List[List[int]]) -> int:
-        rmx = [max(row) for row in grid]
-        cmx = [max(col) for col in zip(*grid)]
+        row_max = [max(row) for row in grid]
+        col_max = [max(col) for col in zip(*grid)]
         return sum(
-            (min(rmx[i], cmx[j]) - grid[i][j])
-            for i in range(len(grid))
-            for j in range(len(grid[0]))
+            min(row_max[i], col_max[j]) - x
+            for i, row in enumerate(grid)
+            for j, x in enumerate(row)
         )
