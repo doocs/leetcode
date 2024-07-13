@@ -177,8 +177,7 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> survivedRobotsHealths(vector<int>& positions,
-                                      vector<int>& healths, string directions) {
+    vector<int> survivedRobotsHealths(vector<int>& positions, vector<int>& healths, string directions) {
         int n = positions.size();
         vector<int> indices(n);
 
