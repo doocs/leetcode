@@ -112,7 +112,7 @@ class Solution:
                         stack.append(j)
                     else:
                         healths[i] = healths[j] = 0
-                        
+
         return [item for item in healths if item > 0]
 ```
 
