@@ -123,7 +123,7 @@ class Solution {
         int k1 = 0, k2 = 0;
         Map<Integer, Integer> cnt = new HashMap<>();
         for (; i < nums.length; i += 2) {
-           cnt.merge(nums[i], 1, Integer::sum);
+            cnt.merge(nums[i], 1, Integer::sum);
         }
         for (var e : cnt.entrySet()) {
             int k = e.getKey(), v = e.getValue();
