@@ -359,7 +359,7 @@ def get_contests(fetch_new=True) -> List:
             c = Contest(i, contest_type=t)
             if c.contest_title_slug in d:
                 continue
-            contest_data = c.get_data(retry=3)
+            contest_data = c.get_data(retry=10)
             if not contest_data:
                 cnt += 1
                 if cnt > 2:

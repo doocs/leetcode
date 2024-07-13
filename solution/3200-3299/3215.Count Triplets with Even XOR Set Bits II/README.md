@@ -14,7 +14,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3215.Co
 
 <!-- description:start -->
 
-<p>给定三个整数数组&nbsp;<code>a</code>，<code>b</code>&nbsp;和&nbsp;<code>c</code>，返回组内元素按位&nbsp;<code>XOR</code>&nbsp;有&nbsp;<strong>偶数</strong>&nbsp;个 设置位 的三元组&nbsp;<code>(a[i], b[j], c[k])</code>&nbsp;的数量。</p>
+<p>给定三个整数数组&nbsp;<code>a</code>，<code>b</code>&nbsp;和&nbsp;<code>c</code>，返回组内元素按位&nbsp;<code>XOR</code>&nbsp;有&nbsp;<strong>偶数</strong>&nbsp;个 <span data-keyword="set-bit">设置位</span> 的三元组&nbsp;<code>(a[i], b[j], c[k])</code>&nbsp;的数量。</p>
 
 <p>&nbsp;</p>
 

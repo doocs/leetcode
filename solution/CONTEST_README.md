@@ -152,7 +152,7 @@ comments: true
 - [3122. 使矩阵满足条件的最少操作次数](/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README.md)
 - [3123. 最短路径中的边](/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README.md)
 
-#### 第 393 场周赛(2024-04-14 10:30, 90 分钟) 参赛人数 4218
+#### 第 393 场周赛(2024-04-14 10:30, 90 分钟) 参赛人数 4219
 
 - [3114. 替换字符可以得到的最晚时间](/solution/3100-3199/3114.Latest%20Time%20You%20Can%20Obtain%20After%20Replacing%20Characters/README.md)
 - [3115. 质数的最大距离](/solution/3100-3199/3115.Maximum%20Prime%20Difference/README.md)
